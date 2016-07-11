@@ -1,0 +1,56 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.template_commands",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderTemplateCmd",
+          "RenderCommandVisitor",
+          "RenderBeginElementCmd",
+          "RenderTextCmd",
+          "RenderNgContentCmd",
+          "RenderBeginComponentCmd",
+          "RenderEmbeddedTemplateCmd"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/metadata.dart",
+        "2": [
+          "ViewEncapsulation"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "package:angular2/src/core/metadata.dart",
+        "2": [
+          "ViewEncapsulation"
+        ]
+      }
+    ],
+    "6": "template_commands.dart"
+  },
+  "EMPTY_ARR": {
+    "kind": "alias",
+    "value": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "ngDeps": {
+    "1": "angular2.bootstrap",
+    "4": [
+      {
+        "1": "package:angular2/platform/browser.dart",
+        "2": [
+          "bootstrap"
+        ]
+      },
+      {
+        "1": "package:angular2/src/core/angular_entrypoint.dart",
+        "2": [
+          "AngularEntrypoint"
+        ]
+      }
+    ],
+    "6": "bootstrap.dart"
+  }
+}

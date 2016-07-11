@@ -1,0 +1,206 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.forms.directives.validators",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Provider",
+          "OpaqueToken",
+          "Attribute",
+          "Directive"
+        ],
+        "5": false
+      },
+      {
+        "1": "../validators.dart",
+        "2": [
+          "Validators",
+          "NG_VALIDATORS"
+        ],
+        "5": false
+      },
+      {
+        "1": "../model.dart",
+        "2": [
+          "Control"
+        ],
+        "5": false
+      },
+      {
+        "1": "../model.dart",
+        "4": "modelModule",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "NumberWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RequiredValidator",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[required][ngControl],[required][ngFormControl],[required][ngModel]\""
+              },
+              {
+                "1": "providers",
+                "2": "const [REQUIRED_VALIDATOR]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      },
+      {
+        "1": "MinLengthValidator",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[minlength][ngControl],[minlength][ngFormControl],[minlength][ngModel]\""
+              },
+              {
+                "1": "providers",
+                "2": "const [MIN_LENGTH_VALIDATOR]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "String",
+            "3": [
+              "const Attribute(\"minlength\")"
+            ],
+            "4": "minLength"
+          }
+        ],
+        "6": [
+          "Validator"
+        ]
+      },
+      {
+        "1": "MaxLengthValidator",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[maxlength][ngControl],[maxlength][ngFormControl],[maxlength][ngModel]\""
+              },
+              {
+                "1": "providers",
+                "2": "const [MAX_LENGTH_VALIDATOR]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "String",
+            "3": [
+              "const Attribute(\"maxlength\")"
+            ],
+            "4": "maxLength"
+          }
+        ],
+        "6": [
+          "Validator"
+        ]
+      }
+    ],
+    "6": "validators.dart"
+  },
+  "RequiredValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[required][ngControl],[required][ngFormControl],[required][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "RequiredValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "MinLengthValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[minlength][ngControl],[minlength][ngFormControl],[minlength][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "MinLengthValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "MaxLengthValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[maxlength][ngControl],[maxlength][ngFormControl],[maxlength][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "MaxLengthValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  }
+}

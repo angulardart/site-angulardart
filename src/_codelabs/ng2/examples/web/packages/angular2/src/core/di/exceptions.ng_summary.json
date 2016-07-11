@@ -1,0 +1,46 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.di.exceptions",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "stringify",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException",
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "key.dart",
+        "2": [
+          "Key"
+        ],
+        "5": false
+      },
+      {
+        "1": "injector.dart",
+        "2": [
+          "Injector"
+        ],
+        "5": false
+      }
+    ],
+    "6": "exceptions.dart"
+  }
+}

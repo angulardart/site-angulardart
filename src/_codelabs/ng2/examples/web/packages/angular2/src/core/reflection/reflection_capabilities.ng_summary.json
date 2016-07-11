@@ -1,0 +1,24 @@
+{
+  "ngDeps": {
+    "1": "reflection.reflection_capabilities",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "5": false
+      },
+      {
+        "1": "types.dart",
+        "5": false
+      },
+      {
+        "1": "dart:mirrors",
+        "5": false
+      },
+      {
+        "1": "platform_reflection_capabilities.dart",
+        "5": false
+      }
+    ],
+    "6": "reflection_capabilities.dart"
+  }
+}

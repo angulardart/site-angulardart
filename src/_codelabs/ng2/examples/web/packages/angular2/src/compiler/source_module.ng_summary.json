@@ -1,0 +1,16 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.source_module",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "StringWrapper",
+          "isBlank"
+        ],
+        "5": false
+      }
+    ],
+    "6": "source_module.dart"
+  }
+}

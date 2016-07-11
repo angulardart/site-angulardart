@@ -1,0 +1,123 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.web_workers.shared.serializer",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isArray",
+          "isPresent",
+          "serializeEnum",
+          "deserializeEnum"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "StringMapWrapper",
+          "MapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderProtoViewRef",
+          "RenderViewRef",
+          "RenderFragmentRef",
+          "RenderElementRef",
+          "RenderTemplateCmd",
+          "RenderCommandVisitor",
+          "RenderTextCmd",
+          "RenderNgContentCmd",
+          "RenderBeginElementCmd",
+          "RenderBeginComponentCmd",
+          "RenderEmbeddedTemplateCmd",
+          "RenderComponentTemplate"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.dart",
+        "2": [
+          "WebWorkerElementRef",
+          "WebWorkerTemplateCmd",
+          "WebWorkerTextCmd",
+          "WebWorkerNgContentCmd",
+          "WebWorkerBeginElementCmd",
+          "WebWorkerEndElementCmd",
+          "WebWorkerBeginComponentCmd",
+          "WebWorkerEndComponentCmd",
+          "WebWorkerEmbeddedTemplateCmd"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_proto_view_ref_store.dart",
+        "2": [
+          "RenderProtoViewRefStore"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_view_with_fragments_store.dart",
+        "2": [
+          "RenderViewWithFragmentsStore"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/metadata/view.dart",
+        "2": [
+          "ViewEncapsulation",
+          "VIEW_ENCAPSULATION_VALUES"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "Serializer",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "RenderProtoViewRefStore",
+            "4": "_protoViewStore"
+          },
+          {
+            "1": "RenderViewWithFragmentsStore",
+            "4": "_renderViewStore"
+          }
+        ]
+      }
+    ],
+    "6": "serializer.dart"
+  }
+}

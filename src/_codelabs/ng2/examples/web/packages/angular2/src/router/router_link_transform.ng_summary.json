@@ -1,0 +1,77 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.router_link_transform",
+    "3": [
+      {
+        "1": "package:angular2/compiler.dart",
+        "2": [
+          "TemplateAstVisitor",
+          "ElementAst",
+          "BoundDirectivePropertyAst",
+          "DirectiveAst",
+          "BoundElementPropertyAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/parser/ast.dart",
+        "2": [
+          "AstTransformer",
+          "Quote",
+          "AST",
+          "EmptyExpr",
+          "LiteralArray",
+          "LiteralPrimitive",
+          "ASTWithSource"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/parser/parser.dart",
+        "2": [
+          "Parser"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RouterLinkTransform",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Parser",
+            "4": "parser"
+          }
+        ],
+        "6": [
+          "TemplateAstVisitor"
+        ]
+      }
+    ],
+    "6": "router_link_transform.dart"
+  }
+}

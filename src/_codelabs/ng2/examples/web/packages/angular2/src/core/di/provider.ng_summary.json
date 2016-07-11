@@ -1,0 +1,85 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.di.provider",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isBlank",
+          "isPresent",
+          "stringify",
+          "isArray",
+          "isType",
+          "isFunction",
+          "normalizeBool"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "MapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "2": [
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "key.dart",
+        "2": [
+          "Key"
+        ],
+        "5": false
+      },
+      {
+        "1": "metadata.dart",
+        "2": [
+          "InjectMetadata",
+          "InjectableMetadata",
+          "OptionalMetadata",
+          "SelfMetadata",
+          "HostMetadata",
+          "SkipSelfMetadata",
+          "DependencyMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "exceptions.dart",
+        "2": [
+          "NoAnnotationError",
+          "MixingMultiProvidersWithRegularProvidersError",
+          "InvalidProviderError"
+        ],
+        "5": false
+      },
+      {
+        "1": "forward_ref.dart",
+        "2": [
+          "resolveForwardRef"
+        ],
+        "5": false
+      }
+    ],
+    "6": "provider.dart"
+  },
+  "_EMPTY_LIST": {
+    "kind": "alias",
+    "value": []
+  }
+}

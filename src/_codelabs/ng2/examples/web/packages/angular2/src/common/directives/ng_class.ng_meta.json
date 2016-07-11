@@ -1,0 +1,123 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.directives.ng_class",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isString",
+          "StringWrapper",
+          "isBlank",
+          "isArray"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "DoCheck",
+          "OnDestroy",
+          "Directive",
+          "ElementRef",
+          "IterableDiffer",
+          "IterableDiffers",
+          "KeyValueDiffer",
+          "KeyValueDiffers",
+          "Renderer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "StringMapWrapper",
+          "isListLikeIterable"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgClass",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngClass]\""
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"rawClass: ngClass\", \"initialClasses: class\"]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "IterableDiffers",
+            "4": "_iterableDiffers"
+          },
+          {
+            "1": "KeyValueDiffers",
+            "4": "_keyValueDiffers"
+          },
+          {
+            "1": "ElementRef",
+            "4": "_ngEl"
+          },
+          {
+            "1": "Renderer",
+            "4": "_renderer"
+          }
+        ],
+        "6": [
+          "DoCheck",
+          "OnDestroy"
+        ]
+      }
+    ],
+    "6": "ng_class.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "NgClass": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngClass]",
+      "exportAs": null,
+      "type": {
+        "name": "NgClass",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_class.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "rawClass": "ngClass",
+        "initialClasses": "class"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        2,
+        1
+      ],
+      "template": null
+    }
+  }
+}

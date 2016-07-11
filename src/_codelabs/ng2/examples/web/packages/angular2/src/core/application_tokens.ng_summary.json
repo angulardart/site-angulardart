@@ -1,0 +1,24 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.application_tokens",
+    "3": [
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "OpaqueToken",
+          "Provider"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Math",
+          "StringWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "6": "application_tokens.dart"
+  }
+}

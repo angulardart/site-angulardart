@@ -1,0 +1,28 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.interfaces",
+    "3": [
+      {
+        "1": "instruction.dart",
+        "2": [
+          "ComponentInstruction"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "global"
+        ],
+        "5": false
+      }
+    ],
+    "6": "interfaces.dart",
+    "10": [
+      {
+        "1": "instruction.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  }
+}

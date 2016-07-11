@@ -1,0 +1,74 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.dom.shared_styles_host",
+    "3": [
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.dart",
+        "2": [
+          "DOM"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Inject",
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "SetWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "dom_tokens.dart",
+        "2": [
+          "DOCUMENT"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "SharedStylesHost",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      },
+      {
+        "1": "DomSharedStylesHost",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "dynamic",
+            "3": [
+              "const Inject(DOCUMENT)"
+            ],
+            "4": "doc"
+          }
+        ]
+      }
+    ],
+    "6": "shared_styles_host.dart"
+  }
+}

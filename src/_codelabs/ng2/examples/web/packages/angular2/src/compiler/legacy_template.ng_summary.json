@@ -1,0 +1,69 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.legacy_template",
+    "3": [
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable",
+          "Provider",
+          "provide"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "StringWrapper",
+          "RegExpWrapper",
+          "isBlank",
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_ast.dart",
+        "2": [
+          "HtmlAstVisitor",
+          "HtmlAttrAst",
+          "HtmlElementAst",
+          "HtmlTextAst",
+          "HtmlAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_parser.dart",
+        "2": [
+          "HtmlParser",
+          "HtmlParseTreeResult"
+        ],
+        "5": false
+      },
+      {
+        "1": "util.dart",
+        "2": [
+          "dashCaseToCamelCase",
+          "camelCaseToDashCase"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "LegacyHtmlParser",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      }
+    ],
+    "6": "legacy_template.dart"
+  }
+}

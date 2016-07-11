@@ -1,0 +1,86 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.di.injector",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "MapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "provider.dart",
+        "2": [
+          "ResolvedProvider",
+          "Provider",
+          "Dependency",
+          "ProviderBuilder",
+          "ResolvedFactory",
+          "provide",
+          "resolveProviders"
+        ],
+        "5": false
+      },
+      {
+        "1": "exceptions.dart",
+        "2": [
+          "AbstractProviderError",
+          "NoProviderError",
+          "CyclicDependencyError",
+          "InstantiationError",
+          "InvalidProviderError",
+          "OutOfBoundsError"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "FunctionWrapper",
+          "Type",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "key.dart",
+        "2": [
+          "Key"
+        ],
+        "5": false
+      },
+      {
+        "1": "metadata.dart",
+        "2": [
+          "SelfMetadata",
+          "HostMetadata",
+          "SkipSelfMetadata"
+        ],
+        "5": false
+      }
+    ],
+    "6": "injector.dart",
+    "10": [
+      {
+        "1": "provider.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "exceptions.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "key.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "metadata.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.route_config_impl",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_definition.dart",
+        "2": [
+          "RouteDefinition"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "route_definition.dart",
+        "2": [
+          "RouteDefinition"
+        ]
+      }
+    ],
+    "6": "route_config_impl.dart"
+  }
+}

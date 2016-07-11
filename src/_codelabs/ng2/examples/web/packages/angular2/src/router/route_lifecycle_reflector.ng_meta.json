@@ -1,0 +1,30 @@
+{
+  "ngDeps": {
+    "1": "angular.router.route_lifecycle_reflector",
+    "3": [
+      {
+        "1": "package:angular2/src/router/lifecycle_annotations_impl.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/router/interfaces.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "5": false
+      }
+    ],
+    "6": "route_lifecycle_reflector.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/router/interfaces.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  }
+}

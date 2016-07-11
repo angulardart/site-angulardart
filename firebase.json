@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "public": "publish",
+    "cleanUrls": true
+  }
+}

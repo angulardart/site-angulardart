@@ -1,0 +1,45 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.common.ng_meta",
+    "3": [
+      {
+        "1": "package:angular2/src/compiler/directive_metadata.dart",
+        "5": false
+      },
+      {
+        "1": "logging.dart",
+        "5": false
+      },
+      {
+        "1": "model/ng_deps_model.pb.dart",
+        "5": false
+      },
+      {
+        "1": "url_resolver.dart",
+        "2": [
+          "isDartCoreUri"
+        ],
+        "5": false
+      }
+    ],
+    "6": "ng_meta.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/compiler/directive_metadata.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "logging.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "model/ng_deps_model.pb.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "url_resolver.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  }
+}

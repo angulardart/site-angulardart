@@ -1,0 +1,20 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.common.options",
+    "3": [
+      {
+        "1": "package:glob/glob.dart",
+        "5": false
+      },
+      {
+        "1": "annotation_matcher.dart",
+        "5": false
+      },
+      {
+        "1": "mirror_mode.dart",
+        "5": false
+      }
+    ],
+    "6": "options.dart"
+  }
+}

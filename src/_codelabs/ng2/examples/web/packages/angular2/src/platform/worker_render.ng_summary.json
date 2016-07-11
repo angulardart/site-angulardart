@@ -1,0 +1,71 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.worker_render",
+    "3": [
+      {
+        "1": "package:angular2/src/platform/worker_render_common.dart",
+        "2": [
+          "WORKER_RENDER_APP_COMMON",
+          "WORKER_RENDER_MESSAGING_PROVIDERS",
+          "WORKER_SCRIPT",
+          "initializeGenericWorkerRenderer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/isolate_message_bus.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.dart",
+        "5": false
+      },
+      {
+        "1": "dart:isolate",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "WebWorkerInstance",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Isolate",
+            "4": "worker"
+          },
+          {
+            "1": "MessageBus",
+            "4": "bus"
+          }
+        ]
+      }
+    ],
+    "6": "worker_render.dart"
+  }
+}

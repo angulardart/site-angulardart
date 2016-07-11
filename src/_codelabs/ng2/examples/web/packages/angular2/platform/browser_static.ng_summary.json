@@ -1,0 +1,61 @@
+{
+  "ngDeps": {
+    "1": "angular2.platform.browser_static",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/promise.dart",
+        "2": [
+          "Future"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/browser_common.dart",
+        "2": [
+          "BROWSER_PROVIDERS",
+          "BROWSER_APP_COMMON_PROVIDERS"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "ComponentRef",
+          "platform"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "package:angular2/src/core/angular_entrypoint.dart",
+        "2": [
+          "AngularEntrypoint"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/browser_common.dart",
+        "2": [
+          "BROWSER_PROVIDERS",
+          "ELEMENT_PROBE_BINDINGS",
+          "ELEMENT_PROBE_PROVIDERS",
+          "inspectNativeElement",
+          "BrowserDomAdapter",
+          "By",
+          "Title",
+          "enableDebugTools",
+          "disableDebugTools"
+        ]
+      }
+    ],
+    "6": "browser_static.dart"
+  }
+}

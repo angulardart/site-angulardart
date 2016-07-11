@@ -1,0 +1,79 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.change_definition_factory",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "2": [
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.dart",
+        "2": [
+          "DirectiveIndex",
+          "BindingRecord",
+          "DirectiveRecord",
+          "ChangeDetectionStrategy",
+          "ChangeDetectorDefinition",
+          "ChangeDetectorGenConfig",
+          "ASTWithSource"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "CompileDirectiveMetadata",
+          "CompileTypeMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ast.dart",
+        "2": [
+          "TemplateAst",
+          "ElementAst",
+          "BoundTextAst",
+          "PropertyBindingType",
+          "DirectiveAst",
+          "TemplateAstVisitor",
+          "templateVisitAll",
+          "NgContentAst",
+          "EmbeddedTemplateAst",
+          "VariableAst",
+          "BoundElementPropertyAst",
+          "BoundEventAst",
+          "BoundDirectivePropertyAst",
+          "AttrAst",
+          "TextAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/interfaces.dart",
+        "2": [
+          "LifecycleHooks"
+        ],
+        "5": false
+      }
+    ],
+    "6": "change_definition_factory.dart"
+  }
+}

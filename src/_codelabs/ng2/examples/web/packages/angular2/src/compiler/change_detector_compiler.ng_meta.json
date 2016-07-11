@@ -1,0 +1,138 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.change_detector_compiler",
+    "3": [
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "CompileTypeMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "source_module.dart",
+        "2": [
+          "SourceExpressions",
+          "moduleRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection_jit_generator.dart",
+        "2": [
+          "ChangeDetectorJITGenerator"
+        ],
+        "5": false
+      },
+      {
+        "1": "change_definition_factory.dart",
+        "2": [
+          "createChangeDetectorDefinitions"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "IS_DART",
+          "isJsObject"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.dart",
+        "2": [
+          "ChangeDetectorGenConfig",
+          "ChangeDetectorDefinition",
+          "DynamicProtoChangeDetector",
+          "ChangeDetectionStrategy"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ast.dart",
+        "2": [
+          "TemplateAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/transform/template_compiler/change_detector_codegen.dart",
+        "2": [
+          "Codegen"
+        ],
+        "5": false
+      },
+      {
+        "1": "util.dart",
+        "2": [
+          "MODULE_SUFFIX"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ChangeDetectionCompiler",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ChangeDetectorGenConfig",
+            "4": "_genConfig"
+          }
+        ]
+      }
+    ],
+    "6": "change_detector_compiler.dart",
+    "10": [
+      {
+        "1": "directive_metadata.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "source_module.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "change_definition_factory.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "template_ast.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/transform/template_compiler/change_detector_codegen.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "util.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i7"
+      }
+    ]
+  }
+}

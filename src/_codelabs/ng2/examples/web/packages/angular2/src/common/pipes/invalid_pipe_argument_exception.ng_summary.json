@@ -1,0 +1,24 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.pipes.invalid_pipe_argument_exception",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "stringify"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      }
+    ],
+    "6": "invalid_pipe_argument_exception.dart"
+  }
+}

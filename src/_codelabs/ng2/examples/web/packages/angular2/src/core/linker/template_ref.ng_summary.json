@@ -1,0 +1,29 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.template_ref",
+    "3": [
+      {
+        "1": "view_ref.dart",
+        "2": [
+          "internalView",
+          "ProtoViewRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "element_ref.dart",
+        "2": [
+          "ElementRef",
+          "ElementRef_"
+        ],
+        "5": false
+      },
+      {
+        "1": "view.dart",
+        "4": "viewModule",
+        "5": false
+      }
+    ],
+    "6": "template_ref.dart"
+  }
+}

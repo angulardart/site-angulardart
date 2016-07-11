@@ -1,0 +1,156 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.forms.directives.ng_control_group",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "OnInit",
+          "OnDestroy",
+          "Directive",
+          "Optional",
+          "Inject",
+          "Host",
+          "SkipSelf",
+          "Provider",
+          "Self"
+        ],
+        "5": false
+      },
+      {
+        "1": "control_container.dart",
+        "2": [
+          "ControlContainer"
+        ],
+        "5": false
+      },
+      {
+        "1": "shared.dart",
+        "2": [
+          "controlPath",
+          "composeValidators",
+          "composeAsyncValidators"
+        ],
+        "5": false
+      },
+      {
+        "1": "../model.dart",
+        "2": [
+          "ControlGroup"
+        ],
+        "5": false
+      },
+      {
+        "1": "form_interface.dart",
+        "2": [
+          "Form"
+        ],
+        "5": false
+      },
+      {
+        "1": "../validators.dart",
+        "2": [
+          "Validators",
+          "NG_VALIDATORS",
+          "NG_ASYNC_VALIDATORS"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgControlGroup",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngControlGroup]\""
+              },
+              {
+                "1": "providers",
+                "2": "const [controlGroupProvider]"
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"name: ngControlGroup\"]"
+              },
+              {
+                "1": "exportAs",
+                "2": "\"ngForm\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ControlContainer",
+            "3": [
+              "const Host()",
+              "const SkipSelf()"
+            ],
+            "4": "parent"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_VALIDATORS)"
+            ],
+            "4": "_validators"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_ASYNC_VALIDATORS)"
+            ],
+            "4": "_asyncValidators"
+          }
+        ],
+        "6": [
+          "OnInit",
+          "OnDestroy"
+        ]
+      }
+    ],
+    "6": "ng_control_group.dart"
+  },
+  "NgControlGroup": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngControlGroup]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgControlGroup",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_control_group.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "name": "ngControlGroup"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0,
+        1
+      ],
+      "template": null
+    }
+  }
+}

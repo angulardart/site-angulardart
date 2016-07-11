@@ -1,0 +1,102 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.view_container_ref",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "ResolvedProvider"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_manager.dart",
+        "4": "avmModule",
+        "5": false
+      },
+      {
+        "1": "view.dart",
+        "4": "viewModule",
+        "5": false
+      },
+      {
+        "1": "element_ref.dart",
+        "2": [
+          "ElementRef",
+          "ElementRef_"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ref.dart",
+        "2": [
+          "TemplateRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_ref.dart",
+        "2": [
+          "ViewRef",
+          "HostViewRef",
+          "ProtoViewRef",
+          "internalView"
+        ],
+        "5": false
+      }
+    ],
+    "6": "view_container_ref.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "view_manager.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "view.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "element_ref.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "template_ref.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "view_ref.ng_deps.dart",
+        "4": "i6"
+      }
+    ]
+  }
+}

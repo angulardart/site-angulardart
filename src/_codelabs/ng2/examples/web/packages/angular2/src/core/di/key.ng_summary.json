@@ -1,0 +1,47 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.di.key",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "stringify",
+          "Type",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "type_literal.dart",
+        "2": [
+          "TypeLiteral"
+        ],
+        "5": false
+      },
+      {
+        "1": "forward_ref.dart",
+        "2": [
+          "resolveForwardRef"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "type_literal.dart",
+        "2": [
+          "TypeLiteral"
+        ]
+      }
+    ],
+    "6": "key.dart"
+  }
+}

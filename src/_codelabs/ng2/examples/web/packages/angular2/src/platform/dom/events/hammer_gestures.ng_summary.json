@@ -1,0 +1,50 @@
+{
+  "ngDeps": {
+    "1": "angular.events",
+    "3": [
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "./hammer_common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "dart:js",
+        "4": "js",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "HammerGesturesPlugin",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      }
+    ],
+    "6": "hammer_gestures.dart"
+  }
+}

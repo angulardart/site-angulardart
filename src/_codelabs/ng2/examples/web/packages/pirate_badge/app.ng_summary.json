@@ -1,0 +1,82 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "2": [
+          "Component"
+        ],
+        "5": false
+      },
+      {
+        "1": "components/pirate_badge_component.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "App",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'my-app'"
+              },
+              {
+                "1": "template",
+                "2": "'''\n    <h1>Pirate badge</h1>\n    <pirate-badge></pirate-badge>\n    '''"
+              },
+              {
+                "1": "directives",
+                "2": "const [PirateBadge]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "8": [
+          {
+            "2": "PirateBadge"
+          }
+        ]
+      }
+    ],
+    "6": "app.dart"
+  },
+  "App": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "my-app",
+      "exportAs": null,
+      "type": {
+        "name": "App",
+        "moduleUrl": "asset:pirate_badge/lib/app.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "    <h1>Pirate badge</h1>\n    <pirate-badge></pirate-badge>\n    ",
+        "templateUrl": "asset:pirate_badge/lib/app.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

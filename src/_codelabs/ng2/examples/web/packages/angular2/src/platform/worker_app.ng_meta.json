@@ -1,0 +1,62 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.worker_app",
+    "3": [
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/server/webworker_adapter.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/worker_app_common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/isolate_message_bus.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.dart",
+        "5": false
+      },
+      {
+        "1": "dart:isolate",
+        "5": false
+      }
+    ],
+    "6": "worker_app.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/platform/server/webworker_adapter.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/platform/worker_app_common.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/isolate_message_bus.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.ng_deps.dart",
+        "4": "i5"
+      }
+    ]
+  }
+}

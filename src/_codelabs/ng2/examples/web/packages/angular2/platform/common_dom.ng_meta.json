@@ -1,0 +1,89 @@
+{
+  "ngDeps": {
+    "1": "angular2.platform.common_dom",
+    "4": [
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.dart",
+        "2": [
+          "DOM",
+          "setRootDomAdapter",
+          "DomAdapter"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_renderer.dart",
+        "2": [
+          "DomRenderer"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.dart",
+        "2": [
+          "DOCUMENT"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/shared_styles_host.dart",
+        "2": [
+          "SharedStylesHost",
+          "DomSharedStylesHost"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/dom_events.dart",
+        "2": [
+          "DomEventsPlugin"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/event_manager.dart",
+        "2": [
+          "EVENT_MANAGER_PLUGINS",
+          "EventManager",
+          "EventManagerPlugin"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/dom/debug/by.dart"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/debug/debug_element_view_listener.dart"
+      }
+    ],
+    "6": "common_dom.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_renderer.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/shared_styles_host.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/dom_events.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/event_manager.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/debug/by.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/debug/debug_element_view_listener.ng_deps.dart",
+        "4": "i7"
+      }
+    ]
+  }
+}

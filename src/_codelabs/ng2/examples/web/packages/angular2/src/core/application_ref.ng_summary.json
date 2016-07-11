@@ -1,0 +1,128 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.application_ref",
+    "3": [
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.dart",
+        "2": [
+          "NgZone"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isBlank",
+          "isPresent",
+          "assertionsEnabled",
+          "print",
+          "IS_DART"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "provide",
+          "Provider",
+          "Injector",
+          "OpaqueToken"
+        ],
+        "5": false
+      },
+      {
+        "1": "application_tokens.dart",
+        "2": [
+          "APP_COMPONENT_REF_PROMISE",
+          "APP_COMPONENT",
+          "APP_ID_RANDOM_PROVIDER",
+          "PLATFORM_INITIALIZER",
+          "APP_INITIALIZER"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper",
+          "PromiseCompleter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/testability/testability.dart",
+        "2": [
+          "TestabilityRegistry",
+          "Testability"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/dynamic_component_loader.dart",
+        "2": [
+          "ComponentRef",
+          "DynamicComponentLoader"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException",
+          "ExceptionHandler",
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.dart",
+        "2": [
+          "internalView"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/console.dart",
+        "2": [
+          "Console"
+        ],
+        "5": false
+      },
+      {
+        "1": "profile/profile.dart",
+        "2": [
+          "wtfLeave",
+          "wtfCreateScope",
+          "WtfScopeFn"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detector_ref.dart",
+        "2": [
+          "ChangeDetectorRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "lockMode"
+        ],
+        "5": false
+      }
+    ],
+    "6": "application_ref.dart"
+  }
+}

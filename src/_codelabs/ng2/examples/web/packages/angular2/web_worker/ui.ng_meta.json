@@ -1,0 +1,74 @@
+{
+  "ngDeps": {
+    "1": "angular2.web_worker.ui",
+    "4": [
+      {
+        "1": "package:angular2/src/facade/facade.dart"
+      },
+      {
+        "1": "../src/core/di.dart"
+      },
+      {
+        "1": "../src/core/application_ref.dart",
+        "2": [
+          "platform",
+          "PlatformRef",
+          "ApplicationRef"
+        ]
+      },
+      {
+        "1": "../src/core/application_tokens.dart",
+        "2": [
+          "APP_ID",
+          "APP_COMPONENT",
+          "APP_INITIALIZER",
+          "PLATFORM_INITIALIZER"
+        ]
+      },
+      {
+        "1": "../src/core/zone.dart"
+      },
+      {
+        "1": "package:angular2/platform/worker_render.dart"
+      }
+    ],
+    "6": "ui.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/facade.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "../src/core/di.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "../src/core/application_ref.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "../src/core/application_tokens.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "../src/core/zone.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/platform/worker_render.ng_deps.dart",
+        "4": "i5"
+      }
+    ]
+  },
+  "WORKER_RENDER_MESSAGING_PROVIDERS": {
+    "kind": "alias",
+    "value": [
+      "MessageBasedRenderer",
+      "MessageBasedXHRImpl"
+    ]
+  },
+  "_EMPTY_LIST": {
+    "kind": "alias",
+    "value": []
+  }
+}

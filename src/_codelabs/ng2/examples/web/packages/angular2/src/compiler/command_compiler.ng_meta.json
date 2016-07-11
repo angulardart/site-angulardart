@@ -1,0 +1,150 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.command_compiler",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "Type",
+          "isString",
+          "StringWrapper",
+          "IS_DART"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "SetWrapper",
+          "StringMapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/template_commands.dart",
+        "2": [
+          "TemplateCmd",
+          "TextCmd",
+          "NgContentCmd",
+          "BeginElementCmd",
+          "EndElementCmd",
+          "BeginComponentCmd",
+          "EndComponentCmd",
+          "EmbeddedTemplateCmd",
+          "CompiledComponentTemplate"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ast.dart",
+        "2": [
+          "TemplateAst",
+          "TemplateAstVisitor",
+          "NgContentAst",
+          "EmbeddedTemplateAst",
+          "ElementAst",
+          "VariableAst",
+          "BoundEventAst",
+          "BoundElementPropertyAst",
+          "AttrAst",
+          "BoundTextAst",
+          "TextAst",
+          "DirectiveAst",
+          "BoundDirectivePropertyAst",
+          "templateVisitAll"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "CompileTypeMetadata",
+          "CompileDirectiveMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "source_module.dart",
+        "2": [
+          "SourceExpressions",
+          "SourceExpression",
+          "moduleRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/metadata/view.dart",
+        "2": [
+          "ViewEncapsulation"
+        ],
+        "5": false
+      },
+      {
+        "1": "util.dart",
+        "2": [
+          "escapeSingleQuoteString",
+          "codeGenConstConstructorCall",
+          "codeGenValueFn",
+          "MODULE_SUFFIX"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "CommandCompiler",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      }
+    ],
+    "6": "command_compiler.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/core/linker/template_commands.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "template_ast.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "directive_metadata.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "source_module.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/core/metadata/view.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "util.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i6"
+      }
+    ]
+  }
+}

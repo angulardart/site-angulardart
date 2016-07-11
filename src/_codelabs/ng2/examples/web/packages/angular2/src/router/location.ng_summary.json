@@ -1,0 +1,52 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.location",
+    "3": [
+      {
+        "1": "location_strategy.dart",
+        "2": [
+          "LocationStrategy"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "EventEmitter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Injectable",
+          "Inject"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "Location",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "LocationStrategy",
+            "4": "platformStrategy"
+          }
+        ]
+      }
+    ],
+    "6": "location.dart"
+  }
+}

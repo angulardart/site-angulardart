@@ -1,0 +1,91 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.component_recognizer",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isBlank",
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "MapWrapper",
+          "ListWrapper",
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_recognizer.dart",
+        "2": [
+          "AbstractRecognizer",
+          "RouteRecognizer",
+          "RedirectRecognizer",
+          "RouteMatch"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_config_impl.dart",
+        "2": [
+          "Route",
+          "AsyncRoute",
+          "AuxRoute",
+          "Redirect",
+          "RouteDefinition"
+        ],
+        "5": false
+      },
+      {
+        "1": "async_route_handler.dart",
+        "2": [
+          "AsyncRouteHandler"
+        ],
+        "5": false
+      },
+      {
+        "1": "sync_route_handler.dart",
+        "2": [
+          "SyncRouteHandler"
+        ],
+        "5": false
+      },
+      {
+        "1": "url_parser.dart",
+        "2": [
+          "Url"
+        ],
+        "5": false
+      },
+      {
+        "1": "instruction.dart",
+        "2": [
+          "ComponentInstruction"
+        ],
+        "5": false
+      }
+    ],
+    "6": "component_recognizer.dart"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.router_link",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Directive"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isString"
+        ],
+        "5": false
+      },
+      {
+        "1": "router.dart",
+        "2": [
+          "Router"
+        ],
+        "5": false
+      },
+      {
+        "1": "location.dart",
+        "2": [
+          "Location"
+        ],
+        "5": false
+      },
+      {
+        "1": "instruction.dart",
+        "2": [
+          "Instruction"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RouterLink",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[routerLink]\""
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"routeParams: routerLink\", \"target: target\"]"
+              },
+              {
+                "1": "host",
+                "2": "const {\"(click)\" : \"onClick()\", \"[attr.href]\" : \"visibleHref\", \"[class.router-link-active]\" : \"isRouteActive\"}"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Router",
+            "4": "_router"
+          },
+          {
+            "1": "Location",
+            "4": "_location"
+          }
+        ]
+      }
+    ],
+    "6": "router_link.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "router.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "location.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "instruction.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  },
+  "RouterLink": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[routerLink]",
+      "exportAs": null,
+      "type": {
+        "name": "RouterLink",
+        "moduleUrl": "asset:angular2/lib/src/router/router_link.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "routeParams": "routerLink",
+        "target": "target"
+      },
+      "outputs": {},
+      "hostListeners": {
+        "click": "onClick()"
+      },
+      "hostProperties": {
+        "class.router-link-active": "isRouteActive",
+        "attr.href": "visibleHref"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  }
+}

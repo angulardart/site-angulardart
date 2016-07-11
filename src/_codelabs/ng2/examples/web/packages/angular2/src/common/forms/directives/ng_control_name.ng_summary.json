@@ -1,0 +1,193 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.forms.directives.ng_control_name",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "EventEmitter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "OnChanges",
+          "OnDestroy",
+          "SimpleChange",
+          "Query",
+          "Directive",
+          "Host",
+          "SkipSelf",
+          "Provider",
+          "Inject",
+          "Optional",
+          "Self"
+        ],
+        "5": false
+      },
+      {
+        "1": "control_container.dart",
+        "2": [
+          "ControlContainer"
+        ],
+        "5": false
+      },
+      {
+        "1": "ng_control.dart",
+        "2": [
+          "NgControl"
+        ],
+        "5": false
+      },
+      {
+        "1": "control_value_accessor.dart",
+        "2": [
+          "ControlValueAccessor",
+          "NG_VALUE_ACCESSOR"
+        ],
+        "5": false
+      },
+      {
+        "1": "shared.dart",
+        "2": [
+          "controlPath",
+          "composeValidators",
+          "composeAsyncValidators",
+          "isPropertyUpdated",
+          "selectValueAccessor"
+        ],
+        "5": false
+      },
+      {
+        "1": "../model.dart",
+        "2": [
+          "Control"
+        ],
+        "5": false
+      },
+      {
+        "1": "../validators.dart",
+        "2": [
+          "Validators",
+          "NG_VALIDATORS",
+          "NG_ASYNC_VALIDATORS"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgControlName",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngControl]\""
+              },
+              {
+                "1": "bindings",
+                "2": "const [controlNameBinding]"
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"name: ngControl\", \"model: ngModel\"]"
+              },
+              {
+                "1": "outputs",
+                "2": "const [\"update: ngModelChange\"]"
+              },
+              {
+                "1": "exportAs",
+                "2": "\"ngForm\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ControlContainer",
+            "3": [
+              "const Host()",
+              "const SkipSelf()"
+            ],
+            "4": "_parent"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_VALIDATORS)"
+            ],
+            "4": "_validators"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_ASYNC_VALIDATORS)"
+            ],
+            "4": "_asyncValidators"
+          },
+          {
+            "1": "List",
+            "2": "<ControlValueAccessor>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_VALUE_ACCESSOR)"
+            ],
+            "4": "valueAccessors"
+          }
+        ],
+        "6": [
+          "OnChanges",
+          "OnDestroy"
+        ]
+      }
+    ],
+    "6": "ng_control_name.dart"
+  },
+  "NgControlName": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngControl]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgControlName",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_control_name.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "name": "ngControl",
+        "model": "ngModel"
+      },
+      "outputs": {
+        "update": "ngModelChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3,
+        1
+      ],
+      "template": null
+    }
+  }
+}

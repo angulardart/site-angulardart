@@ -1,0 +1,12 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.transform.common.model.proto_parameter_model",
+    "3": [
+      {
+        "1": "package:protobuf/protobuf.dart",
+        "5": false
+      }
+    ],
+    "6": "parameter_model.pb.dart"
+  }
+}

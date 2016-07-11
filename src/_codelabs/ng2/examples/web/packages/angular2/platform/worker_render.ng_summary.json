@@ -1,0 +1,51 @@
+{
+  "ngDeps": {
+    "1": "angular2.platform.worker_render",
+    "4": [
+      {
+        "1": "package:angular2/src/platform/worker_render_common.dart",
+        "2": [
+          "WORKER_SCRIPT",
+          "WORKER_RENDER_PLATFORM",
+          "WORKER_RENDER_APP_COMMON",
+          "initializeGenericWorkerRenderer"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/worker_render.dart",
+        "2": [
+          "WORKER_RENDER_APP",
+          "initIsolate",
+          "WebWorkerInstance"
+        ]
+      },
+      {
+        "1": "../src/web_workers/shared/client_message_broker.dart",
+        "2": [
+          "ClientMessageBroker",
+          "ClientMessageBrokerFactory",
+          "FnArg",
+          "UiArguments"
+        ]
+      },
+      {
+        "1": "../src/web_workers/shared/service_message_broker.dart",
+        "2": [
+          "ReceivedMessage",
+          "ServiceMessageBroker",
+          "ServiceMessageBrokerFactory"
+        ]
+      },
+      {
+        "1": "../src/web_workers/shared/serializer.dart",
+        "2": [
+          "PRIMITIVE"
+        ]
+      },
+      {
+        "1": "../src/web_workers/shared/message_bus.dart"
+      }
+    ],
+    "6": "worker_render.dart"
+  }
+}

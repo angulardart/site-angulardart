@@ -1,0 +1,31 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.common.annotati_ON_matcher",
+    "3": [
+      {
+        "1": "package:analyzer/src/generated/ast.dart",
+        "5": false
+      },
+      {
+        "1": "package:barback/barback.dart",
+        "2": [
+          "AssetId"
+        ],
+        "5": false
+      },
+      {
+        "1": "class_matcher_base.dart",
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "class_matcher_base.dart",
+        "2": [
+          "ClassDescriptor"
+        ]
+      }
+    ],
+    "6": "interface_matcher.dart"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.proto_view_factory",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "Type",
+          "isArray",
+          "isNumber"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderProtoViewRef",
+          "RenderComponentTemplate"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Optional",
+          "Injectable",
+          "Provider",
+          "resolveForwardRef",
+          "Inject"
+        ],
+        "5": false
+      },
+      {
+        "1": "../pipes/pipe_provider.dart",
+        "2": [
+          "PipeProvider"
+        ],
+        "5": false
+      },
+      {
+        "1": "../pipes/pipes.dart",
+        "2": [
+          "ProtoPipes"
+        ],
+        "5": false
+      },
+      {
+        "1": "view.dart",
+        "2": [
+          "AppProtoView",
+          "AppProtoViewMergeInfo",
+          "ViewType"
+        ],
+        "5": false
+      },
+      {
+        "1": "element_binder.dart",
+        "2": [
+          "ElementBinder"
+        ],
+        "5": false
+      },
+      {
+        "1": "element_injector.dart",
+        "2": [
+          "ProtoElementInjector",
+          "DirectiveProvider"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_resolver.dart",
+        "2": [
+          "DirectiveResolver"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_resolver.dart",
+        "2": [
+          "ViewResolver"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipe_resolver.dart",
+        "2": [
+          "PipeResolver"
+        ],
+        "5": false
+      },
+      {
+        "1": "../metadata/view.dart",
+        "2": [
+          "ViewMetadata",
+          "ViewEncapsulation"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/platform_directives_and_pipes.dart",
+        "2": [
+          "PLATFORM_PIPES"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_commands.dart",
+        "2": [
+          "visitAllCommands",
+          "CompiledComponentTemplate",
+          "CompiledHostTemplate",
+          "TemplateCmd",
+          "CommandVisitor",
+          "EmbeddedTemplateCmd",
+          "BeginComponentCmd",
+          "BeginElementCmd",
+          "IBeginElementCmd",
+          "TextCmd",
+          "NgContentCmd"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "Renderer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/application_tokens.dart",
+        "2": [
+          "APP_ID"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ProtoViewFactory",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Renderer",
+            "4": "_renderer"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Inject(PLATFORM_PIPES)"
+            ],
+            "4": "_platformPipes"
+          },
+          {
+            "1": "DirectiveResolver",
+            "4": "_directiveResolver"
+          },
+          {
+            "1": "ViewResolver",
+            "4": "_viewResolver"
+          },
+          {
+            "1": "PipeResolver",
+            "4": "_pipeResolver"
+          },
+          {
+            "1": "String",
+            "3": [
+              "const Inject(APP_ID)"
+            ],
+            "4": "_appId"
+          }
+        ]
+      }
+    ],
+    "6": "proto_view_factory.dart"
+  }
+}

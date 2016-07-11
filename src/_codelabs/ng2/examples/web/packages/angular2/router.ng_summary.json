@@ -1,0 +1,190 @@
+{
+  "ngDeps": {
+    "1": "angular2.router",
+    "3": [
+      {
+        "1": "src/router/platform_location.dart",
+        "2": [
+          "PlatformLocation"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/location_strategy.dart",
+        "2": [
+          "LocationStrategy"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/path_location_strategy.dart",
+        "2": [
+          "PathLocationStrategy"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/router.dart",
+        "2": [
+          "Router",
+          "RootRouter"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/router_outlet.dart",
+        "2": [
+          "RouterOutlet"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/router_link.dart",
+        "2": [
+          "RouterLink"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/route_registry.dart",
+        "2": [
+          "RouteRegistry",
+          "ROUTER_PRIMARY_COMPONENT"
+        ],
+        "5": false
+      },
+      {
+        "1": "src/router/location.dart",
+        "2": [
+          "Location"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "ApplicationRef",
+          "provide",
+          "OpaqueToken",
+          "Provider"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "src/router/router.dart",
+        "2": [
+          "Router"
+        ]
+      },
+      {
+        "1": "src/router/router_outlet.dart",
+        "2": [
+          "RouterOutlet"
+        ]
+      },
+      {
+        "1": "src/router/router_link.dart",
+        "2": [
+          "RouterLink"
+        ]
+      },
+      {
+        "1": "src/router/instruction.dart",
+        "2": [
+          "RouteParams",
+          "RouteData"
+        ]
+      },
+      {
+        "1": "src/router/platform_location.dart",
+        "2": [
+          "PlatformLocation"
+        ]
+      },
+      {
+        "1": "src/router/route_registry.dart",
+        "2": [
+          "RouteRegistry",
+          "ROUTER_PRIMARY_COMPONENT"
+        ]
+      },
+      {
+        "1": "src/router/location_strategy.dart",
+        "2": [
+          "LocationStrategy",
+          "APP_BASE_HREF"
+        ]
+      },
+      {
+        "1": "src/router/hash_location_strategy.dart",
+        "2": [
+          "HashLocationStrategy"
+        ]
+      },
+      {
+        "1": "src/router/path_location_strategy.dart",
+        "2": [
+          "PathLocationStrategy"
+        ]
+      },
+      {
+        "1": "src/router/location.dart",
+        "2": [
+          "Location"
+        ]
+      },
+      {
+        "1": "src/router/route_config_decorator.dart"
+      },
+      {
+        "1": "src/router/route_definition.dart"
+      },
+      {
+        "1": "src/router/interfaces.dart",
+        "2": [
+          "OnActivate",
+          "OnDeactivate",
+          "OnReuse",
+          "CanDeactivate",
+          "CanReuse"
+        ]
+      },
+      {
+        "1": "src/router/lifecycle_annotations.dart",
+        "2": [
+          "CanActivate"
+        ]
+      },
+      {
+        "1": "src/router/instruction.dart",
+        "2": [
+          "Instruction",
+          "ComponentInstruction"
+        ]
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "OpaqueToken"
+        ]
+      }
+    ],
+    "6": "router.dart"
+  },
+  "ROUTER_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "RouterOutlet",
+      "RouterLink"
+    ]
+  }
+}

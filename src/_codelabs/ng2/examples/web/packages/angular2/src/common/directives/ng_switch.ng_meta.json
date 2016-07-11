@@ -1,0 +1,211 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.directives.ng_switch",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Directive",
+          "Host",
+          "ViewContainerRef",
+          "TemplateRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "Map"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgSwitch",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngSwitch]\""
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"ngSwitch\"]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      },
+      {
+        "1": "NgSwitchWhen",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngSwitchWhen]\""
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"ngSwitchWhen\"]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ViewContainerRef",
+            "4": "viewContainer"
+          },
+          {
+            "1": "TemplateRef",
+            "4": "templateRef"
+          },
+          {
+            "1": "NgSwitch",
+            "3": [
+              "const Host()"
+            ],
+            "4": "ngSwitch"
+          }
+        ]
+      },
+      {
+        "1": "NgSwitchDefault",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngSwitchDefault]\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ViewContainerRef",
+            "4": "viewContainer"
+          },
+          {
+            "1": "TemplateRef",
+            "4": "templateRef"
+          },
+          {
+            "1": "NgSwitch",
+            "3": [
+              "const Host()"
+            ],
+            "4": "sswitch"
+          }
+        ]
+      }
+    ],
+    "6": "ng_switch.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "NgSwitch": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitch]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitch",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngSwitch": "ngSwitch"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgSwitchWhen": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitchWhen]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitchWhen",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngSwitchWhen": "ngSwitchWhen"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgSwitchDefault": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitchDefault]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitchDefault",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  }
+}

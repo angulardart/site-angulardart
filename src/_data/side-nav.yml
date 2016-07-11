@@ -1,0 +1,33 @@
+- title: "Quick Start"
+  children:
+  - title: Get Started
+    permalink: /guides/get-started
+  - title: "Write an Angular App"
+    permalink: /codelabs/ng2/
+
+- title: "Libraries"
+  children:
+  - title: "Overview"
+    permalink: /guides/web-programming
+  - title: "Angular 2 for Dart"
+    permalink: https://angular.io/dart
+
+- title: "Tools"
+  children:
+  - title: "Dart Tools for the Web"
+    permalink: /tools/
+
+- title: "Community"
+  children:
+  - title: "Community and Support"
+    permalink: /community
+
+- title: "Tutorials"
+  children:
+  - title: "Overview"
+    permalink: /tutorials/
+
+- title: "Articles"
+  children:
+  - title: "Overview"
+    permalink: /articles/

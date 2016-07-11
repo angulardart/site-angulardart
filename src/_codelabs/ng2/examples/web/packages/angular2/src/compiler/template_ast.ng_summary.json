@@ -1,0 +1,36 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.template_ast",
+    "3": [
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.dart",
+        "2": [
+          "AST"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "CompileDirectiveMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "parse_util.dart",
+        "2": [
+          "ParseSourceSpan"
+        ],
+        "5": false
+      }
+    ],
+    "6": "template_ast.dart"
+  }
+}

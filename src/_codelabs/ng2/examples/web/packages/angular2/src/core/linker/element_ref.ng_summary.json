@@ -1,0 +1,33 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.element_ref",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_ref.dart",
+        "2": [
+          "ViewRef",
+          "ViewRef_"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderViewRef",
+          "RenderElementRef",
+          "Renderer"
+        ],
+        "5": false
+      }
+    ],
+    "6": "element_ref.dart"
+  }
+}

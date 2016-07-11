@@ -1,0 +1,357 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.worker_render_common",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "IS_DART"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.dart",
+        "2": [
+          "MessageBus"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.dart",
+        "2": [
+          "NgZone"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "PLATFORM_DIRECTIVES",
+          "PLATFORM_PIPES",
+          "ComponentRef",
+          "platform",
+          "ExceptionHandler",
+          "Reflector",
+          "reflector",
+          "APPLICATION_COMMON_PROVIDERS",
+          "PLATFORM_COMMON_PROVIDERS",
+          "Renderer",
+          "PLATFORM_INITIALIZER",
+          "APP_INITIALIZER"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/platform/common_dom.dart",
+        "2": [
+          "EVENT_MANAGER_PLUGINS",
+          "EventManager"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "provide",
+          "Provider",
+          "Injector",
+          "OpaqueToken"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.dart",
+        "2": [
+          "DOM"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/dom_events.dart",
+        "2": [
+          "DomEventsPlugin"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/key_events.dart",
+        "2": [
+          "KeyEventsPlugin"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/hammer_gestures.dart",
+        "2": [
+          "HammerGesturesPlugin"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.dart",
+        "2": [
+          "DOCUMENT"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_renderer.dart",
+        "2": [
+          "DomRenderer",
+          "DomRenderer_"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/shared_styles_host.dart",
+        "2": [
+          "DomSharedStylesHost"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/shared_styles_host.dart",
+        "2": [
+          "SharedStylesHost"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/animate/browser_details.dart",
+        "2": [
+          "BrowserDetails"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/animate/animation_builder.dart",
+        "2": [
+          "AnimationBuilder"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/compiler.dart",
+        "2": [
+          "XHR"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/browser/xhr_impl.dart",
+        "2": [
+          "XHRImpl"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/testability/testability.dart",
+        "2": [
+          "Testability"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/browser/testability.dart",
+        "2": [
+          "BrowserGetTestability"
+        ],
+        "5": false
+      },
+      {
+        "1": "browser/browser_adapter.dart",
+        "2": [
+          "BrowserDomAdapter"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/profile/wtf_init.dart",
+        "2": [
+          "wtfInit"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/renderer.dart",
+        "2": [
+          "MessageBasedRenderer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/xhr_impl.dart",
+        "2": [
+          "MessageBasedXHRImpl"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/service_message_broker.dart",
+        "2": [
+          "ServiceMessageBrokerFactory",
+          "ServiceMessageBrokerFactory_"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/client_message_broker.dart",
+        "2": [
+          "ClientMessageBrokerFactory",
+          "ClientMessageBrokerFactory_"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.dart",
+        "2": [
+          "Serializer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.dart",
+        "2": [
+          "ON_WEB_WORKER"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_proto_view_ref_store.dart",
+        "2": [
+          "RenderProtoViewRefStore"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_view_with_fragments_store.dart",
+        "2": [
+          "RenderViewWithFragmentsStore"
+        ],
+        "5": false
+      }
+    ],
+    "6": "worker_render_common.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/platform/common_dom.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/dom_events.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/key_events.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/events/hammer_gestures.ng_deps.dart",
+        "4": "i8"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.ng_deps.dart",
+        "4": "i9"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_renderer.ng_deps.dart",
+        "4": "i10"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/shared_styles_host.ng_deps.dart",
+        "4": "i11"
+      },
+      {
+        "1": "package:angular2/src/animate/browser_details.ng_deps.dart",
+        "4": "i12"
+      },
+      {
+        "1": "package:angular2/src/animate/animation_builder.ng_deps.dart",
+        "4": "i13"
+      },
+      {
+        "1": "package:angular2/compiler.ng_deps.dart",
+        "4": "i14"
+      },
+      {
+        "1": "package:angular2/src/platform/browser/xhr_impl.ng_deps.dart",
+        "4": "i15"
+      },
+      {
+        "1": "package:angular2/src/core/testability/testability.ng_deps.dart",
+        "4": "i16"
+      },
+      {
+        "1": "package:angular2/src/platform/browser/testability.ng_deps.dart",
+        "4": "i17"
+      },
+      {
+        "1": "browser/browser_adapter.ng_deps.dart",
+        "4": "i18"
+      },
+      {
+        "1": "package:angular2/src/core/profile/wtf_init.ng_deps.dart",
+        "4": "i19"
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/renderer.ng_deps.dart",
+        "4": "i20"
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/xhr_impl.ng_deps.dart",
+        "4": "i21"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/service_message_broker.ng_deps.dart",
+        "4": "i22"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/client_message_broker.ng_deps.dart",
+        "4": "i23"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.ng_deps.dart",
+        "4": "i24"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.ng_deps.dart",
+        "4": "i25"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_proto_view_ref_store.ng_deps.dart",
+        "4": "i26"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_view_with_fragments_store.ng_deps.dart",
+        "4": "i27"
+      }
+    ]
+  },
+  "WORKER_RENDER_MESSAGING_PROVIDERS": {
+    "kind": "alias",
+    "value": [
+      "MessageBasedRenderer",
+      "MessageBasedXHRImpl"
+    ]
+  }
+}

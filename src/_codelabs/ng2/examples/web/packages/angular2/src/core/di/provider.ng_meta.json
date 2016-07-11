@@ -1,0 +1,107 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.di.provider",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isBlank",
+          "isPresent",
+          "stringify",
+          "isArray",
+          "isType",
+          "isFunction",
+          "normalizeBool"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "MapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "2": [
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "key.dart",
+        "2": [
+          "Key"
+        ],
+        "5": false
+      },
+      {
+        "1": "metadata.dart",
+        "2": [
+          "InjectMetadata",
+          "InjectableMetadata",
+          "OptionalMetadata",
+          "SelfMetadata",
+          "HostMetadata",
+          "SkipSelfMetadata",
+          "DependencyMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "exceptions.dart",
+        "2": [
+          "NoAnnotationError",
+          "MixingMultiProvidersWithRegularProvidersError",
+          "InvalidProviderError"
+        ],
+        "5": false
+      },
+      {
+        "1": "forward_ref.dart",
+        "2": [
+          "resolveForwardRef"
+        ],
+        "5": false
+      }
+    ],
+    "6": "provider.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "key.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "metadata.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "exceptions.ng_deps.dart",
+        "4": "i4"
+      }
+    ]
+  },
+  "_EMPTY_LIST": {
+    "kind": "alias",
+    "value": []
+  }
+}

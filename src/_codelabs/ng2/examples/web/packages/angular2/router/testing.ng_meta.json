@@ -1,0 +1,24 @@
+{
+  "ngDeps": {
+    "1": "angular2.router.testing",
+    "4": [
+      {
+        "1": "package:angular2/src/mock/mock_location_strategy.dart"
+      },
+      {
+        "1": "package:angular2/src/mock/location_mock.dart"
+      }
+    ],
+    "6": "testing.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/mock/mock_location_strategy.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/mock/location_mock.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "ngDeps": {
+    "1": "angular2.platform.browser",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/promise.dart",
+        "2": [
+          "Future"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/browser_common.dart",
+        "2": [
+          "BROWSER_PROVIDERS",
+          "BROWSER_APP_COMMON_PROVIDERS"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/compiler.dart",
+        "2": [
+          "COMPILER_PROVIDERS"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "ComponentRef",
+          "platform",
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/browser/xhr_impl.dart",
+        "2": [
+          "XHRImpl"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/compiler.dart",
+        "2": [
+          "XHR"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Provider"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "package:angular2/src/core/angular_entrypoint.dart",
+        "2": [
+          "AngularEntrypoint"
+        ]
+      },
+      {
+        "1": "package:angular2/src/platform/browser_common.dart",
+        "2": [
+          "BROWSER_PROVIDERS",
+          "ELEMENT_PROBE_BINDINGS",
+          "ELEMENT_PROBE_PROVIDERS",
+          "inspectNativeElement",
+          "BrowserDomAdapter",
+          "By",
+          "Title",
+          "DOCUMENT",
+          "enableDebugTools",
+          "disableDebugTools"
+        ]
+      }
+    ],
+    "6": "browser.dart"
+  }
+}

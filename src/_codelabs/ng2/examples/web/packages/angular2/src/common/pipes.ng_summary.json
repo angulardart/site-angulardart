@@ -1,0 +1,120 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.pipes",
+    "3": [
+      {
+        "1": "pipes/async_pipe.dart",
+        "2": [
+          "AsyncPipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/uppercase_pipe.dart",
+        "2": [
+          "UpperCasePipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/lowercase_pipe.dart",
+        "2": [
+          "LowerCasePipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/json_pipe.dart",
+        "2": [
+          "JsonPipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/slice_pipe.dart",
+        "2": [
+          "SlicePipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/date_pipe.dart",
+        "2": [
+          "DatePipe"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes/number_pipe.dart",
+        "2": [
+          "DecimalPipe",
+          "PercentPipe",
+          "CurrencyPipe"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "pipes/async_pipe.dart",
+        "2": [
+          "AsyncPipe"
+        ]
+      },
+      {
+        "1": "pipes/date_pipe.dart",
+        "2": [
+          "DatePipe"
+        ]
+      },
+      {
+        "1": "pipes/json_pipe.dart",
+        "2": [
+          "JsonPipe"
+        ]
+      },
+      {
+        "1": "pipes/slice_pipe.dart",
+        "2": [
+          "SlicePipe"
+        ]
+      },
+      {
+        "1": "pipes/lowercase_pipe.dart",
+        "2": [
+          "LowerCasePipe"
+        ]
+      },
+      {
+        "1": "pipes/number_pipe.dart",
+        "2": [
+          "NumberPipe",
+          "DecimalPipe",
+          "PercentPipe",
+          "CurrencyPipe"
+        ]
+      },
+      {
+        "1": "pipes/uppercase_pipe.dart",
+        "2": [
+          "UpperCasePipe"
+        ]
+      }
+    ],
+    "6": "pipes.dart"
+  },
+  "COMMON_PIPES": {
+    "kind": "alias",
+    "value": [
+      "AsyncPipe",
+      "UpperCasePipe",
+      "LowerCasePipe",
+      "JsonPipe",
+      "SlicePipe",
+      "DecimalPipe",
+      "PercentPipe",
+      "CurrencyPipe",
+      "DatePipe"
+    ]
+  }
+}

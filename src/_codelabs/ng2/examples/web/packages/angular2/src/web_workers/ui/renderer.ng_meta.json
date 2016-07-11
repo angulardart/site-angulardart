@@ -1,0 +1,179 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.web_workers.ui.renderer",
+    "3": [
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.dart",
+        "2": [
+          "MessageBus"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.dart",
+        "2": [
+          "Serializer",
+          "PRIMITIVE"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderViewRef",
+          "RenderFragmentRef",
+          "RenderProtoViewRef",
+          "Renderer",
+          "RenderTemplateCmd",
+          "RenderComponentTemplate"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.dart",
+        "2": [
+          "WebWorkerElementRef",
+          "WebWorkerTemplateCmd"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/messaging_api.dart",
+        "2": [
+          "EVENT_CHANNEL",
+          "RENDERER_CHANNEL"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type"
+        ],
+        "5": false
+      },
+      {
+        "1": "bind.dart",
+        "2": [
+          "bind"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/event_dispatcher.dart",
+        "2": [
+          "EventDispatcher"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_proto_view_ref_store.dart",
+        "2": [
+          "RenderProtoViewRefStore"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_view_with_fragments_store.dart",
+        "2": [
+          "RenderViewWithFragmentsStore"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/service_message_broker.dart",
+        "2": [
+          "ServiceMessageBrokerFactory"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "MessageBasedRenderer",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ServiceMessageBrokerFactory",
+            "4": "_brokerFactory"
+          },
+          {
+            "1": "MessageBus",
+            "4": "_bus"
+          },
+          {
+            "1": "Serializer",
+            "4": "_serializer"
+          },
+          {
+            "1": "RenderProtoViewRefStore",
+            "4": "_renderProtoViewRefStore"
+          },
+          {
+            "1": "RenderViewWithFragmentsStore",
+            "4": "_renderViewWithFragmentsStore"
+          },
+          {
+            "1": "Renderer",
+            "4": "_renderer"
+          }
+        ]
+      }
+    ],
+    "6": "renderer.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/render/api.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/web_workers/ui/event_dispatcher.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_proto_view_ref_store.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/render_view_with_fragments_store.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/service_message_broker.ng_deps.dart",
+        "4": "i8"
+      }
+    ]
+  }
+}

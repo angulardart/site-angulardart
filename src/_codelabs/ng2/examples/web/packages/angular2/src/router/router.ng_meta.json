@@ -1,0 +1,169 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.router",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper",
+          "EventEmitter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "StringMapWrapper",
+          "MapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isBlank",
+          "isString",
+          "isPresent",
+          "Type",
+          "isArray"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Inject",
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_registry.dart",
+        "2": [
+          "RouteRegistry",
+          "ROUTER_PRIMARY_COMPONENT"
+        ],
+        "5": false
+      },
+      {
+        "1": "instruction.dart",
+        "2": [
+          "ComponentInstruction",
+          "Instruction"
+        ],
+        "5": false
+      },
+      {
+        "1": "router_outlet.dart",
+        "2": [
+          "RouterOutlet"
+        ],
+        "5": false
+      },
+      {
+        "1": "location.dart",
+        "2": [
+          "Location"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_lifecycle_reflector.dart",
+        "2": [
+          "getCanActivateHook"
+        ],
+        "5": false
+      },
+      {
+        "1": "route_config_impl.dart",
+        "2": [
+          "RouteDefinition"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RootRouter",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "RouteRegistry",
+            "4": "registry"
+          },
+          {
+            "1": "Location",
+            "4": "location"
+          },
+          {
+            "1": "Type",
+            "3": [
+              "const Inject(ROUTER_PRIMARY_COMPONENT)"
+            ],
+            "4": "primaryComponent"
+          }
+        ]
+      }
+    ],
+    "6": "router.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "route_registry.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "instruction.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "router_outlet.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "location.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "route_lifecycle_reflector.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "route_config_impl.ng_deps.dart",
+        "4": "i8"
+      }
+    ]
+  }
+}

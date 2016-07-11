@@ -1,0 +1,22 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.interfaces",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "MapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection_util.dart",
+        "2": [
+          "SimpleChange"
+        ],
+        "5": false
+      }
+    ],
+    "6": "interfaces.dart"
+  }
+}

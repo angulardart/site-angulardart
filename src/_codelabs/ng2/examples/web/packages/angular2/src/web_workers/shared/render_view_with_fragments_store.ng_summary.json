@@ -1,0 +1,63 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.web_workers.shared.render_view_with_fragments_store",
+    "3": [
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable",
+          "Inject"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "RenderViewRef",
+          "RenderFragmentRef",
+          "RenderViewWithFragments"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/api.dart",
+        "2": [
+          "ON_WEB_WORKER"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "MapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RenderViewWithFragmentsStore",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "3": [
+              "const Inject(ON_WEB_WORKER)"
+            ],
+            "4": "onWebWorker"
+          }
+        ]
+      }
+    ],
+    "6": "render_view_with_fragments_store.dart"
+  }
+}

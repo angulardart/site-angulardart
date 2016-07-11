@@ -1,0 +1,73 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.template_compiler.change_detector_codegen",
+    "3": [
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection_util.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/codegen_facade.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/codegen_logic_util.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/codegen_name_util.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/directive_record.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/interfaces.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/proto_change_detector.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/proto_record.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/event_binding.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/binding_record.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/codegen_facade.dart",
+        "2": [
+          "codify"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "6": "change_detector_codegen.dart"
+  }
+}

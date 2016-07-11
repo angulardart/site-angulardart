@@ -1,0 +1,17 @@
+{
+  "ngDeps": {
+    "1": "",
+    "4": [
+      {
+        "1": "package:angular2/src/platform/server/html_adapter.dart"
+      }
+    ],
+    "6": "server.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/platform/server/html_adapter.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+# RVM users
+.ruby-gemset
+.ruby-version
+
+# Cache files
+.sass-cache
+src/.asset-cache
+.jekyll-metadata
+
+# Deployment Files
+_deploy
+publish
+credentials.tar.gz
+client-secret.json
+tmp
+
+# Misc
+trash

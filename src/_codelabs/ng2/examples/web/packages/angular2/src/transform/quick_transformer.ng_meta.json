@@ -1,0 +1,72 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.transform.quick_transformer",
+    "3": [
+      {
+        "1": "package:barback/barback.dart",
+        "5": false
+      },
+      {
+        "1": "package:dart_style/dart_style.dart",
+        "5": false
+      },
+      {
+        "1": "common/formatter.dart",
+        "4": "formatter",
+        "5": false
+      },
+      {
+        "1": "common/options.dart",
+        "5": false
+      },
+      {
+        "1": "common/options_reader.dart",
+        "5": false
+      },
+      {
+        "1": "deferred_rewriter/transformer.dart",
+        "5": false
+      },
+      {
+        "1": "inliner_for_test/transformer.dart",
+        "5": false
+      },
+      {
+        "1": "reflection_remover/transformer.dart",
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "common/options.dart"
+      }
+    ],
+    "6": "quick_transformer.dart",
+    "10": [
+      {
+        "1": "common/formatter.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "common/options.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "common/options_reader.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "deferred_rewriter/transformer.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "inliner_for_test/transformer.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "reflection_remover/transformer.ng_deps.dart",
+        "4": "i5"
+      }
+    ]
+  }
+}

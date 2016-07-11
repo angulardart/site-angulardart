@@ -1,0 +1,210 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.forms.directives.ng_form_control",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "EventEmitter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "OnChanges",
+          "SimpleChange",
+          "Query",
+          "Directive",
+          "Provider",
+          "Inject",
+          "Optional",
+          "Self"
+        ],
+        "5": false
+      },
+      {
+        "1": "ng_control.dart",
+        "2": [
+          "NgControl"
+        ],
+        "5": false
+      },
+      {
+        "1": "../model.dart",
+        "2": [
+          "Control"
+        ],
+        "5": false
+      },
+      {
+        "1": "../validators.dart",
+        "2": [
+          "Validators",
+          "NG_VALIDATORS",
+          "NG_ASYNC_VALIDATORS"
+        ],
+        "5": false
+      },
+      {
+        "1": "control_value_accessor.dart",
+        "2": [
+          "ControlValueAccessor",
+          "NG_VALUE_ACCESSOR"
+        ],
+        "5": false
+      },
+      {
+        "1": "shared.dart",
+        "2": [
+          "setUpControl",
+          "composeValidators",
+          "composeAsyncValidators",
+          "isPropertyUpdated",
+          "selectValueAccessor"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgFormControl",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngFormControl]\""
+              },
+              {
+                "1": "bindings",
+                "2": "const [formControlBinding]"
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"form: ngFormControl\", \"model: ngModel\"]"
+              },
+              {
+                "1": "outputs",
+                "2": "const [\"update: ngModelChange\"]"
+              },
+              {
+                "1": "exportAs",
+                "2": "\"ngForm\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_VALIDATORS)"
+            ],
+            "4": "_validators"
+          },
+          {
+            "1": "List",
+            "2": "<dynamic>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_ASYNC_VALIDATORS)"
+            ],
+            "4": "_asyncValidators"
+          },
+          {
+            "1": "List",
+            "2": "<ControlValueAccessor>",
+            "3": [
+              "const Optional()",
+              "const Self()",
+              "const Inject(NG_VALUE_ACCESSOR)"
+            ],
+            "4": "valueAccessors"
+          }
+        ],
+        "6": [
+          "OnChanges"
+        ]
+      }
+    ],
+    "6": "ng_form_control.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "ng_control.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "../model.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "../validators.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "control_value_accessor.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "shared.ng_deps.dart",
+        "4": "i6"
+      }
+    ]
+  },
+  "NgFormControl": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngFormControl]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgFormControl",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_form_control.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "form": "ngFormControl",
+        "model": "ngModel"
+      },
+      "outputs": {
+        "update": "ngModelChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3
+      ],
+      "template": null
+    }
+  }
+}

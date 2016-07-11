@@ -1,0 +1,24 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.common.code.import_export_code",
+    "3": [
+      {
+        "1": "package:analyzer/analyzer.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/transform/common/mirror_matcher.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/transform/common/names.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/transform/common/model/import_export_model.pb.dart",
+        "5": false
+      }
+    ],
+    "6": "import_export_code.dart"
+  }
+}

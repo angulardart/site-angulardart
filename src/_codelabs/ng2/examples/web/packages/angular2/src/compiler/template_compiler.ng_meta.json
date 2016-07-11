@@ -1,0 +1,243 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.template_compiler",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "IS_DART",
+          "Type",
+          "Json",
+          "isBlank",
+          "stringify"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "SetWrapper",
+          "MapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "PromiseWrapper",
+          "Future"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/template_commands.dart",
+        "2": [
+          "CompiledComponentTemplate",
+          "TemplateCmd",
+          "CompiledHostTemplate",
+          "BeginComponentCmd"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "createHostComponentMeta",
+          "CompileDirectiveMetadata",
+          "CompileTypeMetadata",
+          "CompileTemplateMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ast.dart",
+        "2": [
+          "TemplateAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "source_module.dart",
+        "2": [
+          "SourceModule",
+          "moduleRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "change_detector_compiler.dart",
+        "2": [
+          "ChangeDetectionCompiler"
+        ],
+        "5": false
+      },
+      {
+        "1": "style_compiler.dart",
+        "2": [
+          "StyleCompiler"
+        ],
+        "5": false
+      },
+      {
+        "1": "command_compiler.dart",
+        "2": [
+          "CommandCompiler"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_parser.dart",
+        "2": [
+          "TemplateParser"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_normalizer.dart",
+        "2": [
+          "TemplateNormalizer"
+        ],
+        "5": false
+      },
+      {
+        "1": "runtime_metadata.dart",
+        "2": [
+          "RuntimeMetadataResolver"
+        ],
+        "5": false
+      },
+      {
+        "1": "command_compiler.dart",
+        "2": [
+          "TEMPLATE_COMMANDS_MODULE_REF"
+        ],
+        "5": false
+      },
+      {
+        "1": "util.dart",
+        "2": [
+          "codeGenExportVariable",
+          "escapeSingleQuoteString",
+          "codeGenValueFn",
+          "MODULE_SUFFIX"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TemplateCompiler",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "RuntimeMetadataResolver",
+            "4": "_runtimeMetadataResolver"
+          },
+          {
+            "1": "TemplateNormalizer",
+            "4": "_templateNormalizer"
+          },
+          {
+            "1": "TemplateParser",
+            "4": "_templateParser"
+          },
+          {
+            "1": "StyleCompiler",
+            "4": "_styleCompiler"
+          },
+          {
+            "1": "CommandCompiler",
+            "4": "_commandCompiler"
+          },
+          {
+            "1": "ChangeDetectionCompiler",
+            "4": "_cdCompiler"
+          }
+        ]
+      }
+    ],
+    "6": "template_compiler.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/core/linker/template_commands.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "directive_metadata.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "template_ast.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "source_module.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "change_detector_compiler.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "style_compiler.ng_deps.dart",
+        "4": "i8"
+      },
+      {
+        "1": "command_compiler.ng_deps.dart",
+        "4": "i9"
+      },
+      {
+        "1": "template_parser.ng_deps.dart",
+        "4": "i10"
+      },
+      {
+        "1": "template_normalizer.ng_deps.dart",
+        "4": "i11"
+      },
+      {
+        "1": "runtime_metadata.ng_deps.dart",
+        "4": "i12"
+      },
+      {
+        "1": "util.ng_deps.dart",
+        "4": "i13"
+      }
+    ]
+  }
+}

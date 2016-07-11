@@ -1,0 +1,40 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.route_handler",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type"
+        ],
+        "5": false
+      },
+      {
+        "1": "instruction.dart",
+        "2": [
+          "RouteData"
+        ],
+        "5": false
+      }
+    ],
+    "6": "route_handler.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "instruction.ng_deps.dart",
+        "4": "i1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.directives.ng_if",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Directive",
+          "ViewContainerRef",
+          "TemplateRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isBlank"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgIf",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"[ngIf]\""
+              },
+              {
+                "1": "inputs",
+                "2": "const [\"ngIf\"]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ViewContainerRef",
+            "4": "_viewContainer"
+          },
+          {
+            "1": "TemplateRef",
+            "4": "_templateRef"
+          }
+        ]
+      }
+    ],
+    "6": "ng_if.dart"
+  },
+  "NgIf": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngIf]",
+      "exportAs": null,
+      "type": {
+        "name": "NgIf",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_if.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngIf": "ngIf"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  }
+}

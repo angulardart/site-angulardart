@@ -1,0 +1,17 @@
+{
+  "ngDeps": {
+    "1": "angular2.di.decorators",
+    "3": [
+      {
+        "1": "metadata.dart",
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "metadata.dart"
+      }
+    ],
+    "6": "decorators.dart"
+  }
+}

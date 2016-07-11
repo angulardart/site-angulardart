@@ -1,0 +1,86 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "package:angular2/angular2.dart",
+        "2": [
+          "Component",
+          "OnInit"
+        ],
+        "5": false
+      },
+      {
+        "1": "../services/pirate_name.dart",
+        "2": [
+          "PirateNameService"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "PirateBadge",
+        "4": [
+          {
+            "1": "Component",
+            "3": [
+              {
+                "1": "selector",
+                "2": "'pirate-badge'"
+              },
+              {
+                "1": "templateUrl",
+                "2": "'pirate_badge_component.html'"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": true,
+            "7": true,
+            "8": false
+          }
+        ],
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "pirate_badge_component.dart"
+  },
+  "PirateBadge": {
+    "kind": "type",
+    "value": {
+      "isComponent": true,
+      "dynamicLoadable": true,
+      "selector": "pirate-badge",
+      "exportAs": null,
+      "type": {
+        "name": "PirateBadge",
+        "moduleUrl": "asset:pirate_badge/lib/components/pirate_badge_component.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<!--\n  Copyright (c) 2016, the Dart project authors.\n  Please see the AUTHORS file for details.\n  All rights reserved. Use of this source code\n  is governed by a BSD-style license that can be\n  found in the LICENSE file.\n-->\n\n<div class=\"widgets\">\n  <input [disabled]=\"!enableInput\" (input)=\"updateBadge($event.target.value)\"\n         type=\"text\" maxlength=\"15\">\n  <button [disabled]=\"!enableButton\" (click)=\"generateBadge()\">\n    {{ buttonText }}\n  </button>\n</div>\n<div class=\"badge\">\n  <div class=\"greeting\">Arrr! Me name is</div>\n  <div class=\"name\">{{ badgeName }}</div>\n</div>\n",
+        "templateUrl": "asset:pirate_badge/lib/components/pirate_badge_component.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "ngDeps": {
+    "1": "change_detection.observable_facade",
+    "3": [
+      {
+        "1": "package:observe/observe.dart",
+        "5": false
+      }
+    ],
+    "6": "observable_facade.dart"
+  }
+}

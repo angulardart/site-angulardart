@@ -1,0 +1,179 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.template_normalizer",
+    "3": [
+      {
+        "1": "directive_metadata.dart",
+        "2": [
+          "CompileTypeMetadata",
+          "CompileDirectiveMetadata",
+          "CompileTemplateMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/compiler/xhr.dart",
+        "2": [
+          "XHR"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/compiler/url_resolver.dart",
+        "2": [
+          "UrlResolver"
+        ],
+        "5": false
+      },
+      {
+        "1": "style_url_resolver.dart",
+        "2": [
+          "extractStyleUrls",
+          "isStyleUrlResolvable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/metadata/view.dart",
+        "2": [
+          "ViewEncapsulation"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_ast.dart",
+        "2": [
+          "HtmlAstVisitor",
+          "HtmlElementAst",
+          "HtmlTextAst",
+          "HtmlAttrAst",
+          "HtmlAst",
+          "htmlVisitAll"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_parser.dart",
+        "2": [
+          "HtmlParser"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_preparser.dart",
+        "2": [
+          "preparseElement",
+          "PreparsedElement",
+          "PreparsedElementType"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TemplateNormalizer",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "XHR",
+            "4": "_xhr"
+          },
+          {
+            "1": "UrlResolver",
+            "4": "_urlResolver"
+          },
+          {
+            "1": "HtmlParser",
+            "4": "_htmlParser"
+          }
+        ]
+      }
+    ],
+    "6": "template_normalizer.dart",
+    "10": [
+      {
+        "1": "directive_metadata.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/compiler/xhr.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/compiler/url_resolver.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "style_url_resolver.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/core/metadata/view.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "html_ast.ng_deps.dart",
+        "4": "i8"
+      },
+      {
+        "1": "html_parser.ng_deps.dart",
+        "4": "i9"
+      },
+      {
+        "1": "template_preparser.ng_deps.dart",
+        "4": "i10"
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.change_detection.change_detection_util",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "Type",
+          "StringWrapper",
+          "looseIdentical"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "MapWrapper",
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "proto_record.dart",
+        "2": [
+          "ProtoRecord"
+        ],
+        "5": false
+      },
+      {
+        "1": "constants.dart",
+        "2": [
+          "ChangeDetectionStrategy",
+          "isDefaultChangeDetectionStrategy"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipe_lifecycle_reflector.dart",
+        "2": [
+          "implementsOnDestroy"
+        ],
+        "5": false
+      },
+      {
+        "1": "binding_record.dart",
+        "2": [
+          "BindingTarget"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_record.dart",
+        "2": [
+          "DirectiveIndex"
+        ],
+        "5": false
+      },
+      {
+        "1": "pipes.dart",
+        "2": [
+          "SelectedPipe"
+        ],
+        "5": false
+      }
+    ],
+    "6": "change_detection_util.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "proto_record.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "constants.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "pipe_lifecycle_reflector.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "binding_record.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "directive_record.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "pipes.ng_deps.dart",
+        "4": "i6"
+      }
+    ]
+  }
+}

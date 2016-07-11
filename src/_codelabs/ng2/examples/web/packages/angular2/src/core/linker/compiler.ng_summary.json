@@ -1,0 +1,88 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.compiler",
+    "3": [
+      {
+        "1": "package:angular2/src/core/linker/view_ref.dart",
+        "2": [
+          "ProtoViewRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/proto_view_factory.dart",
+        "2": [
+          "ProtoViewFactory"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isBlank",
+          "stringify"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "2": [
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/template_commands.dart",
+        "2": [
+          "CompiledHostTemplate"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "Compiler_",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ProtoViewFactory",
+            "4": "_protoViewFactory"
+          }
+        ]
+      }
+    ],
+    "6": "compiler.dart"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.web_workers.shared.client_message_broker",
+    "3": [
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.dart",
+        "2": [
+          "MessageBus"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "print",
+          "isPresent",
+          "DateWrapper",
+          "stringify"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseCompleter",
+          "PromiseWrapper",
+          "ObservableWrapper",
+          "EventEmitter"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "StringMapWrapper",
+          "MapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.dart",
+        "2": [
+          "Serializer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "StringWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "4": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type"
+        ]
+      }
+    ],
+    "5": [
+      {
+        "1": "ClientMessageBrokerFactory_",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "MessageBus",
+            "4": "_messageBus"
+          },
+          {
+            "1": "Serializer",
+            "4": "_serializer"
+          }
+        ]
+      }
+    ],
+    "6": "client_message_broker.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/web_workers/shared/message_bus.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/web_workers/shared/serializer.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.linker.element_injector",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "Type",
+          "stringify",
+          "StringWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "EventEmitter",
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "MapWrapper",
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injector",
+          "Key",
+          "Dependency",
+          "provide",
+          "Provider",
+          "ResolvedProvider",
+          "NoProviderError",
+          "AbstractProviderError",
+          "CyclicDependencyError",
+          "resolveForwardRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di/injector.dart",
+        "2": [
+          "UNDEFINED",
+          "ProtoInjector",
+          "Visibility",
+          "InjectorInlineStrategy",
+          "InjectorDynamicStrategy",
+          "ProviderWithVisibility",
+          "DependencyProvider"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di/provider.dart",
+        "2": [
+          "resolveProvider",
+          "ResolvedFactory",
+          "ResolvedProvider_"
+        ],
+        "5": false
+      },
+      {
+        "1": "../metadata/di.dart",
+        "2": [
+          "AttributeMetadata",
+          "QueryMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "view.dart",
+        "2": [
+          "AppViewContainer",
+          "AppView"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_manager.dart",
+        "4": "avmModule",
+        "5": false
+      },
+      {
+        "1": "view_container_ref.dart",
+        "2": [
+          "ViewContainerRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "element_ref.dart",
+        "2": [
+          "ElementRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_ref.dart",
+        "2": [
+          "TemplateRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "../metadata/directives.dart",
+        "2": [
+          "DirectiveMetadata",
+          "ComponentMetadata"
+        ],
+        "5": false
+      },
+      {
+        "1": "directive_lifecycle_reflector.dart",
+        "2": [
+          "hasLifecycleHook"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.dart",
+        "2": [
+          "ChangeDetector",
+          "ChangeDetectorRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "query_list.dart",
+        "2": [
+          "QueryList"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.dart",
+        "2": [
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/reflection/types.dart",
+        "2": [
+          "SetterFn"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/event_config.dart",
+        "2": [
+          "EventConfig"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/interfaces.dart",
+        "2": [
+          "AfterViewChecked"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/pipes/pipe_provider.dart",
+        "2": [
+          "PipeProvider"
+        ],
+        "5": false
+      },
+      {
+        "1": "interfaces.dart",
+        "2": [
+          "LifecycleHooks"
+        ],
+        "5": false
+      },
+      {
+        "1": "view_container_ref.dart",
+        "2": [
+          "ViewContainerRef_"
+        ],
+        "5": false
+      }
+    ],
+    "6": "element_injector.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/di/injector.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/core/di/provider.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "../metadata/di.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "view.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "view_manager.ng_deps.dart",
+        "4": "i7"
+      },
+      {
+        "1": "view_container_ref.ng_deps.dart",
+        "4": "i8"
+      },
+      {
+        "1": "element_ref.ng_deps.dart",
+        "4": "i9"
+      },
+      {
+        "1": "template_ref.ng_deps.dart",
+        "4": "i10"
+      },
+      {
+        "1": "../metadata/directives.ng_deps.dart",
+        "4": "i11"
+      },
+      {
+        "1": "directive_lifecycle_reflector.ng_deps.dart",
+        "4": "i12"
+      },
+      {
+        "1": "package:angular2/src/core/change_detection/change_detection.ng_deps.dart",
+        "4": "i13"
+      },
+      {
+        "1": "query_list.ng_deps.dart",
+        "4": "i14"
+      },
+      {
+        "1": "package:angular2/src/core/reflection/reflection.ng_deps.dart",
+        "4": "i15"
+      },
+      {
+        "1": "package:angular2/src/core/linker/interfaces.ng_deps.dart",
+        "4": "i16"
+      },
+      {
+        "1": "package:angular2/src/core/pipes/pipe_provider.ng_deps.dart",
+        "4": "i17"
+      },
+      {
+        "1": "interfaces.ng_deps.dart",
+        "4": "i18"
+      }
+    ]
+  }
+}

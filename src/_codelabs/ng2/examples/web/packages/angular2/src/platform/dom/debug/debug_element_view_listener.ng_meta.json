@@ -1,0 +1,121 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.dom.debug.debug_element_view_listener",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "NumberWrapper",
+          "StringWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "MapWrapper",
+          "Map",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable",
+          "provide",
+          "Provider"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_listener.dart",
+        "2": [
+          "AppViewListener"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.dart",
+        "2": [
+          "AppView"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.dart",
+        "2": [
+          "DOM"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/render/api.dart",
+        "2": [
+          "Renderer"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/debug/debug_element.dart",
+        "2": [
+          "DebugElement",
+          "DebugElement_"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "DebugElementViewListener",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Renderer",
+            "4": "_renderer"
+          }
+        ],
+        "6": [
+          "AppViewListener"
+        ]
+      }
+    ],
+    "6": "debug_element_view_listener.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_listener.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/core/render/api.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/core/debug/debug_element.ng_deps.dart",
+        "4": "i5"
+      }
+    ]
+  }
+}

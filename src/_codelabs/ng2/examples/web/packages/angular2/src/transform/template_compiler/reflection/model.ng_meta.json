@@ -1,0 +1,22 @@
+{
+  "ngDeps": {
+    "1": "angular2.transform.template_compiler.reflection.model",
+    "3": [
+      {
+        "1": "package:angular2/src/compiler/util.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/event_config.dart",
+        "5": false
+      }
+    ],
+    "6": "model.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/compiler/util.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  }
+}

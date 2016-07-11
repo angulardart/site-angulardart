@@ -1,0 +1,87 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.html_parser",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "StringWrapper",
+          "stringify",
+          "assertionsEnabled",
+          "StringJoiner",
+          "serializeEnum"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_ast.dart",
+        "2": [
+          "HtmlAst",
+          "HtmlAttrAst",
+          "HtmlTextAst",
+          "HtmlElementAst"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_lexer.dart",
+        "2": [
+          "HtmlToken",
+          "HtmlTokenType",
+          "tokenizeHtml"
+        ],
+        "5": false
+      },
+      {
+        "1": "parse_util.dart",
+        "2": [
+          "ParseError",
+          "ParseLocation",
+          "ParseSourceSpan"
+        ],
+        "5": false
+      },
+      {
+        "1": "html_tags.dart",
+        "2": [
+          "HtmlTagDefinition",
+          "getHtmlTagDefinition",
+          "getNsPrefix"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "HtmlParser",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      }
+    ],
+    "6": "html_parser.dart"
+  }
+}

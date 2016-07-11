@@ -1,0 +1,46 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.path_recognizer",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "RegExp",
+          "RegExpWrapper",
+          "RegExpMatcherWrapper",
+          "StringWrapper",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "MapWrapper",
+          "StringMapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "url_parser.dart",
+        "2": [
+          "Url",
+          "RootUrl",
+          "serializeParams"
+        ],
+        "5": false
+      }
+    ],
+    "6": "path_recognizer.dart"
+  }
+}

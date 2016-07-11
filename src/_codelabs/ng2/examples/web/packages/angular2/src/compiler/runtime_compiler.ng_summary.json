@@ -1,0 +1,88 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.compiler.runtime_compiler",
+    "3": [
+      {
+        "1": "package:angular2/src/core/linker/compiler.dart",
+        "2": [
+          "Compiler",
+          "Compiler_",
+          "internalCreateProtoView"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.dart",
+        "2": [
+          "ProtoViewRef"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/proto_view_factory.dart",
+        "2": [
+          "ProtoViewFactory"
+        ],
+        "5": false
+      },
+      {
+        "1": "template_compiler.dart",
+        "2": [
+          "TemplateCompiler"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "RuntimeCompiler_",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "ProtoViewFactory",
+            "4": "_protoViewFactory"
+          },
+          {
+            "1": "TemplateCompiler",
+            "4": "_templateCompiler"
+          }
+        ],
+        "6": [
+          "RuntimeCompiler"
+        ]
+      }
+    ],
+    "6": "runtime_compiler.dart"
+  }
+}

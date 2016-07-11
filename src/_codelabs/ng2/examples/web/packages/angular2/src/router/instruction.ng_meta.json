@@ -1,0 +1,41 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.router.instruction",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "Map",
+          "MapWrapper",
+          "StringMapWrapper",
+          "ListWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "isPresent",
+          "isBlank",
+          "Type"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future",
+          "PromiseWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "6": "instruction.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.platform_common_providers",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isBlank",
+          "isPresent",
+          "assertionsEnabled"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "provide",
+          "Provider",
+          "Injector",
+          "OpaqueToken"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/console.dart",
+        "2": [
+          "Console"
+        ],
+        "5": false
+      },
+      {
+        "1": "reflection/reflection.dart",
+        "2": [
+          "Reflector",
+          "reflector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/testability/testability.dart",
+        "2": [
+          "TestabilityRegistry"
+        ],
+        "5": false
+      }
+    ],
+    "6": "platform_common_providers.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/core/di.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/console.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "reflection/reflection.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/testability/testability.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  }
+}

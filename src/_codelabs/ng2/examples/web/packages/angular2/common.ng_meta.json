@@ -1,0 +1,661 @@
+{
+  "ngDeps": {
+    "1": "angular2.common",
+    "4": [
+      {
+        "1": "src/common/pipes.dart"
+      },
+      {
+        "1": "src/common/directives.dart"
+      },
+      {
+        "1": "src/common/forms.dart"
+      },
+      {
+        "1": "src/common/common_directives.dart"
+      }
+    ],
+    "6": "common.dart",
+    "10": [
+      {
+        "1": "src/common/pipes.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "src/common/directives.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "src/common/forms.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "src/common/common_directives.ng_deps.dart",
+        "4": "i3"
+      }
+    ]
+  },
+  "NgClass": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngClass]",
+      "exportAs": null,
+      "type": {
+        "name": "NgClass",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_class.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "rawClass": "ngClass",
+        "initialClasses": "class"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        2,
+        1
+      ],
+      "template": null
+    }
+  },
+  "NgFor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngFor][ngForOf]",
+      "exportAs": null,
+      "type": {
+        "name": "NgFor",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_for.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngForOf": "ngForOf",
+        "ngForTemplate": "ngForTemplate"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        2
+      ],
+      "template": null
+    }
+  },
+  "NgIf": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngIf]",
+      "exportAs": null,
+      "type": {
+        "name": "NgIf",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_if.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngIf": "ngIf"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgStyle": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngStyle]",
+      "exportAs": null,
+      "type": {
+        "name": "NgStyle",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_style.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "rawStyle": "ngStyle"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        2
+      ],
+      "template": null
+    }
+  },
+  "NgSwitch": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitch]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitch",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngSwitch": "ngSwitch"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgSwitchWhen": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitchWhen]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitchWhen",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "ngSwitchWhen": "ngSwitchWhen"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgSwitchDefault": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngSwitchDefault]",
+      "exportAs": null,
+      "type": {
+        "name": "NgSwitchDefault",
+        "moduleUrl": "asset:angular2/lib/src/common/directives/ng_switch.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgControlName": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngControl]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgControlName",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_control_name.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "name": "ngControl",
+        "model": "ngModel"
+      },
+      "outputs": {
+        "update": "ngModelChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3,
+        1
+      ],
+      "template": null
+    }
+  },
+  "NgFormControl": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngFormControl]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgFormControl",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_form_control.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "form": "ngFormControl",
+        "model": "ngModel"
+      },
+      "outputs": {
+        "update": "ngModelChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3
+      ],
+      "template": null
+    }
+  },
+  "NgModel": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngModel]:not([ngControl]):not([ngFormControl])",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgModel",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_model.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "model": "ngModel"
+      },
+      "outputs": {
+        "update": "ngModelChange"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3
+      ],
+      "template": null
+    }
+  },
+  "NgControlGroup": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngControlGroup]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgControlGroup",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_control_group.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "name": "ngControlGroup"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0,
+        1
+      ],
+      "template": null
+    }
+  },
+  "NgFormModel": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngFormModel]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgFormModel",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_form_model.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {
+        "form": "ngFormModel"
+      },
+      "outputs": {
+        "ngSubmit": "ngSubmit"
+      },
+      "hostListeners": {
+        "submit": "onSubmit()"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        3
+      ],
+      "template": null
+    }
+  },
+  "NgForm": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "form:not([ngNoForm]):not([ngFormModel]),ngForm,[ngForm]",
+      "exportAs": "ngForm",
+      "type": {
+        "name": "NgForm",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_form.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {
+        "ngSubmit": "ngSubmit"
+      },
+      "hostListeners": {
+        "submit": "onSubmit()"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "DefaultValueAccessor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "input:not([type=checkbox])[ngControl],textarea[ngControl],input:not([type=checkbox])[ngFormControl],textarea[ngFormControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]",
+      "exportAs": null,
+      "type": {
+        "name": "DefaultValueAccessor",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/default_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "input": "onChange($event.target.value)",
+        "blur": "onTouched()"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgControlStatus": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[ngControl],[ngModel],[ngFormControl]",
+      "exportAs": null,
+      "type": {
+        "name": "NgControlStatus",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/ng_control_status.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {
+        "class.ng-invalid": "ngClassInvalid",
+        "class.ng-touched": "ngClassTouched",
+        "class.ng-untouched": "ngClassUntouched",
+        "class.ng-valid": "ngClassValid",
+        "class.ng-dirty": "ngClassDirty",
+        "class.ng-pristine": "ngClassPristine"
+      },
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "CheckboxControlValueAccessor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "input[type=checkbox][ngControl],input[type=checkbox][ngFormControl],input[type=checkbox][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "CheckboxControlValueAccessor",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/checkbox_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "blur": "onTouched()",
+        "change": "onChange($event.target.checked)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NgSelectOption": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "option",
+      "exportAs": null,
+      "type": {
+        "name": "NgSelectOption",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/select_control_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "SelectControlValueAccessor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "select[ngControl],select[ngFormControl],select[ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "SelectControlValueAccessor",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/select_control_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "input": "onChange($event.target.value)",
+        "blur": "onTouched()",
+        "change": "onChange($event.target.value)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "RequiredValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[required][ngControl],[required][ngFormControl],[required][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "RequiredValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "MinLengthValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[minlength][ngControl],[minlength][ngFormControl],[minlength][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "MinLengthValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "MaxLengthValidator": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "[maxlength][ngControl],[maxlength][ngFormControl],[maxlength][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "MaxLengthValidator",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/validators.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "NumberValueAccessor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "input[type=number][ngControl],input[type=number][ngFormControl],input[type=number][ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "NumberValueAccessor",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/number_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "input": "onChange($event.target.value)",
+        "blur": "onTouched()",
+        "change": "onChange($event.target.value)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "COMMON_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "CORE_DIRECTIVES",
+      "FORM_DIRECTIVES"
+    ]
+  },
+  "CORE_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "NgClass",
+      "NgFor",
+      "NgIf",
+      "NgStyle",
+      "NgSwitch",
+      "NgSwitchWhen",
+      "NgSwitchDefault"
+    ]
+  },
+  "COMMON_PIPES": {
+    "kind": "alias",
+    "value": [
+      "AsyncPipe",
+      "UpperCasePipe",
+      "LowerCasePipe",
+      "JsonPipe",
+      "SlicePipe",
+      "DecimalPipe",
+      "PercentPipe",
+      "CurrencyPipe",
+      "DatePipe"
+    ]
+  },
+  "FORM_PROVIDERS": {
+    "kind": "alias",
+    "value": [
+      "FormBuilder"
+    ]
+  },
+  "FORM_DIRECTIVES": {
+    "kind": "alias",
+    "value": [
+      "NgControlName",
+      "NgControlGroup",
+      "NgFormControl",
+      "NgModel",
+      "NgFormModel",
+      "NgForm",
+      "NgSelectOption",
+      "DefaultValueAccessor",
+      "NumberValueAccessor",
+      "CheckboxControlValueAccessor",
+      "SelectControlValueAccessor",
+      "NgControlStatus",
+      "RequiredValidator",
+      "MinLengthValidator",
+      "MaxLengthValidator"
+    ]
+  }
+}

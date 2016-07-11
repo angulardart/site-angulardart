@@ -1,0 +1,167 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.common.forms.directives.select_control_value_accessor",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "Query",
+          "Directive",
+          "Renderer",
+          "Self",
+          "Provider",
+          "ElementRef",
+          "QueryList"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "ObservableWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "control_value_accessor.dart",
+        "2": [
+          "NG_VALUE_ACCESSOR",
+          "ControlValueAccessor"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "NgSelectOption",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"option\""
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ]
+      },
+      {
+        "1": "SelectControlValueAccessor",
+        "4": [
+          {
+            "1": "Directive",
+            "3": [
+              {
+                "1": "selector",
+                "2": "\"select[ngControl],select[ngFormControl],select[ngModel]\""
+              },
+              {
+                "1": "host",
+                "2": "const {\"(change)\" : \"onChange(\\$event.target.value)\", \"(input)\" : \"onChange(\\$event.target.value)\", \"(blur)\" : \"onTouched()\"}"
+              },
+              {
+                "1": "bindings",
+                "2": "const [SELECT_VALUE_ACCESSOR]"
+              }
+            ],
+            "4": false,
+            "5": true,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Renderer",
+            "4": "_renderer"
+          },
+          {
+            "1": "ElementRef",
+            "4": "_elementRef"
+          },
+          {
+            "1": "QueryList",
+            "2": "<NgSelectOption>",
+            "3": [
+              "const Query(NgSelectOption, descendants: true)"
+            ],
+            "4": "query"
+          }
+        ],
+        "6": [
+          "ControlValueAccessor"
+        ]
+      }
+    ],
+    "6": "select_control_value_accessor.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "control_value_accessor.ng_deps.dart",
+        "4": "i2"
+      }
+    ]
+  },
+  "NgSelectOption": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "option",
+      "exportAs": null,
+      "type": {
+        "name": "NgSelectOption",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/select_control_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  },
+  "SelectControlValueAccessor": {
+    "kind": "type",
+    "value": {
+      "isComponent": false,
+      "dynamicLoadable": true,
+      "selector": "select[ngControl],select[ngFormControl],select[ngModel]",
+      "exportAs": null,
+      "type": {
+        "name": "SelectControlValueAccessor",
+        "moduleUrl": "asset:angular2/lib/src/common/forms/directives/select_control_value_accessor.dart",
+        "isHost": false
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {
+        "input": "onChange($event.target.value)",
+        "blur": "onTouched()",
+        "change": "onChange($event.target.value)"
+      },
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": null
+    }
+  }
+}

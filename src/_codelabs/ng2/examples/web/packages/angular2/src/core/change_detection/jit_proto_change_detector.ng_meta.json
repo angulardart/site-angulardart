@@ -1,0 +1,22 @@
+{
+  "ngDeps": {
+    "1": "change_detection.jit_proto_change_detector",
+    "3": [
+      {
+        "1": "interfaces.dart",
+        "2": [
+          "ChangeDetector",
+          "ProtoChangeDetector"
+        ],
+        "5": false
+      }
+    ],
+    "6": "jit_proto_change_detector.dart",
+    "10": [
+      {
+        "1": "interfaces.ng_deps.dart",
+        "4": "i0"
+      }
+    ]
+  }
+}

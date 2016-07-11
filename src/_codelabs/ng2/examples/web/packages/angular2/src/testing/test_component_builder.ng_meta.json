@@ -1,0 +1,145 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.testing.test_component_builder",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "2": [
+          "ComponentRef",
+          "DebugElement",
+          "DirectiveResolver",
+          "DynamicComponentLoader",
+          "Injector",
+          "Injectable",
+          "ViewMetadata",
+          "ViewRef",
+          "ViewResolver",
+          "provide"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/async.dart",
+        "2": [
+          "Future"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "MapWrapper"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.dart",
+        "2": [
+          "AppView"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.dart",
+        "2": [
+          "internalView"
+        ],
+        "5": false
+      },
+      {
+        "1": "utils.dart",
+        "2": [
+          "el"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.dart",
+        "2": [
+          "DOCUMENT"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.dart",
+        "2": [
+          "DOM"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/debug/debug_element.dart",
+        "2": [
+          "DebugElement_"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "TestComponentBuilder",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "Injector",
+            "4": "_injector"
+          }
+        ]
+      }
+    ],
+    "6": "test_component_builder.dart",
+    "10": [
+      {
+        "1": "package:angular2/core.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/facade/async.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "utils.ng_deps.dart",
+        "4": "i4"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_tokens.ng_deps.dart",
+        "4": "i5"
+      },
+      {
+        "1": "package:angular2/src/platform/dom/dom_adapter.ng_deps.dart",
+        "4": "i6"
+      },
+      {
+        "1": "package:angular2/src/core/debug/debug_element.ng_deps.dart",
+        "4": "i7"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "ngDeps": {
+    "1": "angular2.bootstrap_static",
+    "4": [
+      {
+        "1": "package:angular2/platform/browser_static.dart",
+        "2": [
+          "bootstrapStatic"
+        ]
+      },
+      {
+        "1": "package:angular2/src/core/angular_entrypoint.dart",
+        "2": [
+          "AngularEntrypoint"
+        ]
+      }
+    ],
+    "6": "bootstrap_static.dart"
+  }
+}

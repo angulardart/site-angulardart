@@ -1,0 +1,85 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.core.debug.debug_element",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/lang.dart",
+        "2": [
+          "Type",
+          "isPresent",
+          "isBlank"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper",
+          "MapWrapper",
+          "Predicate"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "unimplemented"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/element_injector.dart",
+        "2": [
+          "ElementInjector"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.dart",
+        "2": [
+          "AppView",
+          "ViewType"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.dart",
+        "2": [
+          "internalView"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/linker/element_ref.dart",
+        "2": [
+          "ElementRef",
+          "ElementRef_"
+        ],
+        "5": false
+      }
+    ],
+    "6": "debug_element.dart",
+    "10": [
+      {
+        "1": "package:angular2/src/facade/exceptions.ng_deps.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/src/core/linker/element_injector.ng_deps.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view.ng_deps.dart",
+        "4": "i2"
+      },
+      {
+        "1": "package:angular2/src/core/linker/view_ref.ng_deps.dart",
+        "4": "i3"
+      },
+      {
+        "1": "package:angular2/src/core/linker/element_ref.ng_deps.dart",
+        "4": "i4"
+      }
+    ]
+  }
+}

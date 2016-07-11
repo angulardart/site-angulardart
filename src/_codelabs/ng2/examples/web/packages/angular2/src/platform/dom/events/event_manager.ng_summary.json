@@ -1,0 +1,68 @@
+{
+  "ngDeps": {
+    "1": "angular2.src.platform.dom.events.event_manager",
+    "3": [
+      {
+        "1": "package:angular2/src/facade/exceptions.dart",
+        "2": [
+          "BaseException",
+          "WrappedException"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/di.dart",
+        "2": [
+          "Injectable",
+          "Inject",
+          "OpaqueToken"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/core/zone/ng_zone.dart",
+        "2": [
+          "NgZone"
+        ],
+        "5": false
+      },
+      {
+        "1": "package:angular2/src/facade/collection.dart",
+        "2": [
+          "ListWrapper"
+        ],
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "EventManager",
+        "4": [
+          {
+            "1": "Injectable",
+            "4": false,
+            "5": false,
+            "6": false,
+            "7": true,
+            "8": false
+          }
+        ],
+        "5": [
+          {
+            "1": "List",
+            "2": "<EventManagerPlugin>",
+            "3": [
+              "const Inject(EVENT_MANAGER_PLUGINS)"
+            ],
+            "4": "plugins"
+          },
+          {
+            "1": "NgZone",
+            "4": "_zone"
+          }
+        ]
+      }
+    ],
+    "6": "event_manager.dart"
+  }
+}
