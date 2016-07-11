@@ -2,7 +2,7 @@
 layout: default
 permalink: /community
 title: "Community and Support"
-description: "Communities for webdev Dart."
+description: "Communities for Dart webdev."
 ---
 
 Become involved with the community of Dart developers who write for the web.
