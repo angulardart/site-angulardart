@@ -26,8 +26,8 @@ $(window).on('load', function (e){
   if (window.location.hash) {
     $('html, body').animate({ scrollTop: $(window.location.hash).offset().top-70 }, 500, function (){
       // Mark as active
-        $('a[href^="#"]').parent('li').removeClass('active');
-        $('a[href="'+window.location.hash+'"]').parent('li').addClass('active');
+      $('a[href^="#"]').parent('li').removeClass('active');
+      $('a[href="'+window.location.hash+'"]').parent('li').addClass('active');
     });
   }
 });
@@ -45,6 +45,7 @@ $(window).scroll(function(){
 
 
 $(document).on('ready', function(){
+  // set heights for navigation elements
   fixNav();
   // Initiate Syntax Highlighting
   prettyPrint();
@@ -81,8 +82,8 @@ $(document).on('ready', function(){
   $('.section-nav').addClass('nav').css({opacity: 1});
 
   $('body').scrollspy({
-     offset: 100,
-     target: '#toc'
+    offset: 100,
+    target: '#toc'
   });
 
   $('#toc').on('activate.bs.scrollspy', function () {
@@ -99,7 +100,7 @@ $(document).on('ready', function(){
       if (target.length == 0) target = $('a[name="' + this.hash.substr(1) + '"]');
       if (target.length == 0) target = $('html');
       $('html, body').animate({ scrollTop: target.offset().top-70 }, 500, function (){
-          location.hash = hash;
+        location.hash = hash;
       });
       // Mark as active
       // $('a[href^="#"]').parent('li').removeClass('active');
@@ -107,7 +108,7 @@ $(document).on('ready', function(){
     }
   });
 
-  
+
   // Popovers
   $('[data-toggle="popover"], .dart-popover').popover();
 
@@ -126,7 +127,7 @@ $(document).on('ready', function(){
   $(window).smartresize(fixNav());
 
   // Add external link indicators
-  $('a[href^="http"], a[target="_blank"]').not('.codesample__open-in-dartpad').addClass('external');
+  $('a[href^="http"], a[target="_blank"]').not('.no-automatic-external').addClass('external');
 
 });
 
