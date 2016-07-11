@@ -1481,7 +1481,7 @@ shows you how to use the major features in Dart’s libraries.
 
 Please provide feedback to the appropriate repo:
 
-[www.dartlang.org repo](https://github.com/dart-lang/www.dartlang.org/issues)
+[www.dartlang.org repo](https://github.com/dart-lang/site-webdev/issues)
 : For feedback about this code lab.
 
 [DartPad repo](https://github.com/dart-lang/dart-pad/issues)

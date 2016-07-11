@@ -14,7 +14,7 @@ Also see:
 ## Join the conversation
 
 Dart is an open source project, and we look forward to hearing from you.
-<a href="https://github.com/dart-lang/webdev.dartlang.org/issues/new?title=Bad%20URL&body=URL%3A%20%0AExpected%20page%3A%20" target="_blank">Let us know</a>
+<a href="https://github.com/dart-lang/site-webdev/issues/new?title=Bad%20URL&body=URL%3A%20%0AExpected%20page%3A%20" target="_blank">Let us know</a>
 if you find other resources we should add.
 
 #### Angular Dart, Polymer Dart, dart:html

@@ -73,7 +73,7 @@ Cascading Style Sheets (CSS)
 <div class="trydart-step-details" markdown="1">
 
 Please provide feedback on this code lab to the
-[www.dartlang.org repo](https://github.com/dart-lang/www.dartlang.org/issues).
+[www.dartlang.org repo](https://github.com/dart-lang/site-webdev/issues).
 
 </div>
 

@@ -16,7 +16,7 @@ October 2011
 **Note:**
 This article doesn't reflect more recent recommendations such as building
 to JavaScript using the [pub]({{site.dartlang}}/tools/pub/) tool
-(specifically, the [pub build](/tools/pub-build) command).
+(specifically, the [pub build](/tools/pub/pub-build) command).
 Also, the recommended `<script ...>` tags are out of date.
 See the [Stagehand](https://github.com/google/stagehand)
 templates for our current recommendations.
