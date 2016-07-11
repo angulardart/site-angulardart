@@ -1,7 +1,7 @@
-# dart4web Website
+# The webdev site
 
-This site uses the same tools and infrastructure as
-www.dartlang.org.
+This repo implements the webdev.dartlang.org website, using the same tools and infrastructure as
+www.dartlang.org (http://github.com/dart-lang/site-www).
 
 ## Building the site
 
