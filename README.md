@@ -1,7 +1,7 @@
 # The webdev site
 
-This repo implements the webdev.dartlang.org website, using the same tools and infrastructure as
-www.dartlang.org (http://github.com/dart-lang/site-www).
+This repo implements the [webdev.dartlang.org](http://webdev.dartlang.org) website, using the same tools and infrastructure as
+www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](http://github.com/dart-lang/site-www)).
 
 ## Building the site
 
