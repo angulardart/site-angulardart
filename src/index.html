@@ -78,8 +78,6 @@ For example, <code>dart:html</code> is a sane, Dart-y wrapper around the DOM and
     </div>
 </section>
 
-<!--<hr>-->
-
 <section>
     <div class="container">
         <div class="row headline">
@@ -111,15 +109,15 @@ For example, <code>dart:html</code> is a sane, Dart-y wrapper around the DOM and
     </div>
 </section>
 
+
 <section>
     <div class="container">
         <div class="row headline">
             <div class="col-sm-7 col-lg-6">
-
             </div>
             <div class="col-sm-5 col-lg-6">
                 <div class="content">
-                    <h2>Made for application programming</h2>
+                    <h2>Great with Angular</h2>
                 </div>
             </div>
         </div>
@@ -127,28 +125,18 @@ For example, <code>dart:html</code> is a sane, Dart-y wrapper around the DOM and
         <div class="row">
             <div class="col-sm-7 col-lg-6">
                 <div class="content">
-{% prettify dart %}
-// XXX PENDING: Shouldn't we be showing async-await here?
-// XXX Maybe also an obvious Stream?
-// XXX Maybe show Angular code, not dart:html?
-// XXX Maybe move up above "Stable & maintained"?
-
-void highlight(ParagraphElement focus, Element container) {
-  var all = container.querySelectorAll("p");
-  all.forEach(
-      (paragraph) => paragraph.classes.remove("highlight"));
-  focus.classes.add("highlight");
-}
-{% endprettify %}
+                    <p class="text-center">
+                        {% img 'angular-dart-love.svg' width='50%' %}
+                    </p>
                 </div>
             </div>
             <div class="col-sm-5 col-lg-6">
                 <div class="content">
                     <p>
-                        Client-side development has challenges that are different from, say, backend development. Client apps are asynchronous, so Dart has <code>async</code>-<code>await</code>. Clients have many streams of events, so Dart has generators and a well-crafted <code>Stream</code> class. Object-oriented programming is a great fit for UI development, and Dart is object-oriented.
+                        You can do Dart web development with whatever web framework (or lack of one) you choose. We recommend Angular 2 for Dart.
                     </p>
                     <p>
-                        The Dart team works closely with its largest customers, making improvements based on actual developer needs.
+                        Google uses this framework+language combo in production, and invests heavily in its development.
                     </p>
                 </div>
             </div>
@@ -186,40 +174,6 @@ void highlight(ParagraphElement focus, Element container) {
             <div class="col-sm-7 col-lg-8">
                 <div class="content">
                     <p class="text-center">{% img 'screenshot02.png' %}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row headline">
-            <div class="col-sm-7 col-lg-6">
-            </div>
-            <div class="col-sm-5 col-lg-6">
-                <div class="content">
-                    <h2>Great with Angular</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-7 col-lg-6">
-                <div class="content">
-{% prettify dart %}
-TODO: angular sample
-{% endprettify %}
-                </div>
-            </div>
-            <div class="col-sm-5 col-lg-6">
-                <div class="content">
-                    <p>You can do Dart web development with whatever web framework (or lack of one) you choose. We recommend Angular 2 for Dart, which Google uses in production.
-		    </p>
-		    <p>
-		    PENDING: It seems weird that there's plenty of dart:html
-		    before now but no textual mention of angular.
-		    </p>
                 </div>
             </div>
         </div>
