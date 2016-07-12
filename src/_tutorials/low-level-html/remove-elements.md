@@ -76,7 +76,7 @@ void addToDoItem(Event e) {
 {% endcomment %}
 
 **Try it!**
-Click run ( {% img 'run.png' %} ) to start the web app.
+Click run ( {% img 'red-run.png' %} ) to start the web app.
 Then type in the app's input field, and press the return key;
 a new item appears in the list.
 Enter a few more items.
