@@ -253,6 +253,11 @@ Double clicking a file opens that file in the editor view.
 ## <i class="fa fa-anchor"> </i> Review the code. {#review-the-code}
 
 <div class="trydart-step-details" markdown="1">
+If you're completely new to Dart, you might want to first read
+the [language tour]({{site.dartlang}}/language/language-tour),
+or review some [sample code]({{site.dartlang}}/samples/) on
+[www.dartlang.org]({{site.dartlang}}).
+
 Get familiar with the HTML and the Dart code for the skeleton
 version of the app.
 Double-click a filename in the project view to see its contents in the editor view.

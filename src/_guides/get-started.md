@@ -8,6 +8,10 @@ We recommend using Angular and WebStorm to write Dart web apps.
 You'll also need the Dart SDK and Dartium,
 which is a special build of Chromium with the Dart VM.
 
+If you're completely new to Dart, you might want to first read
+through the [language tour]({{site.dartlang}}/language/language-tour),
+or review some [sample code]({{site.dartlang}}/samples/) on
+[www.dartlang.org]({{site.dartlang}}).
 
 ## 1. Install the Dart SDK and Dartium
 
@@ -64,6 +68,13 @@ Try another code lab or tutorial, or read documentation to learn more about
 using Dart for web development.
 
 <!-- PENDING: add link to code samples, e.g. https://github.com/angular-examples -->
+
+Dart language and its libraries:
+
+* [Language Tour]({{site.dartlang}}/guides/language/language-tour)
+* [Effective Dart]({{site.dartlang}}/guides/language/effective-dart)
+* [Library Tour]({{site.dartlang}}/guides/libraries/library-tour)
+* [Sample Code]({{site.dartlang}}/samples/)
 
 Dart webdev tutorials and code labs:
 
