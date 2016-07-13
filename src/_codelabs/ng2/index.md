@@ -31,7 +31,7 @@ You also need:
 
 <iframe class="running-app-frame"
         style="height:220px;width:550px;"
-        src="examples/web/index.html">
+        src="/codelabs/ng2/examples/web">
 </iframe>
 
 <hr>
