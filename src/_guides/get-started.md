@@ -69,7 +69,7 @@ using Dart for web development.
 
 <!-- PENDING: add link to code samples, e.g. https://github.com/angular-examples -->
 
-Dart language and its libraries:
+The Dart language and libraries:
 
 * [Language Tour]({{site.dartlang}}/guides/language/language-tour)
 * [Effective Dart]({{site.dartlang}}/guides/language/effective-dart)
@@ -80,7 +80,7 @@ Dart webdev tutorials and code labs:
 
 * [Tutorials](/tutorials/)
 * [Code Labs](/codelabs/)
-* [Angular 2 for Dart QuickStart](https://angular.io/dart)
+* [Angular 2 for Dart QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
 * [Angular 2 for Dart Tutorial: Tour of Heroes](https://angular.io/docs/dart/latest/tutorial/)
 
 Tools & library documentation:
@@ -90,7 +90,7 @@ Tools & library documentation:
 * [Dart Tools for the Web](/tools/)
 * [IDEs]({{site.dartlang}}/tools/#ides)
 * [angular.io/dart](https://angular.io/dart)
-* [Overview: Web Libraries](/guides/web-programming)
+* [Web Libraries](/guides/web-programming)
 
-There are a number of communities where you can ask, or answer, Dart
-related questions. For a list, see [Community and Support](/community)
+[Community and Support](/community) lists a number of communities where
+you can ask, or answer, questions related to Dart web development.
