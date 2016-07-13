@@ -5,7 +5,7 @@ description: "How to configure the dart2js transformer in your pubspec file."
 permalink: /tools/pub/dart2js-transformer
 ---
 
-The [pub serve](pub-serve), [pub build](pub-build),
+The [pub serve](/tools/pub/pub-serve), [pub build](/tools/pub/pub-build),
 and [pub run]({{site.dartlang}}/tools/pub/cmd/pub-run.html)
 commands use the [dart2js](/tools/dart2js)
 compiler to convert your Dart files to JavaScript.
@@ -39,7 +39,7 @@ transformers:
   csp: true
 {% endprettify %}
 
-## Options {#options}
+## Options
 
 The following options are available. For more information on how these options
 work, see the [documentation](/tools/dart2js#options) for dart2js:
@@ -62,7 +62,7 @@ transformers:
 For command-line options not covered in this list,
 see [Special-case options](#additional-options).
 
-## Excluding an asset {#exclude-assets}
+## Excluding an asset
 
 You can also exclude a particular asset, or set of assets,
 from being processed by a transformer.
@@ -72,7 +72,7 @@ For more information, see
 [How to exclude assets]({{site.dartlang}}/tools/pub/assets-and-transformers.html#exclude-assets) in
 [Pub Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers.html).
 
-## Special-case options {#additional-options}
+## Special-case options
 
 `commandLineOptions: [...args...]`
 

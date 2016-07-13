@@ -39,7 +39,7 @@ Pub also automatically compiles your
 Dart application to JavaScript using dart2js.
 
 See
-[Configuring the Built-in dart2js Transformer](dart2js-transformer)
+[Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer)
 for information on how to configure the dart2js options in your pubspec.
 
 See [Pub Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers)
@@ -50,14 +50,14 @@ for information on:
 * How to use `pubspec.yaml` to specify which transformers run, and in
   what order.
 
-Also see [`pub serve`](pub-serve.html). With `pub serve`, you can run a
+Also see [`pub serve`](/tools/pub/pub-serve.html). With `pub serve`, you can run a
 development server that continuously generates and serves assets.
 
 <aside class="alert alert-info" markdown="1">
 **Note:** In earlier releases of Dart, _pub build_ was called _pub deploy_.
 </aside>
 
-## Options {#options}
+## Options
 
 For options that apply to all pub commands, see
 [Global options]({{site.dartlang}}/tools/pub/cmd#global-options).

@@ -15,8 +15,8 @@ running any required transformers.
 
 To learn more, see the following reference pages:
 
-* [pub build](pub-build)
-* [pub serve](pub-serve)
+* [pub build](/tools/pub/pub-build)
+* [pub serve](/tools/pub/pub-serve)
 
 ## Writing transformers
 

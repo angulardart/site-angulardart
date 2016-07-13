@@ -35,14 +35,14 @@ Polymer-formatted HTML) into output assets
 
 These output assets aren't in the file system; they exist only in the dev
 server. When you're ready to deploy, generate output files by running
-[`pub build`](pub-build).
+[`pub build`](/tools/pub/pub-build).
 
 Pub automatically includes a dart2js transformer that compiles your Dart code
 to JavaScript. With this, you can change some Dart code, refresh your
 non-Dartium browser, and immediately see the changes.
 
 See
-[Configuring the Built-in dart2js Transformer](dart2js-transformer)
+[Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer)
 for information on how to configure the dart2js options in your pubspec.
 
 See [Pub Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers) for

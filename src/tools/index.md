@@ -45,12 +45,12 @@ In addition to the [other Dart tools]({{site.dartlang}}/tools)
 included in the SDK, the following tools
 offer specialized support for web programming.
 
-* [dart2js](dart2js)
+* [dart2js](/tools/dart2js)
 : Dart-to-JavaScript compiler
 
-* [pub build](pub/pub-build)
+* [pub build](/tools/pub/pub-build)
 : Pub command for building a web app
 
-* [pub serve](pub/pub-serve)
+* [pub serve](/tools/pub/pub-serve)
 : Pub command for serving a web app
 
