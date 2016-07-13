@@ -211,7 +211,7 @@ which adds an item to the end of the **microtask queue**.
 <aside class="alert alert-info" markdown="1">
 **Note:**
 The **scheduleMicrotask()** function used to be named **runAsync()**.
-(See the [announcement](https://groups.google.com/a/dartlang.org/forum/#!msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ).)
+(See the [announcement](https://groups.google.com/a/dartlang.org/d/msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ).)
 </aside>
 
 Examples of using these APIs are in the next section under

@@ -374,7 +374,7 @@ achievement.
 [jsinterop]: https://pub.dartlang.org/packages/js
 [Angular 2 for Dart]: https://angulardart.org
 [Polymer Dart]: https://github.com/dart-lang/polymer-dart/wiki
-[dartanalyzer]: https://github.com/dart-lang/analyzer_cli#dartanalyzer
+[dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
 [improvethedom]: /articles/low-level-html/improving-the-dom

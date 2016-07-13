@@ -17,7 +17,7 @@ for information on how to specify dart2js flags in your pubspec file.
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
 apps.
-Also see [dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer),
+Also see [dartanalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer),
 which performs a similar analysis but has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips
@@ -177,8 +177,8 @@ To debug in Chrome:
    [SourceMaps in Chrome](http://bit.ly/YugIUY).
 
 3. Enable debugging, either on all exceptions or only on uncaught exceptions,
-   as described in [Pause on Uncaught
-   Exceptions](https://developer.chrome.com/devtools/docs/javascript-debugging#pause-on-uncaught-exceptions).
+   as described in
+   [How to set breakpoints](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints).
 
 4. Reload your application.
 
