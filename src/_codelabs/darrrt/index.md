@@ -34,7 +34,7 @@ are themselves Dart apps.)
 
 <iframe class="running-app-frame"
         style="height:220px;width:550px;"
-        src="examples/index.html">
+        src="/codelabs/darrrt/examples/index.html">
 </iframe>
 
 <hr>
@@ -74,7 +74,7 @@ Click the **Run** button and make sure that the **HTML OUTPUT** tab
 is selected. You should see a red-and-white name badge, plus some text,
 as shown in the following screenshot:
 
-<img src="images/InitialDartPad.png" alt="A screenshot of the output created in the skeleton app">
+<img src="/codelabs/darrrt/images/InitialDartPad.png" alt="A screenshot of the output created in the skeleton app">
 
 DartPad is an interactive web app that lets you immediately play with
 Dart in your browser without having to download or install any software,
@@ -84,7 +84,7 @@ The following screenshot shows DartPad's UI. This example
 contains an intentional error to show you how DartPad handles problems
 that it detects.
 
-<img src="images/AnnotatedDartPad.png" alt="A screenshot of DartPad running the skeleton version of the client code">
+<img src="/codelabs/darrrt/images/AnnotatedDartPad.png" alt="A screenshot of DartPad running the skeleton version of the client code">
 
 The code appears on the left under the **DART**,
 **HTML**, or **CSS** tab.
@@ -1349,7 +1349,7 @@ or you can create your own.
 Choose a sample using the **Samples** button in the upper
 right corner.
 
-<img src="images/DartPadSamples.png" alt="A screenshot of the samples menu in DartPad, including Clock, Fibonacci, and Sunflower">
+<img src="/codelabs/darrrt/images/DartPadSamples.png" alt="A screenshot of the samples menu in DartPad, including Clock, Fibonacci, and Sunflower">
 </div>
 
 ### <i class="fa fa-anchor"> </i> Try programming with an editor or IDE
