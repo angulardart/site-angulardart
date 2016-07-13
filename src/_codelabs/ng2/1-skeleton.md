@@ -181,7 +181,7 @@ Dart's static analyzer over the code to look for errors and warnings.
 
 <li markdown="1"> You can run the analyzer on your code at
   the command line using the
-  [dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyze://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer) command:
+  [dartanalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer) command:
 
 {% prettify none %}
 dartanalyzer .
@@ -254,7 +254,7 @@ Double clicking a file opens that file in the editor view.
 
 <div class="trydart-step-details" markdown="1">
 If you're completely new to Dart, you might want to first read
-the [language tour]({{site.dartlang}}/language/language-tour),
+the [language tour]({{site.dartlang}}/guides/language/language-tour),
 or review some [sample code]({{site.dartlang}}/samples/) on
 [www.dartlang.org]({{site.dartlang}}).
 

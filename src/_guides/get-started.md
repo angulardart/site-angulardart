@@ -9,7 +9,7 @@ You'll also need the Dart SDK and Dartium,
 which is a special build of Chromium with the Dart VM.
 
 If you're completely new to Dart, you might want to first read
-through the [language tour]({{site.dartlang}}/language/language-tour),
+through the [language tour]({{site.dartlang}}/guides/language/language-tour),
 or review some [sample code]({{site.dartlang}}/samples/) on
 [www.dartlang.org]({{site.dartlang}}).
 

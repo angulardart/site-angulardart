@@ -1,5 +1,9 @@
 // Make all css changes here. These change will get added into the current SCSS structure where applicable.
 
+$screen-lg-min: 1200px;
+$screen-md-min: 992px;
+$screen-sm-min: 768px;
+
 /* Add space between definitions. */
 dd {
 	margin-bottom: 15px;
@@ -78,6 +82,18 @@ body.homepage {
     }
   }
 }
+
+// SIDE NAV
+
+.sidenav__search {
+  margin-bottom: 20px;
+  display: none;
+
+  @media(max-width: 479px) {
+    display: block;
+  }
+}
+
 
 /* Get started section in the bottom */
 body.homepage .get-started-section {

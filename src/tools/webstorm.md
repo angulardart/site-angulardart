@@ -129,7 +129,7 @@ Include details of the expected behavior, the actual behavior,
 and screenshots if appropriate.
 
 Your questions are welcome in the
-[Dart plugin for WebStorm/IntelliJ editors mailing list](https://groups.google.com/a/dartlang.org/forum/#!forum/jetbrains-dart-plugin-discuss).
+[Dart plugin for WebStorm/IntelliJ editors mailing list](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss).
 
 ## More information
 
