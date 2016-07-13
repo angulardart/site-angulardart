@@ -7,7 +7,7 @@ permalink: /tools/
 
 This page lists specialized tools for developing web apps.
 For information about general tools for Dart apps, see
-[dartlang.]({{site.dartlang}}/tools)
+[Dart Tools.]({{site.dartlang}}/tools)
 
 ---
 
@@ -34,7 +34,7 @@ we recommend WebStorm, which comes with Dart support.
 <b>WebStorm</b>
 </a>
 
-See [dartlang]({{site.dartlang}}/tools/) for a list of other IDEs.
+See [Dart Tools]({{site.dartlang}}/tools/) for a list of other IDEs.
 
 ---
 
@@ -45,12 +45,12 @@ In addition to the [other Dart tools]({{site.dartlang}}/tools)
 included in the SDK, the following tools
 offer specialized support for web programming.
 
-* [dart2js](/tools/dart2js)
+[dart2js](/tools/dart2js)
 : Dart-to-JavaScript compiler
 
-* [pub build](/tools/pub/pub-build)
+[pub build](/tools/pub/pub-build)
 : Pub command for building a web app
 
-* [pub serve](/tools/pub/pub-serve)
+[pub serve](/tools/pub/pub-serve)
 : Pub command for serving a web app
 
