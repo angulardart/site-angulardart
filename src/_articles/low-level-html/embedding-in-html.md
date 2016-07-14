@@ -15,7 +15,7 @@ October 2011
 <aside class="alert alert-warning" markdown="1">
 **Note:**
 This article doesn't reflect more recent recommendations such as building
-to JavaScript using the [pub]({{site.dartlang}}/tools/pub/) tool
+to JavaScript using the [pub]({{site.dartlang}}/tools/pub) tool
 (specifically, the [pub build](/tools/pub/pub-build) command).
 Also, the recommended `<script ...>` tags are out of date.
 See the [Stagehand](https://github.com/google/stagehand)
@@ -127,7 +127,7 @@ For example:
 {% endprettify %}
 
 To get a copy of the dart.js file,
-you can use the [pub package manager](/tools/pub/).
+you can use the [pub package manager](/tools/pub).
 Here's how:
 
 1. Add the following to your application's pubspec.yaml,

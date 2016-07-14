@@ -174,7 +174,7 @@ Dart's static analyzer over the code to look for errors and warnings.
 <ul markdown="1">
 
 <li markdown="1">Within your project's directory,
-  run [`pub get`](/tools/pub/)
+  run [`pub get`](/tools/pub)
   to download the packages that the app depends on.
   Pub is Dart's package management tool.
 </li>
@@ -255,7 +255,7 @@ Double clicking a file opens that file in the editor view.
 <div class="trydart-step-details" markdown="1">
 If you're completely new to Dart, you might want to first read
 the [language tour]({{site.dartlang}}/guides/language/language-tour),
-or review some [sample code]({{site.dartlang}}/samples/) on
+or review some [sample code]({{site.dartlang}}/samples) on
 [www.dartlang.org]({{site.dartlang}}).
 
 Get familiar with the HTML and the Dart code for the skeleton

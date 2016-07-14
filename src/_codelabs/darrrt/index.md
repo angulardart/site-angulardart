@@ -2,7 +2,7 @@
 layout: codelab
 title: "Low-Level HTML Pirate Code Lab"
 description: "Take your first step to learning Dart fast."
-permalink: /codelabs/darrrt/
+permalink: /codelabs/darrrt
 snippet_img: images/piratemap.jpg
 
 header:
@@ -1133,7 +1133,7 @@ class PirateName {
 
   [[highlight]]static Future readyThePirates() async {[[/highlight]]
     [[highlight]]String path =[[/highlight]]
-        [[highlight]]'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
+        [[highlight]]'https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
     [[highlight]]String jsonString = await HttpRequest.getString(path);[[/highlight]]
     [[highlight]]_parsePirateNamesFromJSON(jsonString);[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -1160,7 +1160,7 @@ class PirateName {
    request that returns a string.
 
 * `getString()` is reading the
-   [piratenames.json](https://www.dartlang.org/codelabs/darrrt/files/piratenames.json)
+   [piratenames.json](https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json)
    file stored on dartlang.
 
 * `getString()` is asynchronous. It sets up the GET request
@@ -1381,7 +1381,7 @@ pub build
 For more information, see
 [Get Started]({{site.dartlang}}/tutorials/dart-vm/get-started) and
 [pub build](/tools/pub/pub-build), one of the
-[pub](/tools/pub/) commands.
+[pub](/tools/pub) commands.
 </div>
 
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app

@@ -3,7 +3,7 @@ layout: default
 title: "Overview: Web Tutorials"
 short-title: "Web Tutorials"
 description: "Tutorials for writing Dart web apps."
-permalink: /tutorials/
+permalink: /tutorials
 toc: false
 ---
 
@@ -26,5 +26,5 @@ The following pages link to other Dart-related tutorials:
 
 * [Tour of Heroes](https://angular.io/docs/dart/latest/tutorial/) tutorial on
   [angular.io](https://angular.io/dart/)
-* [Dart Tutorials]({{site.dartlang}}/tutorials/)
+* [Dart Tutorials]({{site.dartlang}}/tutorials)
 * [Dart Academy](https://dart.academy)

@@ -22,7 +22,7 @@ and learn where to find the sample code.
 
 <div class="trydart-step-details" markdown="1">
 
-If you haven't already done so, get the [Dart SDK]({{site.dartlang}}/install/)
+If you haven't already done so, get the [Dart SDK]({{site.dartlang}}/install)
 and [Dartium](/tools/dartium#getting-dartium).
 
 The Dart SDK installation includes several Dart tools that you'll need.
@@ -39,7 +39,7 @@ You will need Dartium to test your app during development.
 If you don't have a favorite editor already, try
 [WebStorm](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart),
 which comes with a Dart plugin. You can also install
-[Dart plugins for other IDEs and editors](/tools/).
+[Dart plugins for other IDEs and editors](/tools).
 
 If this is the first time you've used your IDE with Dart, you'll
 need to configure the plugin with the location of the Dart SDK and

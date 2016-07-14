@@ -3,13 +3,13 @@ layout: default
 title: "Overview: Web Articles"
 short-title: "Web Articles"
 description: "Articles relating to programming Dart for the web."
-permalink: /articles/
+permalink: /articles
 toc: false
 ---
 
 Read these articles for insight into programming Dart for the web.
 
-Also see: [Articles about the Dart language and libraries]({{site.dartlang}}/articles/)
+Also see: [Articles about the Dart language and libraries]({{site.dartlang}}/articles)
 
 <div class="break-80">
   <h2>Getting Data</h2>

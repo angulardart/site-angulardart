@@ -2,7 +2,7 @@
 layout: default
 title: "Articles: Performance"
 description: "Articles relating to performance aspects of web programming in Dart, such as the event loop."
-permalink: /articles/performance/
+permalink: /articles/performance
 toc: false
 ---
 

@@ -3,7 +3,7 @@
   - title: Get Started
     permalink: /guides/get-started
   - title: "Write an Angular App"
-    permalink: /codelabs/ng2/
+    permalink: /codelabs/ng2
 
 - title: "Libraries"
   children:
@@ -15,7 +15,7 @@
 - title: "Tools"
   children:
   - title: "Dart Tools for the Web"
-    permalink: /tools/
+    permalink: /tools
 
 - title: "Community"
   children:
@@ -25,9 +25,9 @@
 - title: "Tutorials"
   children:
   - title: "Overview"
-    permalink: /tutorials/
+    permalink: /tutorials
 
 - title: "Articles"
   children:
   - title: "Overview"
-    permalink: /articles/
+    permalink: /articles

@@ -45,7 +45,7 @@ Otherwise, you can install Dartium directly:
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac</a>
 
 For other versions of Dartium, including dev channel releases, see the
-[zip file index]({{site.dartlang}}/install/archive/).
+[zip file index]({{site.dartlang}}/install/archive).
 
 <aside class="alert alert-info" markdown="1">
 **Note:**

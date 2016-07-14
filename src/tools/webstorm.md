@@ -13,7 +13,7 @@ It comes with the Dart plugin pre-installed.
 **Note:**
 If you're interested in using Dart
 with another JetBrains IDE such as IntelliJ IDEA, see the page
-[Dart Plugin from JetBrains]({{site.dartlang}}/tools/jetbrains-plugin/).
+[Dart Plugin from JetBrains]({{site.dartlang}}/tools/jetbrains-plugin).
 </aside>
 
 ## Getting started
@@ -26,7 +26,7 @@ install it and then tell it where to find the Dart SDK and Dartium.
 * [Install WebStorm](http://www.jetbrains.com/webstorm/download/) or,
   to try out the latest Dart language features,
   [Install WebStorm EAP](https://confluence.jetbrains.com/display/WI/WebStorm+EAP)
-* [Install the Dart SDK]({{site.dartlang}}/install/)
+* [Install the Dart SDK]({{site.dartlang}}/install)
 * [Install Dartium](/tools/dartium)
 
 

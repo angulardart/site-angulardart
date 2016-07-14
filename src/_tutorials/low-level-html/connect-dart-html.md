@@ -548,7 +548,7 @@ PENDING: Link to WebStorm docs? DartPad docs?
 
 * The <a href="{{site.dartlang}}/guides/language/language-tour">language tour</a>
   provides thorough coverage of the Dart language.
-* <a href="{{site.dartlang}}/tools/">Dart Tools</a>
+* <a href="{{site.dartlang}}/tools">Dart Tools</a>
   lists IDEs and editors that have Dart plugins.
 
 ## What next?

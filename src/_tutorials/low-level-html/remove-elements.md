@@ -31,7 +31,7 @@ A new and improved version of the todo app from
 now allows the user to delete items from the list
 either one at a time, or all at once.
 
-## Try the app {#try-app}
+## Try the app
 
 Below is a revised version
 of the todo app from the previous tutorial
@@ -100,7 +100,7 @@ Specifically, they look at
 the Dart code that removes one or more elements from the DOM
 and the CSS code that makes the text red and larger.
 
-## Changing the appearance when cursor is over an element {#css-hover}
+## Changing the appearance when cursor is over an element
 
 As you saw, an item in the list turns red and gets bigger
 when the user points at it.
@@ -124,7 +124,7 @@ instead of providing a familiar user interface,
 such as a button with an 'X' on it,
 to keep the code simpler.
 
-## Removing an element from the DOM tree {#remove-elem}
+## Removing an element from the DOM tree
 
 An element is removed from
 the DOM when it is removed from its parent's list of children.
@@ -137,7 +137,7 @@ using the element's remove() function
 is shorter and more concise than
 using functions from the List class.
 
-<img class="scale-img-max" src="../images/remove-element.png"
+<img class="scale-img-max" src="/tutorials/images/remove-element.png"
      alt="Use element.remove() to remove an element from the DOM">
 
 In the todo_with_delete app,
@@ -149,19 +149,19 @@ When the user clicks that new element,
 its event handler causes the element to remove itself from the DOM
 with remove().
 
-<img class="scale-img-max" src="../images/remove-element-code.png"
+<img class="scale-img-max" src="/tutorials/images/remove-element-code.png"
      alt="Registering an event handler to delete an item">
 
 When the element removes itself from the DOM,
 the browser re-renders the page,
 and the item disappears from the to do list.
 
-## Removing all child elements from an element {#remove-all-elem}
+## Removing all child elements from an element
 
 When the user clicks the **Delete All** button,
 all elements are removed from the list.
 
-<img class="scale-img-max" src="../images/remove-all-elements.png"
+<img class="scale-img-max" src="/tutorials/images/remove-all-elements.png"
      alt="Use element.children.clear() to remove all of an element's children">
 
 In this case, using the List class's clear() function
@@ -187,13 +187,13 @@ The code registers a mouse click handler on the button;
 the handler removes all of the child elements from the to do list.
 Here is all of the Dart code related to the **Delete All** button.
 
-<img class="scale-img-max" src="../images/remove-all-code.png"
+<img class="scale-img-max" src="/tutorials/images/remove-all-code.png"
      alt="Remove all child elements from an Element">
 
 </li>
 </ol>
 
-## About function expressions and => {#about-function-expressions}
+## About function expressions and =>
 
 The todo_with_delete app uses
 some interesting Dart syntax
@@ -203,7 +203,7 @@ is an example of a _function expression_,
 which is a shorthand way of defining functions
 and it uses the => syntax to define the function concisely.
 
-<img class="scale-img-max" src="../images/event-listener-exp.png"
+<img class="scale-img-max" src="/tutorials/images/event-listener-exp.png"
      alt="A one-line function definition">
 
 It is equivalent to writing this:
@@ -247,7 +247,7 @@ it returns no value and takes an Event object as a parameter.
   </li>
 </ul>
 
-## What next? {#what-next}
+## What next?
 
 Rather than implement your web app using low-level APIs, you can leverage
 existing toolkits.

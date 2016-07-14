@@ -60,7 +60,7 @@ transformers:
 {% endprettify %}
 
 For command-line options not covered in this list,
-see [Special-case options](#additional-options).
+see [Special-case options](#special-case-options).
 
 ## Excluding an asset
 

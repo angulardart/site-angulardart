@@ -2,10 +2,10 @@
 layout: default
 title: "Pub for the Web"
 description: "Pub supports two commands specifically for web development."
-permalink: /tools/pub/
+permalink: /tools/pub
 ---
 
-You can use the [pub]({{site.dartlang}}/tools/pub/)
+You can use the [pub]({{site.dartlang}}/tools/pub)
 tool to manage Dart packages and assets. For more information, see
 [Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers).
 Pub also has specialized commands to support web development.
@@ -28,4 +28,4 @@ Transformers operate on assets, where an asset is
 a resource, such as a Dart file, a CSS file, or an
 image, that is intended to be part of a deployed package.
 
-Learn about transformers on [dartlang]({{site.dartlang}}/tools).
+Learn about transformers on [dartlang]({{site.dartlang}}/tools/pub/transformers).

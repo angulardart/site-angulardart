@@ -10,7 +10,7 @@ which is a special build of Chromium with the Dart VM.
 
 If you're completely new to Dart, you might want to first read
 through the [language tour]({{site.dartlang}}/guides/language/language-tour),
-or review some [sample code]({{site.dartlang}}/samples/) on
+or review some [sample code]({{site.dartlang}}/samples) on
 [www.dartlang.org]({{site.dartlang}}).
 
 ## 1. Install the Dart SDK and Dartium
@@ -19,7 +19,7 @@ or review some [sample code]({{site.dartlang}}/samples/) on
 <div markdown="1">
 The SDK and Dartium are basic tools that every Dart web app writer needs.
 
-[How to install Dart and Dartium]({{site.dartlang}}/install/)
+[How to install Dart and Dartium]({{site.dartlang}}/install)
 </div>
 <div>
   <img style="border:1px solid black" src="/codelabs/ng2/images/first-ng2-app.png" alt="Dartium screenshot"><br>
@@ -74,7 +74,7 @@ The Dart language and libraries:
 * [Language Tour]({{site.dartlang}}/guides/language/language-tour)
 * [Effective Dart]({{site.dartlang}}/guides/language/effective-dart)
 * [Library Tour]({{site.dartlang}}/guides/libraries/library-tour)
-* [Sample Code]({{site.dartlang}}/samples/)
+* [Sample Code]({{site.dartlang}}/samples)
 
 Dart webdev tutorials and code labs:
 
@@ -87,8 +87,8 @@ Tools & library documentation:
 
 * [Dart SDK]({{site.dartlang}}/tools/sdk)
 * [Dartium](/tools/dartium)
-* [Dart Tools for the Web](/tools/)
-* [IDEs]({{site.dartlang}}/tools/#ides)
+* [Dart Tools for the Web](/tools)
+* [IDEs]({{site.dartlang}}/tools#ides)
 * [angular.io/dart](https://angular.io/dart)
 * [Web Libraries](/guides/web-programming)
 

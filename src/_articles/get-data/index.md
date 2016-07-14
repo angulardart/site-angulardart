@@ -2,7 +2,7 @@
 layout: default
 title: "Articles: Get Data"
 description: "Articles that describe how to get data, such as JSON files."
-permalink: /articles/get-data/
+permalink: /articles/get-data
 toc: false
 ---
 

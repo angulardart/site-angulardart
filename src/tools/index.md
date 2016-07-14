@@ -2,7 +2,7 @@
 layout: default
 title: Dart Tools for the Web
 description: "The tools that support web development using Dart."
-permalink: /tools/
+permalink: /tools
 ---
 
 This page lists specialized tools for developing web apps.
@@ -34,7 +34,7 @@ we recommend WebStorm, which comes with Dart support.
 <b>WebStorm</b>
 </a>
 
-See [Dart Tools]({{site.dartlang}}/tools/) for a list of other IDEs.
+See [Dart Tools]({{site.dartlang}}/tools) for a list of other IDEs.
 
 ---
 

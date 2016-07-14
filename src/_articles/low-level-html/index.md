@@ -2,7 +2,7 @@
 layout: default
 title: "Articles: Low-Level HTML"
 description: "Articles relating to web programming in Dart using low-level HTML."
-permalink: /articles/low-level-html/
+permalink: /articles/low-level-html
 toc: false
 ---
 
@@ -17,8 +17,8 @@ toc: false
 </div>
 
 For articles on other Dart topics, see the
-[Dart language and library articles]({{site.dartlang}}/articles/) and
+[Dart language and library articles]({{site.dartlang}}/articles) and
 [Dart VM articles]({{site.dartlang}}/articles/dart-vm).
 
-See also: [Dart Tutorials](/tutorials/)
-and [Effective Dart]({{site.dartlang}}/guides/language/effective-dart/).
+See also: [Dart Tutorials](/tutorials)
+and [Effective Dart]({{site.dartlang}}/guides/language/effective-dart).

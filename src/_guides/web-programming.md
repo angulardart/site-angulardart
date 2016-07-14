@@ -11,7 +11,7 @@ Where can you learn more?
 ## Angular
 
 Work through the
-[Angular 2 code lab](/codelabs/ng2/),
+[Angular 2 code lab](/codelabs/ng2),
 and then learn more from the
 [Angular 2 for Dart](https://angular.io/dart) docs.
 
@@ -38,7 +38,7 @@ you'll want a more powerful solution, such as Angular 2 for Dart.
 
 For an introduction to low-level DOM programming,
 check out the original [Pirate code lab](/codelabs/darrrt).
-The [low-level HTML tutorials](/tutorials/low-level-html/) have
+The [low-level HTML tutorials](/tutorials/low-level-html) have
 further information on how to include a Dart script in an HTML page,
 and how to add and remove elements from a web page.
 The [Improving the DOM](/articles/low-level-html/improving-the-dom) article

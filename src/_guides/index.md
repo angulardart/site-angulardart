@@ -2,12 +2,12 @@
 layout: guide
 title: "Guides"
 description: "Guides to web programming with Dart."
-permalink: /guides/
+permalink: /guides
 toc: false
 ---
 
 {% comment %}
-TODO: Consider fleshing out this page or automating it. 
+TODO: Consider fleshing out this page or automating it.
 {% endcomment %}
 
 Guides on this site:
@@ -19,5 +19,5 @@ Guides on this site:
 
 Also see:
 
-* [Articles](/articles/)
+* [Articles](/articles)
 * [angular.io/dart](https://angular.io/dart)

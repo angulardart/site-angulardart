@@ -2,13 +2,14 @@
 layout: default
 title: "Dart Tutorials: Low-Level HTML"
 description: "Dart Tutorials related to low-level web programming using HTML."
-permalink: /tutorials/low-level-html/
+permalink: /tutorials/low-level-html
 toc: false
 ---
 
-<p>
-  Web pages are programmed in HTML and represented within the browser as a tree structure called the DOM (Document Object Model). Dart apps can modify the DOM programatically, thus dynamically changing the web page. First, learn now to connect Dart and HTML. Then learn how to add, move, and remove DOM elements.
-</p>
+Web pages are programmed in HTML and represented within the browser as a tree structure
+called the DOM (Document Object Model). Dart apps can modify the DOM programatically,
+thus dynamically changing the web page. First, learn now to connect Dart and HTML.
+Then learn how to add, move, and remove DOM elements.
 
 <div class="card-grid">
   <div class="card">

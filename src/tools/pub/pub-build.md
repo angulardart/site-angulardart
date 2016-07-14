@@ -6,7 +6,7 @@ description: "Use pub build to deploy your Dart application."
 ---
 
 _Build_ is one of the commands of the _pub_ tool.
-[Learn more about pub](/tools/pub/).
+[Learn more about pub](/tools/pub).
 
 {% prettify sh %}
 $ pub build [--mode=<mode>] [<directories>] [--output=<directory>]
@@ -50,7 +50,7 @@ for information on:
 * How to use `pubspec.yaml` to specify which transformers run, and in
   what order.
 
-Also see [`pub serve`](/tools/pub/pub-serve.html). With `pub serve`, you can run a
+Also see [`pub serve`](/tools/pub/pub-serve). With `pub serve`, you can run a
 development server that continuously generates and serves assets.
 
 <aside class="alert alert-info" markdown="1">
@@ -115,6 +115,6 @@ top-level <code>build</code> directory.</dd>
 
 <aside class="alert alert-info" markdown="1">
 *Problems?*
-See [Troubleshooting Pub]({{site.dartlang}}/tools/pub/troubleshoot.html).
+See [Troubleshooting Pub]({{site.dartlang}}/tools/pub/troubleshoot).
 </aside>
 
