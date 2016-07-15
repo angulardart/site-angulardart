@@ -6,7 +6,7 @@ description: "Use pub serve to start up a development server for your Dart appli
 ---
 
 _Serve_ is one of the commands of the _pub_ tool.
-[Learn more about pub](/tools/pub/).
+[Learn more about pub](/tools/pub).
 
 {% prettify sh %}
 $ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [<directories>]

@@ -1400,7 +1400,7 @@ tutorial if you are interested in server-side programming.
 
 <div class="trydart-step-details" markdown="1">
 Learn more about Dart from
-the [Dart tutorials](/tutorials/).
+the [Dart tutorials](/tutorials).
 </div>
 
 <hr>

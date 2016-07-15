@@ -68,5 +68,5 @@ to `pub build`.
 
 <div class="trydart-step-details" markdown="1">
 Learn more about Dart from
-the [Web Tutorials](/tutorials/).
+the [Web Tutorials](/tutorials).
 </div>

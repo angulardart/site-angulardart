@@ -46,7 +46,7 @@ need to configure the plugin with the location of the Dart SDK and
 Dartium. See
 [Configuring Dart support](/tools/webstorm#configuring-dart-support)
 for instructions on configuring WebStorm. The
-[Dart Tools](/tools/) page has links where you can find more information
+[Dart Tools](/tools) page has links where you can find more information
 about other plugins.
 
 <aside class="alert alert-info" markdown="1">

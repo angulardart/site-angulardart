@@ -21,7 +21,7 @@ and do not distribute Dartium to users!**
 </aside>
 
 To learn about other tools you can use for Dart development,
-see [Dart Tools for the Web](/tools/).
+see [Dart Tools for the Web](/tools).
 
 ## Getting Dartium
 
