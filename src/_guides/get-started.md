@@ -53,7 +53,7 @@ We recommend Angular 2, an application framework designed for building
 scalable web apps.
 You can start by following the Angular for Dart code lab:
 
-[Avast Ye Pirates: Write an Angular App](/codelabs/ng2/)
+[Avast Ye Pirates: Write an Angular App](/codelabs/ng2)
 </div>
 <div>
   <img style="border:1px solid black" src="/codelabs/ng2/images/basic-pirate-name-badge.png" alt="app screenshot"><br>
@@ -78,8 +78,8 @@ The Dart language and libraries:
 
 Dart webdev tutorials and code labs:
 
-* [Tutorials](/tutorials/)
-* [Code Labs](/codelabs/)
+* [Tutorials](/tutorials)
+* [Code Labs](/codelabs)
 * [Angular 2 for Dart QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
 * [Angular 2 for Dart Tutorial: Tour of Heroes](https://angular.io/docs/dart/latest/tutorial/)
 

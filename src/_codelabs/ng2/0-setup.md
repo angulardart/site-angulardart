@@ -8,7 +8,7 @@ nextpage:
   url: /codelabs/ng2/1-skeleton
   title: "Step 1: Create a Basic Web App"
 prevpage:
-  url: /codelabs/ng2/
+  url: /codelabs/ng2
   title: "Avast Ye Pirates: Write a Web App"
 
 header:

@@ -18,7 +18,7 @@ This code lab walks you through the process of building a simple
 web app with Dart and Angular 2.
 
 If you are interested in other available labs, see the
-[code labs](/codelabs/) page.
+[code labs](/codelabs) page.
 
 You don't need to know Dart, Angular, or web programming to complete
 this code lab, but we do assume you have some programming experience.
@@ -40,13 +40,13 @@ You also need:
 
 ## Map
 
-* [Step 0: Set Up](0-setup)
-* [Step 1: Create a Basic Web App](1-skeleton)
-* [Step 2: Add a Pirate Badge Component](2-blankbadge)
-* [Step 3: Add an Input Field](3-inputnamebadge)
-* [Step 4: Add a Button](4-buttonbadge)
-* [Step 5: Create a Name Service](5-piratenameservice)
-* [Step 6: Read a JSON File](6-readjsonfile)
-* [What Next?](what-next)
-* [Resources](resources)
+* [Step 0: Set Up](/codelabs/ng2/0-setup)
+* [Step 1: Create a Basic Web App](/codelabs/ng2/1-skeleton)
+* [Step 2: Add a Pirate Badge Component](/codelabs/ng2/2-blankbadge)
+* [Step 3: Add an Input Field](/codelabs/ng2/3-inputnamebadge)
+* [Step 4: Add a Button](/codelabs/ng2/4-buttonbadge)
+* [Step 5: Create a Name Service](/codelabs/ng2/5-piratenameservice)
+* [Step 6: Read a JSON File](/codelabs/ng2/6-readjsonfile)
+* [What Next?](/codelabs/ng2/what-next)
+* [Resources](/codelabs/ng2/resources)
 </div>

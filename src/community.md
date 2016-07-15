@@ -7,8 +7,8 @@ description: "Communities for Dart webdev."
 
 Become involved with the community of Dart developers who write for the web.
 
-Also see 
-[Community and Support]({{site.dartlang}}/community/) on www.dartlang.org.
+Also see
+[Community and Support]({{site.dartlang}}/community) on www.dartlang.org.
 
 ## Join the conversation
 
