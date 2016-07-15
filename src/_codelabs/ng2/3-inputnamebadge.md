@@ -27,7 +27,7 @@ the badge updates.
 
 Add a div containing an input field to the top of the file:
 
-{% prettify html %}
+{% prettify html %}{% raw %}
 [[highlight]]<div class="widgets">[[/highlight]]
   [[highlight]]<input (input)="updateBadge($event.target.value)"[[/highlight]]
          [[highlight]]type="text" maxlength="15">[[/highlight]]
@@ -37,7 +37,7 @@ Add a div containing an input field to the top of the file:
   <div class="greeting">Arrr! Me name is</div>
   <div class="name">{{badgeName}}</div>
 </div>
-{% endprettify %}
+{% endraw %}{% endprettify %}
 
 </div>
 
