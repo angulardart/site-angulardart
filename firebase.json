@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "publish",
-    "cleanUrls": true
+    "cleanUrls": true,
+    "trailingSlash": false
   }
 }
