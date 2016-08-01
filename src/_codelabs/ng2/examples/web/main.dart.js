@@ -13009,7 +13009,7 @@ z=w}while(true)switch(z){case 0:u=$.$get$hm()
 if(u.length!==0&&$.$get$eM().length!==0){z=1
 break}else ;r=C.d7
 z=3
-return P.c2(W.vm("https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json",null,null),$async$eN,y)
+return P.c2(W.vm("https://www.dartlang.org/f/piratenames.json",null,null),$async$eN,y)
 case 3:t=r.oH(b)
 s=J.u(t)
 C.a.au(u,s.i(t,"names"))

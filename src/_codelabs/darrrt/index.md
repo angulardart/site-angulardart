@@ -1133,7 +1133,7 @@ class PirateName {
 
   [[highlight]]static Future readyThePirates() async {[[/highlight]]
     [[highlight]]String path =[[/highlight]]
-        [[highlight]]'https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
+        [[highlight]]'https://www.dartlang.org/f/piratenames.json';[[/highlight]]
     [[highlight]]String jsonString = await HttpRequest.getString(path);[[/highlight]]
     [[highlight]]_parsePirateNamesFromJSON(jsonString);[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -1160,7 +1160,7 @@ class PirateName {
    request that returns a string.
 
 * `getString()` is reading the
-   [piratenames.json](https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json)
+   [piratenames.json](https://www.dartlang.org/f/piratenames.json)
    file stored on dartlang.
 
 * `getString()` is asynchronous. It sets up the GET request

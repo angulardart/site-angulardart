@@ -66,7 +66,7 @@ Add a constant defining the location of the JSON file.
 import 'package:angular2/core.dart';
 
 [[highlight]]const _namesPath =[[/highlight]]
-    [[highlight]]'https://webdev.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
+    [[highlight]]'https://www.dartlang.org/f/piratenames.json';[[/highlight]]
 {% endprettify %}
 </div>
 
