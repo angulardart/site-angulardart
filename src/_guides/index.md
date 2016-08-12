@@ -12,10 +12,10 @@ TODO: Consider fleshing out this page or automating it.
 
 Guides on this site:
 
-* [Get Started](get-started)
-* [Overview: Web Libraries](web-programming)
-* [Get Data](get-data)
-* [Polymer](polymer)
+* [Get Started](/guides/get-started)
+* [Overview: Web Libraries](/guides/web-programming)
+* [Get Data](/guides/get-data)
+* [Polymer](/guides/polymer)
 
 Also see:
 
