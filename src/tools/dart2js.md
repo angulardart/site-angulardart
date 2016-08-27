@@ -163,7 +163,7 @@ browsers such as Chrome that support source maps.
 
 Whichever browser you use, you should enable pausing on at least
 uncaught exceptions, and perhaps on all exceptions. For frameworks such
-as dart:isolate and dart:async that wrap user code in try-catch, we
+as dart:async that wrap user code in try-catch, we
 recommend pausing on all exceptions.
 
 ### Chrome {#dart2js-debugging-chrome}
