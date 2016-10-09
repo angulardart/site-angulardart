@@ -62,7 +62,7 @@ Alternate instructions are provided for some of the steps.
 
 <div class="trydart-step-details" markdown="1">
 The [one-hour-codelab](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2)
-repo on GitHub contains several examples.
+repo on GitHub contains several examples for this code lab.
 Each example corresponds to a completed step in this code lab:
 
 [1-skeleton](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/1-skeleton)
