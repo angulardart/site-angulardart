@@ -50,43 +50,25 @@ directives: const [
     1.  Move the title (h2 content) and summary content (p content) into the \<material-expansionpanel> \<strong>name\</strong> and \<strong>secondaryText\</strong> attributes, respectively.
     1.  Remove the buttons from the bottom of the panel, putting their event handling code into \<strong>(save)\</strong> and \<strong>(cancel)\</strong> bindings. Your code changes to the beginning of this file should look like this:
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components18.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components18.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-expansionpanel-diffs.png" alt='Diffs: <div><div> -> <material-expansionpanel-set><material-expansionpanel>'>
 
 1.  Test the app. The Wallet settings should look like this at first:
 
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components19.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components19.png "image_tooltip")
+<img src="images/material-expansionpanel-wallet-1.png" alt='screenshot'>
 
 When you expand the Wallet settings, they should look like this:
 
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components20.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components20.png "image_tooltip")
+<img src="images/material-expansionpanel-wallet-2.png" alt='screenshot'>
 
 When you change settings and click the SAVE button at bottom right, the new values should appear in the UI:
 
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components21.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components21.png "image_tooltip")
+<img src="images/material-expansionpanel-wallet-3.png" alt='screenshot'>
 
 1.  Once the app runs correctly, convert the two remaining major divs (Betting and Other) into material expansion panels.
 
 That bit of work saved a lot of UI space:
 
-
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components22.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components22.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-expansionpanel-after.png" alt='screenshot>'>
 
 
 ## Use \<material-tab> and \<material-tab-panel>
@@ -94,8 +76,6 @@ That bit of work saved a lot of UI space:
 Now let’s save more by moving auxiliary text into separate tabs. This affects the main UI, implemented in lib/lottery_simulator.*. Tabs are already included in materialDirectives, so you don’t need to edit the Dart file.
 
 Edit **lib/library_simulator.html**:
-
-
 
 1.  After the end of the first div, add a \<material-tab-panel> tag.
 1.  Put the closing tag of the \<material-tab-panel> at the end of the file.
@@ -122,11 +102,7 @@ Your changes, so far, should look like this:
 \</code>
 If you run the app now, the top of the UI should look like this:
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components23.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components23.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-tab-after.png" alt='screenshot: a "Simulation" tab is visible above the "Playing Powerball heading">'>
 
 1.  Change the next two \<div>-\<h2> combinations into \<material-tabs>, with the labels “Help” and “About”.
 

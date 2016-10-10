@@ -95,15 +95,11 @@ PENDING: say something about the class and [activeProgress].
 
 Run the app, and you’ll see the new progress bar stretching across the window:
 
-
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components1.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/material-progress-after.png" alt="screenshot showing the material progress bar">
 
 As a reminder, here’s what the progress section looked like before:
 
-
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components2.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/material-progress-before.png" alt="screenshot showing the HTML progress bar">
 
 That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<glyph> component.
 
@@ -150,29 +146,30 @@ Find the icon font values for each of the icons. For example:
 </li>
 
 <li>
+  <p>
   Edit <b>lib/lottery_simulator.html</b> to
   change the buttons to use &lt;glyph> instead of text.
   Set the value of the <b>icon</b> attribute to the icon code,
   and put the text from the button in the <b>aria-label</b> attribute.
   For example:
+  </p>
 
-  <p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components3.png). Store image on your image server and adjust path/filename if necessary.\</p>
+  <p>
+  <img style="border:1px solid black" src="images/glyph-play-diffs.png" alt='id="play-button">Play -> id="play-button" aria-label="Play"><glyph icon="play_arrow"></glyph>'>
+  </p>
 
-  <em>Alt text: id="play-button">Play -> id="play-button" aria-label="Play">\<glyph icon="play_arrow">\</glyph></em></li></ol>
+  <p>
+  That small amount of code makes a big difference in the UI:
+  </p>
 
-That small amount of code makes a big difference in the UI:
+  <img style="border:1px solid black" src="images/glyph-buttons-after.png" alt='buttons have images now, instead of text'></li></ol>
 
-
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components4.png). Store image on your image server and adjust path/filename if necessary.\</p>
 
 ## <i class="fa fa-money"> </i> Use \<glyph> in other components
 
 If you scroll down to the Tips section of the page, you’ll see blank spaces where there should be icons:
 
- 
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components5.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/glyph-help-before.png" alt='help text has no images'>
 
 The HTML template (lib/help/help.html) uses \<glyph> already, so why isn’t it working?
 
@@ -204,16 +201,12 @@ When you added AngularDart Components support to lib/lottery_simulator.dart, you
 
 Adding those two lines to lib/help/help.dart makes the glyphs display:
 
-
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components6.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/glyph-help-after.png" alt='help text now has images'>
 
 
 ## <i class="fa fa-money"> </i> Use \<acx-scorecard>
 
 Let’s make one more change: using scorecards (\<acx-scorecard>) to display the betting and investing results. Because \<acx-scorecard> isn’t included in materialDirectives, you need to explicitly register its Dart class, ScorecardComponent. We’ll use the scorecards in the app’s custom ScoresComponent (\<scores-component>), which is implemented in lib/scores/scores.*.
-
-
 
 1.  Edit **lib/scores/score.dart** (the Dart file for ScoresComponent) to register ScorecardComponent and the materialBindings provider:
 
@@ -234,29 +227,25 @@ Let’s make one more change: using scorecards (\<acx-scorecard>) to display the
 
 For example, here’s how to convert the “Betting” div:
 
-
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components7.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/acx-scorecard-betting-diffs.png" alt='code diffs for <div><h4>Betting</h4>...</div>'>
 
 1.  Edit **lib/scores/score.css** (styles for ScoresComponent) to specify that `.investing` floats to the right. You can also remove the unneeded `.positive` and `.negative` styles.
 
-`.investing {
+{% prettify none %}
+.investing {
   float: right;
-}`
+}
+{% endprettify %}
+
 1.  Refresh the app, and look at the nice new UI:
 
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components8.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/acx-scorecard-after.png" alt='new UI of the lottery simulation, with "Betting" and "Investing" scorecards'>
 
 Remember, it used to look like this: 
 
-
-<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components9.png). Store image on your image server and adjust path/filename if necessary.\</p>
+<img style="border:1px solid black" src="images/acx-scorecard-before.png" alt='old UI of the lottery simulation'>
 
 
 ### Common problem: registering the wrong component
 
 It’s easy to accidentally register the wrong component. For example, you might register ScoresComponent instead of ScorecardComponent. **If the component doesn’t show up, make sure the containing component’s Dart file includes the right component.**
-
-## 
-
-

@@ -36,23 +36,11 @@ These controls appear in two custom components: \<lottery-simulator> and \<setti
 
 Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div> (and its children) into a \<material-toggle>, as the following diff shows:
 
-
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components10.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components10.png "image_tooltip")
-
+<img style="border:1px solid black" src="images/material-toggle-diffs.png" alt='diffs of changing the "controls__faster-button" <div> into a <material-toggle>'>
 
 Here’s the resulting UI:
 
-
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components11.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components11.png "image_tooltip")
-
+<img style="border:1px solid black" src="images/material-toggle-after.png" alt='tiny but attractive toggle button'>
 
 The class behind \<material-toggle>, [MaterialToggle], defines **label** and **checked** attributes. The **label** attribute contains the main text for the toggle, which the app previously specified in the \<label> element. A two-way binding to the **checked** property simplifies setting the toggle’s state.
 
@@ -60,45 +48,28 @@ The class behind \<material-toggle>, [MaterialToggle], defines **label** and **c
 
 Now convert the buttons that have icons into floating action buttons (FABs).
 
-
-
 1.  Edit **lib/lottery_simulator.html**.
 1.  Convert the Play button from a \<button> to a \<material-fab> ([MaterialFab]), adding the **raised** attribute and changing `(click)` to `(trigger)`:
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components12.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components12.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-fab-play-diffs.png" alt='<button> -> <material-fab> diffs'>
 
 1.  Convert the remaining three buttons in the same way, but add the **mini** attribute. For example: 
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components13.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components13.png "image_tooltip")
-
+<img style="border:1px solid black" src="images/material-fab-step-diffs.png" alt='more <button> -> <material-fab> diffs'>
 
 Once you’re done, run the app and play with the buttons. They look good, and they have a nice ripple animation when you click them.
 
-
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components14.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components14.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-fab-after.png" alt='main UI buttons are now round'>
 
 
 ### **Common pattern: (trigger)**
 
-Many of the AngularDart Components support trigger events, in addition to the familiar HTML click events. As a rule, your app should handle trigger events instead of click events. Trigger events have sensible defaults: they fire only when the element is *not* disabled, and they fire on both click and keypress. Click events, on the other hand, fire even when a component is disabled (not what you usually want) and can fire more frequently than you can realistically handle them.
+Many of the AngularDart Components support trigger events. As a rule, your app should 
+**handle trigger events instead of click events**, because trigger is better for accessibility. For example, trigger events fire on both click and keypress, and trigger events don’t fire when the element is disabled.
 
 ## Use \<material-checkbox>
 
 The primary UI is looking good! Now let’s start improving the settings section of the UI, which is implemented in lib/settings/settings_component.*. First, let’s change the checkbox to use material-checkbox.
-
-
 
 1.  Edit the Dart file for \<settings-component> (**lib/settings/settings_component.dart**) to import angular2_components, and to register MaterialCheckboxComponent and materialBindings:
 
@@ -114,22 +85,13 @@ The primary UI is looking good! Now let’s start improving the settings section
 )\</code>\</strong>
 1.  Edit the template file (\<strong>lib/settings/settings_component.html\</strong>), changing the “checkbox” input (and its surrounding label) into a \<material-checkbox>. 
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components15.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components15.png "image_tooltip")
-
+<img style="border:1px solid black" src="images/material-checkbox-diffs.png" alt='<label><input> -> <material-checkbox> diffs'>
 
 Look how much simpler that code is! [MaterialCheckbox] supports a \<strong>label\</strong> attribute and two-way binding to \<strong>checked\</strong>, enabling much cleaner HTML.
 
 ## Use \<material-radio> and \<material-radio-group>
 
-[NOTE: this was before \<material-checkbox>. I’m adjusting this accordingly...]
-
 Still working on the settings, let’s convert radio buttons into \<material-radio> components. Each group of radio buttons is contained by a \<material-radio-group>.
-
-
 
 1.  Edit the Dart file for \<settings-component> (**lib/settings/settings_component.dart**) to register MaterialRadioComponent and MaterialRadioGroupComponent:
 
@@ -150,19 +112,12 @@ Still working on the settings, let’s convert radio buttons into \<material-rad
 Here’s why: [MaterialRadioComponent] fires checkedChange when the radio button’s selection state changes. The event’s value is true if the radio button has become selected, and otherwise false.
 1.  Remove the \<input> tag. Your code changes should look like this:
 
-
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components16.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components16.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-radio-diffs.png" alt='<div><label><input> -> <material-radio-group><material-radio> diffs'>
 
 1.  Repeat the process for the remaining radio button groups.
 1.  Run the app. You might notice a small problem with the appearance of the Strategy settings:
 
-\<p style="color: red; font-weight: bold">>>>> inline image link here (to images/AngularDart_Components17.png). Store image on your image server and adjust path/filename if necessary.\</p>
-
-
-![alt_text](images/AngularDart_Components17.png "image_tooltip")
+<img style="border:1px solid black" src="images/material-radio-after-1.png" alt='screenshot'>
 
 1.  Fix the issue by editing\<strong> lib/settings/settings_component.html\</strong> to add a rule that maximizes that component’s width:
 
