@@ -178,6 +178,11 @@ The HTML template (lib/help/help.html) uses \<glyph> already, so why isn’t it 
 If an Angular component’s template uses a second Angular component without declaring it, that **second component doesn’t appear in the first component’s UI**. The solution: In the first component’s Dart file, **import** the second component and **register** the second component’s class as a directive.
 </aside>
 
+```
+PENDING: improve formatting of "Common problem" sections?
+Replace lightbulb with something better?
+```
+
 Edit **lib/help/help.dart** to import the AngularDart Components and register materialDirectives.
 
 
@@ -196,7 +201,13 @@ Edit **lib/help/help.dart** to import the AngularDart Components and register ma
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-When you added AngularDart Components support to lib/lottery_simulator.dart, you also added materialBindings to the providers list. You don’t need to do that here, because the \<help-component> UI has no buttons or anything else that requires the animations defined in materialDirectives. You also don’t need to do anything to get the material icon fonts, since the app’s entry point (web/index.html) already imports the font file.
+Unlike when you edited lib/lottery_simulator.dart,
+you don't need to add `materialBindings` to this file.
+The reason: the \<help-component> UI has no buttons or anything else that
+requires the animations defined in `materialBindings`.
+
+You also don’t need to do anything to get the material icon fonts,
+since the app’s entry point (web/index.html) already imports the font file.
 </aside>
 
 Adding those two lines to lib/help/help.dart makes the glyphs display:
@@ -206,24 +217,35 @@ Adding those two lines to lib/help/help.dart makes the glyphs display:
 
 ## <i class="fa fa-money"> </i> Use \<acx-scorecard>
 
-Let’s make one more change: using scorecards (\<acx-scorecard>) to display the betting and investing results. Because \<acx-scorecard> isn’t included in materialDirectives, you need to explicitly register its Dart class, ScorecardComponent. We’ll use the scorecards in the app’s custom ScoresComponent (\<scores-component>), which is implemented in lib/scores/scores.*.
+Let’s make one more change: using scorecards (\<acx-scorecard>) to
+display the betting and investing results.
+Because \<acx-scorecard> isn’t included in `materialDirectives`,
+you need to explicitly register its Dart class, ScorecardComponent.
+We’ll use the scorecards in the app’s custom ScoresComponent
+(\<scores-component>), which is implemented in lib/scores/scores.*.
 
 1.  Edit **lib/scores/score.dart** (the Dart file for ScoresComponent) to register ScorecardComponent and the materialBindings provider:
 
-\<code>...
-\<strong>import 'package:angular2_components/angular2_components.dart';\</strong>
+{% prettify dart %}
+...
+[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
 
 @Component(
   ...
-  \<strong>directives: const [ScorecardComponent],
-  providers: const [materialBindings],\</strong>
-)\</code>
-1.  Edit \<strong>lib/scores/score.html\</strong> (the template file for ScoresComponent) to change each \<div> to \<acx-scorecard>. Specify the following attributes (documented in the ScorecardComponent API reference) for each \<acx-scoreboard>:
-    *   \<strong>label:\</strong> Set this to the string in the div’s \<h4> heading.
-    *   \<strong>class:\</strong> Set this to “betting” or “investing”, so that you can use it to specify custom styles.
-    *   \<strong>value:\</strong> Set this to the value of the \<code>cash\</code> (for betting) or \<code>altCash\</code> (for investing) property of ScoresComponent.
-    *   \<strong>description:\</strong> Set this to the second line of content in the div’s \<p> section.
-    *   \<strong>changeType:\</strong> Specify this for betting only, since only betting can have a negative value. Set it to the value that [class] is set to, surrounded by \<code>{{ }}\</code>.
+  [[highlight]]directives: const [ScorecardComponent],[[/highlight]]
+  [[highlight]]providers: const [materialBindings],[[/highlight]]
+)
+{% endprettify %}
+
+1.  Edit <strong>lib/scores/score.html</strong> (the template file for ScoresComponent)
+to change each \<div> to \<acx-scorecard>. Specify the following attributes
+(documented in the ScorecardComponent API reference) for each \<acx-scoreboard>:
+    *   <strong>label:</strong> Set this to the string in the div’s \<h4> heading.
+    *   <strong>class:</strong> Set this to “betting” or “investing”, so that you can use it to specify custom styles.
+    *   <strong>value:</strong> Set this to the value of the <code>cash</code> (for betting) or <code>altCash</code> (for investing) property of ScoresComponent.
+    *   <strong>description:</strong> Set this to the second line of content in the div’s \<p> section.
+    *   <strong>changeType:</strong> Specify this for betting only, since only betting can have a negative value. Set it to the value that [class] is set to, surrounded by `{{ }}`.
+    `[PENDING: the end of the previous sentence should show double curlies.]`
 
 For example, here’s how to convert the “Betting” div:
 
@@ -249,3 +271,7 @@ Remember, it used to look like this:
 ### Common problem: registering the wrong component
 
 It’s easy to accidentally register the wrong component. For example, you might register ScoresComponent instead of ScorecardComponent. **If the component doesn’t show up, make sure the containing component’s Dart file includes the right component.**
+
+```
+PENDING: Fix the formatting of the "Common problem" section
+```
