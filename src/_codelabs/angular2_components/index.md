@@ -48,7 +48,10 @@ PENDING: make sure the titles in the following TOC reflect the final titles.
 Make at least the Step entries links.
 ```
 
-## Contents
+<img src="/codelabs/angular2_components/images/cartoon-guy.png"
+    alt="top-hatted guy from the cartoon that appears in the app's About tab"
+    align="right">
+<h2> Contents </h2>
 
 * Step 1: Get to Know the Software
   * Get the app code
