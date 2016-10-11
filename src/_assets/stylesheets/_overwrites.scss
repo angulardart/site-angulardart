@@ -97,3 +97,11 @@ body.homepage .get-started-section {
   padding-top: 0;
   padding-bottom: 60px;
 }
+
+/* Don't display navigation aids when printing */
+@media print {
+  #page-header, #sidenav, #subnav, #page-footer, .banner {
+    display:none !important;
+  }
+}
+
