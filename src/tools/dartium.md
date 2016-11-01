@@ -42,7 +42,7 @@ Otherwise, you can install Dartium directly:
 * <a
     data-bits="32" data-os="macos" data-tool="dartium"
     class="download-link"
-    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac</a>
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-x64-release.zip">Dartium for Mac</a>
 
 For other versions of Dartium, including dev channel releases, see the
 [zip file index]({{site.dartlang}}/install/archive).
