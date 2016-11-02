@@ -22,13 +22,31 @@ You've written an Angular 2 for Dart web app!
 Now that you've written your app, what do you do next?
 Here are some suggestions.
 
-## <i class="fa fa-anchor"> </i> Work through the guides on angular.io.
+## <i class="fa fa-anchor"> </i> Try the next Angular code lab.
+
+<div class="trydart-step-details" markdown="1">
+The [AngularDart Components code lab](/codelabs/angular2_components)
+introduces you to a preview release of AngularDart Components,
+part of a large group of well-tested components that
+are widely used in Google’s Dart apps.
+</div>
+
+## <i class="fa fa-anchor"> </i> Read the guides on angular.io.
 
 <div class="trydart-step-details" markdown="1">
 Work through the [QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
 and [Developer Guides](https://angular.io/docs/dart/latest/guide/)
 on [angular.io](https://angular.io/docs/dart/latest/).
 </div>
+
+
+## <i class="fa fa-anchor"> </i> Read the tutorials.
+
+<div class="trydart-step-details" markdown="1">
+Learn more about Dart from
+the [Web Tutorials](/tutorials).
+</div>
+
 
 ## <i class="fa fa-anchor"> </i> Build your app to run in any browser.
 
@@ -63,10 +81,3 @@ to `pub build`.
   use the [pub build](/tools/pub/pub-build) command.
 
 </div></div>
-
-## <i class="fa fa-anchor"> </i> Read the tutorials.
-
-<div class="trydart-step-details" markdown="1">
-Learn more about Dart from
-the [Web Tutorials](/tutorials).
-</div>
