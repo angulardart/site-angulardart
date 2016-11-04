@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-jekyll build --watch &
+bundle exec jekyll build --watch &
 j_pid=$!
 firebase serve --port 4001 &
 f_pid=$!
