@@ -5,71 +5,71 @@
   - title: "Write an Angular App"
     permalink: /codelabs/ng2
 
-- title: Angular Dart
+- title: Angular Docs
   children:
     - title: "Quickstart"
-      permalink: /guides/language
+      permalink: /angular/quickstart
 
     - title: "Guide"
-      permalink: 
+      permalink: /angular/overview
       children:
         - title: 1. Overview
-          permalink:
+          permalink: /angular/overview
         - title: 2. Architecture
-          permalink:
+          permalink: /angular/architecture
         - title: 3. Displaying Data
-          permalink:
+          permalink: /angular/displaying-data
         - title: 4. User Input
-          permalink:
+          permalink: /angular/user-input
         - title: 5. Forms
-          permalink:
+          permalink: /angular/forms
         - title: 6. Dependency Injection
-          permalink:
+          permalink: /angular/dependency-injection
         - title: 7. Template Syntax
-          permalink:
+          permalink: /angular/template-syntax
         - title: 8. Angular Cheat Sheet
-          permalink:
+          permalink: /angular/cheat-sheet
         - title: 9. Style Guide
-          permalink:
+          permalink: /angular/style-guide
         - title: 10. Glossary
-          permalink:
+          permalink: /angular/glossary
 
     - title: "API Reference"
-      permalink: /guides/language
+      permalink: /angular/api
 
     - title: "Tutorial"
-      permalink: /guides/language/effective-dart
+      permalink: /angular/1-introduction
       children:
         - title: 1. Introduction
-          permalink:
+          permalink: /angular/1-introduction
         - title: 2. The Hero Editor
-          permalink:
+          permalink: /angular/2-the-hero-editor
         - title: 3. Master/Detail
-          permalink:
+          permalink: /angular/3-master-detail
         - title: 4. Multiple Components
-          permalink:
+          permalink: /angular/4-multiple-components
         - title: 5. Services
-          permalink:
+          permalink: /angular/5-services
         - title: 6. Routing
-          permalink:
+          permalink: /angular/6-routing
         - title: 7. HTTP
-          permalink:
+          permalink: /angular/7-http
 
     - title: "Advanced"
-      permalink: /guides/language/effective-dart
+      permalink: /angular/attribute-directives
       children:
         - title: Attribute Directives
-          permalink:
+          permalink: /angular/attribute-directives
         - title: Component Styles
-          permalink:
+          permalink: /angular/component-styles
         - title: Hierarchical Injectors
-          permalink:
+          permalink: /angular/hierarchical-injectors
         - title: HTTP Client
-          permalink:
+          permalink: /angular/http-client
         - title: Lifecycle Hooks
-          permalink:
+          permalink: /angular/lifecycle-hooks
         - title: Pipes
-          permalink:
+          permalink: /angular/pipes
 
 - title: "Libraries"
   children:
