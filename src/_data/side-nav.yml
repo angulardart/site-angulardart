@@ -5,12 +5,76 @@
   - title: "Write an Angular App"
     permalink: /codelabs/ng2
 
+- title: Angular Dart
+  children:
+    - title: "Quickstart"
+      permalink: /guides/language
+
+    - title: "Guide"
+      permalink: 
+      children:
+        - title: 1. Overview
+          permalink:
+        - title: 2. Architecture
+          permalink:
+        - title: 3. Displaying Data
+          permalink:
+        - title: 4. User Input
+          permalink:
+        - title: 5. Forms
+          permalink:
+        - title: 6. Dependency Injection
+          permalink:
+        - title: 7. Template Syntax
+          permalink:
+        - title: 8. Angular Cheat Sheet
+          permalink:
+        - title: 9. Style Guide
+          permalink:
+        - title: 10. Glossary
+          permalink:
+
+    - title: "API Reference"
+      permalink: /guides/language
+
+    - title: "Tutorial"
+      permalink: /guides/language/effective-dart
+      children:
+        - title: 1. Introduction
+          permalink:
+        - title: 2. The Hero Editor
+          permalink:
+        - title: 3. Master/Detail
+          permalink:
+        - title: 4. Multiple Components
+          permalink:
+        - title: 5. Services
+          permalink:
+        - title: 6. Routing
+          permalink:
+        - title: 7. HTTP
+          permalink:
+
+    - title: "Advanced"
+      permalink: /guides/language/effective-dart
+      children:
+        - title: Attribute Directives
+          permalink:
+        - title: Component Styles
+          permalink:
+        - title: Hierarchical Injectors
+          permalink:
+        - title: HTTP Client
+          permalink:
+        - title: Lifecycle Hooks
+          permalink:
+        - title: Pipes
+          permalink:
+
 - title: "Libraries"
   children:
   - title: "Overview"
     permalink: /guides/web-programming
-  - title: "Angular 2 for Dart"
-    permalink: https://angular.io/dart
 
 - title: "Tools"
   children:
