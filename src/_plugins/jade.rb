@@ -18,7 +18,7 @@ module Jekyll
 
     def convert(content)
       begin
-        o, e, s = Open3.capture3("./node_modules/.bin/jade", :stdin_data => content)
+        o, e, s = Open3.capture3("./node_modules/.bin/jade --path src/angular/foo --obj '{\"current\":{\"source\":\"jade-src-uninit\",\"path\":[\"jade-path-uninit\"]}}'", :stdin_data => content)
         puts(<<-eos
 Jade Error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #{e}
