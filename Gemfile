@@ -4,7 +4,7 @@ gem 'kramdown'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem "html-proofer"
-gem 'jekyll-assets', '2.1.2'
+gem 'jekyll-assets'
 gem 'jekyll-toc'
 gem 'sass'
 gem 'uglifier'
