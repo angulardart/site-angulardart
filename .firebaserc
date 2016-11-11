@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "webdev-dartlang-org"
+    "default": "webdev-dartlang-org",
+    "dev": "angulardart-org-dev"
   }
 }
