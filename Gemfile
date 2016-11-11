@@ -9,4 +9,5 @@ gem 'jekyll-toc'
 gem 'sass'
 gem 'uglifier'
 gem 'autoprefixer-rails'
-gem "jekyll-sitemap"
+gem 'jekyll-sitemap'
+gem 'sprockets-es6'
