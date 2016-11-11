@@ -6,6 +6,9 @@ description: "A playground to test web components."
 permalink: /playground
 ---
 
+### Live Example
+<live-example name="Playground is Live"></live-example>
+
 ### Code Tabs + Code Panes
 
 <code-tabs>

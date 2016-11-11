@@ -43,6 +43,8 @@
    -->
   {% javascript main %}
   {% javascript 'vendor/document-register-elements' %}
+  <script src="elements/live-example.js"></script>
+
   {% for js in page.js %}
   <script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>
   {% endfor %}
