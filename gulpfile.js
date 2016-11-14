@@ -165,12 +165,19 @@ angular: true
   return true;
 }
 
-gulp.task('_get-resources', cb => {
+gulp.task('_get-resources', ['_get-rsrc-images', '_get-rsrc-js']);
+
+gulp.task('_get-rsrc-images', cb => {
+  const baseDir = path.join(angulario, 'public');
+  return gulp.src([`${baseDir}/resources/images/**/*`], { base: baseDir }).pipe(gulp.dest('src'));
+});
+
+gulp.task('_get-rsrc-js', cb => {
   const baseDir = path.join(angulario, 'public');
   const ngIoApp = "angular.module('angularIOApp', ['ngMaterial', 'firebase'])";
   const dropFirebase = ngIoApp.replace(", 'firebase'", '')
   return gulp.src([
-    `${baseDir}/resources/{images,js}/**/*`,
+    `${baseDir}/resources/js/**/*`,
     `!${baseDir}/resources/js/vendor/{lang-*,prettify}.js`,
   ], { base: baseDir })
     // Patch resources/js/site.js
