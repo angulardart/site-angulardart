@@ -2,6 +2,17 @@
   "hosting": {
     "public": "publish",
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/angular",
+        "destination": "/angular/guide",
+        "type": 301
+      }
+    ],
+    "ignore": [
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
