@@ -16,6 +16,7 @@ tmp
 
 # Misc
 trash
+.idea
 
 firebase-debug.log
 node_modules
@@ -25,3 +26,5 @@ node_modules
 # /src/angular/_jade/ts
 # /src/angular/guide
 # /src/angular/tutorial
+
+/src/styles/angular/angular.css
