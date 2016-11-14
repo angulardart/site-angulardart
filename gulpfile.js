@@ -12,7 +12,7 @@ const fsExtra = require('fs-extra');
 const fs = fsExtra;
 // const os = require('os');
 const path = require('canonical-path');
-// const Q = require("q");
+const Q = require("q");
 const replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const spawn = require('child_process').spawn;
@@ -43,7 +43,18 @@ gutil.log(`Using angular.io repo at ${angulario}`)
 // Tasks
 //
 
-// gulp.task('sass', cb => Q.all(_sass('src'), _sass('public')));
+gulp.task('build', ['sass'], cb => {
+  gutil.log('\n*******************************************************************************')
+  gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
+  gutil.log('*******************************************************************************\n')
+  return execp(`jekyll build`);
+});
+
+gulp.task('build-deploy', ['build'], () => {
+  // Note: .firebaserc will be used.
+  return execp(`firebase deploy`);
+});
+
 gulp.task('sass', cb => _sass('src/styles'));
 gulp.task('clean-src', cb => execp(`git clean -xdf src`));
 
@@ -51,7 +62,7 @@ gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
 gulp.task('get-ngio-files', ['_clean', '_get-pages', '_get-resources', '_get-frag']);
 
-const _cleanTargets = [''];
+const _cleanTargets = ['publish'];
 
 const _delTmp = () => del(_cleanTargets, { force: true });
 
