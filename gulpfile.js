@@ -44,7 +44,6 @@ gutil.log(`Using angular.io repo at ${angulario}`)
 //
 
 // gulp.task('sass', cb => Q.all(_sass('src'), _sass('public')));
-gulp.task('sass-after-clean', ['clean-src'], cb => Q.all(_sass('src'), _sass('public')));
 gulp.task('clean-src', cb => execp(`git clean -xdf src`));
 
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
