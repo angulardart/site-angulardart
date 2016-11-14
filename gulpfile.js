@@ -149,7 +149,6 @@ angular: true
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
     jade = jade
       .replace(/^/, `//- FilePath: ${destFile.replace(/.*\/(src\/)/, '$1')}\n`)
-      .replace('block var-def', 'block includes') // temp until main dart/guide/glossary.jade is fixed
       // General patches
       // .replace(/extends +(\.\.\/)*(cheatsheet|glossary)/, 'extends $2')
       .replace(/extends +(\.\.\/)*ts\//, 'extends /_jade/ts/')
