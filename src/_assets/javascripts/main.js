@@ -1,4 +1,4 @@
-//= require vendor/jquery-1.12.3.min
+//= require vendor/jquery-3.1.1.min
 //= require bootstrap
 //= require _utilities
 //= require _search
