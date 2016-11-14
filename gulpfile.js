@@ -167,11 +167,15 @@ angular: true
 
 gulp.task('_get-resources', cb => {
   const baseDir = path.join(angulario, 'public');
+  const ngIoApp = "angular.module('angularIOApp', ['ngMaterial', 'firebase'])";
+  const dropFirebase = ngIoApp.replace(", 'firebase'", '')
   return gulp.src([
     `${baseDir}/resources/{images,js}/**/*`,
     `!${baseDir}/resources/js/vendor/{lang-*,prettify}.js`,
   ], { base: baseDir })
-    // patch for: resources/js/util.js
+    // Patch resources/js/site.js
+    .pipe(replace(ngIoApp, dropFirebase))
+    // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));
 });
