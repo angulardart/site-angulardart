@@ -8,68 +8,68 @@
 - title: Angular Docs
   children:
     - title: "Quickstart"
-      permalink: /angular/guides/quickstart
+      permalink: /angular/quickstart
 
-    - title: "Guides"
-      permalink: /angular
+    - title: "Guide"
+      permalink: /angular/guide
       children:
         - title: 1. Overview
-          permalink: /angular
+          permalink: /angular/guide
         - title: 2. Architecture
-          permalink: /angular/guides/architecture
+          permalink: /angular/guide/architecture
         - title: 3. Displaying Data
-          permalink: /angular/guides/displaying-data
+          permalink: /angular/guide/displaying-data
         - title: 4. User Input
-          permalink: /angular/guides/user-input
+          permalink: /angular/guide/user-input
         - title: 5. Forms
-          permalink: /angular/guides/forms
+          permalink: /angular/guide/forms
         - title: 6. Dependency Injection
-          permalink: /angular/guides/dependency-injection
+          permalink: /angular/guide/dependency-injection
         - title: 7. Template Syntax
-          permalink: /angular/guides/template-syntax
+          permalink: /angular/guide/template-syntax
         - title: 8. Cheat Sheet
-          permalink: /angular/guides/cheat-sheet
+          permalink: /angular/guide/cheatsheet
         - title: 9. Style Guide
-          permalink: /angular/guides/style-guide
+          permalink: /angular/guide/style-guide
         - title: 10. Glossary
-          permalink: /angular/guides/glossary
+          permalink: /angular/guide/glossary
 
     - title: "API Reference"
       permalink: /angular/api
 
     - title: "Tutorial"
-      permalink: /angular/tutorials
+      permalink: /angular/tutorial
       children:
         - title: Introduction
-          permalink: /angular/tutorials
+          permalink: /angular/tutorial
         - title: 1. The Hero Editor
-          permalink: /angular/tutorials/toh-1
+          permalink: /angular/tutorial/toh-pt1
         - title: 2. Master/Detail
-          permalink: /angular/tutorials/toh-2
+          permalink: /angular/tutorial/toh-pt2
         - title: 3. Multiple Components
-          permalink: /angular/tutorials/toh-3
+          permalink: /angular/tutorial/toh-pt3
         - title: 4. Services
-          permalink: /angular/tutorials/toh-4
+          permalink: /angular/tutorial/toh-pt4
         - title: 5. Routing
-          permalink: /angular/tutorials/toh-5
+          permalink: /angular/tutorial/toh-pt5
         - title: 6. HTTP
-          permalink: /angular/tutorials/toh-6
+          permalink: /angular/tutorial/toh-pt6
 
     - title: "Advanced"
-      permalink: /angular/guides/attribute-directives
+      permalink: /angular/guide/attribute-directives
       children:
         - title: Attribute Directives
-          permalink: /angular/guides/attribute-directives
+          permalink: /angular/guide/attribute-directives
         - title: Component Styles
-          permalink: /angular/guides/component-styles
+          permalink: /angular/guide/component-styles
         - title: Hierarchical Injectors
-          permalink: /angular/guides/hierarchical-injectors
+          permalink: /angular/guide/hierarchical-dependency-injection
         - title: HTTP Client
-          permalink: /angular/guides/http-client
+          permalink: /angular/guide/server-communication
         - title: Lifecycle Hooks
-          permalink: /angular/guides/lifecycle-hooks
+          permalink: /angular/guide/lifecycle-hooks
         - title: Pipes
-          permalink: /angular/guides/pipes
+          permalink: /angular/guide/pipes
 
 - title: "Libraries"
   children:

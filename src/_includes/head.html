@@ -43,10 +43,49 @@
    -->
   {% javascript main %}
   {% javascript 'vendor/document-register-elements' %}
-  <script src="elements/live-example.js"></script>
 
   {% for js in page.js %}
   <script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>
   {% endfor %}
   {% include analytics.html %}
+
+  <!-- Extra for angular -->
+  {% if page.angular %}
+  <!-- VENDORS -->
+  <!-- Probably don't need these under webdev
+  <script src="/resources/js/vendor/prettify.js"></script>
+  <script src="/resources/js/vendor/lang-basic.js"></script>
+  <script src="/resources/js/vendor/lang-dart.js"></script>
+  -->
+  <script src="/resources/js/vendor/lodash.js"></script>
+  <script src="/resources/js/vendor/clipboard.min.js"></script>
+  <!-- Angular Material Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+  <!-- Angular.io Site JS -->
+  <script src="/resources/js/site.js"></script>
+  <script src="/resources/js/util.js"></script>
+  <script src="/resources/js/controllers/app-controller.js"></script>
+  <script src="/resources/js/controllers/resources-controller.js"></script>
+  <script src="/resources/js/directives/cheatsheet.js"></script>
+  <script src="/resources/js/directives/api-list.js"></script>
+  <script src="/resources/js/directives/bio.js"></script>
+  <script src="/resources/js/directives/bold.js"></script>
+  <script src="/resources/js/directives/announcement-bar.js"></script>
+  <script src="/resources/js/directives/code.js"></script>
+  <script src="/resources/js/directives/copy.js"></script>
+  <script src="/resources/js/directives/code-tabs.js"></script>
+  <script src="/resources/js/directives/code-pane.js"></script>
+  <script src="/resources/js/directives/code-example.js"></script>
+  <script src="/resources/js/directives/if-docs.js"></script>
+  <script src="/resources/js/directives/live-example.js"></script>
+  <script src="/resources/js/directives/ngio-ex-path.js"></script>
+  <script src="/resources/js/directives/scroll-y-offset-element.js"></script>
+  {% endif %}
 </head>
