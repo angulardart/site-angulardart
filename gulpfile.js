@@ -87,7 +87,7 @@ gulp.task('_get-frag', cb => {
 });
 
 // TODO(chalin): copy over _util-fns.jade files & apply patches
-gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-guide', '_get-extra']);
+gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api', '_get-guide', '_get-extra']);
 
 gulp.task('_get-ts-jade', cb => {
   const baseDir = path.join(angulario, 'public/docs');
@@ -109,9 +109,15 @@ gulp.task('_get-extra', cb => {
   const baseDir = path.join(angulario, 'public/docs/dart/latest');
   return gulp.src([
     `${baseDir}/_quickstart_repo.jade`,
+    `${baseDir}/api/api-list.json`,
     `${baseDir}/guide/cheatsheet.json`,
   ], { base: baseDir })
     .pipe(gulp.dest('src/angular'));
+});
+
+gulp.task('_get-api', cb => {
+  const data = { "index": { "title" : "API Reference", "description" : "API Reference" } };
+  return _getNgIoJadeForDir('api', data);
 });
 
 gulp.task('_get-guide', cb => {
@@ -164,7 +170,8 @@ angular: true
       // .replace(/extends +(\.\.\/)*(cheatsheet|glossary)/, 'extends $2')
       .replace(/extends +(\.\.\/)*ts\//, 'extends /_jade/ts/')
       // .replace(/include (\.\.\/)*((_util-fns|_quickstart_repo)(\.jade)?)/g, 'include $2')
-      .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include /_jade/$2');
+      .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include /_jade/$2')
+      .replace('src="api-list.json"', 'src="api/api-list.json"');
     if (fileNameNoExt != 'index') {
       const exampleName = fileNameNoExt.replace(/pt/, '');
       jade = jade.replace(/block includes/, `$&\n  - var _example = '${exampleName}';`);
