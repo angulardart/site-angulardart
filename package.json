@@ -17,9 +17,20 @@
     }
   ],
   "devDependencies": {
+    "canonical-path": "0.0.2",
+    "cheerio": "^0.22.0",
+    "del": "^2.2.0",
+    "fs-extra": "^0.30.0",
+    "gulp": "^3.0.0",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.0",
+    "gulp-task-listing": "^1.0.0",
+    "gulp-watch": "^4.0.0",
     "jade": "^1.11.0",
     "jade-cli": "^0.1.1",
     "jstransformer-marked": "^1.0.1",
-    "marked": "^0.3.5"
+    "marked": "^0.3.5",
+    "yargs": "^4.0.0"
   }
 }

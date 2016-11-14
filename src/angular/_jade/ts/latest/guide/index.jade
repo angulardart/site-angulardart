@@ -1,20 +1,14 @@
----
-layout: angular
-title: Angular
-angular: true
----
 block includes
-  include _util-fns
-- var _liveLink = 'live link';
+  //- include ../_util-fns
 
-- var langName = 'Dart'; // current.path[1] == 'ts' ? 'TypeScript' : 'JavaScript'
+- var langName = current.path[1] == 'ts' ? 'TypeScript' : 'JavaScript'
 figure
   img(src="/resources/images/devguide/intro/people.png" alt="Us" align="left" style="width:200px; margin-left:-40px;margin-right:10px" )
 :marked
   This is a practical guide to Angular for experienced programmers who
   are building client applications in HTML and #{langName}.
 
-<br>
+  <br clear="all">
 
 <a id="learning-path"></a>
 :marked
@@ -22,6 +16,8 @@ figure
 
   The documentation is divided into major thematic sections, each
   a collection of pages devoted to that theme.
+
+block js-alert
 
 - var top="vertical-align:top"
 table(width="100%")
@@ -92,10 +88,12 @@ table(width="100%")
   Each page includes code snippets that you can reuse in your applications.
   These snippets are excerpts from a sample application that accompanies the page.
 
-//- block example-links
-:marked
-  Look for a link to a running version of that sample near the top of each page,
-  such as this <live-example name="architecture"></live-example> from the [Architecture](architecture.html) page.
+block example-links
+  :marked
+    Look for a link to a running version of that sample near the top of each page,
+    such as this <live-example name="architecture"></live-example> from the [Architecture](architecture.html) page.
+
+    The link launches a browser-based code editor where you can inspect, modify, save, and download the code.
 
 :marked
   A few early pages are written as tutorials and are clearly marked as such.

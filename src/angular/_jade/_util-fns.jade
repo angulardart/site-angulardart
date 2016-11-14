@@ -295,7 +295,8 @@ if !jade2ng
 
 - var getFrag = function(filePath, region) {
 -   var fullFileName = getFragFilePath(filePath, region);
--   var frag = null; // chalin tmp was: partial(fullFileName);
+-   return '!= partial("' + fullFileName + '")'; // chalin: webdev new
+-   var frag = partial(fullFileName);
 -   if (frag == null) {
 -     return "BAD FILENAME: " + fullFileName + "   Current path: " + current.path +  " PathToDocs: " + getPathToDocs();
 -   } else {
