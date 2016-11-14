@@ -4,17 +4,18 @@ title: "Displaying Data"
 description: "Interpolation and other forms of property binding help us show app data in the UI."
 angular: true
 ---
-extends _jade/ts/_cache/guide/displaying-data.jade
+//- FilePath: src/angular/guide/displaying-data.jade
+extends /_jade/ts/_cache/guide/displaying-data.jade
 
 block includes
   - var _example = 'displaying-data';
-  include _util-fns
+  include ../_util-fns
   - var _iterableUrl = 'https://api.dartlang.org/stable/dart-core/Iterable-class.html';
   - var _boolean = 'boolean';
 
 block quickstart-repo
   //- Must have this block so that Jade picks up the Dart include.
-  include _quickstart_repo
+  include ../_quickstart_repo
 
 block hero-class
   :marked

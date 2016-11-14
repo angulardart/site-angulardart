@@ -135,7 +135,7 @@ function _getNgIoJadeForDir(dir, _data) {
     const filePath = path.join(srcDir, fileName);
     const entry = data[fileNameNoExt];
     if (entry.hide || !fs.existsSync(filePath) || fileNameNoExt == 'cheatsheet') {
-      gutil.log(` >> skipping ${fileName}`);
+      gutil.log(`  >> skipping ${fileName}`);
       return true;
     }
     const jekyllYaml = `---
@@ -148,19 +148,20 @@ angular: true
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
     jade = jade
+      .replace(/^/, `//- FilePath: ${destFile.replace(/.*\/(src\/)/, '$1')}\n`)
       .replace('block var-def', 'block includes') // temp until main dart/guide/glossary.jade is fixed
       // General patches
-      .replace(/extends +(\.\.\/)*(cheatsheet|glossary)/, 'extends $2')
-      .replace(/extends +(\.\.\/)*ts\//, 'extends _jade/ts/')
-      .replace(/include (\.\.\/)*((_util-fns|_quickstart_repo)(\.jade)?)/g, 'include $2')
-      .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include _jade/$2');
+      // .replace(/extends +(\.\.\/)*(cheatsheet|glossary)/, 'extends $2')
+      .replace(/extends +(\.\.\/)*ts\//, 'extends /_jade/ts/')
+      // .replace(/include (\.\.\/)*((_util-fns|_quickstart_repo)(\.jade)?)/g, 'include $2')
+      .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include /_jade/$2');
     if (fileNameNoExt != 'index') {
       const exampleName = fileNameNoExt.replace(/pt/, '');
       jade = jade.replace(/block includes/, `$&\n  - var _example = '${exampleName}';`);
     }
     fs.writeFileSync(destFile, jekyllYaml + jade);
     // fs.appendFileSync(filePath, jade);
-    gutil.log(` >> copy ${fileNameNoExt} to ${destFile}`);
+    gutil.log(`  ${fileNameNoExt} -> ${destFile}`);
   });
   return true;
 }

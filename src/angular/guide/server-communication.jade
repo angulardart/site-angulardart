@@ -4,11 +4,12 @@ title: "HTTP Client"
 description: "Talk to a remote server with an HTTP Client."
 angular: true
 ---
-extends _jade/ts/_cache/guide/server-communication.jade
+//- FilePath: src/angular/guide/server-communication.jade
+extends /_jade/ts/_cache/guide/server-communication.jade
 
 block includes
   - var _example = 'server-communication';
-  include _util-fns
+  include ../_util-fns
   - var _Http = 'BrowserClient';
   - var _Angular_Http = 'Dart <code>BrowserClient</code>'
   - var _httpUrl = 'https://pub.dartlang.org/packages/http'

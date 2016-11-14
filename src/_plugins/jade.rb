@@ -2,8 +2,9 @@
 ## This Plugin enables Jade support to pages and posts.
 ##
 
-require 'open3'
 require 'cgi'
+require 'open3'
+# require 'pathname'
 
 module Jekyll
 
@@ -42,8 +43,17 @@ module Jekyll
 
     def convert(content)
       begin
-        obj = '{"current": {"source": "jade-src-uninit", "pathToDocs": "./", "path":["docs","dart","latest","jade-path-uninit"]}}'
-        o, e, s = Open3.capture3("./node_modules/.bin/jade --path src/angular/foo --obj '#{obj}'", :stdin_data => content)
+        matches = /- FilePath: (.*)/.match(content);
+        filePath = matches ? matches[1] : 'src/angular/unknown-file.jade'
+        baseNoExt = File.basename(filePath, '.jade')
+        dir = File.dirname(filePath).split('/')
+        path = [ "docs", "dart", "latest"]
+        path.push(*dir, baseNoExt)
+        # obj = '{"current": {"source": "jade-src-uninit", "pathToDocs": "./", "path":["docs","dart","latest","jade-path-uninit"]}}'
+        obj = {"basedir": File.join(Dir.pwd, "src/angular"), "current": {"source": baseNoExt, "pathToDocs": "./", "path": path}}
+        obj_s = obj.to_s.gsub(/:(\w+)=>/, '\1: ')
+        # puts "Got filepath #{filePath}\nobj = #{obj_s}"
+        o, e, s = Open3.capture3("./node_modules/.bin/jade --path #{filePath} --obj '#{obj_s}'", :stdin_data => content)
         puts(<<-eos
 Jade Error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #{e}
