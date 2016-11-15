@@ -110,8 +110,7 @@ destination: publish
 bundler_args: --without production
 markdown: kramdown
 
-include: ["_pages"]
-exclude: ['vendor', '.asset-cache']
+# exclude: ['.asset-cache']
 keep_files:
   - angular/api
 
@@ -121,9 +120,9 @@ gems:
 - jekyll-sitemap
 
 assets:
-  compress:
-    css: true # default - development: false, production: true
-    js: true # default - development: false, production: true
+  # compress:
+  #   css: true # default - development: false, production: true
+  #   js: true # default - development: false, production: true
   cache: false # default: .asset-cache
   # cdn: https://cdn.example.com
   # skip_baseurl_with_cdn: false

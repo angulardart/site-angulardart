@@ -20,11 +20,13 @@ trash
 
 firebase-debug.log
 node_modules
-# Temp angular.io content
-/src/resources
-/src/angular/_fragments
-# /src/angular/_jade/ts
-# /src/angular/guide
-# /src/angular/tutorial
+
+#
+# angular
+#
 
 /src/styles/angular/angular.css
+
+# Temp content copied over from angular.io
+/src/resources
+/src/angular/_fragments
