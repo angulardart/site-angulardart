@@ -171,19 +171,20 @@ angular: true
   return true;
 }
 
-gulp.task('_get-resources', ['_get-rsrc-images', '_get-rsrc-js']);
+gulp.task('_get-resources', ['_get-rsrc-images', '_get-rsrc-other']);
 
 gulp.task('_get-rsrc-images', cb => {
   const baseDir = path.join(angulario, 'public');
   return gulp.src([`${baseDir}/resources/images/**/*`], { base: baseDir }).pipe(gulp.dest('src'));
 });
 
-gulp.task('_get-rsrc-js', cb => {
+gulp.task('_get-rsrc-other', cb => {
   const baseDir = path.join(angulario, 'public');
   const ngIoApp = "angular.module('angularIOApp', ['ngMaterial', 'firebase'])";
   const dropFirebase = ngIoApp.replace(", 'firebase'", '')
   return gulp.src([
     `${baseDir}/resources/js/**/*`,
+    `${baseDir}/resources/css/module/_{api,form}.scss`,
     `!${baseDir}/resources/js/vendor/{jquery,lang-*,prettify}.js`,
     `!${baseDir}/resources/js/controllers/resources-controller.js`,
   ], { base: baseDir })
@@ -194,6 +195,7 @@ gulp.task('_get-rsrc-js', cb => {
       `<a ng-href="{{ item.path }}">`,
       `<a ng-href="{{ \\'/angular/api/\\' + item.path }}" target="_blank">`
     ))
+    .pipe(replace('api-filter clearfix', 'api-filter'))
     // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));

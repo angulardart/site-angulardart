@@ -67,23 +67,23 @@ Jade Error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       end
       if baseNoExt == 'index'
         # E.g. for guide/index.html: relative URL "./foo" -> "guide/./foo"
-        o.gsub!(/(href=")([^"]*)(")/) { adjustRelativeHref(dir[-1], Regexp.last_match) }
+        o.gsub!(/(href=")([^"]*)(")/) { _adjustRelativeHref(dir[-1], Regexp.last_match) }
       end
       o.gsub!(/!= partial\("([^"]+)"\)/) { getCodeFrag(Regexp.last_match[1]) }
       return o
     end
 
-  end
-
-  def _adjustRelativeHref(dir, last_match)
-    hrefOpen, url, hrefEnd = last_match[1], last_match[2], last_match[3]
-    if url.start_with?('http', '#', '/')
-      # puts " >> skipping url #{url}"
-      return last_match[0]
+    def _adjustRelativeHref(dir, last_match)
+      hrefOpen, url, hrefEnd = last_match[1], last_match[2], last_match[3]
+      if url.start_with?('http', '#', '/')
+        # puts " >> skipping url #{url}"
+        return last_match[0]
+      end
+      newHref = "#{hrefOpen}#{dir}/#{url}#{hrefEnd}"
+      # puts " >> new href #{newHref}"
+      return newHref
     end
-    newHref = "#{hrefOpen}#{dir}/#{url}#{hrefEnd}"
-    # puts " >> new href #{newHref}"
-    return newHref
+
   end
 
 end
