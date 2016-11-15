@@ -39,11 +39,16 @@ const WWW = 'www-pages';
 const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
 
+const config = { }
+const plugins = {fs:fs, path:path, q:Q} // TODO: use plugins pkg
+
+require('./gulp/api')(gulp, plugins, config)
+
 //-----------------------------------------------------------------------------
 // Tasks
 //
 
-gulp.task('build', ['sass'], cb => {
+gulp.task('build', ['get-api-docs', 'sass'], cb => {
   gutil.log('\n*******************************************************************************')
   gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
   gutil.log('*******************************************************************************\n')
@@ -201,6 +206,11 @@ gulp.task('_get-rsrc-js', cb => {
   ], { base: baseDir })
     // Patch resources/js/site.js
     .pipe(replace(ngIoApp, dropFirebase))
+    // Patch resources/js/directives/api-list.js
+    .pipe(replace(
+      `<a ng-href="{{ item.path }}">`,
+      `<a ng-href="{{ \\'/angular/api/\\' + item.path }}" target="_blank">`
+    ))
     // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));

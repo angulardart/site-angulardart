@@ -112,6 +112,8 @@ markdown: kramdown
 
 include: ["_pages"]
 exclude: ['vendor', '.asset-cache']
+keep_files:
+  - angular/api
 
 gems:
 - jekyll-assets
