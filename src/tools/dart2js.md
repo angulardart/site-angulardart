@@ -99,7 +99,7 @@ The following options control the analysis that dart2js performs on Dart code:
   is useful for finding errors in libraries, but using it can result in
   bigger and slower output.
 
-`-analyze-only`
+`--analyze-only`
 : Analyze the code, but don't generate code.
 
 `--analyze-signatures-only`
