@@ -188,6 +188,7 @@ gulp.task('_get-rsrc-other', cb => {
   const dropFirebase = ngIoApp.replace(", 'firebase'", '')
   return gulp.src([
     `${baseDir}/resources/js/**/*`,
+    `${baseDir}/resources/css/layout/_{grids,layout}.scss`,
     `${baseDir}/resources/css/module/_{api,form}.scss`,
     `!${baseDir}/resources/js/vendor/{jquery,lang-*,prettify}.js`,
     `!${baseDir}/resources/js/controllers/resources-controller.js`,
