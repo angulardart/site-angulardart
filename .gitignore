@@ -25,7 +25,7 @@ node_modules
 # angular
 #
 
-/src/styles/angular/angular.css
+/src/styles/angular.css
 
 # Temp content copied over from angular.io
 /src/resources
