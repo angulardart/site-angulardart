@@ -146,13 +146,14 @@ function _getNgIoJadeForDir(dir, _data) {
       gutil.log(`  >> skipping ${fileName}`);
       return true;
     }
-    const jekyllYaml = `---
-layout: angular
+    let pageConfig = `layout: angular
 title: "${entry.title}"
 description: "${(entry.description || entry.intro).replace(/"/g, '\\"')}"
 angular: true
----
 `;
+    const sideNavGroup = entry.basics ? 'basic' : dir ? 'advanced' : '';
+    if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
+    const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
     jade = jade

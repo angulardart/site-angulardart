@@ -12,9 +12,11 @@
 
     - title: "Guide"
       permalink: /angular/guide
+      sideNavGroup: basic
       children:
         - title: 1. Overview
           permalink: /angular/guide
+          urlExactMatch: /angular/guide/
         - title: 2. Architecture
           permalink: /angular/guide/architecture
         - title: 3. Displaying Data
@@ -42,6 +44,7 @@
       children:
         - title: Introduction
           permalink: /angular/tutorial
+          urlExactMatch: /angular/tutorial/
         - title: 1. The Hero Editor
           permalink: /angular/tutorial/toh-pt1
         - title: 2. Master/Detail
@@ -57,6 +60,7 @@
 
     - title: "Advanced"
       permalink: /angular/guide/attribute-directives
+      sideNavGroup: advanced
       children:
         - title: Attribute Directives
           permalink: /angular/guide/attribute-directives
