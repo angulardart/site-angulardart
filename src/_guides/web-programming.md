@@ -20,12 +20,12 @@ and then learn more from the
 To leverage one of the many existing libraries written in JavaScript,
 use [package:js](https://pub.dartlang.org/packages/js)
 to implement Dart-JavaScript interoperability.
-If a JavaScript library includes a types definition file
-in the [DefinitelyTyped](http://definitelytyped.org/) repository,
-the [js_facade_gen](https://github.com/dart-lang/js_facade_gen)
-tool can generate Dart code for that library.
+If a JavaScript library includes a TypeScript types definition file
+(see [DefinitelyTyped](http://definitelytyped.org/) for more info),
+you can use the [js_facade_gen](https://github.com/dart-lang/js_facade_gen)
+tool to generate Dart code for that library.
 
-The following resources use the js package:
+For examples of using package:js, see the following source code:
 
 [firebase3](https://github.com/Janamou/firebase3-dart)
 : Dart wrapper library for Firebase
