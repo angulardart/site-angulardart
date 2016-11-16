@@ -151,7 +151,7 @@ title: "${entry.title}"
 description: "${(entry.description || entry.intro).replace(/"/g, '\\"')}"
 angular: true
 `;
-    const sideNavGroup = entry.basics ? 'basic' : dir ? 'advanced' : '';
+    const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
     if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
     const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
@@ -163,7 +163,7 @@ angular: true
       .replace(/extends +(\.\.\/)*ts\//, 'extends /_jade/ts/')
       // .replace(/include (\.\.\/)*((_util-fns|_quickstart_repo)(\.jade)?)/g, 'include $2')
       .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include /_jade/$2')
-      .replace('src="api-list.json"', 'src="api/api-list.json"');
+      .replace('src="api-list.json"', 'src="/angular/api/api-list.json"');
     if (fileNameNoExt != 'index') {
       const exampleName = fileNameNoExt.replace(/pt/, '');
       jade = jade.replace(/block includes/, `$&\n  - var _example = '${exampleName}';`);
