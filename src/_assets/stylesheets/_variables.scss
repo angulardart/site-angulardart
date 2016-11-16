@@ -3,20 +3,21 @@
 ----------------------------------------- */
 
 // Color Palette
-
+$gray-base:                 #111111;
 $white-base:                #ffffff;
-$gray-base:                 #231f20;
 $gray:                      #D3D3D3;
 $gray-light:                #eeeeee;
 $gray-lighter:              #f0f0f0;
 $gray-dark:                 #111111;
-
 $teal:                      #1FBAAC;
 $blue:                      #1b87c9;
 $blue-light:                #e2f4fd;
 
-$brand-primary:             #22d3c5;
+$brand-primary:             #1155cc;
 
+// Blue color taken from gmail's stylesheet.
+$default-link:              #1155cc;
+$default-link-visited:      #1155cc;
 
 // Typeography
 $font-family-base:          'Source Sans Pro', sans-serif;
@@ -100,3 +101,4 @@ $kbd-bg:                      #333;
 // $pre-color:                   $gray-dark !default;
 // $pre-border-color:            #ccc !default;
 // $pre-scrollable-max-height:   340px !default;
+
