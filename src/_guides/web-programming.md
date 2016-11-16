@@ -17,12 +17,31 @@ and then learn more from the
 
 ## JS interop
 
-Perhaps you want to leverage one of the many existing libraries
-written in JavaScript.
-Use [package.js](https://pub.dartlang.org/packages/js)
+To leverage one of the many existing libraries written in JavaScript,
+use [package:js](https://pub.dartlang.org/packages/js)
 to implement Dart-JavaScript interoperability.
-The [chartjs](https://github.com/google/chartjs.dart/)
-example provides an end-to-end example of using package:js.
+If a JavaScript library includes a types definition file
+in the [DefinitelyTyped](http://definitelytyped.org/) repository,
+the [js_facade_gen](https://github.com/dart-lang/js_facade_gen)
+tool can generate Dart code for that library.
+
+The following resources use the js package:
+
+[firebase3](https://github.com/Janamou/firebase3-dart)
+: Dart wrapper library for Firebase
+
+[captains_log_final](https://github.com/dart-lang/one-hour-codelab/tree/dev-workflow/dev-workflow/captains_log_final)
+: Example includes [lib/quill.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/dev-workflow/dev-workflow/captains_log_final/lib/quill.dart) generated from Quill.js
+
+[chartjs](https://github.com/google/chartjs.dart)
+: Dart API for Chart.js
+
+{% comment %}
+Check out these pages:
+
+https://github.com/TheBosZ/dartins
+https://medium.com/@thebosz/creating-a-dart-to-javascript-interop-library-c97da204c34a#.up26ibqyb
+{% endcomment %}
 
 ## Low-level HTML
 
