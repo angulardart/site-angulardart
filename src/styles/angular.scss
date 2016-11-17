@@ -25,4 +25,14 @@
 // BOOTSTRAP OVERRIDES
 blockquote {
   font-size: 1em;
+.l-content-small {
+  padding: 0;
+}
+
+// ANGULAR.IO CSS COLLISIONS WITH WEBDEV
+.banner {
+  border-bottom: 0;
+  padding: 5px 0;
+  margin-bottom: 40px;
+  min-height: 0;
 }

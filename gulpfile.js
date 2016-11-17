@@ -87,8 +87,6 @@ gulp.task('_get-ts-jade', cb => {
   ], { base: baseDir })
     // We don't need to include the ts _util-fns.jade file; comment it out.
     .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
-    // Patch guide/index - having the clear prevents the page content below it to show until the user scrolls and fixed_nav is applied
-    .pipe(replace(/ *<br (clear="all"|style="clear:left;")>/, ''))
     // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
     .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
     // Patch glossary
