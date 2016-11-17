@@ -153,6 +153,7 @@ angular: true
 `;
     const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
     if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
+    if (dir == 'api') pageConfig = pageConfig + `toc: false\n`;
     const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
