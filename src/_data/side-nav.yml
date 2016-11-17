@@ -16,7 +16,7 @@
       children:
         - title: 1. Overview
           permalink: /angular/guide
-          urlExactMatch: /angular/guide/
+          urlExactMatch: true
         - title: 2. Architecture
           permalink: /angular/guide/architecture
         - title: 3. Displaying Data
@@ -44,7 +44,7 @@
       children:
         - title: Introduction
           permalink: /angular/tutorial
-          urlExactMatch: /angular/tutorial/
+          urlExactMatch: true
         - title: 1. The Hero Editor
           permalink: /angular/tutorial/toh-pt1
         - title: 2. Master/Detail
