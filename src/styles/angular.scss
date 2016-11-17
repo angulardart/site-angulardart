@@ -21,3 +21,8 @@
 @import '../resources/css/module/_form';
 @import '../resources/css/module/_symbol';
 @import '../resources/css/module/_table';
+
+// BOOTSTRAP OVERRIDES
+blockquote {
+  font-size: 1em;
+}
