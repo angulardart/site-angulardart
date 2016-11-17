@@ -33,7 +33,7 @@ const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
 
 const config = { }
-const plugins = {fs:fs, path:path, q:Q} // TODO: use plugins pkg
+const plugins = {argv:argv, fs:fs, path:path, q:Q} // TODO: use plugins pkg
 
 const extraTasks = 'api sass';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
@@ -192,7 +192,7 @@ gulp.task('_get-rsrc-other', cb => {
     `${baseDir}/resources/css/_options.scss`,
     `${baseDir}/resources/css/layout/_{grids,layout}.scss`,
     `${baseDir}/resources/css/base/_{colors,mixins,reset}.scss`,
-    `${baseDir}/resources/css/module/_{alert,api,buttons,callout,code,code-box,code-shell,filetree,form,table}.scss`,
+    `${baseDir}/resources/css/module/_{alert,api,banner,buttons,callout,code,code-box,code-shell,filetree,form,symbol,table}.scss`,
     `!${baseDir}/resources/js/vendor/{jquery,lang-*,prettify}.js`,
     `!${baseDir}/resources/js/controllers/resources-controller.js`,
   ], { base: baseDir })
@@ -203,7 +203,6 @@ gulp.task('_get-rsrc-other', cb => {
       `<a ng-href="{{ item.path }}">`,
       `<a ng-href="{{ \\'/angular/api/\\' + item.path }}" target="_blank">`
     ))
-    .pipe(replace('api-filter clearfix', 'api-filter'))
     // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));
