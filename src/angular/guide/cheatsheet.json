@@ -8,13 +8,13 @@
     "prerelease": [
       "local"
     ],
-    "build": "sha.27855a1",
+    "build": "sha.17c7e15",
     "version": "2.0.1-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "2.0.1-local+sha.27855a1",
+    "full": "2.0.1-local+sha.17c7e15",
     "branch": "master",
-    "commitSHA": "27855a1f11b631e3bd56aac0e488e953a7a52642"
+    "commitSHA": "17c7e154672dbf5feeeb971ed3b594d318703748"
   },
   "sections": [
     {
