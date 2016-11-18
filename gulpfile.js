@@ -84,8 +84,6 @@ gulp.task('_get-ts-jade', cb => {
   const baseDir = path.join(angulario, 'public/docs');
   return gulp.src([
     `${baseDir}/ts/_cache/**/*.jade`,
-    `${baseDir}/ts/latest/guide/index.jade`,
-    `${baseDir}/ts/latest/_quickstart_repo.jade`,
     `!${baseDir}/ts/**/api/**`,
   ], { base: baseDir })
     // We don't need to include the ts _util-fns.jade file; comment it out.
@@ -93,6 +91,7 @@ gulp.task('_get-ts-jade', cb => {
     // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
     .pipe(replace(/(var guideData =)[^;]*/, '$1 {}'))
     .pipe(replace(/(var advancedLandingPage =)[^;]*/, "$1 'attribute-directives'"))
+    .pipe(replace(/(client applications in HTML and #{_Lang}. )<br class="l-clear-left">/, '$1'))
     // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
     .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
     // Patch glossary
@@ -103,7 +102,6 @@ gulp.task('_get-ts-jade', cb => {
 gulp.task('_get-extra', () => {
   const baseDir = path.join(angulario, 'public/docs/dart/latest');
   return gulp.src([
-    `${baseDir}/_quickstart_repo.jade`,
     `${baseDir}/api/api-list.json`,
     `${baseDir}/guide/cheatsheet.json`, // will be moved up one level in _get-pages
   ], { base: baseDir })
