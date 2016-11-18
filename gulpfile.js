@@ -87,6 +87,9 @@ gulp.task('_get-ts-jade', cb => {
   ], { base: baseDir })
     // We don't need to include the ts _util-fns.jade file; comment it out.
     .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
+    // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
+    .pipe(replace(/(var guideData =)[^;]*/, '$1 {}'))
+    .pipe(replace(/(var advancedLandingPage =)[^;]*/, "$1 'attribute-directives'"))
     // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
     .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
     // Patch glossary
