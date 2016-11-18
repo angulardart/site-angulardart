@@ -75,7 +75,10 @@ gulp.task('_get-frag', cb => {
 });
 
 // TODO(chalin): copy over _util-fns.jade files & apply patches
-gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api', '_get-guide', '_get-extra']);
+gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api', '_get-guide', '_get-extra'], () => {
+  // Move cheatsheet.json to the same folder as cheatsheet.jade
+  return execp(`mv src/angular/guide/cheatsheet.json src/angular/`);
+});
 
 gulp.task('_get-ts-jade', cb => {
   const baseDir = path.join(angulario, 'public/docs');
@@ -97,22 +100,22 @@ gulp.task('_get-ts-jade', cb => {
     .pipe(gulp.dest('src/angular/_jade'));
 });
 
-gulp.task('_get-extra', cb => {
+gulp.task('_get-extra', () => {
   const baseDir = path.join(angulario, 'public/docs/dart/latest');
   return gulp.src([
     `${baseDir}/_quickstart_repo.jade`,
     `${baseDir}/api/api-list.json`,
-    `${baseDir}/guide/cheatsheet.json`,
+    `${baseDir}/guide/cheatsheet.json`, // will be moved up one level in _get-pages
   ], { base: baseDir })
     .pipe(gulp.dest('src/angular'));
 });
 
-gulp.task('_get-api', cb => {
+gulp.task('_get-api', () => {
   const data = { "index": { "title" : "API Reference", "description" : "API Reference" } };
   return _getNgIoJadeForDir('api', data);
 });
 
-gulp.task('_get-guide', cb => {
+gulp.task('_get-guide', () => {
   const data = {
     "quickstart": {
         "title": "Quickstart",
@@ -122,20 +125,20 @@ gulp.task('_get-guide', cb => {
       "title": "Angular Cheat Sheet",
       "intro": "A quick guide to Angular syntax. (Content is provisional and may change.)",
     },
-
     "glossary": {
       "title": "Glossary",
       "intro": "Brief definitions of the most important words in the Angular vocabulary",
     },
   };
   _getNgIoJadeForDir('', data);
-  _getNgIoJadeForDir('guide');
+  _getNgIoJadeForDir('guide', null, ['cheatsheet', 'glossary']);
   return true;
 });
 
-gulp.task('_get-tutorial', cb => _getNgIoJadeForDir('tutorial'));
+gulp.task('_get-tutorial', () => _getNgIoJadeForDir('tutorial'));
 
-function _getNgIoJadeForDir(dir, _data) {
+function _getNgIoJadeForDir(dir, _data, _skiplist) {
+  const skipList = _skiplist || [];
   const srcDir = path.join(angulario, `public/docs/dart/latest/${dir}`);
   const destDir = path.resolve(`./src/angular/${dir}`);
   const data = _data || require(path.join(srcDir, '_data.json'));
@@ -143,7 +146,7 @@ function _getNgIoJadeForDir(dir, _data) {
     const fileName = `${fileNameNoExt}.jade`;
     const filePath = path.join(srcDir, fileName);
     const entry = data[fileNameNoExt];
-    if (entry.hide || !fs.existsSync(filePath) || fileNameNoExt == 'cheatsheet') {
+    if (entry.hide || !fs.existsSync(filePath) || skipList.includes(fileNameNoExt)) {
       gutil.log(`  >> skipping ${fileName}`);
       return true;
     }
@@ -154,7 +157,7 @@ angular: true
 `;
     const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
     if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
-    if (dir == 'api') pageConfig = pageConfig + `toc: false\n`;
+    if (dir == 'api' || fileNameNoExt == 'cheatsheet') pageConfig = pageConfig + `toc: false\n`;
     const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});

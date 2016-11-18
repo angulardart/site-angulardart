@@ -10,35 +10,6 @@
     - title: "Quickstart"
       permalink: /angular/quickstart
 
-    - title: "Guide"
-      permalink: /angular/guide
-      sideNavGroup: basic
-      children:
-        - title: 1. Overview
-          permalink: /angular/guide
-          urlExactMatch: true
-        - title: 2. Architecture
-          permalink: /angular/guide/architecture
-        - title: 3. Displaying Data
-          permalink: /angular/guide/displaying-data
-        - title: 4. User Input
-          permalink: /angular/guide/user-input
-        - title: 5. Forms
-          permalink: /angular/guide/forms
-        - title: 6. Dependency Injection
-          permalink: /angular/guide/dependency-injection
-        - title: 7. Template Syntax
-          permalink: /angular/guide/template-syntax
-        - title: 8. Cheat Sheet
-          permalink: /angular/guide/cheatsheet
-        - title: 9. Style Guide
-          permalink: /angular/guide/style-guide
-        - title: 10. Glossary
-          permalink: /angular/guide/glossary
-
-    - title: "API Reference"
-      permalink: /angular/api
-
     - title: "Tutorial"
       permalink: /angular/tutorial
       children:
@@ -58,6 +29,28 @@
         - title: 6. HTTP
           permalink: /angular/tutorial/toh-pt6
 
+    - title: "Guide"
+      permalink: /angular/guide
+      sideNavGroup: basic
+      children:
+        - title: 1. Overview
+          permalink: /angular/guide
+          urlExactMatch: true
+        - title: 2. Architecture
+          permalink: /angular/guide/architecture
+        - title: 3. Displaying Data
+          permalink: /angular/guide/displaying-data
+        - title: 4. User Input
+          permalink: /angular/guide/user-input
+        - title: 5. Forms
+          permalink: /angular/guide/forms
+        - title: 6. Dependency Injection
+          permalink: /angular/guide/dependency-injection
+        - title: 7. Template Syntax
+          permalink: /angular/guide/template-syntax
+        - title: 8. Style Guide
+          permalink: /angular/guide/style-guide
+
     - title: "Advanced"
       permalink: /angular/guide/attribute-directives
       sideNavGroup: advanced
@@ -74,6 +67,13 @@
           permalink: /angular/guide/lifecycle-hooks
         - title: Pipes
           permalink: /angular/guide/pipes
+
+    - title: "API Reference"
+      permalink: /angular/api
+    - title: "Cheat Sheet"
+      permalink: /angular/cheatsheet
+    - title: Glossary
+      permalink: /angular/glossary
 
 - title: "Libraries"
   children:
