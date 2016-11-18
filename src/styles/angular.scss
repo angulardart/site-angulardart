@@ -1,4 +1,10 @@
 /* -----------------------------------------
+  Dart Lang
+  ----------------------------------------- */
+
+@import '../_assets/stylesheets/_variables';
+
+/* -----------------------------------------
   Angular
   ----------------------------------------- */
 
@@ -13,9 +19,9 @@
 @import '../resources/css/module/_api';
 @import '../resources/css/module/_banner';
 @import '../resources/css/module/_buttons';
-@import '../resources/css/module/_callout';
-@import '../resources/css/module/_code';
-@import '../resources/css/module/_code-box';
+@import './_callout';
+@import './_code';
+@import './_code-box';
 @import '../resources/css/module/_code-shell';
 @import '../resources/css/module/_filetree';
 @import '../resources/css/module/_form';
