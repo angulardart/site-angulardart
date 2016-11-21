@@ -32,10 +32,13 @@ const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
 
-const config = { }
-const plugins = {argv:argv, fs:fs, path:path, q:Q} // TODO: use plugins pkg
+const config = {
+  angularRepo: '../angular2',
+  relDartDocApiDir: path.join('doc', 'api'),
+};
+const plugins = {argv:argv, execp:execp, fs:fs, gutil:gutil, path:path, q:Q} // TODO: use plugins pkg
 
-const extraTasks = 'api sass';
+const extraTasks = 'api dartdoc sass';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
@@ -75,7 +78,7 @@ gulp.task('_get-frag', cb => {
 });
 
 // TODO(chalin): copy over _util-fns.jade files & apply patches
-gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api', '_get-guide', '_get-extra'], () => {
+gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api-ref-page', '_get-guide', '_get-extra'], () => {
   // Move cheatsheet.json to the same folder as cheatsheet.jade
   return execp(`mv src/angular/guide/cheatsheet.json src/angular/`);
 });
@@ -108,7 +111,7 @@ gulp.task('_get-extra', () => {
     .pipe(gulp.dest('src/angular'));
 });
 
-gulp.task('_get-api', () => {
+gulp.task('_get-api-ref-page', () => {
   const data = { "index": { "title" : "API Reference", "description" : "API Reference" } };
   return _getNgIoJadeForDir('api', data);
 });

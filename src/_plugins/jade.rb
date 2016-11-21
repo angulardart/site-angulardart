@@ -10,6 +10,8 @@ module Jekyll
 
   class JadeConverter < Converter
 
+    @@jadeLogEntryCount = 0;
+
     def matches(ext)
       ext =~ /^\.jade$/i
     end
@@ -29,6 +31,12 @@ module Jekyll
       return CGI::escapeHTML(lines.join)
     end
 
+    def logPuts(s)
+      puts(s)
+      fileMode = (@@jadeLogEntryCount += 1) <= 1 ? 'w' : 'a'
+      File.open('jade-log.txt', fileMode) do |logFile| logFile.puts(s) end
+    end
+
     def getCodeFrag(path)
       path2frag = File.join Dir.pwd, "src/angular", path
       if File.exists? path2frag
@@ -36,7 +44,7 @@ module Jekyll
         result = stripMdCodeMarkers(lines)
       else
         result = "BAD FILENAME: #{path2frag}"
-        puts result
+        logPuts result
       end
       return result
     end
@@ -54,12 +62,7 @@ module Jekyll
         obj_s = obj.to_s.gsub(/:(\w+)=>/, '\1: ')
         # puts "Got filepath #{filePath}\nobj = #{obj_s}"
         o, e, s = Open3.capture3("./node_modules/.bin/jade --path #{filePath} --obj '#{obj_s}'", :stdin_data => content)
-        puts(<<-eos
-Jade Error >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#{e}
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Jade Error
-        eos
-        ) if e.length > 0
+        logPuts e if e.length > 0
       rescue Errno::ENOENT => e
         puts "** ERROR: Jade isn't installed or could not be found."
         puts "** ERROR: To install with NPM run: npm install jade -g"

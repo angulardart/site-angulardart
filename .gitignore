@@ -26,6 +26,7 @@ node_modules
 #
 
 /src/styles/angular.css
+/jade-log.txt
 
 # Temp content copied over from angular.io
 /src/resources
