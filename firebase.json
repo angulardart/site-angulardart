@@ -9,6 +9,7 @@
       { "source": "/angular/guide/glossary", "destination": "/angular/glossary.html", "type": 301 }
     ],
     "ignore": [
+      "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
