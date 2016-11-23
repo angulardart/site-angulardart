@@ -77,7 +77,6 @@ gulp.task('_get-frag', cb => {
     .pipe(gulp.dest('src/angular'));
 });
 
-// TODO(chalin): copy over _util-fns.jade files & apply patches
 gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api-ref-page',
   '_get-guide', '_get-extra-dart', '_get-includes'], () => {
   return Q.all(
@@ -99,7 +98,6 @@ gulp.task('_get-ts-jade', cb => {
     // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
     .pipe(replace(/(var guideData =)[^;]*/, '$1 {}'))
     .pipe(replace(/(var advancedLandingPage =)[^;]*/, "$1 'attribute-directives'"))
-    .pipe(replace(/(client applications in HTML and #{_Lang}. )<br class="l-clear-left">/, '$1'))
     // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
     .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
     // Patch glossary
