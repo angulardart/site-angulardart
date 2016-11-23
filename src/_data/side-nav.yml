@@ -36,19 +36,23 @@
         - title: 1. Overview
           permalink: /angular/guide
           urlExactMatch: true
-        - title: 2. Architecture
+        - title: 2. Setup
+          permalink: /angular/guide/setup
+        - title: 3. Learning Angular
+          permalink: /angular/guide/learning-angular
+        - title: 4. Architecture
           permalink: /angular/guide/architecture
-        - title: 3. Displaying Data
+        - title: 5. Displaying Data
           permalink: /angular/guide/displaying-data
-        - title: 4. User Input
+        - title: 6. User Input
           permalink: /angular/guide/user-input
-        - title: 5. Forms
+        - title: 7. Forms
           permalink: /angular/guide/forms
-        - title: 6. Dependency Injection
+        - title: 8. Dependency Injection
           permalink: /angular/guide/dependency-injection
-        - title: 7. Template Syntax
+        - title: 9. Template Syntax
           permalink: /angular/guide/template-syntax
-        - title: 8. Style Guide
+        - title: 10. Style Guide
           permalink: /angular/guide/style-guide
 
     - title: "Advanced"

@@ -78,9 +78,14 @@ gulp.task('_get-frag', cb => {
 });
 
 // TODO(chalin): copy over _util-fns.jade files & apply patches
-gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api-ref-page', '_get-guide', '_get-extra'], () => {
-  // Move cheatsheet.json to the same folder as cheatsheet.jade
-  return execp(`mv src/angular/guide/cheatsheet.json src/angular/`);
+gulp.task('_get-pages', ['_get-ts-jade', '_get-tutorial', '_get-api-ref-page',
+  '_get-guide', '_get-extra-dart', '_get-includes'], () => {
+  return Q.all(
+    // Move cheatsheet.json to the same folder as cheatsheet.jade
+    execp(`mv src/angular/guide/cheatsheet.json src/angular/`),
+    // Remove <br clear> from learning-angular.jade
+    cpExec(`perl -pi -e 's/<br class="l-clear-left">//' src/angular/_jade/ts/_cache/guide/learning-angular.jade`)
+  );
 });
 
 gulp.task('_get-ts-jade', cb => {
@@ -102,13 +107,27 @@ gulp.task('_get-ts-jade', cb => {
     .pipe(gulp.dest('src/angular/_jade'));
 });
 
-gulp.task('_get-extra', () => {
+gulp.task('_get-extra-dart', () => {
   const baseDir = path.join(angulario, 'public/docs/dart/latest');
   return gulp.src([
     `${baseDir}/api/api-list.json`,
+    `${baseDir}/_util-fns.jade`,
     `${baseDir}/guide/cheatsheet.json`, // will be moved up one level in _get-pages
   ], { base: baseDir })
+    // Patch _util-fns.jade
+    .pipe(replace(/include +(\.\.\/)+_includes\//, 'include /_jade/'))
     .pipe(gulp.dest('src/angular'));
+});
+
+gulp.task('_get-includes', () => {
+  const baseDir = path.join(angulario, 'public/_includes');
+  return gulp.src([
+    `${baseDir}/_util-fns.jade`,
+  ], { base: baseDir })
+    // Patch _util-fns.jade
+    .pipe(replace(/^/, '- var jade2ng = true;\n'))
+    .pipe(replace(/(\-  )( var frag = partial\(fullFileName\);)/, '$1 return \'!= partial("\' + fullFileName + \'")\';\n$1$2'))
+    .pipe(gulp.dest('src/angular/_jade'));
 });
 
 gulp.task('_get-api-ref-page', () => {
@@ -158,14 +177,13 @@ angular: true
 `;
     const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
     if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
-    if (dir == 'api' || fileNameNoExt == 'cheatsheet') pageConfig = pageConfig + `toc: false\n`;
+    if (dir == 'api' || fileNameNoExt.match(/quickstart|cheatsheet|learning-angular/)) pageConfig = pageConfig + `toc: false\n`;
     const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
     jade = jade
       .replace(/^/, `//- FilePath: ${destFile.replace(/.*\/(src\/)/, '$1')}\n`)
       // General patches
-      // .replace(/extends +(\.\.\/)*(cheatsheet|glossary)/, 'extends $2')
       .replace(/extends +(\.\.\/)*ts\//, 'extends /_jade/ts/')
       // .replace(/include (\.\.\/)*((_util-fns|_quickstart_repo)(\.jade)?)/g, 'include $2')
       .replace(/include (\.\.\/)*_includes\/(_ts-temp(\.jade)?)/g, 'include /_jade/$2')
