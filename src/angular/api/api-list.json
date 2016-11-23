@@ -1351,25 +1351,6 @@
       "layout": false
     },
     {
-      "name": "CompileInjectorModuleMetadata",
-      "qualifiedName": "angular2.compiler.CompileInjectorModuleMetadata",
-      "href": "angular2.compiler/CompileInjectorModuleMetadata-class.html",
-      "type": "class",
-      "enclosedBy": {
-        "name": "angular2.compiler",
-        "type": "library"
-      },
-      "origDartDocType": "class",
-      "typeFromHref": "class",
-      "enclosedByQualifiedName": "angular2.compiler",
-      "kind": "entry-dart-api",
-      "docType": "class",
-      "libName": "angular2.compiler",
-      "path": "angular2.compiler/CompileInjectorModuleMetadata-class.html",
-      "title": "CompileInjectorModuleMetadata",
-      "layout": false
-    },
-    {
       "name": "CompileMetadataWithIdentifier",
       "qualifiedName": "angular2.compiler.CompileMetadataWithIdentifier",
       "href": "angular2.compiler/CompileMetadataWithIdentifier-class.html",
@@ -1728,25 +1709,6 @@
       "libName": "angular2.compiler",
       "path": "angular2.compiler/ReferenceAst-class.html",
       "title": "ReferenceAst",
-      "layout": false
-    },
-    {
-      "name": "RenderTypes",
-      "qualifiedName": "angular2.compiler.RenderTypes",
-      "href": "angular2.compiler/RenderTypes-class.html",
-      "type": "class",
-      "enclosedBy": {
-        "name": "angular2.compiler",
-        "type": "library"
-      },
-      "origDartDocType": "class",
-      "typeFromHref": "class",
-      "enclosedByQualifiedName": "angular2.compiler",
-      "kind": "entry-dart-api",
-      "docType": "class",
-      "libName": "angular2.compiler",
-      "path": "angular2.compiler/RenderTypes-class.html",
-      "title": "RenderTypes",
       "layout": false
     },
     {
@@ -2719,25 +2681,6 @@
       "layout": false
     },
     {
-      "name": "InjectorModule",
-      "qualifiedName": "angular2.core.InjectorModule",
-      "href": "angular2.core/InjectorModule-class.html",
-      "type": "class",
-      "enclosedBy": {
-        "name": "angular2.core",
-        "type": "library"
-      },
-      "origDartDocType": "class",
-      "typeFromHref": "class",
-      "enclosedByQualifiedName": "angular2.core",
-      "kind": "entry-dart-api",
-      "docType": "class",
-      "libName": "angular2.core",
-      "path": "angular2.core/InjectorModule-class.html",
-      "title": "InjectorModule",
-      "layout": false
-    },
-    {
       "name": "Input",
       "qualifiedName": "angular2.core.Input",
       "href": "angular2.core/Input-class.html",
@@ -3476,25 +3419,6 @@
       "libName": "angular2.core",
       "path": "angular2.core/RenderComponentType-class.html",
       "title": "RenderComponentType",
-      "layout": false
-    },
-    {
-      "name": "Renderer",
-      "qualifiedName": "angular2.core.Renderer",
-      "href": "angular2.core/Renderer-class.html",
-      "type": "class",
-      "enclosedBy": {
-        "name": "angular2.core",
-        "type": "library"
-      },
-      "origDartDocType": "class",
-      "typeFromHref": "class",
-      "enclosedByQualifiedName": "angular2.core",
-      "kind": "entry-dart-api",
-      "docType": "class",
-      "libName": "angular2.core",
-      "path": "angular2.core/Renderer-class.html",
-      "title": "Renderer",
       "layout": false
     },
     {

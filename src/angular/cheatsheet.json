@@ -1,20 +1,20 @@
 {
   "currentEnvironment": "Dart",
   "version": {
-    "raw": "2.0.0",
+    "raw": "2.1.0",
     "major": 2,
-    "minor": 0,
+    "minor": 1,
     "patch": 1,
     "prerelease": [
       "local"
     ],
-    "build": "sha.1c2d14a",
-    "version": "2.0.1-local",
+    "build": "sha.692d751",
+    "version": "2.1.1-local",
     "codeName": "snapshot",
     "isSnapshot": true,
-    "full": "2.0.1-local+sha.1c2d14a",
+    "full": "2.1.1-local+sha.692d751",
     "branch": "master",
-    "commitSHA": "1c2d14a8b8f5e9fa1a95baa0fe1c85b9c084456a"
+    "commitSHA": "692d7513755bc1a38d55681f936df724257fef8c"
   },
   "sections": [
     {
