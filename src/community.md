@@ -13,7 +13,7 @@ You can find many resources at
 #### Web-specific resources
 
 * [Gitter channels](https://gitter.im/dart-lang/home)
-  * [Angular Dart](https://gitter.im/dart-lang/angular2)
+  * [AngularDart](https://gitter.im/dart-lang/angular2)
 * [Google Group for Dart web development](https://groups.google.com/a/dartlang.org/forum/#!forum/web)
 
 [Let us know](https://github.com/dart-lang/site-webdev/issues/new?title=Issue+with+page%3A&body=URL%3A+%3Ccopy-paste+here%3E%0AProblem%3A+%3Cdescribe+the+problem%3E%0ASuggestion%3A+%3Csuggested+fix%3F%3E)
