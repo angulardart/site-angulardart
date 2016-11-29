@@ -21,7 +21,7 @@ information until the user needs it. You’ll use these components:
 *   \<material-expansionpanel> and \<material-expansionpanel-set>
 *   \<material-tab> and \<material-tab-panel>
 
-## Use \<material-expansionpanel> and \<material-expansionpanel-set>
+## <i class="fa fa-money"> </i> Use material-expansionpanel and material-expansionpanel-set
 
 Expansion panels are especially good for settings,
 so let’s use them in the custom \<settings-component>,
@@ -100,7 +100,7 @@ That bit of work saved a lot of UI space:
 <img style="border:1px solid black" src="images/material-expansionpanel-after.png" alt='screenshot>'>
 
 
-## Use \<material-tab> and \<material-tab-panel>
+## <i class="fa fa-money"> </i> Use material-tab and material-tab-panel
 
 Now let’s save more by moving auxiliary text into separate tabs.
 This affects the main UI, implemented in lib/lottery_simulator.* files.
