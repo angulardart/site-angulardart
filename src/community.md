@@ -7,17 +7,14 @@ description: "Communities for Dart webdev."
 
 Become involved with the community of Dart developers who write for the web.
 
-You'll find the most resources at [Community and Support]({{site.dartlang}}/community) on www.dartlang.org.
+You can find many resources at
+[www.dartlang.org Community and Support.]({{site.dartlang}}/community)
 
 #### Web-specific resources
 
-* [Gitter channels](https://gitter.im/dart-lang/)
+* [Gitter channels](https://gitter.im/dart-lang/home)
   * [Angular Dart](https://gitter.im/dart-lang/angular2)
-  * [Dev Compiler](https://gitter.im/dart-lang/dev_compiler)
-* [Dart Web Google Group](https://groups.google.com/a/
-dartlang.org/d/forum/web)
+* [Google Group for Dart web development](https://groups.google.com/a/dartlang.org/forum/#!forum/web)
 
-<a href="https://github.com/dart-lang/site-webdev/issues/new?title=Bad%20URL&body=URL%3A%20%0AExpected%20page%3A%20" target="_blank">Let us know</a>
+[Let us know](https://github.com/dart-lang/site-webdev/issues/new?title=Issue+with+page%3A&body=URL%3A+%3Ccopy-paste+here%3E%0AProblem%3A+%3Cdescribe+the+problem%3E%0ASuggestion%3A+%3Csuggested+fix%3F%3E)
 if you find other resources we should add.
-
-Dart is an open-source project, and we look forward to hearing from you.
