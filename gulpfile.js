@@ -95,6 +95,8 @@ gulp.task('_get-ts-jade', cb => {
   ], { base: baseDir })
     // We don't need to include the ts _util-fns.jade file; comment it out.
     .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
+    // Patch toh-5; don't include TS-specific _see-addr-bar.jade
+    .pipe(replace(/include (\.\.\/)*_includes\/_see-addr-bar(\.jade)?/g, '//- $&'))
     // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
     .pipe(replace(/(var guideData =)[^;]*/, '$1 {}'))
     .pipe(replace(/(var advancedLandingPage =)[^;]*/, "$1 'attribute-directives'"))
