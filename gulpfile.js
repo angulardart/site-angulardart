@@ -161,6 +161,19 @@ function _getNgIoJadeForDir(dir, _data, _skiplist) {
   const srcDir = path.join(angulario, `public/docs/dart/latest/${dir}`);
   const destDir = path.resolve(`./src/angular/${dir}`);
   const data = _data || require(path.join(srcDir, '_data.json'));
+
+  // Create array to establish prev/next pages
+  const prevNextArray = [];
+  Object.keys(data).forEach(fileNameNoExt => {
+    const fileName = `${fileNameNoExt}.jade`;
+    const filePath = path.join(srcDir, fileName);
+    const entry = data[fileNameNoExt];
+    if (entry.hide || !fs.existsSync(filePath) || skipList.includes(fileNameNoExt)) {
+      return true;
+    }
+    prevNextArray.push(fileNameNoExt);
+  });
+
   Object.keys(data).forEach(fileNameNoExt => {
     const fileName = `${fileNameNoExt}.jade`;
     const filePath = path.join(srcDir, fileName);
@@ -177,6 +190,30 @@ angular: true
     const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
     if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: "${sideNavGroup}"\n`;
     if (dir == 'api' || fileNameNoExt.match(/quickstart|cheatsheet|learning-angular/)) pageConfig = pageConfig + `toc: false\n`;
+
+    // Handle prev/next links
+    // Sample:
+    //   nextpage:
+    //     title: "1. The Hero Editor"
+    //     url: /angular/tutorial/toh-pt1
+    const pageIdx = prevNextArray.indexOf(fileNameNoExt);
+    if (pageIdx > -1 && entry.nextable) {
+      if (pageIdx > 0) {
+        const _linkUri = prevNextArray[pageIdx-1];
+        const _otherEntry = data[_linkUri];
+        pageConfig = pageConfig + `prevpage:\n`
+          + `  title: "${_otherEntry.title}"\n`
+          + `  url: /angular/${dir}/${_linkUri}\n`;
+      }
+      if (pageIdx < prevNextArray.length - 1) {
+        const _linkUri = prevNextArray[pageIdx+1];
+        const _otherEntry = data[_linkUri];
+        pageConfig = pageConfig + `nextpage:\n`
+          + `  title: "${_otherEntry.title}"\n`
+          + `  url: /angular/${dir}/${_linkUri}\n`;
+      }
+    }
+
     const jekyllYaml = `---\n${pageConfig}---\n`;
     const destFile = path.join(destDir, fileName);
     let jade = fs.readFileSync(filePath, {encoding: 'utf-8'});
