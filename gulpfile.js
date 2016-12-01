@@ -131,7 +131,7 @@ gulp.task('_get-includes', () => {
 });
 
 gulp.task('_get-api-ref-page', () => {
-  const data = { "index": { "title" : "API Reference", "description" : "API Reference" } };
+  const data = { "index": { "title" : "API Reference v<ngio-cheatsheet src='/angular/cheatsheet.json' version-only>2</ngio-cheatsheet>" } };
   return _getNgIoJadeForDir('api', data);
 });
 
@@ -142,8 +142,7 @@ gulp.task('_get-guide', () => {
         "description": "Get up and running with Angular",
       },
     "cheatsheet": {
-      "title": "Angular Cheat Sheet",
-      "intro": "A quick guide to Angular syntax. (Content is provisional and may change.)",
+      "title": "Cheat Sheet v<ngio-cheatsheet src='/angular/cheatsheet.json' version-only>2</ngio-cheatsheet>",
     },
     "glossary": {
       "title": "Glossary",
@@ -172,7 +171,7 @@ function _getNgIoJadeForDir(dir, _data, _skiplist) {
     }
     let pageConfig = `layout: angular
 title: "${entry.title}"
-description: "${(entry.description || entry.intro).replace(/"/g, '\\"')}"
+description: "${(entry.description || entry.intro || '').replace(/"/g, '\\"')}"
 angular: true
 `;
     const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
