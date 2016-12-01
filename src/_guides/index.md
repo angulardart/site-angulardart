@@ -14,10 +14,10 @@ Guides on this site:
 
 * [Get Started](/guides/get-started)
 * [Overview: Web Libraries](/guides/web-programming)
-* [Get Data](/guides/get-data)
+* [Angular](/angular/guide)
 * [Polymer](/guides/polymer)
+* [Get Data](/guides/get-data)
 
 Also see:
 
 * [Articles](/articles)
-* [angular.io/dart](https://angular.io/dart)

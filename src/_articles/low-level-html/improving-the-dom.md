@@ -626,7 +626,7 @@ Check out the
 [dart:html API docs]({{site.dart_api}}/dart-html/dart-html-library.html).
 
 Speaking of browser programming, you might be interested in
-[Angular 2 for Dart](https://angular.io/docs/dart/latest/quickstart.html).
+[Angular](/angular).
 
 {% comment %}
 The tests for this article are at /tests/site/articles/improving-the-dom.

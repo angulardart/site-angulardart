@@ -11,9 +11,9 @@ Where can you learn more?
 ## Angular
 
 Work through the
-[Angular 2 code lab](/codelabs/ng2),
+[Angular code lab](/codelabs/ng2),
 and then learn more from the
-[Angular 2 for Dart](https://angular.io/dart) docs.
+[Angular](/angular) docs.
 
 ## JS interop
 

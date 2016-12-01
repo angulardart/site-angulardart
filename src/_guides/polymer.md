@@ -19,5 +19,5 @@ Polymer is just one of several web libraries available for Dart.
 For information on others, see:
 
 * [Overview: Web Libraries](/guides/web-programming)
-* [Angular for Dart](http://angular.io/dart)
+* [Angular](/angular)
 

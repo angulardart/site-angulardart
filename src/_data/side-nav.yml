@@ -2,8 +2,6 @@
   children:
   - title: Get Started
     permalink: /guides/get-started
-  - title: "Write an Angular App"
-    permalink: /codelabs/ng2
 
 - title: Angular Docs
   children:

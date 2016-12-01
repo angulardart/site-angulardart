@@ -80,8 +80,8 @@ Dart webdev tutorials and code labs:
 
 * [Tutorials](/tutorials)
 * [Code Labs](/codelabs)
-* [Angular 2 for Dart QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
-* [Angular 2 for Dart Tutorial: Tour of Heroes](https://angular.io/docs/dart/latest/tutorial/)
+* [Angular QuickStart](/angular/quickstart)
+* [Angular Tutorial: Tour of Heroes](/angular/tutorial)
 
 Tools & library documentation:
 
@@ -89,7 +89,7 @@ Tools & library documentation:
 * [Dartium](/tools/dartium)
 * [Dart Tools for the Web](/tools)
 * [IDEs]({{site.dartlang}}/tools#ides)
-* [angular.io/dart](https://angular.io/dart)
+* [Angular](/angular)
 * [Web Libraries](/guides/web-programming)
 
 [Community and Support](/community) lists a number of communities where
