@@ -10,25 +10,6 @@
     - title: "Quickstart"
       permalink: /angular/quickstart
 
-    - title: "Tutorial"
-      permalink: /angular/tutorial
-      children:
-        - title: Introduction
-          permalink: /angular/tutorial
-          urlExactMatch: true
-        - title: 1. The Hero Editor
-          permalink: /angular/tutorial/toh-pt1
-        - title: 2. Master/Detail
-          permalink: /angular/tutorial/toh-pt2
-        - title: 3. Multiple Components
-          permalink: /angular/tutorial/toh-pt3
-        - title: 4. Services
-          permalink: /angular/tutorial/toh-pt4
-        - title: 5. Routing
-          permalink: /angular/tutorial/toh-pt5
-        - title: 6. HTTP
-          permalink: /angular/tutorial/toh-pt6
-
     - title: "Guide"
       permalink: /angular/guide
       sideNavGroup: basic
@@ -54,6 +35,25 @@
           permalink: /angular/guide/template-syntax
         - title: 10. Style Guide
           permalink: /angular/guide/style-guide
+
+    - title: "Tutorial"
+      permalink: /angular/tutorial
+      children:
+        - title: Introduction
+          permalink: /angular/tutorial
+          urlExactMatch: true
+        - title: 1. The Hero Editor
+          permalink: /angular/tutorial/toh-pt1
+        - title: 2. Master/Detail
+          permalink: /angular/tutorial/toh-pt2
+        - title: 3. Multiple Components
+          permalink: /angular/tutorial/toh-pt3
+        - title: 4. Services
+          permalink: /angular/tutorial/toh-pt4
+        - title: 5. Routing
+          permalink: /angular/tutorial/toh-pt5
+        - title: 6. HTTP
+          permalink: /angular/tutorial/toh-pt6
 
     - title: "Advanced"
       permalink: /angular/guide/attribute-directives
