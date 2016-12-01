@@ -198,11 +198,16 @@ angular: true
   return true;
 }
 
-gulp.task('_get-resources', ['_get-rsrc-images', '_get-rsrc-other']);
+gulp.task('_get-resources', ['_get-rsrc-images1', '_get-rsrc-images2', '_get-rsrc-other']);
 
-gulp.task('_get-rsrc-images', cb => {
+gulp.task('_get-rsrc-images1', cb => {
   const baseDir = path.join(angulario, 'public');
   return gulp.src([`${baseDir}/resources/images/**/*`], { base: baseDir }).pipe(gulp.dest('src'));
+});
+
+gulp.task('_get-rsrc-images2', cb => {
+  const baseDir = path.join(angulario, 'public/docs/dart/latest');
+  return gulp.src([`${baseDir}/guide/images/**`], { base: baseDir }).pipe(gulp.dest('src/angular'));
 });
 
 gulp.task('_get-rsrc-other', cb => {
