@@ -46,7 +46,7 @@ using whatever [Dart web development tools](/tools) you prefer.
 {% prettify yaml %}
 dependencies:
   angular2: ^2.0.0
-  [[highlight]]angular2_components: ^0.1.0[[/highlight]]
+  [[highlight]]angular2_components: ^0.2.0[[/highlight]]
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   intl: ^0.14.0
@@ -85,7 +85,7 @@ import 'package:angular2/core.dart';
 
 Now you’re ready to use the components.
 
-## <i class="fa fa-money"> </i> Use \<material-progress>
+## <i class="fa fa-money"> </i> Use material-progress
 
 Edit the template file **lib/lottery_simulator.html** to use the
 **\<material-progress>** tag
@@ -104,7 +104,7 @@ As a reminder, here’s what the progress section looked like before:
 
 That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<glyph> component.
 
-## <i class="fa fa-money"> </i> Use \<glyph> in buttons
+## <i class="fa fa-money"> </i> Use glyph in buttons
 
 Using \<glyph> 
 ([GlyphComponent]({{site.acx_api}}/angular2_components/GlyphComponent-class.html))
@@ -178,7 +178,7 @@ import glyph fonts.
 </aside>
 
 
-## <i class="fa fa-money"> </i> Use \<glyph> in other components
+## <i class="fa fa-money"> </i> Use glyph in other components
 
 If you scroll down to the Tips section of the page, you’ll see blank spaces where there should be icons:
 
@@ -231,7 +231,7 @@ Adding those two lines to lib/help/help.dart makes the glyphs display:
 <img style="border:1px solid black" src="images/glyph-help-after.png" alt='help text now has images'>
 
 
-## <i class="fa fa-money"> </i> Use \<acx-scorecard>
+## <i class="fa fa-money"> </i> Use acx-scorecard
 
 Let’s make one more change: using scorecards (\<acx-scorecard>)
 to display the betting and investing results.
