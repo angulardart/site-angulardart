@@ -1,4 +1,4 @@
-- title: Quick Start
+- title: 
   children:
   - title: Get Started
     permalink: /guides/get-started
@@ -81,27 +81,18 @@
     - title: Glossary
       permalink: /angular/glossary
 
-- title: "Libraries"
+- title: "Web Libraries"
   children:
   - title: "Overview"
     permalink: /guides/web-programming
 
-- title: "Tools"
+- title: "Resources"
   children:
   - title: "Dart Tools for the Web"
     permalink: /tools
-
-- title: "Community"
-  children:
+  - title: "Tutorials"
+    permalink: /tutorials
+  - title: "Articles"
+    permalink: /articles
   - title: "Community and Support"
     permalink: /community
-
-- title: "Tutorials"
-  children:
-  - title: "Overview"
-    permalink: /tutorials
-
-- title: "Articles"
-  children:
-  - title: "Overview"
-    permalink: /articles
