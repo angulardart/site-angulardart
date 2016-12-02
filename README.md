@@ -5,7 +5,7 @@
 
 This repo implements the [webdev.dartlang.org](http://webdev.dartlang.org) website. It uses the tools and infrastructure of
 www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https://github.com/dart-lang/site-www)), plus
-some tools from the angular.io site ([github.com/angular/angular.io](https://github.com/angular/angular.io).
+some tools from the angular.io site ([github.com/angular/angular.io](https://github.com/angular/angular.io)).
 
 This site requires npm version 6. Getting started is something like this:
 
