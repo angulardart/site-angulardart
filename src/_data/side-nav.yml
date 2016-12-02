@@ -31,8 +31,6 @@
           permalink: /angular/guide/dependency-injection
         - title: 9. Template Syntax
           permalink: /angular/guide/template-syntax
-        - title: 10. Style Guide
-          permalink: /angular/guide/style-guide
 
     - title: "Tutorial"
       permalink: /angular/tutorial
