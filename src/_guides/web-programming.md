@@ -10,10 +10,12 @@ Where can you learn more?
 
 ## Angular
 
-Work through the
-[Angular code lab](/codelabs/ng2),
-and then learn more from the
-[Angular](/angular) docs.
+Learn from the
+[Angular docs](/angular).
+You can also follow two code labs:
+
+* [Avast, Ye Pirates: Write an Angular App](/codelabs/ng2)
+* [AngularDart Components](/codelabs/angular2_components)
 
 ## JS interop
 

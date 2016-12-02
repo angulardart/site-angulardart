@@ -49,15 +49,15 @@ in Dartium or any other browser.
 
 <div class="col2" markdown="1">
 <div markdown="1">
-We recommend Angular 2, an application framework designed for building
-scalable web apps.
-You can start by following the Angular for Dart code lab:
+We recommend Angular, an application framework designed for building
+scalable web apps:
 
-[Avast Ye Pirates: Write an Angular App](/codelabs/ng2)
+* [Angular documentation](/angular)
+* [Web app code labs](/codelabs)
 </div>
 <div>
-  <img style="border:1px solid black" src="/codelabs/ng2/images/basic-pirate-name-badge.png" alt="app screenshot"><br>
-  <em>An Angular web app with a badge component</em>
+  <img src="/codelabs/angular2_components/images/app-final.png" alt="app screenshot"><br>
+  <em>A web app from the AngularDart Components code lab</em>
 </div>
 </div>
 
