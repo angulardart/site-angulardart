@@ -100,6 +100,8 @@ gulp.task('_get-ts-jade', cb => {
     // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
     .pipe(replace(/(var guideData =)[^;]*/, '$1 {}'))
     .pipe(replace(/(var advancedLandingPage =)[^;]*/, "$1 'attribute-directives'"))
+    // Patch structural-directives
+    .pipe(replace('## The *&lt;template>* tag', '## The *template* tag'))
     // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
     .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
     // Patch glossary
@@ -197,7 +199,7 @@ angular: true
     //     title: "1. The Hero Editor"
     //     url: /angular/tutorial/toh-pt1
     const pageIdx = prevNextArray.indexOf(fileNameNoExt);
-    if (pageIdx > -1 && entry.nextable) {
+    if (dir && pageIdx > -1 /*&& entry.nextable*/) {
       if (pageIdx > 0) {
         const _linkUri = prevNextArray[pageIdx-1];
         const _otherEntry = data[_linkUri];

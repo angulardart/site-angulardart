@@ -1,14 +1,14 @@
-- title: "Quick Start"
+- title: Quick Start
   children:
   - title: Get Started
     permalink: /guides/get-started
 
 - title: Angular Docs
   children:
-    - title: "Quickstart"
+    - title: Quickstart
       permalink: /angular/quickstart
 
-    - title: "Guide"
+    - title: Guide
       permalink: /angular/guide
       sideNavGroup: basic
       children:
@@ -32,7 +32,7 @@
         - title: 9. Template Syntax
           permalink: /angular/guide/template-syntax
 
-    - title: "Tutorial"
+    - title: Tutorial
       permalink: /angular/tutorial
       children:
         - title: Introduction
@@ -51,7 +51,7 @@
         - title: 6. HTTP
           permalink: /angular/tutorial/toh-pt6
 
-    - title: "Advanced"
+    - title: Advanced
       permalink: /angular/guide/attribute-directives
       sideNavGroup: advanced
       children:
@@ -67,10 +67,16 @@
           permalink: /angular/guide/lifecycle-hooks
         - title: Pipes
           permalink: /angular/guide/pipes
+        - title: Routing & Navigation
+          permalink: /angular/guide/router
+        - title: Security
+          permalink: /angular/guide/security
+        - title: Structural Directives
+          permalink: /angular/guide/structural-directives
 
-    - title: "API Reference"
+    - title: API Reference
       permalink: /angular/api
-    - title: "Cheat Sheet"
+    - title: Cheat Sheet
       permalink: /angular/cheatsheet
     - title: Glossary
       permalink: /angular/glossary
