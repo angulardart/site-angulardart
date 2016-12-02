@@ -11,7 +11,7 @@
           {% include banner.html %}
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
-          <h1>{{ page.title }}</h1>
+          <h1>{% if page.long-title %}{{ page.long-title }}{% else %}{{ page.title }}{% endif %}</h1>
           <a href="https://github.com/dart-lang/site-webdev/issues" target="_blank" rel="noopener" class="hide">Send feedback</a>
           <hr>
           {{ content | inject_anchors }}
