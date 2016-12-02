@@ -49,8 +49,7 @@
   {% endfor %}
   {% include analytics.html %}
 
-  <!-- Extra for angular -->
-  {% if page.angular %}
+  {% if page.layout == "angular" %}
   <!-- Angular.io styles for directives, etc -->
   <link rel="stylesheet" href="/styles/angular.css">
 
@@ -87,93 +86,5 @@
   <script src="/resources/js/directives/live-example.js"></script>
   <script src="/resources/js/directives/ngio-ex-path.js"></script>
   <script src="/resources/js/directives/scroll-y-offset-element.js"></script>
-
-  <!-- TODO: remove verbose() once angular quickstart is updated to remove the show/hide explanation buttons -->
-  <style>
-    /* From ng.io _layout.scss */
-    button.verbose {
-        font-size: 24px
-    }
-    @media handheld and (max-width: 480px),
-    screen and (max-device-width: 480px),
-    screen and (max-width: 800px) {
-        button.verbose {
-            font-size: 16px
-        }
-    }
-    button.verbose.on {
-        display: none
-    }
-    .l-verbose-section {
-        margin: 0 0 32px 0;
-        padding-left: 16px;
-        border-left: 1.33333px solid #B0BEC5;
-        border-radius: 1.33333px
-    }
-    .l-verbose-inherit {
-        margin: 0;
-        padding: 0;
-        border-left: 0;
-        border-radius: 0
-    }
-  </style>
-  <script>
-    // Open (and close) an explanation <div>. See QuickStart
-    function why(id, backTo) {
-      var id = "#"+id;
-      var el = document.querySelector(id);
-      el.hidden=el.hidden=!el.hidden;
-
-      if (el.hidden && backTo){
-        // the next line is required to work around a bug in WebKit (Chrome / Safari)
-        location.href = "#";
-        location.href =  "#" + backTo;
-      }
-    }
-
-    function verbose(isVerbose) {
-      isVerbose = !! isVerbose;
-      var el = document.querySelector('button.verbose.off');
-      el.style.display = isVerbose ? 'block' : 'none';
-      var el = document.querySelector('button.verbose.on');
-      el.style.display = isVerbose ? 'none' : 'block';
-
-      CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
-        isVerbose ? 'block' : 'none');
-    }
-
-    function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
-      /* returns the value of the element style of the rule in the stylesheet
-      *  If no value is given, reads the value
-      *  If value is given, the value is changed and returned
-      *  If '' (empty string) is given, erases the value.
-      *  The browser will apply the default one
-      *
-      * string stylesheet: part of the .css name to be recognized, e.g. 'default'
-      * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
-      * string style: camelCase element style, e.g. 'fontSize'
-      * string value optional : the new value
-      */
-      var CCSstyle = undefined, rules, sheet;
-      for(var m in document.styleSheets){
-        sheet = document.styleSheets[m];
-        if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
-        rules = sheet[document.all ? 'rules' : 'cssRules'];
-        for(var n in rules){
-          console.log(rules[n].selectorText);
-          if(rules[n].selectorText == selectorText){
-            CCSstyle = rules[n].style;
-            break;
-          }
-        }
-        break;
-        }
-      }
-      if(value == undefined)
-        return CCSstyle[style]
-      else
-        return CCSstyle[style] = value
-    }
-  </script>
   {% endif %}
 </head>
