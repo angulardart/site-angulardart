@@ -95,6 +95,8 @@ gulp.task('_get-ts-jade', cb => {
   ], { base: baseDir })
     // We don't need to include the ts _util-fns.jade file; comment it out.
     .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
+    // General patch
+    .pipe(replace(/target="_blank"/g, '$& rel="noopener"'))
     // Patch toh-5; don't include TS-specific _see-addr-bar.jade
     .pipe(replace(/include (\.\.\/)*_includes\/_see-addr-bar(\.jade)?/g, '//- $&'))
     // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
@@ -268,8 +270,10 @@ gulp.task('_get-rsrc-other', cb => {
     // Patch resources/js/directives/api-list.js
     .pipe(replace(
       `<a ng-href="{{ item.path }}">`,
-      `<a ng-href="{{ \\'/angular/api/\\' + item.path }}" target="_blank">`
+      `<a ng-href="{{ \\'/angular/api/\\' + item.path }}" target="_blank" rel="noopener">`
     ))
+    // Patch live-example.js
+    .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
     // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));

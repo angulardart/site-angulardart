@@ -18,7 +18,7 @@ header:
 
 Angular documentation
 : The <a href="https://angular.io/dart"
-  target="_blank">angular.io/dart</a> site has a quick start guide,
+  target="_blank" rel="noopener">angular.io/dart</a> site has a quick start guide,
   a developer guide, and API documentation.
   You might want to bookmark the
   <a href="https://angular.io/docs/dart/latest/guide/cheatsheet.html">Angular
@@ -53,18 +53,18 @@ API documentation
   [Random]({{site.dart_api}}/dart-math/Random-class.html)
 
 API documentation for libraries
-: <a href="{{site.dart_api}}/dart-core/dart-core-library.html" target="_blank">dart:core</a>,
-<a href="{{site.dart_api}}/dart-math/dart-math-library.html" target="_blank">dart:math</a>,
-<a href="{{site.dart_api}}/dart-html/dart-html-library.html" target="_blank">dart:html</a>,
-<a href="{{site.dart_api}}/dart-async/dart-async-library.html" target="_blank">dart:async</a>, and
-<a href="{{site.dart_api}}/dart-convert/dart-convert-library.html" target="_blank">dart:convert</a>
+: <a href="{{site.dart_api}}/dart-core/dart-core-library.html" target="_blank" rel="noopener">dart:core</a>,
+<a href="{{site.dart_api}}/dart-math/dart-math-library.html" target="_blank" rel="noopener">dart:math</a>,
+<a href="{{site.dart_api}}/dart-html/dart-html-library.html" target="_blank" rel="noopener">dart:html</a>,
+<a href="{{site.dart_api}}/dart-async/dart-async-library.html" target="_blank" rel="noopener">dart:async</a>, and
+<a href="{{site.dart_api}}/dart-convert/dart-convert-library.html" target="_blank" rel="noopener">dart:convert</a>
 
 API documentation for the JSON constant
-: <a href="{{site.dart_api}}/dart-convert/JsonCodec-class.html" target="_blank">JSON</a>
+: <a href="{{site.dart_api}}/dart-convert/JsonCodec-class.html" target="_blank" rel="noopener">JSON</a>
 
 Cascading Style Sheets (CSS)
 : There are many resources on CSS, but you might want to look at
-  <a href="http://www.w3schools.com/css/css_intro.asp" target="_blank">CSS</a> on w3schools.com.
+  <a href="http://www.w3schools.com/css/css_intro.asp" target="_blank" rel="noopener">CSS</a> on w3schools.com.
 
 </div>
 

@@ -30,7 +30,7 @@ which is then passed between a client and server,
 and revived as an object at its destination.
 This tutorial shows you how to use functions in the
 <a href="{{site.dart_api}}/dart-convert/dart-convert-library.html"
-   target="_blank">dart:convert</a>
+   target="_blank" rel="noopener">dart:convert</a>
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
 this tutorial also shows how a web app
@@ -54,7 +54,7 @@ Click run ( {% img 'red-run.png' %} ) to start the app.
 Then change the values of the input elements,
 and check out the JSON format for each data type.
 You might prefer to
-<a href="{{site.custom.dartpad.direct-link}}/245c841595786300b3f4" target="_blank">open the app in DartPad</a>
+<a href="{{site.custom.dartpad.direct-link}}/245c841595786300b3f4" target="_blank" rel="noopener">open the app in DartPad</a>
 to have more space for the app's code and UI.
 
 {% comment %}
@@ -192,8 +192,8 @@ for working with JSON strings:
 
 | dart:convert function | Description |
 |---|---|
-| <a href="{{site.dart_api}}/dart-convert/JsonCodec/decode.html" target="_blank">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="{{site.dart_api}}/dart-convert/JsonCodec/encode.html" target="_blank">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
+| <a href="{{site.dart_api}}/dart-convert/JsonCodec/decode.html" target="_blank" rel="noopener">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
+| <a href="{{site.dart_api}}/dart-convert/JsonCodec/encode.html" target="_blank" rel="noopener">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
 {: .table}
 
 To use these functions,
@@ -387,9 +387,9 @@ formulating URIs and making HTTP requests:
 
 | Dart code | Library | Description |
 |---|---|
-| <a href="{{site.dart_api}}/dart-core/Uri-class.html" target="_blank">Uri</a> | (core library) | An object representing a URI. |
-| <a href="{{site.dart_api}}/dart-html/HttpRequest-class.html" target="_blank">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
-| <a href="{{site.dart_api}}/dart-io/HttpRequest-class.html" target="_blank">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
+| <a href="{{site.dart_api}}/dart-core/Uri-class.html" target="_blank" rel="noopener">Uri</a> | (core library) | An object representing a URI. |
+| <a href="{{site.dart_api}}/dart-html/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
+| <a href="{{site.dart_api}}/dart-io/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
 {: .table}
 
 ## Using the getString() function to load a file {#using-getString-function}
@@ -657,7 +657,7 @@ to create the String objects specified by the JSON string.
 
 Check out Chris Buckett's article,
 <a href="/articles/get-data/json-web-service"
-   target="_blank">Using Dart with JSON Web Services</a>,
+   target="_blank" rel="noopener">Using Dart with JSON Web Services</a>,
 for more information and an example with source code for both
 client and server programs.
 

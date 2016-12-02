@@ -65,7 +65,7 @@ for more interesting and useful web apps.
 ## About the Dart, HTML, and CSS triumvirate {#source-files}
 
 If you've used
-<a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>,
+<a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad</a>,
 you've already seen the DART, HTML, and CSS tabs
 that let you write the code for a web app.
 Each of these three languages
@@ -164,7 +164,7 @@ or even insert an entire subtree of nodes.
 
 ## Create a new Dart app {#create-dart-app}
 
-1. Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>.
+1. Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad</a>.
 2. Click the **New Pad** button to undo any changes you might have made
    the last time you visited DartPad.
 
@@ -281,13 +281,13 @@ Key classes include:
 
 | Dart class | Description |
 |---|---|
-| <a href="{{site.dart_api}}/dart-html/Node-class.html" target="_blank">Node</a> | Implements a DOM node. |
-| <a href="{{site.dart_api}}/dart-html/Element-class.html" target="_blank">Element</a> | A subclass of Node; implements a web page element. |
-| <a href="{{site.dart_api}}/dart-html/Document-class.html" target="_blank">Document</a> | Another subclass of Node; implements the document object. |
+| <a href="{{site.dart_api}}/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a> | Implements a DOM node. |
+| <a href="{{site.dart_api}}/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a> | A subclass of Node; implements a web page element. |
+| <a href="{{site.dart_api}}/dart-html/Document-class.html" target="_blank" rel="noopener">Document</a> | Another subclass of Node; implements the document object. |
 {: .table}
 
 The Dart core library contains another useful class:
-<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank">List</a>,
+<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>,
 a parameterized class that can specify the type of its members.
 An instance of Element keeps its list of child Elements
 in a List\<Element>.

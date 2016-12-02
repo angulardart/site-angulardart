@@ -36,7 +36,7 @@ Each node in the tree represents an item on the page.
 Each node in the tree keeps track of both
 its parent and its children.
 In Dart, the
-<a href="{{site.dart_api}}/dart-html/Node-class.html" target="_blank">Node</a>
+<a href="{{site.dart_api}}/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a>
 class contains the methods and properties
 that implement a node's tree functionality.
 
@@ -48,7 +48,7 @@ button elements, and so on.
 
 In Dart,
 elements are implemented by the
-<a href="{{site.dart_api}}/dart-html/Element-class.html" target="_blank">Element</a>
+<a href="{{site.dart_api}}/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a>
 class, which is a subclass of Node.
 Because the nodes you care about most are usually elements,
 this tutorial focuses on Element,
@@ -150,7 +150,7 @@ you would refer to its parent element with `anElement.parent`.
      alt="Dart code reference to anElement's parent">
 
 An Element maintains references to its child elements in a list.
-<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank">List</a>
+<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>
 is a class in the dart:core library
 that implements an indexable collection with a length.
 A list can be of fixed size or extendable.
@@ -244,9 +244,9 @@ This program uses three:
 
 | HTML tag | Dart class |
 |---|---|
-| \<input> | <a href="{{site.dart_api}}/dart-html/InputElement-class.html" target="_blank">InputElement</a> |
-| \<ul> | <a href="{{site.dart_api}}/dart-html/UListElement-class.html" target="_blank">UListElement</a> |
-| \<li> | <a href="{{site.dart_api}}/dart-html/LIElement-class.html" target="_blank">LIElement</a> |
+| \<input> | <a href="{{site.dart_api}}/dart-html/InputElement-class.html" target="_blank" rel="noopener">InputElement</a> |
+| \<ul> | <a href="{{site.dart_api}}/dart-html/UListElement-class.html" target="_blank" rel="noopener">UListElement</a> |
+| \<li> | <a href="{{site.dart_api}}/dart-html/LIElement-class.html" target="_blank" rel="noopener">LIElement</a> |
 {: .table}
 
 ## Registering an event handler {#event-handler}
@@ -277,7 +277,7 @@ or `keyDown` for when the user presses a key on the keyboard.
 
 The argument passed to the listen() method is a _callback function_
 of type
-<a href="{{site.dart_api}}/dart-html/EventListener.html" target="_blank">EventListener</a>.
+<a href="{{site.dart_api}}/dart-html/EventListener.html" target="_blank" rel="noopener">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
 
 {% prettify dart %}
@@ -285,7 +285,7 @@ typedef void EventListener(Event event)
 {% endprettify %}
 
 As you can see, an EventListener returns no value (void) and takes an
-<a href="{{site.dart_api}}/dart-html/Event-class.html" target="_blank">Event</a>
+<a href="{{site.dart_api}}/dart-html/Event-class.html" target="_blank" rel="noopener">Event</a>
 object as an argument.
 Any function with this signature is an EventListener.
 Based on its signature, the addToDoItem() function is an EventListener.
@@ -349,7 +349,7 @@ The Anagram app shows how to move an element within the DOM.
 Click run ( {% img 'red-run.png' %} ) to start the web app.
 Then form a word by clicking the app's letter tiles.
 You might prefer to
-<a href="{{site.custom.dartpad.direct-link}}/0532bfcb70bf5e4a900c" target="_blank">open
+<a href="{{site.custom.dartpad.direct-link}}/0532bfcb70bf5e4a900c" target="_blank" rel="noopener">open
 the app in DartPad</a>
 to have more space for the app's code and UI.
 
@@ -471,7 +471,7 @@ The `+=` operator is a compound assignment operator,
 which combines an operation (`+`) with an assignment.
 
 The `scrabbleValues` variable is a
-<a href="{{site.dart_api}}/dart-core/Map-class.html" target="_blank">Map</a>&mdash;a
+<a href="{{site.dart_api}}/dart-core/Map-class.html" target="_blank" rel="noopener">Map</a>&mdash;a
 data structure that contains key/value pairs.
 Use the square bracket syntax to retrieve a value by its key
 and the `length` property to get the number of pairs it contains.

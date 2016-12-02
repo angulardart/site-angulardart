@@ -68,7 +68,7 @@ In this step, you run the skeleton version of the app in DartPad.
 
 ### <i class="fa fa-anchor"> </i> Run the app in DartPad.
 
-<a href="{{site.custom.dartpad.direct-link}}/9642dce02da158457f12" target="_blank">Open the skeleton app in DartPad.</a>
+<a href="{{site.custom.dartpad.direct-link}}/9642dce02da158457f12" target="_blank" rel="noopener">Open the skeleton app in DartPad.</a>
 
 Click the **Run** button and make sure that the **HTML OUTPUT** tab
 is selected. You should see a red-and-white name badge, plus some text,
@@ -376,11 +376,11 @@ The name badge updates to display what you've typed.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/index.html" target="_blank">index.html</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/main.dart" target="_blank" rel="noopener">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/index.html" target="_blank" rel="noopener">index.html</a>
 
 Or
-<a href="{{site.custom.dartpad.direct-link}}/e78a858a1b8cfce15bbf" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/e78a858a1b8cfce15bbf" target="_blank" rel="noopener">open the solution in DartPad</a>.
 
 You may notice that the HTML displayed in DartPad is a bit different
 than what is shown on GitHub.
@@ -654,11 +654,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/index.html" target="_blank">index.html</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/main.dart" target="_blank" rel="noopener">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/index.html" target="_blank" rel="noopener">index.html</a>
 
 Or
-<a href="{{site.custom.dartpad.direct-link}}/feac8311871e29bc50a7" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/feac8311871e29bc50a7" target="_blank" rel="noopener">open the solution in DartPad</a>.
 
 </div>
 
@@ -1010,11 +1010,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/index.html" target="_blank">index.html</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/main.dart" target="_blank" rel="noopener">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/index.html" target="_blank" rel="noopener">index.html</a>
 
 Or
-<a href="{{site.custom.dartpad.direct-link}}/445dcc541fd4dedf1b4c" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/445dcc541fd4dedf1b4c" target="_blank" rel="noopener">open the solution in DartPad</a>.
 
 </div>
 
@@ -1321,11 +1321,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank">index.html</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/main.dart" target="_blank" rel="noopener">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank" rel="noopener">index.html</a>
 
 Or
-<a href="{{site.custom.dartpad.direct-link}}/eb2a7982598793c8d984" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/eb2a7982598793c8d984" target="_blank" rel="noopener">open the solution in DartPad</a>.
 
 </div>
 
@@ -1452,27 +1452,27 @@ shows you how to use the major features in Dart’s libraries.
 
 #### API documentation for classes
 
-* <a href="{{site.dart_api}}/dart-core/String-class.html" target="_blank">String</a>,
-<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank">List</a>,
-<a href="{{site.dart_api}}/dart-core/Map-class.html" target="_blank">Map</a>,
-<a href="{{site.dart_api}}/dart-math/Random-class.html" target="_blank">Random</a>,
-<a href="{{site.dart_api}}/dart-html/InputElement-class.html" target="_blank">InputElement</a>,
-<a href="{{site.dart_api}}/dart-html/ButtonElement-class.html" target="_blank">ButtonElement</a>,
-<a href="{{site.dart_api}}/dart-html/Event-class.html" target="_blank">Event</a>,
-<a href="{{site.dart_api}}/dart-async/Future-class.html" target="_blank">Future</a>, and
-<a href="{{site.dart_api}}/dart-async/Stream-class.html" target="_blank">Stream</a>
+* <a href="{{site.dart_api}}/dart-core/String-class.html" target="_blank" rel="noopener">String</a>,
+<a href="{{site.dart_api}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>,
+<a href="{{site.dart_api}}/dart-core/Map-class.html" target="_blank" rel="noopener">Map</a>,
+<a href="{{site.dart_api}}/dart-math/Random-class.html" target="_blank" rel="noopener">Random</a>,
+<a href="{{site.dart_api}}/dart-html/InputElement-class.html" target="_blank" rel="noopener">InputElement</a>,
+<a href="{{site.dart_api}}/dart-html/ButtonElement-class.html" target="_blank" rel="noopener">ButtonElement</a>,
+<a href="{{site.dart_api}}/dart-html/Event-class.html" target="_blank" rel="noopener">Event</a>,
+<a href="{{site.dart_api}}/dart-async/Future-class.html" target="_blank" rel="noopener">Future</a>, and
+<a href="{{site.dart_api}}/dart-async/Stream-class.html" target="_blank" rel="noopener">Stream</a>
 
 #### API documentation for libraries
 
-* <a href="{{site.dart_api}}/dart-core/dart-core-library.html" target="_blank">dart:core</a>,
-<a href="{{site.dart_api}}/dart-math/dart-math-library.html" target="_blank">dart:math</a>,
-<a href="{{site.dart_api}}/dart-html/dart-html-library.html" target="_blank">dart:html</a>,
-<a href="{{site.dart_api}}/dart-async/dart-async-library.html" target="_blank">dart:async</a>, and
-<a href="{{site.dart_api}}/dart-convert/dart-convert-library.html" target="_blank">dart:convert</a>
+* <a href="{{site.dart_api}}/dart-core/dart-core-library.html" target="_blank" rel="noopener">dart:core</a>,
+<a href="{{site.dart_api}}/dart-math/dart-math-library.html" target="_blank" rel="noopener">dart:math</a>,
+<a href="{{site.dart_api}}/dart-html/dart-html-library.html" target="_blank" rel="noopener">dart:html</a>,
+<a href="{{site.dart_api}}/dart-async/dart-async-library.html" target="_blank" rel="noopener">dart:async</a>, and
+<a href="{{site.dart_api}}/dart-convert/dart-convert-library.html" target="_blank" rel="noopener">dart:convert</a>
 
 #### API documentation for the JSON constant
 
-* <a href="{{site.dart_api}}/dart-convert/JSON-constant.html" target="_blank">JSON</a>
+* <a href="{{site.dart_api}}/dart-convert/JSON-constant.html" target="_blank" rel="noopener">JSON</a>
 </div>
 
 ### <i class="fa fa-anchor"> </i> Feedback
