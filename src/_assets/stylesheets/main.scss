@@ -287,7 +287,7 @@ img {
         line-height: 50px;
         color: $gray-dark;
         &:hover {
-          color: $brand-primary;
+          color: $brand-secondary;
         }
       }
       &.active {
@@ -706,7 +706,7 @@ input.gsc-search-button {
 
 // Color Palette
 .slogan {
-  background-color: $brand-primary;
+  background-color: $brand-secondary;
   text-align: center;
   margin-bottom: 30px;
   h1, h2, h3 {

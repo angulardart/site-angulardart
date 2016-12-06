@@ -28,6 +28,13 @@
 @import '../resources/css/module/_symbol';
 @import '../resources/css/module/_table';
 
+// Give Angular pages a unique look-and-feel
+
+article h1 {
+  background: url("/angular/images/angulardart.svg") no-repeat;
+  padding-left: 1.2em;
+}
+
 // BOOTSTRAP OVERRIDES
 blockquote {
   font-size: 1em;
@@ -45,9 +52,16 @@ blockquote {
   min-height: 0;
 }
 
-// Give Angular pages a unique look-and-feel
-
-article h1 {
-  background: url("/angular/images/angulardart.svg") no-repeat;
-  padding-left: 1.2em;
+#mainnav {
+  // Copied from main.scss
+  input {
+    font-size: 13px;
+    color: $gray-dark;
+    font-family: $font-family-base;
+    width: 205px;
+  }
+  a {
+    font-family: $font-family-base;
+    font-weight: bold;
+  }
 }
