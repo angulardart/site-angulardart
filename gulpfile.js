@@ -173,7 +173,7 @@ function _getNgIoJadeForDir(dir, _data, _skiplist) {
   const destDir = path.resolve(`./src/angular/${dir}`);
   const data = _data || require(path.join(srcDir, '_data.json'));
 
-  // Create array to establish prev/next pages
+  // Create array to establish prev/next page links
   const prevNextArray = [];
   Object.keys(data).forEach(fileNameNoExt => {
     const fileName = `${fileNameNoExt}.jade`;
