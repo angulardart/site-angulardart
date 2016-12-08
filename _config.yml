@@ -136,7 +136,7 @@ assets:
     - "*.woff"
     - "*.svg"
   #   - "bundle.css"
-  digest: true
+  # digest: true
   sources:
     - _assets/icons
     - _assets/images

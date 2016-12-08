@@ -8,6 +8,7 @@ cache:
 
 env:
   global:
+  - JEKYLL_ENV=production
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
   - LATEST_RELEASE=2.2.0
 
@@ -48,11 +49,6 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-  - provider: script
-    script: ./deploy/deploy-firebase-dev.sh
-    skip_cleanup: true
-    on:
-      branch: ng-docs
 
 after_deploy:
   # Just FYI test. Won't fail the build if it has errors.
