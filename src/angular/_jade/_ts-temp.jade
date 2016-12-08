@@ -8,9 +8,9 @@ if language == 'js'
 if language == 'ts'
   - lang = 'TypeScript'
 
-- var page = current.path[4] ? current.path[4] + '.html' : ''
+- var page = current.source + '.html';
 - if (page === 'index.html') page = ''
-- var path = 'https://angular.io/docs/ts/latest/'; // + current.path[3] + '/' + page
+- var path = 'https://angular.io/docs/ts/latest/' + current.path[5] + '/' + page
 :marked
   This page is not yet available in #{lang}.
   We recommend reading [it in TypeScript](!{path}).

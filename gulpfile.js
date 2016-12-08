@@ -158,7 +158,17 @@ gulp.task('_get-guide', () => {
     },
   };
   _getNgIoJadeForDir('', data);
-  _getNgIoJadeForDir('guide', null, ['cheatsheet', 'glossary']);
+  _getNgIoJadeForDir('guide', null, [
+    // Skip pages that are now exclusively at the top level
+    'cheatsheet', 'glossary',
+    // Skip obviously TS-specific pages
+    'ngmodule', 'npm-packages', 'typescript-configuration', 'webpack',
+    // Skip pages that we don't yet (or might never) have
+    'browser-support', 'style-guide', 'upgrade',
+    // Skip pages which we have already customized
+    // TODO: remove this once the link to ng.io is broken
+    'testing',
+  ]);
   return true;
 });
 
@@ -189,7 +199,7 @@ function _getNgIoJadeForDir(dir, _data, _skiplist) {
     const fileName = `${fileNameNoExt}.jade`;
     const filePath = path.join(srcDir, fileName);
     const entry = data[fileNameNoExt];
-    if (entry.hide || !fs.existsSync(filePath) || skipList.includes(fileNameNoExt)) {
+    if (/*entry.hide ||*/ !fs.existsSync(filePath) || skipList.includes(fileNameNoExt)) {
       gutil.log(`  >> skipping ${fileName}`);
       return true;
     }

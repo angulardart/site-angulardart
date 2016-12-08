@@ -140,4 +140,4 @@ See the JetBrains website for more information.
   * [Features](https://www.jetbrains.com/webstorm/features/)
   * [Quick start](https://www.jetbrains.com/webstorm/quickstart/)
 * [Dart Plugin by JetBrains](https://plugins.jetbrains.com/plugin/6351)
-* [FAQ for Eclipse users migrating to WebStorm/IntelliJ](https://www.jetbrains.com/idea/documentation/migration_faq.html)
+* [Migrating From Eclipse to IntelliJ IDEA](https://www.jetbrains.com/help/idea/eclipse.html)
