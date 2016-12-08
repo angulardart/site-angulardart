@@ -23,6 +23,7 @@ Before you first generate the site, and whenever you need to update your copies 
    `cd ../site-webdev; gulp site-refresh`
    
 You might be able to update only the samples:
+
 1. In angular.io: `gulp _shred-devguide-examples | grep Shredding`
 1. In site-webdev: `gulp _get-frag`
 
