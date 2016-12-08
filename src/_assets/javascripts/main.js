@@ -11,51 +11,48 @@ var tocToSidenavDiff = 50;
 
 function fixNav() {
   var t = $(document).scrollTop(),
-      f = $("#page-footer").offset().top,
-      h = window.innerHeight,
-      // space between scroll position and top of the footer
-      whenAtBottom = f - t,
-      mh = Math.min(h, whenAtBottom) - condensedHeaderHeight;
+    f = $("#page-footer").offset().top,
+    h = window.innerHeight,
+    // space between scroll position and top of the footer
+    whenAtBottom = f - t,
+    mh = Math.min(h, whenAtBottom) - condensedHeaderHeight;
   $("#sidenav").css({maxHeight: mh});
   $("#toc").css({maxHeight: mh - tocToSidenavDiff});
 }
 
 // Add scroll on page load for hash
-$(window).on('load', function (e){
+$(window).on('load', function (e) {
   // window.scrollTo(0, 0);
   if (window.location.hash) {
-    $('html, body').animate({ scrollTop: $(window.location.hash).offset().top-70 }, 500, function (){
-      // Mark as active
-      $('a[href^="#"]').parent('li').removeClass('active');
-      $('a[href="'+window.location.hash+'"]').parent('li').addClass('active');
-    });
+    $('html, body').animate(
+      {scrollTop: $(window.location.hash).offset().top - 70},
+      500,
+      function () {
+        // Mark as active
+        $('a[href^="#"]').parent('li').removeClass('active');
+        $('a[href="' + window.location.hash + '"]').parent('li')
+          .addClass('active');
+      });
   }
 });
 
 // When a user scrolls to 50px add class  condensed-header to body
-$(window).scroll(function(){
+$(window).scroll(function () {
   fixNav();
   var currentScreenPosition = $(document).scrollTop();
-  if(currentScreenPosition > 50) {
+  if (currentScreenPosition > 50) {
     $('body').addClass('fixed_nav');
   } else {
     $('body').removeClass('fixed_nav');
   }
 });
 
-
-$(document).ready(function(){
-  // set heights for navigation elements
-  fixNav();
-  // Initiate Syntax Highlighting
-  prettyPrint();
-
-  // Frontpage footnotes
+function setupFrontpageFootnotes() {
   function highlightFootnote() {
     var footnote = $('#code-display');
     footnote.removeClass('blink');
     footnote.addClass('blink');
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       footnote.removeClass('blink');
     }, 1000);
   }
@@ -63,20 +60,23 @@ $(document).ready(function(){
   var footnotesParagraph = $('#code-display p');
   var allFrontpageHighlights = $('.frontpage-highlight');
 
-  allFrontpageHighlights.click(function(){
+  allFrontpageHighlights.click(function () {
     var text = $(this).data('text');
     footnotesParagraph.text(text);
-    allFrontpageHighlights.removeClass('selected')
+    allFrontpageHighlights.removeClass('selected');
     $(this).addClass('selected');
     highlightFootnote();
   });
+}
 
-  // Sidenav
-  $('#sidenav i').on('click', function(e) {
+function setupSidenav() {
+  $('#sidenav i').on('click', function (e) {
     e.stopPropagation();
     $(this).parent('li').toggleClass('active');
   });
+}
 
+function setupTableOfContents() {
   // TOC: Table of Contents
   $('.toc-entry').not('.toc-h2').remove();
   $('.section-nav').addClass('nav').css({opacity: 1});
@@ -86,48 +86,108 @@ $(document).ready(function(){
     target: '#toc'
   });
 
-  $('#toc').on('activate.bs.scrollspy', function () {
-    // do something…
-  });
+  // $('#toc').on('activate.bs.scrollspy', function () {
+  //   // do something…
+  // });
+}
 
-  $('a[href*="#"]').on('click', function(e) {
+function setupLocalAnchors() {
+  $('a[href*="#"]').on('click', function (e) {
     var h = $(this).attr('href'),
-        p = window.location.pathname;
-    if(h.includes(p)) {
+      p = window.location.pathname;
+    if (h.includes(p)) {
       e.preventDefault();
       var target = $(this.hash);
       var hash = this.hash;
-      if (target.length == 0) target = $('a[name="' + this.hash.substr(1) + '"]');
-      if (target.length == 0) target = $('html');
-      $('html, body').animate({ scrollTop: target.offset().top-70 }, 500, function (){
-        location.hash = hash;
-      });
+      if (target.length == 0) {
+        target = $('a[name="' + this.hash.substr(1) + '"]');
+      }
+      if (target.length == 0) {
+        target = $('html');
+      }
+      $('html, body').animate(
+        {scrollTop: target.offset().top - 70},
+        500,
+        function () {
+          location.hash = hash;
+        });
       // Mark as active
       // $('a[href^="#"]').parent('li').removeClass('active');
       $(this).parent('li').addClass('active');
     }
   });
+}
 
-
-  // Popovers
-  $('[data-toggle="popover"], .dart-popover').popover();
-
-  // open - close mobile navigation
-  $('#menu-toggle').on('click', function(e) {
+function setupMobileNavigation() {
+  $('#menu-toggle').on('click', function (e) {
     e.stopPropagation();
     $("body").toggleClass('open_menu');
   });
 
-  $("#page-content").on('click', function() {
+  $("#page-content").on('click', function () {
     if ($('body').hasClass('open_menu')) {
       $('body').removeClass("open_menu");
     }
   });
+}
 
-  $(window).smartresize(fixNav());
+function setupTabs() {
+  var tabs = $('.tabs__top-bar li');
+  var tabContents = $('.tabs__content');
+
+  function clearTabsCurrent() {
+    tabs.removeClass('current');
+    tabContents.removeClass('current');
+  }
+
+  tabs.click(function () {
+    clearTabsCurrent();
+
+    var tab_id = $(this).attr('data-tab');
+
+    $(this).addClass('current');
+    $("#" + tab_id).addClass('current');
+  });
+
+  // The following selects the correct default tab in /guides/get-started
+  function selectOperatingSystemInTabs(osName) {
+    clearTabsCurrent();
+
+    $("li[data-tab='tab-sdk-install-" + osName + "']").addClass('current');
+    $('#tab-sdk-install-' + osName).addClass('current');
+  }
+
+  if (window.navigator.userAgent.indexOf("Mac") != -1) {
+    selectOperatingSystemInTabs('mac');
+  } else if (window.navigator.userAgent.indexOf("Linux") != -1 &&
+             window.navigator.userAgent.indexOf("Android") == -1) {
+    // Doesn't auto-select the Linux tab when on Android.
+    selectOperatingSystemInTabs('linux');
+  }
+}
+
+$(document).ready(function () {
+  // set heights for navigation elements
+  fixNav();
+  $(window).smartresize(function () {
+    fixNav();
+  });
+
+  // Initiate Syntax Highlighting
+  prettyPrint();
+
+  setupFrontpageFootnotes();
+  setupSidenav();
+  setupTableOfContents();
+  setupLocalAnchors();
+  setupMobileNavigation();
+  setupTabs();
+
+  // Popovers
+  $('[data-toggle="popover"], .dart-popover').popover();
 
   // Add external link indicators
-  $('a[href^="http"], a[target="_blank"]').not('.no-automatic-external').addClass('external');
-
+  $('a[href^="http"], a[target="_blank"]').not('.no-automatic-external')
+    .addClass('external');
 });
 

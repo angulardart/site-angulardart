@@ -947,6 +947,39 @@ body.homepage {
   }
 }
 
+// Tabs (e.g. in Getting Started, to select which OS to use for instruction)
+
+$tab-accent-color: $brand-primary;
+
+ul.tabs__top-bar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.tabs__top-bar li {
+  background: none;
+  color: $gray-base;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+ul.tabs__top-bar li.current{
+  background: $tab-accent-color;
+  color: $white-base;
+}
+
+.tabs__content{
+  display: none;
+  border: 4px solid $tab-accent-color;
+  padding: 15px;
+}
+
+.tabs__content.current{
+  display: inherit;
+}
+
 // Error Page
 body.error {
   #sidenav {
