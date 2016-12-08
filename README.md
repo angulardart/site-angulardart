@@ -15,7 +15,18 @@ This site requires npm version 6. Getting started is something like this:
 1. `npm install -g firebase-tools`
 1. `npm install`
 
-Once everything's installed, you can build and serve:
+Before you first generate the site, and whenever you need to update your copies of TS files:
+
+1. Update and build your copy of the angular.io repo. Something like this:
+   `cd ../angular.io-MERGE; git voodoo; gulp build`
+1. Back in the site-webdev repo, update your copies of the file:
+   `cd ../site-webdev; gulp site-refresh`
+   
+You might be able to update only the samples:
+1. In angular.io: `gulp _shred-devguide-examples | grep Shredding`
+1. In site-webdev: `gulp _get-frag`
+
+Once everything's installed and up to date, you can build and serve:
 
 1. `gulp build`
 1. `./scripts/serve_local.sh`
