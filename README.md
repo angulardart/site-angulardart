@@ -18,7 +18,7 @@ This site requires npm version 6. Getting started is something like this:
 Before you first generate the site, and whenever you need to update your copies of TS files:
 
 1. Update and build your copy of the angular.io repo. Something like this:
-   `cd ../angular.io-MERGE; git voodoo; gulp build`
+   `cd ../angular.io; git voodoo; gulp build-compile`
 1. Back in the site-webdev repo, update your copies of the file:
    `cd ../site-webdev; gulp site-refresh`
    
