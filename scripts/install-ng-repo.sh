@@ -13,7 +13,7 @@ npm install --no-optional
 travis_fold end ngio.install
 
 travis_fold start ngio.build
-gulp build-dart-cheatsheet _shred-devguide-examples --lang=dart
+gulp build-dart-cheatsheet --lang=dart
 travis_fold end ngio.build
 
 travis_fold end ngio

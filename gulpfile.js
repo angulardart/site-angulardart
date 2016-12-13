@@ -10,6 +10,7 @@ const cpExec = require('child_process').exec;
 const del = require('del');
 const fsExtra = require('fs-extra');
 const fs = fsExtra;
+const globby = require("globby");
 // const os = require('os');
 const path = require('canonical-path');
 const Q = require("q");
@@ -29,24 +30,36 @@ const exec = xExec; // cpExec;
 const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
+const PUBLIC_PATH = './public';
+const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
+const EXAMPLES_PATH = path.join(DOCS_PATH, '_examples');
+const TOOLS_PATH = './tools';
+
 const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
 
 const config = {
   angulario: angulario,
   angularRepo: '../angular2',
+  DOCS_PATH: DOCS_PATH,
+  EXAMPLES_PATH: EXAMPLES_PATH,
   relDartDocApiDir: path.join('doc', 'api'),
+  TOOLS_PATH: TOOLS_PATH,
 };
-const plugins = {argv:argv, child_process:child_process, execp:execp, fs:fs, gutil:gutil, path:path, q:Q, replace:replace};
 
-const extraTasks = 'api dartdoc ngio-put sass';
+const plugins = {
+  argv:argv, child_process:child_process, del:del, execp:execp, fs:fs, globby:globby,
+  gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
+};
+
+const extraTasks = 'api dartdoc examples example-frag ngio-get ngio-put sass';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
 // Tasks
 //
 
-gulp.task('build', ['get-api-docs', 'sass'], cb => {
+gulp.task('build', ['get-api-docs', 'sass', 'create-examples-fragments'], cb => {
   gutil.log('\n*******************************************************************************')
   gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
   gutil.log('*******************************************************************************\n')
@@ -61,23 +74,13 @@ gulp.task('build-deploy', ['build'], () => {
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
 // To force a refresh of Dart Jade file invoke with --dart
-gulp.task('get-ngio-files', ['_clean', '_get-pages', '_get-resources', '_get-frag']);
+gulp.task('get-ngio-files', ['_clean', '_get-pages', '_get-resources']);
 
 const _cleanTargets = ['publish'];
 const _delTmp = () => del(_cleanTargets, { force: true });
 gulp.task('clean', cb => _delTmp());
 gulp.task('_clean', cb => argv.clean ? _delTmp() : cb());
 gulp.task('clean-src', cb => execp(`git clean -xdf src`));
-
-gulp.task('_get-frag', cb => {
-  const baseDir = path.join(angulario, 'public/docs');
-  return gulp.src([
-    `${baseDir}/_fragments/**`,
-    `!${baseDir}/_fragments/**/ts/**`,
-    `!${baseDir}/_fragments/_api/**`,
-  ], { base: baseDir })
-    .pipe(gulp.dest('src/angular'));
-});
 
 gulp.task('_get-dart-pages', ['_get-api-ref-page', '_get-qs-etc', '_get-guide', '_get-tutorial']);
 

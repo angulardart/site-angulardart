@@ -20,6 +20,7 @@ trash
 
 firebase-debug.log
 node_modules
+npm-debug*.log*
 
 #
 # angular
@@ -31,3 +32,17 @@ node_modules
 # Temp content copied over from angular.io
 /src/resources
 /src/angular/_fragments
+
+# /public/**
+
+# Examples
+
+.packages
+.pub
+build
+pubspec.lock
+a2docs.css
+# !/public/docs/_examples/
+# /public/docs/_examples/node_modules
+# /public/docs/_examples/**/a2docs.css
+protractor-results.txt
