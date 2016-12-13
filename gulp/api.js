@@ -1,6 +1,9 @@
+// TODO: move ANGULAR_PROJECT_PATH and copyFiles to gulpfile.
+
 module.exports = function(gulp, plugins, config) {
 
   const ANGULAR_PROJECT_PATH = '../angular-dart'; // for now use same alias as is used for angular.io
+  const gutil = plugins.gutil;
 
   gulp.task('get-api-docs', () => copyApiDocs());
 
@@ -8,17 +11,17 @@ module.exports = function(gulp, plugins, config) {
     try {
       // checkAngularProjectPath();
       const ngDartDocPath = plugins.path.resolve(ANGULAR_PROJECT_PATH, 'doc', 'api');
-      let sourceDirs = plugins.fs.readdirSync(ngDartDocPath)
-        .filter(name => !name.match(/^index|^(?!angular2)|testing|codegen/));
-      console.log(`Getting Dart API pages for ${sourceDirs.length} libraries + static-assets folder`);
-      sourceDirs.push('static-assets');
-      sourceDirs = sourceDirs.map(name => plugins.path.join(ngDartDocPath, name));
+      let filesAndFolders = plugins.fs.readdirSync(ngDartDocPath)
+        .filter(name => !name.match(/^(?!angular2)|testing|codegen/));
+      gutil.log(`Getting Dart API pages for ${filesAndFolders.length} libraries + static-assets folder`);
+      filesAndFolders.push('index.json', 'static-assets'); // JSON file used by API search
+      filesAndFolders = filesAndFolders.map(name => plugins.path.join(ngDartDocPath, name));
 
       const destPath = 'publish/angular/api';
-      // Make boilerplate files read-only to avoid that they be edited by mistake.
+      // Make files read-only to avoid that they be edited by mistake.
       const destFileMode = '444';
-      return copyFiles(sourceDirs, [destPath]).then(() => {
-        console.log('Finished copying', sourceDirs.length, 'directories from', ngDartDocPath, 'to', destPath);
+      return copyFiles(filesAndFolders, [destPath]).then(() => {
+        gutil.log('Finished copying', filesAndFolders.length, 'directories from', ngDartDocPath, 'to', destPath);
       }).catch((err) => {
         console.error(err);
       });
