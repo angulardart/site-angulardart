@@ -16,6 +16,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
   const spawnExt = plugins.spawnExt;
   const Q = plugins.q;
+  const copyFiles = plugins.copyFiles;
 
   const DOCS_PATH = config.DOCS_PATH;
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
@@ -123,29 +124,6 @@ module.exports = function (gulp, plugins, config) {
 
   function excludeDartPaths(paths) {
     return paths.filter(function (p) { return !isDartPath(p); });
-  }
-
-  // Copies fileNames into destPaths, setting the mode of the
-  // files at the destination as optional_destFileMode if given.
-  // returns a promise
-  function copyFiles(fileNames, destPaths, optional_destFileMode) {
-    var copy = Q.denodeify(fsExtra.copy);
-    var chmod = Q.denodeify(fsExtra.chmod);
-    var copyPromises = [];
-    destPaths.forEach(function(destPath) {
-      fileNames.forEach(function(fileName) {
-        var baseName = path.basename(fileName);
-        var destName = path.join(destPath, baseName);
-        var p = copy(fileName, destName, { clobber: true});
-        if(optional_destFileMode !== undefined) {
-          p = p.then(function () {
-            return chmod(destName, optional_destFileMode);
-          });
-        }
-        copyPromises.push(p);
-      });
-    });
-    return Q.all(copyPromises);
   }
 
   function getExamplePaths(basePath, includeBase) {

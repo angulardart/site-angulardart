@@ -30,7 +30,7 @@ const exec = xExec; // cpExec;
 const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
-
+const THIS_PROJECT_PATH = path.resolve('.');
 const ANGULAR_PROJECT_PATH = '../angular2'; // WARNING: some old scripts expect this to be ../angular
 const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
@@ -51,22 +51,23 @@ const config = {
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
   relDartDocApiDir: path.join('doc', 'api'),
+  THIS_PROJECT_PATH: THIS_PROJECT_PATH,
   TOOLS_PATH: TOOLS_PATH,
 };
 
 const plugins = {
-  argv:argv, child_process:child_process, del:del, execp:execp, fs:fs, globby:globby,
+  argv:argv, child_process:child_process, copyFiles:copyFiles, del:del, execp:execp, fs:fs, globby:globby,
   gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
 };
 
-const extraTasks = 'api cheatsheet dartdoc examples example-frag ngio-get ngio-put sass';
+const extraTasks = 'api api-list cheatsheet dartdoc examples example-frag ngio-get ngio-put sass';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
 // Tasks
 //
 
-gulp.task('build', ['get-api-docs', 'sass', 'build-cheatsheet', 'create-examples-fragments'], cb => {
+gulp.task('build', ['build-api-list-json', 'build-cheatsheet', 'create-example-fragments', 'get-api-docs', 'sass'], cb => {
   gutil.log('\n*******************************************************************************')
   gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
   gutil.log('*******************************************************************************\n')
@@ -126,7 +127,6 @@ gulp.task('_get-ts-jade', cb => {
 gulp.task('_get-extra-dart', () => {
   const baseDir = path.join(angulario, 'public/docs/dart/latest');
   return gulp.src([
-    `${baseDir}/api/api-list.json`,
     `${baseDir}/_util-fns.jade`,
     `${baseDir}/_data.json`,
     `${baseDir}/api/_data.json`,
@@ -346,4 +346,27 @@ function spawnExt(command, _args, options) {
     deferred.reject(data);
   });
   return { proc: proc, promise: deferred.promise };
+}
+
+// Copies fileNames into destPaths, setting the mode of the
+// files at the destination as optional_destFileMode if given.
+// returns a promise
+function copyFiles(fileNames, destPaths, optional_destFileMode) {
+  var copy = Q.denodeify(fsExtra.copy);
+  var chmod = Q.denodeify(fsExtra.chmod);
+  var copyPromises = [];
+  destPaths.forEach(function(destPath) {
+    fileNames.forEach(function(fileName) {
+      var baseName = path.basename(fileName);
+      var destName = path.join(destPath, baseName);
+      var p = copy(fileName, destName, { clobber: true});
+      if(optional_destFileMode !== undefined) {
+        p = p.then(function () {
+          return chmod(destName, optional_destFileMode);
+        });
+      }
+      copyPromises.push(p);
+    });
+  });
+  return Q.all(copyPromises);
 }

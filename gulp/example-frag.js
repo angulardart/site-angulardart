@@ -23,7 +23,6 @@ module.exports = function (gulp, plugins, config) {
   };
 
   // Disable for now since we aren't extracting API examples yet.
-  // const relDartDocApiDir = path.join('doc', 'api');
   // var _apiShredOptionsForDart =  {
   //   lang: 'dart',
   //   examplesDir: path.resolve(config.ANGULAR_PROJECT_PATH + '_api_examples'),
@@ -31,7 +30,7 @@ module.exports = function (gulp, plugins, config) {
   //   logLevel: config._dgeniLogLevel
   // };
 
-  gulp.task('create-examples-fragments', ['_shred-devguide-examples']);
+  gulp.task('create-example-fragments', ['_shred-devguide-examples']);
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide', 'add-example-boilerplate'], function() {
     // Split big shredding task into partials 2016-06-14
