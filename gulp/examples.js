@@ -1,4 +1,5 @@
 // Gulp tasks related to setting up and running e2e tests.
+'use strict';
 
 module.exports = function (gulp, plugins, config) {
 

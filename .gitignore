@@ -26,6 +26,7 @@ npm-debug*.log*
 # angular
 #
 
+/src/angular/cheatsheet.json
 /src/styles/angular.css
 /jade-log.txt
 

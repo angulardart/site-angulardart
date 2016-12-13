@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;

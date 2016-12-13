@@ -30,6 +30,8 @@ const exec = xExec; // cpExec;
 const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
+
+const ANGULAR_PROJECT_PATH = '../angular2'; // WARNING: some old scripts expect this to be ../angular
 const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
 const EXAMPLES_PATH = path.join(DOCS_PATH, '_examples');
@@ -38,8 +40,13 @@ const TOOLS_PATH = './tools';
 const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
 
+const isSilent = !!argv.silent;
+if (isSilent) gutil.log = gutil.noop;
+const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'info');
+
 const config = {
-  angulario: angulario,
+  _dgeniLogLevel:_dgeniLogLevel,
+  ANGULAR_PROJECT_PATH:ANGULAR_PROJECT_PATH, angulario: angulario,
   angularRepo: '../angular2',
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
@@ -52,14 +59,14 @@ const plugins = {
   gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
 };
 
-const extraTasks = 'api dartdoc examples example-frag ngio-get ngio-put sass';
+const extraTasks = 'api cheatsheet dartdoc examples example-frag ngio-get ngio-put sass';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
 // Tasks
 //
 
-gulp.task('build', ['get-api-docs', 'sass', 'create-examples-fragments'], cb => {
+gulp.task('build', ['get-api-docs', 'sass', 'build-cheatsheet', 'create-examples-fragments'], cb => {
   gutil.log('\n*******************************************************************************')
   gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
   gutil.log('*******************************************************************************\n')
@@ -85,10 +92,7 @@ gulp.task('clean-src', cb => execp(`git clean -xdf src`));
 gulp.task('_get-dart-pages', ['_get-api-ref-page', '_get-qs-etc', '_get-guide', '_get-tutorial']);
 
 gulp.task('_get-pages', ['_get-ts-jade', '_get-extra-dart', '_get-includes', ...(argv.dart ? ['_get-dart-pages'] : [])], () => {
-  const cheatsheetJsonPath = 'src/angular/guide/cheatsheet.json';
   return Q.all(
-    // Move cheatsheet.json to the same folder as cheatsheet.jade
-    fs.existsSync(cheatsheetJsonPath) ? execp(`mv ${cheatsheetJsonPath} src/angular/`) : true,
     // Remove <br clear> from selected .jade files
     cpExec(`perl -pi -e 's/<br class="l-clear-left">//' src/angular/_jade/ts/_cache/guide/learning-angular.jade`),
     cpExec(`perl -pi -e 's/<br class="l-clear-both">//' src/angular/_jade/ts/_cache/guide/lifecycle-hooks.jade`)
@@ -124,7 +128,6 @@ gulp.task('_get-extra-dart', () => {
   return gulp.src([
     `${baseDir}/api/api-list.json`,
     `${baseDir}/_util-fns.jade`,
-    `${baseDir}/guide/cheatsheet.json`, // will be moved up one level in _get-pages
     `${baseDir}/_data.json`,
     `${baseDir}/api/_data.json`,
     `${baseDir}/guide/_data.json`,
@@ -291,26 +294,6 @@ gulp.task('_get-rsrc-other', cb => {
     // Patch resources/js/util.js
     .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
     .pipe(gulp.dest('src'));
-});
-
-gulp.task('_get-x', cb => {
-  const baseDir = path.join(angulario, WWW);
-  return gulp.src([
-    `${baseDir}/*.html`,
-    `!${baseDir}/google*.html`,
-    `${baseDir}/docs/*/latest/**/*`,
-    `!${baseDir}/docs/*/latest/api/api-list.json`,
-    `!${baseDir}/docs/*/latest/api/api-list-audit.json`,
-    `!${baseDir}/docs/*/latest/api/*.html`,
-    `!${baseDir}/docs/*/latest/guide/cheatsheet.json`,
-    `!${baseDir}/docs/dart/latest/api/static-assets`,
-    `!${baseDir}/docs/dart/latest/api/static-assets/**/*`,
-  ], { base: baseDir })
-    // Adjust opening and closing tags for elements getting an `ngio-` prefix.
-    .pipe(cheerio(ng1ToNg2HtmlAdj))
-    // .pipe(replace(/<(code-(example|tabs|pane))/g, '<ngio-$1'))
-    // .pipe(replace(/<\/(code-(example|tabs|pane))/g, '</ngio-$1'))
-    .pipe(gulp.dest('src/pages'));
 });
 
 gulp.task('default', ['help']);

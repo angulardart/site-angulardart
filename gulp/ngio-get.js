@@ -1,15 +1,12 @@
 // TODO This gulp task file currently only contains the new task for getting Dart sample code.
 // Eventually, we'll be migrating the other ngio-get task from the main gulpfile to here.
+'use strict';
 
 module.exports = function (gulp, plugins, config) {
 
-  const argv = plugins.argv;
   const cp = plugins.child_process;
-  const execp = plugins.execp;
-  const fs = plugins.fs;
   const path = plugins.path;
   const replace = plugins.replace;
-  const dartLatest = path.join(config.angulario, 'public/docs/dart/latest');
 
   // The main purpose of get-ngio-examples+ is to fetch the files necessary to
   // test, build and extract fragments from Dart examples. At the moment we achieve
@@ -17,11 +14,13 @@ module.exports = function (gulp, plugins, config) {
   //
   // As a tempoary means of managing updates to single-source Jade files, this task
   // also copies over select Jade TS files and folder.
-  //
-  // NOTE: if you get an "Error: EACCES: permission denied" over a2docs.css or styles.css
-  // then you need to run `gulp delete-example-boilerplate` first.
    
   gulp.task('get-ngio-examples+', cb => {
+    // Some boilerplate files were made read-only, this prevents gulp.src/.dest() from being successful.
+    // So first make the problematic files read/write.
+    const find = 'find public/docs/_examples -path "*/dart/web/*" ! -path "*/build/*"';
+    cp.execSync(`${find} -name "a2docs.css" -exec chmod a+w {} +`);
+    cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
     const baseDir = config.angulario;
     return gulp.src([
       // EXAMPLES
@@ -43,6 +42,7 @@ module.exports = function (gulp, plugins, config) {
 
       // TOOLING
       `${baseDir}/scripts/examples-install.sh`,
+      `${baseDir}/tools/api-builder/**`, // necessary to build cheatsheet.json
       `${baseDir}/tools/doc-shredder/**`,
       `!${baseDir}/tools/doc-shredder/_test/**`,
       `${baseDir}/tools/styles-builder/**`,

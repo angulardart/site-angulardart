@@ -1,4 +1,5 @@
 // TODO: move ANGULAR_PROJECT_PATH and copyFiles to gulpfile.
+'use strict';
 
 module.exports = function(gulp, plugins, config) {
 
