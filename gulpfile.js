@@ -261,7 +261,15 @@ gulp.task('_get-resources', ['_get-rsrc-images1', '_get-rsrc-images2', '_get-rsr
 
 gulp.task('_get-rsrc-images1', cb => {
   const baseDir = path.join(angulario, 'public');
-  return gulp.src([`${baseDir}/resources/images/**/*`], { base: baseDir }).pipe(gulp.dest('src'));
+  return gulp.src([
+    `${baseDir}/resources/images/devguide/**`,
+    `${baseDir}/resources/images/logos/inverse/shield/22*`,
+    // Skip TS-specific
+    `!${baseDir}/resources/images/devguide/{*test*,plunker*}`,
+    `!${baseDir}/resources/images/devguide/*test*/**`,
+    `!${baseDir}/resources/images/devguide/{cli-quickstart,ngmodule,upgrade}`,
+    `!${baseDir}/resources/images/devguide/{cli-quickstart,ngmodule,upgrade}/**`,
+    ], { base: baseDir }).pipe(gulp.dest('src'));
 });
 
 gulp.task('_get-rsrc-images2', cb => {

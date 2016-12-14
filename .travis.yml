@@ -24,8 +24,6 @@ install:
   - ./scripts/install-ng-repo.sh
 
 before_script:
-  # If needed, we can do less than a full site-refresh, but this will do for now:
-  - gulp site-refresh
   - gulp dartdoc
 
 script:

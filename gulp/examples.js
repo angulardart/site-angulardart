@@ -288,7 +288,7 @@ module.exports = function (gulp, plugins, config) {
     var e2eSpecPaths = getE2eSpecPaths(EXAMPLES_PATH);
     e2eSpecPaths.forEach(function(specPath) {
       // get all of the examples under each dir where a pcFilename is found
-      localExamplePaths = getExamplePaths(specPath, true);
+      let localExamplePaths = getExamplePaths(specPath, true);
       // Filter by example name
       if (filter) {
         localExamplePaths = localExamplePaths.filter(function (fn) {

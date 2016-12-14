@@ -42,7 +42,7 @@ module.exports = function (gulp, plugins, config) {
 
       // TOOLING
       `${baseDir}/scripts/examples-install.sh`,
-      `${baseDir}/tools/api-builder/**`, // necessary to build cheatsheet.json
+      `${baseDir}/tools/api-builder/**`, // necessary to build api.json and cheatsheet.json
       `${baseDir}/tools/doc-shredder/**`,
       `!${baseDir}/tools/doc-shredder/_test/**`,
       `${baseDir}/tools/styles-builder/**`,
