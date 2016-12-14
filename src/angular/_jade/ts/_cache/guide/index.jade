@@ -3,8 +3,8 @@ block includes
   - var _angular_io = 'angular.io';
 
 - var __lang = _docsFor || current.path[1] || 'ts';
-- var guideData = {};
-- var advancedLandingPage = 'attribute-directives';
+- var guideData = {}; // public.docs[__lang].latest.guide._data;
+- var advancedLandingPage = 'attribute-directives'; // '';
 - for(var page in guideData) {
 -   if (!guideData[page].basics && !guideData[page].hide) { advancedLandingPage = page; break; }
 - }

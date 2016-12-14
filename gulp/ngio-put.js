@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
   const dartLatest = path.join(config.angulario, 'public/docs/dart/latest');
 
-  gulp.task('put-ngio-files', ['_put-pages'], () => {
+  gulp.task('put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'], () => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);
@@ -18,7 +18,7 @@ module.exports = function (gulp, plugins, config) {
     return cp.exec('./scripts/ngio-backport-finish.sh');
   });
 
-  gulp.task('_put-pages', ['_put-api', '_put-qs-etc', '_put-guide', '_put-tutorial']); //, '_put-extra-dart'
+  gulp.task('_put-dart-pages', ['_put-api', '_put-qs-etc', '_put-guide', '_put-tutorial']);
 
   gulp.task('_put-api', () => {
     const baseDir = 'src/angular';
@@ -64,6 +64,45 @@ module.exports = function (gulp, plugins, config) {
       // Adjust extend/include paths
       .pipe(replace(/\/_jade/g, '/docs'))
       .pipe(gulp.dest(dartLatest));
+  });
+
+  gulp.task('_put-ts-jade', cb => {
+    const baseDir = 'src/angular/_jade';
+    const destDir = path.join(config.angulario, 'public/docs');
+    return gulp.src([
+      `${baseDir}/ts/_cache/**`,
+    ], { base: baseDir })
+      // Undo effects of extra step to removed br clear:
+
+      .pipe(replace(/<!-- (br class="l-clear-[a-z]+") -->/, '<$1>'))
+
+      // Undo effects of the _get-ts-jade task:
+
+      // We don't need to include the ts _util-fns.jade file; comment it out.
+      .pipe(replace(/\/\/- (include (\.\.\/)*_util-fns(\.jade)?)/g, '$1'))
+      // General patch
+      .pipe(replace(/(target="_blank") rel="noopener"/g, '$1'))
+      // Patch toh-5; don't include TS-specific _see-addr-bar.jade
+      .pipe(replace(/\/\/- (include (\.\.\/)*_includes\/_see-addr-bar(\.jade)?)/g, '$1'))
+      // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
+      .pipe(replace(/(var guideData = ){}; \/\/ ([^;]*);/, '$1$2;'))
+      .pipe(replace(/(var advancedLandingPage =).*/, "$1 '';"))
+      // Patch structural-directives
+      .pipe(replace('## The *template* tag', '## The *&lt;template>* tag'))
+      // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
+      .pipe(replace('## `*` and *template*', '## * and &lt;template&gt;'))
+      // Patch glossary
+      .pipe(replace("var docsLatest='/angular';", "var docsLatest='/' + current.path.slice(0,3).join('/');"))
+      .pipe(gulp.dest(destDir));
+  });
+
+  gulp.task('_put-includes', () => {
+    const baseDir = 'src/angular/_jade';
+    const destDir = path.join(config.angulario, 'public/_includes');
+    const fn = '_util-fns.jade';
+    return execp(`cp ${baseDir}/${fn} ${destDir}/${fn}`).then(() =>
+      cp.exec(`perl -ni -e 'print unless /^- (var jade2ng|.*return.*partial.*fullFileName)/' ${destDir}/${fn}`)
+    );
   });
 
 };
