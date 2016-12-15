@@ -19,9 +19,12 @@ block includes
   - var _library_module = 'library'
   - var _at_angular = 'angular2'
 
-block angular-parts
+block angular-intro
   :marked
-    Angular for Dart is published as the `angular2` package, which
+    AngularDart (which we usually call simply Angular in this documentation)
+    is a framework for building client applications in HTML and Dart. 
+    It is published as the 
+    [**angular2**](https://pub.dartlang.org/packages/angular2) package, which
     (like many other Dart packages) is available via the Pub tool.
 
 block angular-modules
@@ -29,7 +32,7 @@ block angular-modules
     Angular apps are modular; that is, applications are assembled from many **modules**.
 
     In this guide, the term **_module_** refers to a Dart compilation unit, such
-    as a library, or a package.(If a Dart file has no `library` or `part`
+    as a library, or a package. (If a Dart file has no `library` or `part`
     directive, then that file itself is a library and thus a compilation
     unit.) For more information about compilation units, see
     the chapter on "Libraries and Scripts" in the
@@ -48,8 +51,7 @@ block angular-modules
   +makeExample('app/app.component.ts', 'export')
 
   :marked
-    By convention, the name of the the root module is `app_component.dart`
-    and that of the root component is `AppComponent`.
+    By convention, the name of the root component is `AppComponent`.
 
 block angular-libraries
   :marked
@@ -83,8 +85,7 @@ block dart-directives
     `directives` !{_array}.
 
 block dart-bool
-  .callout.is-helpful
-    header Dart difference: Only true is true
+  .callout.is-important
     :marked
       In Dart, **the only value that is true is the boolean value `true`**; all
       other values are false. JavaScript and TypeScript, in contrast, treat values
@@ -96,7 +97,13 @@ block dart-bool
 block registering-providers
   :marked
     You can register providers at any level of the application component tree.
-    In general, add providers when bootstraping the application so that
+    In general, add providers when bootstrapping the application so that
     the same instance of a service is available everywhere.
 
   +makeExcerpt('app/main.ts', 'bootstrap')
+
+block angular-feature-testing
+  :marked
+    > **Testing**: The testing documentation will cover how to run unit tests 
+    on your application parts as they interact with the Angular framework. 
+    Also see [package:test](https://pub.dartlang.org/packages/test).
