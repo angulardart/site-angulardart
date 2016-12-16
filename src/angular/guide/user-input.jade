@@ -92,7 +92,7 @@ figure.image-display
 <a id="keyup1"></a>
 .l-sub-section
   :marked
-    We cast the `$event` as an `any` type, which means we've abandoned strong typing
+    We declare the `$event` as a `dynamic` type, which means we've abandoned strong typing
     to simplify our code. We generally prefer the strong typing that Dart affords.
     We can rewrite the method, casting to HTML DOM objects like this.
   +makeExample('user-input/dart/lib/keyup_components.dart', 'key-up-component-1-class', 'web/keyup_components.dart (class v.1 - strongly typed )')(format=".")
