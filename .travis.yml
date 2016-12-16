@@ -9,7 +9,6 @@ cache:
 env:
   global:
   - JEKYLL_ENV=production
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
   - LATEST_RELEASE=2.2.0
 
 before_install:
@@ -21,6 +20,7 @@ install:
   - ./scripts/install.sh
   - ./scripts/install-dart-sdk.sh
   - ./scripts/get-ng-repo.sh
+  - pub global activate linkcheck
 
 before_script:
   - gulp dartdoc
@@ -28,24 +28,17 @@ before_script:
 script:
   # - ./deploy/runtests.sh
   # - ./deploy/cibuild
-  - gulp build
-  - ./scripts/check-build.sh
+  - gulp build --dgeni-log=warn
 
 after_script:
-  # Just FYI test. Won't fail the build if it has errors.
-  - ./deploy/html_proof.rb
-  # Checks for bad HTML, broken links, and forces build to fail if it fails.
-  # (By default, Travis doesn't fail builds after deployment.)
-  # - "./deploy/html_proof.rb || travis_terminate 1"
+  - ./scripts/check-build.sh
+  - ./scripts/check-links.sh
 
 # branch whitelist
 # branches:
 #   only:
 #   - master        # test the master branch
 #   - /stage-(.*)/  # test every branch which starts with "stage-"
-
-# after_success:
-# We could add the deployment to firebase here if there are no additional customizations etc...
 
 deploy:
   - provider: script

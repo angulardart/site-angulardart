@@ -1,0 +1,37 @@
+# ANGULAR
+# =======
+
+# LINKS KNOWN TO BE VALID
+# -----------------------
+
+# API search parameter links
+# Doesn't seem to work for now: /angular/api/#!\?apiFilter=
+/angular/api/.*apiFilter
+
+# Embedded SVG image data
+data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'
+
+# KNOWN ISSUES (to be investigated and/or resolved soon)
+# ------------
+
+# Just ignore all API links for now
+/angular/api/
+
+# Pages under development
+/angular/guide/router(\.html)?($|#)
+
+# LINKS excluded via if-docs, but still visible to linkchecker
+/angular/guide/change-log.html$
+/angular/cookbook/
+/angular/guide/appmodule.html$
+# Doesn't seem to work for now: /angular/guide/server-communication#.*(observable|promise|rxjs|search-parameters|server)
+/angular/guide/server-communication
+
+# Dartdoc related
+/angular/api/static-assets/fonts
+
+# API entry page URLs back into docs are wrong
+/angular/api/(docs|examples)/
+
+# Some doc pages still refer to TS API entries
+/angular/api/.*/index/
