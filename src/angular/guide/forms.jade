@@ -161,7 +161,7 @@ figure.image-display
   Edit `hero_form_component.dart`, replacing all of its contents
   with the following code:
 
-+makeExample('forms/dart/lib/hero_form_component.dart', null, 'lib/hero_form_component.dart')
++makeExample('lib/hero_form_component.dart')
 
 :marked
   There’s nothing special about this component, nothing form-specific,
@@ -172,8 +172,6 @@ figure.image-display
   1. The code imports a standard set of symbols from the Angular library.
 
   1. The `@Component` selector value of "hero-form" means we can drop this form in a parent template with a `<hero-form>` tag.
-
-  1. The `moduleId` property sets the base for module-relative URLs such as the `templateUrl`.
 
   1. The `templateUrl` property points to a separate file for template HTML called `hero_form_component.html`.
 
@@ -196,11 +194,7 @@ figure.image-display
 
   We made a good choice to put the HTML template elsewhere. Let's write it.
 
-  <!-- NOTE: I deleted the Dart equivalent of "Revise the app.ts"
-  because we started with example-specific index.html & main.dart
-  files. -->
-
-
+//- NOTE(kwalrath): I deleted the Dart equivalent of "Revise the app.ts" because we started with example-specific index.html & main.dart files.
 
 .l-main-section
 :marked
