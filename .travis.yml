@@ -13,26 +13,23 @@ env:
 
 before_install:
   - source ./scripts/env-set.sh
+  - ./scripts/install-dart-sdk.sh
   - ./scripts/before-install.sh
   - rvm install 2.3.0
 
 install:
   - ./scripts/install.sh
-  - ./scripts/install-dart-sdk.sh
   - ./scripts/get-ng-repo.sh
-  - pub global activate linkcheck
-  # Use git repo version of dartdoc until most recent changes have made it into the SDK.
-  # Also see dartdoc command usage in gulp/dartdoc.js.
-  - pub global activate --source git https://github.com/dart-lang/dartdoc.git
 
 before_script:
-  - gulp create-example-fragments
-  - gulp dartdoc
+  - gulp dartdoc --dgeni-log=warn
 
 script:
   # - ./deploy/runtests.sh
   # - ./deploy/cibuild
-  - gulp build --dgeni-log=warn
+  # We use --fast to avoid setting up the fragments again;
+  # since it was done via `gulp dartdoc` above.
+  - gulp build --fast --dgeni-log=warn
 
 after_script:
   - ./scripts/check-build.sh

@@ -8,3 +8,13 @@ set -e -o pipefail
 travis_fold start before_install.npm_install
 (set -x; npm install -g firebase-tools gulp --no-optional)
 travis_fold end before_install.npm_install
+
+travis_fold start before_install.linkcheck
+(set -x; pub global activate linkcheck)
+travis_fold end before_install.linkcheck
+
+travis_fold start before_install.dartdoc
+echo "Use git repo version of dartdoc until most recent changes have made it into the SDK."
+echo "Also see dartdoc command usage in gulp/dartdoc.js."
+(set -x; pub global activate --source git https://github.com/dart-lang/dartdoc.git)
+travis_fold end before_install.dartdoc

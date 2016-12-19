@@ -32,7 +32,7 @@ module.exports = function(gulp, plugins, config) {
     // })
   });
 
-  gulp.task('_setup-fragments-for-dartdoc', () => {
+  gulp.task('_setup-fragments-for-dartdoc', ['create-example-fragments'], () => {
     const fragmentsDir = 'src/angular/_fragments';
     const ngRepoPath = config.angularRepo;
     const docsDir = path.resolve(ngRepoPath, 'docs');
