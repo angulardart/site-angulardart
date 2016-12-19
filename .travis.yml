@@ -21,8 +21,12 @@ install:
   - ./scripts/install-dart-sdk.sh
   - ./scripts/get-ng-repo.sh
   - pub global activate linkcheck
+  # Use git repo version of dartdoc until most recent changes have made it into the SDK.
+  # Also see dartdoc command usage in gulp/dartdoc.js.
+  - pub global activate --source git https://github.com/dart-lang/dartdoc.git
 
 before_script:
+  - gulp create-example-fragments
   - gulp dartdoc
 
 script:
