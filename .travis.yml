@@ -13,22 +13,23 @@ env:
 
 before_install:
   - source ./scripts/env-set.sh
+  - ./scripts/install-dart-sdk.sh
   - ./scripts/before-install.sh
   - rvm install 2.3.0
 
 install:
   - ./scripts/install.sh
-  - ./scripts/install-dart-sdk.sh
   - ./scripts/get-ng-repo.sh
-  - pub global activate linkcheck
 
 before_script:
-  - gulp dartdoc
+  - gulp dartdoc --dgeni-log=warn
 
 script:
   # - ./deploy/runtests.sh
   # - ./deploy/cibuild
-  - gulp build --dgeni-log=warn
+  # We use --fast to avoid setting up the fragments again;
+  # since it was done via `gulp dartdoc` above.
+  - gulp build --fast --dgeni-log=warn
 
 after_script:
   - ./scripts/check-build.sh

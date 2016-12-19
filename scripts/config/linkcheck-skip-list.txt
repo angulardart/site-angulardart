@@ -5,17 +5,14 @@
 # -----------------------
 
 # API search parameter links
-# Doesn't seem to work for now: /angular/api/#!\?apiFilter=
-/angular/api/.*apiFilter
+/angular/api/#!\?apiFilter=
 
 # Embedded SVG image data
-data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'
+# Doesn't seem to work for now: 
+^data
 
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
-
-# Just ignore all API links for now
-/angular/api/
 
 # Pages under development
 /angular/guide/router(\.html)?($|#)
@@ -24,8 +21,7 @@ data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'
 /angular/guide/change-log.html$
 /angular/cookbook/
 /angular/guide/appmodule.html$
-# Doesn't seem to work for now: /angular/guide/server-communication#.*(observable|promise|rxjs|search-parameters|server)
-/angular/guide/server-communication
+/angular/guide/server-communication#.*(observable|promise|rxjs|search-parameters|server)
 
 # Dartdoc related
 /angular/api/static-assets/fonts
