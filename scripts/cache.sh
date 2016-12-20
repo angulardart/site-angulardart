@@ -10,7 +10,8 @@ BASE="$NGIO_REPO/public/docs/ts"
 LATEST="$BASE/latest"
 CACHE="$BASE/_cache"
 
-# setup-systemjs-anatomy.jade?
+# FILES is a list of files we try to keep in sync (TS _cache vs latest).
+# For a list of files that are excluded, see the diff -x arguments in cacheDiffSummary().
 FILES="
 guide/architecture.jade
 guide/attribute-directives.jade
@@ -24,7 +25,6 @@ guide/lifecycle-hooks.jade
 guide/pipes.jade
 guide/security.jade
 guide/server-communication.jade
-guide/setup.jade
 guide/structural-directives.jade
 guide/template-syntax.jade
 glossary.jade
@@ -67,7 +67,11 @@ function cacheRefresh() {
 }
 
 function cacheDiffSummary() {
-    diff -qr -x "_util*.jade" "$CACHE/" "$LATEST/" | \
+    # We skip files (via -x) that have diverged too much and are no longer being synced.
+    diff -qr \
+        -x "_util*.jade" \
+        -x "setup.jade" \
+        "$CACHE/" "$LATEST/" | \
         grep -v "^Only in"
 }
 
