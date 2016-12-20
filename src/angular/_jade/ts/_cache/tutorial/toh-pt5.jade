@@ -109,7 +109,7 @@ block keep-app-running
 
   The steps are to rename:
   * <span ngio-ex>app.component.ts</span> file to <span ngio-ex>heroes.component.ts</span>
-  * `AppComponent` class to `HeroesComponent`
+  * `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file)
   * Selector `my-app` to `my-heroes`
 
 +makeExcerpt('app/heroes.component.ts (showing renamings only)', 'renaming')
@@ -868,8 +868,11 @@ block css-files
 
     +makeExcerpt('app/app.component.ts (active router links)', 'template')
 
-:marked
-  Set the `AppComponent`’s `styleUrls` property to this CSS file.
+block style-urls
+  :marked
+    First add `moduleId: module.id` to the `@Component` metadata of the `AppComponent`
+    to enable _module-relative_ file URLs.
+    Then add a `styleUrls` property that points to this CSS file as follows.
 
 +makeExcerpt('app/app.component.ts','styleUrls')
 
