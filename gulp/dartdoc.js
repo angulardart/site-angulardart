@@ -8,6 +8,20 @@ module.exports = function(gulp, plugins, config) {
   const path = plugins.path;
 
   const dartdocCmd = 'pub global run dartdoc'
+  const libsToDoc =
+     `angular2.common
+      angular2.compiler
+      angular2.core
+      angular2.instrumentation
+      angular2.platform.browser
+      angular2.platform.browser_static
+      angular2.platform.common
+      angular2.platform.common_dom
+      angular2.router
+      angular2.security
+      angular2.transform.deferred_rewriter.dart
+      angular2.transform.reflection_remover.dart
+      angular2.transformer_dart`.replace(/\s+/g, ',');
 
   gulp.task('dartdoc', ['_setup-fragments-for-dartdoc'], () => {
     const ngRepoPath = config.angularRepo;
@@ -17,7 +31,7 @@ module.exports = function(gulp, plugins, config) {
     }
     return plugins.q.all(
       plugins.execp(`${dartdocCmd} --version`),
-      plugins.execp(`${dartdocCmd} --output ${config.relDartDocApiDir}`, { cwd: config.angularRepo })
+      plugins.execp(`${dartdocCmd} --include=${libsToDoc} --output ${config.relDartDocApiDir}`, { cwd: config.angularRepo })
     );
     // // checkAngularProjectPath(ngRepoPath);
     // const topLevelLibFilePath = path.resolve(ngRepoPath, 'lib', 'angular2.dart');
