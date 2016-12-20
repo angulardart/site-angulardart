@@ -20,6 +20,7 @@ travis_fold start env_info.pwd
 echo Pwd: `pwd`
 ls -la
 echo
+travis_fold end env_info.pwd
 echo ENVIRONMENT CONFIG CHECK:
 if [[ -z "$NGIO_ENV_DEFS" ]]; then
     echo Environment variables are not being set. Aborting.

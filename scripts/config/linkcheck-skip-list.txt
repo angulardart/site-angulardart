@@ -7,9 +7,8 @@
 # API search parameter links
 /angular/api/#!\?apiFilter=
 
-# Embedded SVG image data
-# Doesn't seem to work for now: 
-^data
+# We don't serve the dartdoc generated index.html; so the anchor to libraries isn't valid
+/angular/api/index(.html)?#libraries$
 
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
