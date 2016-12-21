@@ -13,7 +13,23 @@
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
 
+# Dartdoc has some open issues re. Enums
+# - https://github.com/dart-lang/dartdoc/issues/1225
+# - https://github.com/dart-lang/dartdoc/issues/1232
+/angular/api/angular2.core/(ChangeDetectionStrategy|ViewEncapsulation)-class(.html)?#properties
+/angular/api/angular2.core/(ChangeDetectionStrategy|ViewEncapsulation)/
+/angular/api/angular2.compiler/(PropertyBindingType|ProviderAstType)-class(.html)?#properties
+/angular/api/angular2.compiler/(PropertyBindingType|ProviderAstType)/
+/angular/api/angular2.(platform.browser|security)/TemplateSecurityContext-class(.html)?#properties
+/angular/api/angular2.(platform.browser|security)/TemplateSecurityContext/
+
+# Notice the following links _should_ start with `/angular/api/...` (api is missing):
+# https://github.com/dart-lang/site-webdev/issues/271
+/angular/static-assets
+/angular/angular2.compiler/(angular2.compiler-library|NgContentAst)
+
 # Pages under development
+# https://github.com/dart-lang/site-webdev/issues/198
 /angular/guide/router(\.html)?($|#)
 
 # LINKS excluded via if-docs, but still visible to linkchecker
@@ -26,7 +42,9 @@
 /angular/api/static-assets/fonts
 
 # API entry page URLs back into docs are wrong
+# https://github.com/dart-lang/site-webdev/issues/273
 /angular/api/(docs|examples)/
 
 # Some doc pages still refer to TS API entries
+# https://github.com/dart-lang/site-webdev/issues/274
 /angular/api/.*/index/
