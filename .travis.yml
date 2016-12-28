@@ -21,15 +21,10 @@ install:
   - ./scripts/install.sh
   - ./scripts/get-ng-repo.sh
 
-before_script:
-  - gulp dartdoc --dgeni-log=warn
-
 script:
   # - ./deploy/runtests.sh
   # - ./deploy/cibuild
-  # We use --fast to avoid setting up the fragments again;
-  # since it was done via `gulp dartdoc` above.
-  - gulp build --fast --dgeni-log=warn
+  - gulp build
 
 after_script:
   - ./scripts/check-build.sh
@@ -47,3 +42,5 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+      # Only deploy for GitHub dart-lang/site-webdev, not site forks
+      condition: "$TRAVIS_REPO_SLUG == dart-lang/*"

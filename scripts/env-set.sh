@@ -13,6 +13,8 @@ if [[ -z "$NGIO_ENV_DEFS" ]]; then
     export NG2_REPO
     # TODO: replace all occurrences of NG2DART_REPO by NG2_REPO
     export NG2DART_REPO=../angular-dart
+    : ${NG2EX_REPO:=${NG2_REPO}_api_examples}
+    export NG2EX_REPO
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

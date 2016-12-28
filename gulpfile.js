@@ -31,6 +31,8 @@ const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
 const THIS_PROJECT_PATH = path.resolve('.');
+// angular.io constants
+// TODO: get path from the env
 const ANGULAR_PROJECT_PATH = '../angular2'; // WARNING: some old scripts expect this to be ../angular
 const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
@@ -42,17 +44,23 @@ gutil.log(`Using angular.io repo at ${angulario}`)
 
 const isSilent = !!argv.silent;
 if (isSilent) gutil.log = gutil.noop;
-const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'info');
+const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 
+const fragsPath = path.join('src', 'angular', '_fragments');
 const config = {
   _dgeniLogLevel:_dgeniLogLevel,
   ANGULAR_PROJECT_PATH:ANGULAR_PROJECT_PATH, angulario: angulario,
-  angularRepo: '../angular2',
+  angularRepo: ANGULAR_PROJECT_PATH, // TODO: eliminate one of these alias
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
   relDartDocApiDir: path.join('doc', 'api'),
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
   TOOLS_PATH: TOOLS_PATH,
+  frags: {
+    apiDirName: '_api',
+    dirName: path.basename(fragsPath),
+    path: fragsPath,
+  }
 };
 
 const plugins = {
@@ -67,10 +75,11 @@ extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, c
 // Tasks
 //
 
-gulp.task('build', ['build-api-list-json', 'build-cheatsheet', 'create-example-fragments', 'get-api-docs', 'sass'], cb => {
-  gutil.log('\n*******************************************************************************')
-  gutil.log('It is assumed that get-ngio-files was run earlier. If not, the build will fail.');
-  gutil.log('*******************************************************************************\n')
+// Task: build
+// Options:
+// --fast  skips generation of dartdocs if they already exist
+gulp.task('build', ['create-example-fragments', 'dartdoc', 'build-api-list-json', 
+    'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
   return execp(`jekyll build`);
 });
 

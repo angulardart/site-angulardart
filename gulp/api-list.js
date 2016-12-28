@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const DOCS_PATH = config.DOCS_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 
-  gulp.task('build-api-list-json', buildApiListJson);
+  gulp.task('build-api-list-json', ['dartdoc'], () => buildApiListJson());
 
   function buildApiListJson() {
     const dab = require(path.resolve(TOOLS_PATH, 'dart-api-builder', 'dab'))(config.THIS_PROJECT_PATH);

@@ -6,6 +6,10 @@ set -e -o pipefail
 
 travis_fold start env_info
 echo ENVIRONMENT INFO
+travis_fold start env_info.var
+echo ENVIRONMENT VAR
+set
+travis_fold end env_info.var
 travis_fold start env_info.path
 echo Path:
 echo $PATH | tr : '\n'
@@ -21,6 +25,7 @@ echo Pwd: `pwd`
 ls -la
 echo
 travis_fold end env_info.pwd
+travis_fold end env_info
 echo ENVIRONMENT CONFIG CHECK:
 if [[ -z "$NGIO_ENV_DEFS" ]]; then
     echo Environment variables are not being set. Aborting.

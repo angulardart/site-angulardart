@@ -23,13 +23,17 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 
 Once everything's installed, you can build and serve:
 
-- `gulp build`
+- `gulp build` # use --fast to avoid running dartdoc when API docs already exist
 - `firebase serve --port 4001`
-- `./scripts/serve_local.sh`  # to build, serve, and have a watcher for changes:<br>
 
-Other useful commands:
+Or, to build, serve, and have a watcher for changes:
 
-- Clean build: `gulp clean && gulp build --dgeni-log=warn`
-- Build _and_ deploy: `gulp clean && gulp build-deploy --dgeni-log=warn`
+- `./scripts/serve_local.sh`
+
+Other useful gulp tasks:
+
+- `gulp clean` # deletes `publish`
+- `gulp build --dgeni-log=info` # trace at `info` level (`warn` is default)
+- `gulp build-deploy` # build and deploy to active firebase project
 
 See the [dart-lang/site-www README](https://github.com/dart-lang/site-www/blob/master/README.md) for more setup and build instructions.

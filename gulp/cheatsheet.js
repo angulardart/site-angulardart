@@ -11,7 +11,7 @@ module.exports = function (gulp, plugins, config) {
 
   const cheatsheetJsonPath = path.join(DOCS_PATH, 'dart', 'latest', 'guide', 'cheatsheet.json');
 
-  gulp.task('build-cheatsheet', [], function () {
+  gulp.task('build-cheatsheet', ['dartdoc'], function () {
     return buildDartCheatsheet();
   });
 
