@@ -3,10 +3,10 @@
   - title: Get Started
     permalink: /guides/get-started
 
-- title: Angular Docs
+- title: Angular
   children:
-    - title: Quickstart
-      permalink: /angular/quickstart
+    - title: About
+      permalink: /angular
 
     - title: Guide
       permalink: /angular/guide

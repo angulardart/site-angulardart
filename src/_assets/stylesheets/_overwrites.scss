@@ -6,19 +6,18 @@ $screen-sm-min: 768px;
 
 /* Add space between definitions. */
 dd {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 /* Make code font more noticeable (without being obnoxious). */
 code {
-	color: #008f83
+  color: #008f83
 }
 
 /* Make code-font links look like links. Should also change the hover color. */
 a code {
-    color: $brand-primary
+  color: $brand-primary
 }
-
 
 #page-header {
   background-color: $gray-base;
@@ -96,6 +95,17 @@ body.homepage {
 body.homepage .get-started-section {
   padding-top: 0;
   padding-bottom: 60px;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 15px;
+
+  .btn {
+    background: $brand-primary;
+    color: white;
+    margin: 10px 10px 0 0;
+  }
 }
 
 /* Don't display navigation aids when printing */
