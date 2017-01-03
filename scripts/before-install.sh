@@ -16,5 +16,5 @@ travis_fold end before_install.linkcheck
 travis_fold start before_install.dartdoc
 echo "Use git repo version of dartdoc until most recent changes have made it into the SDK."
 echo "Also see dartdoc command usage in gulp/dartdoc.js."
-(set -x; pub global activate --source git https://github.com/dart-lang/dartdoc.git)
+(set -x; pub global activate dartdoc)
 travis_fold end before_install.dartdoc
