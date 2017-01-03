@@ -10,10 +10,12 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 
 - [Dart](https://www.dartlang.org/install), aim for the latest version.
 - Node v6; instructions below assume use of [nvm](https://github.com/creationix/nvm).
+  (HomeBrew users shall set the `NVM_DIR` env as instructed after `brew install nvm`.)
+- The ruby gem `bundler`. (HomeBrew users can get it with: `brew install ruby` and `gem install bundler`)
 
 **Installation** instructions:
 
-1. `nvm use 6`
+1. `nvm install 6` (on clean install) and/or `nvm use 6`
 1. `source ./scripts/env-set.sh`
 1. `./scripts/before-install.sh`
 1. `./scripts/get-ng-repo.sh` (optional).<br>
