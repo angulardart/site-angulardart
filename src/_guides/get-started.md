@@ -176,8 +176,7 @@ For a gentler approach, try the code lab
 
 ## What next?
 
-From here, you can go straight to the
-[Angular documentation](/angular).
+From here, you can [learn more about AngularDart](/angular).
 
 Or check out these resources:
 

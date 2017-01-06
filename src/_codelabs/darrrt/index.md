@@ -15,11 +15,9 @@ by walking you through the process of building a simple web app.
 <aside class="alert alert-info" markdown="1">
 **Note:**
 This code lab uses the low-level HTML package to create the web GUI.
-We recommend Angular 2 to write Dart web apps.
+We recommend Angular for writing Dart web apps.
 See [Avast, Ye Pirates: Write an Angular App](/codelabs/ng2)
-for an Angular version of this code lab, or the
-[Tour of Heroes tutorial](https://angular.io/docs/dart/latest/tutorial/)
-on [angular.io](https://angular.io/dart).
+for an Angular version of this code lab.
 You can find other code labs on the
 [webdev code labs](/codelabs) page.
 </aside>

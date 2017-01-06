@@ -17,12 +17,10 @@ header:
 <div class="trydart-step-details" markdown="1">
 
 Angular documentation
-: The <a href="https://angular.io/dart"
-  target="_blank" rel="noopener">angular.io/dart</a> site has a quick start guide,
-  a developer guide, and API documentation.
+: Dart's <a href="/angular/guide">Angular documentation</a>
+  has a quick start guide, a developer guide, and API documentation.
   You might want to bookmark the
-  <a href="https://angular.io/docs/dart/latest/guide/cheatsheet.html">Angular
-  Cheat Sheet</a>.
+  <a href="/angular/guide/cheatsheet.html">Cheat Sheet</a>.
 
 The Dart language
 : <a href="{{site.dartlang}}/guides/language/language-tour">

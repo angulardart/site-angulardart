@@ -18,12 +18,6 @@ This code lab introduces you to a preview release of *AngularDart Components*,
 part of a large group of well-tested components that are widely used in
 Google’s Dart apps.
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-When this code lab says _AngularDart_, it means _Angular 2 for Dart_.
-Full documentation for AngularDart is at [angulardart.org](https://angulardart.org).
-</aside>
-
 To complete this code lab, you need the following:
 
 *   A Windows, Mac, or Linux computer with Dart SDK 1.20 (or a higher version)
@@ -33,7 +27,7 @@ This code lab assumes that you are familiar with Dart web app development.
 If you aren’t, instead try one of the [other webdev code labs](/codelabs).
 Familiarity with AngularDart development isn't required but is helpful,
 since this code lab doesn't explain
-[Angular concepts](https://angular.io/docs/dart/latest/guide/architecture.html).
+[Angular concepts](/angular/guide/architecture.html).
 
 In this code lab, you’ll take a basic AngularDart app, called Lottery Simulator,
 and use AngularDart Components to simplify the code and beautify the UI.

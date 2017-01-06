@@ -44,7 +44,7 @@ has some tips for specific browsers.
 
 #### Q. Can I use Angular with Dart?
 
-Yes! [Angular 2 for Dart][] is a port of Angular to Dart.
+Yes! [AngularDart][] is a port of Angular to Dart.
 
 #### Q. Can I use web components with Dart?
 
@@ -372,7 +372,7 @@ achievement.
 [ppwsize]: http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [jsinterop]: https://pub.dartlang.org/packages/js
-[Angular 2 for Dart]: https://angulardart.org
+[AngularDart]: /angular
 [Polymer Dart]: https://github.com/dart-lang/polymer-dart/wiki
 [dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
 [chrome.dart]: https://github.com/dart-gde/chrome.dart

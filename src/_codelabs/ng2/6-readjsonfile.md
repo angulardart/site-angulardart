@@ -283,7 +283,7 @@ class BadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * `ngOnInit()` is one of the
-  [lifecycle hooks](https://angular.io/docs/dart/latest/guide/lifecycle-hooks.html)
+  [lifecycle hooks](/angular/guide/lifecycle-hooks.html)
   available in Angular. Angular calls `ngOnInit()` after the component
   is initialized.
 

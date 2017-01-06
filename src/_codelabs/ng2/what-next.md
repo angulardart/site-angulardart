@@ -31,12 +31,10 @@ part of a large group of well-tested components that
 are widely used in Google’s Dart apps.
 </div>
 
-## <i class="fa fa-anchor"> </i> Read the guides on angular.io.
+## <i class="fa fa-anchor"> </i> Read the guides.
 
 <div class="trydart-step-details" markdown="1">
-Work through the [QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
-and [Developer Guides](https://angular.io/docs/dart/latest/guide/)
-on [angular.io](https://angular.io/docs/dart/latest/).
+Work through the [AngularDart developer guide](/angular/guide).
 </div>
 
 
@@ -44,7 +42,7 @@ on [angular.io](https://angular.io/docs/dart/latest/).
 
 <div class="trydart-step-details" markdown="1">
 Learn more about Dart from
-the [Web Tutorials](/tutorials).
+the [web tutorials](/tutorials).
 </div>
 
 

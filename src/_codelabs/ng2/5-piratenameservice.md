@@ -18,7 +18,7 @@ header:
 A proper pirate name consists of a name and an appellation,
 such as "Margy the Fierce" or "Renée the Fighter".
 In this step, you learn about Angular's support for
-[dependency injection](https://angular.io/docs/dart/latest/guide/dependency-injection.html)
+[dependency injection](/angular/guide/dependency-injection.html)
 as you add a service that returns a pirate name.
 
 ## <i class="fa fa-anchor"> </i> Create a class for the name service.

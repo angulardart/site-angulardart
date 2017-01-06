@@ -14,9 +14,7 @@ header:
 
 Here are some resources to help you use AngularDart Components.
 
-* AngularDart documentation:
-  * [angulardart.org](https://angulardart.org)
-  * [API reference](https://angular.io/docs/dart/latest/api/) 
+* [AngularDart documentation](/angular/guide)
 * AngularDart Components:
   * [API reference]({{site.acx_api}}/) for AngularDart Components
   * Demo ([running](https://dart-lang.github.io/angular2_components_example/),
