@@ -12,9 +12,9 @@ mission-critical apps that bring in much of Google’s revenue.
 
 <div class="button-container">
   <div>
-    <a href="/guides/get-started" class="btn btn-default btn-lg">Get started</a>
+    <a href="/guides/get-started" class="btn btn-default btn-lg">Get started with Dart</a>
     &nbsp;&nbsp;
-    <a href="/angular/guide" class="btn btn-lg">Read the docs</a>
+    <a href="/angular/guide" class="btn btn-lg">Read AngularDart docs</a>
   </div>
 
   <em>Latest version:
