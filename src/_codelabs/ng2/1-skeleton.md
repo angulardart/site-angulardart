@@ -72,13 +72,10 @@ the project folder is where you want it.
 change the name of the project from `untitled` to `pirate_badge`.
 </li>
 
-<li markdown="1">Make sure that **Start Dartium in checked mode** is checked.
-</li>
-
 <li markdown="1">Make sure that **Generate sample content** is checked.
 </li>
 
-<li markdown="1">Select **Angular 2 Web Application** from the list.
+<li markdown="1">Select **Angular QuickStart Example** from the list.
 
 The form should look similar to the following:
 
@@ -201,7 +198,7 @@ Get familiar with the structure of a basic Angular app.
 In the **Project** view, on the left, expand the `pirate_badge` folder.
 Then expand the `lib` and `web` folders to see the following:
 
-<img style="border:1px solid black" src="images/project-files.jpg" alt="The list of autocreated files.">
+<img style="border:1px solid black" src="images/project-files.png" alt="The list of autocreated files.">
 </div>
 
 </div> <div class="col-md-5" markdown="1">
@@ -232,7 +229,6 @@ this code lab:
 pirate_badge/
   lib/
     app_component.dart
-    app_component.html
   web/
     index.html
     main.dart
@@ -243,7 +239,6 @@ As you might expect,
 the `lib` directory contains library files. In an Angular app,
 component classes are generally created as library files.
 The `web` directory contains the main files for a web app.
-Double clicking a file opens that file in the editor view.
 </div>
 
 </div> <div class="col-md-5" markdown="1">
@@ -332,13 +327,13 @@ main() {
 <!DOCTYPE html>
 <html>
   <head>
-    <title>pirate_badge</title>
-
+    <title>Hello Angular</title>
+    ...
     <script defer src="main.dart" type="application/dart"></script>
     <script defer src="packages/browser/dart.js"></script>
   </head>
   <body>
-    <my-app>Loading...</my-app>
+    <my-app>Loading AppComponent content here ...</my-app>
   </body>
 </html>
 {% endprettify %}
@@ -375,8 +370,10 @@ main() {
 {% prettify dart %}
 import 'package:angular2/core.dart';
 
-@Component(selector: 'my-app', templateUrl: 'app_component.html')
-class AppComponent {}
+@Component(selector: 'my-app', template: '<h1>Hello {% raw %}{{name}}{% endraw %}</h1>')
+class AppComponent {
+  var name = 'Angular';
+}
 {% endprettify %}
 </div>
 
@@ -391,43 +388,25 @@ class AppComponent {}
   component.
 
 * The `@Component` constructor has two named parameters: `selector`
-  and `templateUrl`.
+  and `template`.
 
 * The `selector` parameter specifies a CSS selector for this component.
   Angular creates and displays an instance of `AppComponent` when it
   encounters a `<my-app>` element in the HTML.
 
-* The `templateUrl` parameter specifies the file that contains the view.
-  To define the HTML _within_ the Dart file as a Dart string,
-  use the `template` parameter instead.
+* The `template` parameter specifies the HTML that's inserted
+  whenever a `<my-app>` element appears in the app.
+  This simple component displays a title.
 
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
-</div> </div>
+* The double curly braces, `{% raw %}{{{% endraw %}` and `{% raw %}}}{% endraw %}`,
+  indicate an Angular interpolation binding expression.
+  At runtime, Angular replaces `{% raw %}`{{name}}`{% endraw %}`
+  with the value of the component's `name` property.
 
-<hr>
-
-<div class="trydart-step-details" markdown="1">
-### **app_component.html**
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-<div class="trydart-step-details" markdown="1">
-
-{% prettify html %}
-<h1>My First Angular 2 App</h1>
-{% endprettify %}
-
-</div>
-
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* This simple component displays a title.
-
-* This file is the template for the AppComponent class.
-  This HTML is inserted whenever the `<my-app>` element
-  appears in the app.
+* For any nontrivial template,
+  use a `templateUrl` parameter instead of `template`,
+  and put the template code in its own HTML file.
+  The next step shows how to use `templateUrl`.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
@@ -443,12 +422,13 @@ class AppComponent {}
 
 {% prettify yaml %}
 name: pirate_badge
-description: A Dart app that uses Angular 2
+description: QuickStart
 version: 0.0.1
 environment:
-  sdk: '>=1.13.0 <2.0.0'
+  sdk: '>=1.19.0 <2.0.0'
 dependencies:
-  angular2: 2.0.0-beta.17
+  angular2: ^2.2.0
+dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
 transformers:
@@ -481,7 +461,7 @@ transformers:
   Transformers are listed and configured in
   the pubspec under the `transformers:` field.
 
-* The Angular 2 transformer generates static structures that
+* The `angular2` transformer generates static structures that
   remove the need for reflection at runtime, making your app
   run more efficiently.
 
@@ -532,7 +512,7 @@ and click the Dartium icon on the far right.
 WebStorm launches the app in a Dartium window.
 You should see something like the following:
 
-<img style="border:1px solid black" src="images/first-ng2-app.png" alt="The skeleton app.">
+<img src="images/first-ng2-app.png" alt="The skeleton app.">
 
 After you've run the app using the menu, WebStorm remembers.
 In the future, you can launch the app using the enabled **Run** button
@@ -633,7 +613,6 @@ check your code against the files in
 [1-skeleton](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/1-skeleton).
 
 * [lib/app_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/1-skeleton/lib/app_component.dart)
-* [lib/app_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/1-skeleton/lib/app_component.html)
 * [web/main.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/1-skeleton/web/main.dart)
 * [web/index.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/1-skeleton/web/index.html)
 * [pubspec.yaml](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/1-skeleton/pubspec.yaml)

@@ -185,7 +185,7 @@ class BadgeComponent {
 
 <div class="trydart-step-details" markdown="1">
 
-Click run ( {% img 'green-run.png' %} } to run the app.
+Click run ( {% img 'green-run.png' %} ) to run the app.
 
 Type in the input field. The name badge updates to display what you've typed,
 and the button is disabled.  Remove the text from the input field and the

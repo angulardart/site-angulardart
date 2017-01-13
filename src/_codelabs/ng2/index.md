@@ -15,7 +15,7 @@ header:
 ---
 
 This code lab walks you through the process of building a simple
-web app with Dart and Angular 2.
+web app with Dart and Angular.
 
 If you are interested in other available labs, see the
 [code labs](/codelabs) page.

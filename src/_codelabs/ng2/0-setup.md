@@ -66,7 +66,7 @@ repo on GitHub contains several examples for this code lab.
 Each example corresponds to a completed step in this code lab:
 
 [1-skeleton](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/1-skeleton)
-: Displays some text&mdash;a basic Angular 2 app.
+: Displays some text&mdash;a basic Angular app.
 
 [2-blankbadge](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/2-blankbadge)
 : Displays a pirate name badge.

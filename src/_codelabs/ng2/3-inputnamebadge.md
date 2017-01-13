@@ -90,6 +90,7 @@ Delete the hardcoded badge name and add an event handler,
 {% prettify dart %}
 class BadgeComponent {
   String badgeName = [[highlight]]''[[/highlight]];
+  
   [[highlight]]void updateBadge(String inputName) {[[/highlight]]
     [[highlight]]badgeName = inputName;[[/highlight]]
   [[highlight]]}[[/highlight]]

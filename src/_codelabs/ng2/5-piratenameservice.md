@@ -162,10 +162,10 @@ collection of names and appellations to choose from.
 class NameService {
   static final Random _indexGen = new Random();
 
-  [[highlight]]final List _names = [[[/highlight]]
+  [[highlight]]final _names = <String>[[[/highlight]]
     [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
-    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
-  [[highlight]]final List _appellations = [[[/highlight]]
+    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane'];[[/highlight]]
+  [[highlight]]final _appellations = <String>[[[/highlight]]
     [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
     [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
 {% endprettify %}
@@ -177,9 +177,16 @@ class NameService {
 
 * Lists are built into the language and are similar to arrays in
   other languages.
-  These lists are created using list literals.
+  The `_names` and `_appellations` lists are created using list literals.
 
 * The `List` class provides the API for lists.
+
+* The `<String>` before the `[` indicates that the list contains only strings.
+
+* You could specify the type for `_names` and `_appellations` by changing
+ `final` to `final List<String>`, but you don't need to. Even in
+  [strong mode](https://www.dartlang.org/guides/language/sound-dart),
+  Dart can get the type information from the initial value.
 
 </div></div>
 
@@ -196,12 +203,12 @@ and appellation.
 {% prettify dart %}
 class NameService {
   ...
-  final List _appellations = [
+  final _appellations = <String>[
     'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
     'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
 
-  [[highlight]]String _randomFirstName()[[/highlight]]
-      [[highlight]]=> _names[_indexGen.nextInt(_names.length)];[[/highlight]]
+  [[highlight]]String _randomFirstName() =>[[/highlight]]
+      [[highlight]]_names[_indexGen.nextInt(_names.length)];[[/highlight]]
 
   [[highlight]]String _randomAppellation() =>[[/highlight]]
       [[highlight]]_appellations[_indexGen.nextInt(_appellations.length)];[[/highlight]]
@@ -282,6 +289,7 @@ Import the pirate name service.
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
 import 'package:angular2/core.dart';
+
 [[highlight]]import 'name_service.dart';[[/highlight]]
 {% endprettify %}
 </div>

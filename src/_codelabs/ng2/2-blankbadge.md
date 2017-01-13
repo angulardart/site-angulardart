@@ -277,6 +277,36 @@ import 'package:angular2/core.dart';
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
+
+## <i class="fa fa-anchor"> </i> Create app_component.html.
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+In the `lib` directory, create a file named `app_component.html`
+and put the following contents in it:
+</div>
+
+<div class="trydart-step-details" markdown="1">
+{% prettify html %}
+[[highlight]]<h1>Avast, Ye Pirates</h1>[[/highlight]]
+[[highlight]]<pirate-badge></pirate-badge>[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* When Angular detects the `<pirate-badge>` selector, it will load an
+  instance of `BadgeComponent`.
+
+* Angular doesn't know about `app_component.html` yet. To associate this
+  HTML file with the component, you need to edit the corresponding Dart file.
+
+</div></div>
+
+
 ## <i class="fa fa-anchor"> </i> Edit app_component.dart.
 
 <div class="trydart-step-details" markdown="1">
@@ -308,7 +338,7 @@ import 'package:angular2/core.dart';
   must use a `package:` URL to import libraries defined under `lib`.
 
 * After you import the library, the analyzer warns that you
-  have an unused import. This error goes away when you add
+  have an unused import. This error will go away later, when you add
   the `BadgeComponent` directive.
 
 </div> </div>
@@ -317,14 +347,16 @@ import 'package:angular2/core.dart';
 
 <div class="trydart-step-details" markdown="1">
 
-Add a directive to the `@Component` annotation.
+Change the `template` parameter to `templateUrl`,
+and point to the new HTML file.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-@Component(selector: 'my-app', templateUrl: 'app_component.html' [[highlight]], directives: const [BadgeComponent][[/highlight]])
+@Component(selector: 'my-app',
+    [[highlight]]templateUrl: 'app_component.html'[[/highlight]])
 {% endprettify %}
 </div>
 
@@ -345,6 +377,36 @@ Add a directive to the `@Component` annotation.
 
 <hr>
 
+<div class="trydart-step-details" markdown="1">
+
+Add a directive to the `@Component` annotation.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Component(selector: 'my-app',
+    templateUrl: 'app_component.html'[[highlight]],[[/highlight]]
+    [[highlight]]directives: const [BadgeComponent])[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* Any components that this component directly uses
+  are listed in the `directives:` field.
+
+* When the app component is loaded, Angular detects the
+  `<pirate-badge>` selector and loads the BadgeComponent class.
+
+
+&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+
+</div></div><hr>
+
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
@@ -354,7 +416,7 @@ Format the file.
 To format the file that is currently open,
 right-click in the editor view and select
 **Reformat with Dart Style** from the menu that pops up.
-After formatting, the file should look like the following:
+After formatting, the `@Component` annotation should look like this:
 </div>
 
 <div class="trydart-step-details">
@@ -363,7 +425,6 @@ After formatting, the file should look like the following:
     selector: 'my-app',
     templateUrl: 'app_component.html',
     directives: const [BadgeComponent])
-class AppComponent {}
 {% endprettify %}
 </div>
 
@@ -385,46 +446,12 @@ class AppComponent {}
 
 </div> </div>
 
-## <i class="fa fa-anchor"> </i> Edit app_component.html.
 
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-Replace the contents of the HTML template:
-</div>
+## <i class="fa fa-anchor"> </i> Edit the app's style sheet.
 
 <div class="trydart-step-details" markdown="1">
-{% prettify html %}
-[[highlight]]<h1>Avast, Ye Pirates</h1>[[/highlight]]
-[[highlight]]<pirate-badge></pirate-badge>[[/highlight]]
-{% endprettify %}
-</div>
 
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* When Angular detects the `<pirate-badge>` selector, it loads an
-  instance of `BadgeComponent`.
-
-</div></div>
-
-<hr>
-
-## <i class="fa fa-anchor"> </i> Create a style sheet for the app.
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-<ol markdown="1">
-<li markdown="1">In WebStorm's Project view,
-  right-click the `web` directory and
-  select **New > Stylesheet** from the menu that pops up.
-</li>
-<li markdown="1">Enter `styles` in the dialog that opens and click **OK**.
-  An empty `styles.css` file is created under `web`.
-</li>
-<li markdown="1">Add the following CSS to the style sheet:
+Edit `web/styles.css`, replacing all of its contents with the following:
 
 {% prettify css %}
 body {
@@ -437,39 +464,20 @@ body {
 }
 {% endprettify %}
 
-</li>
-</ol>
 </div>
 
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* The main style sheet will be hooked up in the main HTML file.
-  You'll add this next.
-
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
-</div> </div>
 
 ## <i class="fa fa-anchor"> </i> Edit index.html.
 
 <div class="trydart-step-details" markdown="1">
-Change the title to "Avast, Ye Pirates".
+Edit `web/index.html`, changing the title to something more descriptive than "Hello Angular".
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify html %}
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <title>[[highlight]]Avast, Ye Pirates[[/highlight]]</title>
-    ...
-  </head>
-  ...
-</html>
+<title>[[highlight]]Avast, Ye Pirates[[/highlight]]</title>
 {% endprettify %}
 </div>
 
@@ -481,38 +489,6 @@ Change the title to "Avast, Ye Pirates".
 
 </div></div>
 
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
-Add a reference to the style sheet.
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-{% prettify dart %}
-<html>
-  <head>
-    <title>Avast, Ye Pirates</title>
-
-    [[highlight]]<link rel="stylesheet" href="styles.css">[[/highlight]]
-
-    <script defer src="main.dart" type="application/dart"></script>
-    <script defer src="packages/browser/dart.js"></script>
-  </head>
-  ...
-</html>
-{% endprettify %}
-</div>
-
-{% comment %}
-</div> <div class="col-md-5" markdown="1">
-
-* x
-{% endcomment %}
-
-</div></div>
 
 ## <i class="fa fa-anchor"> </i> Test it!
 

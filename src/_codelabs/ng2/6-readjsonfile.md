@@ -111,12 +111,6 @@ class NameService {
 
 * `<String>[]` is equivalent to `new List<String>()`.
 
-* You could keep the `List` type on `_names` and `_appellations`,
-  but you don't need to.
-
-* A generic list can contain any kind of object,
-  but this list is typed to indicate that it only contains strings.
-
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
@@ -139,6 +133,7 @@ class NameService {
 
   [[highlight]]Future readyThePirates() async {[[/highlight]]
     [[highlight]]if (_names.isNotEmpty && _appellations.isNotEmpty) return;[[/highlight]]
+
     [[highlight]]var jsonString = await HttpRequest.getString(_namesPath);[[/highlight]]
     [[highlight]]var pirateNames = JSON.decode(jsonString);[[/highlight]]
     [[highlight]]_names.addAll(pirateNames['names']);[[/highlight]]
@@ -262,10 +257,11 @@ class BadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 
   BadgeComponent(this._nameService);
 
-  [[highlight]]ngOnInit() async {[[/highlight]]
+  [[highlight]]@override[[/highlight]]
+  [[highlight]]Future ngOnInit() async {[[/highlight]]
     [[highlight]]try {[[/highlight]]
       [[highlight]]await _nameService.readyThePirates();[[/highlight]]
-      [[highlight]]//on success[[/highlight]]
+      [[highlight]]// on success[[/highlight]]
       [[highlight]]isButtonEnabled = true;[[/highlight]]
       [[highlight]]isInputEnabled = true;[[/highlight]]
     [[highlight]]} catch (arrr) {[[/highlight]]
@@ -290,8 +286,10 @@ class BadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 * Mark the function body with `async`, so this function can use
   the `await` keyword.
 
-* Asynchronous functions must return a Future, so you can either
-  specify a Future return type or leave it blank.
+* Asynchronous functions must return a Future.
+
+* Specifying `@override` and `Future` is optional, but it makes
+  the intent of the code clearer.
 
 * Call the `readyThePirates()` function, which immediately returns
   a Future.
@@ -302,6 +300,32 @@ class BadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 * Use `try` and `catch` to detect and handle errors.
 
 </div></div>
+
+<hr>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+<div class="trydart-step-details" markdown="1">
+
+To get the `Future` type, import `dart:async`.
+
+{% prettify dart %}
+[[highlight]]import 'dart:async' show Future;[[/highlight]]
+
+import 'package:angular2/core.dart';
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+{% endcomment %}
+
+</div></div>
+
 
 ## <i class="fa fa-anchor"> </i> Test it!
 
