@@ -118,7 +118,7 @@ mkdir pirate_badge
 {% prettify none %}
 cd pirate_badge
 pub global activate stagehand
-stagehand web-angular
+stagehand web-angular-quickstart
 {% endprettify %}
 
 </li>
@@ -172,7 +172,12 @@ Dart's static analyzer over the code to look for errors and warnings.
 
 <li markdown="1">Within your project's directory,
   run [`pub get`](/tools/pub)
-  to download the packages that the app depends on.
+  to download the packages that the app depends on:
+
+{% prettify none %}
+pub get
+{% endprettify %}  
+
   Pub is Dart's package management tool.
 </li>
 
