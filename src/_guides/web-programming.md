@@ -29,7 +29,7 @@ tool to generate Dart code for that library.
 
 For examples of using package:js, see the following source code:
 
-[firebase3](https://github.com/Janamou/firebase3-dart)
+[firebase](https://github.com/firebase/firebase-dart)
 : Dart wrapper library for Firebase
 
 [captains_log_final](https://github.com/dart-lang/one-hour-codelab/tree/dev-workflow/dev-workflow/captains_log_final)
