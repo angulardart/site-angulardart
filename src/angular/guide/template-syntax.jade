@@ -695,7 +695,7 @@ code-example(format="nocode").
 :marked
   Finally, we can bind to a specific class name.
   Angular adds the class when the template expression evaluates to #{_truthy}.
-  It removes the class when the expression is #{_falsey}.
+  It removes the class when the expression is #{_falsy}.
 +makeExample('template-syntax/ts/app/app.component.html', 'class-binding-3')(format=".")
 
 .l-sub-section
@@ -1075,7 +1075,7 @@ figure.image-display
     Don't forget the asterisk (`*`) in front of `ngIf`.
     For more information, see [\* and &lt;template>](#star-template).
 :marked
-  Binding to a #{_falsey} expression removes the element subtree from the DOM.
+  Binding to a #{_falsy} expression removes the element subtree from the DOM.
 +makeExample('template-syntax/ts/app/app.component.html', 'NgIf-2')(format=".")
 
 .callout.is-helpful

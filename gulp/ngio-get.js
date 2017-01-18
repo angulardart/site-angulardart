@@ -230,7 +230,7 @@ module.exports = function (gulp, plugins, config) {
       // Patch live-example.js
       .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
       // Patch resources/js/util.js
-      .pipe(replace("loc.includes('/docs/' + lang + '/')", "loc.includes('/angular/')"))
+      .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
       .pipe(gulp.dest('src'));
   });
 

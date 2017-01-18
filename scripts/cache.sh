@@ -15,24 +15,26 @@ CACHE="$BASE/_cache"
 FILES="
 guide/architecture.jade
 guide/attribute-directives.jade
-guide/component-styles.jade
 guide/dependency-injection.jade
 guide/displaying-data.jade
 guide/hierarchical-dependency-injection.jade
 guide/index.jade
 guide/learning-angular.jade
 guide/lifecycle-hooks.jade
-guide/pipes.jade
 guide/security.jade
 guide/server-communication.jade
-guide/structural-directives.jade
-guide/template-syntax.jade
 glossary.jade
 quickstart.jade
 _quickstart_repo.jade
 tutorial/index.jade
 tutorial/toh-pt5.jade
 tutorial/toh-pt6.jade"
+FILES_NO_LONGER_SYNCED="
+guide/component-styles.jade
+guide/pipes.jade
+guide/structural-directives.jade
+guide/template-syntax.jade
+"
 
 function cacheRefresh() {
     local FILE_PATTERN="*"
