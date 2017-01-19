@@ -147,15 +147,23 @@ class AppComponent {
 
 <li markdown="1">
   Edit the corresponding template, `lib/app_component.html`,
-  adding the following code to list the heroes:
+  changing the code to the following:
 
 {% prettify html %}{% raw %}
-<ul>
-  <li *ngFor="let hero of heroes">
-    {{ hero }}
-  </li>
-</ul>
+<h1>My First AngularDart App</h1>
+
+[[highlight]]<ul>[[/highlight]]
+  [[highlight]]<li *ngFor="let hero of heroes">[[/highlight]]
+    [[highlight]]{{ hero }}[[/highlight]]
+  [[highlight]]</li>[[/highlight]]
+[[highlight]]</ul>[[/highlight]]
 {% endraw %}{% endprettify %}
+
+  This code uses the Angular's `*ngFor` syntax to loop through
+  the component's `heroes` list.
+  At runtime, Angular creates an `<li>` element for each item in `heroes`,
+  replacing `{% raw %}{{ hero }}{% endraw %}`
+  with the current item's value (a hero's name).
 </li>
 
 <li markdown="1">
@@ -164,6 +172,7 @@ class AppComponent {
   ![Running the customized app from WebStorm](images/run-customized-app.png)
 </li>
 </ol>
+
 
 <aside class="alert alert-info" markdown="1">
 **Feeling lost? Don't worry!**
