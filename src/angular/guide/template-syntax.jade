@@ -505,8 +505,8 @@ table
     If we must read a target element property or call one of its methods,
     we'll need a different technique.
     See the API reference for
-    [ViewChild](../api/core/index/ViewChild-decorator.html) and
-    [ContentChild](../api/core/index/ContentChild-decorator.html).
+    [ViewChild](/angular/api/angular2.core/ViewChild-class.html) and
+    [ContentChild](/angular/api/angular2.core/ContentChild-class.html).
 
 :marked
   ### Binding target
@@ -760,6 +760,7 @@ code-example(format="nocode").
 +makeExample('template-syntax/ts/app/app.component.html', 'event-binding-1')(format=".")
 :marked
   ### Target event
+
   A **name between parentheses** &mdash; for example, `(click)` &mdash;
   identifies the target event. In the following example, the target is the button’s click event.
 +makeExample('template-syntax/ts/app/app.component.html', 'event-binding-1')(format=".")
@@ -810,7 +811,7 @@ code-example(format="nocode").
   <a id="custom-event"></a>
   ### Custom events with *EventEmitter*
 
-  Directives typically raise custom events with an Angular [EventEmitter](../api/core/index/EventEmitter-class.html).
+  Directives typically raise custom events with an Angular [EventEmitter](/angular/api/angular2.core/EventEmitter-class.html).
   The directive creates an `EventEmitter` and exposes it as a property.
   The directive calls `EventEmitter.emit(payload)` to fire an event, passing in a message payload, which can be anything.
   Parent directives listen for the event by binding to this property and accessing the payload through the `$event` object.
@@ -1217,7 +1218,7 @@ figure.image-display
 +makeExample('template-syntax/ts/app/app.component.html', 'NgFor-3')(format=".")
 .l-sub-section
   :marked
-    Learn about other special *index-like* values such as `last`, `even`, and `odd` in the [NgFor API reference](../api/common/index/NgFor-directive.html).
+    Learn about other special *index-like* values such as `last`, `even`, and `odd` in the [NgFor API reference](/angular/api/angular2.common/NgFor-class.html).
 
 :marked
   #### NgForTrackBy
