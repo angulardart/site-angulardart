@@ -5,7 +5,7 @@
 # -----------------------
 
 # API search parameter links
-/angular/api/#!\?apiFilter=
+/angular/api/#!\?query=
 
 # We don't serve the dartdoc generated index.html; so the anchor to libraries isn't valid
 /angular/api/index(.html)?#libraries$
