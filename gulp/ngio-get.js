@@ -216,7 +216,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/resources/css/_options.scss`,
       `${baseDir}/resources/css/layout/_{grids,layout}.scss`,
       `${baseDir}/resources/css/base/_{colors,mixins,reset}.scss`,
-      `${baseDir}/resources/css/module/_{alert,api,banner,buttons,callout,code,code-box,code-shell,filetree,form,symbol,table}.scss`,
+      `${baseDir}/resources/css/module/_{alert,api,banner,buttons,callout,code,code-box,code-shell,filetree,form,images,symbol,table}.scss`,
       `!${baseDir}/resources/js/vendor/{jquery,lang-*,prettify}.js`,
       `!${baseDir}/resources/js/controllers/resources-controller.js`,
     ], { base: baseDir })
