@@ -10,7 +10,7 @@ import 'package:angular2/core.dart';
         <button (click)="inc()" title="bigger">+</button>
         <label [style.font-size.px]="size">FontSize: {{size}}px</label>
       </div>''')
-class MySizerComponent {
+class SizerComponent {
   static final defaultPxSize = 14;
 
   @Input()

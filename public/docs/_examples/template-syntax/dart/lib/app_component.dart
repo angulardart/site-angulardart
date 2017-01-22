@@ -18,9 +18,9 @@ enum Color { red, green, blue }
     directives: const [
       HeroDetailComponent,
       BigHeroDetailComponent,
-      MyClickDirective,
-      MyClickDirective2,
-      MySizerComponent
+      ClickDirective,
+      ClickDirective2,
+      SizerComponent
     ])
 class AppComponent implements OnInit, AfterViewInit {
   @override
