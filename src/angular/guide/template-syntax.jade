@@ -1221,7 +1221,7 @@ figure.image-display
     Learn about other special *index-like* values such as `last`, `even`, and `odd` in the [NgFor API reference](/angular/api/angular2.common/NgFor-class.html).
 
 :marked
-  #### NgForTrackBy
+  #### NgFor *trackBy*
   The `ngFor` directive has the potential to perform poorly, especially with large lists.
   A small change to one item, an item removed, or an item added can trigger a cascade of DOM manipulations.
 
@@ -1236,7 +1236,7 @@ figure.image-display
   that two objects with the same `hero.id` are the same *hero*. Here is such a function:
 +makeExample('template-syntax/ts/app/app.component.ts', 'trackByHeroes')(format=".")
 :marked
-  Now set the `NgForTrackBy` directive to that *tracking* function.
+  We identify the tracking function using the ngFor `trackBy` option:
 +makeExample('template-syntax/ts/app/app.component.html', 'NgForTrackBy-2')(format=".")
 :marked
   The *tracking* function doesn't eliminate all DOM changes.
