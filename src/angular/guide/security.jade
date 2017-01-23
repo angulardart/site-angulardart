@@ -11,4 +11,21 @@ nextpage:
   url: /angular/guide/structural-directives
 ---
 //- FilePath: src/angular/guide/security.jade
-include /_jade/_ts-temp
+extends /_jade/ts/_cache/guide/security.jade
+
+block includes
+  include ../_util-fns
+
+block html-sanitization
+  :marked
+    Angular recognizes the value as unsafe and automatically sanitizes it, which removes the `<script>`
+    element but keeps safe content such as text and the `<b>` element.
+
+  figure.image-display
+      img(src='/resources/images/devguide/security/binding-inner-html.png'
+          alt='Interpolated and bound HTML values')
+
+block append bypass-security-apis
+
+block http
+  //- N/A

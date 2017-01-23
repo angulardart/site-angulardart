@@ -255,7 +255,7 @@ module.exports = function (gulp, plugins, config) {
       // Skip files w/o Dart tests
       `!${baseDir}/public/docs/_examples/{animations,cb-*,cli-*}/**`,
       `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules}/**`,
-      `!${baseDir}/public/docs/_examples/{router,security}/**`, // no tests yet, but should have some soon
+      `!${baseDir}/public/docs/_examples/router/**`, // no tests yet, but should have some soon
       `!${baseDir}/public/docs/_examples/{setup,style-?guide,testing,upgrade*,webpack}/**`,
 
       // TOOLING
