@@ -106,6 +106,8 @@ A browser window opens and,
 after the app is compiled to JavaScript,
 displays the app.
 
+{% include pub-get-workaround.html %}
+
 
 {% comment %}
 

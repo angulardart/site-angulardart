@@ -119,13 +119,7 @@ To run the app from WebStorm, right-click the app's `web/index.html` file and ch
 
 ![Running the app from WebStorm](images/run-app-in-ws.png)
 
-<aside class="alert alert-info" markdown="1">
-**App didn't run?**
-If the browser displays `502 Bad Gateway`, then
-WebStorm probably didn't download the packages that the app needs.
-To fix this issue, right-click `pubspec.yaml` and choose **Pub: Get Dependencies**.
-Then try running the app again.
-</aside>
+{% include pub-get-workaround.html %}
 
 More information:
 
@@ -193,7 +187,7 @@ For a gentler approach, try the code lab
 
 ## What next?
 
-From here, you can [learn more about AngularDart](/angular).
+[Learn more about AngularDart.](/angular)
 
 Or check out these resources:
 
