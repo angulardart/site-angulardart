@@ -119,6 +119,8 @@ To run the app from WebStorm, right-click the app's `web/index.html` file and ch
 
 ![Running the app from WebStorm](images/run-app-in-ws.png)
 
+{% include pub-get-workaround.html %}
+
 More information:
 
 * [Installing and using WebStorm](/tools/webstorm)
@@ -185,7 +187,7 @@ For a gentler approach, try the code lab
 
 ## What next?
 
-From here, you can [learn more about AngularDart](/angular).
+[Learn more about AngularDart.](/angular)
 
 Or check out these resources:
 
