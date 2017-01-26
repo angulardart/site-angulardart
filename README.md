@@ -34,6 +34,7 @@ Or, to build, serve, and have a watcher for changes:
 Other useful gulp tasks:
 
 - `gulp clean` # deletes `publish`
+- `gulp clean && gulp build --clean` # really cleans up
 - `gulp build --dgeni-log=info` # trace at `info` level (`warn` is default)
 - `gulp build-deploy` # build and deploy to active firebase project
 
