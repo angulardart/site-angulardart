@@ -1,7 +1,7 @@
 // #docplaster
-// #docregion
-// #docregion no-todo
+// #docregion , v1, final
 import 'package:angular2/core.dart';
+import 'package:angular2/common.dart';
 
 import 'hero.dart';
 
@@ -17,18 +17,41 @@ const List<String> _powers = const [
     templateUrl: 'hero_form_component.html')
 class HeroFormComponent {
   List<String> get powers => _powers;
-// #docregion submitted
-  bool submitted = false;
-// #enddocregion submitted
   Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
-// #enddocregion no-todo
-  // TODO: Remove this when we're done
-  String get diagnostic => 'DIAGNOSTIC: $model';
-// #docregion no-todo
+  // #docregion submitted
+  bool submitted = false;
 
-// #docregion submitted
-  onSubmit() {
+  void onSubmit() {
     submitted = true;
   }
-// #enddocregion submitted
+  // #enddocregion submitted
+
+  // #enddocregion final
+  // TODO: Remove this when we're done
+  String get diagnostic => 'DIAGNOSTIC: $model';
+  // #enddocregion v1
+
+  // #docregion final, controlStateClasses
+  /// Returns a map of CSS class names representing the state of [control].
+  Map<String, bool> controlStateClasses(NgControl control) => {
+    'ng-dirty': control.dirty ?? false,
+    'ng-pristine': control.pristine ?? false,
+    'ng-touched': control.touched ?? false,
+    'ng-untouched': control.untouched ?? false,
+    'ng-valid': control.valid ?? false,
+    'ng-invalid': control.valid == false
+  };
+  // TODO: does this map need to be cached?
+  // #enddocregion controlStateClasses
+  // #docregion v1
+}
+// #enddocregion , v1, final
+
+Hero skyDog() {
+  // #docregion SkyDog
+  var myHero = new Hero(
+      42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
+  print('My hero is ${myHero.name}.'); // "My hero is SkyDog."
+  // #enddocregion SkyDog
+  return myHero;
 }

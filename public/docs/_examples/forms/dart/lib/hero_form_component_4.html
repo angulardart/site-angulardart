@@ -1,0 +1,38 @@
+<!-- Set CSS classes for form controls; drop {{diagnostic}}, add {{spy.className}} -->
+<!-- #docplaster -->
+<!-- #docregion -->
+<div class="container">
+  <h1>Hero Form</h1>
+  <form>
+    <!-- #docregion controls -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <!-- #docregion name -->
+      <input type="text" class="form-control" id="name" required
+             [(ngModel)]="model.name"
+             #name="ngForm" [ngClass]="controlStateClasses(name)"
+             #spy
+             ngControl="name">
+      TODO: remove this: {{spy.className}}
+      <!-- #enddocregion name -->
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego</label>
+      <input type="text" class="form-control" id="alterEgo"
+             [(ngModel)]="model.alterEgo"
+             #alterEgo="ngForm" [ngClass]="controlStateClasses(alterEgo)"
+             ngControl="alterEgo">
+    </div>
+    <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select class="form-control" id="power" required
+              [(ngModel)]="model.power"
+              #power="ngForm" [ngClass]="controlStateClasses(power)"
+              ngControl="power">
+        <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+      </select>
+    </div>
+    <!-- #enddocregion controls -->
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

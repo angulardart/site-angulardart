@@ -1,33 +1,34 @@
+<!-- Replace {{model.name}} with {{diagnostic}} -->
+<!-- #docplaster -->
 <!-- #docregion -->
 <div class="container">
   <h1>Hero Form</h1>
   <form>
+    <!-- #docregion controls -->
+    {{diagnostic}}
     <div class="form-group">
       <label for="name">Name</label>
-      <!-- #docregion ngControl-2 -->
-      <input type="text" class="form-control" required
+      <!-- #docregion name -->
+      <input type="text" class="form-control" id="name" required
              [(ngModel)]="model.name"
-             ngControl="name" #spy >
-      TODO: remove this: {{spy.className}}
-      <!-- #enddocregion ngControl-2 -->
+             ngControl="name">
+      <!-- #enddocregion name -->
     </div>
-
     <div class="form-group">
       <label for="alterEgo">Alter Ego</label>
-      <input type="text" class="form-control"
+      <input type="text" class="form-control" id="alterEgo"
              [(ngModel)]="model.alterEgo"
-             ngControl="alterEgo" >
+             ngControl="alterEgo">
     </div>
-
     <div class="form-group">
       <label for="power">Hero Power</label>
-      <select class="form-control" required
+      <select class="form-control" id="power" required
               [(ngModel)]="model.power"
-              ngControl="power" >
+              ngControl="power">
         <option *ngFor="let p of powers" [value]="p">{{p}}</option>
       </select>
     </div>
-
+    <!-- #enddocregion controls -->
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
