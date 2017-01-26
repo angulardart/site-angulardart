@@ -1,7 +1,6 @@
 // #docplaster
-// #docregion final
+// #docregion v1, final
 import 'package:angular2/core.dart';
-// #docregion v1
 import 'package:angular2/platform/browser.dart';
 // #docregion http-providers
 import 'package:http/browser_client.dart';
@@ -19,8 +18,6 @@ void main() {
     // in-memory web api provider
     const Provider(BrowserClient,
         useFactory: HttpClientBackendServiceFactory, deps: const [])
-    // TODO: drop `deps` once fix lands for 
-    // https://github.com/angular/angular/issues/5266
   ]);
 }
 // #enddocregion final, in-mem-web-api-providers
@@ -28,7 +25,9 @@ void main() {
 // #docregion v1
 
 void main() {
-  bootstrap(AppComponent, const [BrowserClient]);
+  bootstrap(AppComponent, [
+    provide(BrowserClient, useFactory: () => new BrowserClient(), deps: [])
+  ]);
 }
 // #enddocregion v1
 */
