@@ -18,31 +18,39 @@ mission-critical apps that bring in much of Google’s revenue.
   </div>
 
   <em>Latest version:
-  <b><ngio-cheatsheet src='/angular/cheatsheet.json' version-only></ngio-cheatsheet></b>
-  (<a href="https://pub.dartlang.org/packages/%61ngular2#changelog"
-    target="_blank" rel="noopener">changelog</a>)</em>
+  <b><ngio-cheatsheet
+      src='/angular/cheatsheet.json' version-only></ngio-cheatsheet></b>
+  (<a href="https://pub.dartlang.org/packages/%61ngular2/versions/3.0.0-alpha#changelog"
+      class="no-automatic-external"
+      target="_blank" rel="noopener">changelog</a>)</em>
 </div> <!--a:visited, button:visited-->
 
 <div class="row">
 <div class="col-md-6" markdown="1">
 ## News
 
-* [AngularDart 2.1 and new components](http://news.dartlang.org/2016/11/angulardart-21-and-new-components.html)
+Angular news from
+[news.dartlang.org](http://news.dartlang.org/){: .no-automatic-external}:
+
+* [AngularDart 2.1 and new components](http://news.dartlang.org/2016/11/angulardart-21-and-new-components.html){: .no-automatic-external}
 * [The new Google AdSense user interface: built with AngularDart
-](http://news.dartlang.org/2016/10/google-adsense-angular-dart.html)
-* [AngularDart is going all Dart](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html)
-* [The new AdWords UI uses Dart — we asked why](http://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html)
-<!-- PENDING: We should automate this. To do that, we'll probaby need to label all relevant Angular posts with "angular" so that they show up here:
-http://news.dartlang.org/search/label/angular -->
+](http://news.dartlang.org/2016/10/google-adsense-angular-dart.html){: .no-automatic-external}
+* [AngularDart is going all Dart](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html){: .no-automatic-external}
+* [The new AdWords UI uses Dart — we asked why](http://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html){: .no-automatic-external}
+<!-- PENDING: We should automate this. To do that, we'll probaby need to label all relevant Angular posts with "angular" or maybe "angular-news" so that they show up here:
+http://news.dartlang.org/search/label/angular or http://news.dartlang.org/search/label/angular-news -->
 </div>
 <div class="col-md-6" markdown="1">
 ## Videos
 
-* [Web development using AngularDart 2.0](https://www.youtube.com/watch?v=8ixOkJOXdMo&index=2&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2)
-* [Angular components](https://www.youtube.com/watch?v=vAUUOwBJetg&index=6&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2)
-* [AdSense material design](https://www.youtube.com/watch?v=BlAS1mlYRlA&index=7&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2)
-* [Overflow: a large scale JS to AngularDart rewrite](https://www.youtube.com/watch?v=b0b5FtnB3vE&index=9&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2)
-* [Learnings from building a CRM app at Google](https://www.youtube.com/watch?v=IMNUiC2O9M8&index=14&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2)
+Angular videos from
+[Dart Development Summit 2016](https://events.dartlang.org/2016/summit/){: .no-automatic-external}:
+
+* [Web development using AngularDart 2.0](https://www.youtube.com/watch?v=8ixOkJOXdMo&index=2&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [Angular components](https://www.youtube.com/watch?v=vAUUOwBJetg&index=6&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [AdSense material design](https://www.youtube.com/watch?v=BlAS1mlYRlA&index=7&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [Overflow: a large scale JS to AngularDart rewrite](https://www.youtube.com/watch?v=b0b5FtnB3vE&index=9&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [Learnings from building a CRM app at Google](https://www.youtube.com/watch?v=IMNUiC2O9M8&index=14&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 </div>
 </div>
 
