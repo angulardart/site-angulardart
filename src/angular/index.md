@@ -27,9 +27,11 @@ mission-critical apps that bring in much of Google’s revenue.
 <div class="col-md-6" markdown="1">
 ## News
 
-* [How Google Uses Angular 2 with Dart](http://news.dartlang.org/2015/11/how-google-uses-angular-2-with-dart.html)
-* [AngularDart: The best Angular for you?](http://news.dartlang.org/2016/11/angulardart-best-angular-for-you.html)
 * [AngularDart 2.1 and new components](http://news.dartlang.org/2016/11/angulardart-21-and-new-components.html)
+* [The new Google AdSense user interface: built with AngularDart
+](http://news.dartlang.org/2016/10/google-adsense-angular-dart.html)
+* [AngularDart is going all Dart](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html)
+* [The new AdWords UI uses Dart — we asked why](http://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html)
 <!-- PENDING: We should automate this. To do that, we'll probaby need to label all relevant Angular posts with "angular" so that they show up here:
 http://news.dartlang.org/search/label/angular -->
 </div>
