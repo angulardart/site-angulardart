@@ -4,7 +4,7 @@
     "title": "Angular Docs",
     "subtitle": "Dart",
     "menuTitle": "Docs Home",
-    "banner": "AngularDart is <b>2.2</b>. View the <a href='https://github.com/dart-lang/angular2/blob/master/CHANGELOG.md' target='_blank'>change log</a> to see enhancements, fixes, and breaking changes."
+    "banner": "AngularDart is <b>{{site.custom.angular.stable-version}}</b>. View the <a href='https://github.com/dart-lang/angular2/blob/master/CHANGELOG.md' target='_blank'>change log</a> to see enhancements, fixes, and breaking changes."
   },
 
   "cli-quickstart": {
@@ -50,7 +50,6 @@
 
   "cheatsheet": {
     "title": "Cheat Sheet",
-    "long-title": "Cheat Sheet v<ngio-cheatsheet src='/angular/cheatsheet.json' version-only>2</ngio-cheatsheet>",
     "subtitle": "Dart",
     "reference": false
   },

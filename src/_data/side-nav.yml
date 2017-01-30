@@ -81,15 +81,12 @@
     - title: Glossary
       permalink: /angular/glossary
 
-- title: "Web Libraries"
-  children:
-  - title: "Overview"
-    permalink: /guides/web-programming
-
 - title: "Resources"
   children:
   - title: "Dart Tools for the Web"
     permalink: /tools
+  - title: "Web Libraries"
+    permalink: /guides/web-programming
   - title: "Tutorials"
     permalink: /tutorials
   - title: "Articles"

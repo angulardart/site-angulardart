@@ -31,10 +31,12 @@
 
 // Give Angular pages a unique look-and-feel
 
-article h1 {
-  background: url("/angular/images/angulardart.svg") no-repeat;
-  background-size: 1.2em;
-  padding-left: 1.2em;
+.ng-page-title p, .ng-page-title h1 {
+  display: inline;
+}
+
+.ng-page-title img {
+  height: 1.2em;
 }
 
 // General overrides

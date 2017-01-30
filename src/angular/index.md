@@ -12,17 +12,14 @@ mission-critical apps that bring in much of Google’s revenue.
 
 <div class="button-container">
   <div>
-    <a href="/guides/get-started" class="btn btn-default btn-lg">Get started</a>
-    &nbsp;&nbsp;
-    <a href="/angular/guide" class="btn btn-lg">Read AngularDart docs</a>
+    <a href="/guides/get-started" class="btn btn-default btn-lg">Quick start</a>
+    <a href="/angular/guide" class="btn btn-lg">Documentation</a>
   </div>
 
-  <em>Latest version:
-  <b><ngio-cheatsheet
-      src='/angular/cheatsheet.json' version-only></ngio-cheatsheet></b>
-  (<a href="https://pub.dartlang.org/packages/%61ngular2/versions/3.0.0-alpha#changelog"
-      class="no-automatic-external"
-      target="_blank" rel="noopener">changelog</a>)</em>
+  <em>
+    <a href="/angular/version">Latest stable version:</a>
+    <b>{{site.custom.angular.stable-version-full}}</b>
+  </em>
 </div> <!--a:visited, button:visited-->
 
 <div class="row">

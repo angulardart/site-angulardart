@@ -79,6 +79,10 @@ defaults:
     toc: true
 
 custom:
+  angular:
+    stable-version: "2.2"
+    stable-version-full: "2.2.0"
+    dev-version: "3.0.0-alpha"
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"
