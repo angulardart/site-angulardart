@@ -51,12 +51,12 @@ if  [[ -z "$(type -t dart)" ]]; then
     }
 
     if getAndInstall sdk dartsdk; then
-        # Install Dartium
-        if [[ "$_OS_NAME" == "macos" ]]; then
-            getAndInstall dartium dartium ia32
-        else
-            getAndInstall dartium
-        fi
+        # # Install Dartium - we don't need dartium on Travis at the moment
+        # if [[ "$_OS_NAME" == "macos" ]]; then
+        #     getAndInstall dartium dartium ia32
+        # else
+        #     getAndInstall dartium
+        # fi
         echo
         dart --version
     fi
