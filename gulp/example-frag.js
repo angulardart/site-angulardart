@@ -4,6 +4,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
+  const cp = plugins.child_process;
   const del = plugins.del;
   const gutil = plugins.gutil;
   const path = plugins.path;
@@ -27,11 +28,22 @@ module.exports = function (gulp, plugins, config) {
     logLevel: config._dgeniLogLevel
   };
 
-  gulp.task('create-example-fragments', ['_shred-api-examples', '_shred-devguide-examples']);
+  gulp.task('create-example-fragments', ['_shred-api-examples', '_shred-devguide-examples'], () => createTxTFragFiles());
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide', 'add-example-boilerplate'], (done) => shred(_devguideShredOptions, done));
 
   gulp.task('_shred-api-examples', ['_shred-clean-api'], (cb) => shred(_apiShredOptions));
+
+  // Create *.txt fragment files from *.md files.
+  function createTxTFragFiles() {
+    const find = `find ${frags.path}`;
+    
+    gutil.log('Create *.txt frag files: duplicate *.md files, but change extension to .txt');
+    cp.execSync(`${find} -name "*.md" -exec bash -c 'cp "$0" "\${0%.md}.txt"' {} \\;`);
+
+    gutil.log('Create *.txt frag files: keep only the code excerpt between ``` line markers');
+    cp.execSync(find + " -name '*.txt' -exec sed -ne '/^```/,/^```/{ /^```/d; $d; p; }' -i '' {} \\;");
+  }
 
   function shred(options) {
     // Split big shredding task into partials 2016-06-14
