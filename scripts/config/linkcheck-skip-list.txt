@@ -28,10 +28,6 @@
 /angular/static-assets
 /angular/angular2.compiler/(angular2.compiler-library|NgContentAst)
 
-# Pages under development
-# https://github.com/dart-lang/site-webdev/issues/198
-/angular/guide/router(\.html)?($|#)
-
 # LINKS excluded via if-docs, but still visible to linkchecker
 /angular/guide/change-log.html$
 /angular/cookbook/

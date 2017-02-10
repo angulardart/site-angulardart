@@ -151,8 +151,8 @@
   },
 
   "router": {
-    "title": "Routing & Navigation",
-    "intro": "Discover the basics of screen navigation with the Angular Router."
+    "title": "Router",
+    "intro": "Discover the basics of screen navigation with the Angular router."
   },
 
   "security": {

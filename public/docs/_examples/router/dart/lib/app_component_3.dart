@@ -1,0 +1,41 @@
+// #docplaster
+// #docregion v1,
+import 'package:angular2/core.dart';
+import 'package:angular2/router.dart';
+
+import 'crisis_center_component_1.dart';
+// #enddocregion v1
+import 'heroes/hero_detail_component.dart';
+// #docregion v1
+import 'heroes/hero_service.dart';
+import 'heroes/heroes_component.dart';
+import 'not_found_component.dart';
+
+@Component(
+    selector: 'my-app',
+    template: '''
+      <h1>Angular Router</h1>
+      <nav>
+        <a [routerLink]="['CrisisCenter']">Crisis Center</a>
+        <a [routerLink]="['Heroes']">Heroes</a>
+      </nav>
+      <router-outlet></router-outlet>
+    ''',
+    directives: const [ROUTER_DIRECTIVES],
+    providers: const [HeroService, ROUTER_PROVIDERS])
+@RouteConfig(const [
+  const Redirect(path: '/', redirectTo: const ['Heroes']),
+  const Route(
+      path: '/crisis-center',
+      name: 'CrisisCenter',
+      component: CrisisCenterComponent
+  ),
+  const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent),
+  // #enddocregion v1
+  // #docregion HeroDetail-route
+  const Route(path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent),
+  // #enddocregion HeroDetail-route
+  // #docregion v1
+  const Route(path: '/**', name: 'NotFound', component: NotFoundComponent),
+])
+class AppComponent {}

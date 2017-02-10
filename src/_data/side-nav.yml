@@ -67,7 +67,7 @@
           permalink: /angular/guide/lifecycle-hooks
         - title: Pipes
           permalink: /angular/guide/pipes
-        - title: Routing & Navigation
+        - title: Router
           permalink: /angular/guide/router
         - title: Security
           permalink: /angular/guide/security

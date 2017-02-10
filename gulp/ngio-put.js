@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
   const dartLatest = path.join(config.angulario, 'public/docs/dart/latest');
 
-  gulp.task('put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes', '_put-examples'], () => {
+  gulp.task('put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes', '_put-examples'], cb => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);
@@ -18,7 +18,7 @@ module.exports = function (gulp, plugins, config) {
     return cp.exec('./scripts/ngio-backport-finish.sh');
   });
 
-  gulp.task('_put-dart-pages', ['_put-api', '_put-qs-etc', '_put-guide', '_put-tutorial']);
+  gulp.task('_put-dart-pages', ['_put-api', '_put-qs-etc', '_put-guide', '_put-router', '_put-tutorial']);
 
   gulp.task('_put-api', () => {
     const baseDir = 'src/angular';
@@ -48,6 +48,17 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = 'src/angular';
     return gulp.src([
       `${baseDir}/guide/{_data.json,*.jade,images/**}`,
+    ], { base: baseDir })
+      // Adjust extend/include paths
+      .pipe(replace(/include \/_jade\/_ts-temp/, 'include /docs/_includes/_ts-temp', {skipBinary:true}))
+      .pipe(replace(/\/_jade/g, '/docs', {skipBinary:true}))
+      .pipe(gulp.dest(dartLatest));
+  });
+
+  gulp.task('_put-router', () => {
+    const baseDir = 'src/angular';
+    return gulp.src([
+      `${baseDir}/guide/router/{_data.json,*.jade}`,
     ], { base: baseDir })
       // Adjust extend/include paths
       .pipe(replace(/include \/_jade\/_ts-temp/, 'include /docs/_includes/_ts-temp', {skipBinary:true}))

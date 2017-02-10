@@ -1,0 +1,22 @@
+<!-- #docplaster -->
+<!-- #docregion -->
+<div *ngIf="crisis != null">
+  <h2>{{crisis.name}} details!</h2>
+  <div>
+    <label>id: </label>{{crisis.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="crisis.name" placeholder="name" />
+  </div>
+  <button (click)="goBack()">Back</button>
+  <!-- #enddocregion , -->
+  <!-- #docregion erroneous-heroes-route
+  <button [routerLink]="['Heroes']">Find help (ERRONEOUS LINK)!</button>
+  <!-- #enddocregion erroneous-heroes-route -->
+  <!-- #docregion valid-top-level-route
+  <button [routerLink]="['/Heroes']">Find help!</button>
+  <!-- #enddocregion valid-top-level-route -->
+  <!-- #docregion , valid-relative-route -->
+  <button [routerLink]="['../../Heroes']">Find help!</button>
+  <!-- #enddocregion valid-relative-route -->
+</div>

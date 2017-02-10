@@ -21,7 +21,7 @@ module.exports = function (gulp, plugins, config) {
   // You'd usually only do that if you put-ngio and made edits to Dart Jade.
   gulp.task('get-ngio-files', ['_clean', 'get-ngio-examples+', '_get-pages', '_get-resources']);
 
-  gulp.task('_get-pages', ['_get-ts-jade', '_get-extra-dart', '_get-includes', ...(argv.dart ? ['_get-dart-pages'] : [])], () => {
+  gulp.task('_get-pages', ['_get-ts-jade', '_get-extra-dart', '_get-includes', ...(argv.dart ? ['_get-dart-pages'] : [])], cb => {
     return Q.all(
       // Remove <br clear> from selected .jade files
       cp.exec(`perl -pi -e 's/<(br class="l-clear-left")>/<!-- $1 -->/' src/angular/_jade/ts/_cache/guide/learning-angular.jade`),
@@ -29,7 +29,7 @@ module.exports = function (gulp, plugins, config) {
     );
   });
 
-  gulp.task('_get-dart-pages', ['_get-api-ref-page', '_get-qs-etc', '_get-guide', '_get-tutorial']);
+  gulp.task('_get-dart-pages', ['_get-api-ref-page', '_get-qs-etc', '_get-guide', '_get-router', '_get-tutorial']);
 
   gulp.task('_get-ts-jade', cb => {
     const baseDir = path.join(angulario, 'public/docs');
@@ -61,6 +61,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/_data.json`,
       `${baseDir}/api/_data.json`,
       `${baseDir}/guide/_data.json`,
+      `${baseDir}/guide/router/_data.json`,
       `${baseDir}/tutorial/_data.json`,
     ], { base: baseDir })
       // Patch _util-fns.jade
@@ -106,6 +107,8 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_get-tutorial', () => _getNgIoJadeForDir('tutorial'));
 
+  gulp.task('_get-router', () => _getNgIoJadeForDir('guide/router'));
+
   function _getNgIoJadeForDir(dir, _data, _skiplist) {
     const skipList = _skiplist || [];
     const srcDir = path.join(angulario, `public/docs/dart/latest/${dir}`);
@@ -118,7 +121,7 @@ module.exports = function (gulp, plugins, config) {
       const fileName = `${fileNameNoExt}.jade`;
       const filePath = path.join(srcDir, fileName);
       const entry = data[fileNameNoExt];
-      if (entry.hide || !fs.existsSync(filePath) || skipList.includes(fileNameNoExt)) {
+      if (entry.hide || (!fs.existsSync(filePath) && fileNameNoExt != 'router') || skipList.includes(fileNameNoExt)) {
         return true;
       }
       prevNextArray.push(fileNameNoExt);
@@ -139,7 +142,7 @@ module.exports = function (gulp, plugins, config) {
       const desc = entry.description || entry.intro || entry.banner;
       if (desc) pageConfig = pageConfig + `description: ${jekyllStrEscape(desc)}\n`;
 
-      const sideNavGroup = entry.basics ? 'basic' : dir === 'guide' ? 'advanced' : '';
+      const sideNavGroup = entry.basics ? 'basic' : dir.startsWith('guide') ? 'advanced' : '';
       if (sideNavGroup) pageConfig = pageConfig + `sideNavGroup: ${sideNavGroup}\n`;
       if (dir == 'api' || fileNameNoExt.match(/quickstart|cheatsheet|learning-angular/)) pageConfig = pageConfig + `toc: false\n`;
 
@@ -247,6 +250,9 @@ module.exports = function (gulp, plugins, config) {
     cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
     const baseDir = config.angulario;
     return gulp.src([
+      `${baseDir}/public/docs/_examples/*/dart/.*`,
+      `${baseDir}/public/docs/_examples/*/dart/**`,
+      `!${baseDir}/public/docs/_examples/*/dart/build/**`,
       // EXAMPLES: support files (since the example source is already under webdev)
       `${baseDir}/public/docs/_examples/{_boilerplate/*,package.json,.gitignore}`,
       `${baseDir}/public/docs/_examples/{protractor.config.js,protractor-helpers.ts,tsconfig.json}`,
@@ -255,7 +261,6 @@ module.exports = function (gulp, plugins, config) {
       // Skip files w/o Dart tests
       `!${baseDir}/public/docs/_examples/{animations,cb-*,cli-*}/**`,
       `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules}/**`,
-      `!${baseDir}/public/docs/_examples/router/**`, // no tests yet, but should have some soon
       `!${baseDir}/public/docs/_examples/{setup,style-?guide,testing,upgrade*,webpack}/**`,
 
       // TOOLING
