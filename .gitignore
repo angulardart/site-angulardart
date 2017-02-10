@@ -44,5 +44,5 @@ pubspec.lock
 a2docs.css
 # !/public/docs/_examples/
 # /public/docs/_examples/node_modules
-# /public/docs/_examples/**/a2docs.css
+/public/docs/_examples/*/dart/web/styles.css
 protractor-results.txt

@@ -200,8 +200,15 @@ module.exports = function (gulp, plugins, config) {
       // Skip TS-specific
       `!${baseDir}/resources/images/devguide/{*test*,plunker*}`,
       `!${baseDir}/resources/images/devguide/*test*/**`,
-      `!${baseDir}/resources/images/devguide/{cli-quickstart,ngmodule,upgrade}`,
-      `!${baseDir}/resources/images/devguide/{cli-quickstart,ngmodule,upgrade}/**`,
+      `!${baseDir}/resources/images/devguide/{cli-quickstart,ngcontainer,ngmodule,reactive-forms,upgrade}`,
+      `!${baseDir}/resources/images/devguide/{cli-quickstart,ngcontainer,ngmodule,reactive-forms,upgrade}/**`,
+      // Dart image is different for these:
+      `!${baseDir}/resources/images/devguide/security/binding-inner-html.png`,
+      // Skip images that we aren't updating (yet)
+      `!${baseDir}/resources/images/devguide/dependency-injection/{component-hierarchy,injector-tree}.png`,
+      `!${baseDir}/resources/images/devguide/router/{crisis-center-*,hero-*,shell-and-outlet}.png`,
+      `!${baseDir}/resources/images/devguide/structural-directives/element-not-in-dom.png`,
+      `!${baseDir}/resources/images/devguide/template-syntax/ng-for-track-by-anim.gif`,
       ], { base: baseDir }).pipe(gulp.dest('src'));
   });
 
@@ -242,7 +249,7 @@ module.exports = function (gulp, plugins, config) {
   // test, build and extract fragments from Dart examples. At the moment we achieve
   // this using the angular.io tooling (which is also copied over).
    
-  gulp.task('get-ngio-examples+', cb => {
+  gulp.task('get-ngio-examples+', ['_get-ngio-boilerplate-src'], cb => {
     // Some boilerplate files were made read-only, this prevents gulp.src/.dest() from being successful.
     // So first make the problematic files read/write.
     const find = 'find public/docs/_examples -path "*/dart/web/*" ! -path "*/build/*"';
@@ -254,13 +261,15 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/public/docs/_examples/*/dart/**`,
       `!${baseDir}/public/docs/_examples/*/dart/build/**`,
       // EXAMPLES: support files (since the example source is already under webdev)
-      `${baseDir}/public/docs/_examples/{_boilerplate/*,package.json,.gitignore}`,
+      `${baseDir}/public/docs/_examples/_boilerplate/*.json`,
+      // We don't need the plnkr, and we need to keep the old tsconfig (not under /src)
+      `!${baseDir}/public/docs/_examples/_boilerplate/plnkr.json`,
+      `${baseDir}/public/docs/_examples/{package.json,.gitignore}`,
       `${baseDir}/public/docs/_examples/{protractor.config.js,protractor-helpers.ts,tsconfig.json}`,
-      `!${baseDir}/public/docs/_examples/_boilerplate/systemjs*`,
       `${baseDir}/public/docs/_examples/*/e2e*.ts`,
       // Skip files w/o Dart tests
       `!${baseDir}/public/docs/_examples/{animations,cb-*,cli-*}/**`,
-      `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules}/**`,
+      `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
       `!${baseDir}/public/docs/_examples/{setup,style-?guide,testing,upgrade*,webpack}/**`,
 
       // TOOLING
@@ -271,6 +280,19 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/tools/styles-builder/**`,
     ], { base: baseDir })
       .pipe(gulp.dest('.'));
+  });
+
+  // 2017/02: TS moved example sources into `src/`. This impacted the boilerplate files.
+  // On the Dart side, we haven't adapted to this change (because we don't need to yet),
+  // so this rule copies some boilerplate `src/` files into the boilerplate folder.
+  gulp.task('_get-ngio-boilerplate-src', cb => {
+    const boilerplateDir = './public/docs/_examples/_boilerplate';
+    const baseDir = `${config.angulario}/${boilerplateDir}/src`;
+    return gulp.src([
+      `${baseDir}/styles.css`,
+      // `${baseDir}/tsconfig.json`, // Manually watch for differences (aside from paths having an extra ../)
+    ], { base: baseDir })
+      .pipe(gulp.dest(boilerplateDir));
   });
 
 };
