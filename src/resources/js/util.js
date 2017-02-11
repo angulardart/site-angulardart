@@ -29,8 +29,11 @@ var NgIoUtil = (function () {
         var baseNameNoExt = NgIoUtil.basename(path, ext);
         var inWebFolder = baseNameNoExt.match(/^(main|index)(\.\d)?$/);
 
-        // Adjust the folder path, e.g., '/ts/' -> '/dart/'
+        // Adjust the folder path:
         folder = folder
+            // Adjust folder path: 2017/02 TS sources moved to src folder. Strip out `src/`
+            .replace(/(^|(^|\/)(dart|ts)\/)src\//, '$1')
+            // '/ts/' -> '/dart/'
             .replace(/(^|\/)ts($|\/)/, '$1dart$2')
             .replace(/(^|\/)app($|\/)/, inWebFolder ? '$1web$2' : '$1lib$2');
 
