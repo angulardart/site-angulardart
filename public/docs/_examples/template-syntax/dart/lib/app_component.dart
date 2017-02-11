@@ -144,7 +144,7 @@ class AppComponent implements OnInit, AfterViewInit {
       'special': isSpecial // true
     };
     // #docregion setClasses
-    // compensate for DevMode (sigh)
+    // Compensate for DevMode.
     if (JSON.encode(_previousClasses) == JSON.encode(classes))
       return _previousClasses;
     _previousClasses = classes;
