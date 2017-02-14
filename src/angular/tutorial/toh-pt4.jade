@@ -24,15 +24,15 @@ include ../_util-fns
   It also makes it easier to unit test the component with a mock service.
 
   Because data services are invariably asynchronous,
-  we'll finish the chapter with a **!{_Promise}**-based version of the data service.
+  we'll finish the page with a **!{_Promise}**-based version of the data service.
 
   Run the <live-example></live-example> for this part.
 
 .l-main-section
 :marked
-  ## Where We Left Off
+  ## Where we left off
   Before we continue with our Tour of Heroes, let’s verify we have the following structure.
-  If not, we’ll need to go back and follow the previous chapters.
+  If not, we’ll need to go back and follow the previous pages.
 
 .filetree
   .file angular_tour_of_heroes
@@ -194,7 +194,7 @@ code-example(language="sh" class="code-shell").
 
 .l-sub-section
   :marked
-    Learn more about Dependency Injection in the [Dependency Injection](../guide/dependency-injection.html) chapter.
+    Learn more about Dependency Injection in the [Dependency Injection](../guide/dependency-injection.html) page.
 :marked
   The *injector* does not know yet how to create a `HeroService`.
   If we ran our code now, Angular would fail with an error:
@@ -257,7 +257,7 @@ code-example(format="nocode").
   Each interface has a single method. When the component implements that method, Angular calls it at the appropriate time.
 .l-sub-section
   :marked
-    Learn more about lifecycle hooks in the [Lifecycle Hooks](../guide/lifecycle-hooks.html) chapter.
+    Learn more about lifecycle hooks in the [Lifecycle Hooks](../guide/lifecycle-hooks.html) page.
 :marked
   Here's the essential outline for the `OnInit` interface:
 +makeExample('toh-4/dart/lib/app_component_1.dart', 'on-init', 'lib/app_component.dart (ngOnInit stub)')(format=".")
@@ -279,7 +279,7 @@ code-example(format="nocode").
 :marked
   Ask for heroes and they are there in the returned result.
 
-  Someday we're going to get heroes from a remote server. We don’t call http yet, but we aspire to in later chapters.
+  Someday we're going to get heroes from a remote server. We don’t call http yet, but we aspire to in later pages.
 
   When we do, we'll have to wait for the server to respond and we won't be able to block the UI while we wait,
   even if we want to (which we shouldn't) because the browser won't block.
@@ -331,7 +331,7 @@ code-example(format="nocode").
     Check out the "[Take it slow](#slow)" appendix to see what the app might be like with a poor connection.
 :marked
   ### Review the App Structure
-  Let’s verify that we have the following structure after all of our good refactoring in this chapter:
+  Let’s verify that we have the following structure after all of our good refactoring in this page:
 
 .filetree
   .file angular_tour_of_heroes
@@ -350,7 +350,7 @@ code-example(format="nocode").
       .file styles.css
     .file pubspec.yaml
 :marked
-  Here are the code files we discussed in this chapter.
+  Here are the code files we discussed in this page.
 
 +makeTabs(`
   toh-4/dart/lib/hero_service.dart,
@@ -362,7 +362,7 @@ code-example(format="nocode").
   lib/mock_heroes.dart
   `)
 :marked
-  ## The Road We’ve Travelled
+  ## Recap
   Let’s take stock of what we’ve built.
 
   * We created a service class that can be shared by many components.
@@ -372,12 +372,12 @@ code-example(format="nocode").
   * We designed our service to return a !{_Promise} and our component to get our data from the !{_Promise}.
 
 
-  ### The Road Ahead
+  ## What's next
   Our Tour of Heroes has become more reusable using shared components and services.
   We want to create a dashboard, add menu links that route between the views, and format data in a template.
   As our app evolves, we’ll learn how to design it to make it easier to grow and maintain.
 
-  We learn about Angular Component Router and navigation among the views in the [next tutorial](toh-pt5.html) chapter.
+  We learn about Angular Component Router and navigation among the views in the [next tutorial](toh-pt5.html) page.
 
 .l-main-section
 <a id="slow"></a>

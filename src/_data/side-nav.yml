@@ -38,6 +38,8 @@
         - title: Introduction
           permalink: /angular/tutorial
           urlExactMatch: true
+        - title: 0. The Starter App
+          permalink: /angular/tutorial/toh-pt0
         - title: 1. The Hero Editor
           permalink: /angular/tutorial/toh-pt1
         - title: 2. Master/Detail
@@ -74,12 +76,12 @@
         - title: Structural Directives
           permalink: /angular/guide/structural-directives
 
-    - title: API Reference
-      permalink: /angular/api
-    - title: Cheat Sheet
-      permalink: /angular/cheatsheet
     - title: Glossary
       permalink: /angular/glossary
+    - title: Cheat Sheet
+      permalink: /angular/cheatsheet
+    - title: API Reference
+      permalink: /angular/api
 
 - title: "Resources"
   children:
