@@ -21,6 +21,7 @@ import 'not_found_component.dart';
       </nav>
       <router-outlet></router-outlet>
     ''',
+    styles: const ['.router-link-active {color: #039be5;}'],
     directives: const [ROUTER_DIRECTIVES],
     providers: const [HeroService, ROUTER_PROVIDERS])
 @RouteConfig(const [

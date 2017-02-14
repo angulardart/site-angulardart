@@ -155,7 +155,7 @@ code-example(language="html").
 
   Consider the following template:
 
-+makeExcerpt('app/app.component.1.ts', 'template')
++makeExcerpt('app/app.component.1.ts (template and styles)', 'template')
 
 :marked
   The `RouterLink` directives on the anchor tags give the router control over those elements. 
@@ -163,8 +163,15 @@ code-example(language="html").
   returns the route link parameters as a [link parameters list](appendices#link-parameters-list).
   The router resolves each link parameters list into a complete URL.
 
-//- TODO: mention routerLink: class.router-link-active here or possibly later in the details section below.
-//- TODO: mention `ActivatedRoute` and how to access it?
+//- TODO: `RouterLinkActive` is forthcoming in the new router. Once it is available, we'll be 
+//- able to make use of the a.active style in the global styles file.
+ The **`RouterLinkActive`** directive on each anchor tag helps visually distinguish the anchor for the currently selected _active_ route.
+
+:marked
+  The `RouterLink` directive also helps visually distinguish the anchor for the currently selected _active_ route.
+  The router adds the `router-link-active` CSS class to the element when the associated router link becomes active. 
+  As illustrated above, you can define this style alongside the template in the `@Component` annotation
+  of the `AppComponent`.
 
 :marked
   ### Summary

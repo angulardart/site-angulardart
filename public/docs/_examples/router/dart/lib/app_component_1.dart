@@ -24,6 +24,7 @@ import 'heroes_component_1.dart';
       </nav>
       <router-outlet></router-outlet>
     ''',
+    styles: const ['.router-link-active {color: #039be5;}'],
     // #enddocregion template
     directives: const [ROUTER_DIRECTIVES],
     providers: const [ROUTER_PROVIDERS]

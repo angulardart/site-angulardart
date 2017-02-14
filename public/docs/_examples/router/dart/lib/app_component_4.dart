@@ -22,13 +22,15 @@ import 'not_found_component.dart';
         // #enddocregion dragon-crisis
         -->
       </nav>
+      <router-outlet></router-outlet>
+      <!-- Note: the named outlet is not yet used:
       // #docregion outlets
       <router-outlet></router-outlet>
-      <!-- Not yet used:
       <router-outlet name="popup"></router-outlet>
-      -->
       // #enddocregion outlets
+      -->
     ''',
+    styles: const ['.router-link-active {color: #039be5;}'],
     directives: const [ROUTER_DIRECTIVES],
     providers: const [HeroService, ROUTER_PROVIDERS])
 // #docregion routes

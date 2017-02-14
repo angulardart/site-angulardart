@@ -169,7 +169,14 @@ a#router-link
   The lists shown in the example above, each have a single parameter, a route name.
   You'll see the use of route parameters later.
 
-//- TODO: mention routerLink: class.router-link-active here?
+//- TODO: once we've moved to the new router (supporting RouterLinkActive), make this its own section
+//- and consider adding more material (cf. corresponding TS docs).
+  ## *RouterLinkActive* binding
+
+:marked
+  The `RouterLink` directive adds the `router-link-active` CSS class to active router link.
+  This cascades down through each level of the route tree, so parent and child router links 
+  can be active at the same time.
 
 :marked
   ## *Declaring router providers and directives*
