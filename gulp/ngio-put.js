@@ -77,6 +77,20 @@ module.exports = function (gulp, plugins, config) {
       .pipe(gulp.dest(dartLatest));
   });
 
+  function makeExampleAddSrcToPath(match, mixinName, _args) {
+    var args = _args;
+    if(_args.match('(^|\/)src\/')) {
+      // Assume that we've already converted the Dart .jade to use src paths
+    } else {
+      args = _args.match('(^|\/)ts\/')
+        ? args.replace(/((^|\/)ts\/)/, '$1src/')
+        : `src/${_args}`;
+      // Best-effort attempt at handling title changes too:
+      args = args.replace(/'(app\/)/, "'src/$1");
+    }
+    return `+${mixinName}('${args}`;
+  }
+
   gulp.task('_put-ts-jade', cb => {
     const baseDir = 'src/angular/_jade';
     const destDir = path.join(config.angulario, 'public/docs');
@@ -89,6 +103,8 @@ module.exports = function (gulp, plugins, config) {
 
       // Undo effects of the _get-ts-jade task:
 
+      // 2017-02: TS sources moved into `src` subfolder:
+      .pipe(replace(/\+(makeExample|makeExcerpt)\(\'(.+)$/gm, makeExampleAddSrcToPath))
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/\/\/- (include (\.\.\/)*_util-fns(\.jade)?)/g, '$1'))
       // General patch

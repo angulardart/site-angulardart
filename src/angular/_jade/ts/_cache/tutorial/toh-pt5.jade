@@ -114,7 +114,7 @@ block keep-app-running
   * `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file)
   * Selector `my-app` to `my-heroes`
 
-+makeExcerpt('src/app/heroes.component.ts (showing renamings only)', 'renaming')
++makeExcerpt('app/heroes.component.ts (showing renamings only)', 'renaming')
 
 :marked
   ## Create *AppComponent*
@@ -168,6 +168,21 @@ block angular-router
     and a configuration (`Routes`). We'll configure our routes first.
 
 :marked
+  ### *&lt;base href>*
+
+  Open `index.html` and ensure there is a `<base href="...">` element
+  (or a script that dynamically sets this element)
+  at the top of the `<head>` section.
+
++makeExcerpt('index.html', 'base-href')
+
+.callout.is-important
+  header base href is essential
+  :marked
+    See the *base href* section of the [router](../guide/router.html#base-href)
+    guide to learn why this matters, and what to add if the `base`
+    element is missing.
+
 a#configure-routes
 block router-config-intro
   :marked
@@ -183,7 +198,7 @@ block router-config-intro
   Let's define our first route as a route to the heroes component:
 
 - var _file = _docsFor == 'dart' ? 'app.component.ts' : 'app.module.2.ts'
-+makeExcerpt('src/app/' + _file + ' (heroes route)', 'heroes')
++makeExcerpt('app/' + _file + ' (heroes route)', 'heroes')
 
 - var _are = _docsFor == 'dart' ? 'takes' : 'are'
 - var _routePathPrefix = _docsFor == 'dart' ? '/' : ''
@@ -209,7 +224,7 @@ block router-config-intro
     We've setup the initial route configuration. Now we'll add it to our `AppModule`.
     We'll add our configured `RouterModule` to the `AppModule` imports !{_array}.
 
-  +makeExcerpt('src/app/app.module.2.ts (app routing)', '')
+  +makeExcerpt('app/app.module.2.ts (app routing)', '')
 
   .l-sub-section
     :marked
@@ -236,7 +251,7 @@ block router-config-intro
 
   The revised template looks like this:
 
-+makeExcerpt('src/app/app.component.1.ts', 'template-v2')
++makeExcerpt('app/app.component.1.ts', 'template-v2')
 
 block routerLink
   :marked
@@ -267,7 +282,7 @@ block routerLink
 
   At this stage, our `AppComponent` looks like this.
 
-+makeExample('src/app/app.component.1.ts', 'v2', 'src/app/app.component.ts (v2)')
++makeExample('app/app.component.1.ts', 'v2', 'app/app.component.ts (v2)')
 
 :marked
   The  *AppComponent* is now attached to a router and displaying routed views.
@@ -281,7 +296,7 @@ block routerLink
 
   Create a placeholder `DashboardComponent` that gives us something to navigate to and from.
 
-+makeExcerpt('src/app/dashboard.component.1.ts (v1)', '')
++makeExcerpt('app/dashboard.component.1.ts (v1)', '')
 
 :marked
   We’ll come back and make it more useful later.
@@ -300,7 +315,7 @@ block routerLink
   :marked
     Also import and add `DashboardComponent` to our `AppModule`'s `declarations`.
 
-  +makeExcerpt('src/app/app.module.ts', 'dashboard')
+  +makeExcerpt('app/app.module.ts', 'dashboard')
 
 :marked
   #### !{_redirectTo}
@@ -314,7 +329,7 @@ block redirect-vs-use-as-default
     We can use a redirect route to make this happen. Add the following
     to our array of route definitions:
 
-  +makeExcerpt('src/app/app.module.3.ts','redirect')
+  +makeExcerpt('app/app.module.3.ts','redirect')
 
   .l-sub-section
     :marked
@@ -326,7 +341,7 @@ block redirect-vs-use-as-default
   Finally, add a dashboard navigation link to the template, just above the *Heroes* link.
 
 - var _vers = _docsFor == 'dart' ? '' : '.1'
-+makeExcerpt('src/app/app.component' + _vers + '.ts', 'template-v3')
++makeExcerpt('app/app.component' + _vers + '.ts', 'template-v3')
 
 .l-sub-section
   :marked
@@ -347,7 +362,7 @@ block redirect-vs-use-as-default
   :marked
     Set the `moduleId` property to `module.id` for module-relative loading of the `templateUrl`.
 
-+makeExcerpt('src/app/dashboard.component.ts', 'metadata')
++makeExcerpt('app/dashboard.component.ts', 'metadata')
 
 block templateUrl-path-resolution
   //- N/A for TS
@@ -355,7 +370,7 @@ block templateUrl-path-resolution
 :marked
   Create that file with this content:
 
-+makeExample('src/app/dashboard.component.1.html', '', 'src/app/dashboard.component.html')
++makeExample('app/dashboard.component.1.html', '', 'app/dashboard.component.html')
 
 :marked
   We use `*ngFor` once again to iterate over a list of heroes and display their names.
@@ -375,12 +390,12 @@ block templateUrl-path-resolution
 
   Open <span ngio-ex>dashboard.component.ts</span> and add the requisite `import` statements.
 
-+makeExcerpt('src/app/dashboard.component.ts','imports')
++makeExcerpt('app/dashboard.component.ts','imports')
 
 :marked
   Now implement the `DashboardComponent` class like this:
 
-+makeExcerpt('src/app/dashboard.component.ts (class)', 'class')
++makeExcerpt('app/dashboard.component.ts (class)', 'class')
 
 :marked
   We've seen this kind of logic before in the `HeroesComponent`:
@@ -470,7 +485,7 @@ code-example(format="nocode").
 
   Before we rewrite the `HeroDetailComponent`, let's review what it looks like now:
 
-+makeExample('toh-4/ts/src/app/hero-detail.component.ts', null, 'src/app/hero-detail.component.ts (current)')
++makeExample('toh-4/ts/app/hero-detail.component.ts', null, 'app/hero-detail.component.ts (current)')
 
 :marked
   The template won't change. We'll display a hero the same way.
@@ -486,25 +501,25 @@ block route-params
   First, add the requisite imports:
 
 - var _vers = _docsFor == 'dart' ? '' : '.1'
-+makeExcerpt('src/app/hero-detail.component' + _vers + '.ts', 'added-imports', '')
++makeExcerpt('app/hero-detail.component' + _vers + '.ts', 'added-imports', '')
 
 - var _ActivatedRoute = _docsFor == 'dart' ? 'RouteParams' : 'ActivatedRoute'
 :marked
   Let's have the `!{_ActivatedRoute}` service, the `HeroService` and the `Location` service injected
   into the constructor, saving their values in private fields:
 
-+makeExcerpt('src/app/hero-detail.component.ts (constructor)', 'ctor')
++makeExcerpt('app/hero-detail.component.ts (constructor)', 'ctor')
 
 +ifDocsFor('ts')
   :marked
     Also import the `switchMap` operator to use later with the route parameters `Observable`.
 
-  +makeExcerpt('src/app/hero-detail.component.ts (switchMap import)', 'rxjs-import')
+  +makeExcerpt('app/hero-detail.component.ts (switchMap import)', 'rxjs-import')
 
 :marked
   We tell the class that we want to implement the `OnInit` interface.
 
-+makeExcerpt('src/app/hero-detail.component.ts', 'implement', '')
++makeExcerpt('app/hero-detail.component.ts', 'implement', '')
 
 block ngOnInit
   :marked
@@ -512,7 +527,7 @@ block ngOnInit
     extract the `id` parameter value from the `ActivatedRoute` service
     and use the `HeroService` to fetch the hero with that `id`.
 
-+makeExcerpt('src/app/hero-detail.component.ts', 'ngOnInit')
++makeExcerpt('app/hero-detail.component.ts', 'ngOnInit')
 
 block extract-id
   :marked
@@ -544,7 +559,7 @@ block extract-id
 
   Open `HeroService` and add a `getHero` method that filters the heroes list from `getHeroes` by `id`:
 
-+makeExcerpt('src/app/hero.service.ts', 'getHero')
++makeExcerpt('app/hero.service.ts', 'getHero')
 
 :marked
   Let's return to the `HeroDetailComponent` to clean up loose ends.
@@ -558,7 +573,7 @@ block extract-id
   We'll add a third option, a `goBack` method that navigates backward one step in the browser's history stack
   using the `Location` service we injected previously.
 
-+makeExcerpt('src/app/hero-detail.component.ts', 'goBack')
++makeExcerpt('app/hero-detail.component.ts', 'goBack')
 
 - var _CanDeactivateGuard = _docsFor == 'dart' ? '<em>routerCanDeactivate</em> hook' : '<em>CanDeactivate</em> guard'
 - var _CanDeactivateGuardUri = _docsFor == 'dart' ? 'angular2.router/CanDeactivate-class' : 'router/index/CanDeactivate-interface'
@@ -572,19 +587,19 @@ block extract-id
   Then we wire this method with an event binding to a *Back* button that we
   add to the bottom of the component template.
 
-+makeExcerpt('src/app/hero-detail.component.html', 'back-button', '')
++makeExcerpt('app/hero-detail.component.html', 'back-button', '')
 
 :marked
   Modifying the template to add this button spurs us to take one more
   incremental improvement and migrate the template to its own file,
   called <span ngio-ex>hero-detail.component.html</span>:
 
-+makeExample('src/app/hero-detail.component.html')
++makeExample('app/hero-detail.component.html')
 
 :marked
   We update the component metadata with a <span if-docs="ts">`moduleId` and a </span>`templateUrl` pointing to the template file that we just created.
 
-+makeExcerpt('src/app/hero-detail.component.ts', 'metadata')
++makeExcerpt('app/hero-detail.component.ts', 'metadata')
 
 :marked
   Refresh the browser and see the results.
@@ -602,7 +617,7 @@ block extract-id
   To achieve this effect, reopen the `dashboard.component.html` and replace the repeated `<div *ngFor...>` tags
   with `<a>` tags. The opening `<a>` tag looks like this:
 
-+makeExample('src/app/dashboard.component.html', 'click', 'src/app/dashboard.component.html (repeated <a> tag)')
++makeExample('app/dashboard.component.html', 'click', 'app/dashboard.component.html (repeated <a> tag)')
 
 +ifDocsFor('dart')
   .alert.is-important
@@ -654,7 +669,7 @@ block extract-id
 
     Create an `app-routing.module.ts` file as a sibling to `app.module.ts`. Give it the following contents extracted from the `AppModule` class:
 
-  +makeExample('src/app/app-routing.module.ts')
+  +makeExample('app/app-routing.module.ts')
   :marked
     Noteworthy points, typical of _Routing Modules_:
     * Pulls the routes into a variable. You might export it in future and it clarifies the _Routing Module_ pattern.
@@ -691,7 +706,7 @@ block extract-id
   The `HeroesComponent` template exhibits a "master/detail" style with the list of heroes
   at the top and details of the selected hero below.
 
-+makeExample('toh-4/ts/src/app/app.component.ts','template', 'src/app/heroes.component.ts (current template)')(format=".")
++makeExample('toh-4/ts/app/app.component.ts','template', 'app/heroes.component.ts (current template)')(format=".")
 
 :marked
   Our goal is to move the detail to its own view and navigate to it when the user decides to edit a selected hero.
@@ -712,7 +727,7 @@ block extract-id
 
   Add the following HTML fragment at the bottom of the template where the `<my-hero-detail>` used to be:
 
-+makeExcerpt('src/app/heroes.component.html', 'mini-detail', '')
++makeExcerpt('app/heroes.component.html', 'mini-detail', '')
 
 :marked
   After clicking a hero, the user should see something like this below the hero list:
@@ -726,7 +741,7 @@ figure.image-display
   Notice that the hero's name is displayed in CAPITAL LETTERS. That's the effect of the `uppercase` pipe
   that we slipped into the interpolation binding. Look for it right after the pipe operator ( | ).
 
-+makeExcerpt('src/app/heroes.component.html', 'pipe', '')
++makeExcerpt('app/heroes.component.html', 'pipe', '')
 
 :marked
   Pipes are a good way to format strings, currency amounts, dates and other display data.
@@ -760,7 +775,7 @@ figure.image-display
 block heroes-component-cleanup
   //- Only relevant for Dart.
 
-+makeExcerpt('src/app/heroes.component.ts (revised metadata)', 'metadata')
++makeExcerpt('app/heroes.component.ts (revised metadata)', 'metadata')
 
 :marked
   ### Update the _HeroesComponent_ class.
@@ -775,7 +790,7 @@ block heroes-component-cleanup
   1. Inject the `router` in the constructor (along with the `HeroService`)
   1. Implement `gotoDetail` by calling the `router.navigate` method
 
-+makeExcerpt('src/app/heroes.component.ts', 'gotoDetail')
++makeExcerpt('app/heroes.component.ts', 'gotoDetail')
 
 :marked
   Note that we're passing a two-element **link parameters !{_array}**
@@ -784,7 +799,7 @@ block heroes-component-cleanup
   back in the `DashboardComponent`.
   Here's the fully revised `HeroesComponent` class:
 
-+makeExcerpt('src/app/heroes.component.ts', 'class')
++makeExcerpt('app/heroes.component.ts', 'class')
 
 :marked
   Refresh the browser and start clicking.
@@ -813,7 +828,7 @@ block heroes-component-cleanup
   Add a <span ngio-ex>dashboard.component.css</span> file to the `!{_appDir}` folder and reference
   that file in the component metadata's `styleUrls` !{_array} property like this:
 
-+makeExcerpt('src/app/dashboard.component.ts (styleUrls)', 'css')
++makeExcerpt('app/dashboard.component.ts (styleUrls)', 'css')
 
 :marked
   ### Stylish Hero Details
@@ -845,7 +860,7 @@ block css-files
 
   Add a <span ngio-ex>app.component.css</span> file to the `!{_appDir}` folder with the following content.
 
-+makeExcerpt('src/app/app.component.css (navigation styles)', '')
++makeExcerpt('app/app.component.css (navigation styles)', '')
 
 .l-sub-section
   block router-link-active
@@ -856,7 +871,7 @@ block css-files
       add a class to the HTML navigation element whose route matches the active route.
       All we have to do is define the style for it. Sweet!
 
-    +makeExcerpt('src/app/app.component.ts (active router links)', 'template')
+    +makeExcerpt('app/app.component.ts (active router links)', 'template')
 
 block style-urls
   :marked
@@ -864,7 +879,7 @@ block style-urls
     to enable _module-relative_ file URLs.
     Then add a `styleUrls` property that points to this CSS file as follows.
 
-+makeExcerpt('src/app/app.component.ts','styleUrls')
++makeExcerpt('app/app.component.ts','styleUrls')
 
 :marked
   ### Global application styles
@@ -879,7 +894,7 @@ block style-urls
   These correspond to the full set of master styles that we installed earlier during [setup](../guide/setup.html).
   Here is an excerpt:
 
-+makeExcerpt('src/styles.css (excerpt)', 'toh')
++makeExcerpt('styles.css (excerpt)', 'toh')
 
 - var styles_css = 'https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css'
 
@@ -889,7 +904,7 @@ block style-urls
 
   If necessary, also edit <span ngio-ex>index.html</span> to refer to this stylesheet.
 
-+makeExcerpt('src/index.html (link ref)', 'css')
++makeExcerpt('index.html (link ref)', 'css')
 
 :marked
   Look at the app now. Our dashboard, heroes, and navigation links are styling!

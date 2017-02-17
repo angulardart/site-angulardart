@@ -31,11 +31,18 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_get-dart-pages', ['_get-api-ref-page', '_get-qs-etc', '_get-guide', '_get-router', '_get-tutorial']);
 
+  function makeExampleRemoveSrcPath(match, mixinName, _args) {
+    var args = _args.replace(/(^|['\/])src\//g, '$1');
+    return `+${mixinName}('${args}'`;
+  }
+
   gulp.task('_get-ts-jade', cb => {
     const baseDir = path.join(angulario, 'public/docs');
     return gulp.src([
       `${baseDir}/ts/_cache/**/*.jade`,
     ], { base: baseDir })
+      // 2017-02: TS sources moved into `src` subfolder:
+      .pipe(replace(/\+(makeExample|makeExcerpt)\(\'(.+)'/g, makeExampleRemoveSrcPath))
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
       // General patch
@@ -58,7 +65,7 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = path.join(angulario, 'public/docs/dart/latest');
     return gulp.src([
       `${baseDir}/_util-fns.jade`,
-      `${baseDir}/_data.json`,
+      // `${baseDir}/_data.json`, // dropped as of https://github.com/dart-lang/site-webdev/pull/356
       `${baseDir}/api/_data.json`,
       `${baseDir}/guide/_data.json`,
       `${baseDir}/guide/router/_data.json`,
@@ -221,6 +228,8 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = path.join(angulario, 'public');
     const ngIoApp = "angular.module('angularIOApp', ['ngMaterial', 'firebase'])";
     const dropFirebase = ngIoApp.replace(", 'firebase'", '')
+    const stripSrc = `            // Adjust folder path: 2017/02 TS sources moved to src folder. Strip out \`src/\`
+            .replace(/(^|(^|\\/)(dart|ts)\\/)src\\//, '$1')`;
     return gulp.src([
       `${baseDir}/resources/js/**/*`,
       `${baseDir}/resources/css/_options.scss`,
@@ -241,6 +250,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
       // Patch resources/js/util.js
       .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
+      .pipe(replace(/folder = folder/, `folder = folder\n${stripSrc}`))
       .pipe(gulp.dest('src'));
   });
 
