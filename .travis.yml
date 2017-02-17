@@ -22,8 +22,8 @@ install:
   - ./scripts/get-ng-repo.sh
 
 script:
-  # - ./deploy/runtests.sh
-  # - ./deploy/cibuild
+  # - ./scripts/deploy/runtests.sh
+  # - ./scripts/deploy/cibuild
   - gulp build
 
 after_script:
@@ -38,7 +38,7 @@ after_script:
 
 deploy:
   - provider: script
-    script: ./deploy/deploy-firebase.sh
+    script: ./scripts/deploy/deploy-firebase.sh
     skip_cleanup: true
     on:
       branch: master
