@@ -289,6 +289,8 @@ module.exports = function (gulp, plugins, config) {
       `!${baseDir}/tools/doc-shredder/_test/**`,
       `${baseDir}/tools/styles-builder/**`,
     ], { base: baseDir })
+      // Patch security/e2e-spec.ts
+      .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
       .pipe(gulp.dest('.'));
   });
 

@@ -12,6 +12,7 @@ CACHE="$BASE/_cache"
 
 # FILES is a list of files we try to keep in sync (TS _cache vs latest).
 # For a list of files that are excluded, see the diff -x arguments in cacheDiffSummary().
+# Files after toh-pt6.jade in the list below are still monitored, but no longer Jade extended.
 FILES="
 guide/architecture.jade
 guide/attribute-directives.jade
@@ -28,13 +29,11 @@ quickstart.jade
 _quickstart_repo.jade
 tutorial/index.jade
 tutorial/toh-pt5.jade
-tutorial/toh-pt6.jade"
-FILES_NO_LONGER_SYNCED="
+tutorial/toh-pt6.jade
 guide/component-styles.jade
 guide/pipes.jade
 guide/structural-directives.jade
-guide/template-syntax.jade
-"
+guide/template-syntax.jade"
 
 function cacheRefresh() {
     local FILE_PATTERN="*"

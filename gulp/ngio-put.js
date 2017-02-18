@@ -142,11 +142,13 @@ module.exports = function (gulp, plugins, config) {
     cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
     return gulp.src([
       // EXAMPLES:
-      `${baseDir}/*/dart/.*`,
       `${baseDir}/*/dart/**`,
-      `!${baseDir}/*/dart/build/**`,
       `${baseDir}/*/e2e*.ts`,
+      `!${baseDir}/*/dart/.*`,
+      `!${baseDir}/*/dart/build/**`,
     ], { base: baseDir })
+      // Patch security/e2e-spec.ts
+      .pipe(replace(/(.toContain\('Template) (Syntax'\))/, '$1 alert("0wned") $2', {skipBinary:true}))
       .pipe(gulp.dest(ngioExDir));
   });
 

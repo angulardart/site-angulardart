@@ -80,6 +80,10 @@ extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, c
 // --fast  skips generation of dartdocs if they already exist
 gulp.task('build', ['create-example-fragments', 'dartdoc', 'build-api-list-json', 
     'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
+  // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
+  // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
+  // and just delete the file:
+  child_process.execSync(`rm -f public/docs/_examples/_boilerplate/a2docs.css`);
   return execp(`jekyll build`);
 });
 
