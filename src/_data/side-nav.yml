@@ -83,6 +83,13 @@
     - title: API Reference
       permalink: /angular/api
 
+- title: Angular Components
+  children:
+    - title: Code lab
+      permalink: /codelabs/angular2_components
+    - title: Example
+      permalink: https://dart-lang.github.io/angular2_components_example/
+
 - title: "Resources"
   children:
   - title: "Dart Tools for the Web"
