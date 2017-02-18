@@ -18,8 +18,8 @@
 # - https://github.com/dart-lang/dartdoc/issues/1232
 /angular/api/angular2.core/(ChangeDetectionStrategy|ViewEncapsulation)-class(.html)?#properties
 /angular/api/angular2.core/(ChangeDetectionStrategy|ViewEncapsulation)/
-/angular/api/angular2.compiler/(PropertyBindingType|ProviderAstType)-class(.html)?#properties
-/angular/api/angular2.compiler/(PropertyBindingType|ProviderAstType)/
+/angular/api/angular2.compiler/(HandlerType|PropertyBindingType|ProviderAstType)-class(.html)?#properties
+/angular/api/angular2.compiler/(HandlerType|PropertyBindingType|ProviderAstType)/
 /angular/api/angular2.(platform.browser|security)/TemplateSecurityContext-class(.html)?#properties
 /angular/api/angular2.(platform.browser|security)/TemplateSecurityContext/
 
