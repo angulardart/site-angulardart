@@ -9,7 +9,7 @@ import 'hero_service.dart';
 
 @Component(
     selector: 'my-heroes',
-    templateUrl: 'heroes_component.html',
+    templateUrl: 'heroes_component_0.html',
     styleUrls: const ['heroes_component.css'])
 class HeroesComponent implements OnInit {
   final Router _router;
@@ -35,7 +35,7 @@ class HeroesComponent implements OnInit {
   }
   // #enddocregion onSelect
 
-  Future<Null> gotoDetail() => _router.navigate([
+  Future gotoDetail() => _router.navigate([
         'HeroDetail',
         {'id': selectedHero.id.toString()}
       ]);

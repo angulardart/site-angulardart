@@ -24,7 +24,7 @@ class ComposeMessageComponent {
   String details;
   bool sending = false;
 
-  ComposeMessageComponent(this._router) {}
+  ComposeMessageComponent(this._router);
 
   Future<Null> send() async {
     sending = true;

@@ -58,7 +58,7 @@ script $('#router-milestone').val('4')
   * The route URLs will branch into child route trees that parallel the component trees in the feature areas.
   * In keeping with *Separation of Concerns*,
     changes to a feature module such as *Crisis Center* won't require changes to the `!{_AppModuleVsAppComp}` or
-    any other feature's component.
+    any other feature's components.
 //- This is covered in milestone 5
   * The router will prevent navigation away from the detail view while there are pending, unsaved changes.
   * The user will be able to cancel unwanted changes.
@@ -80,16 +80,37 @@ script $('#router-milestone').val('4')
   If your app had many feature areas, the app component trees might look like this:
 
 figure.image-display
-  img(src='/resources/images/devguide/router/component-tree.png' alt="Component Tree" )
+  img(src='/resources/images/devguide/router/component-tree.png' alt="Component Tree")
+
+:marked
+  ## Parent route configuration
+
+  Let the app component know that the crisis center will be an area route component managing
+  its own child routes. To do this, mark the `CrisisCenter` route definition as
+  a **_non-terminal route_** by applying the `/...` suffix to its path:
+
+- var stylePattern = { otl: /(path: '.*\.\.\.'),$/gm }
++makeExcerpt('lib/app_component_4.dart', 'routes', 'lib/app_component.dart', stylePattern)
 
 :marked
   ## Child routing component
 
-  Add the following `crisis_center_component.dart` to the `crisis_center` folder:
+  Here is the new crisis center component code replacing the current mock implementation
+  (make sure to put the new implementation in the `crisis_center` folder):
 
-+makeExcerpt('app/crisis_center/crisis-center.component.2.ts (without-routes)')
++makeExample('app/crisis_center/crisis-center.component.2.ts')
+
+//- Dart differences relative to the TS sample:
+  * `CrisisCenterComponent` has no `<h2>` element, only a router outlet. 
+    The `<h2>` is kept in the `CrisesComponent`.
+
+  TODO: mention the need for useAsDefault?
 
 :marked
+  The `CrisisCenterComponent` has a single non-terminal route handled by the 
+  `CrisesComponent`. This means that the `CrisesComponent` is a parent component
+  as well; you'll define its child routes below.
+
   Much like the `AppComponent`, the `CrisisCenterComponent` is the
   
   - *Root* of the crisis center area,
@@ -98,7 +119,7 @@ figure.image-display
   just as the `AppComponent` is a shell to manage the high-level workflow
 
   Like most shells, the `CrisisCenterComponent` class is very simple, simpler even than `AppComponent`:
-  it has no business logic, and it's template has no links, just a title and 
+  it has no business logic, and its template has no links, just a 
   `<router-outlet>` for the crisis center child views.
 
   Unlike `AppComponent`, and most other components, it _lacks a selector_.
@@ -116,20 +137,26 @@ figure.image-display
   ## Child route configuration
 
   The `CrisisCenterComponent` is a *routing component* like the `AppComponent`.
-  It has its own `RouterOutlet` and its own child routes.
+  It has its own router outlet and its own child route. The single child
+  route is a non-terminal route handled by the `CrisesComponent`.
 
-  Add the following **child routes** to the `CrisisCenterComponent`:
+  You'll now also turn the `CrisesComponent` into a routing component so that
+  you can explore new router features. Add a `<router-outlet>` element to the
+  end of the crises component template:
 
-+makeExcerpt('app/crisis_center/crisis-center.component.ts (routes)')
++makeExample('app/crisis_center/crises.component.html')
 
-//- Mention useAsDefault and need for '...'
-//- Dart differences relative to the TS sample:
-  * `CrisisCenterComponent` has no `<h2>` element, only a router outlet. 
-    The `<h2>` is kept in the `CrisesComponent`.
-  * There is no `crisis-center-home.component.ts`, and so
-  * no `<router-outlet>` in the crises component.
-  * Consequently, crisis details are rendered directly as a child view of `CrisisCenterComponent`.
-//- Note: we haven't yet made the crisis center the default.
+:marked
+  The crises component displays details of a selected crisis. 
+  What should it display when no crisis is selected?
+  For this purpose, create the following component in the `crisis_center` folder:
+
++makeExample('app/crisis_center/crisis-center-home.component.ts')
+
+:marked
+  With this in place, you can now add the `CrisesComponent` router config:
+
++makeExcerpt('app/crisis_center/crises.component.ts (routes)')
 
 :marked
   These two routes navigate to the crisis center child components,
@@ -137,61 +164,49 @@ figure.image-display
 
   Being _child routes_, there are some *important differences* in the way the router treats them:
 
-  - The router displays the components of these routes in the `RouterOutlet`
-    of the `CrisisCenterComponent`, not in the `RouterOutlet` of the `AppComponent` shell.
+  - The router displays the components of these routes in the router outlet
+    of the `CrisesComponent`, not in the router outlet of the `AppComponent` shell.
+  - At the top level, paths that begin with `/` refer to the root of the application.
+    But child routes *extend* the path of the parent route.
+    With each step down the route tree,
+    you add a slash followed by the route path, unless the path is _empty_.
 
-//- N/A
-  The `CrisisListComponent` contains the crisis list and a `RouterOutlet` to
-  display the `Crisis Center Home` and `Crisis Detail` route components.
+  Apply that logic to navigation within the crisis center for which the parent path is `/crisis-center`.
 
-//- Skip for now. Should we talk about reuse? Is this relevant for the Dart router?
+  * To navigate to the `CrisisCenterHomeComponent`, the full URL is `/crisis-center` (`/crisis-center` + `''` + `''`).
+
+  * To navigate to the `CrisisDetailComponent` for a crisis with `id=2`, the full URL is
+  `/crisis-center/2` (`/crisis-center` + `''` +  `'/2'`).
+
+  The absolute URL for the latter example, including the `localhost` origin, is
+
+code-example(format="nocode").
+  localhost:3000/crisis-center/2
+
+//- TODO: The default is different for Dart. We'll need to explicitly allow reuse.
   The `Crisis Detail` route is a child of the `Crisis List`. Since the router [reuses components](#reuse)
   by default, the `Crisis Detail` component will be re-used as you select different crises.
   In contrast, back in the `Hero Detail` route, the component was recreated each time you selected a different hero.
 
 :marked
-  - At the top level, paths that begin with `/` refer to the root of the application.
-    But child routes *extend* the path of the parent route.
-    Here, `/` refers to the _root of the child component_.
-
-  A component router composes a full route path by concatenating route path segments
-  beginning with the top-level ancestor route to the child route.
-
-  In our example, there is one ancestor path: "/crisis-center". So, for example, the full route 
-  to the `CrisisDetailComponent` displaying the crisis whose `id` is 2 would be something like:
-
-code-example(format="nocode").
-  localhost:3000/crisis-center/2
-
-:marked
-  Looking at the `CrisisCenterComponent` alone, you can't tell that it is a _child_ routing component.
-  You can't tell that its routes are child routes; they are indistinguiable from top level application routes.
+  Looking at the `CrisisCenterComponent` or the `CrisesComponent` alone,
+  you can't tell that they are _child_ routing components.
+  You can't tell that their routes are child routes, indistinguiable from top level application routes.
   This is intentional, and it makes it easier to reuse component routers.
-  What makes it a child router component of our application is determined by the parent route configuration.
+  What makes a component a child router of our application is determined by the parent route configuration.
 
-:marked
-  ## Parent route configuration
-
-  The only change required to get crisis center nativgation working again,
-  is to mark `CrisisCenter` as a **_non-terminal route_**, by applying the
-  `/...` suffix to its path:
-
-+makeExcerpt('app/app.component.4.ts', 'crisis-center-path', '')
-
-:marked
-  **Refresh the browser** and you should now be able to navigate to the crisis
-  center and select a crisis to view its details.
-  
-  Here is the revised route configuration for the parent `AppComponent`:
-
-+makeExcerpt('app/app.component.4.ts (routes)')
+  **Refresh the browser** and try the new crisis center implementation. You should be able
+  to select crises and see their details. Unfortunately, the crisis details _Back_ button
+  doesn't work yet. You'll fix that next.
 
 //- TODO: consider moving this subsection into the appendix on link parameters list
 .l-main-section
 :marked
   ## Relative navigation
 
-  Dealing with a crisis can be stressful. 
+  Before addressing the faulty crisis details _Back_ button, you'll need to understand
+  relative route nativation.
+
   Suppose that you'd like to add a "Find help!" button, in the crisis details view,
   that would navigate to the heroes list by means of a router link directive. You
   might try something like this, but **Angular will report an error**:
@@ -201,7 +216,7 @@ code-example(format="nocode").
 :marked
   By **_default_, the router looks for the named route** (`'Heroes'`) in the collection
   of sibling and child routes of the component containing the link parameters list.
-  In this case, a crisis detail component has no child routes, and its parent component
+  In this case, a crisis details component has no child routes, and its parent component
   (`CrisisCenterComponent`), has routes but none of their names match `'Heroes'`.
 
   The router supports **directory-like syntax** in a _link parameters list_ to help guide route name lookup.
@@ -217,15 +232,29 @@ code-example(format="nocode").
   Returning to our "Find help!" button link, you could successfully use either
   of these route names:
   
-  - `'/Heroes'`: this works because the root `AppComponent` has a route named `Heroes`.
-  - `'../../Heroes'`: this works because the parent of a crisis details is a `CrisisCenterComponent`,
-    whose parent component is `AppComponent`.
+  - `'/Heroes'` works because the root `AppComponent` has a route named `Heroes`.
+  - `'../../../Heroes'` works because the ancestors of a crisis details are
+    `CrisesComponent`, `CrisisCenterComponent` and `AppComponent`.
 
 +makeExcerpt('lib/crisis_center/crisis_detail_component_1.html (valid relative link)', 'valid-relative-route', '') 
 
 :marked
-  What if you wanted a router link from a _hero details_ component to the crisis center?
-  The following would do: `['/CrisisCenter', 'Crises']`.
+  The currently faulty crisis details view _Back_ button has an event binding to this method:
+
++makeExcerpt('lib/crisis_center/crisis_detail_component_0.dart (goBack)')
+
+:marked
+  Given that the named route (`Crises`) has no lookup prefix, the router does a default search
+  for `Crises` in the crisis details component and the crises component. Neither
+  have a route named `Crises`, but the `CrisisCenterComponent` does. So you could
+  use relative nativation to direct the router to the crisis center, or simply use
+  default lookup with the `CrisesHome` route name:
+
++makeExcerpt('lib/crisis_center/crisis_detail_component_1.dart', 'goBack', '')
+
+:marked
+  **Refresh the browser**, select a crisis and ensure that the _Back_ button causes
+  the crisis details view to be replaced by the crisis center home message.
 
 //- TODO: document `navigateByUrl`?
 
@@ -436,10 +465,12 @@ a#wrap-up
   router/dart/lib/crisis_center/crisis_detail_component_1.dart,
   router/dart/lib/crisis_center/crisis_center_component_2.dart,
   router/dart/lib/crisis_center/crises_component.dart,
+  router/dart/lib/crisis_center/crises_component.html,
   router/dart/lib/crisis_center/mock_crises.dart`,
   '',
   `lib/app_component.dart,
   lib/crisis_center/crisis_detail_component.dart,
   lib/crisis_center/crisis_center_component.dart,
   lib/crisis_center/crises_component.dart,
+  lib/crisis_center/crises_component.html,
   lib/crisis_center/mock_crises.dart`)

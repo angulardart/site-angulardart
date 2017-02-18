@@ -29,7 +29,7 @@ class HeroDetailComponent implements OnInit {
   // #enddocregion ngOnInit
 
   // #docregion goBack
-  Future<Null> goBack() => _router.navigate([
+  Future goBack() => _router.navigate([
         'Heroes',
         hero == null ? {} : {'id': hero.id.toString()}
       ]);

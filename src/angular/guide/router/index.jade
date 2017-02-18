@@ -321,9 +321,8 @@ figure.image-display
 :marked
   You can select "OK" and lose your changes or click "Cancel" and continue editing.
 
-//- TODO: does this apply to ngdart?
-  Behind this behavior is the router's `CanDeactivate` guard. 
-  The guard gives you a chance to clean-up or ask the user's permission 
+  Behind this behavior is the router's `routerCanDeactivate` hook. 
+  The hook gives you a chance to clean-up or ask the user's permission 
   before navigating away from the current view.
 
 //- Not currently supported:

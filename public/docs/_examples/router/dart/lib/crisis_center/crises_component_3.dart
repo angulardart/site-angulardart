@@ -6,27 +6,12 @@ import 'package:angular2/router.dart';
 
 import 'crisis.dart';
 import 'crisis_service.dart';
-import 'crisis_detail_component.dart';
-import 'crisis_center_home_component.dart';
 
 @Component(
-  selector: 'my-crises',
-  templateUrl: 'crises_component.html',
-  styleUrls: const ['crises_component.css'],
-  directives: const [ROUTER_DIRECTIVES],
-)
-// #docregion routes
-@RouteConfig(const [
-  const Route(
-      path: '/',
-      name: 'CrisesHome',
-      component: CrisisCenterHomeComponent,
-      useAsDefault: true),
-  const Route(
-      path: '/:id', name: 'CrisisDetail', component: CrisisDetailComponent),
-])
+    selector: 'my-crises',
+    templateUrl: 'crises_component_3.html',
+    styleUrls: const ['crises_component.css'])
 class CrisesComponent implements OnInit {
-  // #enddocregion routes
   final Router _router;
   final RouteParams _routeParams;
   final CrisisService _crisisService;
@@ -65,5 +50,4 @@ class CrisesComponent implements OnInit {
         {'id': selectedCrisis.id.toString()}
       ]);
   // #enddocregion onSelect
-  // #docregion routes
 }

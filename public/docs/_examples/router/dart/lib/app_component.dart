@@ -19,7 +19,7 @@ import 'not_found_component.dart';
         <a [routerLink]="['Heroes']">Heroes</a>
         <!--
         // #docregion dragon-crisis
-        <a [routerLink]="['CrisisCenter', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
+        <a [routerLink]="['CrisisCenter', 'Crises', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
         // #enddocregion dragon-crisis
         -->
       </nav>

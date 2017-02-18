@@ -9,7 +9,7 @@ import 'crisis_service.dart';
 
 @Component(
     selector: 'my-crisis-detail',
-    templateUrl: 'crisis_detail_component_1.html',
+    templateUrl: 'crisis_detail_component_0.html',
     directives: const [ROUTER_DIRECTIVES], // needed for the 'Find help!' link.
     styleUrls: const ['crisis_detail_component.css'])
 class CrisisDetailComponent implements OnInit {
@@ -30,7 +30,7 @@ class CrisisDetailComponent implements OnInit {
 
   // #docregion goBack
   Future goBack() => _router.navigate([
-        'CrisesHome', // or '../../Crises',
+        'Crises',
         crisis == null ? {} : {'id': crisis.id.toString()}
       ]);
   // #enddocregion goBack

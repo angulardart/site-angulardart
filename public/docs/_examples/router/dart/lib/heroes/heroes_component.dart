@@ -46,7 +46,7 @@ class HeroesComponent implements OnInit {
   }
 
   // #docregion gotoDetail
-  Future<Null> gotoDetail() => _router.navigate([
+  Future gotoDetail() => _router.navigate([
         'HeroDetail',
         {'id': selectedHero.id.toString()}
       ]);
