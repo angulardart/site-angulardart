@@ -28,7 +28,7 @@ script:
 
 after_script:
   - ./scripts/check-build.sh
-  - ./scripts/check-links.sh
+  - ./scripts/check-links.sh || travis_terminate 1
 
 # branch whitelist
 # branches:

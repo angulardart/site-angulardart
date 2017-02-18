@@ -13,9 +13,14 @@ FBS_PID=$!
 
 sleep 4
 
-linkcheck :4001 --skip-file ./scripts/config/linkcheck-skip-list.txt
-CHECK_EXIT_CODE=$?
+linkcheck :4001 --skip-file ./scripts/config/linkcheck-skip-list.txt \
+  | tee $TMP/linkcheck-log.txt
+
 set +x
+
+if ! grep '^\s*0 errors' $TMP/linkcheck-log.txt | wc -l > /dev/null; then
+  CHECK_EXIT_CODE=1
+fi
 
 kill $FBS_PID
 
