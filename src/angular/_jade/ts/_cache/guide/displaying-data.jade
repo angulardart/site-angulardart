@@ -37,10 +37,10 @@ figure.image-display
 
   Let's build a small illustrative example together.
 
-  Create a new project folder (<ngio-ex path="displaying-data"></ngio-ex>) and follow the steps in the [QuickStart](../quickstart.html).
+  Create a new project folder (`displaying_data`) and follow the steps in the [QuickStart](../quickstart.html).
 
 :marked
-  Then modify the <ngio-ex path="app.component.ts"></ngio-ex> file by 
+  Then modify the `app_component.dart` file by 
   changing the template and the body of the component.
   When we're done, it should look like this:
 
@@ -85,7 +85,7 @@ figure.image-display
 +makeExcerpt('index.html', 'body')
 
 :marked
-  When we bootstrap with the `AppComponent` class (in <ngio-ex path="main.ts"></ngio-ex>), Angular looks for a `<my-app>`
+  When we bootstrap with the `AppComponent` class (in `main.dart`), Angular looks for a `<my-app>`
   in the `index.html`, finds it, instantiates an instance of `AppComponent`, and renders it
   inside the `<my-app>` tag.
 
@@ -188,7 +188,7 @@ figure.image-display
 
   Let's turn our !{_array} of hero names into !{_an} !{_array} of `Hero` objects. For that we'll need a `Hero` class.
 
-  Create a new file in the `!{_appDir}` folder called  <ngio-ex path="hero.ts"></ngio-ex> with the following code:
+  Create a new file in the `!{_appDir}` folder called  `hero.dart` with the following code:
   
 +makeExcerpt('app/hero.ts')
 
@@ -258,7 +258,7 @@ block hero-class
 
 :marked
   Try it out. Because the !{_array} has four items, the message should appear.
-  Go back into <ngio-ex path="app.component.ts"></ngio-ex> and delete or comment out one of the elements from the hero !{_array}.
+  Go back into `app_component.dart` and delete or comment out one of the elements from the hero !{_array}.
   The browser should refresh automatically and the message should disappear.
 
 .l-main-section

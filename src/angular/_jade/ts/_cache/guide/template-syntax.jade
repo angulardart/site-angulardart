@@ -491,8 +491,8 @@ table
     If we must read a target element property or call one of its methods,
     we'll need a different technique.
     See the API reference for
-    [ViewChild](../api/core/index/ViewChild-decorator.html) and
-    [ContentChild](../api/core/index/ContentChild-decorator.html).
+    [ViewChild](/angular/api/angular2.core/ViewChild-class.html) and
+    [ContentChild](/angular/api/angular2.core/ContentChild-class.html).
 
 :marked
   ### Binding target
@@ -778,7 +778,7 @@ block style-property-name-dart-diff
   <a id="custom-event"></a>
   ### Custom events with *EventEmitter*
 
-  Directives typically raise custom events with an Angular [EventEmitter](../api/core/index/EventEmitter-class.html).
+  Directives typically raise custom events with an Angular [EventEmitter](/angular/api/angular2.core/EventEmitter-class.html).
   The directive creates an `EventEmitter` and exposes it as a property.
   The directive calls `EventEmitter.emit(payload)` to fire an event, passing in a message payload, which can be anything.
   Parent directives listen for the event by binding to this property and accessing the payload through the `$event` object.
@@ -935,7 +935,7 @@ a#ngModel
     listens for changes to the element's value.
     
     The details are specific to each kind of element and therefore the `NgModel` directive only works for specific form elements,
-    such as the input text box, that are supported by a [ControlValueAccessor](../api/forms/index/ControlValueAccessor-interface.html).
+    such as the input text box, that are supported by a [ControlValueAccessor](/angular/api/angular2.forms/ControlValueAccessor-class.html).
 
     We can't apply `[(ngModel)]` to a custom component until we write a suitable *value accessor*,
     a technique that is beyond the scope of this chapter.
@@ -1167,7 +1167,7 @@ block dart-no-truthy-falsey
 +makeExample('template-syntax/ts/app/app.component.html', 'NgFor-3')(format=".")
 .l-sub-section
   :marked
-    Learn about other special *index-like* values such as `last`, `even`, and `odd` in the [NgFor API reference](../api/common/index/NgFor-directive.html).
+    Learn about other special *index-like* values such as `last`, `even`, and `odd` in the [NgFor API reference](/angular/api/angular2.common/NgFor-class.html).
 
 :marked
   #### NgForTrackBy

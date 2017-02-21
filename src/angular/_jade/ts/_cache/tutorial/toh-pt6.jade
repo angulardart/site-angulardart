@@ -85,7 +85,7 @@ block http-providers
   shouldn't know about this.  So we'll slip the in-memory web API into the
   configuration *above* the `AppComponent`.</span>
 
-  Here is a version of <span ngio-ex>!{_appModuleTsVsMainTs}</span> that performs this trick:
+  Here is a version of `!{_appModuleTsVsMainTs}` that performs this trick:
 
 +makeExcerpt(_appModuleTsVsMainTs, 'v2')
 
@@ -544,7 +544,7 @@ block observable-transformers
 - var declFile = _docsFor == 'dart' ? 'src/app/dashboard.component.ts' : 'src/app/app.module.ts'
 :marked
   Finally, we import `HeroSearchComponent` from
-  <span ngio-ex>hero-search.component.ts</span>
+  `hero_search_component.dart`
   and add it to the `!{_declarations}` !{_array}:
 
 +makeExcerpt(declFile, 'search')
@@ -615,15 +615,15 @@ block filetree
 
 block file-summary
   +makeTabs(
-    `toh-6/ts/src/app/app.component.ts,
-     toh-6/ts/src/app/app.module.ts,
-     toh-6/ts/src/app/heroes.component.ts,
-     toh-6/ts/src/app/heroes.component.html,
-     toh-6/ts/src/app/heroes.component.css,
-     toh-6/ts/src/app/hero-detail.component.ts,
-     toh-6/ts/src/app/hero-detail.component.html,
-     toh-6/ts/src/app/hero.service.ts,
-     toh-6/ts/src/app/in-memory-data.service.ts`,
+    `toh-6/ts/app/app.component.ts,
+     toh-6/ts/app/app.module.ts,
+     toh-6/ts/app/heroes.component.ts,
+     toh-6/ts/app/heroes.component.html,
+     toh-6/ts/app/heroes.component.css,
+     toh-6/ts/app/hero-detail.component.ts,
+     toh-6/ts/app/hero-detail.component.html,
+     toh-6/ts/app/hero.service.ts,
+     toh-6/ts/app/in-memory-data.service.ts`,
     ',,,,,,,,',
     `app.comp...ts,
      app.mod...ts,
@@ -637,10 +637,10 @@ block file-summary
   )
 
   +makeTabs(
-    `toh-6/ts/src/app/hero-search.service.ts,
-    toh-6/ts/src/app/hero-search.component.ts,
-    toh-6/ts/src/app/hero-search.component.html,
-    toh-6/ts/src/app/hero-search.component.css`,
+    `toh-6/ts/app/hero-search.service.ts,
+    toh-6/ts/app/hero-search.component.ts,
+    toh-6/ts/app/hero-search.component.html,
+    toh-6/ts/app/hero-search.component.css`,
     null,
     `hero-search.service.ts,
     hero-search.component.ts,

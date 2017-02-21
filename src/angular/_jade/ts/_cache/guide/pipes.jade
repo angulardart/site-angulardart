@@ -36,7 +36,7 @@ block includes
 
 :marked
   Inside the interpolation expression we flow the component's `birthday` value through the
-  [pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](../api/common/index/DatePipe-pipe.html)
+  [pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/angular/api/angular2.common/DatePipe-class.html)
   function on the right. All pipes work this way.
 
 .l-sub-section
@@ -56,7 +56,7 @@ block includes
 
 .l-sub-section
   :marked
-    Learn more about these and many other built-in pipes in the [API Reference](../api/#!?apiFilter=pipe);
+    Learn more about these and many other built-in pipes in the [API Reference](../api/#!?query=pipe);
     filter for entries that include the word "pipe".
 
     Angular doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in an [appendix below](#no-filter-pipe).
@@ -103,7 +103,7 @@ figure.image-display
 
 .l-sub-section
   :marked
-    Learn more about the `DatePipes` format options in the [API Docs](../api/common/index/DatePipe-pipe.html).
+    Learn more about the `DatePipe` format options in the [API Docs](/angular/api/angular2.common/DatePipe-class.html).
 
 :marked
   ## Chaining pipes
@@ -295,7 +295,7 @@ block pure-change
   Angular ignores changes *within* (composite) objects.
   It won't call a pure pipe if we change an input month, add to an input #{_array}, or update an input object property.
 
-  This may seem restrictive but is is also fast.
+  This may seem restrictive but it is also fast.
   An object reference check is fast &mdash; much faster than a deep check for
   differences &mdash; so Angular can quickly determine if it can skip both the
   pipe execution and a view update.
@@ -408,7 +408,7 @@ figure.image-display
 .callout.is-helpful
   header Debugging with the json pipe
   :marked
-    The [JsonPipe](../api/common/index/JsonPipe-pipe.html)
+    The [JsonPipe](/angular/api/angular2.common/JsonPipe-class.html)
     provides an easy way to diagnosis a mysteriously failing data binding or
     inspect an object for future binding.
 
@@ -437,7 +437,7 @@ a#pure-pipe-pure-fn
   into our templates expressions to enrich the appeal and usability
   of our views.
 
-  Explore Angular's inventory of built-in pipes in the [API Reference](../api/#!?apiFilter=pipe).
+  Explore Angular's inventory of built-in pipes in the [API Reference](../api/#!?query=pipe).
   Try writing a custom pipe and perhaps contributing it to the community.
 
 a(id="no-filter-pipe")
@@ -447,9 +447,9 @@ a(id="no-filter-pipe")
 
   Angular does not ship with pipes for filtering or sorting lists.
   Developers familiar with Angular 1 know these as `filter` and `orderBy`.
-  There are no equivalents in Angular 2.
+  There are no equivalents in Angular.
 
-  This is not an oversight. Angular 2 is unlikely to offer such pipes because
+  This is not an oversight. Angular is unlikely to offer such pipes because
   (a) they perform poorly and (b) they prevent aggressive minification.
   Both `filter` and `orderBy` require parameters that reference object properties.
   We learned earlier that such pipes must be  [*impure*](#pure-and-impure-pipes) and that

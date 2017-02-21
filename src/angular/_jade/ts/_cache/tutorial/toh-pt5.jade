@@ -110,7 +110,7 @@ block keep-app-running
   and create a new `AppComponent` shell separately.
 
   The steps are to rename:
-  * <span ngio-ex>app.component.ts</span> file to <span ngio-ex>heroes.component.ts</span>
+  * `app_component.dart` file to `heroes_component.dart`
   * `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file)
   * Selector `my-app` to `my-heroes`
 
@@ -124,7 +124,7 @@ block keep-app-running
 
   The initial steps are:
 
-  * Create the file <span ngio-ex>src/app/app.component.ts</span>.
+  * Create the file `lib/app_component.dart`.
   * Define an <span if-docs="ts">exported</span> `AppComponent` class.
   * Add an `@Component` !{_decorator} above the class with a `my-app` selector.
   * Move the following from `HeroesComponent` to `AppComponent`:
@@ -140,10 +140,10 @@ block keep-app-running
 
 block app-comp-v1
   +makeTabs(
-    `toh-5/ts/src/app/app.component.1.ts,
-    toh-5/ts/src/app/app.module.1.ts`,
+    `toh-5/ts/app/app.component.1.ts,
+    toh-5/ts/app/app.module.1.ts`,
     ',',
-    `src/app/app.component.ts (v1),
+    `app/app.component.ts (v1),
     src/app/app.module.ts (v1)`)
 
 :marked
@@ -388,7 +388,7 @@ block templateUrl-path-resolution
 
   ### Get heroes
 
-  Open <span ngio-ex>dashboard.component.ts</span> and add the requisite `import` statements.
+  Open `dashboard_component.dart` and add the requisite `import` statements.
 
 +makeExcerpt('app/dashboard.component.ts','imports')
 
@@ -592,7 +592,7 @@ block extract-id
 :marked
   Modifying the template to add this button spurs us to take one more
   incremental improvement and migrate the template to its own file,
-  called <span ngio-ex>hero-detail.component.html</span>:
+  called `hero_detail_component.html`:
 
 +makeExample('app/hero-detail.component.html')
 
@@ -614,7 +614,7 @@ block extract-id
   When hovering over a hero block, the target URL should display in the browser status bar 
   and the user should be able to copy the link or open the hero detail view in a new tab.
 
-  To achieve this effect, reopen the `dashboard.component.html` and replace the repeated `<div *ngFor...>` tags
+  To achieve this effect, reopen the `dashboard_component.html` and replace the repeated `<div *ngFor...>` tags
   with `<a>` tags. The opening `<a>` tag looks like this:
 
 +makeExample('app/dashboard.component.html', 'click', 'app/dashboard.component.html (repeated <a> tag)')
@@ -690,9 +690,9 @@ block extract-id
 
     Here is the revised `AppModule`, compared to its pre-refactor state:
   +makeTabs(
-    `toh-5/ts/src/app/app.module.ts, toh-5/ts/src/app/app.module.3.ts`,
+    `toh-5/ts/app/app.module.ts, toh-5/ts/app/app.module.3.ts`,
      null,
-    `src/app/app.module.ts (after), src/app/app.module.ts (before)`)
+    `app/app.module.ts (after), app/app.module.ts (before)`)
   :marked
     It's simpler and focused on identifying the key pieces of the application.
 
@@ -762,8 +762,8 @@ figure.image-display
 
   Let's migrate the template and the styles to their own files before we make any more changes:
 
-  1. *Cut-and-paste* the template contents into a new <span ngio-ex>heroes.component.html</span> file.
-  1. *Cut-and-paste* the styles contents into a new <span ngio-ex>heroes.component.css</span> file.
+  1. *Cut-and-paste* the template contents into a new `heroes_component.html` file.
+  1. *Cut-and-paste* the styles contents into a new `heroes_component.css` file.
   1. *Set* the component metadata's `templateUrl` and `styleUrls` properties to refer to both files.
   <li if-docs="ts">. *Set* the `moduleId` property to `module.id` so that `templateUrl` and `styleUrls` are relative to the component.</li>
 
@@ -825,7 +825,7 @@ block heroes-component-cleanup
   they'll completely obscure the component logic.
   Let's not do that. It's easier to edit CSS in a separate `*.css` file anyway.
 
-  Add a <span ngio-ex>dashboard.component.css</span> file to the `!{_appDir}` folder and reference
+  Add a `dashboard_component.css` file to the `!{_appDir}` folder and reference
   that file in the component metadata's `styleUrls` !{_array} property like this:
 
 +makeExcerpt('app/dashboard.component.ts (styleUrls)', 'css')
@@ -835,7 +835,7 @@ block heroes-component-cleanup
 
   The designers also gave us CSS styles specifically for the `HeroDetailComponent`.
 
-  Add a <span ngio-ex>hero-detail.component.css</span> to the `!{_appDir}`
+  Add a `hero_detail_component.css` to the `!{_appDir}`
   folder and refer to that file inside
   the `styleUrls` !{_array} as we did for `DashboardComponent`.
   Let's also remove the `hero` property `@Input` !{_decorator}
@@ -846,10 +846,10 @@ block heroes-component-cleanup
 
 block css-files
   +makeTabs(
-    `toh-5/ts/src/app/hero-detail.component.css,
-    toh-5/ts/src/app/dashboard.component.css`,
+    `toh-5/ts/app/hero-detail.component.css,
+    toh-5/ts/app/dashboard.component.css`,
     null,
-    `src/app/hero-detail.component.css,
+    `app/hero-detail.component.css,
     src/app/dashboard.component.css`)
 
 :marked
@@ -858,7 +858,7 @@ block css-files
   The designers gave us CSS to make the navigation links in our `AppComponent` look more like selectable buttons.
   We cooperated by surrounding those links in `<nav>` tags.
 
-  Add a <span ngio-ex>app.component.css</span> file to the `!{_appDir}` folder with the following content.
+  Add a `app_component.css` file to the `!{_appDir}` folder with the following content.
 
 +makeExcerpt('app/app.component.css (navigation styles)', '')
 
@@ -899,10 +899,10 @@ block style-urls
 - var styles_css = 'https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css'
 
 :marked
-  Create the file <span ngio-ex>styles.css</span>, if it doesn't exist already.
+  Create the file `web/styles.css`, if it doesn't exist already.
   Ensure that it contains the [master styles given here](!{styles_css}).
 
-  If necessary, also edit <span ngio-ex>index.html</span> to refer to this stylesheet.
+  If necessary, also edit `web/index.html` to refer to this stylesheet.
 
 +makeExcerpt('index.html (link ref)', 'css')
 

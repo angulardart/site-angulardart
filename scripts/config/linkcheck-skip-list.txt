@@ -40,7 +40,3 @@
 # API entry page URLs back into docs are wrong
 # https://github.com/dart-lang/site-webdev/issues/273
 /angular/api/(docs|examples)/
-
-# Some doc pages still refer to TS API entries
-# https://github.com/dart-lang/site-webdev/issues/274
-/angular/api/.*/index/

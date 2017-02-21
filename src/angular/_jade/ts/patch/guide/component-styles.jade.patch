@@ -1,0 +1,136 @@
+diff --git a/./src/angular/_jade/ts/latest/guide/component-styles.jade b/./src/angular/guide/component-styles.jade
+index 7bd43a3..a77efca 100644
+--- a/./src/angular/_jade/ts/latest/guide/component-styles.jade
++++ b/./src/angular/guide/component-styles.jade
+@@ -1,5 +1,21 @@
+-block includes
+-  //- include ../_util-fns
++---
++layout: angular
++title: Component Styles
++description: Learn how to apply CSS styles to components.
++sideNavGroup: advanced
++prevpage:
++  title: Attribute Directives
++  url: /angular/guide/attribute-directives
++nextpage:
++  title: Hierarchical Dependency Injectors
++  url: /angular/guide/hierarchical-dependency-injection
++---
++//- FilePath: src/angular/guide/component-styles.jade
++
++- var _example = 'component-styles';
++include ../_util-fns
++
++//- TODO: consider adding material equivalent to TS Appendices 1 & 2 if relevant.
+ 
+ :marked
+   Angular applications are styled with regular CSS. That means we can apply
+@@ -10,15 +26,6 @@ block includes
+   with our components enabling a more modular design than regular stylesheets.
+   
+   In this chapter we learn how to load and apply these *component styles*.
+-  
+-  ## Table Of Contents
+-
+-  * [Using Component Styles](#using-component-styles)
+-  * [Special selectors](#special-selectors)
+-  * [Loading Styles into Components](#loading-styles)
+-  * [Controlling View Encapsulation: Emulated, Native, and None](#view-encapsulation)
+-  * [Appendix 1: Inspecting the generated runtime component styles](#inspect-generated-css)
+-  * [Appendix 2: Loading Styles with Relative URLs](#relative-urls)
+ 
+   Run the <live-example></live-example> of the code shown in this chapter.
+ 
+@@ -53,7 +60,7 @@ block includes
+      
+   1. Our component's styles *cannot* be changed by changes to styles elsewhere in the application.
+      
+-  1. We can co-locate the CSS code of each component with the TypeScript and HTML code of the component,
++  1. We can co-locate the CSS code of each component with the Dart and HTML code of the component,
+      which leads to a neat and tidy project structure.
+      
+   1. We can change or remove component CSS code in the future without trawling through the
+@@ -160,30 +167,11 @@ a(id='loading-styles')
+   
+ +makeExample('component-styles/ts/app/hero-details.component.ts', 'styleurls')
+ 
+-block style-url
+-  .alert.is-important
+-    :marked
+-      The URL is ***relative to the application root*** which is usually the
+-      location of the `index.html` web page that hosts the application. 
+-      The style file URL is *not* relative to the component file.
+-      That's why the example URL begins `app/`.
+-      See [Appendix 2](#relative-urls) to specify a URL relative to the 
+-      component file.
+-
+-block module-bundlers
+-  .l-sub-section
+-    :marked
+-      Users of module bundlers like Webpack may also use the `styles` attribute
+-      to load styles from external files at build time. They could write:
+-
+-      `styles: [require('my.component.css')]`
++:marked
++  Note that the URLs in `styleUrls` are relative to the component.
+ 
+-      We set the `styles` property, **not** `styleUrls` property! The module 
+-      bundler is loading the CSS strings, not Angular. 
+-      Angular only sees the CSS strings *after* the bundler loads them. 
+-      To Angular it is as if we wrote the `styles` array by hand. 
+-      Refer to the module bundler's documentation for information on 
+-      loading CSS in this manner.
++//- TODO: determine if an equivalent of the TS "module bundlers"
++//- material is relevant for Dart.
+   
+ :marked
+   ### Template Link Tags
+@@ -201,9 +189,14 @@ block module-bundlers
+   We can also import CSS files into our CSS files by using the standard CSS
+   [`@import` rule](https://developer.mozilla.org/en/docs/Web/CSS/@import).
+   
+-block css-import-url
++  In *this* case the URL is relative to the CSS file into which we are importing.
++
++.alert.is-important
+   :marked
+-    In *this* case the URL is relative to the CSS file into which we are importing.
++    URLs are currently not interpreted in this way, see 
++    [issue 8518](https://github.com/angular/angular/issues/8518).
++    Until this issue is fixed, absolute package-reference style URLs must 
++    be given, as illustrated below.
+   
+ +makeExample('component-styles/ts/app/hero-details.component.css', 'import', 'app/hero-details.component.css (excerpt)')
+ 
+@@ -298,22 +291,19 @@ a#relative-urls
+   ## Appendix 2: Loading Styles with Relative URLs
+   
+   It's common practice to split a component's code, HTML, and CSS into three separate files in the same directory:
+-code-example(format="nocode").
+-  quest-summary.component.ts
+-  quest-summary.component.html
+-  quest-summary.component.css
++  
++code-example(format='').
++  quest_summary_component.dart
++  quest_summary_component.html
++  quest_summary_component.css
+ 
+ :marked
+   We include the template and CSS files by setting the `templateUrl` and `styleUrls` metadata properties respectively.
+   Because these files are co-located with the component,
+   it would be nice to refer to them by name without also having to specify a path back to the root of the application.
+ 
+-block module-id
+-  :marked
+-    We can change the way Angular calculates the full URL be setting the component metadata's `moduleId` property to `module.id`.
+-
+-  +makeExample('app/quest-summary.component.ts')
++  Thankfully, this is the default interpretation of relative URLs in 
++  AngularDart:
+ 
+-  :marked
+-    Learn more about `moduleId` in the [Component-Relative Paths](../cookbook/component-relative-paths.html) chapter.
+++makeExcerpt('app/quest-summary.component.ts', 'urls', '')
+ 

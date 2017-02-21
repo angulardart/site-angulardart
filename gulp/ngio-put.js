@@ -10,7 +10,12 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
   const dartLatest = path.join(config.angulario, 'public/docs/dart/latest');
 
-  gulp.task('put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes', '_put-examples'], cb => {
+  gulp.task('put-ngio-files', () => {
+    plugins.gutil.log(`This task is deprecated since sync is one-way as of 2017/02/20.`);
+    plugins.gutil.log(`If you still want to use the old task it is: _put-ngio-files.`);
+  });
+
+  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes', '_put-examples'], cb => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);

@@ -7,6 +7,8 @@
 
 module.exports = function (gulp, plugins, config) {
 
+  const NgIoUtil = require('../src/resources/js/util.js').NgIoUtil;
+
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const fs = plugins.fs;
@@ -25,7 +27,9 @@ module.exports = function (gulp, plugins, config) {
     return Q.all(
       // Remove <br clear> from selected .jade files
       cp.exec(`perl -pi -e 's/<(br class="l-clear-left")>/<!-- $1 -->/' src/angular/_jade/ts/_cache/guide/learning-angular.jade`),
-      cp.exec(`perl -pi -e 's/<(br class="l-clear-both")>/<!-- $1 -->/' src/angular/_jade/ts/_cache/guide/lifecycle-hooks.jade`)
+      cp.exec(`perl -pi -e 's/<(br class="l-clear-left")>/<!-- $1 -->/' src/angular/_jade/ts/latest/guide/learning-angular.jade`),
+      cp.exec(`perl -pi -e 's/<(br class="l-clear-both")>/<!-- $1 -->/' src/angular/_jade/ts/_cache/guide/lifecycle-hooks.jade`),
+      cp.exec(`perl -pi -e 's/<(br class="l-clear-both")>/<!-- $1 -->/' src/angular/_jade/ts/latest/guide/lifecycle-hooks.jade`)
     );
   });
 
@@ -36,13 +40,71 @@ module.exports = function (gulp, plugins, config) {
     return `+${mixinName}('${args}'`;
   }
 
-  gulp.task('_get-ts-jade', cb => {
+  function tsApiHrefToDart(match, hrefPrefix, urlDotdotSlashApiDontCare, dontcare2, urlRest) {
+    // Simple argument values:
+    // hrefPrefix: href=" or ](
+    // urlRest: core/index/ViewChild-var.html" or it might end in )
+    // console.log(`got match on ${match}, 1: ${hrefPrefix}, 3: ${urlRest}`);
+    var matches = urlRest.match(/^(\w*)\/index\/(\w*)-(\w*)(\.html['"\)])$/);
+    // console.log(`  >> urlRest matches ${matches}`);
+    if (!matches) return match; // leave unchanged
+    var i = 1; // matches[0] corresponds to the fully matched result
+    var libName = matches[i++];
+    if (libName == 'http') return match; // leave unchanged since ngDart doesn't have an HTTP library.
+    var apiPageEntryName = matches[i++];
+    var apiEntryKind = matches[i++];
+    var suffix = matches[i++];
+    return hrefPrefix + '/angular/api/angular2.' + libName + '/' + apiPageEntryName + '-class' + suffix;
+  }
+
+  function ngioExPath(match, path) {
+    return '`' + NgIoUtil.adjustTsExamplePathForDart(path) + '`';
+  }
+
+  gulp.task('_get-ts-jade', cb => _getTsJade('latest'));
+  // TODO: drop this next task. We'll stop syncing the cache very soon.
+  gulp.task('_get-ts-jade-cache', cb => _getTsJade('_cache'));
+  
+  function _getTsJade(dirName) {
     const baseDir = path.join(angulario, 'public/docs');
     return gulp.src([
-      `${baseDir}/ts/_cache/**/*.jade`,
+      // Was: `${baseDir}/ts/${dirName}/**/*.jade`; given that we now might be fetching
+      // from `ts/latest`, we need to select individual files:
+      `${baseDir}/ts/${dirName}/guide/architecture.jade`,
+      `${baseDir}/ts/${dirName}/guide/attribute-directives.jade`,
+      `${baseDir}/ts/${dirName}/guide/dependency-injection.jade`,
+      `${baseDir}/ts/${dirName}/guide/displaying-data.jade`,
+      `${baseDir}/ts/${dirName}/guide/hierarchical-dependency-injection.jade`,
+      `${baseDir}/ts/${dirName}/guide/index.jade`,
+      `${baseDir}/ts/${dirName}/guide/lifecycle-hooks.jade`,
+      `${baseDir}/ts/${dirName}/guide/security.jade`,
+      `${baseDir}/ts/${dirName}/guide/server-communication.jade`,
+      // `${baseDir}/ts/${dirName}/quickstart.jade`,
+      // `${baseDir}/ts/${dirName}/_quickstart_repo.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/index.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt5.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt6.jade`,
+      // These files are no longer Jade extended but we still sync them for diffs.
+      `${baseDir}/ts/${dirName}/glossary.jade`,
+      `${baseDir}/ts/${dirName}/guide/component-styles.jade`,
+      `${baseDir}/ts/${dirName}/guide/learning-angular.jade`,
+      `${baseDir}/ts/${dirName}/guide/pipes.jade`,
+      `${baseDir}/ts/${dirName}/guide/structural-directives.jade`,
+      `${baseDir}/ts/${dirName}/guide/template-syntax.jade`,
     ], { base: baseDir })
       // 2017-02: TS sources moved into `src` subfolder:
       .pipe(replace(/\+(makeExample|makeExcerpt)\(\'(.+)'/g, makeExampleRemoveSrcPath))
+      // Catch remaining occurrences of `src`:
+      .pipe(replace(/\/ts\/src\//g, '/ts/'))
+      .pipe(replace(/(`|, )src\/(app\/)/g, '$1$2'))
+      // Fix links to API entries from within markdown links, e.g. `href="..."` or `[DatePipe](...)` or var x = '...':
+      .pipe(replace(/(href="|\]\(|= ')((\.?\.\/)*api\/)([^'"\)]*['"\)])/g, tsApiHrefToDart))
+      // AngularJS --> Angular 1
+      .pipe(replace(/AngularJS/g, 'Angular 1'))
+      // Convert ngio-ex paths:
+      .pipe(replace(/<ngio-ex path="([^"]+)"><\/ngio-ex>/g, ngioExPath))
+      .pipe(replace(/<span ngio-ex>([^<]+)<\/span>/g, ngioExPath))
+
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
       // General patch
@@ -59,7 +121,7 @@ module.exports = function (gulp, plugins, config) {
       // Patch glossary
       .pipe(replace("var docsLatest='/' + current.path.slice(0,3).join('/');", "var docsLatest='/angular';"))
       .pipe(gulp.dest('src/angular/_jade'));
-  });
+  }
 
   gulp.task('_get-extra-dart', () => {
     const baseDir = path.join(angulario, 'public/docs/dart/latest');
@@ -250,6 +312,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
       // Patch resources/js/util.js
       .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
+      .pipe(replace(/} \(\)\);/, '$&\n\nmodule.exports.NgIoUtil = NgIoUtil;'))
       .pipe(replace(/folder = folder/, `folder = folder\n${stripSrc}`))
       .pipe(gulp.dest('src'));
   });

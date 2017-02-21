@@ -306,7 +306,7 @@ figure.image-display
   Angular ignores changes *within* (composite) objects.
   It won't call a pure pipe if we change an input month, add to an input #{_array}, or update an input object property.
 
-  This may seem restrictive but is is also fast.
+  This may seem restrictive but it is also fast.
   An object reference check is fast &mdash; much faster than a deep check for
   differences &mdash; so Angular can quickly determine if it can skip both the
   pipe execution and a view update.
@@ -458,9 +458,9 @@ a(id="no-filter-pipe")
 
   Angular does not ship with pipes for filtering or sorting lists.
   Developers familiar with Angular 1 know these as `filter` and `orderBy`.
-  There are no equivalents in Angular 2.
+  There are no equivalents in Angular.
 
-  This is not an oversight. Angular 2 is unlikely to offer such pipes because
+  This is not an oversight. Angular is unlikely to offer such pipes because
   (a) they perform poorly and (b) they prevent aggressive minification.
   Both `filter` and `orderBy` require parameters that reference object properties.
   We learned earlier that such pipes must be  [*impure*](#pure-and-impure-pipes) and that

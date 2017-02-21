@@ -87,3 +87,5 @@ var NgIoUtil = (function () {
 
     return NgIoUtil;
 } ());
+
+module.exports.NgIoUtil = NgIoUtil;

@@ -1,0 +1,61 @@
+diff --git a/./src/angular/_jade/ts/latest/guide/pipes.jade b/./src/angular/guide/pipes.jade
+index becf884..7ba56a6 100644
+--- a/./src/angular/_jade/ts/latest/guide/pipes.jade
++++ b/./src/angular/guide/pipes.jade
+@@ -1,5 +1,19 @@
+-block includes
+-  //- include ../_util-fns
++---
++layout: angular
++title: Pipes
++description: Pipes transform displayed values within a template.
++sideNavGroup: advanced
++prevpage:
++  title: Lifecycle Hooks
++  url: /angular/guide/lifecycle-hooks
++nextpage:
++  title: Router
++  url: /angular/guide/router
++---
++//- FilePath: src/angular/guide/pipes.jade
++
++- var _example = 'pipes';
++include ../_util-fns
+ 
+ :marked
+   Every application starts out with what seems like a simple task: get data, transform them, and show them to users.
+@@ -145,7 +159,7 @@ figure.image-display
+   `@Pipe` #{_decorator} which we import from the core Angular library.
+ 
+   * The `@Pipe` #{_decorator} allows us to define the
+-     pipe name that we'll use within template expressions. It must be a valid JavaScript identifier.
++     pipe name that we'll use within template expressions. It must be a valid Dart identifier.
+      Our pipe's name is `exponentialStrength`.
+ 
+ .l-sub-section
+@@ -198,7 +212,7 @@ a#change-detection
+ :marked
+   ## Pipes and Change Detection
+ 
+-  Angular looks for changes to data-bound values through a *change detection* process that runs after every JavaScript event:
++  Angular looks for changes to data-bound values through a *change detection* process that runs after every DOM event:
+   every keystroke, mouse move, timer tick, and server response. This could be expensive.
+   Angular strives to lower the cost whenever possible and appropriate.
+ 
+@@ -285,13 +299,10 @@ figure.image-display
+ 
+   ### Pure pipes
+ 
+-block pure-change
+-  :marked
+-    Angular executes a *pure pipe* only when it detects a *pure change* to the input value.
+-    A ***pure change*** is *either* a change to a primitive input value (`String`, `Number`, `Boolean`, `Symbol`)
+-    *or* a changed object reference (`Date`, `Array`, `Function`, `Object`).
++  Angular executes a *pure pipe* only when it detects a *pure change* to the input value.
++  In AngularDart, a *pure change* results only from a change in object reference 
++  (given that [everything is an object in Dart](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#important-concepts)).
+ 
+-:marked
+   Angular ignores changes *within* (composite) objects.
+   It won't call a pure pipe if we change an input month, add to an input #{_array}, or update an input object property.
+ 
