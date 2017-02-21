@@ -75,14 +75,18 @@ change the name of the project from `untitled` to `pirate_badge`.
 <li markdown="1">Make sure that **Generate sample content** is checked.
 </li>
 
-<li markdown="1">Select **Angular QuickStart Example** from the list.
+<li markdown="1">Select **Simple Angular Example** from the list.
 
 The form should look similar to the following:
 
-<img style="border:1px solid black" src="images/create-ng2-project.png" alt="A screenshot of the Welcome to WebStorm screen, with the specified selections">
+<img src="images/create-ng2-project.png" alt="A screenshot of the Welcome to WebStorm screen, with the specified selections">
 </li>
 
 <li markdown="1">Click **Create**.
+</li>
+
+<li markdown="1">Double-click **pubspec.yaml** to open the file,
+and then click **Get dependencies**.
 </li>
 </ol>
 
@@ -118,7 +122,7 @@ mkdir pirate_badge
 {% prettify none %}
 cd pirate_badge
 pub global activate stagehand
-stagehand web-angular-quickstart
+stagehand web-angular-simple
 {% endprettify %}
 
 </li>
@@ -332,13 +336,14 @@ main() {
 <!DOCTYPE html>
 <html>
   <head>
+    ...
     <title>Hello Angular</title>
     ...
     <script defer src="main.dart" type="application/dart"></script>
     <script defer src="packages/browser/dart.js"></script>
   </head>
   <body>
-    <my-app>Loading AppComponent content here ...</my-app>
+    <my-app>Loading...</my-app>
   </body>
 </html>
 {% endprettify %}
