@@ -65,7 +65,7 @@ include /_jade/_util-fns
 -   var title = _title.trim();
 -   // Assume title is a path if it ends with an extension like '.foo',
 -   // optionally followed by some comment in parentheses.
--   var matches = title.match(/(.*\.\w+)($|\s*\([\w ]+\)$)/);
+-   var matches = title.match(/(.*\.\w+)($|\s*\([^\)]+\)$)/);
 -   if(matches && matches.length == 3) {
 -     // e.g. matches == ['abc.ts (excerpt)', 'abc.ts', ' (excerpt)']
 -     var path = adjustTsExamplePathForDart(matches[1]);
