@@ -205,7 +205,7 @@ Get familiar with the structure of a basic Angular app.
 
 <div class="trydart-step-details" markdown="1">
 In the **Project** view, on the left, expand the `pirate_badge` folder.
-Then expand the `lib` and `web` folders to see the following:
+Then expand the `lib` and `web` folders to see something like the following:
 
 <img style="border:1px solid black" src="images/project-files.png" alt="The list of autocreated files.">
 </div>
