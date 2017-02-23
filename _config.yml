@@ -80,9 +80,9 @@ defaults:
 
 custom:
   angular:
-    stable-version: "2.2"
-    stable-version-full: "2.2.0"
-    dev-version: "3.0.0-alpha"
+    stable-version: "3.0"
+    stable-version-full: "3.0.0"
+    dev-version: "(none yet)"
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"
