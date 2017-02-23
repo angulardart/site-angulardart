@@ -2,19 +2,27 @@
 <html>
   <!-- #docregion head, base-href -->
   <head>
-    <!-- For testing using pub serve directly use: -->
-    <base href="/">
-    <!-- For testing in WebStorm use: -->
-    <!-- base href="/dart/web/" -->
+    <script>
+        // WARNING: DO NOT set the <base href> like this in production!
+        // Details: https://webdev.dartlang.org/angular/guide/router
+        (function () {
+            // App being served out of web folder (like WebStorm does)?
+            var match = document.location.pathname.match(/^\/[_\w]+\/web\//);
+            var href = match ? match[0] : '/';
+            document.write('<base href="' + href + '" />');
+        }());
+    </script>
     <!-- #enddocregion base-href -->
-    <title>Angular Tour of Heroes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Angular Tour of Heroes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- #enddocregion head -->
     <!-- #docregion css -->
     <link rel="stylesheet" href="styles.css">
     <!-- #enddocregion css -->
     <!-- #docregion head -->
+
     <script defer src="main.dart" type="application/dart"></script>
     <script defer src="packages/browser/dart.js"></script>
   </head>

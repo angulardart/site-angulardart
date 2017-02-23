@@ -68,7 +68,7 @@ const plugins = {
   gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
 };
 
-const extraTasks = 'api api-list cheatsheet dartdoc examples example-frag ngio-get ngio-put sass';
+const extraTasks = 'api api-list cheatsheet dartdoc examples example-frag ngio-get ngio-put sass update-web-simple';
 extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
@@ -77,9 +77,13 @@ extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, c
 
 // Task: build
 // Options:
-// --fast  skips generation of dartdocs if they already exist
-gulp.task('build', ['create-example-fragments', 'dartdoc', 'build-api-list-json', 
-    'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
+//   --fast  skips generation of dartdocs if they already exist
+//
+// Ideally, we'd want to ensure that update-web-simple completes before the other
+// tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
+// a problem. We can always fix the dependencies once gulp 4.x is out.
+gulp.task('build', ['update-web-simple', 'create-example-fragments', 'dartdoc',
+    'build-api-list-json', 'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
   // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
   // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
   // and just delete the file:

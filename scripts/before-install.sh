@@ -13,6 +13,10 @@ travis_fold start before_install.linkcheck
 (set -x; pub global activate linkcheck)
 travis_fold end before_install.linkcheck
 
+travis_fold start before_install.stagehand
+(set -x; pub global activate stagehand)
+travis_fold end before_install.stagehand
+
 travis_fold start before_install.dartdoc
 echo "Use git repo version of dartdoc until most recent changes have made it into the SDK."
 echo "Also see dartdoc command usage in gulp/dartdoc.js."

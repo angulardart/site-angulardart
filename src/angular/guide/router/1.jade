@@ -36,18 +36,18 @@ a#base-href
 
   The router uses the browser's
   [history.pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)
-  for navigation. Thanks to `pushState`, you can make in-app URL paths look the way you want them to
-  look, e.g. `localhost:3000/crisis-center`. The in-app URLs can be indistinguishable from server URLs.
+  for navigation. Thanks to `pushState`, you can make in-app URLs indistinguishable from server URLs,
+  for example `localhost:3000/crisis-center`. 
 
   Modern HTML 5 browsers were the first to support `pushState` which is why many people refer to these URLs as
   "HTML 5 style" URLs.
 
 .l-sub-section
   :marked
-    HTML 5 style navigation is the router default.
-    In the [Browser URL Styles](appendices#browser-url-styles) Appendix, 
+    HTML 5 style is the router default.
+    See the Appendix on [LocationStrategy and browser URL styles](appendices#browser-url-styles) to
     learn why HTML 5 style is preferred, how to adjust its behavior, and how to switch to the
-    older hash (#) style, if necessary.
+    older hash (#) style, when necessary.
 
 :marked
   You must add a [&lt;base href> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
@@ -55,21 +55,31 @@ a#base-href
   The browser uses the base `href` value to prefix *relative* URLs when referencing
   CSS files, scripts, and images.
 
-  Add the base element just after the  `<head>` tag as shown here.
+  The [starter app](/angular/tutorial/toh-pt0) sets the `<base>` element dynamically,
+  so that sample apps built from it can be **run and tested during development** using any 
+  of the [**officially recommended tools**](/angular/guide/setup#running-the-app):
 
 +makeExcerpt('index.html', 'base-href')
 
-//- .callout.is-important
-  header Live example note
-  :marked
-    A live coding environment like Plunker sets the application base address dynamically so you can't specify a fixed address.
-    That's why the example code replaces the `<base href...>` with a script that writes the `<base>` tag on the fly.
+:marked
+  For a **production** build, **replace the `<script>`** with a
+  `<base>` element where the `href` is set to your application's root path.
+  If the path is empty, then use:
 
-  code-example(language="html").
-    &lt;script>document.write('&lt;base href="' + document.location + '" />');&lt;/script>
+code-example(language="html").
+  &lt;head>
+    &lt;base href="/">
+    ...
+  &lt;/head>
 
-  :marked
-    You should only need this trick for the live example, not production code.
+:marked
+  You can also statically set the `<base href>` during development.
+  When running `pub serve` from the command line, use `href="/"`.
+  When running apps from WebStorm, use <code>href="<em>my_project</em>/web/"</code>, 
+  where <em>my_project</em> is the name of your project.
+
+code-example(language="html").
+  &lt;base href="/my_project/web/">
 
 a#import
 :marked
