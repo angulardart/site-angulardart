@@ -9,7 +9,7 @@ cache:
 env:
   global:
   - JEKYLL_ENV=production
-  - LATEST_RELEASE=2.2.0
+  - LATEST_RELEASE=3.0.0-alpha
 
 before_install:
   - source ./scripts/env-set.sh
@@ -38,7 +38,7 @@ after_script:
 
 deploy:
   - provider: script
-    script: ./scripts/deploy/deploy-firebase.sh
+    script: ./scripts/deploy/deploy-firebase-dev.sh
     skip_cleanup: true
     on:
       branch: master
