@@ -6,8 +6,9 @@
     {% for child in link.children %}
       {% capture dropdown %}{{ child.children | size }}{% endcapture %}
       {% if dropdown == '0' %}
-        {% capture page_without_index %}{{ page.url | regex_replace: '/index|/$' }}{% endcapture %}
-        <li {% if page_without_index == child.permalink %}class="active"{% endif %}>
+        {% capture startsWithChildLink %}^{{ child.permalink }}{% endcapture %}
+        {% capture p %}{{ page.url | regex_replace: startsWithChildLink }}{% endcapture %}
+        <li {% if page.url != p %}class="active"{% endif %}>
           <a href="{{ child.permalink }}" title="{{ child.title }}">{{ child.title }}</a>
         </li>
       {% else %}
