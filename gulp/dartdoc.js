@@ -12,7 +12,6 @@ module.exports = function(gulp, plugins, config) {
      `angular2.common
       angular2.compiler
       angular2.core
-      angular2.instrumentation
       angular2.platform.browser
       angular2.platform.browser_static
       angular2.platform.common
