@@ -59,6 +59,4 @@ using files under the
 [public/docs/_examples](https://github.com/dart-lang/site-webdev/tree/master/public/docs/_examples)
 directory.
 
-We intend to create 3.0 versions of all the examples,
-placing them in a branch of the dart-lang/site-webdev repo.
-Once 3.0 is stable, we'll update the example repos.
+We are currently converting the examples from 2.2 to 3.0.
