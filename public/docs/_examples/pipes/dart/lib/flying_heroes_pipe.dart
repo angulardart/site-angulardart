@@ -3,7 +3,7 @@
 import 'package:angular2/angular2.dart';
 import 'heroes.dart';
 
-@Pipe(name: 'flyingHeroes')
+@Pipe('flyingHeroes')
 class FlyingHeroesPipe extends PipeTransform {
   // #docregion filter
   List<Hero> transform(List<Hero> value) =>
@@ -14,6 +14,6 @@ class FlyingHeroesPipe extends PipeTransform {
 
 // Identical except for the pure flag
 // #docregion impure, pipe-decorator
-@Pipe(name: 'flyingHeroes', pure: false)
+@Pipe('flyingHeroes', pure: false)
 // #enddocregion pipe-decorator
 class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}

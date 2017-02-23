@@ -32,7 +32,7 @@ class MyCounterComponent implements OnChanges {
     // A change to `counter` is the only change we care about
     SimpleChange chng = changes['counter'];
     var cur = chng.currentValue;
-    var prev = chng.isFirstChange() ? "{}" : chng.previousValue;
+    var prev = chng.previousValue == null ? "{}" : chng.previousValue;
     changeLog.add('counter: currentValue = $cur, previousValue = $prev');
   }
 }
