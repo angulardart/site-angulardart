@@ -28,7 +28,7 @@ script:
   - gulp build
 
 after_script:
-  - ./scripts/check-build.sh
+  - ./scripts/check-build.sh || travis_terminate 1
   - ./scripts/check-links.sh || travis_terminate 1
 
 # branch whitelist
