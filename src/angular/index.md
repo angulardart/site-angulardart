@@ -24,7 +24,11 @@ mission-critical apps that bring in much of Google’s revenue.
 
 <div class="row">
 <div class="col-md-6" markdown="1">
-## News
+<h2>
+  News
+  &nbsp;
+  <a href="https://twitter.com/AngularDart" class="twitter-follow-button no-automatic-external"><i></i> <span>Follow @AngularDart</span></a>
+</h2>
 
 Angular news from
 [news.dartlang.org](http://news.dartlang.org/){: .no-automatic-external}:
