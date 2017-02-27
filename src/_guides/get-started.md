@@ -149,21 +149,20 @@ class AppComponent {
 
 <li markdown="1">
   Edit the corresponding template, `lib/app_component.html`,
-  changing the code to the following:
+  copying the following code to the bottom of the file:
 
 {% prettify html %}{% raw %}
-<h1>My First AngularDart App</h1>
-
-[[highlight]]<ul>[[/highlight]]
-  [[highlight]]<li *ngFor="let hero of heroes">[[/highlight]]
-    [[highlight]]{{ hero }}[[/highlight]]
-  [[highlight]]</li>[[/highlight]]
-[[highlight]]</ul>[[/highlight]]
+<material-list>
+    <material-list-item *ngFor="let hero of heroes"
+                        (click)="myDialog.open(hero)">
+        {{ hero }}
+    </material-list-item>
+</material-list>
 {% endraw %}{% endprettify %}
 
   This code uses the Angular's `*ngFor` syntax to loop through
   the component's `heroes` list.
-  At runtime, Angular creates an `<li>` element for each item in `heroes`,
+  At runtime, Angular creates a `<material-list-item>` element for each item in `heroes`,
   replacing `{% raw %}{{ hero }}{% endraw %}`
   with the current item's value (a hero's name).
 </li>
