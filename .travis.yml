@@ -20,7 +20,6 @@ before_install:
 install:
   - ./scripts/install.sh
   - ./scripts/get-ng-repo.sh
-  - ./scripts/get-ng-web-simple.sh
 
 script:
   # - ./scripts/deploy/runtests.sh
