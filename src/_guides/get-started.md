@@ -46,7 +46,7 @@ you need the Dart SDK and Dartium (a special build of Chromium with the Dart VM)
 <div id="tab-sdk-install-windows" class="tabs__content current" markdown="1">
 
 The easiest way to install Dart on Windows is to use the
-<a href="http://www.gekorm.com/dart-windows/" target="_blank">unofficial install wizard.</a>
+<a href="http://www.gekorm.com/dart-windows/" target="_blank">community install wizard.</a>
 
 <img src="images/installer-screenshot-no.png" alt="Screenshot of the Dart Setup Wizard"><br>
 
