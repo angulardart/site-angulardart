@@ -1,10 +1,19 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/security.jade b/./src/angular/_jade/ts/_cache/guide/security.jade
-index 737e499..5306744 100644
+index ee65070..be2c66b 100644
 --- a/./src/angular/_jade/ts/latest/guide/security.jade
 +++ b/./src/angular/_jade/ts/_cache/guide/security.jade
-@@ -38,14 +38,15 @@ h2#best-practices Best practices
+@@ -21,7 +21,7 @@ block includes
+     * [Auditing Angular applications](#code-review).
+ 
+ :marked
+-  You can run the <live-example></live-example> in Plunker and download the code from there.
++  Try the <live-example></live-example> of the code shown in this page.
+ 
+ .l-main-section
+ h2#report-issues Reporting vulnerabilities
+@@ -37,14 +37,14 @@ h2#best-practices Best practices
    * **Keep current with the latest Angular library releases.**
-   We regularly update our Angular libraries, and these updates may fix security defects discovered in
+   We regularly update the Angular libraries, and these updates may fix security defects discovered in
    previous versions. Check the Angular [change
 -  log](https://github.com/angular/angular/blob/master/CHANGELOG.md) for security-related updates.
 +  log](https://github.com/dart-lang/angular2/blob/master/CHANGELOG.md) for security-related updates.
@@ -14,28 +23,26 @@ index 737e499..5306744 100644
    important security fixes and enhancements. Instead, share your Angular improvements with the
    community and make a pull request.
  
--  * **Avoid Angular APIs marked in the documentation as “[_Security Risk_](#bypass-security-apis).”**
-+  * **Avoid Angular APIs exposing the application to possible security risks**,
-+    such as the methods described in the [Trusting safe values](#bypass-security-apis) section below.
+-  * **Avoid Angular APIs marked in the documentation as “_Security Risk_.”**
++  * **Avoid Angular APIs marked in the documentation as possible “_security risks_.”**
+   For more information, see the [Trusting safe values](#bypass-security-apis) section of this page.
  
  .l-main-section
- h2#xss Preventing cross-site scripting (XSS)
-@@ -136,8 +137,7 @@ block html-sanitization
-   The offline template compiler prevents a whole class of vulnerabilities called template injection,
-   and also greatly improves application performance. Use the offline template compiler in production
-   deployments; do not dynamically generate templates. Angular trusts template code, so generating
--  templates, in particular templates containing user data, circumvents Angular's built-in protections. For information about how to dynamically construct forms in a safe way, see 
--  [Dynamic Forms Cookbook](../cookbook/dynamic-form.html).
-+  templates, in particular templates containing user data, circumvents Angular's built-in protections.
+@@ -140,8 +140,6 @@ block html-sanitization
+   and greatly improves application performance. Use the offline template compiler in production
+   deployments; don't dynamically generate templates. Angular trusts template code, so generating
+   templates, in particular templates containing user data, circumvents Angular's built-in protections. 
+-  For information about dynamically constructing forms in a safe way, see the 
+-  [Dynamic Forms](../cookbook/dynamic-form.html) cookbook page.
  
    ### Server-side XSS protection
  
-@@ -159,7 +159,7 @@ block bypass-security-apis
+@@ -163,7 +161,7 @@ block bypass-security-apis
      are introducing a security vulnerability into your application. If in doubt, find a professional 
      security reviewer.
  
--    You can mark a value as trusted by injecting `DomSanitizer` and calling one of the
-+    You can mark a value as trusted by injecting `DomSanitizationService` and calling one of the
+-    To mark a value as trusted, inject `DomSanitizer` and call one of the
++    To mark a value as trusted, inject `DomSanitizationService` and call one of the
      following methods:
  
      * `bypassSecurityTrustHtml`
