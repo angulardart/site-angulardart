@@ -19,7 +19,7 @@ but here's a possible learning path if you're new to Angular:
 1. Follow [Get Started](/guides/get-started),
    which leads you through creating, running, and modifying an AngularDart app.
 
-1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes"). 
+1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes").
 
    The *Tour of Heroes* takes you step-by-step from setup
    to a full-featured example that demonstrates the essential characteristics of a professional application:
@@ -44,5 +44,5 @@ Then feel free to skip around among the other pages on this site.
 
 ### Next step
 
-Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding, or 
+Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding, or
 visit the [architecture overview](architecture.html "Basic Concepts") if you prefer to learn the basic concepts first.

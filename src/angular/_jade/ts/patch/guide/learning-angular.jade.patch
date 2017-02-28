@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/learning-angular.jade b/./src/angular/guide/learning-angular.md
-index 27d9f10..bd79c6b 100644
+index 9a3ac2d..ec9c18b 100644
 --- a/./src/angular/_jade/ts/latest/guide/learning-angular.jade
 +++ b/./src/angular/guide/learning-angular.md
 @@ -1,42 +1,48 @@
@@ -16,8 +16,8 @@ index 27d9f10..bd79c6b 100644
 -
 -  1. [Setup](setup.html "Setup locally withe Quickstart seed") for local Angular development, if you haven't already done so.
 -
--  1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes"). 
--  
+-  1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes").
+-
 -    The *Tour of Heroes* takes you step-by-step from [setup](setup.html)
 -    to a full-featured example that demonstrates the essential characteristics of a professional application:
 -    a sensible project structure, data binding, master/detail, services, dependency injection, navigation, and remote data access.
@@ -43,7 +43,7 @@ index 27d9f10..bd79c6b 100644
 -  :marked
 -    ### Next Step
 -
--    Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding or 
+-    Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding or
 -    visit the [Architecture](architecture.html "Basic Concepts") page if you prefer to learn the basic concepts first.
 +---
 +layout: angular
@@ -66,7 +66,7 @@ index 27d9f10..bd79c6b 100644
 +1. Follow [Get Started](/guides/get-started),
 +   which leads you through creating, running, and modifying an AngularDart app.
 +
-+1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes"). 
++1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes").
 +
 +   The *Tour of Heroes* takes you step-by-step from setup
 +   to a full-featured example that demonstrates the essential characteristics of a professional application:
@@ -91,5 +91,5 @@ index 27d9f10..bd79c6b 100644
 +
 +### Next step
 +
-+Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding, or 
++Try the [tutorial](../tutorial "Tour of Heroes") if you're ready to start coding, or
 +visit the [architecture overview](architecture.html "Basic Concepts") if you prefer to learn the basic concepts first.
