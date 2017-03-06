@@ -1,0 +1,26 @@
+analyzer:
+  strong-mode: true
+
+# Supported lint rules and documentation: http://dart-lang.github.io/linter/lints/
+linter:
+  rules:
+    - cancel_subscriptions
+    - close_sinks
+    - hash_and_equals
+    # - invariant_booleans
+    - iterable_contains_unrelated_type
+    - list_remove_unrelated_type
+    - test_types_in_equals
+    - unrelated_type_equality_checks
+    - valid_regexps
+    # Extra
+    - always_declare_return_types
+    - annotate_overrides
+    - avoid_init_to_null
+    - camel_case_types
+    - constant_identifier_names
+    - empty_constructor_bodies
+    - one_member_abstracts
+    - slash_for_doc_comments
+    - sort_constructors_first
+    - unnecessary_brace_in_string_interp
