@@ -37,7 +37,7 @@ var NgIoUtil = (function () {
             .replace(/(^|\/)app($|\/)/, inWebFolder ? '$1web$2' : '$1lib$2');
 
         // Special case not handled above: e.g., index.html -> web/index.html
-        if (baseNameNoExt.match(/^(index|styles)(\.\d)?$/) && !folder.match(/web$/))
+        if (baseNameNoExt.match(/^(main|index|styles)(\.\d)?$/) && !folder.match(/web$/))
             folder = (folder ? folder + '/' : '') + 'web';
 
         // In file name, replace special characters with underscore

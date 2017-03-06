@@ -50,7 +50,7 @@ include /_jade/_util-fns
 -   // Adjust the folder path, e.g., ts -> dart
 -   folder = folder.replace(/(^|\/)ts($|\/)/, '$1dart$2').replace(/(^|\/)app($|\/)/, inWebFolder ? '$1web$2' : '$1lib$2');
 -   // Special case not handled above: e.g., index.html -> web/index.html
--   if(baseNameNoExt.match(/^(index|styles)(\.\d)?$/) && !folder.match(/web$/)) folder = (folder ? folder + '/' : '') + 'web';
+-   if(baseNameNoExt.match(/^(main|index|styles)(\.\d)?$/) && !folder.match(/web$/)) folder = (folder ? folder + '/' : '') + 'web';
 -   // In file name, replace special characters with underscore
 -   baseNameNoExt = baseNameNoExt.replace(/[\-\.]/g, '_');
 -   // Adjust the file extension

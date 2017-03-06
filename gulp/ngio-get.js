@@ -314,6 +314,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
       .pipe(replace(/} \(\)\);/, '$&\n\nmodule.exports.NgIoUtil = NgIoUtil;'))
       .pipe(replace(/folder = folder/, `folder = folder\n${stripSrc}`))
+      .pipe(replace('.match(/^(index|styles)', '.match(/^(main|index|styles)'))
       .pipe(gulp.dest('src'));
   });
 
