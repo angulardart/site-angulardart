@@ -4,9 +4,9 @@ import 'package:angular2/core.dart';
 @Directive(selector: '[myHighlight]')
 class HighlightDirective {
   // #docregion ctor
-  final dynamic _el;
+  final ElementRef _el;
 
-  HighlightDirective(ElementRef elRef) : _el = elRef.nativeElement;
+  HighlightDirective(this._el);
   // #enddocregion ctor
 
   // #docregion mouse-methods, host
@@ -26,8 +26,17 @@ class HighlightDirective {
   // #enddocregion host
 
   void _highlight([String color]) {
-    if (_el != null) _el.style.backgroundColor = color;
+    _el.nativeElement.style.backgroundColor = color;
   }
-  // #enddocregion mouse-methods
+  // #enddocregion mouse-methods,
+
+  // #docregion color
+  @Input()
+  String highlightColor;
+  // #enddocregion color
+
+  // #docregion color-2
+  @Input()
+  String myHighlight;
+  // #enddocregion color-2
 }
-// #enddocregion

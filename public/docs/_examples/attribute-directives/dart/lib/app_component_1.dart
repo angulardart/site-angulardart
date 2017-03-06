@@ -5,9 +5,9 @@ import 'highlight_directive.dart';
 
 @Component(
     selector: 'my-app',
-    templateUrl: 'app_component.html',
+    templateUrl: 'app_component_1.html',
     directives: const [HighlightDirective])
 // #docregion class
 class AppComponent {
-  String color;
+  String color = 'yellow';
 }

@@ -7,11 +7,6 @@ class HighlightDirective {
 
   HighlightDirective(this._el);
 
-  // #docregion defaultColor
-  @Input()
-  String defaultColor;
-  // #enddocregion defaultColor
-
   // #docregion color
   @Input('myHighlight')
   String highlightColor;
@@ -19,7 +14,7 @@ class HighlightDirective {
 
   // #docregion mouse-enter
   @HostListener('mouseenter')
-  void onMouseEnter() => _highlight(highlightColor ?? defaultColor ?? 'red');
+  void onMouseEnter() => _highlight(highlightColor ?? 'red');
   // #enddocregion mouse-enter
 
   @HostListener('mouseleave')
