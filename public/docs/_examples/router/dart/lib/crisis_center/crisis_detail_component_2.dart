@@ -12,8 +12,7 @@ import 'dialog_service.dart';
     selector: 'my-crisis-detail',
     templateUrl: 'crisis_detail_component.html',
     styleUrls: const ['crisis_detail_component.css'])
-class CrisisDetailComponent
-    implements CanDeactivate, CanReuse, OnDeactivate, OnInit, OnReuse {
+class CrisisDetailComponent implements CanDeactivate, OnInit {
   Crisis crisis;
   String name;
   final CrisisService _crisisService;
@@ -25,10 +24,9 @@ class CrisisDetailComponent
       this._dialogService);
 
   // #docregion ngOnInit
-  Future<Null> ngOnInit() => _setCrisis(_routeParams.get('id'));
-
-  Future<Null> _setCrisis(String idAsString) async {
-    var id = int.parse(idAsString ?? '', onError: (_) => null);
+  Future<Null> ngOnInit() async {
+    var _id = _routeParams.get('id');
+    var id = int.parse(_id ?? '', onError: (_) => null);
     if (id != null) crisis = await (_crisisService.getCrisis(id));
     if (crisis != null) name = crisis.name;
   }
@@ -56,22 +54,4 @@ class CrisisDetailComponent
           ? true as FutureOr<bool>
           : _dialogService.confirm('Discard changes?');
   // #enddocregion routerCanDeactivate
-
-  // #docregion routerCanReuse
-  @override
-  FutureOr<bool> routerCanReuse(next, prev) => true;
-  // #enddocregion routerCanReuse
-
-  // #docregion routerOnReuse
-  @override
-  Future<Null> routerOnReuse(ComponentInstruction next, prev) =>
-      _setCrisis(next.params['id']);
-  // #enddocregion routerOnReuse
-
-  // #docregion routerOnDeactivate
-  @override
-  void routerOnDeactivate(next, prev) {
-    print('Deactivating CrisisDetailComponent $name');
-  }
-  // #enddocregion routerOnDeactivate
 }

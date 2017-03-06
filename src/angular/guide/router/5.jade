@@ -44,6 +44,7 @@ script $('#router-milestone').val('5')
 //- TODO :marked
   [**TODO** summarize hooks]
 
+a#candeactivate
 a#CanDeactivate
 :marked
   ## Handling unsaved changes
@@ -92,13 +93,13 @@ ul
   li
     :marked
       Update the `ngOnInit` method so that `name` is initialized to the selected crisis name.
-    +makeExcerpt('app/crisis_center/crisis-detail.component.ts (ngOnInit)')
+    +makeExcerpt('app/crisis_center/crisis-detail.component.2.ts (ngOnInit)')
 ul
   li
     :marked
       Add a `save` method which assigns `name` to the selected crisis before navigating back
       to the crisis list.
-    +makeExcerpt('app/crisis_center/crisis-detail.component.ts (save)')
+    +makeExcerpt('app/crisis_center/crisis-detail.component.2.ts (save)')
 
 :marked
   As illustrated next, update the crisis details component template by
@@ -113,7 +114,7 @@ ul
   **Refresh the browser** and try out the new crisis details save and cancel features.
 
   <a id="candeactivate"></a>
-  ## *CanDeactivate* to handle unsaved changes
+  ## *CanDeactivate* hook to handle unsaved changes
 
   What if the user tries to navigate away without saving or canceling?
   The user could push the browser back button or click the heroes link.
@@ -148,7 +149,7 @@ ul
     instance of a `DialogService` &mdash; remember to import it.
   - Add the following `routerCanDeactivate` lifecycle hook method:
 
-+makeExcerpt('app/crisis_center/crisis_detail_component.dart (routerCanDeactivate)')
++makeExcerpt('app/crisis_center/crisis_detail_component.2.dart (routerCanDeactivate)')
 
 :marked
   Notice that the `routerCanDeactivate` method *can* return synchronously;
@@ -162,6 +163,79 @@ ul
   - The router calls the hook method so you don't need to worry about
     the different ways that the user can navigate away. That's the router's job.
     You simply write this method and let the router take it from there.
+
+a#ondeactivate
+:marked
+  ## *OnDeactivate* interface
+
+  Each route is handled by a component instance.
+  Generally, when a change in route is requested, the component instance
+  handling the current route is _deactivated_ and then destroyed
+  before a new component instance is created to handle the new route instruction.
+  
+  If a component implements the `OnDeactivate` interface, then
+  the router calls the component's `routerOnDeactivate` method
+  before the instance is destroyed.
+
+  This lifecycle method gives component instances an opportunity
+  to perform tasks like cleanup and resource deallocation
+  before being deactivated.
+
+  To see this lifecycle hook at work, add `OnDeactivate` to the list of 
+  classes implemented by `CrisisDetailComponent`, along with this trivial 
+  method implementation:
+
++makeExcerpt('app/crisis_center/crisis_detail_component.dart (routerOnDeactivate)')
+
+:marked
+  **Refresh the browser** and open the JavaScript console.
+  Now visit the crisis center and select each of the first
+  three crises, one at a time. You'll notice that for each route
+  change, from one crisis to another, a message is printed by
+  the `OnDeactivate` lifecycle method.
+
+  Given the nature of a crisis detail component's responsibilities,
+  it seems wasteful to create a new instance each time. A single instance
+  could handle all crisis detail route instructions.
+
+  To tell the router that a component instance might be reusable,
+  use the _CanReuse_ lifecycle hook.
+
+a#canreuse
+a#onreuse
+:marked
+  ## *CanReuse* and *OnReuse* interfaces
+
+  Add *CanReuse* to the list of implemented interfaces along with the
+  following simple hook implementation:
+
++makeExcerpt('app/crisis_center/crisis_detail_component.dart (routerCanReuse)')
+
+:marked
+  **Refresh the browser** and visit the crisis center,
+  then select a few crises. You'll notice that
+  the crisis details view doesn't get updated. This is because the
+  selected crisis gets set _once_ when Angular invokes the `ngOnInit`
+  method. Now that the `CrisisDetailComponent` instance is being
+  reused, it needs to know about changes in route parameters.
+
+  That is what the *OnReuse* lifecycle hook is for. Add it to the list of
+  interfaces implemented by the component and define the following hook:
+
++makeExcerpt('app/crisis_center/crisis_detail_component.dart (routerOnReuse)')
+
+:marked
+  The hook extracts the crisis `id` from the `next` route instruction parameters.
+  The new `_setCrisis` method is defined from a refactoring of `ngOnInit`:
+
++makeExcerpt('app/crisis_center/crisis_detail_component.dart (ngOnInit)')
+
+:marked
+  **Refresh the browser** and select a few crisis center crises.
+  The view details should now reflect the selected crisis.
+  Also notice how the `OnDeactivate` hook is called only if you 
+  navigate away from a crisis detail view &mdash; such as by clicking
+  crisis detail view _Cancel_ button, or selecting the _Heroes_ view.
 
 //- TODO: add section on CanActivate
 
@@ -227,7 +301,7 @@ ul
     doing so greatly complicates the pattern matching required to translate an incoming URL to a named route.
 
     The **URL query string** is the ideal vehicle for conveying arbitrarily complex information during navigation.
-    The query string isn't involved in pattern matching and affords enormous flexiblity of expression.
+    The query string isn't involved in pattern matching and affords enormous flexibility of expression.
     Almost anything serializable can appear in a query string.
 
     The Component Router supports navigation with query strings as well as route parameters.
