@@ -31,7 +31,15 @@ Or, to build, serve, and have a watcher for changes:
 
 - `./scripts/serve_local.sh`
 
-Other useful gulp tasks:
+Or, to make sure everything's created from scratch:
+
+```
+source ./scripts/env-set.sh    # avoids errors if your environment's not quite right
+nvm use 6                      # makes sure you're using the right version of node
+gulp clean && gulp build --clean; ./scripts/serve_local.sh
+```
+
+Various useful gulp tasks:
 
 - `gulp clean` # deletes `publish`
 - `gulp clean && gulp build --clean` # really cleans up
