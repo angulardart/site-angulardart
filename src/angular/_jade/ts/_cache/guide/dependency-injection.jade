@@ -75,7 +75,7 @@ block includes
 +makeTabs(
   'dependency-injection/ts/app/car/car.ts, dependency-injection/ts/app/car/car-no-di.ts',
   'car-ctor, car-ctor',
-  'app/car/car.ts (excerpt with DI), app/car/car.ts (excerpt without DI)')(format=".")
+  'src/app/car/car.ts (excerpt with DI), app/car/car.ts (excerpt without DI)')(format=".")
 
 :marked
   See what happened? We moved the definition of the dependencies to the constructor.
@@ -187,9 +187,9 @@ block ctor-syntax
   dependency-injection/ts/app/heroes/mock-heroes.ts`,
   'v1,,,',
   `app/heroes/heroes.component.ts,
-  app/heroes/hero-list.component.ts,
-  app/heroes/hero.ts,
-  app/heroes/mock-heroes.ts`)
+  src/app/heroes/hero-list.component.ts,
+  src/app/heroes/hero.ts,
+  src/app/heroes/mock-heroes.ts`)
 
 :marked
   The `HeroesComponent` is the root component of the *Heroes* feature area.
@@ -247,7 +247,7 @@ block ctor-syntax
   We don't have to create an Angular injector.
   Angular creates an application-wide injector for us during the bootstrap process.
 
-+makeExcerpt('app/main.ts', 'bootstrap')
++makeExcerpt('main.ts', 'bootstrap')
 
 :marked
   We do have to configure the injector by registering the **providers**
@@ -259,9 +259,9 @@ block register-provider-ngmodule
     We can either register a provider within an [NgModule](ngmodule.html) or in application components
 
     ### Registering providers in an NgModule
-    Here's our AppModule where we register a `Logger`, a `UserService`, and an `APP_CONFIG` provider.
+    Here's our AppModule where we register a `UserService` and an `APP_CONFIG` provider.
 
-  - var app_module_ts = 'app/app.module.ts';
+  - var app_module_ts = 'src/app/app.module.ts';
   +makeExcerpt(app_module_ts + ' (excerpt)', 'ngmodule', app_module_ts, { otl: /(providers:)/ })
   //- The preferred approach is to register application providers in application components.
   //- Because the `HeroService` is used within the *Heroes* feature area &mdash;
@@ -289,7 +289,7 @@ block ngmodule-vs-component
 
   .l-sub-section
     :marked
-     Also see *"Should I add app-wide providers to the root `AppModule` or the root `AppComponent`?"* in the [NgModule FAQ](../cookbook/ngmodule-faq.html#root-component-or-module).
+     Also see *"Should I add app-wide providers to the root `AppModule` or the root `AppComponent`?"* in the [NgModule FAQ](../cookbook/ngmodule-faq.html#q-root-component-or-module).
 
 :marked
   ### Preparing the HeroListComponent for injection
@@ -304,7 +304,7 @@ block ngmodule-vs-component
   dependency-injection/ts/app/heroes/hero-list.component.1.ts`,
   null,
   `app/heroes/hero-list.component (with DI),
-   app/heroes/hero-list.component (without DI)`)
+   src/app/heroes/hero-list.component (without DI)`)
 
 .l-sub-section
   :marked
@@ -387,7 +387,7 @@ block ngmodule-vs-component
   dependency-injection/ts/app/heroes/hero.service.1.ts`,
   null,
   `app/heroes/hero.service (v2),
-  app/heroes/hero.service (v1)`)
+  src/app/heroes/hero.service (v1)`)
 
 :marked
   The constructor now asks for an injected instance of a `Logger` and stores it in a private property called `#{_priv}logger`.
@@ -700,7 +700,7 @@ block dart-diff-const-metadata-ctor
   dependency-injection/ts/app/heroes/heroes.component.1.ts`,
   ',full',
   `app/heroes/heroes.component (v3),
-  app/heroes/heroes.component (v2)`,
+  src/app/heroes/heroes.component (v2)`,
   stylePattern)
 
 .l-main-section#token

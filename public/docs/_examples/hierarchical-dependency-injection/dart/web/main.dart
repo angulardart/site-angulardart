@@ -1,16 +1,8 @@
 // #docregion
 import 'package:angular2/platform/browser.dart';
 
-import 'package:hierarchical_di/heroes_list_component.dart';
-import 'package:hierarchical_di/heroes_service.dart';
+import 'package:hierarchical_di/app_component.dart';
 
 void main() {
-  bootstrap(HeroesListComponent, [HeroesService]);
+  bootstrap(AppComponent);
 }
-
-/* Documentation artifact below
-// #docregion bad-alternative
-// Don't do this!
-bootstrap(HeroesListComponent, [HeroesService, RestoreService])
-// #enddocregion bad-alternative
-*/

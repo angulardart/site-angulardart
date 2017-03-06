@@ -1,54 +1,48 @@
 // #docregion
+import 'dart:async';
 import 'package:angular2/core.dart';
 
-import 'edit_item.dart';
 import 'hero.dart';
-import 'hero_card_component.dart';
-import 'hero_editor_component.dart';
 import 'heroes_service.dart';
+import 'hero_tax_return_component.dart';
 
 @Component(
     selector: 'heroes-list',
     template: '''
-  <div>
-      <ul>
-        <li *ngFor="let editItem of heroes">
-          <hero-card
-            [hidden]="editItem.editing"
-            [hero]="editItem.item">
-          </hero-card>
-          <button
-            [hidden]="editItem.editing"
-            (click)="editItem.editing = true">
-              edit
-          </button>
-          <hero-editor
-            (saved)="onSaved(editItem, \$event)"
-            (canceled)="onCanceled(editItem)"
-            [hidden]="!editItem.editing"
-            [hero]="editItem.item">
-          </hero-editor>
-        </li>
-      </ul>
-    </div>
-  ''',
-    directives: const [HeroCardComponent, HeroEditorComponent])
+      <div>
+        <h3>Hero Tax Returns</h3>
+        <ul>
+          <li *ngFor="let hero of heroes | async"
+              (click)="showTaxReturn(hero)">{{hero.name}}
+          </li>
+        </ul>
+        <hero-tax-return
+          *ngFor="let selected of selectedTaxReturns; let i = index"
+          [taxReturn]="selected"
+          (close)="closeTaxReturn(i)">
+        </hero-tax-return>
+      </div>
+    ''',
+    styles: const ['li {cursor: pointer;}'],
+    directives: const [HeroTaxReturnComponent])
 class HeroesListComponent {
-  List<EditItem<Hero>> heroes;
-  HeroesListComponent(HeroesService heroesService) {
-    heroes = heroesService
-        .getHeroes()
-        .map((Hero item) => new EditItem(item))
-        .toList();
+  final HeroesService _heroesService;
+
+  Future<List<Hero>> heroes;
+  final List<HeroTaxReturn> selectedTaxReturns = [];
+
+  HeroesListComponent(this._heroesService) {
+    heroes = _heroesService.getHeroes();
   }
 
-  onCanceled(EditItem<Hero> editItem) {
-    editItem.editing = false;
+  Future<Null> showTaxReturn(Hero hero) async {
+    var r = await _heroesService.getTaxReturn(hero);
+    if (!selectedTaxReturns.any((_r) => _r.id == r.id)) {
+      selectedTaxReturns.add(r);
+    }
   }
 
-  onSaved(EditItem<Hero> editItem, Hero updatedHero) {
-    editItem.item = updatedHero;
-    editItem.editing = false;
+  void closeTaxReturn(int index) {
+    selectedTaxReturns.removeAt(index);
   }
 }
-// #enddocregion

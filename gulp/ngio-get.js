@@ -274,7 +274,6 @@ module.exports = function (gulp, plugins, config) {
       // Dart image is different for these:
       `!${baseDir}/resources/images/devguide/security/binding-inner-html.png`,
       // Skip images that we aren't updating (yet)
-      `!${baseDir}/resources/images/devguide/dependency-injection/{component-hierarchy,injector-tree}.png`,
       `!${baseDir}/resources/images/devguide/router/{crisis-center-*,hero-*,shell-and-outlet}.png`,
       `!${baseDir}/resources/images/devguide/structural-directives/element-not-in-dom.png`,
       `!${baseDir}/resources/images/devguide/template-syntax/ng-for-track-by-anim.gif`,
