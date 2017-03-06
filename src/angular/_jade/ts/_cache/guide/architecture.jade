@@ -57,7 +57,7 @@ block angular-modules
 
   <br class="l-clear-both"><br>
   :marked
-    Every Angular app has at least one Angular module class, [the _root module_](appmodule.html "AppModule: the root module"), 
+    Every Angular app has at least one Angular module class, [the _root module_](appmodule.html "AppModule: the root module"),  
     conventionally named `AppModule`.
 
     While the _root module_ may be the only module in a small application, most apps have many more 
@@ -98,7 +98,7 @@ block angular-modules
     Launch an application by _bootstrapping_ its root module. 
     During development you're likely to bootstrap the `AppModule` in a `main.ts` file like this one.
       
-  +makeExample('app/main.ts', '', 'app/main.ts')(format='.')
+  +makeExample('main.ts', '', 'main.ts')(format='.')
 
   :marked
     ### Angular modules vs. JavaScript modules
@@ -432,7 +432,7 @@ figure
 +makeExcerpt('app/logger.service.ts', 'class')
 
 :marked
-  Here's a `HeroService` that fetches heroes and returns them in a resolved !{_PromiseLinked}.
+  Here's a `HeroService` that uses a !{_PromiseLinked} to fetch heroes.
   The `HeroService` depends on the `Logger` service and another `BackendService` that handles the server communication grunt work.
 
 +makeExcerpt('app/hero.service.ts', 'class')
