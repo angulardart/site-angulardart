@@ -366,10 +366,14 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_get-ngio-boilerplate-src', cb => {
     const boilerplateDir = './public/docs/_examples/_boilerplate';
     const baseDir = `${config.angulario}/${boilerplateDir}/src`;
+    const cssImports
+      = '@import url(https://fonts.googleapis.com/css?family=Roboto);\n'
+      + '@import url(https://fonts.googleapis.com/css?family=Material+Icons);\n'
     return gulp.src([
       `${baseDir}/styles.css`,
       // `${baseDir}/tsconfig.json`, // Manually watch for differences (aside from paths having an extra ../)
     ], { base: baseDir })
+      .pipe(replace(/\/\* Master Styles \*\//, `${cssImports}\n$&`))
       .pipe(gulp.dest(boilerplateDir));
   });
 
