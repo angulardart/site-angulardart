@@ -28,15 +28,11 @@ module.exports = function (gulp, plugins, config) {
   const lang='dart';
 
   var _exampleBoilerplateFiles = [
-    'a2docs.css',
-    // 'package.json',
-    'styles.css',
-    // 'systemjs.config.js',
-    // 'tsconfig.json',
-    // 'tslint.json'
+    // Only the *.css files were needed for Dart.
+    // but they are handled via _exampleDartWebBoilerPlateFiles.
   ];
 
-  var _exampleDartWebBoilerPlateFiles = ['a2docs.css', 'styles.css'];
+  var _exampleDartWebBoilerPlateFiles = [/*'a2docs.css',*/ 'styles.css'];
 
   var _exampleUnitTestingBoilerplateFiles = [
     'browser-test-shim.js',
@@ -66,11 +62,15 @@ module.exports = function (gulp, plugins, config) {
   //and copies the result to the _examples folder to be included as
   //part of the example boilerplate.
   function buildStyles(cb, done){
+    // 2017-03-05: Stop building a2docs.css file
+    /*
     gulp.src(path.join(STYLES_SOURCE_PATH, _styleLessName))
       .pipe(less())
       .pipe(gulp.dest(BOILERPLATE_PATH)).on('end', function(){
         cb().then(function() { done(); });
       });
+    */
+    cb().then(function() { done(); });
   }
 
   // copies boilerplate files to locations

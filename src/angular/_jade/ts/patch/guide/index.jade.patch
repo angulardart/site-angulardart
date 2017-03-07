@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/index.jade b/./src/angular/guide/index.jade
-index 6343d8f..7cc2f8d 100644
+index b9c74f9..89bec5a 100644
 --- a/./src/angular/_jade/ts/latest/guide/index.jade
 +++ b/./src/angular/guide/index.jade
 @@ -1,19 +1,21 @@
@@ -86,16 +86,13 @@ index 6343d8f..7cc2f8d 100644
  
  :marked
    A few early pages are written as tutorials and are clearly marked as such.
-@@ -72,21 +66,22 @@ table(width="100%")
-   You can reuse these snippets in your applications.
- 
-   Look for a link to a running version of that sample, often near the top of the page,
--  such as this <live-example name="architecture"></live-example> from the [Architecture](architecture.html) page.
-+  such as this <live-example name="architecture"></live-example> from the [Architecture](architecture) page.
-   <span if-docs="ts">
+@@ -77,19 +71,17 @@ table(width="100%")
    The link launches a browser-based, code editor where you can inspect, modify, save, and download the code.
    </span>
  
+-  Alternatively, you can run the example locally, next to those `live-example` links you have a <a href="/resources/zips/architecture/architecture.zip">download link</a>.
+-  Just download, unzip, run `npm install` to install the dependencies and run it with `npm start`.
+-
    ## Reference pages
  
 -  * The [Cheat Sheet](cheatsheet.html) lists Angular syntax for common scenarios.

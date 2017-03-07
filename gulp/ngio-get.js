@@ -309,6 +309,7 @@ module.exports = function (gulp, plugins, config) {
       ))
       // Patch live-example.js
       .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
+      .pipe(replace('(!noDownload)', '(false || !noDownload)'))
       // Patch resources/js/util.js
       .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
       .pipe(replace(/} \(\)\);/, '$&\n\nmodule.exports.NgIoUtil = NgIoUtil;'))
@@ -333,6 +334,8 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/public/docs/_examples/*/dart/.*`,
       `${baseDir}/public/docs/_examples/*/dart/**`,
       `!${baseDir}/public/docs/_examples/*/dart/build/**`,
+      // We no longer track updates to these files:
+      `!${baseDir}/public/docs/_examples/package.json`,
       // EXAMPLES: support files (since the example source is already under webdev)
       `${baseDir}/public/docs/_examples/_boilerplate/*.json`,
       // We don't need the plnkr, and we need to keep the old tsconfig (not under /src)
