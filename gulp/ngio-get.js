@@ -45,7 +45,7 @@ module.exports = function (gulp, plugins, config) {
     // hrefPrefix: href=" or ](
     // urlRest: core/index/ViewChild-var.html" or it might end in )
     // console.log(`got match on ${match}, 1: ${hrefPrefix}, 3: ${urlRest}`);
-    var matches = urlRest.match(/^(\w*)\/index\/(\w*)-(\w*)(\.html['"\)])$/);
+    var matches = urlRest.match(/^(\w*)\/index\/(\w*)-(\w*)(\.html[ '"\)])$/);
     // console.log(`  >> urlRest matches ${matches}`);
     if (!matches) return match; // leave unchanged
     var i = 1; // matches[0] corresponds to the fully matched result
@@ -98,7 +98,8 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/\/ts\/src\//g, '/ts/'))
       .pipe(replace(/(`|, )src\/(app\/)/g, '$1$2'))
       // Fix links to API entries from within markdown links, e.g. `href="..."` or `[DatePipe](...)` or var x = '...':
-      .pipe(replace(/(href="|\]\(|= ')((\.?\.\/)*api\/)([^'"\)]*['"\)])/g, tsApiHrefToDart))
+      // or [TemplateRef](../api/core/index/TemplateRef-class.html "API: TemplateRef")
+      .pipe(replace(/(href="|\]\(|= ')((\.?\.\/)*api\/)([^ '"\)]*[ '"\)])/g, tsApiHrefToDart))
       // AngularJS --> Angular 1
       .pipe(replace(/AngularJS/g, 'Angular 1'))
       // Convert ngio-ex paths:
@@ -115,7 +116,11 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/(var guideData = )([^;]*);/, '$1{}; // $2;'))
       .pipe(replace(/(var advancedLandingPage = )([^;]*);/, "$1'attribute-directives'; // $2;"))
       // Patch structural-directives
-      .pipe(replace('## The *&lt;template>* tag', '## The *template* tag'))
+      .pipe(replace('## The *&lt;template&gt;*', '## The *template* element'))
+      .pipe(replace(/([Nn]gSwitch)Case/g, '$1When'))
+      .pipe(replace(/\bfalsy/g, 'false'))
+      .pipe(replace(/\btruthy/g, 'true'))
+      .pipe(replace('`app/`', '`lib/`'))
       // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
       .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
       // Patch glossary
