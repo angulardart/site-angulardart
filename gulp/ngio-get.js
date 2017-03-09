@@ -51,6 +51,7 @@ module.exports = function (gulp, plugins, config) {
     var i = 1; // matches[0] corresponds to the fully matched result
     var libName = matches[i++];
     if (libName == 'http') return match; // leave unchanged since ngDart doesn't have an HTTP library.
+    if (libName == 'forms') libName = 'common';
     var apiPageEntryName = matches[i++];
     var apiEntryKind = matches[i++];
     var suffix = matches[i++];
