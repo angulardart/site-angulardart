@@ -104,7 +104,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
         // Link to live example.
         var template = a(text, { href: href, target: '_blank" rel="noopener' });
 
-        if (false || !noDownload) {
+        if (false) {
           template += ' / ' + a('downloadable example', { href: zipHref, target: '_blank" rel="noopener' });
         }
 

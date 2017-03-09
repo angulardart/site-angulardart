@@ -315,7 +315,7 @@ module.exports = function (gulp, plugins, config) {
       ))
       // Patch live-example.js
       .pipe(replace(/target: '_blank/g, '$&" rel="noopener'))
-      .pipe(replace('(!noDownload)', '(false || !noDownload)'))
+      .pipe(replace('(!noDownload)', '(false)'))
       // Patch resources/js/util.js
       .pipe(replace("loc.indexOf('/docs/' + lang + '/')", "loc.indexOf('/angular/')"))
       .pipe(replace(/} \(\)\);/, '$&\n\nmodule.exports.NgIoUtil = NgIoUtil;'))
