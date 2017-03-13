@@ -282,7 +282,6 @@ module.exports = function (gulp, plugins, config) {
       // Skip images that we aren't updating (yet)
       `!${baseDir}/resources/images/devguide/router/{crisis-center-*,hero-*,shell-and-outlet}.png`,
       `!${baseDir}/resources/images/devguide/structural-directives/element-not-in-dom.png`,
-      `!${baseDir}/resources/images/devguide/template-syntax/ng-for-track-by-anim.gif`,
       ], { base: baseDir }).pipe(gulp.dest('src'));
   });
 

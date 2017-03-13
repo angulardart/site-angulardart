@@ -1,202 +1,186 @@
 // #docregion
-import 'dart:convert';
 import 'dart:html';
 
 import 'package:angular2/core.dart';
-import 'package:angular2/common.dart';
+import 'package:angular2_components/angular2_components.dart';
 
 import 'hero.dart';
 import 'hero_detail_component.dart';
+import 'hero_form_component.dart';
+import 'hero_switch_components.dart';
 import 'click_directive.dart';
 import 'sizer_component.dart';
 
+// Alerter fn: monkey patch during test
+void alerter(String msg) {
+  window.alert(msg);
+}
+
 enum Color { red, green, blue }
 
+/// Giant grab bag of stuff to drive the chapter
 @Component(
     selector: 'my-app',
     templateUrl: 'app_component.html',
+    styleUrls: const ['app_component.css'],
     directives: const [
-      HeroDetailComponent,
       BigHeroDetailComponent,
+      HeroDetailComponent,
+      HeroFormComponent,
+      heroSwitchComponents,
       ClickDirective,
       ClickDirective2,
-      SizerComponent
-    ])
-class AppComponent implements OnInit, AfterViewInit {
+      SizerComponent,
+      materialDirectives
+    ],
+  providers: const [materialProviders],
+)
+class AppComponent implements AfterViewInit, OnInit {
+
   @override
   void ngOnInit() {
-    refreshHeroes();
+    resetHeroes();
+    setCurrentClasses();
+    setCurrentStyles();
   }
 
   @override
   void ngAfterViewInit() {
-    _detectNgForTrackByEffects();
+    // Detect effects of NgForTrackBy
+    trackChanges(heroesNoTrackBy,   () => heroesNoTrackByCount++);
+    trackChanges(heroesWithTrackBy, () => heroesWithTrackByCount++);
   }
 
-  String heroName;
-  String help;
+  @ViewChildren('noTrackBy') QueryList<ElementRef> heroesNoTrackBy;
+  @ViewChildren('withTrackBy') QueryList<ElementRef> heroesWithTrackBy;
+
   String actionName = 'Go for it';
+  Function alert = alerter;
   String badCurly = 'bad curly';
   String classes = 'special';
+  String help = '';
+
+  void callFax(String value) => alert('Faxing $value ...');
+  void callPhone(String value) => alert('Calling $value ...');
   bool canSave = true;
-  bool isActive = false;
-  bool isSpecial = true;
-  bool isUnchanged = true;
-  bool isSelected = false;
-  final Color colorRed = Color.red;
-  Color color = Color.red;
-  var colorEnum = Color;
 
-  List<Hero> heroes;
-  Hero currentHero;
-
-  // #docregion refresh-heroes
-  /// Updates [this.heroes] with fresh set of cloned heroes.
-  void refreshHeroes() {
-    heroes = mockHeroes.map((hero) => hero.clone()).toList();
-    currentHero = heroes[0];
+  void changeIds() {
+    this.resetHeroes();
+    this.heroes.map((h) => h.id += 10 * this.heroIdIncrement++).toList();
+    this.heroesWithTrackByCountReset = -1;
   }
-  // #enddocregion refresh-heroes
 
-  final Hero nullHero = null;
-  Map product = {'name': 'frimfram', 'price': 42};
-  FormElement form;
+  void clearTrackByCounts() {
+    final trackByCountReset = this.heroesWithTrackByCountReset;
+    this.resetHeroes();
+    this.heroesNoTrackByCount = -1;
+    this.heroesWithTrackByCount = trackByCountReset;
+    this.heroIdIncrement = 1;
+  }
+
   String clicked = '';
   String clickMessage = '';
   String clickMessage2 = '';
-  final String iconUrl = 'assets/images/ng-logo.png';
 
-  // heroImageUrl = 'http://www.wpclipart.com/cartoon/people/hero/hero_silhoutte_T.png';
-  // Public Domain terms of use: http://www.wpclipart.com/terms.html
-  final String heroImageUrl = 'assets/images/hero.png';
-
-  // villainImageUrl = 'http://www.clker.com/cliparts/u/s/y/L/x/9/villain-man-hi.png'
-  // Public Domain terms of use http://www.clker.com/disclaimer.html
-  final String villainImageUrl = 'assets/images/villain.png';
-
-  void alerter(String msg) {
-    window.alert(msg);
-  }
-
-  void callFax(String value) {
-    alerter('Faxing $value ...');
-  }
-
-  void callPhone(String value) {
-    alerter('Calling $value ...');
-  }
-
+  final Color colorRed = Color.red;
+  Color color = Color.red;
   void colorToggle() {
     color = (color == Color.red) ? Color.blue : Color.red;
   }
 
-  int getVal() => val;
-
-  void onCancel(UIEvent event) {
-    HtmlElement el = event?.target;
-    var evtMsg = event != null ? 'Event target is ${el.innerHtml}.' : '';
-    alerter('Canceled. $evtMsg');
-  }
-
-  void onClickMe(UIEvent event) {
-    HtmlElement el = event?.target;
-    var evtMsg = event != null ? 'Event target class is ${el.className}.' : '';
-    alerter('Click me. $evtMsg');
-  }
+  Hero currentHero;
 
   void deleteHero([Hero hero]) {
-    alerter('Deleted hero: ${hero?.firstName}');
+    alerter('Deleted ${hero?.name ?? 'the hero'}.');
   }
 
-  bool onSave([UIEvent event = null]) {
-    HtmlElement el = event?.target;
-    var evtMsg = event != null ? ' Event target is ${el.innerHtml}.' : '';
-    alerter('Saved. $evtMsg');
-    return false;
-  }
-
-  void onSubmit(NgForm form) {
-    var evtMsg = form.valid
-        ? ' Form value is ${JSON.encode(form.value)}'
-        : ' Form is invalid';
-    alerter('Form submitted. $evtMsg');
-  }
-
-  void setUpperCaseFirstName(String firstName) {
-    currentHero.firstName = firstName.toUpperCase();
-  }
-
-  String getStyles(Element el) {
-    final style = el.style;
-    final Map styles = <String, String>{};
-    for (var i = 0; i < style.length; i++) {
-      styles[style.item(i)] = style.getPropertyValue(style.item(i));
-    }
-    return JSON.encode(styles);
-  }
-
-  Map<String, bool> _previousClasses = {};
-  // #docregion setClasses
-  Map<String, bool> setClasses() {
-    final classes = {
-      'saveable': canSave, // true
-      'modified': !isUnchanged, // false
-      'special': isSpecial // true
-    };
-    // #docregion setClasses
-    // Compensate for DevMode.
-    if (JSON.encode(_previousClasses) == JSON.encode(classes))
-      return _previousClasses;
-    _previousClasses = classes;
-    // #enddocregion setClasses
-    return classes;
-  }
-  // #enddocregion setClasses
-
-  // #docregion setStyles
-  Map<String, String> setStyles() {
-    return <String, String>{
-      'font-style': canSave ? 'italic' : 'normal', // italic
-      'font-weight': !isUnchanged ? 'bold' : 'normal', // normal
-      'font-size': isSpecial ? '24px' : '8px' // 24px
-    };
-  }
-  // #enddocregion setStyles
-
-  // #docregion NgStyle
-  bool isItalic = false;
-  bool isBold = false;
-  String fontSize = 'large';
-  String fontSizePx = '14';
-
-  Map<String, String> setStyle() {
-    return {
-      'font-style': isItalic ? 'italic' : 'normal',
-      'font-weight': isBold ? 'bold' : 'normal',
-      'font-size': fontSize
-    };
-  }
-  // #enddocregion NgStyle
-
-  String title = 'Template Syntax';
   // #docregion evil-title
   String evilTitle = 'Template <script>alert("evil never sleeps")</script>Syntax';
   // #enddocregion evil-title
 
-  String toeChoice;
+  var/*String|int*/ fontSizePx = '16';
+  
+  String title = 'Template Syntax';
 
-  String toeChooser(Element picker) {
-    List<Element> choices = picker.children;
-    for (var i = 0; i < choices.length; i++) {
-      var choice = choices[i] as CheckboxInputElement;
-      if (choice.checked) {
-        toeChoice = choice.value;
-        return toeChoice;
-      }
-    }
+  int getVal() => 2;
 
-    return null;
+  String name = Hero.mockHeroes[0].name;
+  Hero hero; // defined to demonstrate template context precedence
+  List<Hero> heroes;
+
+  // trackBy change counting
+  int heroesNoTrackByCount   = 0;
+  int heroesWithTrackByCount = 0;
+  int heroesWithTrackByCountReset = 0;
+
+  int heroIdIncrement = 1;
+
+  // heroImageUrl = 'http://www.wpclipart.com/cartoon/people/hero/hero_silhoutte_T.png';
+  // Public Domain terms of use: http://www.wpclipart.com/terms.html
+  final String heroImageUrl = 'assets/images/hero.png';
+  // villainImageUrl = 'http://www.clker.com/cliparts/u/s/y/L/x/9/villain-man-hi.png'
+  // Public Domain terms of use http://www.clker.com/disclaimer.html
+  final String villainImageUrl = 'assets/images/villain.png';
+
+  final String iconUrl = 'assets/images/ng-logo.png';
+  bool isActive = false;
+  bool isSpecial = true;
+  bool isUnchanged = true;
+
+  final Hero nullHero = null;
+
+  void onClickMe(UIEvent event) {
+    HtmlElement el = event?.target;
+    var evtMsg = event != null ? 'Event target class is ${el.className}.' : '';
+    alerter('Click me.$evtMsg');
   }
+
+  void onSave([UIEvent event]) {
+    HtmlElement el = event?.target;
+    var evtMsg = event != null ? ' Event target is ${el.innerHtml}.' : '';
+    alerter('Saved.$evtMsg');
+    event?.stopPropagation();
+  }
+
+  void onSubmit(form) {/* referenced but not used */}
+
+  Map product = {
+  'name': 'frimfram',
+  'price': 42
+  };
+
+  // updates with fresh set of cloned heroes
+  void resetHeroes() {
+    heroes = Hero.mockHeroes.map((hero) => new Hero.copy(hero)).toList();
+    currentHero = heroes[0];
+    heroesWithTrackByCountReset = 0;
+  }
+
+  void setUppercaseName(String name) {
+    currentHero.name = name.toUpperCase();
+  }
+
+  // #docregion setClasses
+  Map<String, bool> currentClasses = <String, bool>{};
+  void setCurrentClasses() {
+    currentClasses = <String, bool>{
+      'saveable': canSave,
+      'modified': !isUnchanged,
+      'special': isSpecial
+    };
+  }
+  // #enddocregion setClasses
+
+  // #docregion setStyles
+  Map<String, String> currentStyles = <String, String>{};
+  void setCurrentStyles() {
+    currentStyles = <String, String>{
+      'font-style': canSave ? 'italic' : 'normal',
+      'font-weight': !isUnchanged ? 'bold' : 'normal',
+      'font-size': isSpecial ? '24px' : '12px'
+    };
+  }
+  // #enddocregion setStyles
 
   // #docregion trackByHeroes
   int trackByHeroes(int index, Hero hero) => hero.id;
@@ -205,58 +189,18 @@ class AppComponent implements OnInit, AfterViewInit {
   // #docregion trackById
   int trackById(int index, dynamic item) => item.id;
   // #enddocregion trackById
+}
 
-  int val = 2;
-
-  //////// Detect effects of NgForTrackBy ///////////////
-  int heroesNoTrackByChangeCount = 0;
-  int heroesWithTrackByChangeCount = 0;
-
-  @ViewChildren('noTrackBy')
-  QueryList<ElementRef> childrenNoTrackBy;
-  @ViewChildren('withTrackBy')
-  QueryList<ElementRef> childrenWithTrackBy;
-
-  void _detectNgForTrackByEffects() {
-    /// Converts [viewChildren] to a list of [Element].
-    List<Element> _extractChildren(QueryList<ElementRef> viewChildren) =>
-        viewChildren.toList()[0].nativeElement.children.toList()
-        as List<Element>;
-
-    {
-      // Updates 'without TrackBy' statistics.
-      List<Element> _oldNoTrackBy = _extractChildren(this.childrenNoTrackBy);
-
-      this.childrenNoTrackBy.changes.listen((Iterable<ElementRef> changes) {
-        final newNoTrackBy = _extractChildren(changes);
-        final isSame = newNoTrackBy.fold(true, (bool isSame, Element elt) {
-          return isSame && _oldNoTrackBy.contains(elt);
-        });
-
-        if (!isSame) {
-          _oldNoTrackBy = newNoTrackBy;
-          this.heroesNoTrackByChangeCount++;
-        }
-      });
+// helper to track changes to viewChildren
+void trackChanges(QueryList<ElementRef> views, void countChange()) {
+  List<ElementRef> oldRefs = views.toList();
+  views.changes.listen((Iterable<ElementRef> changes) {
+    final changedRefs = changes.toList();
+    // Is every changed ElemRef the same as old and in the same position
+    final isSame = changedRefs.every((e) => oldRefs.contains(e));
+    if (!isSame) {
+      oldRefs = changedRefs;
+      countChange();
     }
-
-    {
-      // Updates 'with TrackBy' statistics.
-      List<Element> _oldWithTrackBy =
-          _extractChildren(this.childrenWithTrackBy);
-
-      this.childrenWithTrackBy.changes.listen((Iterable<ElementRef> changes) {
-        final newWithTrackBy = _extractChildren(changes);
-        final isSame = newWithTrackBy.fold(true, (bool isSame, Element elt) {
-          return isSame && _oldWithTrackBy.contains(elt);
-        });
-
-        if (!isSame) {
-          _oldWithTrackBy = newWithTrackBy;
-          this.heroesWithTrackByChangeCount++;
-        }
-      });
-    }
-  }
-  ///////////////////
+  });
 }

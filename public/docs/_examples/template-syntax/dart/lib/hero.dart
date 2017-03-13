@@ -1,37 +1,39 @@
 // #docregion
 class Hero {
-  static int _nextId = 1;
+  static int _nextId = 0;
 
-  final int id;
-  String firstName;
-  String lastName;
+  static final List<Hero> mockHeroes = [
+    new Hero(null, 'Hercules', 'happy', new DateTime(1970, 1, 25),
+        'http://www.imdb.com/title/tt0065832/', 325),
+    new Hero(null, 'Mr. Nice', 'happy'),
+    new Hero(null, 'Narco', 'sad'),
+    new Hero(null, 'Windstorm', 'confused'),
+    new Hero(null, 'Magneta')
+  ];
+
+  int id;
+  String name;
+  String emotion;
   DateTime birthdate;
   String url;
-  int rate = 100;
+  int rate;
 
-  Hero(this.firstName,
-      {this.lastName, this.birthdate, this.url, this.rate, int id})
-      : this.id = id ?? _nextId++;
+  Hero(int _id,
+      [this.name, this.emotion, this.birthdate, this.url, this.rate = 100])
+      : this.id = _id ?? _nextId++;
 
-  String get fullName {
-    if (lastName == null) return firstName;
-    return '$firstName $lastName';
-  }
+  factory Hero.copy(Hero h) =>
+      new Hero(h.id, h.name, h.emotion, h.birthdate, h.url, h.rate);
 
-  Hero clone() => new Hero(firstName,
-      lastName: lastName, birthdate: birthdate, url: url, rate: rate, id: id);
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'emotion': emotion,
+        'birthdate': birthdate.toString(),
+        'url': url,
+        'rate': rate
+      };
 
-  @override String toString() => '$fullName (rate: $rate)';
+  @override
+  String toString() => '$name (rate: $rate)';
 }
-
-final List<Hero> mockHeroes = [
-  new Hero('Hercules',
-      lastName: 'Son of Zeus',
-      birthdate: new DateTime(1970, 2, 25),
-      url: 'http://www.imdb.com/title/tt0065832/',
-      rate: 325),
-  new Hero('eenie', lastName: 'toe'),
-  new Hero('Meanie', lastName: 'Toe'),
-  new Hero('Miny', lastName: 'Toe'),
-  new Hero('Moe', lastName: 'Toe')
-];
