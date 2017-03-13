@@ -1,8 +1,27 @@
 // #docregion
+import 'dart:html';
+import 'package:angular2/core.dart';
 import 'package:angular2/platform/browser.dart';
 
-import 'package:structural_directives/structural_directives_component.dart';
+import 'package:structural_directives/app_component.dart';
 
-main() {
-  bootstrap(StructuralDirectivesComponent);
+void main() {
+  // bootstrap(StructuralDirectivesComponent);
+  bootstrap(AppComponent,
+      // https://github.com/dart-lang/angular2/issues/277
+      [provide(ExceptionHandler, useClass: BrowserExceptionHandler)]);
+}
+
+@Injectable()
+class BrowserExceptionHandler implements ExceptionHandler {
+  const BrowserExceptionHandler();
+
+  @override
+  void call(exception, [stackTrace, String reason]) {
+    window.console.error(ExceptionHandler.exceptionToString(
+      exception,
+      stackTrace,
+      reason,
+    ));
+  }
 }

@@ -1,16 +1,27 @@
-<!DOCTYPE html>
 <!-- #docregion -->
+<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Angular Structural Directives</title>
+  <script>
+      // WARNING: DO NOT set the <base href> like this in production!
+      // Details: https://webdev.dartlang.org/angular/guide/router
+      (function () {
+          // App being served out of web folder (like WebStorm does)?
+          var match = document.location.pathname.match(/^\/[_\w]+\/web\//);
+          var href = match ? match[0] : '/';
+          document.write('<base href="' + href + '" />');
+      }());
+  </script>
+
+  <title>Hierarchical Injectors</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+
   <script defer src="main.dart" type="application/dart"></script>
   <script defer src="packages/browser/dart.js"></script>
 </head>
-
 <body>
-  <structural-directives>Loading...</structural-directives>
+<my-app>Loading...</my-app>
 </body>
-
 </html>
