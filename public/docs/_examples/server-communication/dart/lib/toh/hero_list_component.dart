@@ -9,7 +9,8 @@ import 'hero_service.dart';
 @Component(
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
-    providers: const [HeroService])
+    providers: const [HeroService],
+    styles: const ['.error {color:red;}'])
 // #docregion component
 class HeroListComponent implements OnInit {
   final HeroService _heroService;
@@ -20,8 +21,7 @@ class HeroListComponent implements OnInit {
 
   Future<Null> ngOnInit() => getHeroes();
 
-  // #docregion methods
-  // #docregion getHeroes
+  // #docregion methods, getHeroes
   Future<Null> getHeroes() async {
     try {
       heroes = await _heroService.getHeroes();
@@ -36,12 +36,10 @@ class HeroListComponent implements OnInit {
     name = name.trim();
     if (name.isEmpty) return;
     try {
-      heroes.add(await _heroService.addHero(name));
+      heroes.add(await _heroService.create(name));
     } catch (e) {
       errorMessage = e.toString();
     }
   }
-  // #enddocregion addHero
-  // #enddocregion methods
+  // #enddocregion addHero, methods
 }
-// #enddocregion component

@@ -1,9 +1,7 @@
 // #docregion
-int _toInt(id) => id is int ? id : int.parse(id);
-
 class Hero {
   final int id;
-  final String name;
+  String name;
 
   Hero(this.id, this.name);
 
@@ -12,3 +10,5 @@ class Hero {
 
   Map toJson() => {'id': id, 'name': name};
 }
+
+int _toInt(id) => id is int ? id : int.parse(id);

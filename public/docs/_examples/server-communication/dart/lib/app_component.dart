@@ -13,16 +13,6 @@ import 'wiki/wiki_smart_component.dart';
       <my-wiki></my-wiki>
       <my-wiki-smart></my-wiki-smart>
     ''',
-    // #enddocregion
-    /*
-    // #docregion http-providers
-    providers: const [
-      // in-memory web api provider
-      const Provider(BrowserClient,
-          useFactory: HttpClientBackendServiceFactory, deps: const [])],
-    // #enddocregion http-providers
-    */
-    // #docregion
     directives: const [
       HeroListComponent,
       WikiComponent,
