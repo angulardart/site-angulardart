@@ -38,6 +38,9 @@ More information:
 Once you're ready to move beyond DartPad and develop real apps,
 you need the Dart SDK and Dartium (a special build of Chromium with the Dart VM).
 
+As you install, **note the paths to the SDK and Dartium.**
+You'll need them in step 4.
+
 <ul class="tabs__top-bar">
     <li class="tab-link current" data-tab="tab-sdk-install-windows">Windows</li>
     <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
