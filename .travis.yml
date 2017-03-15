@@ -9,7 +9,7 @@ cache:
 env:
   global:
   - JEKYLL_ENV=production
-  - LATEST_RELEASE=3.0.0-alpha
+  - LATEST_RELEASE=3.0.0-alpha+1
 
 before_install:
   - source ./scripts/env-set.sh

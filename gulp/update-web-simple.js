@@ -29,7 +29,7 @@ module.exports = function (gulp, plugins, config) {
       // pubspec.yaml
       .pipe(replace(/^name: angular_quickstart/, '# #docregion\n$&'))
       .pipe(replace(/(^description: )A simple AngularDart app/m, '$1QuickStart'))
-      .pipe(replace(/(^  angular2: \^).*/m, '$13.0.0-alpha'))
+      .pipe(replace(/(^  angular2: \^).*/m, '$13.0.0-alpha+1'))
       // index.html
       .pipe(replace(/^<!DOCTYPE html>/, '<!-- #docregion -->\n$&'))
       .pipe(replace(/(\s*)(<my-app>[^<]*<\/my-app>.*)/,
