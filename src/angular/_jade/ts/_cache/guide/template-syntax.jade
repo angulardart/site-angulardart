@@ -21,7 +21,7 @@ style.
 
 a#toc
 :marked
-  ### Table of contents
+  ### Contents
 
   This guide covers the basic elements of the Angular template syntax, elements you'll need to construct the view:
 
@@ -70,10 +70,8 @@ a#html
   The `<html>`, `<body>`, and `<base>` elements have no useful role.
   Pretty much everything else is fair game.
 
-  You can extend the HTML vocabulary of your templates with components and
-  directives that appear as new elements and attributes.
-  In the following sections, you'll learn how to get and set DOM
-  (Document Object Model) values dynamically through data binding.
+  You can extend the HTML vocabulary of your templates with components and directives that appear as new elements and attributes.
+  In the following sections, you'll learn how to get and set DOM (Document Object Model) values dynamically through data binding.
 
   Begin with the first form of data binding&mdash;interpolation&mdash;to see how much richer template HTML can be.
 
@@ -116,7 +114,7 @@ a#interpolation
   You appear to be inserting the result between element tags and assigning it to attributes.
   It's convenient to think so, and you rarely suffer for this mistake.
   Though this is not exactly true. Interpolation is a special syntax that Angular converts into a
-  [property binding](#property-binding), as is explained below.
+  [property binding](#property-binding), as is explained [below](#property-binding-or-interpolation-).
 
   But first, let's take a closer look at template expressions and statements.
 
@@ -530,7 +528,6 @@ table(width="100%")
       <code>style</code> property
     td
       +makeExcerpt('app/app.component.html', 'style-binding-syntax-1', '')
-</div>
 
 :marked
   With this broad view in mind, you're ready to look at binding types in detail.
@@ -701,7 +698,7 @@ a#one-time-initialization
 
 :marked
   Fortunately, Angular data binding is on alert for dangerous HTML.
-  It *sanitizes* the values before displaying them.
+  It [*sanitizes*](security#sanitization-and-security-contexts) the values before displaying them.
   It **will not** allow HTML with script tags to leak into the browser, neither with interpolation
   nor property binding.
 
@@ -1847,5 +1844,6 @@ a(href="#toc") back to top
 .l-hr
 :marked
   ## Summary
+
   You've completed this survey of template syntax.
   Now it's time to put that knowledge to work on your own components and directives.

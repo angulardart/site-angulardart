@@ -66,7 +66,7 @@ class AppComponent implements AfterViewInit, OnInit {
 
   void changeIds() {
     this.resetHeroes();
-    this.heroes.map((h) => h.id += 10 * this.heroIdIncrement++).toList();
+    this.heroes.forEach((h) => h.id += 10 * this.heroIdIncrement++);
     this.heroesWithTrackByCountReset = -1;
   }
 
@@ -106,7 +106,7 @@ class AppComponent implements AfterViewInit, OnInit {
 
   String name = Hero.mockHeroes[0].name;
   Hero hero; // defined to demonstrate template context precedence
-  List<Hero> heroes;
+  final List<Hero> heroes = [];
 
   // trackBy change counting
   int heroesNoTrackByCount   = 0;
@@ -151,7 +151,8 @@ class AppComponent implements AfterViewInit, OnInit {
 
   // updates with fresh set of cloned heroes
   void resetHeroes() {
-    heroes = Hero.mockHeroes.map((hero) => new Hero.copy(hero)).toList();
+    heroes.clear();
+    Hero.mockHeroes.forEach((hero) => heroes.add(new Hero.copy(hero)));
     currentHero = heroes[0];
     heroesWithTrackByCountReset = 0;
   }

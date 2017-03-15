@@ -1,8 +1,8 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/template-syntax.jade b/./src/angular/guide/template-syntax.jade
-index 2d3d585..4ab938c 100644
+index 6631698..c720f41 100644
 --- a/./src/angular/_jade/ts/latest/guide/template-syntax.jade
 +++ b/./src/angular/guide/template-syntax.jade
-@@ -1,18 +1,29 @@
+@@ -1,17 +1,28 @@
 -block includes
 -  //- include ../_util-fns
 -  - var _JavaScript = 'JavaScript';
@@ -10,6 +10,13 @@ index 2d3d585..4ab938c 100644
 -  - var __chaining_op = '<code>;</code> or <code>,</code>';
 -  - var __new_op = '<code>new</code>';
 -  - var __objectAsMap = 'object';
+-
+-//- The docs standard h4 style uppercases, making code terms unreadable. Override it.
+-style.
+-  h4 {font-size: 17px !important; text-transform: none !important;}
+-  .syntax { font-family: Consolas, 'Lucida Sans', Courier, sans-serif; color: black; font-size: 85%; }
+-  h4 .syntax { font-size: 100%; }
+-
 +---
 +layout: angular
 +title: Template Syntax
@@ -21,6 +28,7 @@ index 2d3d585..4ab938c 100644
 +nextpage:
 +  title: Attribute Directives
 +  url: /angular/guide/attribute-directives
++toc: false
 +---
 +//- FilePath: src/angular/guide/template-syntax.jade
 +
@@ -33,20 +41,11 @@ index 2d3d585..4ab938c 100644
 +- var mapApiRef = 'https://api.dartlang.org/stable/dart-core/Map-class.html';
 +- var __objectAsMap = '<b><a href="' + mapApiRef + '">Map</a></b>'
 +
-+:marked
-+  {{page.description}}
- 
--//- The docs standard h4 style uppercases, making code terms unreadable. Override it.
--style.
--  h4 {font-size: 17px !important; text-transform: none !important;}
--  .syntax { font-family: Consolas, 'Lucida Sans', Courier, sans-serif; color: black; font-size: 85%; }
--  h4 .syntax { font-size: 100%; }
--
--:marked
++p <i>{{page.description}}</i>
+ :marked
    The Angular application manages what the user sees and can do, achieving this through the interaction of a
    component class instance (the *component*) and its user-facing template.
- 
-@@ -84,7 +95,7 @@ a#interpolation
+@@ -82,7 +93,7 @@ a#interpolation
  :marked
    ## Interpolation ( <span class="syntax">{&#xfeff;{...}}</span> )
  
@@ -55,7 +54,7 @@ index 2d3d585..4ab938c 100644
  
  +makeExcerpt('app/app.component.html', 'first-interpolation', '')
  
-@@ -131,7 +142,7 @@ a#template-expressions
+@@ -129,7 +140,7 @@ a#template-expressions
    Angular executes the expression and assigns it to a property of a binding target;
    the target might be an HTML element, a component, or a directive.
  
@@ -64,7 +63,7 @@ index 2d3d585..4ab938c 100644
    In the [property binding](#property-binding) section below,
    a template expression appears in quotes to the right of the&nbsp;`=` symbol as in `[property]="expression"`.
  
-@@ -149,8 +160,11 @@ a#template-expressions
+@@ -147,8 +158,11 @@ a#template-expressions
  :marked
    Other notable differences from #{_JavaScript} syntax include:
  
@@ -77,7 +76,7 @@ index 2d3d585..4ab938c 100644
  
  a#expression-context
  :marked
-@@ -177,14 +191,15 @@ a#expression-context
+@@ -175,14 +189,15 @@ a#expression-context
    and, lastly, the component's member names.
  
    The previous example presents such a name collision. The component has a `hero`
@@ -99,7 +98,7 @@ index 2d3d585..4ab938c 100644
  
  a(href="#toc") back to top
  
-@@ -302,9 +317,10 @@ a#template-statements
+@@ -300,9 +315,10 @@ a#template-statements
    In `deleteHero(hero)` above, the `hero` is the template input variable,
    not the component's `hero` property.
  
@@ -113,7 +112,7 @@ index 2d3d585..4ab938c 100644
  
    ### Statement guidelines
  
-@@ -345,7 +361,7 @@ table(width="100%")
+@@ -343,7 +359,7 @@ table(width="100%")
      td One-way<br>from data source<br>to view target
      td
        code-example().
@@ -122,7 +121,7 @@ index 2d3d585..4ab938c 100644
          [target]="expression"
          bind-target="expression"
      td.
-@@ -644,6 +660,16 @@ a#property-binding
+@@ -641,6 +657,16 @@ a#property-binding
  
  +makeExcerpt('app/app.component.html', 'property-binding-4', '')
  
@@ -139,7 +138,7 @@ index 2d3d585..4ab938c 100644
  :marked
    ### Remember the brackets
  
-@@ -656,6 +682,12 @@ a#property-binding
+@@ -653,6 +679,12 @@ a#property-binding
  
  +makeExcerpt('app/app.component.html', 'property-binding-6', '')
  
@@ -152,16 +151,7 @@ index 2d3d585..4ab938c 100644
  a#one-time-initialization
  :marked
    ### One-time string initialization
-@@ -701,7 +733,7 @@ a#one-time-initialization
- 
- :marked
-   Fortunately, Angular data binding is on alert for dangerous HTML.
--  It *sanitizes* the values before displaying them.
-+  It [*sanitizes*](security#sanitization-and-security-contexts) the values before displaying them.
-   It **will not** allow HTML with script tags to leak into the browser, neither with interpolation
-   nor property binding.
- 
-@@ -748,7 +780,7 @@ a#other-bindings
+@@ -745,7 +777,7 @@ a#other-bindings
    This fact becomes painfully obvious when you write something like this.
  
  code-example(language="html").
@@ -170,7 +160,7 @@ index 2d3d585..4ab938c 100644
  
  :marked
    And you get this error:
-@@ -852,6 +884,18 @@ a(href="#toc") back to top
+@@ -849,6 +881,18 @@ a(href="#toc") back to top
      [dash-case](glossary.html#dash-case), as shown above, or
      [camelCase](glossary.html#camelcase), such as `fontSize`.
  
@@ -189,7 +179,7 @@ index 2d3d585..4ab938c 100644
  a(href="#toc") back to top
  
  .l-hr
-@@ -1051,7 +1095,7 @@ a#two-way
+@@ -1048,7 +1092,7 @@ a#two-way
  :marked
    The `AppComponent.fontSizePx` establishes the initial `SizerComponent.size` value.
    Clicking the buttons updates the `AppComponent.fontSizePx` via the two-way binding.
@@ -198,7 +188,7 @@ index 2d3d585..4ab938c 100644
    making the displayed text bigger or smaller.
  
    The two-way binding syntax is really just syntactic sugar for a _property_ binding and an _event_ binding.
-@@ -1105,8 +1149,8 @@ a#attribute-directives
+@@ -1102,8 +1146,8 @@ a#attribute-directives
    They are usually applied to elements as if they were HTML attributes, hence the name.
  
    Many details are covered in the [_Attribute Directives_](attribute-directives.html) guide.
@@ -209,7 +199,7 @@ index 2d3d585..4ab938c 100644
    This section is an introduction to the most commonly used attribute directives:
  
    * [`NgClass`](#ngClass) - add and remove a set of CSS classes
-@@ -1294,8 +1338,8 @@ a#structural-directives
+@@ -1291,8 +1335,8 @@ a#structural-directives
  
    * why you
    [_prefix the directive name with an asterisk_ (\*)](structural-directives.html#asterisk "The * in *ngIf").
@@ -220,7 +210,7 @@ index 2d3d585..4ab938c 100644
    * how to write your own structural directive.
    * that you can only apply [one structural directive](structural-directives.html#one-per-element "one per host element") to an element.
  
-@@ -1325,6 +1369,28 @@ a#ngIf
+@@ -1322,6 +1366,28 @@ a#ngIf
    When the expression is #{_falsy}, `NgIf` removes the `HeroDetailComponent`
    from the DOM, destroying that component and all of its sub-components.
  
@@ -249,7 +239,7 @@ index 2d3d585..4ab938c 100644
    #### Show/hide is not the same thing
  
    You can control the visibility of an element with a
-@@ -1487,7 +1553,7 @@ a#ngSwitch
+@@ -1484,7 +1550,7 @@ a#ngSwitch
  :marked
    ### The _NgSwitch_ directives
  
@@ -258,7 +248,7 @@ index 2d3d585..4ab938c 100644
    It can display _one_ element from among several possible elements, based on a _switch condition_.
    Angular puts only the *selected* element into the DOM.
  
-@@ -1516,7 +1582,7 @@ figure.image-display
+@@ -1513,7 +1579,7 @@ figure.image-display
    * `NgSwitchDefault` adds its element to the DOM when there is no selected `NgSwitchWhen`.
  
    The switch directives are particularly useful for adding and removing *component elements*.
@@ -267,7 +257,7 @@ index 2d3d585..4ab938c 100644
    Each component has a `hero` [input property](#inputs-outputs "Input property")
    which is bound to the `currentHero` of the parent component.
  
-@@ -1568,10 +1634,8 @@ a#ref-var
+@@ -1565,10 +1631,8 @@ a#ref-var
    A template reference variable, `heroForm`, appears three times in this example, separated
    by a large amount of HTML.
    What is the value of `heroForm`?
@@ -280,7 +270,7 @@ index 2d3d585..4ab938c 100644
    directive with the ability to track the value and validity of every control in the form.
  
    The native `<form>` element doesn't have a `form` property.
-@@ -1621,7 +1685,7 @@ a#inputs-outputs
+@@ -1618,7 +1682,7 @@ a#inputs-outputs
      The *source* is on the *right* of the `=`.
  
      The *target* of a binding is the property or event inside the binding punctuation: `[]`, `()` or `[()]`.
@@ -289,7 +279,7 @@ index 2d3d585..4ab938c 100644
  
      Every member of a **source** directive is automatically available for binding.
      You don't have to do anything special to access a directive member in a template expression or statement.
-@@ -1653,7 +1717,7 @@ a#inputs-outputs
+@@ -1650,7 +1714,7 @@ a#inputs-outputs
  
    Target properties must be explicitly marked as inputs or outputs.
  
@@ -298,7 +288,7 @@ index 2d3d585..4ab938c 100644
  
  +makeExcerpt('app/hero-detail.component.ts', 'input-output-1', '')
  
-@@ -1665,7 +1729,7 @@ a#inputs-outputs
+@@ -1662,7 +1726,7 @@ a#inputs-outputs
    +makeExcerpt('app/hero-detail.component.ts', 'input-output-2', '')
  
    :marked
@@ -307,7 +297,7 @@ index 2d3d585..4ab938c 100644
      Don't do both!
  
  :marked
-@@ -1755,7 +1819,7 @@ a#pipe
+@@ -1752,7 +1816,7 @@ a#pipe
  +makeExcerpt('app/app.component.html', 'pipes-3', '')
  
  :marked
@@ -316,7 +306,7 @@ index 2d3d585..4ab938c 100644
  
  +makeExcerpt('app/app.component.html', 'pipes-json', '')
  
-@@ -1775,8 +1839,10 @@ a#safe-navigation-operator
+@@ -1772,8 +1836,10 @@ a#safe-navigation-operator
  :marked
    ### The safe navigation operator ( <span class="syntax">?.</span> ) and null property paths
  
@@ -329,7 +319,7 @@ index 2d3d585..4ab938c 100644
    Here it is, protecting against a view render failure if the `currentHero` is null.
  
  +makeExcerpt('app/app.component.html', 'safe-2', '')
-@@ -1794,13 +1860,13 @@ a#safe-navigation-operator
+@@ -1791,13 +1857,13 @@ a#safe-navigation-operator
    that displays the `name` of a null hero.
  
  code-example(language="html").
@@ -346,7 +336,7 @@ index 2d3d585..4ab938c 100644
  
  :marked
    Worse, the *entire view disappears*.
-@@ -1822,13 +1888,6 @@ code-example(format="nocode").
+@@ -1819,13 +1885,6 @@ code-example(format="nocode").
  
  +makeExcerpt('app/app.component.html', 'safe-4', '')
  
