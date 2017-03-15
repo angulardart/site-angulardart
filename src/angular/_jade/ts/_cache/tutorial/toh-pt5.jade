@@ -261,6 +261,7 @@ block routerLink
 
     Since our link is not dynamic, we define a *routing instruction* with a **one-time binding** to our route **path**.
     Looking back at the route configuration, we confirm that `'/heroes'` is the path of the route to the `HeroesComponent`.
+
   .l-sub-section
     :marked
       Learn more about dynamic router links and the *link parameters array*
@@ -358,9 +359,6 @@ block redirect-vs-use-as-default
 
   Replace the `template` metadata with a `templateUrl` property that points to a new
   template file.
-+ifDocsFor('ts|js')
-  :marked
-    Set the `moduleId` property to `module.id` for module-relative loading of the `templateUrl`.
 
 +makeExcerpt('app/dashboard.component.ts', 'metadata')
 
@@ -597,7 +595,7 @@ block extract-id
 +makeExample('app/hero-detail.component.html')
 
 :marked
-  We update the component metadata with a <span if-docs="ts">`moduleId` and a </span>`templateUrl` pointing to the template file that we just created.
+  We update the component metadata with a `templateUrl` pointing to the template file that we just created.
 
 +makeExcerpt('app/hero-detail.component.ts', 'metadata')
 
@@ -611,7 +609,7 @@ block extract-id
   When a user selects a hero in the dashboard, the app should navigate to the `HeroDetailComponent` to view and edit the selected hero.
 
   Although the dashboard heroes are presented as button-like blocks, they should behave like anchor tags.
-  When hovering over a hero block, the target URL should display in the browser status bar 
+  When hovering over a hero block, the target URL should display in the browser status bar
   and the user should be able to copy the link or open the hero detail view in a new tab.
 
   To achieve this effect, reopen the `dashboard_component.html` and replace the repeated `<div *ngFor...>` tags
@@ -646,31 +644,32 @@ block extract-id
   :marked
     ## Refactor routes to a _Routing Module_
 
-    Almost 20 lines of `AppModule` are devoted to configuring four routes. 
-    Most applications have many more routes and they [add guard services](../guide/router.html#guards) 
-    to protect against unwanted or unauthorized navigations. 
-    Routing considerations could quickly dominate this module and obscure its primary purpose which is to 
+    Almost 20 lines of `AppModule` are devoted to configuring four routes.
+    Most applications have many more routes and they [add guard services](../guide/router.html#guards)
+    to protect against unwanted or unauthorized navigations.
+    Routing considerations could quickly dominate this module and obscure its primary purpose which is to
     establish key facts about the entire app for the Angular compiler.
 
     We should refactor the routing configuration into its own class.
-    What kind of class? 
+    What kind of class?
     The current `RouterModule.forRoot()` produces an Angular `ModuleWithProviders` which suggests that a
     class dedicated to routing should be some kind of module.
     It should be a [_Routing Module_](../guide/router.html#routing-module).
 
-    By convention the name of a _Routing Module_ contains the word "Routing" and 
+    By convention the name of a _Routing Module_ contains the word "Routing" and
     aligns with the name of the module that declares the components navigated to.
 
     Create an `app-routing.module.ts` file as a sibling to `app.module.ts`. Give it the following contents extracted from the `AppModule` class:
 
   +makeExample('app/app-routing.module.ts')
+
   :marked
     Noteworthy points, typical of _Routing Modules_:
     * Pulls the routes into a variable. You might export it in future and it clarifies the _Routing Module_ pattern.
 
     * Adds `RouterModule.forRoot(routes)` to `imports`.
 
-    * Adds `RouterModule` to `exports` so that the components in the companion module have access to Router declarables 
+    * Adds `RouterModule` to `exports` so that the components in the companion module have access to Router declarables
     such as `RouterLink` and `RouterOutlet`.
 
     * No `declarations`!  Declarations are the responsibility of the companion module.
@@ -679,14 +678,16 @@ block extract-id
 
     ### Update _AppModule_
 
-    Now delete the routing configuration from `AppModule` and import the `AppRoutingModule` 
+    Now delete the routing configuration from `AppModule` and import the `AppRoutingModule`
     (_both_ with an ES `import` statement _and_ by adding it to the `NgModule.imports` list).
 
     Here is the revised `AppModule`, compared to its pre-refactor state:
+
   +makeTabs(
     `toh-5/ts/app/app.module.ts, toh-5/ts/app/app.module.3.ts`,
      null,
     `app/app.module.ts (after), app/app.module.ts (before)`)
+
   :marked
     It's simpler and focused on identifying the key pieces of the application.
 
@@ -759,7 +760,6 @@ figure.image-display
   1. *Cut-and-paste* the template contents into a new `heroes_component.html` file.
   1. *Cut-and-paste* the styles contents into a new `heroes_component.css` file.
   1. *Set* the component metadata's `templateUrl` and `styleUrls` properties to refer to both files.
-  <li if-docs="ts">. *Set* the `moduleId` property to `module.id` so that `templateUrl` and `styleUrls` are relative to the component.</li>
 
 .l-sub-section
   :marked
@@ -774,7 +774,7 @@ block heroes-component-cleanup
 :marked
   ### Update the _HeroesComponent_ class.
 
-  The `HeroesComponent` navigates to the `HeroDetailComponent` in response to a button click. 
+  The `HeroesComponent` navigates to the `HeroDetailComponent` in response to a button click.
   The button's _click_ event is bound to a `gotoDetail` method that navigates _imperatively_
   by telling the router where to go.
 
@@ -867,11 +867,8 @@ block css-files
 
     +makeExcerpt('app/app.component.ts (active router links)', 'template')
 
-block style-urls
-  :marked
-    First add `moduleId: module.id` to the `@Component` metadata of the `AppComponent`
-    to enable _module-relative_ file URLs.
-    Then add a `styleUrls` property that points to this CSS file as follows.
+:marked
+  Add a `styleUrls` property that refers to this CSS file as follows:
 
 +makeExcerpt('app/app.component.ts','styleUrls')
 
@@ -941,7 +938,7 @@ block file-tree-end
         .file index.html
         .file styles.css
         .file systemjs.config.js
-        .file tsconfig.json          
+        .file tsconfig.json
       .file node_modules ...
       .file package.json
 
