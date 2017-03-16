@@ -324,6 +324,9 @@ module.exports = function (gulp, plugins, config) {
   });
 
   //==============================================================================================
+  // As of 2017-03-14, _only_ copy over boilerplate files. We don't copy over sample code, since
+  // the samples are exclusively tested under this repo.
+  //
   // The main purpose of get-ngio-examples+ is to fetch the files necessary to
   // test, build and extract fragments from Dart examples. At the moment we achieve
   // this using the angular.io tooling (which is also copied over).
@@ -336,9 +339,9 @@ module.exports = function (gulp, plugins, config) {
     cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
     const baseDir = config.angulario;
     return gulp.src([
-      `${baseDir}/public/docs/_examples/*/dart/.*`,
-      `${baseDir}/public/docs/_examples/*/dart/**`,
-      `!${baseDir}/public/docs/_examples/*/dart/build/**`,
+      // `${baseDir}/public/docs/_examples/*/dart/.*`, // 2017-03-14: see note above
+      // `${baseDir}/public/docs/_examples/*/dart/**`, // 2017-03-14: see note above
+      // `!${baseDir}/public/docs/_examples/*/dart/build/**`,
       // We no longer track updates to these files:
       `!${baseDir}/public/docs/_examples/package.json`,
       // EXAMPLES: support files (since the example source is already under webdev)

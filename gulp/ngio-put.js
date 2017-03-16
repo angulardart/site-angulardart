@@ -15,7 +15,9 @@ module.exports = function (gulp, plugins, config) {
     plugins.gutil.log(`If you still want to use the old task it is: _put-ngio-files.`);
   });
 
-  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes', '_put-examples'], cb => {
+  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'
+    //, '_put-examples' // don't put examples anymore since we always test locally
+    ], cb => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);
