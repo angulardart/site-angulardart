@@ -36,6 +36,7 @@ import 'not_found_component.dart';
 // #docregion routes
 @RouteConfig(const [
   const Redirect(path: '/', redirectTo: const ['Heroes']),
+  const Redirect(path: '/index.html', redirectTo: const ['Heroes']),
   const Route(
       // #docregion crisis-center-path
       path: '/crisis-center/...',

@@ -45,15 +45,16 @@ a#default-route
   ## Redirect route
 
   As an alternative solution, remove the `useAsDefault` argument that you just added,
-  and instead add a `Redirect` route that will translate an initial relative URL (`''`)
-  to the desired default path (`/heroes`).
+  and instead add a `Redirect` route that will translate an initial relative URL (`'/'`)
+  to the desired default path (`/heroes`). You can also redirect `/index.html` while
+  you are at it:
   
-  **Refresh the browser** and try it. Now the browser address bar shows `.../heroes` 
-  as if you'd navigated there directly.
-
 +makeExcerpt('lib/app_component_2.dart', 'Redirect')
 
 :marked
+  **Refresh the browser** and try it. Now the browser address bar shows `.../heroes` 
+  as if you'd navigated there directly.
+
   ## Wildcard route
 
   While you've created routes to `/crisis-center` and `/heroes`,
