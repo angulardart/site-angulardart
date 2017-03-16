@@ -35,8 +35,10 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/(\s*)(<my-app>[^<]*<\/my-app>.*)/,
         '$1<!-- #docregion my-app -->$1$2$1<!-- #enddocregion my-app -->'))
       // *.dart
-      // Add docregion at top of file and remove (bogus) author from copyright notice.
-      .pipe(replace(/^(\/\/ Copyright \(c\) 20\d\d)[^\.]*\./, '// #docregion\n$1.'))
+      // Remove (bogus) author from copyright notice.
+      .pipe(replace(/^(\/\/ Copyright \(c\) 20\d\d)[^\.]*\./, '$1.'))
+      // Add docregion after copyright notice.
+      .pipe(replace(/^(\/\/ Copyright[\S\s]+\/\/ is governed by .*LICENSE file\.\n\n)/, '$1// #docregion\n'))
       .pipe(gulp.dest('public/docs/_examples/quickstart/dart'));
   });
 
