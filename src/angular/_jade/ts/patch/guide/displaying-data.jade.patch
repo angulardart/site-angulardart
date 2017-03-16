@@ -1,12 +1,12 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/displaying-data.jade b/./src/angular/guide/displaying-data.jade
-index 94133c0..4379cfa 100644
+index 056498b..4c62ebe 100644
 --- a/./src/angular/_jade/ts/latest/guide/displaying-data.jade
 +++ b/./src/angular/guide/displaying-data.jade
 @@ -1,8 +1,21 @@
 -block includes
 -  //- include ../_util-fns
 -  - var _iterableUrl = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols';
--  - var _boolean = 'truthy/falsy';
+-  - var _boolean = 'true/false';
 -
 +---
 +layout: angular
@@ -43,8 +43,8 @@ index 94133c0..4379cfa 100644
  .l-sub-section
    :marked
      The <live-example></live-example> demonstrates all of the syntax and code
-@@ -32,7 +38,7 @@ figure.image-display
-   ## Showing component properties with interpolation
+@@ -33,7 +39,7 @@ figure.image-display
+ 
    The easiest way to display a component property
    is to bind the property name through interpolation.
 -  With interpolation, you put the property name in the view template, enclosed in double curly braces: `{{myHero}}`.
@@ -52,7 +52,7 @@ index 94133c0..4379cfa 100644
  
    Follow the [setup](setup.html) instructions for creating a new project
    named `displaying_data`.
-@@ -52,14 +58,6 @@ figure.image-display
+@@ -53,14 +59,6 @@ figure.image-display
  
  +makeExcerpt('app/app.component.1.ts', 'template', '')
  
@@ -67,7 +67,7 @@ index 94133c0..4379cfa 100644
  :marked
    Angular automatically pulls the value of the `title` and `myHero` properties from the component and
    inserts those values into the browser. Angular updates the display
-@@ -181,22 +179,9 @@ figure.image-display
+@@ -184,22 +182,9 @@ figure.image-display
  
  +makeExcerpt('app/hero.ts')
  
@@ -93,7 +93,7 @@ index 94133c0..4379cfa 100644
  
  .l-main-section
  :marked
-@@ -265,10 +250,10 @@ block hero-class
+@@ -270,10 +255,10 @@ block hero-class
  
    Here's the final code:
  
