@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/server-communication.jade b/./src/angular/_jade/ts/_cache/guide/server-communication.jade
-index 20f8bb5..cd60af6 100644
+index e20bc48..126ef64 100644
 --- a/./src/angular/_jade/ts/latest/guide/server-communication.jade
 +++ b/./src/angular/_jade/ts/_cache/guide/server-communication.jade
 @@ -19,55 +19,13 @@ block includes
@@ -92,7 +92,7 @@ index 20f8bb5..cd60af6 100644
      Alternatively, you can temporarily target a JSON file by changing the endpoint URL:
  
    +makeExcerpt('app/toh/hero.service.ts', 'endpoint-json', '')
-@@ -380,14 +339,13 @@ block hlc-error-handling
+@@ -379,14 +338,13 @@ block hlc-error-handling
    Now you'll add the ability to create new heroes and save them in the backend.
  
    You'll write a method for the `HeroListComponent` to call, a `create()` method, that takes
@@ -109,7 +109,7 @@ index 20f8bb5..cd60af6 100644
    It expects a [`POST`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5) request
    at the same endpoint as `GET` heroes.
    It expects the new hero data to arrive in the body of the request,
-@@ -710,152 +668,8 @@ block wikipedia-jsonp+
+@@ -709,152 +667,8 @@ block wikipedia-jsonp+
      re-arranges them in their original request order,
      and delivers to subscribers only the most recent search results.
  
