@@ -354,7 +354,7 @@ module.exports = function (gulp, plugins, config) {
       // Skip files w/o Dart tests
       `!${baseDir}/public/docs/_examples/{animations,cb-*,cli-*}/**`,
       `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
-      `!${baseDir}/public/docs/_examples/{setup,style-?guide,testing,upgrade*,webpack}/**`,
+      `!${baseDir}/public/docs/_examples/{setup,style-guide,styleguide,testing,upgrade*,webpack}/**`,
 
       // TOOLING
       `${baseDir}/scripts/examples-install.sh`,
@@ -365,6 +365,9 @@ module.exports = function (gulp, plugins, config) {
     ], { base: baseDir })
       // Patch security/e2e-spec.ts
       .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
+      // Patch component-styles/e2e-spec.ts
+      // https://github.com/dart-lang/angular2/issues/39
+      .pipe(replace(/(it\('includes styles loaded with CSS @import')/, 'x$1', {skipBinary:true}))
       .pipe(gulp.dest('.'));
   });
 

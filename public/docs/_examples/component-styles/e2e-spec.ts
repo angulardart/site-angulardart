@@ -44,7 +44,7 @@ describe('Component Style Tests', function () {
     expect(contentH3.getCssValue('fontStyle')).toEqual('italic');
   });
 
-  it('includes styles loaded with CSS @import', function() {
+  xit('includes styles loaded with CSS @import', function() {
     let host = element(by.css('hero-details'));
 
     expect(host.getCssValue('padding')).toEqual('10px');
