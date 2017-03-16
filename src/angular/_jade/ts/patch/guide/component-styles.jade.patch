@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/component-styles.jade b/./src/angular/guide/component-styles.jade
-index 6793ba4..4c34a51 100644
+index 072a2a1..4c34a51 100644
 --- a/./src/angular/_jade/ts/latest/guide/component-styles.jade
 +++ b/./src/angular/guide/component-styles.jade
 @@ -1,5 +1,21 @@
@@ -64,7 +64,7 @@ index 6793ba4..4c34a51 100644
 -      The URL is relative to the *application root*, which is usually the
 -      location of the `index.html` web page that hosts the application. 
 -      The style file URL is *not* relative to the component file.
--      That's why the example URL begins `app/`.
+-      That's why the example URL begins `lib/`.
 -      To specify a URL relative to the component file, see [Appendix 2](#relative-urls).
 -
 -block module-bundlers
@@ -114,7 +114,7 @@ index 6793ba4..4c34a51 100644
    
  +makeExample('component-styles/ts/app/hero-details.component.css', 'import', 'app/hero-details.component.css (excerpt)')
  
-@@ -290,22 +285,18 @@ a#relative-urls
+@@ -290,19 +285,18 @@ a#relative-urls
    ## Appendix 2: Loading styles with relative URLs
    
    It's common practice to split a component's code, HTML, and CSS into three separate files in the same directory:
@@ -134,12 +134,9 @@ index 6793ba4..4c34a51 100644
  
 -block module-id
 -  :marked
--    You can change the way Angular calculates the full URL by setting the component metadata's `moduleId` property to `module.id`.
+-    You can use a relative URL by prefixing your filenames with `./`:
 +  Thankfully, this is the default interpretation of relative URLs in AngularDart:
  
 -  +makeExample('app/quest-summary.component.ts')
--
--  :marked
--    Learn more about `moduleId` in the [Component-Relative Paths](../cookbook/component-relative-paths.html) page.
 ++makeExcerpt('app/quest-summary.component.ts', 'urls', '')
  
