@@ -11,11 +11,6 @@ import 'hero_switch_components.dart';
 import 'click_directive.dart';
 import 'sizer_component.dart';
 
-// Alerter fn: monkey patch during test
-void alerter(String msg) {
-  window.alert(msg);
-}
-
 enum Color { red, green, blue }
 
 /// Giant grab bag of stuff to drive the chapter
@@ -55,11 +50,11 @@ class AppComponent implements AfterViewInit, OnInit {
   @ViewChildren('withTrackBy') QueryList<ElementRef> heroesWithTrackBy;
 
   String actionName = 'Go for it';
-  Function alert = alerter;
   String badCurly = 'bad curly';
   String classes = 'special';
   String help = '';
 
+  void alert([String msg]) => window.alert(msg);
   void callFax(String value) => alert('Faxing $value ...');
   void callPhone(String value) => alert('Calling $value ...');
   bool canSave = true;
@@ -91,7 +86,7 @@ class AppComponent implements AfterViewInit, OnInit {
   Hero currentHero;
 
   void deleteHero([Hero hero]) {
-    alerter('Deleted ${hero?.name ?? 'the hero'}.');
+    alert('Deleted ${hero?.name ?? 'the hero'}.');
   }
 
   // #docregion evil-title
@@ -132,13 +127,13 @@ class AppComponent implements AfterViewInit, OnInit {
   void onClickMe(UIEvent event) {
     HtmlElement el = event?.target;
     var evtMsg = event != null ? 'Event target class is ${el.className}.' : '';
-    alerter('Click me.$evtMsg');
+    alert('Click me.$evtMsg');
   }
 
   void onSave([UIEvent event]) {
     HtmlElement el = event?.target;
     var evtMsg = event != null ? ' Event target is ${el.innerHtml}.' : '';
-    alerter('Saved.$evtMsg');
+    alert('Saved.$evtMsg');
     event?.stopPropagation();
   }
 
