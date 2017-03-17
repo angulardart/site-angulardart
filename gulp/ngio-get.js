@@ -287,7 +287,10 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_get-rsrc-images2', cb => {
     const baseDir = path.join(angulario, 'public/docs/dart/latest');
-    return gulp.src([`${baseDir}/guide/images/**`], { base: baseDir }).pipe(gulp.dest('src/angular'));
+    return gulp.src([
+      `${baseDir}/guide/images/**`,
+      `!${baseDir}/guide/images/create-ng2-project.png`
+      ], { base: baseDir }).pipe(gulp.dest('src/angular'));
   });
 
   gulp.task('_get-rsrc-other', cb => {
@@ -344,6 +347,7 @@ module.exports = function (gulp, plugins, config) {
       // `!${baseDir}/public/docs/_examples/*/dart/build/**`,
       // We no longer track updates to these files:
       `!${baseDir}/public/docs/_examples/package.json`,
+      `!${baseDir}/public/docs/_examples/router/e2e-spec.ts`,
       // EXAMPLES: support files (since the example source is already under webdev)
       `${baseDir}/public/docs/_examples/_boilerplate/*.json`,
       // We don't need the plnkr, and we need to keep the old tsconfig (not under /src)
