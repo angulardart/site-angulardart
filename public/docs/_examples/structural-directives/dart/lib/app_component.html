@@ -153,21 +153,24 @@ TODO: remove ALL use of ng-container if there is no such feature in ngDart.
 
 <p class="code">&lt;div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd"&gt;</p>
 <!--#docregion inside-ngfor -->
-<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById"
+     [class.odd]="odd">
   ({{i}}) {{hero.name}}
 </div>
 
 <!--#enddocregion inside-ngfor -->
 <p class="code">&lt;div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd"&gt;</p>
 <!--#docregion inside-ngfor -->
-<div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+<div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackById"
+     [class.odd]="odd">
   ({{i}}) {{hero.name}}
 </div>
 
 <!--#enddocregion inside-ngfor -->
 <p class="code">&lt;template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById"&gt;</p>
 <!--#docregion inside-ngfor -->
-<template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+<template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd"
+          [ngForTrackBy]="trackById">
   <div [class.odd]="odd">({{i}}) {{hero.name}}</div>
 </template>
 <!--#enddocregion inside-ngfor -->
