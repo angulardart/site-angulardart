@@ -25,7 +25,6 @@ module.exports = function(gulp, plugins, config) {
   const frags = config.frags;
   const ngApiDocPath = path.resolve(config.angularRepo, config.relDartDocApiDir);
   const ngFragsPath = path.join(ngApiDocPath, frags.dirName);
-  const ngDocExFragDir = path.join(ngFragsPath, 'docs');
 
   // Task: dartdoc
   // --fast   skip prep and API doc generation if API docs already exist.
@@ -82,23 +81,24 @@ module.exports = function(gulp, plugins, config) {
 
   gulp.task('_clean-ng-frag', () => cp.execSync(`rm -Rf ${ngFragsPath}`));
 
-  gulp.task('_setup-fragments-for-dartdoc', ['_dartdoc-clean', '_clean-ng-frag', 'create-example-fragments'], () => {
+  gulp.task('_setup-fragments-for-dartdoc',
+    ['_dartdoc-clean', '_clean-ng-frag', 'create-example-fragments'],
+    () => _ngLinkFrags()
+  );
+
+  gulp.task('_ng-link-frags', () => _ngLinkFrags());
+
+  function _ngLinkFrags() {
     // Fragments have been created via `create-example-fragments`.
     // Now copy/link the local fragments to the angular2 repo so that
     // dartdoc, when run over the angular2 repo, can find them.
 
-    plugins.gutil.log(`Linking to fragment folders ${ngFragsPath}`);
-    cp.execSync(`mkdir -p ${ngDocExFragDir}`);
-
     // Handle doc sample frags
-    // plugins.gutil.log(`  cd ${ngDocExFragDir}`);
-    plugins.fs.readdirSync(frags.path).forEach(subdir => {
-      if (subdir.startsWith('_')) return true;
-      const srcFragsPath = path.resolve(frags.path, subdir, 'dart');
-      const cmd = `ln -s ${srcFragsPath} ${subdir}`;
-      // plugins.gutil.log(`    ${cmd}`);
-      cp.execSync(cmd, {cwd:ngDocExFragDir});
-    });
+    plugins.gutil.log(`Linking to fragment folders ${ngFragsPath}`);
+    cp.execSync(`mkdir -p ${ngFragsPath}`);
+    const webdevFragPath = path.resolve(frags.path);
+    cp.execSync(`ln -s ${webdevFragPath} doc`, {cwd:ngFragsPath});
+    cp.execSync(`ln -s doc docs`, {cwd:ngFragsPath});
 
     // Handle API samples
     // plugins.gutil.log(`  cd ${ngFragsPath}`);
@@ -110,7 +110,7 @@ module.exports = function(gulp, plugins, config) {
       cp.execSync(cmd, {cwd:ngFragsPath});
     });
     return true;
-  });
+  }
 
 };
 
