@@ -36,7 +36,7 @@ const THIS_PROJECT_PATH = path.resolve('.');
 const ANGULAR_PROJECT_PATH = '../angular2'; // WARNING: some old scripts expect this to be ../angular
 const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
-const EXAMPLES_PATH = path.join(DOCS_PATH, '_examples');
+const EXAMPLES_PATH = './examples/ng/doc';
 const TOOLS_PATH = './tools';
 
 const angulario = path.resolve('../angular.io');

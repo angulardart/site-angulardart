@@ -26,6 +26,7 @@ include ../_util-fns
 .l-main-section
 :marked
   ## Where We Left Off
+
   Before we continue with Part 2 of the Tour of Heroes,
   let’s verify we have the following structure after [Part 1](./toh-pt1.html).
   If not, we’ll need to go back to Part 1 and figure out what we missed.
@@ -42,8 +43,10 @@ include ../_util-fns
       .file main.dart
       .file styles.css
     .file pubspec.yaml
+
 :marked
   ### Keep the app compiling and running
+
   We want to start the Dart compiler, have it watch for changes, and start our server. We'll do this by typing
 
 code-example(language="sh" class="code-shell").
@@ -55,10 +58,12 @@ code-example(language="sh" class="code-shell").
 .l-main-section
 :marked
   ## Displaying Our Heroes
+
   ### Creating heroes
+
   Let’s create a list of ten heroes at the bottom of `app_component.dart`.
 
-+makeExample('toh-2/dart/lib/app_component.dart', 'hero-array', 'app_component.dart (hero list)')(format=".")
++makeExcerpt('lib/app_component.dart (hero list)', 'hero-array')
 
 :marked
   The `mockHeroes` list is of type `Hero`, the class defined in part one,
@@ -67,9 +72,10 @@ code-example(language="sh" class="code-shell").
   first and display mock heroes.
 
   ### Exposing heroes
+
   Let’s create a public property in `AppComponent` that exposes the heroes for binding.
 
-+makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'hero-array-1', 'app_component.dart (hero list property)')
++makeExample('snippets/app_component_snippets_pt2.dart', 'hero-array-1', 'app_component.dart (hero list property)')
 
 .l-sub-section
   :marked
@@ -77,12 +83,14 @@ code-example(language="sh" class="code-shell").
     But we know that ultimately we’ll get the heroes from a data service.
     Because we know where we are heading, it makes sense to separate the hero data
     from the class implementation from the start.
+
 :marked
   ### Displaying heroes in a template
+
   Our component has `heroes`. Let’s create an unordered list in our template to display them.
   We’ll insert the following chunk of HTML below the title and above the hero details.
 
-+makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'heroes-template-1', 'app_component.dart (heroes template)')(format=".")
++makeExcerpt('snippets/app_component_snippets_pt2.dart', 'heroes-template-1', 'app_component.dart (heroes template)')
 
 :marked
   Now we have a template that we can fill with our heroes.
@@ -95,7 +103,7 @@ code-example(language="sh" class="code-shell").
 
   First modify the `<li>` tag by adding the built-in directive `*ngFor`.
 
-+makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'heroes-ngfor-1', 'app_component.dart (ngFor)')
++makeExcerpt('snippets/app_component_snippets_pt2.dart', 'heroes-ngfor-1', 'app_component.dart (ngFor)')
 
 .alert.is-critical
   :marked
@@ -124,19 +132,20 @@ code-example(language="sh" class="code-shell").
   Now we insert some content between the `<li>` tags
   that uses the `hero` template variable to display the hero’s properties.
 
-+makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'ng-for', 'app_component.dart (ngFor template)')(format=".")
++makeExcerpt('snippets/app_component_snippets_pt2.dart', 'ng-for', 'app_component.dart (ngFor template)')
 
 :marked
   When the browser refreshes, we see a list of heroes!
 
   ### Styling our heroes
+
   Our list of heroes looks pretty bland.
   We want to make it visually obvious to a user which hero we are hovering over and which hero is selected.
 
   Let’s add some styles to our component by setting the `styles` argument of the `@Component` annotation
   to the following CSS classes:
 
-+makeExample('toh-2/dart/lib/app_component.dart', 'styles', 'app_component.dart (styles)')(format=".")
++makeExcerpt('lib/app_component.dart', 'styles', 'app_component.dart (styles)')
 
 :marked
   Notice that we again use the triple-quote notation for multi-line strings.
@@ -149,11 +158,12 @@ code-example(language="sh" class="code-shell").
 
   Our template for displaying the heroes should now look like this:
 
-+makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'heroes-styled', 'app_component.dart (styled heroes)')
++makeExcerpt('snippets/app_component_snippets_pt2.dart', 'heroes-styled', 'app_component.dart (styled heroes)')
 
 .l-main-section
   :marked
     ## Selecting a Hero
+
     We have a list of heroes and we have a single hero displayed in our app.
     The list and the single hero are not connected in any way.
     We want the user to select a hero from our list, and have the selected hero appear in the details view.
@@ -163,26 +173,32 @@ code-example(language="sh" class="code-shell").
     Let’s connect the master to the detail through a `selectedHero` component property bound to a click event.
 
     ### Click event
+
     We modify the `<li>` by inserting an Angular event binding to its click event.
 
-  +makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'selectedHero-click', 'app_component.dart (template excerpt)')(format=".")
+  +makeExcerpt('snippets/app_component_snippets_pt2.dart', 'selectedHero-click', 'app_component.dart (template excerpt)')
 
   :marked
     Focus on the event binding
+
   code-example.
     (click)="onSelect(hero)"
+
   :marked
     The parentheses identify the `<li>` element’s  `click` event as the target.
     The expression to the right of the equal sign calls the  `AppComponent` method, `onSelect()`,
     passing the template input variable `hero` as an argument.
     That’s the same `hero` variable we defined previously in the `ngFor`.
+
   .l-sub-section
     :marked
       Learn more about Event Binding in the
       [User Input](../guide/user-input.html) and
       [Templating Syntax](../guide/template-syntax.html#event-binding) pages.
+
   :marked
     ### Add the click handler
+
     Our event binding refers to an `onSelect` method that doesn’t exist yet.
     We’ll add that method to our component now.
 
@@ -191,24 +207,27 @@ code-example(language="sh" class="code-shell").
     Our component doesn’t have a “selected hero” yet either. We’ll start there.
 
     ### Expose the selected hero
+
     We no longer need the static `hero` property of the `AppComponent`.
     **Replace** it with this simple `selectedHero` property:
 
-  +makeExample('toh-2/dart/lib/app_component.dart', 'selected-hero', 'app_component.dart (selectedHero)')
+  +makeExcerpt('lib/app_component.dart', 'selected-hero', 'app_component.dart (selectedHero)')
 
   :marked
     We’ve decided that none of the heroes should be selected before the user picks a hero so
     we won’t initialize the `selectedHero` as we were doing with `hero`.
 
     Now **add an `onSelect` method** that sets the `selectedHero` property to the `hero` the user clicked.
-  +makeExample('toh-2/dart/lib/app_component.dart', 'on-select', 'app_component.dart (onSelect)')(format=".")
+
+  +makeExcerpt('lib/app_component.dart', 'on-select', 'app_component.dart (onSelect)')
 
   :marked
     We will be showing the selected hero's details in our template.
     At the moment, it is still referring to the old `hero` property.
     Let’s fix the template to bind to the new `selectedHero` property.
 
-  +makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'selectedHero-details', 'app_component.dart (template excerpt)')(format=".")
+  +makeExcerpt('snippets/app_component_snippets_pt2.dart', 'selectedHero-details', 'app_component.dart (template excerpt)')
+
   :marked
     ### Hide the empty detail with ngIf
 
@@ -228,18 +247,20 @@ code-example(language="sh" class="code-shell").
     We wrap the HTML hero detail content of our template with a `<div>`.
     Then we add the `ngIf` built-in directive and set it to the `selectedHero` property of our component.
 
-  +makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'ng-if', 'app_component.dart (ngIf)')(format=".")
+  +makeExcerpt('snippets/app_component_snippets_pt2.dart', 'ng-if', 'app_component.dart (ngIf)')
 
   .alert.is-critical
     :marked
       Remember that the leading asterisk (`*`) in front of `ngIf` is
       a critical part of this syntax.
+
   :marked
     When there is no `selectedHero`, the `ngIf` directive removes the hero detail HTML from the DOM.
     There will be no hero detail elements and no bindings to worry about.
 
     When the user picks a hero, `selectedHero` isn't `null` anymore and
     `ngIf` puts the hero detail content into the DOM and evaluates the nested bindings.
+
   .l-sub-section
     :marked
       `ngIf` and `ngFor` are called “structural directives” because they can change the
@@ -265,17 +286,21 @@ code-example(language="sh" class="code-shell").
 
   figure.image-display
     img(src='/resources/images/devguide/toh/heroes-list-selected.png' alt="Selected hero")
+
   :marked
     We’ll add a property binding on `class` for the `selected` class to the template. We'll set this to an expression that compares the current `selectedHero` to the `hero`.
 
     The key is the name of the CSS class (`selected`). The value is `true` if the two heroes match and `false` otherwise.
     We’re saying “*apply the `selected` class if the heroes match, remove it if they don’t*”.
-  +makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'class-selected-1', 'app_component.dart (setting the CSS class)')(format=".")
+
+  +makeExcerpt('snippets/app_component_snippets_pt2.dart', 'class-selected-1', 'app_component.dart (setting the CSS class)')
+
   :marked
     Notice in the template that the `class.selected` is surrounded in square brackets (`[]`).
     This is the syntax for a **property binding**, a binding in which data flows one way
     from the data source (the expression `hero == selectedHero`) to a property of `class`.
-  +makeExample('toh-2/dart-snippets/app_component_snippets_pt2.dart', 'class-selected-2', 'app_component.dart (styling each hero)')(format=".")
+
+  +makeExcerpt('snippets/app_component_snippets_pt2.dart', 'class-selected-2', 'app_component.dart (styling each hero)')
 
   .l-sub-section
     :marked
@@ -294,11 +319,12 @@ code-example(language="sh" class="code-shell").
 
     Here's the complete `app_component.dart` as it stands now:
 
-  +makeExample('toh-2/dart/lib/app_component.dart', '', 'app_component.dart')
+  +makeExample('lib/app_component.dart')
 
 .l-main-section
 :marked
   ## Recap
+
   Here’s what we achieved:
 
   * Our Tour of Heroes now displays a list of selectable heroes
@@ -308,6 +334,7 @@ code-example(language="sh" class="code-shell").
   Run the <live-example></live-example> for this part.
 
   ### What's next
+
   Our Tour of Heroes has grown, but it’s far from complete.
   We can't put the entire app into a single component.
   We need to break it up into sub-components and teach them to work together

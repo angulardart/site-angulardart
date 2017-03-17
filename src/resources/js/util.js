@@ -33,7 +33,7 @@ var NgIoUtil = (function () {
         folder = folder
             // Adjust folder path: 2017/02 TS sources moved to src folder. Strip out `src/`
             .replace(/(^|(^|\/)(dart|ts)\/)src\//, '$1')
-            .replace(/(^|\/)ts($|\/)/, '$1dart$2')
+            .replace(/(^|\/)(dart|ts)($|\/)/, '$1.$3')
             .replace(/(^|\/)app($|\/)/, inWebFolder ? '$1web$2' : '$1lib$2');
 
         // Special case not handled above: e.g., index.html -> web/index.html

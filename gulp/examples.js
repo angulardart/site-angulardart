@@ -75,7 +75,7 @@ module.exports = function (gulp, plugins, config) {
 
   // copies boilerplate files to locations
   // where an example app is found
-  // also copies certain web files (e.g., styles.css) to ~/_examples/**/dart/**/web
+  // also copies certain web files (e.g., styles.css) to web
   function copyExampleBoilerplate() {
     gutil.log('Copying example boilerplate files');
     var sourceFiles = _exampleBoilerplateFiles.map(function(fn) {
@@ -116,11 +116,7 @@ module.exports = function (gulp, plugins, config) {
     deleteExampleBoilerPlate();
   });
 
-  function isDartPath(path) {
-    // Testing via indexOf() for now. If we need to match only paths with folders
-    // named 'dart' vs 'dart*' then try: path.match('/dart(/|$)') != null;
-    return path.indexOf('/dart') > -1;
-  }
+  function isDartPath(path) { return true; }
 
   function excludeDartPaths(paths) {
     return paths.filter(function (p) { return !isDartPath(p); });
@@ -132,8 +128,7 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function getDartExampleWebPaths(basePath) {
-    var paths = plugins.globby.sync([path.join(basePath,"**/dart/**/web")])
-    return paths;
+    return plugins.globby.sync([path.join(basePath, '**/web')]);
   }
 
   function getUnitTestingPaths(basePath) {
@@ -295,13 +290,9 @@ module.exports = function (gulp, plugins, config) {
           return fn.match(filter) != null;
         })
       }
-      // Filter by language, also supports variations like js-es6
-      localExamplePaths = localExamplePaths.filter(function (fn) {
-        return fn.match('/'+lang+'(?:-[^/]*)?$') != null;
-      });
       localExamplePaths.forEach(function(examplePath) {
         examplePaths.push(examplePath);
-      })
+      });
     });
 
     // run the tests sequentially
@@ -350,7 +341,7 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function runProtractor(prepPromise, appDir, appRunSpawnInfo, outputFile) {
-    var specFilename = path.resolve(`${appDir}/../e2e-spec.ts`);
+    var specFilename = path.resolve(`${appDir}/e2e-spec.ts`);
     return prepPromise
       .catch(function(){
         var emsg = `Application at ${appDir} failed to transpile.\n\n`;

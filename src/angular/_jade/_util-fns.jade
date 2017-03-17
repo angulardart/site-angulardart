@@ -114,14 +114,16 @@ mixin makeExcerpt(_filePath, _region, _title, stylePatterns)
   - var title = adjustments.title;
   - var region = _region || (_region === '' ? '' : parenText);
   - var excerpt = parenText || region || 'excerpt';
-  - if (title) title = title + ' (' + excerpt + ')';
+  - if (title && !title.match(/\(/)) title = title + ' (' + excerpt + ')';
   +makeExample(filePath, region, title, stylePatterns)(format='.')
 
 //- Get the doc example name either from `_example` if set, or
 //- extract the example name from `current`.
 - var getExampleName = function() {
+-   if (_example) return _example;
 -   var dir = current.path[current.path.length - 1];
--   return _example ? _example : dir == 'latest' ? current.source : dir;
+-   var result = dir == 'latest' ? current.source : dir;
+-   return result.replace(/^(toh-)pt/, '$1');
 - };
 
 mixin makeTabs(filePaths, regions, tabNames, stylePatterns)
@@ -236,7 +238,7 @@ if !jade2ng
 -     var matches = ex.filePath.match(/^(.*)[\._]\d(\.\w+)$/);
 -     ex.title = matches ? matches[1] + matches[2] : ex.filePath;
 -   }
--   ex.filePath = getExampleName() + '/' + _docsFor + '/' + ex.filePath;
+-   ex.filePath = getExampleName() + '/' + ex.filePath;
 -   return ex;
 - };
 
@@ -254,6 +256,9 @@ if !jade2ng
 
 //- Returns truthy iff path is example project relative.
 - var isProjRelDir = function(path) {
+-   if (path.startsWith(getExampleName())) return false;
+-   // Has the path already been processed, and the lang removed? If so, it contains /./
+-   if (path.match(/\/\.\//)) return false;
 -   return !path.match(/\/(js|ts|dart)(-snippets)?\//) && !path.endsWith('e2e-spec.ts');
 -   // Last conjunct handles case for shared project e2e test file like
 -   // cb-component-communication/e2e-spec.js (is shared between ts & dart)

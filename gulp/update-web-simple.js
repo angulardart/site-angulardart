@@ -7,6 +7,8 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
   const replace = plugins.replace;
 
+  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+
   const qsProjName = 'angular_quickstart';
   if (!process.env.TMP) {
     const msg = 'TMP environment variable is undefined.\n' +
@@ -29,6 +31,7 @@ module.exports = function (gulp, plugins, config) {
       // pubspec.yaml
       .pipe(replace(/^name: angular_quickstart/, '# #docregion\n$&'))
       .pipe(replace(/(^description: )A simple AngularDart app/m, '$1QuickStart'))
+      .pipe(replace(/^#(author|homepage).*\n/gm, ''))
       .pipe(replace(/(^  angular2: \^).*/m, '$13.0.0-alpha+1'))
       // index.html
       .pipe(replace(/^<!DOCTYPE html>/, '<!-- #docregion -->\n$&'))
@@ -39,7 +42,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/^(\/\/ Copyright \(c\) 20\d\d)[^\.]*\./, '$1.'))
       // Add docregion after copyright notice.
       .pipe(replace(/^(\/\/ Copyright[\S\s]+\/\/ is governed by .*LICENSE file\.\n\n)/, '$1// #docregion\n'))
-      .pipe(gulp.dest('public/docs/_examples/quickstart/dart'));
+      .pipe(gulp.dest(path.join(EXAMPLES_PATH, 'quickstart')));
   });
 
 };

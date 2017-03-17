@@ -9,15 +9,17 @@ nextpage:
   title: The Hero Editor
   url: /angular/tutorial/toh-pt1
 ---
-//- FilePath: src/angular/tutorial/toh-pt1.jade
+//- FilePath: src/angular/tutorial/toh-pt0.jade
 include ../_util-fns
+
+- var _example = 'quickstart';
 
 :marked
   This tutorial starts with a bare-bones Angular app.
   Run the <live-example name="quickstart">live example</live-example>
   to see the app.
 
-//- TODO: Update from quickstart, so this is truly the starter app. 
+//- TODO: Update from quickstart, so this is truly the starter app.
 //-       E.g. repo should perhaps be toh-0, not quickstart.
 //-       ALSO: Document how to add an example repo.
 
@@ -41,7 +43,7 @@ include ../_util-fns
   Angular applications are made up of _components_.
   A _component_ is the combination of an HTML template and a component class that controls a portion of the screen. The starter app has a component that displays a simple string:
 
-+makeExample('quickstart/dart/lib/app_component.dart')(format='.')
++makeExample('lib/app_component.dart')
 
 :marked
   Every component begins with an `@Component` [!{_decorator}](../glossary.html#!{_decorator} '"!{_decorator}" explained')
@@ -49,7 +51,9 @@ include ../_util-fns
   <span if-docs="ts">takes a _metadata_ object. The metadata object</span> describes how the HTML template and component class work together.
 
   The `selector` property tells Angular to display the component inside a custom `<my-app>` tag in the `index.html`.
-+makeExample('quickstart/dart/web/index.html','my-app','index.html (inside <body>)')(format='.')
+
++makeExcerpt('web/index.html (inside <body>)', 'my-app')
+
 :marked
   The `template` property defines a message inside an `<h1>` header.
   The message starts with "Hello" and ends with `{% raw %}{{name}}{% endraw %}`,
@@ -64,7 +68,7 @@ a#seed
 
   The app contains the following core files:
 
-//- TODO: Update from quickstart, so this is truly the starter app. 
+//- TODO: Update from quickstart, so this is truly the starter app.
 //-       E.g. pubspec.yaml should have angular_tour_of_heroes, not
 //-       angular_quickstart.
 
@@ -113,7 +117,7 @@ table(width="100%")
     td
       :marked
         Defines `<my-app>`, the **root** component of what will become a tree of nested components
-        as the application evolves. 
+        as the application evolves.
   tr
     td <code>web/main.dart</code>
     td
@@ -145,6 +149,7 @@ table(width="100%")
 .l-main-section
 :marked
   ## What's next
+
   In the [next tutorial page](./toh-pt1),
   you'll modify the starter app to display more interesting data,
   and to allow the user to edit that data.

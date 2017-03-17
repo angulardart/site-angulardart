@@ -20,7 +20,6 @@ include ../_util-fns
 
   Run the <live-example></live-example> for this part.
 
-
   ## Showing our hero
 
   We want to display hero data in our app.
@@ -28,12 +27,12 @@ include ../_util-fns
   Let's add two properties to our `AppComponent`, a `title` property for the application name and a `hero` property
   for a hero named "Windstorm".
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'app-component-1', 'app_component.dart (AppComponent class)')(format=".")
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'app-component-1', 'app_component.dart (AppComponent class)')
 
 :marked
   Now we update the template in the `@Component` annotation with data bindings to these new properties.
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'show-hero')
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'show-hero', '')
 
 :marked
   The browser should refresh and display our title and hero.
@@ -44,6 +43,7 @@ include ../_util-fns
 .l-sub-section
   :marked
     Learn more about interpolation in the [Displaying Data page](../guide/displaying-data.html).
+
 :marked
   ### Hero object
 
@@ -53,27 +53,30 @@ include ../_util-fns
   Create a `Hero` class with `id` and `name` properties.
   Keep this near the top of the `app_component.dart` file for now.
 
-+makeExample('toh-1/dart/lib/app_component.dart', 'hero-class-1', 'app_component.dart (Hero class)')(format=".")
++makeExcerpt('lib/app_component.dart', 'hero-class-1', 'app_component.dart (Hero class)')
 
 :marked
   Now that we have a `Hero` class, let’s refactor our component’s `hero` property to be of type `Hero`.
   Then initialize it with an id of `1` and the name, "Windstorm".
 
-+makeExample('toh-1/dart/lib/app_component.dart', 'hero-property-1', 'app_component.dart (hero property)')(format=".")
++makeExcerpt('lib/app_component.dart', 'hero-property-1', 'app_component.dart (hero property)')
 
 :marked
   Because we changed the hero from a string to an object,
   we update the binding in the template to refer to the hero’s `name` property.
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'show-hero-2')
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'show-hero-2', '')
+
 :marked
   The browser refreshes and continues to display our hero’s name.
 
   ### Adding more HTML
+
   Displaying a name is good, but we want to see all of our hero’s properties.
   We’ll add a `<div>` for our hero’s `id` property and another `<div>` for our hero’s `name`.
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'show-hero-properties')
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'show-hero-properties', '')
+
 :marked
   Uh oh, our template string is getting long. We better take care of that to avoid the risk of making a typo in the template.
 
@@ -88,9 +91,9 @@ include ../_util-fns
   Change the quotes around the template to triple quotes and
   put the `<h1>`, `<h2>` and `<div>` elements on their own lines.
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'multi-line-strings', 'app_component.dart (AppComponent\'s template)')(format=".")
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'multi-line-strings', 'app_component.dart (AppComponent\'s template)')
 
-// omit back-tick warning
+//- omit back-tick warning
 
 .l-main-section
 :marked
@@ -100,7 +103,8 @@ include ../_util-fns
 
   Refactor the hero name `<label>` with `<label>` and `<input>` elements as shown below:
 
-+makeExample('toh-1/dart-snippets/app_component_snippets_pt1.dart', 'editing-Hero', 'app_component.dart (input element)')(format=".")
++makeExcerpt('snippets/app_component_snippets_pt1.dart', 'editing-Hero', 'app_component.dart (input element)')
+
 :marked
   We see in the browser that the hero’s name does appear in the `<input>` textbox.
   But something doesn’t feel right.
@@ -121,6 +125,7 @@ include ../_util-fns
     Learn more about `ngModel` in the
     [Forms](../guide/forms.html#ngModel) and
     [Template Syntax](../guide/template-syntax.html#ngModel) pages.
+
 :marked
   Replace the `<input>` with the following HTML
 
@@ -134,6 +139,7 @@ code-example(language="html").
 .l-main-section
 :marked
   ## Recap
+
   Let’s take stock of what we’ve built.
 
   * Our Tour of Heroes uses the double curly braces of interpolation (a form of one-way data binding)
@@ -143,17 +149,16 @@ code-example(language="html").
   using the built-in `ngModel` directive.
   * The `ngModel` directive also propagates changes to every other binding of the `hero.name`.
 
-  <!-- TODO:
-    add [Run the live example for part 1](https://tour-of-heroes.firebaseapp.com/toh1/)
-  -->
+  Run the <live-example></live-example>.
 
   Here's the complete `app_component.dart` as it stands now:
 
-+makeExample('toh-1/dart/lib/app_component.dart', 'pt1', 'app_component.dart')
++makeExample('lib/app_component.dart', 'pt1')
 
 .l-main-section
 :marked
   ## What's next
+
   Our Tour of Heroes only displays one hero and we really want to display a list of heroes.
   We also want to allow the user to select a hero and display their details.
   We’ll learn more about how to retrieve lists, bind them to the
