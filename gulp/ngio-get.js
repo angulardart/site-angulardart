@@ -18,6 +18,9 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
 
   const angulario = config.angulario;
+  const ngioExPath = path.join(angulario, 'public/docs/_examples');
+  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');
   
   // To force a refresh of Dart Jade file invoke with --dart. 
   // You'd usually only do that if you put-ngio and made edits to Dart Jade.
@@ -58,7 +61,7 @@ module.exports = function (gulp, plugins, config) {
     return hrefPrefix + '/angular/api/angular2.' + libName + '/' + apiPageEntryName + '-class' + suffix;
   }
 
-  function ngioExPath(match, path) {
+  function ngioExPathForDart(match, path) {
     return '`' + NgIoUtil.adjustTsExamplePathForDart(path) + '`';
   }
 
@@ -104,8 +107,8 @@ module.exports = function (gulp, plugins, config) {
       // AngularJS --> Angular 1
       .pipe(replace(/AngularJS/g, 'Angular 1'))
       // Convert ngio-ex paths:
-      .pipe(replace(/<ngio-ex path="([^"]+)"><\/ngio-ex>/g, ngioExPath))
-      .pipe(replace(/<span ngio-ex>([^<]+)<\/span>/g, ngioExPath))
+      .pipe(replace(/<ngio-ex path="([^"]+)"><\/ngio-ex>/g, ngioExPathForDart))
+      .pipe(replace(/<span ngio-ex>([^<]+)<\/span>/g, ngioExPathForDart))
 
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
@@ -328,50 +331,54 @@ module.exports = function (gulp, plugins, config) {
 
   //==============================================================================================
   // As of 2017-03-14, _only_ copy over boilerplate files. We don't copy over sample code, since
-  // the samples are exclusively tested under this repo.
+  // the samples are exclusively tested in this repo.
   //
   // The main purpose of get-ngio-examples+ is to fetch the files necessary to
   // test, build and extract fragments from Dart examples. At the moment we achieve
   // this using the angular.io tooling (which is also copied over).
-   
-  gulp.task('get-ngio-examples+', ['_get-ngio-boilerplate-src'], cb => {
+
+  gulp.task('get-ngio-examples+', ['_get-tools', '_get-ngio-boilerplate-src'], cb => {
     // Some boilerplate files were made read-only, this prevents gulp.src/.dest() from being successful.
     // So first make the problematic files read/write.
-    const find = 'find public/docs/_examples -path "*/dart/web/*" ! -path "*/build/*"';
+    const find = `find ${EXAMPLES_PATH} -path "*/dart/web/*" ! -path "*/build/*"`;
     cp.execSync(`${find} -name "a2docs.css" -exec chmod a+w {} +`);
     cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
-    const baseDir = config.angulario;
+    const baseDir = ngioExPath;
     return gulp.src([
-      // `${baseDir}/public/docs/_examples/*/dart/.*`, // 2017-03-14: see note above
-      // `${baseDir}/public/docs/_examples/*/dart/**`, // 2017-03-14: see note above
-      // `!${baseDir}/public/docs/_examples/*/dart/build/**`,
-      // We no longer track updates to these files:
-      `!${baseDir}/public/docs/_examples/package.json`,
-      `!${baseDir}/public/docs/_examples/router/e2e-spec.ts`,
-      // EXAMPLES: support files (since the example source is already under webdev)
-      `${baseDir}/public/docs/_examples/_boilerplate/*.json`,
+      // `${baseDir}/*/dart/.*`, `${baseDir}/*/dart/**`, // 2017-03-14: see note above
+      // `!${baseDir}/*/dart/build/**`,
+      // Support files (since the example source is already under webdev)
+      `${baseDir}/_boilerplate/*.json`,
       // We don't need the plnkr, and we need to keep the old tsconfig (not under /src)
-      `!${baseDir}/public/docs/_examples/_boilerplate/plnkr.json`,
-      `${baseDir}/public/docs/_examples/{package.json,.gitignore}`,
-      `${baseDir}/public/docs/_examples/{protractor.config.js,protractor-helpers.ts,tsconfig.json}`,
-      `${baseDir}/public/docs/_examples/*/e2e*.ts`,
+      `!${baseDir}/_boilerplate/plnkr.json`,
+      `${baseDir}/{package.json,.gitignore}`,
+      `${baseDir}/{protractor.config.js,protractor-helpers.ts,tsconfig.json}`,
+      `${baseDir}/*/e2e*.ts`,
+      // We no longer track updates to these files:
+      `!${baseDir}/package.json`,
+      `!${baseDir}/router/e2e-spec.ts`,
       // Skip files w/o Dart tests
-      `!${baseDir}/public/docs/_examples/{animations,cb-*,cli-*}/**`,
-      `!${baseDir}/public/docs/_examples/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
-      `!${baseDir}/public/docs/_examples/{setup,style-guide,styleguide,testing,upgrade*,webpack}/**`,
-
-      // TOOLING
-      `${baseDir}/scripts/examples-install.sh`,
-      `${baseDir}/tools/api-builder/**`, // necessary to build api.json and cheatsheet.json
-      `${baseDir}/tools/doc-shredder/**`,
-      `!${baseDir}/tools/doc-shredder/_test/**`,
-      `${baseDir}/tools/styles-builder/**`,
+      `!${baseDir}/{animations,cb-*,cli-*}/**`,
+      `!${baseDir}/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
+      `!${baseDir}/{setup,style-guide,styleguide,testing,upgrade*,webpack}/**`,
     ], { base: baseDir })
       // Patch security/e2e-spec.ts
       .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
       // Patch component-styles/e2e-spec.ts
       // https://github.com/dart-lang/angular2/issues/39
       .pipe(replace(/(it\('includes styles loaded with CSS @import')/, 'x$1', {skipBinary:true}))
+      .pipe(gulp.dest(EXAMPLES_PATH));
+  });
+
+  gulp.task('_get-tools', ['_get-ngio-boilerplate-src'], cb => {
+    const baseDir = config.angulario;
+    return gulp.src([
+      `${baseDir}/scripts/examples-install.sh`,
+      `${baseDir}/tools/api-builder/**`, // necessary to build api.json and cheatsheet.json
+      `${baseDir}/tools/doc-shredder/**`,
+      `!${baseDir}/tools/doc-shredder/_test/**`,
+      `${baseDir}/tools/styles-builder/**`,
+    ], { base: baseDir })
       .pipe(gulp.dest('.'));
   });
 
@@ -379,8 +386,8 @@ module.exports = function (gulp, plugins, config) {
   // On the Dart side, we haven't adapted to this change (because we don't need to yet),
   // so this rule copies some boilerplate `src/` files into the boilerplate folder.
   gulp.task('_get-ngio-boilerplate-src', cb => {
-    const boilerplateDir = './public/docs/_examples/_boilerplate';
-    const baseDir = `${config.angulario}/${boilerplateDir}/src`;
+    const ngBoilerplateDir = './public/docs/_examples/_boilerplate';
+    const baseDir = `${config.angulario}/${ngBoilerplateDir}/src`;
     const cssImports
       = '@import url(https://fonts.googleapis.com/css?family=Roboto);\n'
       + '@import url(https://fonts.googleapis.com/css?family=Material+Icons);\n'
@@ -389,7 +396,7 @@ module.exports = function (gulp, plugins, config) {
       // `${baseDir}/tsconfig.json`, // Manually watch for differences (aside from paths having an extra ../)
     ], { base: baseDir })
       .pipe(replace(/\/\* Master Styles \*\//, `${cssImports}\n$&`))
-      .pipe(gulp.dest(boilerplateDir));
+      .pipe(gulp.dest(BOILERPLATE_PATH));
   });
 
 };

@@ -15,9 +15,7 @@ module.exports = function (gulp, plugins, config) {
     plugins.gutil.log(`If you still want to use the old task it is: _put-ngio-files.`);
   });
 
-  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'
-    //, '_put-examples' // don't put examples anymore since we always test locally
-    ], cb => {
+  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'], cb => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);
@@ -137,26 +135,6 @@ module.exports = function (gulp, plugins, config) {
     return execp(`cp ${baseDir}/${fn} ${destDir}/${fn}`).then(() =>
       cp.exec(`perl -ni -e 'print unless /^- (var jade2ng|.*return.*partial.*fullFileName)/' ${destDir}/${fn}`)
     );
-  });
-
-  gulp.task('_put-examples', cb => {
-    const baseDir = 'public/docs/_examples';
-    const ngioExDir = path.join(config.angulario, baseDir);
-    // Some boilerplate files were made read-only, this prevents gulp.src/.dest() from being successful.
-    // So first make the problematic files read/write.
-    const find = `find ${ngioExDir} -path "*/dart/web/*" ! -path "*/build/*"`;
-    cp.execSync(`${find} -name "a2docs.css" -exec chmod a+w {} +`);
-    cp.execSync(`${find} -name "styles.css" -exec chmod a+w {} +`);
-    return gulp.src([
-      // EXAMPLES:
-      `${baseDir}/*/dart/**`,
-      `${baseDir}/*/e2e*.ts`,
-      `!${baseDir}/*/dart/.*`,
-      `!${baseDir}/*/dart/build/**`,
-    ], { base: baseDir })
-      // Patch security/e2e-spec.ts
-      .pipe(replace(/(.toContain\('Template) (Syntax'\))/, '$1 alert("0wned") $2', {skipBinary:true}))
-      .pipe(gulp.dest(ngioExDir));
   });
 
 };
