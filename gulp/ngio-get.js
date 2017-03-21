@@ -373,12 +373,15 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_get-tools', ['_get-ngio-boilerplate-src'], cb => {
     const baseDir = config.angulario;
     return gulp.src([
-      `${baseDir}/scripts/examples-install.sh`,
+      // `${baseDir}/scripts/examples-install.sh`, // As of 2017-03-21 we use a custom version
       `${baseDir}/tools/api-builder/**`, // necessary to build api.json and cheatsheet.json
       `${baseDir}/tools/doc-shredder/**`,
-      `!${baseDir}/tools/doc-shredder/_test/**`,
       `${baseDir}/tools/styles-builder/**`,
+      `!${baseDir}/tools/doc-shredder/_test/**`,
     ], { base: baseDir })
+      // Patch tools/doc-shredder/doc-shredder.js
+      .pipe(replace("'**/dart/**/build/**'", "'**/dart/build/**'"))
+      .pipe(replace("'**/dart/build/**'", "'**/build/web/**', '**/.*/**'"))
       .pipe(gulp.dest('.'));
   });
 
