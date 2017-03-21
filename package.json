@@ -4,7 +4,7 @@
   "private": true,
   "description": "Dart webdev",
   "scripts": {
-    "test": "echo \"Hi\" && exit 1",
+    "test": "echo \"Error: no test specified (top level package.json)\" && exit 1",
     "dev": "rm -Rf ./publish; gulp site-refresh; gulp sass; ./scripts/serve_local.sh"
   },
   "repository": {

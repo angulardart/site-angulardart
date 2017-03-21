@@ -26,4 +26,8 @@ travis_fold start install.bundle
 (set -x; bundle install)
 travis_fold end install.bundle
 
+if [[ "$CI_TASK" == e2e* ]]; then
+  ./scripts/examples-install.sh
+fi
+
 echo "Installation done"

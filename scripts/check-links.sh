@@ -7,6 +7,11 @@ set -e -o pipefail
 PORT=4001
 export CHECK_EXIT_CODE=0
 
+if [ ! -e "publish" ]; then
+  echo "Site not built, skipping link check."
+  exit $CHECK_EXIT_CODE
+fi
+
 set -x
 firebase serve --port $PORT > /dev/null &
 FBS_PID=$!
