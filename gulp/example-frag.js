@@ -36,7 +36,8 @@ module.exports = function (gulp, plugins, config) {
 
   // Create *.txt fragment files from *.md files.
   function createTxTFragFiles() {
-    const find = `find ${frags.path}`;
+    let find = `find ${frags.path}`;
+    if (argv.filter) find = `${find} -path "*${argv.filter}*"`;
     
     gutil.log('Create *.txt frag files: duplicate *.md files, but change extension to .txt');
     cp.execSync(`${find} -name "*.md" -exec bash -c 'cp "$0" "\${0%.md}.txt"' {} \\;`);
