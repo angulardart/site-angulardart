@@ -23,6 +23,7 @@ module.exports = function (gulp, plugins, config) {
     if (plugins.argv.clean) cp.execSync(`rm -Rf ${baseDir}`);
     if (!fs.existsSync(baseDir)) cp.execSync(`./scripts/get-ng-web-simple.sh`);
     return gulp.src([
+      `${baseDir}/analysis_options.yaml`,
       `${baseDir}/pubspec.yaml`,
       `${baseDir}/web/index.html`,
       `${baseDir}/web/main.dart`,
@@ -42,6 +43,8 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/^(\/\/ Copyright \(c\) 20\d\d)[^\.]*\./, '$1.'))
       // Add docregion after copyright notice.
       .pipe(replace(/^(\/\/ Copyright[\S\s]+\/\/ is governed by .*LICENSE file\.\n\n)/, '$1// #docregion\n'))
+      // Fix @Component formatting in app_component.dart
+      .pipe(replace(/^(@Component\()(selector: 'my-app',) (template:)/m, '$1\n  $2\n  $3'))
       .pipe(gulp.dest(path.join(EXAMPLES_PATH, 'quickstart')));
   });
 
