@@ -109,6 +109,7 @@ module.exports = function (gulp, plugins, config) {
       // Convert ngio-ex paths:
       .pipe(replace(/<ngio-ex path="([^"]+)"><\/ngio-ex>/g, ngioExPathForDart))
       .pipe(replace(/<span ngio-ex>([^<]+)<\/span>/g, ngioExPathForDart))
+      .pipe(replace(/`(([-\w])+\.ts)`/g, ngioExPathForDart))
 
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
