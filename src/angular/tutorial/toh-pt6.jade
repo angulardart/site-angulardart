@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: HTTP
-description: We convert our service and components to use Angular's HTTP service
+description: Using HTTP services
 prevpage:
   title: Routing
   url: /angular/tutorial/toh-pt5
@@ -21,17 +21,17 @@ block includes
 
 block start-server-and-watch
   :marked
-    ### Keep the app compiling and running
+    ## Keep the app compiling and running
 
     Open a terminal/console window.
-    Start the Dart compiler, watch for changes, and start our server by entering the command:
+    Start the Dart compiler, watch for changes, and start the server by entering the command:
 
   code-example(language="sh" class="code-shell").
       pub serve
 
 block http-library
   :marked
-    We'll be using the !{_Angular_http_library}'s
+    You'll be using the !{_Angular_http_library}'s
     `BrowserClient` class to communicate with a server.
 
     ### Pubspec updates
@@ -39,9 +39,9 @@ block http-library
     Update package dependencies by adding the
     `stream_transformers` and !{_Angular_http_library}s.
 
-    We also need to add a `resolved_identifiers` entry, to inform the [angular2
-    transformer][ng2x] that we'll be using `BrowserClient`. (For an explanation of why
-    this extra configuration is needed, see the [HTTP client page][guide-http].) We'll
+    You also need to add a `resolved_identifiers` entry, to inform the [angular2
+    transformer][ng2x] that the app will be using `BrowserClient`. (For an explanation of why
+    this extra configuration is needed, see the [HTTP client page][guide-http].) You'll
     also need to use `Client` from http, so let's add that now as well.
 
     Update `pubspec.yaml` to look like this (additions are highlighted):
@@ -54,80 +54,77 @@ block http-library
 
 block http-providers
   :marked
-    Before our app can use `#{_Http}`, we have to register it as a service provider.
+    Before the app can use `#{_Http}`, you have to register it as a service provider.
 
-    We should be able to access `!{_Http}` services from anywhere in the application.
-    So we register it in the `bootstrap` call where we
+    You should be able to access `!{_Http}` services from anywhere in the application.
+    So register it in the `bootstrap` call where you
     launch the application and its root `AppComponent`.
 
   +makeExcerpt('app/main.ts','v1')
 
   :marked
-    Notice that we supply `!{_HttpModule}` in a list, as the second parameter to
+    Notice that you supply `!{_HttpModule}` in a list, as the second parameter to
     the `bootstrap` method.  This has the same effect as the `providers` list in
     `@Component` annotation.
 
 block backend
   :marked
-    We want to replace `BrowserClient`, the service that talks to the remote server,
+    You want to replace `BrowserClient`, the service that talks to the remote server,
     with the in-memory web API service.
-    Our in-memory web API service, shown below, is implemented using the
+    The in-memory web API service, shown below, is implemented using the
     `http` library `MockClient` class.
     All `http` client implementations share a common `Client` interface, so
-    we'll have our app use the `Client` type so that we can freely switch between
+    you'll have the app use the `Client` type so that you can freely switch between
     implementations.
 
 block dont-be-distracted-by-backend-subst
   //- No backend substitution but we do need to comment on the changes to Hero.
   :marked
-    As is common for web API services, our mock in-memory service will be
-    encoding and decoding heroes in JSON format, so we enhance the `Hero`
+    As is common for web API services, the mock in-memory service will be
+    encoding and decoding heroes in JSON format, so enhance the `Hero`
     class with these capabilities:
 
   +makeExample('lib/hero.dart')
 
 block get-heroes-details
   :marked
-    To get the list of heroes, we first make an asynchronous call to
-    `http.get()`. Then we use the `_extractData` helper method to decode the
+    To get the list of heroes, you first make an asynchronous call to
+    `http.get()`. Then you use the `_extractData` helper method to decode the
     response body.
 
 block observables-section-intro
   :marked
     Recall that `HeroService.getHeroes()` awaits for an `http.get()`
-    response and yields a _Future_ `List<Hero>`, which is fine when we are only
+    response and yields a _Future_ `List<Hero>`, which is fine when you are only
     interested in a single result.
 
 block search-criteria-intro
   :marked
-    A [StreamController][], as its name implies, is a controller for a [Stream][] that allows us to
+    A [StreamController][], as its name implies, is a controller for a [Stream][] that allows you to
     manipulate the underlying stream by adding data to it, for example.
 
-    In our sample, the underlying stream of strings (`_searchTerms.stream`) represents the hero
-    name search patterns entered by the user. Each call to `search` puts a new string into
-    the stream by calling `add` over the controller.
+    In the sample, the underlying stream of strings (`_searchTerms.stream`) represents the hero
+    name search patterns entered by the user. Each call to `search()` puts a new string into
+    the stream by calling `add()` over the controller.
 
     [Stream]: https://api.dartlang.org/stable/dart-async/Stream-class.html
     [StreamController]: https://api.dartlang.org/stable/dart-async/StreamController-class.html
 
 block observable-transformers
   :marked
-    Fortunately, there are stream transformers that will help us reduce the request flow.
-    We'll make fewer calls to the `HeroSearchService` and still get timely results. Here's how:
+    Instead, you can chain `!{_Observable}` operators that reduce the request flow to the string `!{_Observable}`.
+    You'll make fewer calls to the `HeroSearchService` and still get timely results. Here's how:
 
     * `transform(new Debounce(... 300)))` waits until the flow of search terms pauses for 300
-    milliseconds before passing along the latest string. We'll never make requests more frequently
-    than 300ms.
-
-    * `distinct()` ensures that we only send a request if a search term has changed.
-    There's no point in repeating a request for the same search term.
-
-    * `transform(new FlatMapLatest(...))` applies a map-like transformer that (1) calls our search
-    service for each search term that makes it through the debounce and distinct gauntlet and (2)
-    returns only the most recent search service result, discarding any previous results.
-
-    * `handleError()` handles errors. Our simple example prints the error to the console; a real
-    life application should do better.
+      milliseconds before passing along the latest string.
+      You'll never make requests more frequently than 300ms.
+    * `distinct()` ensures that a request is sent only if the filter text changed.
+    * `transform(new FlatMapLatest(...))` calls the search service for each 
+      search term that makes it through `Debounce()` and `distinct()`.
+      It cancels and discards previous searches, returning only the 
+      latest search service stream element.
+    * `handleError()` handles errors. The simple example prints the error
+      to the console; a real life application should do better.
 
 block filetree
   .filetree

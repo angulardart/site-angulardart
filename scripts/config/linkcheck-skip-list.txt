@@ -33,6 +33,7 @@
 /angular/cookbook/
 /angular/guide/appmodule.html$
 /angular/guide/server-communication#.*(observable|promise|rxjs|search-parameters|server)
+/angular/tutorial/toh-pt6#rxjs-imports
 
 # Dartdoc related
 /angular/api/static-assets/fonts
