@@ -18,7 +18,7 @@ block includes
   - var _appRoutingTsVsAppComp = 'AppComponent'
   - var _RoutesVsAtRouteConfig = '@RouteConfig'
   - var _RouterModuleVsRouterDirectives = 'ROUTER_DIRECTIVES'
-  - var _redirectTo = 'useAsDefault'
+  - var _redirect = 'default'
 
 block intro-file-tree
   .filetree
@@ -43,7 +43,7 @@ block keep-app-running
     ### Keep the app compiling and running
 
     Open a terminal/console window.
-    Start the Dart compiler, watch for changes, and start our server by entering the command:
+    Start the Dart compiler, watch for changes, and start the server by entering the command:
 
   code-example(language="sh" class="code-shell").
     pub serve
@@ -63,8 +63,8 @@ block angular-router
   :marked
     ### Make the router available
 
-    Not all apps need routing, which is why the Angular *Component Router* is
-    in a separate, optional library module.
+    Not all apps need routing, which is why the Angular router is
+    in a separate, optional library.
 
     Like for any service, you make router services available to the application
     by adding them to the `providers` list.  Update the `directives` and
@@ -103,9 +103,8 @@ block routerLink
 
 block redirect-vs-use-as-default
   :marked
-    You don't need a route definition for that. Instead,
-    add `useAsDefault: true` to the dashboard *route definition* and the
-    router will display the dashboard when the browser URL doesn't match an existing route.
+    To make this happen, declare a !{_redirect} route.
+    Add `useAsDefault: true` to the dashboard *route definition*.
 
 block templateUrl-path-resolution
   .l-sub-section
@@ -124,12 +123,12 @@ block route-params
 
 block ngOnInit
   :marked
-    Inside the `ngOnInit` lifecycle hook, extract the `id` parameter value from the `RouteParams` service
+    Inside the `ngOnInit()` lifecycle hook, extract the `id` parameter value from the `RouteParams` service
     and use the `HeroService` to fetch the hero with that `id`.
 
 block extract-id
   :marked
-    Notice how you can extract the `id` by calling the `RouteParams.get` method.
+    Notice how you can extract the `id` by calling the `RouteParams.get()` method.
 
 block heroes-component-cleanup
   :marked
@@ -138,20 +137,12 @@ block heroes-component-cleanup
     drop the `directives` argument from `@Component` and remove the unused hero detail
     import. The revised `@Component` looks like this:
 
-block css-files
-  +makeTabs(
-    `toh-5/dart/lib/hero_detail_component.css,
-    toh-5/dart/lib/dashboard_component.css`,
-    null,
-    `lib/hero_detail_component.css,
-    lib/dashboard_component.css`)
-
 block router-link-active
   :marked
     **The *router-link-active* class**
 
-    The Angular Router adds the `router-link-active` class to the HTML navigation element
-    whose route matches the active route. All you have to do is define the style for it. Sweet!
+    The Angular router adds the `router-link-active` class to the HTML navigation element
+    whose route matches the active route. All you have to do is define the style for it.
 
 block file-tree-end
   .filetree

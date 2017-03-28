@@ -154,7 +154,7 @@ a#route-parameters
 :marked
   **Refresh the browser** and select a hero and the app should navigate to the hero's detail view.
 
-  [As explained in the tutorial](../../tutorial/toh-pt5.html#update-the-_heroescomponent_-class-),
+  [As explained in the tutorial](/angular/tutorial/toh-pt5.html#update-the-_heroescomponent_-class),
   `gotoDetail` calls the router's **`navigate`** method with a _link parameters list_.
   The router composes a destination URL from this list, for example:
   `localhost:3000/hero/15`.
@@ -169,7 +169,7 @@ a#get-route-parameter
   The router extracts the route parameter (`id:15`) from the URL and supplies it to
   the `HeroDetailComponent` via the **RouteParams** service. This service is used
   in the `ngOnInit` method (see the 
-  [tutorial](../../tutorial/toh-pt5.html#update-the-_heroescomponent_-class-) for details):
+  [tutorial](/angular/tutorial/toh-pt5.html#update-the-_heroescomponent_-class) for details):
 
 +makeTabs(
   `router/dart/lib/heroes/hero_detail_component_0.dart,
@@ -238,7 +238,7 @@ a#nav-to-list
   ## Navigating back to the list component
 
   The `HeroDetailComponent` _Back_ button has an event binding to the 
-  [goBack method](../../tutorial/toh-pt5.html#find-our-way-back) that navigates 
+  [goBack method](/angular/tutorial/toh-pt5.html#find-the-way-back) that navigates 
   backward one step in the browser's history stack using the `Location` service:
 
 +makeExcerpt('app/heroes/hero-detail.component.0.ts', 'goBack', '')

@@ -109,12 +109,17 @@ module.exports = function (gulp, plugins, config) {
       // Convert ngio-ex paths:
       .pipe(replace(/<ngio-ex path="([^"]+)"><\/ngio-ex>/g, ngioExPathForDart))
       .pipe(replace(/<span ngio-ex>([^<]+)<\/span>/g, ngioExPathForDart))
-      .pipe(replace(/`(([-\w])+\.ts)`/g, ngioExPathForDart))
+      .pipe(replace(/`([-\w\.]+\.ts)`/g, ngioExPathForDart))
+      // A separate pattern for .html just because I don't want to
+      // have `index.html` mapped to `web/index.html` (yet)
+      .pipe(replace(/`([-\w]+(\.[-\w]+)+\.html)`/g, ngioExPathForDart))
 
       // We don't need to include the ts _util-fns.jade file; comment it out.
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
       // General patch
       .pipe(replace(/target="_blank"/g, '$& rel="noopener"'))
+      // 2017-03-24 Patch: undo Ward's tag rename my-hero-detail -> hero-detail
+      .pipe(replace(/((\&lt;|<)\/?)(hero-detail(\&gt;|>| ))/g, '$1my-$3'))
       // Patch toh-5; don't include TS-specific _see-addr-bar.jade
       .pipe(replace(/include (\.\.\/)*_includes\/_see-addr-bar(\.jade)?/g, '//- $&'))
       // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
@@ -136,7 +141,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_get-extra-dart', () => {
     const baseDir = path.join(angulario, 'public/docs/dart/latest');
     return gulp.src([
-      `${baseDir}/_util-fns.jade`,
+      // `${baseDir}/_util-fns.jade`, // 2017-03-24 stop syncing _util-fns.jade
       // `${baseDir}/_data.json`, // dropped as of https://github.com/dart-lang/site-webdev/pull/356
       `${baseDir}/api/_data.json`,
       `${baseDir}/guide/_data.json`,
@@ -150,7 +155,8 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_get-includes', () => {
     const baseDir = path.join(angulario, 'public/_includes');
-    return gulp.src([
+    return true // 2017-03-24 stop syncing _util-fns.jade
+    || gulp.src([
       `${baseDir}/_util-fns.jade`,
     ], { base: baseDir })
       // Patch _util-fns.jade
@@ -328,6 +334,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/} \(\)\);/, '$&\n\nmodule.exports.NgIoUtil = NgIoUtil;'))
       .pipe(replace(/folder = folder/, `folder = folder\n${stripSrc}`))
       .pipe(replace('.match(/^(index|styles)', '.match(/^(main|index|styles)'))
+      .pipe(replace("ts($|\\/)/, '$1dart$2')", "(dart|ts)($|\\/)/, '$1.$3')"))
       .pipe(gulp.dest('src'));
   });
 
@@ -364,6 +371,8 @@ module.exports = function (gulp, plugins, config) {
       `!${baseDir}/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
       `!${baseDir}/{setup,style-guide,styleguide,testing,upgrade*,webpack}/**`,
     ], { base: baseDir })
+      // 2017-03-24 Patch: undo Ward's tag rename my-hero-detail -> hero-detail
+      .pipe(replace(/(my-app( >)? )(hero-detail )/g, '$1my-$3'))
       // Patch security/e2e-spec.ts
       .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
       // Patch component-styles/e2e-spec.ts
