@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, config) {
   };
 
   var _apiShredOptions = {
-    examplesDir: `${config.angularRepo}_api_examples`,
+    examplesDir: path.join(EXAMPLES_PATH, '..', 'api'),
     fragmentsDir: path.join(frags.path, frags.apiDirName),
     logLevel: config._dgeniLogLevel
   };

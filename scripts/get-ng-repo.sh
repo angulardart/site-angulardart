@@ -24,15 +24,6 @@ else
   (set -x; ln -s ${NG2_REPO/..\//} $NG2DART_REPO)
 fi
 
-if [[ -e "$NG2EX_REPO" ]]; then
-  echo angular2_api_examples repo is already present at: $NG2EX_REPO
-else
-  travis_fold start get_ng2_api_ex
-  echo GETTING angular2_api_examples from GitHub ...
-  (set -x; git clone https://github.com/dart-lang/angular2_api_examples.git $NG2EX_REPO)
-  travis_fold end get_ng2_api_ex
-fi
-
 echo PWD `pwd`
 echo INSTALLED repos:
 ls -ld ../a*
