@@ -86,7 +86,7 @@ a#html
 
   Begin with the first form of data binding&mdash;interpolation&mdash;to see how much richer template HTML can be.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#interpolation
@@ -129,7 +129,7 @@ a#interpolation
 
   But first, let's take a closer look at template expressions and statements.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#template-expressions
@@ -185,7 +185,7 @@ a#expression-context
   The context for terms in an expression is a blend of the _template variables_,
   the directive's _context_ object (if it has one), and the component's _members_.
   If you reference a name that belongs to more than one of these namespaces,
-  the template variable name takes precedence, followed by a name in the directive's' _context_,
+  the template variable name takes precedence, followed by a name in the directive's _context_,
   and, lastly, the component's member names.
 
   The previous example presents such a name collision. The component has a `hero`
@@ -199,7 +199,7 @@ a#expression-context
   imported from `dart:math`. They are restricted to referencing members of
   the expression context.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 a#no-side-effects
 a#expression-guidelines
@@ -256,7 +256,7 @@ a#expression-guidelines
   when called twice in a row. If the expression returns an object (including #{_an} `#{_Array}`),
   it returns the same object *reference* when called twice in a row.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#template-statements
@@ -328,7 +328,7 @@ a#template-statements
   Now that you have a feel for template expressions and statements,
   you're ready to learn about the varieties of data binding syntax beyond interpolation.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#binding-syntax
@@ -548,7 +548,7 @@ table(width="100%")
 :marked
   With this broad view in mind, you're ready to look at binding types in detail.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#property-binding
@@ -744,7 +744,7 @@ figure.image-display
   img(src='/resources/images/devguide/template-syntax/evil-title.png' alt="evil title made safe" width='500px')
 
 p
-  a(href="#toc") back to top
+  a(href="#contents") back to top
 
 .l-hr
 a#other-bindings
@@ -815,7 +815,7 @@ code-example(format="nocode").
 
 +makeExcerpt('app/app.component.html', 'attrib-binding-aria', '')
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 :marked
@@ -850,7 +850,7 @@ a(href="#toc") back to top
     While this is a fine way to toggle a single class name,
     the [NgClass directive](#ngClass) is usually preferred when managing multiple class names at the same time.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 :marked
@@ -893,7 +893,7 @@ a(href="#toc") back to top
 
     [CssSD]: https://api.dartlang.org/stable/dart-html/CssStyleDeclaration-class.html
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#event-binding
@@ -1051,7 +1051,7 @@ a#custom-event
 
   +makeExcerpt('app/app.component.html', 'event-binding-propagation', '')
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#two-way
@@ -1111,7 +1111,7 @@ a#two-way
 
   Fortunately, the Angular [_NgModel_](#ngModel) directive is a bridge that enables two-way binding to form elements.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#directives
@@ -1154,7 +1154,7 @@ a#attribute-directives
   * [`NgStyle`](#ngStyle) - add and remove a set of HTML styles
   * [`NgModel`](#ngModel) - two-way data binding to an HTML form element
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#ngClass
@@ -1192,7 +1192,7 @@ a#ngClass
   :marked
     It's up to you to call `setCurrentClassess()`, both initially and when the dependent properties change.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#ngStyle
@@ -1226,7 +1226,7 @@ a#ngStyle
   :marked
     It's up to you to call `setCurrentStyles()`, both initially and when the dependent properties change.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#ngModel
@@ -1318,7 +1318,7 @@ figure.image-display
     img(src='/resources/images/devguide/template-syntax/ng-model-anim.gif' alt="NgModel variations")
 
 p
-  a(href="#toc") back to top
+  a(href="#contents") back to top
 
 .l-hr
 a#structural-directives
@@ -1429,7 +1429,7 @@ a#ngIf
     [_safe navigation operator_](#safe-navigation-operator "Safe naviation operator (?.)")
     described below.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#ngFor
@@ -1485,7 +1485,7 @@ a#template-input-variables
   You reference the `hero` input variable within the `ngFor` host element
   (and within its descendents) to access the hero's properties.
   Here it is referenced first in an interpolation
-  and then passed in a binding to the `hero` property of the `<hero-detail>` component.
+  and then passed in a binding to the `hero` property of the `<my-hero-detail>` component.
 
 +makeExcerpt('app/app.component.html', 'NgFor-1-2', '')
 
@@ -1543,7 +1543,7 @@ figure.image-display
   img(src='/resources/images/devguide/template-syntax/ng-for-track-by-anim.gif' alt="trackBy")
 
 p
-  a(href="#toc") back to top
+  a(href="#contents") back to top
 
 .l-hr
 a#ngSwitch
@@ -1588,7 +1588,7 @@ figure.image-display
 
 +makeExcerpt('app/app.component.html', 'NgSwitch-div', '')
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#template-reference-variable
@@ -1655,7 +1655,7 @@ a#ref-var
 
 +makeExcerpt('app/app.component.html', 'ref-fax', '')
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#inputs-outputs
@@ -1780,7 +1780,7 @@ h3#aliasing-io Aliasing input/output properties
 
   +makeExcerpt('app/click.directive.ts', 'output-myClick2', '')
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#expression-operators
@@ -1829,7 +1829,7 @@ code-example(language="json").
     "url": "http://www.imdb.com/title/tt0065832/",
     "rate": 325 }
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 a#safe-navigation-operator
@@ -1898,7 +1898,7 @@ code-example(format="nocode").
 :marked
   It works perfectly with long property paths such as `a?.b?.c?.d`.
 
-a(href="#toc") back to top
+a(href="#contents") back to top
 
 .l-hr
 :marked

@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/guide/template-syntax.jade b/./src/angular/guide/template-syntax.jade
-index 6631698..c720f41 100644
+index 24ba2e6..d3d8075 100644
 --- a/./src/angular/_jade/ts/latest/guide/template-syntax.jade
 +++ b/./src/angular/guide/template-syntax.jade
 @@ -1,17 +1,28 @@
@@ -96,7 +96,7 @@ index 6631698..c720f41 100644
 +  imported from `dart:math`. They are restricted to referencing members of
 +  the expression context.
  
- a(href="#toc") back to top
+ a(href="#contents") back to top
  
 @@ -300,9 +315,10 @@ a#template-statements
    In `deleteHero(hero)` above, the `hero` is the template input variable,
@@ -160,7 +160,7 @@ index 6631698..c720f41 100644
  
  :marked
    And you get this error:
-@@ -849,6 +881,18 @@ a(href="#toc") back to top
+@@ -849,6 +881,18 @@ a(href="#contents") back to top
      [dash-case](glossary.html#dash-case), as shown above, or
      [camelCase](glossary.html#camelcase), such as `fontSize`.
  
@@ -176,7 +176,7 @@ index 6631698..c720f41 100644
 +
 +    [CssSD]: https://api.dartlang.org/stable/dart-html/CssStyleDeclaration-class.html
 +
- a(href="#toc") back to top
+ a(href="#contents") back to top
  
  .l-hr
 @@ -1048,7 +1092,7 @@ a#two-way
@@ -247,15 +247,6 @@ index 6631698..c720f41 100644
 +  *NgSwitch* is like the !{_JavaScript} `switch` statement.
    It can display _one_ element from among several possible elements, based on a _switch condition_.
    Angular puts only the *selected* element into the DOM.
- 
-@@ -1513,7 +1579,7 @@ figure.image-display
-   * `NgSwitchDefault` adds its element to the DOM when there is no selected `NgSwitchWhen`.
- 
-   The switch directives are particularly useful for adding and removing *component elements*.
--  This example switches among four "emotional hero" components defined in the `hero-switch.components.ts` file.
-+  This example switches among four "emotional hero" components defined in the `hero_switch_components.dart` file.
-   Each component has a `hero` [input property](#inputs-outputs "Input property")
-   which is bound to the `currentHero` of the parent component.
  
 @@ -1565,10 +1631,8 @@ a#ref-var
    A template reference variable, `heroForm`, appears three times in this example, separated

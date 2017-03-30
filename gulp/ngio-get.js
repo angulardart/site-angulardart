@@ -133,6 +133,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace('`app/`', '`lib/`'))
       // Patch tempalte-syntax: w/o it the page doesn't render because of JS error: $("#page-footer").offset() is undefined
       .pipe(replace('## * and &lt;template&gt;', '## `*` and *template*'))
+      .pipe(replace('"#toc"', '"#contents"'))
       // Patch glossary
       .pipe(replace("var docsLatest='/' + current.path.slice(0,3).join('/');", "var docsLatest='/angular';"))
       .pipe(gulp.dest('src/angular/_jade'));
