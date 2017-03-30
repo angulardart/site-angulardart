@@ -108,13 +108,13 @@ We recommend using Angular for your Dart web apps.
 Here's how to use WebStorm to create a web app that uses Angular:
 
 1. Choose **Create New Project** from WebStorm's welcome screen,
-or **File > New > Project...** from the menu.  A dialog appears.
+   or **File > New > Project...** from the menu.  A dialog appears.
 1. Choose **Dart** from the list on the left.
 1. If the **Dart SDK path** and **Dartium path** fields don't have values, enter them.
 1. Edit the **Location** field to set the app location and name. 
 1. Select **Generate sample content** to show the list of templates.
 1. Choose the **Angular Web Application** template.
-1. Click **Create**.
+1. Click **Create**.<br clear>
 ![WebStorm screenshot](images/create-ng2-project.png)
 
 To run the app from WebStorm, right-click the app's `web/index.html` file and choose
