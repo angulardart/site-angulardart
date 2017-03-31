@@ -75,6 +75,8 @@
           permalink: /angular/guide/security
         - title: Structural Directives
           permalink: /angular/guide/structural-directives
+        - title: Testing
+          permalink: /angular/guide/testing
 
     - title: Glossary
       permalink: /angular/glossary

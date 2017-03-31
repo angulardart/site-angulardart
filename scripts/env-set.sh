@@ -38,8 +38,12 @@ if [[ -z "$NGIO_ENV_DEFS" ]]; then
 
     if [[ -z "$(type -t dart)" && ! $PATH =~ */dart-sdk/* ]]; then
         export DART_SDK="$PKG/dart-sdk"
-        # echo Updating PATH to include access to Dart bin.
+        # Updating PATH to include access to Dart bin.
         export PATH="$DART_SDK/bin:$PATH"
         export PATH="$HOME/.pub-cache/bin:$PATH"
+    fi
+
+    if [[ -z "$(type -t content_shell)" ]]; then
+        export PATH="$PKG/content_shell:$PATH"
     fi
 fi

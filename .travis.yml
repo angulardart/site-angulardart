@@ -17,6 +17,7 @@ env:
     - LATEST_RELEASE=3.0.0-alpha+1
   matrix:
     - CI_TASK=build
+    - CI_TASK=test
     - CI_TASK="e2e --fast"
 
 matrix:
@@ -25,17 +26,25 @@ matrix:
     - env: CI_TASK="e2e --fast"
 
 before_install:
+  - sudo apt-get update --yes
   - source ./scripts/env-set.sh
   - ./scripts/install-dart-sdk.sh
   - ./scripts/before-install.sh
   - rvm install 2.3.0
 
 install:
+  - sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula
+    select true | debconf-set-selections"
+  - sudo apt-get install --yes ttf-indic-fonts ttf-mscorefonts-installer ttf-dejavu-core
+    ttf-kochi-gothic ttf-kochi-mincho fonts-tlwg-garuda
+    # ttf-thai-tlwg # Package 'ttf-thai-tlwg' has no installation candidate
   - ./scripts/install.sh
   - ./scripts/get-ng-repo.sh
 
 before_script:
   - sh -e /etc/init.d/xvfb start
+  - t=0; until (xdpyinfo -display :99 &> /dev/null || test $t -gt 10); do sleep 1; let t=$t+1; done
+  - content_shell --dump-render-tree
 
 script:
   # - ./scripts/deploy/runtests.sh

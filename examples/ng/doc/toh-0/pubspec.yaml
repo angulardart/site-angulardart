@@ -1,0 +1,39 @@
+# #docplaster
+# #docregion , initial
+name: angular_tour_of_heroes
+description: Tour of Heroes
+version: 0.0.1
+
+environment:
+  sdk: '>=1.20.1 <2.0.0'
+
+dependencies:
+  angular2: ^3.0.0-alpha+1
+
+# #docregion dev_dependencies
+dev_dependencies:
+  # #enddocregion initial
+  angular_test: ^1.0.0-alpha
+  # #docregion initial
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: ^1.0.1
+  # #enddocregion initial
+  test: ^0.12.0
+  # #docregion initial
+# #enddocregion dev_dependencies
+
+# #docregion transformers
+transformers:
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
+# #enddocregion initial
+- angular2/transform/reflection_remover:
+    $include: test/**_test.dart
+- test/pub_serve:
+    $include: test/**_test.dart
+# #docregion initial
+- dart_to_js_script_rewriter
