@@ -27,6 +27,7 @@ guide/lifecycle-hooks.jade
 guide/security.jade
 guide/server-communication.jade
 tutorial/index.jade
+tutorial/toh-pt1.jade
 tutorial/toh-pt5.jade
 tutorial/toh-pt6.jade
 glossary.jade

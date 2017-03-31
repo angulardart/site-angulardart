@@ -1,0 +1,160 @@
+diff --git a/./src/angular/_jade/ts/latest/tutorial/toh-pt1.jade b/./src/angular/tutorial/toh-pt1.jade
+index b71a26c..c69a0e4 100644
+--- a/./src/angular/_jade/ts/latest/tutorial/toh-pt1.jade
++++ b/./src/angular/tutorial/toh-pt1.jade
+@@ -1,46 +1,31 @@
+-//- include ../_util-fns
++---
++layout: angular
++title: The Hero Editor
++description: We build a simple hero editor
++prevpage:
++  title: "The Starter App"
++  url: /angular/tutorial/toh-pt0
++nextpage:
++  title: Master/Detail
++  url: /angular/tutorial/toh-pt2
++---
++//- FilePath: src/angular/tutorial/toh-pt1.jade
++include ../_util-fns
+ 
+ :marked
+   ## Setup to develop locally
+ 
+-  Follow the [setup](../guide/setup.html) instructions for creating a new project
++  Follow the [setup](toh-pt0) instructions for creating a new project
+   named `angular_tour_of_heroes`.
+ 
+-  The file structure should look like this:
+-
+-.filetree
+-  .file angular-tour-of-heroes
+-  .children
+-    .file src
+-    .children
+-      .file app
+-      .children
+-        .file app.component.ts
+-        .file app.module.ts
+-      .file main.ts
+-      .file index.html
+-      .file styles.css
+-      .file systemjs.config.js
+-      .file tsconfig.json
+-    .file node_modules ...
+-    .file package.json
+-:marked
+-  When you're done with this page, the app should look like this <live-example></live-example>.
++  In this part of the tutorial, you'll modify the starter app to display
++  information about a hero. Then you'll add the ability to edit the hero's
++  data. When you're done, the app should look like this
++  <live-example></live-example>.
+ 
+ a#keep-transpiling
+-:marked
+-  ## Keep the app transpiling and running
+-
+-  Enter the following command in the terminal window:
+-
+-code-example(language="sh" class="code-shell").
+-  npm start
+-
+-:marked
+-  This command runs the TypeScript compiler in "watch mode", recompiling automatically when the code changes.
+-  The command simultaneously launches the app in a browser and refreshes the browser when the code changes.
+-
+-  You can keep building the Tour of Heroes without pausing to recompile or refresh the browser.
++a#keep-running
++include keep-app-running
+ 
+ .l-main-section
+   :marked
+@@ -52,12 +37,12 @@ code-example(language="sh" class="code-shell").
+   +makeExcerpt('app/app.component.1.ts (AppComponent class)', 'app-component-1')
+ 
+   :marked
+-    Now update the template in the `@Component` decorator with data bindings to these new properties.
++    Now update the template in the `@Component` annotation with data bindings to these new properties.
+ 
+   +makeExcerpt('app/app.component.1.ts (@Component)', 'show-hero')
+ 
+   :marked
+-    The browser refreshes and displays the title and hero name.
++    Refresh the browser, and the page displays the title and hero name.
+ 
+     The double curly braces are Angular's *interpolation binding* syntax.
+     These interpolation bindings present the component's `title` and `hero` property values,
+@@ -91,7 +76,7 @@ code-example(language="sh" class="code-shell").
+ +makeExcerpt('app/app.component.1.ts', 'show-hero-2', '')
+ 
+ :marked
+-  The browser refreshes and continues to display the hero's name.
++  Refresh the browser, and the page continues to display the hero's name.
+ 
+   ### Adding HTML with multi-line template strings
+ 
+@@ -99,12 +84,8 @@ code-example(language="sh" class="code-shell").
+   add a `<div>` for the hero's `id` property and another `<div>` for the hero's `name`.
+   To keep the template readable, place each `<div>` on its own line.
+ 
+-  The backticks around the component template let you put the `<h1>`, `<h2>`, and `<div>` elements on their own lines,
+-  thanks to the <i>template literals</i> feature in ES2015 and TypeScript. For more information, see
+-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener" title="template literal">Template literals</a>.
+-
+-
+-+makeExample('toh-1/ts/app/app.component.1.ts', 'multi-line-strings', 'app.component.ts (AppComponent\'s template)')(format='.')
++//- Omit comment about backticks.
+++makeExcerpt('app/app.component.1.ts', 'multi-line-strings')
+ 
+ .l-main-section
+ :marked
+@@ -128,35 +109,15 @@ code-example(language="sh" class="code-shell").
+   Data flow _in both directions_: from the property to the textbox;
+   and from the textbox back to the property.
+ 
+-  Unfortunately, immediately after this change, the application breaks.
+-  If you looked in the browser console, you'd see Angular complaining that
+-  "`ngModel` ... isn't a known property of `input`."
+-
+-  Although `NgModel` is a valid Angular directive, it isn't available by default.
+-  It belongs to the optional `FormsModule`.
+-  You must opt-in to using that module.
+-
+-  ### Import the _FormsModule_
+-
+-  Open the `app_module.dart` file and import the `FormsModule` symbol from the `@angular/forms` library.
+-  Then add the `FormsModule` to the `@NgModule` metadata's `imports` array, which contains the list
+-  of external modules that the app uses.
+-
+-  The updated `AppModule` looks like this:
+-
+-+makeExample('toh-1/ts/app/app.module.ts', '', 'app.module.ts (FormsModule import)')
+-
+ .l-sub-section
+   :marked
+-    Read more about `FormsModule` and `ngModel` in the
+-    [Two-way data binding with ngModel](../guide/forms.html#ngModel) section of the
+-    [Forms](../guide/forms.html) guide and the
+-    [Two-way binding with NgModel](../guide/template-syntax.html#ngModel) section of the
+-    [Template Syntax](../guide/template-syntax.html) guide.
++    Read more about `ngModel` in the
++    [Forms](../guide/forms.html#ngModel) and
++    [Template Syntax](../guide/template-syntax.html#ngModel) pages.
+ 
+ :marked
+-  When the browser refreshes, the app should work again.
+-  You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the textbox.
++  Refresh the browser. You can edit the hero's name and see the changes
++  reflected immediately in the `<h2>` above the textbox.
+ 
+ .l-main-section
+ :marked
+@@ -166,7 +127,7 @@ code-example(language="sh" class="code-shell").
+ 
+   * The Tour of Heroes app uses the double curly braces of interpolation (a type of one-way data binding)
+   to display the app title and properties of a `Hero` object.
+-  * You wrote a multi-line template using ES2015's template literals to make the template readable.
++  * You wrote a multi-line template using Dart's template strings to make the template readable.
+   * You added a two-way data binding to the `<input>` element
+   using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
+   * The `ngModel` directive propagates changes to every other binding of the `hero.name`.

@@ -1,15 +1,18 @@
+bogus({template: String}) {}
+
+var t1 = bogus(
 // #docregion show-hero
 template: '<h1>{{title}}</h1><h2>{{hero}} details!</h2>'
 // #enddocregion show-hero
+);
 
+var t2 = bogus(
 // #docregion show-hero-2
 template: '<h1>{{title}}</h1><h2>{{hero.name}} details!</h2>'
 // #enddocregion show-hero-2
+);
 
-// #docregion show-hero-properties
-template: '<h1>{{title}}</h1><h2>{{hero.name}} details!</h2><div><label>id: </label>{{hero.id}}</div><div><label>name: </label>{{hero.name}}</div>'
-// #enddocregion show-hero-properties
-
+var t4 = bogus(
 // #docregion multi-line-strings
 template: '''
   <h1>{{title}}</h1>
@@ -17,17 +20,16 @@ template: '''
   <div><label>id: </label>{{hero.id}}</div>
   <div><label>name: </label>{{hero.name}}</div>'''
 // #enddocregion multi-line-strings
+);
 
-// #docregion editing-Hero
-template: '''
-  <h1>{{title}}</h1>
-  <h2>{{hero.name}} details!</h2>
-  <div><label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input value="{{hero.name}}" placeholder="name">
-  </div>'''
-// #enddocregion editing-Hero
+/*
+// #docregion name-input
+<div>
+  <label>name: </label>
+  <input [(ngModel)]="hero.name" placeholder="name">
+</div>
+// #enddocregion name-input
+*/
 
 // #docregion app-component-1
 class AppComponent {

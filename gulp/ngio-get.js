@@ -86,6 +86,7 @@ module.exports = function (gulp, plugins, config) {
       // `${baseDir}/ts/${dirName}/quickstart.jade`,
       // `${baseDir}/ts/${dirName}/_quickstart_repo.jade`,
       `${baseDir}/ts/${dirName}/tutorial/index.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt1.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt5.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt6.jade`,
       // These files are no longer Jade extended but we still sync them for diffs.
