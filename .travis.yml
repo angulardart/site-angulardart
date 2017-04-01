@@ -68,4 +68,4 @@ deploy:
     on:
       branch: master
       # Only deploy for GitHub dart-lang/site-webdev, not site forks
-      condition: "$TRAVIS_REPO_SLUG == dart-lang/*"
+      condition: "$TRAVIS_REPO_SLUG == dart-lang/* && $CI_TASK == build"
