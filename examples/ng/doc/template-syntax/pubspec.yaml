@@ -5,11 +5,14 @@ version: 0.0.1
 environment:
   sdk: '>=1.19.0 <2.0.0'
 dependencies:
-  angular2: ^3.0.0-alpha+1
+  angular2: ^3.0.0-beta
   angular2_components: ^0.4.0-alpha
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
+dependency_overrides:
+  angular2:
+    git: https://github.com/dart-lang/angular2.git
 transformers:
 - angular2:
     platform_directives:

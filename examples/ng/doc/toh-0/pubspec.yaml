@@ -8,7 +8,7 @@ environment:
   sdk: '>=1.20.1 <2.0.0'
 
 dependencies:
-  angular2: ^3.0.0-alpha+1
+  angular2: ^3.0.0-beta
 
 # #docregion dev_dependencies
 dev_dependencies:
@@ -23,6 +23,9 @@ dev_dependencies:
 # #enddocregion dev_dependencies
 
 # #docregion transformers
+dependency_overrides:
+  angular2:
+    git: https://github.com/dart-lang/angular2.git
 transformers:
 - angular2:
     platform_directives:

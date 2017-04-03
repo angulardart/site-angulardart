@@ -68,8 +68,10 @@ const plugins = {
   gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
 };
 
-const extraTasks = 'api api-list cheatsheet dartdoc examples example-frag ngio-get ngio-put sass test update-web-simple';
-extraTasks.split(' ').forEach(task => require(`./gulp/${task}`)(gulp, plugins, config))
+const extraTasks = `
+  api api-list cheatsheet dartdoc examples example-frag 
+  ngio-get ngio-put sass test update-ng-vers update-web-simple`;
+extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
 // Tasks

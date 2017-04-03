@@ -1,10 +1,10 @@
 name: ng_test.github_issues
 
 dependencies:
-  angular2: '3.0.0-alpha'
-  markdown: '^0.11.2'
-  ng_bootstrap: '0.5.1'
-  sass_transformer: '0.1.2+1'
+  angular2: ^3.0.0-beta
+  markdown: ^0.11.2
+  ng_bootstrap: 0.5.1
+  sass_transformer: 0.1.2+1
 
 dev_dependencies:
   # Not yet published on pub, still in active development.
@@ -13,16 +13,17 @@ dev_dependencies:
       url: https://github.com/dart-lang/angular_test
       ref: 1.0.0-alpha+3
 
-  browser: '0.10.0+2'
-  mockito: '^1.0.1'
-  pageloader: '^2.2.5'
-  test: '0.12.18+1'
+  browser: 0.10.0+2
+  mockito: ^1.0.1
+  pageloader: ^2.2.5
+  test: 0.12.18+1
 
 # These are required in order to use AngularDart 3.0.0-alpha with ng_bootstrap.
 dependency_overrides:
-  angular2: '3.0.0-alpha'
-  intl: '0.14.0'
-  markdown: '0.11.2'
+  angular2:
+    git: https://github.com/dart-lang/angular2.git
+  intl: 0.14.0
+  markdown: 0.11.2
   reflectable: any
 
 transformers:

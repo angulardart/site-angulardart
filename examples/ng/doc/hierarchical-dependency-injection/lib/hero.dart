@@ -22,7 +22,7 @@ class HeroTaxReturn {
       new HeroTaxReturn(r.id, r.hero, r.income);
 
   String get name => hero.name;
-  num get tax => 0.10 * income;
+  num get tax => 0.10 * (income ?? 0);
   String get taxId => hero.taxId;
 
   @override
