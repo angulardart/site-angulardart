@@ -1,6 +1,3 @@
-<!--
-TODO: remove ALL use of ng-container if there is no such feature in ngDart.
--->
 <!-- #docplaster -->
 <!-- #docregion -->
 <h1>Structural Directives</h1>
@@ -65,9 +62,10 @@ TODO: remove ALL use of ng-container if there is no such feature in ngDart.
 
 <hr>
 
-<h2 id="ng-container">&lt;ng-container&gt;</h2>
+<a id="ng-container"></a>
+<h2 id="template">&lt;template&gt;</h2>
 
-<h4>*ngIf with a &lt;ng-container&gt;</h4>
+<h4>*ngIf with a &lt;template&gt;</h4>
 
 <button (click)="hero = hero != null ? null : heroes[0]">Toggle hero</button>
 
@@ -114,7 +112,7 @@ TODO: remove ALL use of ng-container if there is no such feature in ngDart.
 </select>
 <!-- #enddocregion select-span -->
 
-<p><i>&lt;select&gt; with &lt;template&gt;</i></p><!-- was: ng-container -->
+<p><i>&lt;select&gt; with &lt;template&gt;</i></p>
 <!-- #docregion select-ngcontainer -->
 <div>
   Pick your favorite hero 2
@@ -129,8 +127,8 @@ TODO: remove ALL use of ng-container if there is no such feature in ngDart.
 </select>
 <!-- #enddocregion select-ngcontainer -->
 
+<!--
 <p><i>&lt;select&gt; with &lt;ng-container&gt;</i></p>
-<!-- #docregion select-ngcontainer-prev -->
 <div>
   Pick your favorite hero
   (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
@@ -142,7 +140,7 @@ TODO: remove ALL use of ng-container if there is no such feature in ngDart.
     </ng-container>
   </ng-container>
 </select>
-<!-- #enddocregion select-ngcontainer-prev -->
+-->
 <br><br>
 
 <hr>
