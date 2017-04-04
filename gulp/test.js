@@ -12,9 +12,14 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('test', ['_test-ng-doc', '_test-ng-test']);
 
+  const docEx = 'toh-0 toh-1'.split(' ');
   gulp.task('_test-ng-doc', cb => {
-    const exPath = path.join(DOC_EXAMPLES_PATH, 'toh-0');
-    return pubGetAndRunTest(exPath);
+    var promise = Promise.resolve(true);
+    docEx.forEach(dir => promise = promise.then(() => {
+      plugins.gutil.log(`Running tests for ${dir}`);
+      const exPath = path.join(DOC_EXAMPLES_PATH, dir);
+      return pubGetAndRunTest(exPath);
+    }))
   });
 
   gulp.task('_test-ng-test', cb => {

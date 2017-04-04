@@ -13,7 +13,7 @@ dependencies:
 # #docregion dev_dependencies
 dev_dependencies:
   # #enddocregion initial
-  angular_test: ^1.0.0-alpha
+  angular_test: ^1.0.0-beta
   # #docregion initial
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
