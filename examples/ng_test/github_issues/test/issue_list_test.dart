@@ -4,9 +4,9 @@ library angular2_complex_test;
 
 import 'dart:async';
 
-import 'package:angular2_api_examples.testing/api.dart';
-import 'package:angular2_api_examples.testing/ui.dart';
-import 'package:angular2_api_examples.testing/testing.dart';
+import 'package:ng_test.github_issues/api.dart';
+import 'package:ng_test.github_issues/ui.dart';
+import 'package:ng_test.github_issues/testing.dart';
 
 import 'package:angular2/angular2.dart';
 import 'package:angular_test/angular_test.dart';

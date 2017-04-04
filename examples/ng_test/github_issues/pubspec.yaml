@@ -9,19 +9,16 @@ dependencies:
 dev_dependencies:
   # Not yet published on pub, still in active development.
   angular_test:
-    git:
-      url: https://github.com/dart-lang/angular_test
-      ref: 1.0.0-alpha+3
-
+    git: https://github.com/dart-lang/angular_test
   browser: 0.10.0+2
   mockito: ^1.0.1
   pageloader: ^2.2.5
   test: 0.12.18+1
 
-# These are required in order to use AngularDart 3.0.0-alpha with ng_bootstrap.
 dependency_overrides:
   angular2:
     git: https://github.com/dart-lang/angular2.git
+  # Required for use of angular2 3.0.0-beta with ng_bootstrap.
   intl: 0.14.0
   markdown: 0.11.2
   reflectable: any

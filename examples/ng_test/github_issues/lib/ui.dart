@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 import 'package:angular2/security.dart';
-import 'package:angular2_api_examples.testing/api.dart';
+import 'package:ng_test.github_issues/api.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:ng_bootstrap/ng_bootstrap.dart';
 

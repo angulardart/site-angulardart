@@ -1,7 +1,7 @@
 import 'package:angular2/angular2.dart';
 import 'package:angular2/platform/browser.dart';
-import 'package:angular2_api_examples.testing/api.dart';
-import 'package:angular2_api_examples.testing/ui.dart';
+import 'package:ng_test.github_issues/api.dart';
+import 'package:ng_test.github_issues/ui.dart';
 
 @Component(
   selector: 'ng-app',
