@@ -67,6 +67,6 @@ deploy:
     script: ./scripts/deploy/deploy-firebase-dev.sh
     skip_cleanup: true
     on:
+      repo: dart-lang/site-webdev
       branch: master
-      # Only deploy for GitHub dart-lang/site-webdev, not site forks
-      condition: "$TRAVIS_REPO_SLUG == dart-lang/* && $CI_TASK == build"
+      condition: $CI_TASK == build
