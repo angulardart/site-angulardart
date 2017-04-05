@@ -44,7 +44,7 @@ final List<Hero> mockHeroes = [
         </div>
       </div>
     ''',
-// #docregion styles
+    // #docregion styles
     styles: const [
       '''
       .selected {
@@ -99,13 +99,13 @@ final List<Hero> mockHeroes = [
 class AppComponent {
   final String title = 'Tour of Heroes';
   final List<Hero> heroes = mockHeroes;
-// #docregion selected-hero
+  // #docregion selected-hero
   Hero selectedHero;
-// #enddocregion selected-hero
+  // #enddocregion selected-hero
 
-// #docregion on-select
-  onSelect(Hero hero) {
+  // #docregion on-select
+  void onSelect(Hero hero) {
     selectedHero = hero;
   }
-// #enddocregion on-select
+  // #enddocregion on-select
 }
