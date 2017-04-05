@@ -8,13 +8,13 @@ description: "What libraries are available for writing web apps in Dart?"
 What kind of support is available for web programming in Dart?
 Where can you learn more?
 
-## Angular
+## AngularDart
 
 Learn from the
 [Angular docs](/angular).
 You can also follow two code labs:
 
-* [Avast, Ye Pirates: Write an Angular App](/codelabs/ng2)
+* [Avast, Ye Pirates: Write an AngularDart App](/codelabs/ng2)
 * [AngularDart Components](/codelabs/angular2_components)
 
 ## JS interop

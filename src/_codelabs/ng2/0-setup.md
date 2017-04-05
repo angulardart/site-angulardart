@@ -9,7 +9,7 @@ nextpage:
   title: "Step 1: Create a Basic Web App"
 prevpage:
   url: /codelabs/ng2
-  title: "Avast Ye Pirates: Write a Web App"
+  title: "Avast Ye Pirates: Write an AngularDart App"
 
 header:
   css: ["/codelabs/ng2/darrrt.css"]

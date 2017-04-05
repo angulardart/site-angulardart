@@ -3,7 +3,7 @@
   - title: Get Started
     permalink: /guides/get-started
 
-- title: Angular
+- title: Angular&nbsp;Dart
   children:
     - title: About
       permalink: /angular
@@ -85,7 +85,7 @@
     - title: API Reference
       permalink: /angular/api
 
-- title: Angular Components
+- title: Angular&nbsp;Dart Components
   children:
     - title: Code Lab
       permalink: /codelabs/angular2_components

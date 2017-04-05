@@ -298,7 +298,7 @@ and put the following contents in it:
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* When Angular detects the `<pirate-badge>` selector, it will load an
+* When Angular detects the `<pirate-badge>` selector, it loads an
   instance of `BadgeComponent`.
 
 * Angular doesn't know about `app_component.html` yet. To associate this

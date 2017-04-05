@@ -5,6 +5,10 @@ description: "A guide to get you quickly writing web apps in Dart."
 ---
 
 Follow these steps to start using Dart to develop web apps.
+First you'll play with Dart in your browser, no download required.
+Then you'll install Dart and build a small app
+that uses the AngularDart framework.
+
 
 ## 1. Play with DartPad
 
@@ -104,8 +108,9 @@ More information: [Dart tools for the web](/tools)
 
 ## 4. Create and run a web app
 
-We recommend using Angular for your Dart web apps.
-Here's how to use WebStorm to create a web app that uses Angular:
+We recommend using Angular for your Dart web apps,
+but you have [other options](/guides/web-programming) as well.
+Here's how to use WebStorm to create a web app that uses AngularDart:
 
 1. Choose **Create New Project** from WebStorm's welcome screen,
    or **File > New > Project...** from the menu.  A dialog appears.
@@ -127,7 +132,7 @@ To run the app from WebStorm, right-click the app's `web/index.html` file and ch
 More information:
 
 * [Installing and using WebStorm](/tools/webstorm)
-* [Setup for Angular development](/angular/guide/setup)
+* [Setup for AngularDart development](/angular/guide/setup)
 
 
 ## 5. Add custom code to the app
@@ -163,7 +168,7 @@ class AppComponent {
 </material-list>
 {% endraw %}{% endprettify %}
 
-  This code uses the Angular's `*ngFor` syntax to loop through
+  This code uses the Angular `*ngFor` syntax to loop through
   the component's `heroes` list.
   At runtime, Angular creates a `<material-list-item>` element for each item in `heroes`,
   replacing `{% raw %}{{ hero }}{% endraw %}`
@@ -183,7 +188,7 @@ class AppComponent {
 This was a whirlwind introduction to Dart and Angular
 that left out many details.
 For a gentler approach, try the code lab
-[Avast, Ye Pirates: Write an Angular App.](/codelabs/ng2/)
+[Avast, Ye Pirates: Write an AngularDart App.](/codelabs/ng2/)
 </aside>
 
 

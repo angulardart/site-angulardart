@@ -12,7 +12,7 @@ mission-critical apps that bring in much of Google’s revenue.
 
 <div class="button-container">
   <div>
-    <a href="/guides/get-started" class="btn btn-default btn-lg">Quick start</a>
+    <a href="/guides/get-started" class="btn btn-default btn-lg">Get Started</a>
     <a href="/angular/guide" class="btn btn-lg">Documentation</a>
   </div>
 

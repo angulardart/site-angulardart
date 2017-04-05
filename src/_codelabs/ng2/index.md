@@ -1,6 +1,6 @@
 ---
 layout: codelab
-title: "Avast, Ye Pirates: Write an Angular App"
+title: "Avast, Ye Pirates: Write an AngularDart App"
 description: "Learn how to use Dart + Angular by creating a simple web app."
 toc: false
 permalink: /codelabs/ng2
@@ -15,7 +15,7 @@ header:
 ---
 
 This code lab walks you through the process of building a simple
-web app with Dart and Angular.
+web app with Dart and AngularDart.
 
 If you are interested in other available labs, see the
 [code labs](/codelabs) page.
