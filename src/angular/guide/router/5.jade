@@ -164,35 +164,49 @@ ul
     the different ways that the user can navigate away. That's the router's job.
     You simply write this method and let the router take it from there.
 
+a#onactivate
 a#ondeactivate
 :marked
-  ## *OnDeactivate* interface
+  ## *OnActivate* and *OnDeactivate* interfaces
 
   Each route is handled by a component instance.
-  Generally, when a change in route is requested, the component instance
-  handling the current route is _deactivated_ and then destroyed
-  before a new component instance is created to handle the new route instruction.
-  
-  If a component implements the `OnDeactivate` interface, then
-  the router calls the component's `routerOnDeactivate` method
-  before the instance is destroyed.
+  Generally, when the router processes a route change request, it
+  performs the following actions:
 
-  This lifecycle method gives component instances an opportunity
-  to perform tasks like cleanup and resource deallocation
-  before being deactivated.
+  - It _deactivates_ and then destroys the component instance handling the
+    current route, if any.
+  - It instantiates the component class registered to handle the new route
+    instruction, and then _activates_ the new instance.
 
-  To see this lifecycle hook at work, add `OnDeactivate` to the list of 
-  classes implemented by `CrisisDetailComponent`, along with this trivial 
-  method implementation:
+  Lifecycle hooks exist for both component activation and deactivation.
+  To implement these hooks for crisis details, add both `OnActivate` and
+  `OnDeactivate` to the list of classes implemented by `CrisisDetailComponent`.
+  Also add these trivial lifecycle method implementations:
 
-+makeExcerpt('app/crisis_center/crisis_detail_component.dart (routerOnDeactivate)')
++makeExcerpt('app/crisis_center/crisis_detail_component.dart (excerpt)', 'routerOnActivate-and-routerOnDeactivate')
 
 :marked
   **Refresh the browser** and open the JavaScript console.
   Now visit the crisis center and select each of the first
-  three crises, one at a time. You'll notice that for each route
-  change, from one crisis to another, a message is printed by
-  the `OnDeactivate` lifecycle method.
+  three crises, one at a time. Finally, select _Cancel_ in the
+  crisis detail view. You should see the following sequence
+  of messages:
+
+code-example(format="nocode").
+  Activating CrisisDetail 1
+  Deactivating CrisisDetail 1
+  Activating CrisisDetail 2
+  Deactivating CrisisDetail 2
+  Activating CrisisDetail 3
+  Deactivating CrisisDetail 3
+
+:marked
+  When a component implements the `OnDeactivate` interface, 
+  the router calls the component's `routerOnDeactivate` method
+  before the instance is destroyed.
+  This gives component instances an opportunity
+  to perform tasks like cleanup and resource deallocation
+  before being deactivated.
 
   Given the nature of a crisis detail component's responsibilities,
   it seems wasteful to create a new instance each time. A single instance

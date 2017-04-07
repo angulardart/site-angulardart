@@ -13,7 +13,13 @@ import 'dialog_service.dart';
     templateUrl: 'crisis_detail_component.html',
     styleUrls: const ['crisis_detail_component.css'])
 class CrisisDetailComponent
-    implements CanDeactivate, CanReuse, OnDeactivate, OnInit, OnReuse {
+    implements
+        CanDeactivate,
+        CanReuse,
+        OnActivate,
+        OnDeactivate,
+        OnInit,
+        OnReuse {
   Crisis crisis;
   String name;
   final CrisisService _crisisService;
@@ -68,10 +74,17 @@ class CrisisDetailComponent
       _setCrisis(next.params['id']);
   // #enddocregion routerOnReuse
 
+  // #docregion routerOnActivate, routerOnActivate-and-routerOnDeactivate
+  @override
+  void routerOnActivate(next, prev) {
+    print('Activating ${next.routeName} ${next.urlPath}');
+  }
+  // #enddocregion routerOnActivate
+
   // #docregion routerOnDeactivate
   @override
   void routerOnDeactivate(next, prev) {
-    print('Deactivating CrisisDetailComponent $name');
+    print('Deactivating ${prev.routeName} ${prev.urlPath}');
   }
-  // #enddocregion routerOnDeactivate
+  // #enddocregion routerOnDeactivate, routerOnActivate-and-routerOnDeactivate
 }
