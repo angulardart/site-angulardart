@@ -15,7 +15,10 @@ dev_dependencies:
 
 dependency_overrides:
   angular2:
-    git: https://github.com/dart-lang/angular2.git
+    git:
+      url: https://github.com/dart-lang/angular2.git
+      ref: 3.0.0-alpha+1
+
 transformers:
 - angular2:
     platform_directives:

@@ -17,7 +17,9 @@ dev_dependencies:
 
 dependency_overrides:
   angular2:
-    git: https://github.com/dart-lang/angular2.git
+    git:
+      url: https://github.com/dart-lang/angular2.git
+      ref: 3.0.0-alpha+1
   # Required for use of angular2 3.0.0-beta with ng_bootstrap.
   intl: 0.14.0
   markdown: 0.11.2
