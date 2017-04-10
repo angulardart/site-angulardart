@@ -7,8 +7,6 @@ import 'package:angular2/router.dart';
 // import 'animations.dart' show slideInDownAnimation;
 
 @Component(
-  // selector isn't needed, but must be provided
-  // https://github.com/dart-lang/angular2/issues/60
   selector: 'my-crisis-center',
   templateUrl: 'compose_message_component.html',
   styles: const [':host { position: relative; bottom: 10%; }'],
