@@ -669,12 +669,12 @@ bindon-ngModel
 
 <!-- #docregion NgSwitch -->
 <div [ngSwitch]="currentHero.emotion">
-  <happy-hero    *ngSwitchWhen="'happy'"    [hero]="currentHero"></happy-hero>
-  <sad-hero      *ngSwitchWhen="'sad'"      [hero]="currentHero"></sad-hero>
-  <confused-hero *ngSwitchWhen="'confused'" [hero]="currentHero"></confused-hero>
+  <happy-hero    *ngSwitchCase="'happy'"    [hero]="currentHero"></happy-hero>
+  <sad-hero      *ngSwitchCase="'sad'"      [hero]="currentHero"></sad-hero>
+  <confused-hero *ngSwitchCase="'confused'" [hero]="currentHero"></confused-hero>
 <!-- #enddocregion NgSwitch -->
   <!-- #docregion NgSwitch-div -->
-  <div *ngSwitchWhen="'confused'">Are you as confused as {{currentHero.name}}?</div>
+  <div *ngSwitchCase="'confused'">Are you as confused as {{currentHero.name}}?</div>
   <!-- #enddocregion NgSwitch-div -->
 <!-- #docregion NgSwitch -->
   <unknown-hero  *ngSwitchDefault           [hero]="currentHero"></unknown-hero>

@@ -299,11 +299,16 @@ a#ngSwitch
 :marked
   ## Inside _NgSwitch_ directives
 
-  The Angular _NgSwitch_ is actually a set of cooperating directives: `NgSwitch`, `NgSwitchWhen`, and `NgSwitchDefault`.
+  The Angular _NgSwitch_ is actually a set of cooperating directives: `NgSwitch`, `NgSwitchCase`, and `NgSwitchDefault`.
 
   Here's an example.
 
 +makeExcerpt('app/app.component.html', 'ngswitch', '')
+
+.l-sub-section
+  :marked
+    You might come across an `NgSwitchWhen` directive in older code.
+    That is the deprecated name for `NgSwitchCase`.
 
 :marked
   The switch value assigned to `NgSwitch` (`hero.emotion`) determines which
@@ -313,19 +318,19 @@ a#ngSwitch
   It's an _attribute_ directive that controls the behavior of the other two switch directives.
   That's why you write `[ngSwitch]`, never `*ngSwitch`.
 
-  `NgSwitchWhen` and `NgSwitchDefault` _are_ structural directives. 
+  `NgSwitchCase` and `NgSwitchDefault` _are_ structural directives. 
   You attach them to elements using the asterisk (*) prefix notation. 
-  An `NgSwitchWhen` displays its host element when its value matches the switch value.
-  The `NgSwitchDefault` displays its host element when no sibling `NgSwitchWhen` matches the switch value.
+  An `NgSwitchCase` displays its host element when its value matches the switch value.
+  The `NgSwitchDefault` displays its host element when no sibling `NgSwitchCase` matches the switch value.
 
 .l-sub-section
   :marked
     The element to which you apply a directive is its _host_ element. 
-    The `<happy-hero>` is the host element for the happy `*ngSwitchWhen`.
+    The `<happy-hero>` is the host element for the happy `*ngSwitchCase`.
     The `<unknown-hero>` is the host element for the `*ngSwitchDefault`.
 
 :marked
-  As with other structural directives, the `NgSwitchWhen` and `NgSwitchDefault` 
+  As with other structural directives, the `NgSwitchCase` and `NgSwitchDefault` 
   can be desugared into the template _attribute_ form.
 
 +makeExcerpt('app/app.component.html', 'ngswitch-template-attr', '')

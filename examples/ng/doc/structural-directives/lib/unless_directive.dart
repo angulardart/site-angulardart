@@ -2,28 +2,23 @@
 // #docregion no-docs, skeleton,
 import 'package:angular2/core.dart';
 
-// #enddocregion skeleton
-/**
- * Add the template content to the DOM unless the condition is true.
-    // #enddocregion no-docs
- *
- * If the expression assigned to `myUnless` evaluates to a truthy value
- * then the templated elements are removed removed from the DOM,
- * the templated elements are (re)inserted into the DOM.
- *
- * <div *ngUnless="errorCount" class="success">
- *   Congrats! Everything is great!
- * </div>
- *
- * ### Syntax
- *
- * - `<div *myUnless="condition">...</div>`
- * - `<div template="myUnless condition">...</div>`
- * - `<template [myUnless]="condition"><div>...</div></template>`
- *
- // #docregion no-docs
- */
-// #docregion skeleton
+// #enddocregion no-docs, skeleton
+/// Add the template content to the DOM unless the condition is true.
+///
+///  If the expression assigned to `myUnless` evaluates to a truthy value
+///  then the templated elements are removed removed from the DOM,
+///  the templated elements are (re)inserted into the DOM.
+///
+///  <div *ngUnless="errorCount" class="success">
+///    Congrats! Everything is great!
+///  </div>
+///
+///  ### Syntax
+///
+///  - `<div *myUnless="condition">...</div>`
+///  - `<div template="myUnless condition">...</div>`
+///  - `<template [myUnless]="condition"><div>...</div></template>`
+// #docregion no-docs, skeleton
 @Directive(selector: '[myUnless]')
 class UnlessDirective {
   // #enddocregion skeleton

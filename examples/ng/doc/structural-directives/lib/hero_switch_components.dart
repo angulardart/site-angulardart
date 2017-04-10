@@ -32,7 +32,7 @@ class UnknownHeroComponent {
   @Input()
   Hero hero;
 
-  get message => hero != null && hero.name.isNotEmpty
+  String get message => hero != null && hero.name.isNotEmpty
         ? '${hero.name} is strange and mysterious.'
         : 'Are you feeling indecisive?';
 }

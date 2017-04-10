@@ -128,7 +128,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/(var advancedLandingPage = )([^;]*);/, "$1'attribute-directives'; // $2;"))
       // Patch structural-directives
       .pipe(replace('## The *&lt;template&gt;*', '## The *template* element'))
-      .pipe(replace(/([Nn]gSwitch)Case/g, '$1When'))
+      // .pipe(replace(/([Nn]gSwitch)Case/g, '$1When')) // https://github.com/dart-lang/site-webdev/issues/503
       .pipe(replace(/\bfalsy/g, 'false'))
       .pipe(replace(/\btruthy/g, 'true'))
       .pipe(replace('`app/`', '`lib/`'))

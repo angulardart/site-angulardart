@@ -1489,7 +1489,7 @@ a#ngSwitch
   Angular puts only the *selected* element into the DOM.
 
   *NgSwitch* is actually a set of three, cooperating directives:
-  `NgSwitch`, `NgSwitchWhen`, and `NgSwitchDefault` as seen in this example.
+  `NgSwitch`, `NgSwitchCase`, and `NgSwitchDefault` as seen in this example.
 
 +makeExcerpt('app/app.component.html', 'NgSwitch', '')
 
@@ -1505,12 +1505,12 @@ figure.image-display
   It changes the behavior of its companion directives.
   It doesn't touch the DOM directly.
 
-  **Bind to `*ngSwitchWhen` and `*ngSwitchDefault`**.
-  The `NgSwitchWhen` and `NgSwitchDefault` directives are _structural_ directives
+  **Bind to `*ngSwitchCase` and `*ngSwitchDefault`**.
+  The `NgSwitchCase` and `NgSwitchDefault` directives are _structural_ directives
   because they add or remove elements from the DOM.
 
-  * `NgSwitchWhen` adds its element to the DOM when its bound value equals the switch value.
-  * `NgSwitchDefault` adds its element to the DOM when there is no selected `NgSwitchWhen`.
+  * `NgSwitchCase` adds its element to the DOM when its bound value equals the switch value.
+  * `NgSwitchDefault` adds its element to the DOM when there is no selected `NgSwitchCase`.
 
   The switch directives are particularly useful for adding and removing *component elements*.
   This example switches among four "emotional hero" components defined in the `hero_switch_components.dart` file.
