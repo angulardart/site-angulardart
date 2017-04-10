@@ -5,6 +5,7 @@ url: https://webdev.dartlang.org
 baseurl: ""
 port: 4001
 permalink: /:title
+repo: https://github.com/dart-lang/site-webdev
 
 # Global variables
 # use case:
@@ -80,9 +81,10 @@ defaults:
 
 custom:
   angular:
-    stable-version: "2.2"
-    stable-version-full: "2.2.0"
-    dev-version: "3.0.0-alpha"
+    stable-version: 2.2
+    stable-version-full: 2.2.0
+    dev-version: 3.0.0-beta
+    url-next-vers: https://webdev-angular3-dartlang-org.firebaseapp.com
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"

@@ -29,7 +29,7 @@ if [[ -e "$NG2EX_REPO" ]]; then
 else
   travis_fold start get_ng2_api_ex
   echo GETTING angular2_api_examples from GitHub ...
-  (set -x; git clone https://github.com/dart-lang/angular2_api_examples.git $NG2EX_REPO)
+  (set -x; git clone https://github.com/dart-lang/angular2_api_examples.git $NG2EX_REPO; cd $NG2EX_REPO; git reset --hard before_deprecation)
   travis_fold end get_ng2_api_ex
 fi
 
