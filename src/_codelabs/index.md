@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Code Labs"
-description: "Code labs to help you quickly get started with web programming in Dart."
+title: "Codelabs"
+description: "Codelabs to help you quickly get started with web programming in Dart."
 permalink: /codelabs
 toc: false
 ---
@@ -17,9 +17,9 @@ a pirate badge generator that runs in any modern browser.
 : Beautify a web app by converting its vanilla HTML elements
 to material design components that are widely used in Google's Dart apps.
 
-[Low-Level HTML Pirate Code Lab](/codelabs/darrrt)
+[Low-Level HTML Pirate Codelab](/codelabs/darrrt)
 : Learn how to use Dart's low-level HTML package while
 building a pirate badge generator that runs in any modern browser.
 
 For other available labs, see the
-[code labs]({{site.dartlang}}/codelabs) page on dartlang.
+[codelabs]({{site.dartlang}}/codelabs) page on dartlang.

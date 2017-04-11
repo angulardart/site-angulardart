@@ -62,8 +62,8 @@ Alternate instructions are provided for some of the steps.
 
 <div class="trydart-step-details" markdown="1">
 The [one-hour-codelab](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2)
-repo on GitHub contains several examples for this code lab.
-Each example corresponds to a completed step in this code lab:
+repo on GitHub contains several examples for this codelab.
+Each example corresponds to a completed step in this codelab:
 
 [1-skeleton](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/1-skeleton)
 : Displays some text&mdash;a basic Angular app.
@@ -87,7 +87,7 @@ Each example corresponds to a completed step in this code lab:
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-lightbulb-o"> </i> **Tip** <br>
-As you work through this code lab,
+As you work through this codelab,
 you can use the files in the numbered directories to compare to your code
 or to recover if you get off track.
 </aside>

@@ -116,31 +116,37 @@ You can find icons and instructions for including them at
 Let’s use the following icons in the main simulator UI:
 
 
-|---------------------+-----------------------+-----------------------|
-| Current button text | New icon              | Icon name             |
-|---------------------|-----------------------|-----------------------|
-| Play   | ![](images/ic_play_arrow_black_24px.svg) | play arrow |
-| Step   | ![](images/ic_skip_next_black_24px.svg)  | skip next |
-| Pause  | ![](images/ic_pause_black_24px.svg)      | pause |
-| Reset  | ![](images/ic_replay_black_24px.svg)     | replay |
+|---------------------+-----------------------------+-----------------|
+| Current button text | New icon                    | Icon name       |
+|---------------------|-----------------------------|-----------------|
+| Play   | ![](images/ic_play_arrow_black_24px.svg) | play arrow      |
+| Step   | ![](images/ic_skip_next_black_24px.svg)  | skip next       |
+| Pause  | ![](images/ic_pause_black_24px.svg)      | pause           |
+| Reset  | ![](images/ic_replay_black_24px.svg)     | replay          |
 {:.table .table-striped}
 
 <ol>
 
 <li>
-Find the icon font values for each of the icons. For example:
+Find the icon font value for <b>play arrow</b>:
 <ol style="list-style-type: lower-alpha">
   <li>
   Go to <a href="https://design.google.com/icons">design.google.com/icons</a>. </li>
   <li>
-  Enter <b>play arrow</b> in the site search box. </li>
+  Enter <b>play</b> or <b>play arrow</b> in the site search box. </li>
   <li>
-  In the results, click the matching icon to get more information. </li>
+  In the results, click the <b>play arrow</b> icon
+  (<img src="images/ic_play_arrow_black_24px.svg">)
+  to get more information. </li>
   <li>
   Click <b>ICON FONT</b> to get the icon code to use: <b>play_arrow</b>. </li></ol></li>
+<li>
+Find the icon font values for <b>skip next</b>, <b>pause</b>, and <b>replay</b>. </li>
 
 <li>
+  <p>
   Edit the main HTML file (<b>web/index.html</b>) to add the following code to the &lt;head> section:
+  </p>
 
 {% prettify html %}
 <link rel="stylesheet" type="text/css"
@@ -149,23 +155,31 @@ Find the icon font values for each of the icons. For example:
 </li>
 
 <li>
+  Edit <b>lib/lottery_simulator.html</b> to change the first button to use
+  a glyph instead of text:
+<ol style="list-style-type: lower-alpha">
+  <li>
+  Add an <b>aria-label</b> attribute to the button,
+  giving it the value of the button's text (<b>Play</b>).
+  </li>
+  <li>
+  Replace the button's text (<b>Play</b>) with a <b>&lt;glyph></b> element.
+  </li>
+  <li>
+  Set the glyph's <b>icon</b> attribute to the icon code (<b>play_arrow</b>).
+  </li></ol>
   <p>
-  Edit <b>lib/lottery_simulator.html</b> to
-  change the buttons to use <b>&lt;glyph></b> instead of text.
-  Set the value of the <b>icon</b> attribute to the icon code,
-  and put the text from the button in the <b>aria-label</b> attribute.
-  For example:
+  Here are the diffs:
   </p>
-
   <p>
   <img style="border:1px solid black" src="images/glyph-play-diffs.png" alt='id="play-button">Play -> id="play-button" aria-label="Play"><glyph icon="play_arrow"></glyph>'>
   </p>
+<li><p>Use similar changes to convert the <b>Step</b>, <b>Pause</b>, and
+<b>Reset</b> buttons to use glyphs instead of text.</p></li></li></ol>
 
-  <p>
-  That small amount of code makes a big difference in the UI:
-  </p>
+These small changes make a big difference in the UI:
 
-  <img style="border:1px solid black" src="images/glyph-buttons-after.png" alt='buttons have images now, instead of text'></li></ol>
+<img style="border:1px solid black" src="images/glyph-buttons-after.png" alt='buttons have images now, instead of text'>
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to import glyph fonts**
@@ -261,26 +275,32 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 
 <li markdown="1"> Edit **lib/scores/score.html**
     (the template file for ScoresComponent)
-    to change each \<div> to \<acx-scorecard>.
+    to change the **Betting** section from a \<div> to an \<acx-scorecard>.
     Specify the following attributes (documented in the
     ScorecardComponent API reference) for each \<acx-scoreboard>:
 
-* **label:** Set this to the string in the div’s \<h4> heading.
-* **class:** Set this to “betting” or “investing”,
+* **label:** Set this to the string in the div’s \<h4> heading: "Betting".
+* **class:** Set this to "betting",
   so that you can use it to specify custom styles.
-* **value:** Set this to the value of the `cash` (for betting)
-  or `altCash` (for investing) property of ScoresComponent.
+* **value:** Set this to the value of the `cash` property of ScoresComponent.
 * **description:** Set this to the second line of content in the div’s
   \<p> section.
-* **changeType:** Specify this for betting only, since only betting
-  can have a negative value. Set it to the value that [class] is set
+* **changeType:** Set this to the value that [class] is set
   to, surrounded by `{% raw %}{{ }}{% endraw %}`.
 
-For example, here’s how to convert the “Betting” div:
+Here are the code diffs:
 
 <img style="border:1px solid black" src="images/acx-scorecard-betting-diffs.png" alt='code diffs for <div><h4>Betting</h4>...</div>'>
 </li>
-
+<li markdown="1"> Similarly, change the **Investing** section from a \<div>
+to an \<acx-scorecard>. A few notes:
+* **label:** Set this to "Investing".
+* **class:** Set this to "investing".
+* **value:** Set this to the value of the `altCash` property of ScoresComponent.
+* **description:** As before, set this to the second line of content in the div’s
+  \<p> section.
+* **Don't** specify a `changeType` attribute.
+</li>
 <li markdown="1"> Edit **lib/scores/score.css** (styles for ScoresComponent)
     to specify that `.investing` floats to the right.
     You can also remove the unneeded `.positive` and `.negative` styles.

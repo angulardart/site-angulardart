@@ -173,7 +173,7 @@ The end of the file should look like this:
 {% endprettify %}
 
 Your app should now look exactly like the one you saw in the
-first page of this code lab.
+first page of this codelab.
 
 Congratulations! You’ve converted a functional but UI-challenged app into
 a good looking, well-behaved app that uses

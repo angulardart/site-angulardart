@@ -1,6 +1,6 @@
 ---
 layout: codelab
-title: "Low-Level HTML Pirate Code Lab"
+title: "Low-Level HTML Pirate Codelab"
 description: "Take your first step to learning Dart fast."
 permalink: /codelabs/darrrt
 snippet_img: images/piratemap.jpg
@@ -9,17 +9,17 @@ header:
   css: ["/codelabs/darrrt/darrrt.css"]
 ---
 
-This code lab introduces you to the Dart language and libraries
+This codelab introduces you to the Dart language and libraries
 by walking you through the process of building a simple web app.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-This code lab uses the low-level HTML package to create the web GUI.
+This codelab uses the low-level HTML package to create the web GUI.
 We recommend Angular for writing Dart web apps.
 See [Avast, Ye Pirates: Write an AngularDart App](/codelabs/ng2)
-for an Angular version of this code lab.
-You can find other code labs on the
-[webdev code labs](/codelabs) page.
+for an Angular version of this codelab.
+You can find other codelabs on the
+[webdev codelabs](/codelabs) page.
 </aside>
 
 All you need is a browser and some familiarity with programming.
@@ -159,7 +159,7 @@ the app.
 
 </div> <div class="col-md-5" markdown="1">
 
-* All of the changes you make to the HTML in this code lab
+* All of the changes you make to the HTML in this codelab
   are within the &lt;div&gt; element identified with the class `widgets`.
 
 * In later steps,
@@ -1386,7 +1386,7 @@ For more information, see
 
 <div class="trydart-step-details" markdown="1">
 
-The [server side code lab](https://dart-lang.github.io/server/codelab/)
+The [server side codelab](https://dart-lang.github.io/server/codelab/)
 allows you create a pirate crew by storing pirate names to a RESTful
 Dart server.
 
@@ -1409,7 +1409,7 @@ the [Dart tutorials](/tutorials).
 
 <div class="trydart-step-details" markdown="1">
 
-This code lab provided a tour of most Dart language features
+This codelab provided a tour of most Dart language features
 and many library features.
 Here's where to go to learn more.
 
@@ -1418,7 +1418,7 @@ Here's where to go to learn more.
 <a href="{{site.dartlang}}/guides/language/language-tour">A Tour of the Dart Language</a>
 shows you how to use each major Dart feature,
 from variables and operators to classes and libraries.
-This code lab introduced the following Dart language features,
+This codelab introduced the following Dart language features,
 all of which are covered in more detail in the language tour.
 
 * string interpolation (`'$_firstName the $_appellation'`)
@@ -1480,7 +1480,7 @@ shows you how to use the major features in Dart’s libraries.
 Please provide feedback to the appropriate repo:
 
 [www.dartlang.org repo](https://github.com/dart-lang/site-webdev/issues)
-: For feedback about this code lab.
+: For feedback about this codelab.
 
 [DartPad repo](https://github.com/dart-lang/dart-pad/issues)
 : For feedback about DartPad.

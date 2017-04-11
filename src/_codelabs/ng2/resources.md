@@ -70,14 +70,14 @@ Cascading Style Sheets (CSS)
 
 <div class="trydart-step-details" markdown="1">
 
-Please provide [feedback on this code lab](https://github.com/dart-lang/site-webdev/issues/new).
+Please provide [feedback on this codelab](https://github.com/dart-lang/site-webdev/issues/new).
 
 </div>
 
 {% comment %}
-Original pirate code lab on the wayback machine:
+Original pirate codelab on the wayback machine:
 https://web.archive.org/web/20150102192113/https://www.dartlang.org/codelabs/darrrt/
 
-Server-side code lab:
+Server-side codelab:
 https://dart-lang.github.io/server/codelab/
 {% endcomment %}

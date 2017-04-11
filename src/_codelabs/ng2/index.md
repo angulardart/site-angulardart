@@ -14,14 +14,14 @@ header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---
 
-This code lab walks you through the process of building a simple
+This codelab walks you through the process of building a simple
 web app with Dart and AngularDart.
 
 If you are interested in other available labs, see the
-[code labs](/codelabs) page.
+[codelabs](/codelabs) page.
 
 You don't need to know Dart, Angular, or web programming to complete
-this code lab, but we do assume you have some programming experience.
+this codelab, but we do assume you have some programming experience.
 You also need:
 
 * A Windows, Mac, or Linux computer

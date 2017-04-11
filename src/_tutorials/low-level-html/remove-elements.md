@@ -254,7 +254,7 @@ existing toolkits.
 
 * We recommend Angular 2, an application framework designed for building
   scalable web apps. You can start by following the
-  [Angular for Dart code lab](/codelabs/ng2).
+  [Angular for Dart codelab](/codelabs/ng2).
 
 * Another package is Polymer Dart, which makes manipulating the DOM easier
   with data binding, templates, and declarative event handlers.

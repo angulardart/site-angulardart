@@ -26,7 +26,7 @@ using these components:
 These controls appear in two custom components: \<lottery-simulator>
 and \<settings-component>.
 
-## Use material-toggle
+## <i class="fa fa-money"> </i> Use material-toggle
 
 Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
 (and its children) into a \<material-toggle>, as the following diff shows:
@@ -45,7 +45,7 @@ which the app previously specified in the \<label> element.
 A two-way binding to the **checked** property simplifies setting the
 toggle’s state.
 
-## Use material-fab
+## <i class="fa fa-money"> </i> Use material-fab
 
 Now convert the buttons that have icons into floating action buttons (FABs).
 
@@ -86,7 +86,7 @@ trigger events fire on both click and keypress,
 and trigger events don’t fire when the element is disabled.
 </aside>
 
-## Use material-checkbox
+## <i class="fa fa-money"> </i> Use material-checkbox
 
 The primary UI is looking good!
 Now let’s start improving the settings section of the UI,
@@ -102,15 +102,15 @@ First, let’s change the checkbox to use \<material-checkbox>.
     and `materialProviders`:
 
 {% prettify dart %}
-import 'package:angular2_components/angular2_components.dart';
+[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
 ...
 @Component(
   ...
   directives: const [
-    MaterialCheckboxComponent,
+    [[highlight]]MaterialCheckboxComponent,[[/highlight]]
     NgFor
   ],
-  providers: const [materialProviders],
+  [[highlight]]providers: const [materialProviders],[[/highlight]]
 )
 {% endprettify %}
 </li>
@@ -128,7 +128,7 @@ Look how much simpler that code is!
 MaterialCheckboxComponent supports a **label** attribute and
 two-way binding to **checked**, enabling much cleaner HTML.
 
-## Use material-radio and material-radio-group
+## <i class="fa fa-money"> </i> Use material-radio and material-radio-group
 
 Still working on the settings, let’s convert radio buttons
 into \<material-radio> components. Each group of radio buttons

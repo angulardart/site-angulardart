@@ -1,7 +1,7 @@
 ---
 layout: codelab
 title: "Step 1: Get to Know the Software"
-description: "Get the base app for the code lab, and play with the AngularDart Component demo."
+description: "Get the base app for the codelab, and play with the AngularDart Component demo."
 snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
 
 nextpage:
@@ -9,7 +9,7 @@ nextpage:
   title: "Step 2: Start Using AngularDart Components"
 prevpage:
   url: /codelabs/angular2_components
-  title: "Code Lab: AngularDart Components"
+  title: "Codelab: AngularDart Components"
 
 header:
   css: ["/codelabs/ng2/darrrt.css"]
@@ -45,7 +45,7 @@ git clone https://github.com/dart-lang/one-hour-codelab.git
 </li>
 </ul>
 
-All the code for this code lab is under the **`angular2_components`**
+All the code for this codelab is under the **`angular2_components`**
 directory of `one-hour-codelab` or `one-hour-codelab-master`.
 
 
@@ -114,7 +114,7 @@ of some of the components that are in everyday use in Google apps.
 We plan to release many more components over time.
 </aside>
 
-Think about how AngularDart Components might improve the app. The rest of this code lab leads you through making the following changes:
+Think about how AngularDart Components might improve the app. The rest of this codelab leads you through making the following changes:
 
 *   Improving the progress bar by changing **\<progress>** to **\<material-progress>**.
 *   Adding small, pre-packaged images by changing text to **\<glyph>** components.

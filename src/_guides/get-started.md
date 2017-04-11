@@ -187,7 +187,7 @@ class AppComponent {
 **Feeling lost? Don't worry!**
 This was a whirlwind introduction to Dart and Angular
 that left out many details.
-For a gentler approach, try the code lab
+For a gentler approach, try the codelab
 [Avast, Ye Pirates: Write an AngularDart App.](/codelabs/ng2/)
 </aside>
 
@@ -198,9 +198,9 @@ For a gentler approach, try the code lab
 
 Or check out these resources:
 
-* Dart webdev tutorials and code labs
+* Dart webdev tutorials and codelabs
   * [Tutorials](/tutorials)
-  * [Code Labs](/codelabs)
+  * [Codelabs](/codelabs)
 * Dart language, libraries, and conventions
   * [Sample Code]({{site.dartlang}}/samples)
   * [Language Tour]({{site.dartlang}}/guides/language/language-tour)

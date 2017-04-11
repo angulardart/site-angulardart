@@ -21,7 +21,7 @@ and run the app in Dartium.
 <div class="trydart-step-details" markdown="1">
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-lightbulb-o"> </i> **Tip** <br>
-This code lab uses a 2-column format if your window is wide enough.
+This codelab uses a 2-column format if your window is wide enough.
 The left column contains instructions that assume you are using WebStorm.
 The right column contains **Key information**&mdash;
 concepts and background information.
@@ -229,7 +229,7 @@ Then expand the `lib` and `web` folders to see something like the following:
 <div class="trydart-step-details" markdown="1">
 For now, you can ignore some of these auto-created files.
 The following shows the files and directories referenced in
-this code lab:
+this codelab:
 </div>
 
 <div class="trydart-step-details" markdown="1">

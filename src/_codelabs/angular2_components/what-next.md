@@ -1,7 +1,7 @@
 ---
 layout: codelab
 title: "What Next?"
-description: "You've finished the AngularDart Components code lab! What next?"
+description: "You've finished the AngularDart Components codelab! What next?"
 snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
 
 prevpage:

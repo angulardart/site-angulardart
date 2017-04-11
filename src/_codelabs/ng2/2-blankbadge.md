@@ -19,7 +19,7 @@ In this step, you extend the basic Angular app
 with a badge component, which encapsulates
 the behavior and appearance of the pirate badge.
 
-This is the hardest step in this code lab.
+This is the hardest step in this codelab.
 By the end of this step, your app will display
 a snazzy name badge. The next steps,
 where you add interactivity, are easy and fun.
@@ -251,7 +251,7 @@ import 'package:angular2/core.dart';
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The pirate badge component manages the portion of the UI
-  that displays the pirate badge. By the end of this code lab,
+  that displays the pirate badge. By the end of this codelab,
   the pirate badge component will also provide an input field for
   entering a name, and a button for generating a pirate name.
 

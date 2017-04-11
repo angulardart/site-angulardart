@@ -88,7 +88,7 @@
 
 - title: Angular&nbsp;Dart Components
   children:
-    - title: Code Lab
+    - title: Codelab
       permalink: /codelabs/angular2_components
     - title: Example
       permalink: https://dart-lang.github.io/angular2_components_example/
