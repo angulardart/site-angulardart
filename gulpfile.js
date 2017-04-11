@@ -38,6 +38,7 @@ const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
 const EXAMPLES_PATH = './examples/ng/doc';
 const TOOLS_PATH = './tools';
+const TMP_PATH = process.env.TMP;
 
 const angulario = path.resolve('../angular.io');
 gutil.log(`Using angular.io repo at ${angulario}`)
@@ -47,12 +48,14 @@ if (isSilent) gutil.log = gutil.noop;
 const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 
 const fragsPath = path.join('src', 'angular', '_fragments');
+const qsProjName = 'angular_quickstart';
 const config = {
   _dgeniLogLevel:_dgeniLogLevel,
   ANGULAR_PROJECT_PATH:ANGULAR_PROJECT_PATH, angulario: angulario,
   angularRepo: ANGULAR_PROJECT_PATH, // TODO: eliminate one of these alias
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
+  qsProjName: qsProjName,
   relDartDocApiDir: path.join('doc', 'api'),
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
   TOOLS_PATH: TOOLS_PATH,
@@ -60,7 +63,8 @@ const config = {
     apiDirName: '_api',
     dirName: path.basename(fragsPath),
     path: fragsPath,
-  }
+  },
+  webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
 
 const plugins = {
@@ -69,9 +73,16 @@ const plugins = {
 };
 
 const extraTasks = `
-  api api-list cheatsheet dartdoc examples example-frag 
+  api api-list cheatsheet dartdoc examples example-frag example-template
   ngio-get ngio-put sass test update-ng-vers update-web-simple`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
+
+if (!TMP_PATH) {
+  const msg = 'TMP environment variable is undefined.\n' +
+    'Did you forget to: source ./scripts/env-set.sh?';
+  console.log(msg);
+  throw msg;
+}
 
 //-----------------------------------------------------------------------------
 // Tasks

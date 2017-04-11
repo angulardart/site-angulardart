@@ -9,14 +9,8 @@ module.exports = function (gulp, plugins, config) {
 
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
 
-  const qsProjName = 'angular_quickstart';
-  if (!process.env.TMP) {
-    const msg = 'TMP environment variable is undefined.\n' +
-      'Did you forget to: source ./scripts/env-set.sh?';
-    console.log(msg);
-    throw msg;
-  }
-  const webSimpleProjPath = path.join(process.env.TMP, qsProjName);
+  // const qsProjName = config.qsProjName;
+  const webSimpleProjPath = config.webSimpleProjPath;
 
   gulp.task('update-web-simple', cb => {
     const baseDir = webSimpleProjPath;
