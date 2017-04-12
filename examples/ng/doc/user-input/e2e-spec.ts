@@ -53,7 +53,7 @@ describe('User Input Tests', function () {
     expect(outputTextEle.getText()).toEqual('a | ab | abc |');
   });
 
-  xit('should be able to filter key events', () => {
+  it('should be able to filter key events', () => {
     let mainEle = element(by.css('key-up3'));
     let inputEle = mainEle.element(by.css('input'));
     let outputTextEle = mainEle.element(by.css('p'));
