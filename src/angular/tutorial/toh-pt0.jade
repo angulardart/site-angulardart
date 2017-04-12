@@ -65,12 +65,14 @@ a#seed
 
 +makeTabs(`
     toh-0/lib/app_component.dart,
+    toh-0/test/app_test.dart,
     toh-0/web/main.dart,
     toh-0/web/index.html,
     toh-0/web/styles.css,
     toh-0/pubspec.yaml`,
-  ',,,quickstart,initial',
+  ',,,,quickstart,initial',
   `lib/app_component.dart,
+  test/app_test.dart,
   web/main.dart,
   web/index.html,
   web/styles.css (excerpt),
@@ -85,6 +87,9 @@ a#seed
     .file lib
     .children
       .file app_component.dart
+    .file test
+    .children
+      .file app_test.dart
     .file web
     .children
       .file main.dart
@@ -109,6 +114,14 @@ table(width="100%")
       :marked
         Defines `<my-app>`, the **root** component of what will become a tree of nested components
         as the application evolves.
+  tr
+    td <code>test/app_test.dart</code>
+    td
+      :marked
+        Defines `AppComponent` tests.
+        While testing isn't covered in this tutorial,
+        you can learn how to test the Tour of Heroes
+        app from the [Testing](../guide/testing) page.
   tr
     td <code>web/main.dart</code>
     td
@@ -136,96 +149,6 @@ table(width="100%")
         **Note:** The **dart_to_js_script_rewriter** transformer, if present,
         must be **after angular2** in the **transformers** list.
         If the order is wrong, Angular templates don't work.
-
-.l-main-section#testing
-:marked
-  ## Angular app testing
-
-  Testing is an essential part of software development.
-  As an introduction to Angular app testing, in this section you'll write
-  a few basic tests for `AppComponent` using the [angular_test][] package.
-
-  [angular_test]: https://pub.dartlang.org/packages/angular_test
-
-  Create a `test` folder and add the following test file:
-
-+makeExcerpt('test/app_test.dart (initial)')
-
-:marked
-  If you've used modern testing frameworks, then you should recognize some
-  elements such as the [test fixture][], setup, and teardown functions.
-
-  [test fixture]: https://github.com/junit-team/junit4/wiki/test-fixtures
-
-  The file contains a single test named "Default greeting" that checks whether
-  the app component template generates the text "Hello Angular".
-
-+makeExcerpt('test/app_test.dart', 'default-test', '')
-
-:marked
-  Before you can run the test, you'll need make some changes to the project's
-  `pubspec.yaml`.
-  
-  First, add the [test][] and [angular_test][] packages to the list of `dev_dependencies`.
-
-  [test]: https://pub.dartlang.org/packages/test
-  [angular_test]: https://pub.dartlang.org/packages/angular_test
-
-+makeExcerpt('pubspec.yaml (dev_dependencies)')
-
-:marked
-  Next, add the `reflection_remover` and `pub_serve` transformers immediately
-  before `dart_to_js_script_rewriter`:
-
-//- TODO: add highlights of the key region once highlighting works again:
-    https://github.com/dart-lang/site-webdev/issues/374
-+makeExcerpt('pubspec.yaml (transformers)')
-
-//-.l-sub-section
-  :marked
-    The `angular_test` package currently only supports the testing of
-    [ahead-of-time (AOT)][aot] compiled apps.
-
-    [aot]: /angular/glossary#aot
-  
-:marked
-  To run tests, open a terminal, and from the project root issue the following
-  command:
-
-code-example(language="sh" class="code-shell").
-  pub run angular_test
-
-:marked
-  The test framework runs code transformers, launches [pub serve][], loads
-  the test file, and runs tests:
-
-  [pub serve]: /angular/guide/setup#running-the-app
-
-code-example(format="nocode" class="code-shell").
-  00:00 +0: loading test/main_test.dart
-  00:01 +0: test/main_test.dart: Default greeting
-  00:01 +1: test/main_test.dart: Default greeting
-  00:01 +1: All tests passed!
-
-:marked
-  Add a few more tests:
-
-+makeExcerpt('test/app_test.dart', 'more-tests', '')
-
-:marked
-  The first of these tests interacts with the app component fixture by setting
-  the component's `name` property to "World", and expecting the infamous
-  greeting as a result.
-
-  The second test uses the fixture's `rootElement` to access the native DOM
-  element generated from the component's template.
-
-//-
-  You'll learn more than these basic testing capabilities as you progress
-  through the tutorial. For detailed coverage of Angular testing, see the
-  [Testing][] page.
-
-  [Testing]: /angular/guide/testing
 
 .l-main-section
 :marked

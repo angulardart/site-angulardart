@@ -41,3 +41,6 @@
 # API entry page URLs back into docs are wrong
 # https://github.com/dart-lang/site-webdev/issues/273
 /angular/api/(docs|examples)/
+
+# Link placeholders
+\#link-TBD
