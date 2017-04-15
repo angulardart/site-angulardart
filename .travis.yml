@@ -70,4 +70,4 @@ deploy:
     on:
       repo: dart-lang/site-webdev
       branch: master
-      condition: $CI_TASK == build
+      condition: $CI_TASK == build*
