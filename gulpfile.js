@@ -1,5 +1,12 @@
 'use strict';
 
+if (!process.env.NGIO_ENV_DEFS) {
+  const msg = 'Some necessary environment variables are undefined.\n' +
+    'Did you forget to: source ./scripts/env-set.sh?';
+  console.log(msg);
+  throw msg;
+}
+
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 
@@ -33,7 +40,6 @@ const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 const THIS_PROJECT_PATH = path.resolve('.');
 // angular.io constants
 // TODO: get path from the env
-const ANGULAR_PROJECT_PATH = '../angular2'; // WARNING: some old scripts expect this to be ../angular
 const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
 const EXAMPLES_PATH = './examples/ng/doc';
@@ -50,9 +56,13 @@ const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 const fragsPath = path.join('src', 'angular', '_fragments');
 const qsProjName = 'angular_quickstart';
 const config = {
-  _dgeniLogLevel:_dgeniLogLevel,
-  ANGULAR_PROJECT_PATH:ANGULAR_PROJECT_PATH, angulario: angulario,
-  angularRepo: ANGULAR_PROJECT_PATH, // TODO: eliminate one of these alias
+  _dgeniLogLevel: _dgeniLogLevel,
+  angulario: angulario,
+  dartdocProj: ['acx', 'ng'],
+  repoPath: {
+    acx: process.env.ACX_REPO,
+    ng: process.env.NG2_REPO,
+  },
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
   qsProjName: qsProjName,
@@ -67,22 +77,55 @@ const config = {
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
 
+const warnedAboutSkipping = { acx: false, ng: false };
+function genDartdocForProjs() {
+  const projs = [];
+  config.dartdocProj.forEach(p => {
+    if (!_dartdocForRepo(p)) {
+      return true;
+    } else if (fs.existsSync(path2ApiDocFor(p)) && !argv.clean && argv.fast) {
+      if (!warnedAboutSkipping[p])
+        plugins.gutil.log(`Skipping ${p} dartdoc: --fast flag enabled and API docs exists ${path2ApiDocFor(p)}`);
+      warnedAboutSkipping[p] = true;
+    } else {
+      projs.push(p);
+    }
+  });
+  return projs;
+}
+
+function path2ApiDocFor(r) {
+  return path.resolve(config.repoPath[r], config.relDartDocApiDir);
+}
+
+function _dartdocForRepo(repo) {
+  if (!argv.dartdoc) return repo == 'ng';
+  if (argv.dartdoc == 'all') return true;
+  const re = new RegExp('\\b' + repo + '\\b');
+  return (argv.dartdoc + '').match(re);
+}
+
 const plugins = {
-  argv:argv, child_process:child_process, copyFiles:copyFiles, del:del, execp:execp, fs:fs, globby:globby,
-  gutil:gutil, path:path, q:Q, replace:replace, spawnExt:spawnExt
+  argv: argv,
+  child_process: child_process,
+  copyFiles: copyFiles,
+  del: del,
+  execp: execp,
+  fs: fs,
+  genDartdocForProjs: genDartdocForProjs,
+  globby: globby,
+  gutil: gutil,
+  path2ApiDocFor: path2ApiDocFor,
+  path: path,
+  q: Q,
+  replace: replace,
+  spawnExt: spawnExt
 };
 
 const extraTasks = `
   api api-list cheatsheet dartdoc examples example-frag example-template
   ngio-get ngio-put sass test update-ng-vers update-web-simple`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
-
-if (!TMP_PATH) {
-  const msg = 'TMP environment variable is undefined.\n' +
-    'Did you forget to: source ./scripts/env-set.sh?';
-  console.log(msg);
-  throw msg;
-}
 
 //-----------------------------------------------------------------------------
 // Tasks
@@ -96,13 +139,13 @@ if (!TMP_PATH) {
 // tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
 // a problem. We can always fix the dependencies once gulp 4.x is out.
 gulp.task('build', ['update-web-simple', 'create-example-fragments', 'dartdoc',
-    'build-api-list-json', 'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
-  // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
-  // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
-  // and just delete the file:
-  child_process.execSync(`rm -f public/docs/_examples/_boilerplate/a2docs.css`);
-  return execp(`jekyll build`);
-});
+  'build-api-list-json', 'build-cheatsheet', 'finalize-api-docs', 'sass'], cb => {
+    // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
+    // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
+    // and just delete the file:
+    child_process.execSync(`rm -f public/docs/_examples/_boilerplate/a2docs.css`);
+    return execp(`jekyll build`);
+  });
 
 gulp.task('build-deploy', ['build'], () => {
   // Note: .firebaserc will be used.
@@ -176,12 +219,12 @@ function copyFiles(fileNames, destPaths, optional_destFileMode) {
   var copy = Q.denodeify(fsExtra.copy);
   var chmod = Q.denodeify(fsExtra.chmod);
   var copyPromises = [];
-  destPaths.forEach(function(destPath) {
-    fileNames.forEach(function(fileName) {
+  destPaths.forEach(function (destPath) {
+    fileNames.forEach(function (fileName) {
       var baseName = path.basename(fileName);
       var destName = path.join(destPath, baseName);
-      var p = copy(fileName, destName, { clobber: true});
-      if(optional_destFileMode !== undefined) {
+      var p = copy(fileName, destName, { clobber: true });
+      if (optional_destFileMode !== undefined) {
         p = p.then(function () {
           return chmod(destName, optional_destFileMode);
         });

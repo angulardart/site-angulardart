@@ -120,6 +120,7 @@ markdown: kramdown
 
 keep_files:
   - angular/api
+  - components/api
 
 gems:
 - jekyll-assets

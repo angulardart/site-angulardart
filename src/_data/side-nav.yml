@@ -92,6 +92,8 @@
       permalink: /codelabs/angular2_components
     - title: Example
       permalink: https://dart-lang.github.io/angular2_components_example/
+    - title: API Reference
+      permalink: /components/api
 
 - title: "Resources"
   children:

@@ -19,7 +19,7 @@ module.exports = function (gulp, plugins, config) {
     log.level = config._dgeniLogLevel;
     const dabInfo = dab.dartPkgConfigInfo;
     dabInfo.ngIoDartApiDocPath = path.join(config.THIS_PROJECT_PATH, 'src', 'angular', 'api'); // was: path.join(DOCS_PATH, 'dart', vers, 'api');
-    dabInfo.ngDartDocPath = path.join(config.ANGULAR_PROJECT_PATH, config.relDartDocApiDir);
+    dabInfo.ngDartDocPath = path.join(config.repoPath.ng, config.relDartDocApiDir);
     // Exclude API entries for developer/internal libraries. Also exclude entries for
     // the top-level catch all "angular2" library (otherwise every entry appears twice).
     dabInfo.excludeLibRegExp = new RegExp(/^(?!angular2)|testing|_|codegen|^angular2$/);

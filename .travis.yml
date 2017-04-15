@@ -14,9 +14,10 @@ env:
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
     - JEKYLL_ENV=production
-    - LATEST_RELEASE=3.0.0-alpha+1
+    - NG_RELEASE=3.0.0-alpha+1
+    - ACX_RELEASE=v0.4.1-alpha
   matrix:
-    - CI_TASK=build
+    - CI_TASK="build --dartdoc=all"
     - CI_TASK=test
     - CI_TASK="e2e --fast"
 
