@@ -18,7 +18,8 @@ travis_fold start before_install.stagehand
 travis_fold end before_install.stagehand
 
 travis_fold start before_install.dartdoc
-echo "Use git repo version of dartdoc until most recent changes have made it into the SDK."
+DARTDOC_VERS=
+echo "Use dartdoc version before 04/2017 overhaul for now."
 echo "Also see dartdoc command usage in gulp/dartdoc.js."
-(set -x; pub global activate dartdoc)
+(set -x; pub global activate dartdoc '<0.10.0')
 travis_fold end before_install.dartdoc
