@@ -23,7 +23,7 @@ else
   travis_fold start get_repos_acx
   echo GETTING Angular components repo from GitHub ...
   set -x
-  git clone https://github.com/dart-lang/angular2_components.git $ACX_REPO
+  git clone https://github.com/dart-lang/angular_components.git $ACX_REPO
   git -C $ACX_REPO fetch origin refs/tags/$ACX_RELEASE
   git -C $ACX_REPO checkout tags/$ACX_RELEASE -b $ACX_RELEASE
   set +x

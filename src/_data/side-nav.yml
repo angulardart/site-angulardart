@@ -1,4 +1,4 @@
-- title: 
+- title:
   children:
   - title: Get Started
     permalink: /guides/get-started
@@ -91,7 +91,7 @@
     - title: Codelab
       permalink: /codelabs/angular2_components
     - title: Example
-      permalink: https://dart-lang.github.io/angular2_components_example/
+      permalink: https://dart-lang.github.io/angular_components_example/
     - title: API Reference
       permalink: /components/api
 

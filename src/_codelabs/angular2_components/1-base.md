@@ -104,8 +104,8 @@ some of their vanilla HTML elements.
 
 ## <i class="fa fa-money"> </i> Get familiar with AngularDart Components
 
-Run the [AngularDart Components demo.](https://dart-lang.github.io/angular2_components_example/)
-Optionally, look at its [source code](https://github.com/dart-lang/angular2_components_example).
+Run the [AngularDart Components demo.](https://dart-lang.github.io/angular_components_example/)
+Optionally, look at its [source code](https://github.com/dart-lang/angular_components_example).
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
