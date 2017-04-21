@@ -17,8 +17,9 @@ const targetHero = const {'id': 15, 'name': 'Magneta'};
 NgTestFixture<HeroesComponent> fixture;
 HeroesPO po;
 
-class MockRouter extends Mock implements Router {}
 final mockRouter = new MockRouter();
+
+class MockRouter extends Mock implements Router {}
 
 @AngularEntrypoint()
 void main() {
@@ -81,5 +82,12 @@ void selectedHeroTests() {
       'HeroDetail',
       {'id': '${targetHero['id']}'}
     ]));
+  });
+
+  test('select another hero', () async {
+    await po.clickHero(0);
+    po = await fixture.resolvePageObject(HeroesPO);
+    final heroData = {'id': 11, 'name': 'Mr. Nice'};
+    expect(await po.selectedHero, heroData);
   });
 }
