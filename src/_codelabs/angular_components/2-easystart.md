@@ -2,13 +2,13 @@
 layout: codelab
 title: "Step 2: Start Using AngularDart Components"
 description: "Add material components to your app."
-snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
+snippet_img: /codelabs/angular_components/images/cartoon.jpeg
 
 nextpage:
-  url: /codelabs/angular2_components/3-usebuttons
+  url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
 prevpage:
-  url: /codelabs/angular2_components/1-base
+  url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
 
 header:
@@ -27,7 +27,7 @@ In this step, you’ll change the app to use a few of the AngularDart Components
 Make a copy of the base app's source code:
 
 {% prettify none %}
-cd one-hour-codelab/angular2_components
+cd one-hour-codelab/angular_components
 cp -r 1-base myapp
 cd myapp
 pub get
@@ -37,16 +37,16 @@ From now on, you'll work in this copy of the source code,
 using whatever [Dart web development tools](/tools) you prefer.
 
 
-## <i class="fa fa-money"> </i> Depend on angular2_components
+## <i class="fa fa-money"> </i> Depend on angular_components
 
 <ol markdown="1">
 
-<li markdown="1"> Edit **pubspec.yaml** to add a dependency to **angular2_components**:
+<li markdown="1"> Edit **pubspec.yaml** to add a dependency to **angular_components**:
 
 {% prettify yaml %}
 dependencies:
   angular2: 2.1.0
-  [[highlight]]angular2_components: 0.2.0[[/highlight]]
+  [[highlight]]angular_components: 0.2.0[[/highlight]]
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   intl: ^0.14.0
@@ -65,11 +65,11 @@ pub get
 
 Edit **lib/lottery_simulator.dart**,
 importing the Angular components and informing Angular about
-[`materialDirectives`]({{site.acx_api}}/angular2_components/materialDirectives-constant.html) and [`materialProviders`]({{site.acx_api}}/angular2_components/materialProviders-constant.html):
+[`materialDirectives`]({{site.acx_api}}/angular_components/materialDirectives-constant.html) and [`materialProviders`]({{site.acx_api}}/angular_components/materialProviders-constant.html):
 
 {% prettify dart %}
 import 'package:angular2/core.dart';
-[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
+[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
 ...
 @Component(
   selector: 'lottery-simulator',
@@ -89,7 +89,7 @@ Now you’re ready to use the components.
 
 Edit the template file **lib/lottery_simulator.html** to use the
 **\<material-progress>** tag
-([MaterialProgressComponent]({{site.acx_api}}/angular2_components/MaterialProgressComponent-class.html)).
+([MaterialProgressComponent]({{site.acx_api}}/angular_components/MaterialProgressComponent-class.html)).
 The diffs should look similar to this:
 
 <img style="border:1px solid black" src="images/material-progress-diffs.png" alt="Progress...</progress> -> <material-progress...>">
@@ -107,7 +107,7 @@ That change is barely noticeable. Let’s make a bigger difference by adding ima
 ## <i class="fa fa-money"> </i> Use glyph in buttons
 
 Using \<glyph> 
-([GlyphComponent]({{site.acx_api}}/angular2_components/GlyphComponent-class.html))
+([GlyphComponent]({{site.acx_api}}/angular_components/GlyphComponent-class.html))
 is similar to using \<material-progress>,
 except that you also need
 [material icon fonts](http://google.github.io/material-design-icons/).
@@ -218,7 +218,7 @@ register `materialDirectives`.
 
 {% prettify dart %}
 ...
-[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
+[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
 
 @Component(
   ...
@@ -251,7 +251,7 @@ Let’s make one more change: using scorecards (\<acx-scorecard>)
 to display the betting and investing results.
 Because \<acx-scorecard> isn’t included in `materialDirectives`,
 you need to explicitly register its Dart class,
-[ScorecardComponent]({{site.acx_api}}/angular2_components/ScorecardComponent-class.html).
+[ScorecardComponent]({{site.acx_api}}/angular_components/ScorecardComponent-class.html).
 We’ll use the scorecards in the app’s custom ScoresComponent
 (\<scores-component>), which is implemented in lib/scores/scores.*.
 
@@ -263,7 +263,7 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 
 {% prettify dart %}
 ...
-[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
+[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
 
 @Component(
   ...

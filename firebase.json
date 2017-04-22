@@ -6,7 +6,14 @@
     "redirects": [
       { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0.html", "type": 301 },
       { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet.html", "type": 301 },
-      { "source": "/angular/guide/glossary", "destination": "/angular/glossary.html", "type": 301 }
+      { "source": "/angular/guide/glossary", "destination": "/angular/glossary.html", "type": 301 },
+      
+      { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
+      { "source": "/codelabs/angular2_components/1-base", "destination": "/codelabs/angular_components/1-base", "type": 301 },
+      { "source": "/codelabs/angular2_components/2-easystart", "destination": "/codelabs/angular_components/2-easystart", "type": 301 },
+      { "source": "/codelabs/angular2_components/3-usebuttons", "destination": "/codelabs/angular_components/3-usebuttons", "type": 301 },
+      { "source": "/codelabs/angular2_components/4-final", "destination": "/codelabs/angular_components/4-final", "type": 301 },
+      { "source": "/codelabs/angular2_components/what-next", "destination": "/codelabs/angular_components/what-next", "type": 301 }
     ],
     "ignore": [
       "firebase.json",

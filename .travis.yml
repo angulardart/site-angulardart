@@ -14,8 +14,6 @@ env:
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
     - JEKYLL_ENV=production
-    - NG_RELEASE=3.0.0-beta+1
-    - ACX_RELEASE=v0.4.1-beta
   matrix:
     - CI_TASK="build --dartdoc=all"
     - CI_TASK=test

@@ -9,7 +9,7 @@ module.exports = function (gulp, plugins, config) {
 
   const dartdocCmd = 'pub global run dartdoc'
   const libsToDoc = {
-    acx: '',
+    acx: `angular_components`,
     ng: `angular2.common
       angular2.compiler
       angular2.core
@@ -38,7 +38,7 @@ module.exports = function (gulp, plugins, config) {
   // --dartdoc='all|acx|ng', default is just 'ng'.
   // --fast   skip prep and API doc generation if API docs already exist.
   // --clean  removes angular2 doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
-  gulp.task('dartdoc', _projs.map(p => `_dartdoc-${p}`));
+  gulp.task('dartdoc', _projs.map(p => `dartdoc-${p}`));
 
   _projs.forEach(p => {
     gulp.task(`dartdoc-${p}`, [`_dartdoc-${p}`]);

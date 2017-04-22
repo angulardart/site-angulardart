@@ -33,7 +33,7 @@ module.exports = function (gulp, plugins, config) {
     if (p == 'acx') src.push(`${baseDir}/index.html`);
     return gulp.src(src, { base: baseDir })
       // Patch the acx index.html so that assets can be found
-      .pipe(plugins.replace(/<\/title>/, '$&\n  <base href="api/">', { skipBinary: true }))
+      .pipe(plugins.replace(/<\/title>/, '$&\n  <base href="/components/api/">', { skipBinary: true }))
       .pipe(gulp.dest(destPath(p)));
   }
 
@@ -45,6 +45,7 @@ module.exports = function (gulp, plugins, config) {
     const urlToExamples = 'http://angular-examples.github.io/';
     const baseDir = path2GeneratedAPI(p);
     return gulp.src([
+      `${baseDir}/angular_components/**/*.html`,
       `${baseDir}/angular2*/**/*.html`,
       `!${baseDir}/${ngContentAstIndexRelPath}`,
     ], { base: baseDir })
@@ -54,7 +55,7 @@ module.exports = function (gulp, plugins, config) {
       // We could use something like cheerio but a simple in-place search/replace is good enough.
 
       // 2017-04-14: these transformations are temporary until all relative links
-      // are eliminated from the angular2 and angular2_components API docs:
+      // are eliminated from the angular2 and angular_components API docs:
       .pipe(plugins.replace(/(href=")docs\//g, `$1/angular/`)) // ${webdevDirName[p]}
       .pipe(plugins.replace(/(href=")examples\//g, `$1${urlToExamples}`))
       .pipe(gulp.dest(destPath(p)));

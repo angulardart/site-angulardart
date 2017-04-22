@@ -2,13 +2,13 @@
 layout: codelab
 title: "Step 4: Add Expansion Panels and Tabs"
 description: "Add material panels and tabs to your app."
-snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
+snippet_img: /codelabs/angular_components/images/cartoon.jpeg
 
 nextpage:
-  url: /codelabs/angular2_components/what-next
+  url: /codelabs/angular_components/what-next
   title: "What Next?"
 prevpage:
-  url: /codelabs/angular2_components/3-usebuttons
+  url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
 
 header:
@@ -33,8 +33,8 @@ implemented in lib/settings/settings_component.* files.
 <li markdown="1"> Edit the Dart file
     (**lib/settings/settings_component.dart**),
     adding the expansion panel directives
-    [MaterialExpansionPanel]({{site.acx_api}}/angular2_components/MaterialExpansionPanel-class.html) and
-    [MaterialExpansionPanelSet]({{site.acx_api}}/angular2_components/MaterialExpansionPanelSet-class.html):
+    [MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html) and
+    [MaterialExpansionPanelSet]({{site.acx_api}}/angular_components/MaterialExpansionPanelSet-class.html):
 
 {% prettify dart %}
 ...
@@ -105,9 +105,9 @@ That bit of work saved a lot of UI space:
 Now let’s save more by moving auxiliary text into separate tabs.
 This affects the main UI, implemented in lib/lottery_simulator.* files.
 The tab classes
-([MaterialTabComponent]({{site.acx_api}}/angular2_components/MaterialTabComponent-class.html) and
-[MaterialTabPanelComponent]({{site.acx_api}}/angular2_components/MaterialTabPanelComponent-class.html))
-are already included in [`materialDirectives`]({{site.acx_api}}/angular2_components/materialDirectives-constant.html),
+([MaterialTabComponent]({{site.acx_api}}/angular_components/MaterialTabComponent-class.html) and
+[MaterialTabPanelComponent]({{site.acx_api}}/angular_components/MaterialTabPanelComponent-class.html))
+are already included in [`materialDirectives`]({{site.acx_api}}/angular_components/materialDirectives-constant.html),
 so you don’t need to edit the Dart file.
 
 Edit **lib/lottery_simulator.html**:

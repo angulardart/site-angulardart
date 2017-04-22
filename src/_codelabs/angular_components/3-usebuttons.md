@@ -2,13 +2,13 @@
 layout: codelab
 title: "Step 3: Upgrade Buttons and Inputs"
 description: "Add material buttons and inputs to your app."
-snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
+snippet_img: /codelabs/angular_components/images/cartoon.jpeg
 
 nextpage:
-  url: /codelabs/angular2_components/4-final
+  url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
 prevpage:
-  url: /codelabs/angular2_components/2-easystart
+  url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
 
 header:
@@ -38,7 +38,7 @@ Here’s the resulting UI:
 <img style="border:1px solid black" src="images/material-toggle-after.png" alt='tiny but attractive toggle button'>
 
 The class behind \<material-toggle>,
-[MaterialToggleComponent]({{site.acx_api}}/angular2_components/MaterialToggleComponent-class.html),
+[MaterialToggleComponent]({{site.acx_api}}/angular_components/MaterialToggleComponent-class.html),
 defines **label** and **checked** attributes.
 The **label** attribute contains the main text for the toggle,
 which the app previously specified in the \<label> element.
@@ -56,7 +56,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
 
 <li markdown="1"> Convert the Play button from a **\<button>** to a
     **\<material-fab>**
-   ([MaterialFabComponent]({{site.acx_api}}/angular2_components/MaterialFabComponent-class.html)),
+   ([MaterialFabComponent]({{site.acx_api}}/angular_components/MaterialFabComponent-class.html)),
     adding the **raised** attribute and
     changing **`(click)`** to **`(trigger)`**:
 
@@ -96,13 +96,13 @@ First, let’s change the checkbox to use \<material-checkbox>.
 <ol markdown="1">
 
 <li markdown="1"> Edit the Dart file for \<settings-component>
-    (**lib/settings/settings_component.dart**) to import angular2_components,
+    (**lib/settings/settings_component.dart**) to import angular_components,
     and to register
-    [MaterialCheckboxComponent]({{site.acx_api}}/angular2_components/MaterialCheckboxComponent-class.html)
+    [MaterialCheckboxComponent]({{site.acx_api}}/angular_components/MaterialCheckboxComponent-class.html)
     and `materialProviders`:
 
 {% prettify dart %}
-[[highlight]]import 'package:angular2_components/angular2_components.dart';[[/highlight]]
+[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
 ...
 @Component(
   ...
@@ -138,8 +138,8 @@ is contained by a \<material-radio-group>.
 
 <li markdown="1"> Edit the Dart file for \<settings-component>
     (**lib/settings/settings_component.dart**) to register
-    [MaterialRadioComponent]({{site.acx_api}}/angular2_components/MaterialRadioComponent-class.html) and
-    [MaterialRadioGroupComponent]({{site.acx_api}}/angular2_components/MaterialRadioGroupComponent-class.html):
+    [MaterialRadioComponent]({{site.acx_api}}/angular_components/MaterialRadioComponent-class.html) and
+    [MaterialRadioGroupComponent]({{site.acx_api}}/angular_components/MaterialRadioGroupComponent-class.html):
 
 {% prettify dart %}
 ...

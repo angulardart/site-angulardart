@@ -25,7 +25,7 @@ Here are some suggestions.
 ## <i class="fa fa-anchor"> </i> Try the next Angular codelab.
 
 <div class="trydart-step-details" markdown="1">
-The [AngularDart Components codelab](/codelabs/angular2_components)
+The [AngularDart Components codelab](/codelabs/angular_components)
 introduces you to a preview release of AngularDart Components,
 part of a large group of well-tested components that
 are widely used in Google’s Dart apps.

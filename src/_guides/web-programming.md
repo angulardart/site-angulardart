@@ -15,7 +15,7 @@ Learn from the
 You can also follow two codelabs:
 
 * [Avast, Ye Pirates: Write an AngularDart App](/codelabs/ng2)
-* [AngularDart Components](/codelabs/angular2_components)
+* [AngularDart Components](/codelabs/angular_components)
 
 ## JS interop
 

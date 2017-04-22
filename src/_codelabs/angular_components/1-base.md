@@ -2,13 +2,13 @@
 layout: codelab
 title: "Step 1: Get to Know the Software"
 description: "Get the base app for the codelab, and play with the AngularDart Component demo."
-snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
+snippet_img: /codelabs/angular_components/images/cartoon.jpeg
 
 nextpage:
-  url: /codelabs/angular2_components/2-easystart
+  url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
 prevpage:
-  url: /codelabs/angular2_components
+  url: /codelabs/angular_components
   title: "Codelab: AngularDart Components"
 
 header:
@@ -45,7 +45,7 @@ git clone https://github.com/dart-lang/one-hour-codelab.git
 </li>
 </ul>
 
-All the code for this codelab is under the **`angular2_components`**
+All the code for this codelab is under the **`angular_components`**
 directory of `one-hour-codelab` or `one-hour-codelab-master`.
 
 
@@ -62,7 +62,7 @@ html prettifying is better than bash here:
 {% endcomment %}
 
 {% prettify html %}
-cd one-hour-codelab/angular2_components/1-base
+cd one-hour-codelab/angular_components/1-base
 pub get
 {% endprettify %}
 </li>

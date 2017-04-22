@@ -27,8 +27,8 @@ module.exports = function (gulp, plugins, config) {
   //---------------------------------------------------------------------------
   // Updating ACX and NG versions
 
-  const ACX_VERS = '^0.4.1-beta';
-  const NG_VERS = '^3.0.0-beta+1';
+  const ACX_VERS = `^${process.env.ACX_RELEASE.replace(/^v/, '')}`;
+  const NG_VERS = `^${process.env.NG_RELEASE}`;
   const depOvr = 'dependency_overrides:\n' +
     '  angular2:\n' +
     '    git: https://github.com/dart-lang/angular2.git\n';
@@ -46,8 +46,8 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(/(angular2_components): ['"][^'"]+['"]/, `$1: ${ACX_VERS}`))
-      .pipe(replace(/(angular2_components): \^\S+/, `$1: ${ACX_VERS}`))
+      .pipe(replace(/(angular2?_components): ['"][^'"]+['"]/, `$1: ${ACX_VERS}`))
+      .pipe(replace(/(angular2?_components): \^\S+/, `$1: ${ACX_VERS}`))
       .pipe(gulp.dest(baseDir));
   });
 

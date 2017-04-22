@@ -15,8 +15,12 @@ if [[ -z "$NGIO_ENV_DEFS" ]]; then
     export NG2DART_REPO=../angular-dart
     : ${NGDOCEX:=examples/ng/doc}
     export NGDOCEX
-    : ${ACX_REPO:=../angular2_components}
+    : ${ACX_REPO:=../angular_components}
     export ACX_REPO
+
+    # Git tag names
+    export NG_RELEASE=3.0.0-beta+2
+    export ACX_RELEASE=v0.5.0-beta+1
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

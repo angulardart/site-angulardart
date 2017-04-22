@@ -2,10 +2,10 @@
 layout: codelab
 title: "What Next?"
 description: "You've finished the AngularDart Components codelab! What next?"
-snippet_img: /codelabs/angular2_components/images/cartoon.jpeg
+snippet_img: /codelabs/angular_components/images/cartoon.jpeg
 
 prevpage:
-  url: /codelabs/angular2_components/4-final
+  url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
 
 header:
@@ -20,5 +20,5 @@ Here are some resources to help you use AngularDart Components.
   * Demo ([running](https://dart-lang.github.io/angular_components_example/),
     [source](https://github.com/dart-lang/angular_components_example))
 
-<img src="/codelabs/angular2_components/images/cartoon.jpeg"
+<img src="/codelabs/angular_components/images/cartoon.jpeg"
     alt="the cartoon that appears in the app's About tab" >
