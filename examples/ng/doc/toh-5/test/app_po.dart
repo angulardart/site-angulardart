@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:pageloader/objects.dart';
+import 'utils.dart';
 
 class AppPO {
   @ByTagName('h1')
@@ -12,6 +13,6 @@ class AppPO {
 
   Future<String> get pageTitle => _h1.visibleText;
 
-  Iterable<Future<String>> get tabTitles =>
-      _tabLinks.map((el) => el.visibleText);
+  Future<List<String>> get tabTitles =>
+      inIndexOrder(_tabLinks.map((el) => el.visibleText)).toList();
 }

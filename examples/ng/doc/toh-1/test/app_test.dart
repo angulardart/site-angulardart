@@ -13,15 +13,15 @@ import 'package:test/test.dart';
 class AppPO {
   // #enddocregion AppPO-hero, AppPO-input
   @ByTagName('h1')
-  PageLoaderElement _h1;
+  PageLoaderElement _title;
   // #enddocregion AppPO-initial
 
   // #docregion AppPO-hero
   @FirstByCss('div')
-  PageLoaderElement _div1; // e.g. 'id: 1'
+  PageLoaderElement _id; // e.g. 'id: 1'
 
   @ByTagName('h2')
-  PageLoaderElement _h2; // e.g. 'Mr Freeze details!'
+  PageLoaderElement _heroName; // e.g. 'Mr Freeze details!'
   // #enddocregion AppPO-hero
 
   // #docregion AppPO-input
@@ -30,17 +30,17 @@ class AppPO {
   // #enddocregion AppPO-input
 
   // #docregion AppPO-initial
-  Future<String> get title => _h1.visibleText;
+  Future<String> get title => _title.visibleText;
   // #enddocregion AppPO-initial
 
   // #docregion AppPO-hero
   Future<int> get heroId async {
-    final idAsString = (await _div1.visibleText).split(' ')[1];
+    final idAsString = (await _id.visibleText).split(' ')[1];
     return int.parse(idAsString, onError: (_) => -1);
   }
 
   Future<String> get heroName async {
-    final text = await _h2.visibleText;
+    final text = await _heroName.visibleText;
     return text.substring(0, text.lastIndexOf(' '));
   }
   // #enddocregion AppPO-hero

@@ -10,4 +10,3 @@ Changes/new features:
 
 - Test a component other than the app component.
 - Set `@Input` field.
-- Use `input.clear()`.

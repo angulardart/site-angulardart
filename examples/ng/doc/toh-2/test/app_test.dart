@@ -9,8 +9,6 @@ import 'package:test/test.dart';
 
 import 'app_po.dart';
 
-const targetHero = const {'id': 16, 'name': 'RubberMan'};
-
 NgTestFixture<AppComponent> fixture;
 AppPO appPO;
 
@@ -18,21 +16,15 @@ AppPO appPO;
 void main() {
   final testBed = new NgTestBed<AppComponent>();
 
-  setUpAll(() async {
+  setUp(() async {
     fixture = await testBed.create();
     appPO = await fixture.resolvePageObject(AppPO);
   });
 
-  tearDownAll(disposeAnyRunningTest);
+  tearDown(disposeAnyRunningTest);
 
   group('Basics:', basicTests);
-
-  test('Select ${targetHero['name']}', () async {
-    await appPO.heroesLi[5].click();
-    // Nothing specific to expect here other than lack of exceptions.
-  });
-
-  group('Selected hero:', selectedHeroTests);
+  group('Select hero:', selectHeroTests);
 }
 
 void basicTests() {
@@ -44,7 +36,7 @@ void basicTests() {
     expect(await appPO.tabTitle, 'My Heroes');
   });
 
-  test('hero count', () async {
+  test('hero count', () {
     expect(appPO.heroes.length, 10);
   });
 
@@ -53,8 +45,11 @@ void basicTests() {
   });
 }
 
-void selectedHeroTests() {
+void selectHeroTests() {
+  const targetHero = const {'id': 16, 'name': 'RubberMan'};
+
   setUp(() async {
+    await appPO.clickHero(5);
     appPO = await fixture.resolvePageObject(AppPO); // Refresh PO
   });
 
@@ -62,24 +57,31 @@ void selectedHeroTests() {
     expect(await appPO.selectedHero, targetHero);
   });
 
-  test('shows hero details', () async {
+  test('show hero details', () async {
     expect(await appPO.heroFromDetails, targetHero);
   });
 
-  const nameSuffix = 'X';
-  final updatedHero = new Map.from(targetHero);
-  updatedHero['name'] = "${targetHero['name']}$nameSuffix";
+  group('Update hero:', () {
+    const nameSuffix = 'X';
+    final updatedHero = new Map.from(targetHero);
+    updatedHero['name'] = "${targetHero['name']}$nameSuffix";
 
-  test('can update hero name', () async {
-    await appPO.type(nameSuffix);
-    // Nothing specific to expect here other than lack of exceptions.
-  });
+    setUp(() async {
+      await appPO.type(nameSuffix);
+    });
 
-  test('updates name in list', () async {
-    expect(await appPO.selectedHero, updatedHero);
-  });
+    tearDown(() async {
+      // Restore hero name
+      await appPO.clear();
+      await appPO.type(targetHero['name']);
+    });
 
-  test('updates name in details view', () async {
-    expect(await appPO.heroFromDetails, updatedHero);
+    test('name in list is updated', () async {
+      expect(await appPO.selectedHero, updatedHero);
+    });
+
+    test('name in details view is updated', () async {
+      expect(await appPO.heroFromDetails, updatedHero);
+    });
   });
 }

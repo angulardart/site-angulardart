@@ -21,18 +21,28 @@ void main() {
 
   tearDown(disposeAnyRunningTest);
 
-  group('No hero:', () {
+  group('Null initial @Input() hero:', () {
     setUp(() async {
       fixture = await testBed.create();
       po = await fixture.resolvePageObject(HeroDetailPO);
     });
 
-    test('view is empty', () async {
+    test('has empty view', () async {
       expect(fixture.rootElement.text.trim(), '');
+    });
+
+    test('transition to ${targetHero['name']} hero', () async {
+      fixture.update((comp) {
+        comp.hero = new Hero(targetHero['id'], targetHero['name']);
+      });
+      po = await fixture.resolvePageObject(HeroDetailPO);
+      expect(await po.heroFromDetails, targetHero);
     });
   });
 
-  group('${targetHero['name']} hero:', () {
+  group('${targetHero['name']} initial @Input() hero:', () {
+    final Map updatedHero = {'id': targetHero['id']};
+
     setUp(() async {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
@@ -40,22 +50,19 @@ void main() {
       po = await fixture.resolvePageObject(HeroDetailPO);
     });
 
-    test('shows hero details', () async {
+    test('show hero details', () async {
       expect(await po.heroFromDetails, targetHero);
     });
 
-    const nameSuffix = 'X';
-    final updatedHero = new Map.from(targetHero);
-
-    test('updates name', () async {
+    test('update name', () async {
+      const nameSuffix = 'X';
       updatedHero['name'] = "${targetHero['name']}$nameSuffix";
       await po.type(nameSuffix);
       expect(await po.heroFromDetails, updatedHero);
     });
 
-    const newName = 'Bobbie';
-
-    test('changes name', () async {
+    test('change name', () async {
+      const newName = 'Bobbie';
       updatedHero['name'] = newName;
       await po.clear();
       await po.type(newName);

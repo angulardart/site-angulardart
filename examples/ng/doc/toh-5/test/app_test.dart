@@ -1,9 +1,9 @@
-// WIP - experiments, trying to get around lack of bootstrap()
-// #docregion
+@Skip('AppComponent tests need bootstrap equivalent for the Router init')
 @Tags(const ['aot'])
 @TestOn('browser')
 
 import 'package:angular2/angular2.dart';
+import 'package:angular2/platform/common.dart';
 import 'package:angular2/router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
@@ -15,25 +15,24 @@ import 'app_po.dart';
 NgTestFixture<AppComponent> fixture;
 AppPO appPO;
 
-@Injectable()
-class MockRouter extends Mock implements Router {}
+final MockPlatformLocation mockPlatformLocation = new MockPlatformLocation();
 
-final mockRouter = new MockRouter();
-@Component(selector: 'my-mock')
-class MockComponent {}
+class MockPlatformLocation extends Mock implements PlatformLocation {}
 
 @AngularEntrypoint()
 void main() {
-  final mockRoot = new MockComponent();
-  final routerReg = new RouteRegistry(mockRoot);
-  final router = new Router(routerReg, null, mockRoot);
-  final providers = new List.from(ROUTER_PROVIDERS)
-  ..addAll([
-    provide(Router, useValue: router),
-    provide(ROUTER_PRIMARY_COMPONENT, useValue: mockRoot),
-  ]);
+  final providers = [
+    provide(APP_BASE_HREF, useValue: '/'),
+    provide(ROUTER_PRIMARY_COMPONENT, useValue: AppComponent),
+    provide(PlatformLocation, useValue: mockPlatformLocation),
+  ];
 
   final testBed = new NgTestBed<AppComponent>().addProviders(providers);
+
+  setUpAll(() async {
+    // Seems like we'd need to do something equivalent to:
+    // bootstrap(AppComponent);
+  });
 
   setUp(() async {
     fixture = await testBed.create();

@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:pageloader/objects.dart';
+import 'utils.dart';
 
 class DashboardPO {
   @FirstByCss('h3')
@@ -12,9 +13,8 @@ class DashboardPO {
 
   Future<String> get title => _title.visibleText;
 
-  Stream<String> get heroNames async* {
-    for (var el in _heroes) yield await el.visibleText;
-  }
+  Future<List<String>> get heroNames =>
+      inIndexOrder(_heroes.map((el) => el.visibleText)).toList();
 
   Future clickHero(int index) => _heroes[index].click();
 }

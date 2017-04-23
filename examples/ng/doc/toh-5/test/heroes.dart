@@ -12,8 +12,6 @@ import 'package:test/test.dart';
 
 import 'heroes_po.dart';
 
-const targetHero = const {'id': 15, 'name': 'Magneta'};
-
 NgTestFixture<HeroesComponent> fixture;
 HeroesPO po;
 
@@ -23,17 +21,10 @@ class MockRouter extends Mock implements Router {}
 
 @AngularEntrypoint()
 void main() {
-  // When using the real router
-  // final app = new AppComponent();
-  final providers = new List.from(ROUTER_PROVIDERS)
-    ..addAll([
-      // When using the real router
-      // provide(APP_BASE_HREF, useValue: '/'),
-      // provide(ROUTER_PRIMARY_COMPONENT, useValue: app),
-      provide(Router, useValue: mockRouter),
-      HeroService,
-    ]);
-  final testBed = new NgTestBed<HeroesComponent>().addProviders(providers);
+  final testBed = new NgTestBed<HeroesComponent>().addProviders([
+    provide(Router, useValue: mockRouter),
+    HeroService,
+  ]);
 
   setUp(() async {
     fixture = await testBed.create();
@@ -62,6 +53,8 @@ void basicTests() {
 }
 
 void selectedHeroTests() {
+  const targetHero = const {'id': 15, 'name': 'Magneta'};
+
   setUp(() async {
     await po.clickHero(4);
     po = await fixture.resolvePageObject(HeroesPO);
@@ -71,7 +64,7 @@ void selectedHeroTests() {
     expect(await po.selectedHero, targetHero);
   });
 
-  test('shows mini-detail', () async {
+  test('show mini-detail', () async {
     expect(
         await po.myHeroNameInUppercase, equalsIgnoringCase(targetHero['name']));
   });
