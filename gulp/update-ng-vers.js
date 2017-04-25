@@ -46,8 +46,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(/(angular2?_components): ['"][^'"]+['"]/, `$1: ${ACX_VERS}`))
-      .pipe(replace(/(angular2?_components): \^\S+/, `$1: ${ACX_VERS}`))
+      .pipe(replace(/(^\s+angular2?_components:) \S+$/m, `$1 ${ACX_VERS}`))
       .pipe(gulp.dest(baseDir));
   });
 
@@ -57,8 +56,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(/angular2: ['"][^'"]+['"]/, `angular2: ${NG_VERS}`))
-      .pipe(replace(/angular2: \^\S+/, `angular2: ${NG_VERS}`))
+      .pipe(replace(/(^\s+angular2:) \S+$/m, `$1 ${NG_VERS}`))
       .pipe(gulp.dest(baseDir));
   });
 
