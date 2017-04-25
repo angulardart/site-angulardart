@@ -53,7 +53,8 @@ const isSilent = !!argv.silent;
 if (isSilent) gutil.log = gutil.noop;
 const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 
-const fragsPath = path.join('src', 'angular', '_fragments');
+const ngDocSrc = path.join('src', 'angular');
+const fragsPath = path.join(ngDocSrc, '_fragments');
 const qsProjName = 'angular_quickstart';
 const config = {
   _dgeniLogLevel: _dgeniLogLevel,
@@ -65,6 +66,7 @@ const config = {
   },
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
+  ngDocSrc: ngDocSrc,
   qsProjName: qsProjName,
   relDartDocApiDir: path.join('doc', 'api'),
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
@@ -186,7 +188,8 @@ function execp(cmdAndArgs, options) {
 function spawnExt(command, _args, options) {
   const args = _args || [];
   const deferred = Q.defer();
-  const descr = command + " " + args.join(' ');
+  let descr = command + " " + args.join(' ');
+  if (options) descr += ' ' + JSON.stringify(options);
   let proc;
   gutil.log('async exec: ' + descr);
   try {

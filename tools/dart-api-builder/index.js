@@ -73,7 +73,7 @@ module.exports = new Package('dart-api-and-cheatsheet-builder', [basePackage, ta
   .config(function (computePathsProcessor) {
     computePathsProcessor.pathTemplates.push({
       docTypes: ['cheatsheet-data'],
-      pathTemplate: '../guide/cheatsheet.json',
+      pathTemplate: path.join(PROJECT_PATH, 'src', 'angular', 'cheatsheet.json'),
       outputPathTemplate: '${path}'
     });
   })

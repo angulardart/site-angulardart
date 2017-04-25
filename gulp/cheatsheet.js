@@ -5,14 +5,25 @@ module.exports = function (gulp, plugins, config) {
 
   const Dgeni = require('dgeni');
   const path = plugins.path;
+  const replace = plugins.replace;
 
   const DOCS_PATH = config.DOCS_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 
-  const cheatsheetJsonPath = path.join(DOCS_PATH, 'dart', 'latest', 'guide', 'cheatsheet.json');
+  gulp.task('build-cheatsheet', ['dartdoc', '_build-cheatsheet', '_fix-cheatsheet-in-place']);
 
-  gulp.task('build-cheatsheet', ['dartdoc'], function () {
-    return buildDartCheatsheet();
+  gulp.task('_build-cheatsheet', buildDartCheatsheet);
+
+  gulp.task('_fix-cheatsheet-in-place', ['_build-cheatsheet'], cb => {
+    const baseDir = config.ngDocSrc;
+    return gulp.src([
+      `${baseDir}/cheatsheet.json`,
+    ], { base: baseDir })
+      // Cheatsheet syntax examples cannot have lines that start with @ since lines
+      // starting with @ mark the start of an dgeni annotation/directive. To get around this
+      // we encode such lines as `!@`. This task rewrites that to just `@`.
+      .pipe(replace('!@', '@'))
+      .pipe(gulp.dest(config.ngDocSrc));
   });
 
   function buildDartCheatsheet() {
@@ -31,10 +42,7 @@ module.exports = function (gulp, plugins, config) {
         // Note: cheatsheet data gets written to: outputPath + '/../guide';
         writeFilesProcessor.outputFolder = outputPath;
       });
-      return new Dgeni([pkg]).generate().then(() =>
-        plugins.fs.existsSync(cheatsheetJsonPath)
-          ? plugins.execp(`mv ${cheatsheetJsonPath} src/angular/`) : true
-      );
+      return new Dgeni([pkg]).generate();
     } catch (err) {
       console.error(err);
       console.error(err.stack);
