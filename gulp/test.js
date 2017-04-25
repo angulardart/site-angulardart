@@ -14,7 +14,7 @@ module.exports = function (gulp, plugins, config) {
   // TODO(chalin) re-enable '_test-ng-test' once we fix versioning issues with other packages;
   // https://github.com/dart-lang/site-webdev/issues/507
 
-  const docEx = 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5'.split(' ');
+  const docEx = 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6'.split(' ');
   gulp.task('_test-ng-doc', cb => {
     var promise = Promise.resolve(true);
     docEx.forEach(dir => promise = promise.then(() => {

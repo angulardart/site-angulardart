@@ -428,7 +428,8 @@ block observables-section-intro
 
 :marked
   As the user types in the search box, a *keyup* event binding calls the component's `search()`
-  method with the new search box value.
+  method with the new search box value. If the user pastes text with mouse actions,
+  the *change* event binding is triggered.
 
   As expected, the `*ngFor` repeats hero objects from the component's `heroes` property.
 

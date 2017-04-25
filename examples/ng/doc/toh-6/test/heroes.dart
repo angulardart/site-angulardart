@@ -7,10 +7,17 @@ import 'package:angular2/router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/heroes_component.dart';
 import 'package:angular_tour_of_heroes/hero_service.dart';
+import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
+import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import 'heroes_po.dart';
+import 'utils.dart';
+
+const numHeroes = 10;
+const targetHeroIndex = 4; // index in full heroes list
+const targetHero = const {'id': 15, 'name': 'Magneta'};
 
 NgTestFixture<HeroesComponent> fixture;
 HeroesPO po;
@@ -22,11 +29,13 @@ class MockRouter extends Mock implements Router {}
 @AngularEntrypoint()
 void main() {
   final testBed = new NgTestBed<HeroesComponent>().addProviders([
+    provide(Client, useClass: InMemoryDataService),
     provide(Router, useValue: mockRouter),
     HeroService,
   ]);
 
   setUp(() async {
+    InMemoryDataService.resetDb();
     fixture = await testBed.create();
     po = await fixture.resolvePageObject(HeroesPO);
   });
@@ -35,6 +44,8 @@ void main() {
 
   group('Basics:', basicTests);
   group('Selected hero:', selectedHeroTests);
+  group('Add hero:', addHeroTests);
+  group('Delete hero:', deleteHeroTests);
 }
 
 void basicTests() {
@@ -43,7 +54,8 @@ void basicTests() {
   });
 
   test('hero count', () async {
-    expect(po.heroes.length, 10);
+    await fixture.update();
+    expect(po.heroes.length, numHeroes);
   });
 
   test('no selected hero', () async {
@@ -52,10 +64,8 @@ void basicTests() {
 }
 
 void selectedHeroTests() {
-  const targetHero = const {'id': 15, 'name': 'Magneta'};
-
   setUp(() async {
-    await po.clickHero(4);
+    await po.clickHero(targetHeroIndex);
     po = await fixture.resolvePageObject(HeroesPO);
   });
 
@@ -83,5 +93,45 @@ void selectedHeroTests() {
     po = await fixture.resolvePageObject(HeroesPO);
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
+  });
+}
+
+void addHeroTests() {
+  const newHeroName = 'Carl';
+
+  setUp(() async {
+    await po.addHero(newHeroName);
+    po = await fixture.resolvePageObject(HeroesPO);
+  });
+
+  test('hero count', () async {
+    expect(po.heroes.length, numHeroes + 1);
+  });
+
+  test('select new hero', () async {
+    await po.clickHero(numHeroes);
+    po = await fixture.resolvePageObject(HeroesPO);
+    expect(po.heroes.length, numHeroes + 1);
+    expect((await po.selectedHero)['name'], newHeroName);
+    expect(await po.myHeroNameInUppercase, equalsIgnoringCase(newHeroName));
+  });
+}
+
+void deleteHeroTests() {
+  List<Map> heroesWithoutTarget = [];
+
+  setUp(() async {
+    heroesWithoutTarget = await inIndexOrder(po.heroes).toList()
+      ..removeAt(targetHeroIndex);
+    await po.deleteHero(targetHeroIndex);
+    po = await fixture.resolvePageObject(HeroesPO);
+  });
+
+  test('hero count', () async {
+    expect(po.heroes.length, numHeroes - 1);
+  });
+
+  test('heroes left', () async {
+    expect(await inIndexOrder(po.heroes).toList(), heroesWithoutTarget);
   });
 }

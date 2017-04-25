@@ -23,4 +23,3 @@ class HeroService {
   // #docregion
   // #docregion just-get-heroes
 }
-

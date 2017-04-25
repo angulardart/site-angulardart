@@ -27,7 +27,7 @@ import 'hero_service.dart';
     ''',
     // #enddocregion template
     styles: const [
-    '''
+      '''
       .selected {
         background-color: #CFD8DC !important;
         color: white;

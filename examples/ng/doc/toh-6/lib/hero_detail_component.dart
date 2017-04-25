@@ -12,8 +12,7 @@ import 'hero_service.dart';
 @Component(
     selector: 'my-hero-detail',
     templateUrl: 'hero_detail_component.html',
-    styleUrls: const ['hero_detail_component.css']
-    )
+    styleUrls: const ['hero_detail_component.css'])
 class HeroDetailComponent implements OnInit {
   Hero hero;
   final HeroService _heroService;

@@ -88,11 +88,13 @@ final List<Hero> mockHeroes = [
     '''
     ],
     // #docregion directives
-    directives: const [HeroDetailComponent]
+    directives: const [
+      HeroDetailComponent,
+    ]
     // #enddocregion directives
     )
 class AppComponent {
-  final String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   final List<Hero> heroes = mockHeroes;
   Hero selectedHero;
 

@@ -9,7 +9,7 @@ class Hero {
 }
 
 // #docregion hero-array
-final List<Hero> mockHeroes = [
+final mockHeroes = <Hero>[
   new Hero(11, 'Mr. Nice'),
   new Hero(12, 'Narco'),
   new Hero(13, 'Bombasto'),
@@ -97,7 +97,7 @@ final List<Hero> mockHeroes = [
     ])
 // #enddocregion styles
 class AppComponent {
-  final String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   final List<Hero> heroes = mockHeroes;
   // #docregion selected-hero
   Hero selectedHero;

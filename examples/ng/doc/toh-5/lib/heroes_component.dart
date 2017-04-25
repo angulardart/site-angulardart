@@ -14,8 +14,8 @@ import 'hero_service.dart';
     // #enddocregion renaming
     templateUrl: 'heroes_component.html',
     styleUrls: const ['heroes_component.css']
-// #docregion renaming
-)
+    // #docregion renaming
+    )
 // #enddocregion metadata
 // #docregion class
 class HeroesComponent implements OnInit {
@@ -26,11 +26,12 @@ class HeroesComponent implements OnInit {
   Hero selectedHero;
 
   // #docregion renaming
-  HeroesComponent(this._heroService,
-  // #enddocregion renaming
-                  this._router
-  // #docregion renaming
-                  );
+  HeroesComponent(
+      this._heroService,
+      // #enddocregion renaming
+      this._router
+      // #docregion renaming
+      );
   // #enddocregion renaming
 
   Future<Null> getHeroes() async {

@@ -68,6 +68,5 @@ void main() {
       await po.type(newName);
       expect(await po.heroFromDetails, updatedHero);
     });
-
   });
 }

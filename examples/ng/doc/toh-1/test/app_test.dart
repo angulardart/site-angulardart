@@ -73,10 +73,7 @@ void main() {
   // #enddocregion title
 
   // #docregion hero
-  const windstormData = const <String, dynamic>{
-    'id': 1,
-    'name': 'Windstorm'
-  };
+  const windstormData = const <String, dynamic>{'id': 1, 'name': 'Windstorm'};
 
   test('initial hero properties', () async {
     expect(await appPO.heroId, windstormData['id']);

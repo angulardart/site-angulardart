@@ -13,15 +13,15 @@ import 'hero_service.dart';
 
 // #docregion metadata
 @Component(
-    selector: 'my-dashboard',
-    templateUrl: 'dashboard_component.html',
-    // #enddocregion metadata
-    // #docregion css
-    styleUrls: const ['dashboard_component.css'],
-    // #enddocregion css
-    // #docregion metadata
-    directives: const [ROUTER_DIRECTIVES],
-    )
+  selector: 'my-dashboard',
+  templateUrl: 'dashboard_component.html',
+  // #enddocregion metadata
+  // #docregion css
+  styleUrls: const ['dashboard_component.css'],
+  // #enddocregion css
+  // #docregion metadata
+  directives: const [ROUTER_DIRECTIVES],
+)
 // #enddocregion metadata
 // #docregion class
 class DashboardComponent implements OnInit {
