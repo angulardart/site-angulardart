@@ -1,5 +1,6 @@
 // #docplaster
 // #docregion
+import 'dart:async';
 import 'package:angular2/core.dart';
 
 import 'hero.dart';
@@ -23,8 +24,9 @@ class HeroDetailComponent implements OnInit {
   @Input()
   Hero hero;
   // #docregion deleteRequest
+  final _deleteRequest = new StreamController<Hero>();
   @Output()
-  final deleteRequest = new EventEmitter<Hero>();
+  Stream<Hero> get deleteRequest => _deleteRequest.stream;
   // #enddocregion input-output-1, deleteRequest
 
   // heroImageUrl = 'http://www.wpclipart.com/cartoon/people/hero/hero_silhoutte_T.png';
@@ -41,7 +43,7 @@ class HeroDetailComponent implements OnInit {
   // #docregion deleteRequest
 
   void delete() {
-    deleteRequest.emit(hero);
+    _deleteRequest.add(hero);
     // #enddocregion deleteRequest
     lineThrough = lineThrough.isNotEmpty ? '' : 'line-through';
     // #docregion deleteRequest
@@ -79,6 +81,6 @@ class BigHeroDetailComponent extends HeroDetailComponent {
   // FIXME(chalin): where is this docregion used?
 
   @override void delete() {
-    deleteRequest.emit(hero);
+    _deleteRequest.add(hero);
   }
 }

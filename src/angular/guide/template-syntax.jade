@@ -978,14 +978,13 @@ a#event-binding
   If the event belongs to a directive (recall that components are directives),
   `$event` has whatever shape the directive decides to produce.
 
-a#eventemitter
 a#custom-event
 :marked
-  ### Custom events with <span class="syntax">EventEmitter</span>
+  ### Custom events
 
-  Directives typically raise custom events with an Angular [EventEmitter](/angular/api/angular2.core/EventEmitter-class.html).
-  The directive creates an `EventEmitter` and exposes it as a property.
-  The directive calls `EventEmitter.emit(payload)` to fire an event, passing in a message payload, which can be anything.
+  Directives typically raise custom events using a [StreamController]({{site.dart_api}}/dart-async/StreamController-class.html).
+  The directive creates a `StreamController` and exposes its underlying `stream` as a property.
+  The directive calls `StreamController.add(payload)` to fire an event, passing in a message payload, which can be anything.
   Parent directives listen for the event by binding to this property and accessing the payload through the `$event` object.
 
   Consider a `HeroDetailComponent` that presents hero information and responds to user actions.
@@ -998,9 +997,10 @@ a#custom-event
 +makeExcerpt('app/hero-detail.component.ts', 'deleteRequest')
 
 :marked
-  The component defines a `deleteRequest` property that returns an `EventEmitter`.
-  When the user clicks *delete*, the component invokes the `delete()` method,
-  telling the `EventEmitter` to emit a `Hero` object.
+  The component defines a private `StreamController` property and 
+  exposes the controller's stream through the `deleteRequest` getter.
+  When a user clicks *Delete*, the component's `delete()` method is called,
+  directing the `StreamController` to add a `Hero` to the stream.
 
   Now imagine a hosting parent component that binds to the `HeroDetailComponent`'s `deleteRequest` event.
 
@@ -1738,7 +1738,8 @@ a#inputs-outputs
   ### Input or output?
 
   *Input* properties usually receive data values.
-  *Output* properties expose event producers, such as `EventEmitter` objects.
+  *Output* properties expose event producers, such as
+  [Stream]({{site.dart_api}}/dart-async/Stream-class.html) objects.
 
   The terms _input_ and _output_ reflect the perspective of the target directive.
 

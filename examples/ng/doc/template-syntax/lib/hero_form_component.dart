@@ -1,5 +1,5 @@
+import 'package:angular2/angular2.dart';
 import 'package:angular2/core.dart';
-import 'package:angular2/common.dart';
 import 'hero.dart';
 
 @Component(
@@ -16,17 +16,14 @@ class HeroFormComponent {
   Hero hero;
   @ViewChild('heroForm')
   NgForm form;
-  var _submitMessage = '';
+  String _submitMessage = '';
 
   String get submitMessage {
-    if (!this.form.valid) {
-      this._submitMessage = '';
-    }
-    return this._submitMessage;
+    if (!form.valid) _submitMessage = '';
+    return _submitMessage;
   }
 
   void onSubmit(NgForm form) {
-    this._submitMessage =
-        'Submitted. form value is ' + /*JSON.stringify*/(this.form.value).toString();
+    _submitMessage = 'Submitted. Form value is ${form.value}.';
   }
 }

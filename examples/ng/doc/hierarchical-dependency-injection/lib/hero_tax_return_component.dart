@@ -40,8 +40,9 @@ class HeroTaxReturnComponent {
 
   HeroTaxReturnComponent(this._heroTaxReturnService);
 
+  final _close = new StreamController<Null>();
   @Output()
-  final EventEmitter<Null> close = new EventEmitter<Null>();
+  Stream<Null> get close => _close.stream;
 
   HeroTaxReturn get taxReturn => _heroTaxReturnService.taxReturn;
 
@@ -55,7 +56,7 @@ class HeroTaxReturnComponent {
     await flashMessage('Canceled');
   }
 
-  void onClose() => close.emit(null);
+  void onClose() => _close.add(null);
 
   Future<Null> onSaved() async {
     await _heroTaxReturnService.saveTaxReturn();

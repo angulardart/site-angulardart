@@ -1,4 +1,5 @@
 // #docregion
+import 'dart:async';
 import 'dart:math';
 import 'package:angular2/core.dart';
 
@@ -17,19 +18,20 @@ class SizerComponent {
   int _size = 16;
   int get size => _size;
   @Input()
-  void set size(/*int | String */val) {
+  void set size(/*int | String */ val) {
     int z = val is int ? val : int.parse(val, onError: (_) => null);
     if (z != null) _size = min(maxSize, max(minSize, z));
   }
 
+  final _sizeChange = new StreamController<int>();
   @Output()
-  final sizeChange = new EventEmitter<int>();
+  Stream<int> get sizeChange => _sizeChange.stream;
 
   void dec() => resize(-1);
   void inc() => resize(1);
 
   void resize(int delta) {
     size = size + delta;
-    sizeChange.emit(size);
+    _sizeChange.add(size);
   }
 }
