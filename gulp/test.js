@@ -10,9 +10,7 @@ module.exports = function (gulp, plugins, config) {
 
   const runAngularTest = 'pub run angular_test';
 
-  gulp.task('test', ['_test-ng-doc']);
-  // TODO(chalin) re-enable '_test-ng-test' once we fix versioning issues with other packages;
-  // https://github.com/dart-lang/site-webdev/issues/507
+  gulp.task('test', ['_test-ng-doc', '_test-ng-test']);
 
   const docEx = 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6'.split(' ');
   gulp.task('_test-ng-doc', cb => {

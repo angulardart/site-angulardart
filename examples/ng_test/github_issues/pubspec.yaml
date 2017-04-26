@@ -5,23 +5,24 @@ environment:
   sdk: '>=1.23.0 <2.0.0'
 
 dependencies:
-  angular2: 3.0.0-beta+1
+  angular2: ^3.0.0-alpha+1
   markdown: ^0.11.2
-  ng_bootstrap: 0.5.1
+  ng_bootstrap: ^0.6.0
   sass_transformer: 0.1.2+1
 
 dev_dependencies:
-  # Not yet published on pub, still in active development.
-  angular_test:
-    git: https://github.com/dart-lang/angular_test
+  angular_test: ^1.0.0-beta+2
   browser: 0.10.0+2
   mockito: ^1.0.1
   pageloader: ^2.2.5
   test: 0.12.18+1
 
 dependency_overrides:
-  angular2: 3.0.0-beta+1
-  # Required for use of angular2 3.0.0-beta with ng_bootstrap.
+  # https://github.com/dart-lang/site-webdev/issues/573
+  angular2: 3.0.0-alpha+1
+  # https://github.com/dart-league/ng_bootstrap/issues/66
+  ng_bootstrap: 0.5.1
+  # Required for use of angular2 3.0.0-* with ng_bootstrap.
   intl: 0.14.0
   markdown: 0.11.2
   reflectable: any

@@ -14,14 +14,14 @@ To run the demo application locally, simply use `pub`:
 $ pub serve
 ```
 
-In Chrome or Dartium, open up `http://localhost:8080`
+In Chrome or Dartium, open up http://localhost:8080
 
 You'll see the Angular Dart github issues displayed in a table like you see above.
 
 To see the automated tests running, open up:
 
-1. `http://localhost:8081/issue_body_debug.html`
-2. `http://localhost:8081/issue_list_debug.html`
+1. http://localhost:8081/issue_body_debug.html
+2. http://localhost:8081/issue_list_debug.html
 
 The first test is a simple "do we parse the markdown", test.
 
@@ -36,7 +36,7 @@ Our test package supports running these tests too!
 You can use the `angular_test` executable to compile and run AoT tests:
 
 ```bash
-$ pub run angular_test:test
+$ pub run angular_test
 ```
 
 This automatically runs `pub serve` to proxy your tests (and compile them) and
