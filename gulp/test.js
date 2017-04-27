@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('test', ['_test-ng-doc', '_test-ng-test']);
 
-  const docEx = 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6'.split(' ');
+  const docEx = 'template-syntax toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6'.split(' ');
   gulp.task('_test-ng-doc', cb => {
     var promise = Promise.resolve(true);
     docEx.forEach(dir => promise = promise.then(() => {
