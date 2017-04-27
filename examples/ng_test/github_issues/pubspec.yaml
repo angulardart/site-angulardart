@@ -5,10 +5,10 @@ environment:
   sdk: '>=1.23.0 <2.0.0'
 
 dependencies:
-  angular2: ^3.0.0-alpha+1
+  angular2: ^3.0.0-beta+2
   markdown: ^0.11.2
-  ng_bootstrap: ^0.6.0
-  sass_transformer: 0.1.2+1
+  ng_bootstrap: ^0.6.1
+  sass_transformer: ^0.1.2+1
 
 dev_dependencies:
   angular_test: ^1.0.0-beta+2
@@ -18,14 +18,8 @@ dev_dependencies:
   test: 0.12.18+1
 
 dependency_overrides:
-  # https://github.com/dart-lang/site-webdev/issues/573
-  angular2: 3.0.0-alpha+1
-  # https://github.com/dart-league/ng_bootstrap/issues/66
-  ng_bootstrap: 0.5.1
   # Required for use of angular2 3.0.0-* with ng_bootstrap.
-  intl: 0.14.0
   markdown: 0.11.2
-  reflectable: any
 
 transformers:
   - angular2/transform/codegen:
