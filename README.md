@@ -17,8 +17,8 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 1. `nvm install 6` (on clean install) and/or `nvm use 6`
 1. `source ./scripts/env-set.sh`
 1. `./scripts/before-install.sh`
-1. `./scripts/get-ng-repo.sh` (optional).<br>
-   This step ensures that a local `dart-lang/angular2` repo is present as a sibling to this repo;
+1. `./scripts/get-ng-repo.sh` (only if the repos aren't already there).<br>
+   This step ensures that local angular-related repos are present as siblings to this repo;
    and that `angular-dart` is an alias to `angular2`.
 1. `./scripts/install.sh`
 
