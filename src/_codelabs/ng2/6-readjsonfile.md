@@ -309,7 +309,7 @@ class BadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 To get the `Future` type, import `dart:async`.
 
 {% prettify dart %}
-[[highlight]]import 'dart:async' show Future;[[/highlight]]
+[[highlight]]import 'dart:async';[[/highlight]]
 
 import 'package:angular2/core.dart';
 {% endprettify %}

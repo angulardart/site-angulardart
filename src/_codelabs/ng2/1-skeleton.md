@@ -281,7 +281,7 @@ import 'package:angular2/platform/browser.dart';
 
 import 'package:pirate_badge/app_component.dart';
 
-main() {
+void main() {
   bootstrap(AppComponent);
 }
 {% endprettify %}
@@ -432,12 +432,12 @@ class AppComponent {
 
 {% prettify yaml %}
 name: pirate_badge
-description: QuickStart
+description: A simple AngularDart app
 version: 0.0.1
 environment:
-  sdk: '>=1.19.0 <2.0.0'
+  sdk: '>=1.23.0 <2.0.0'
 dependencies:
-  angular2: ^2.2.0
+  angular2: ^3.0.0
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
