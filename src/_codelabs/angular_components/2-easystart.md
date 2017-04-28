@@ -45,10 +45,8 @@ using whatever [Dart web development tools](/tools) you prefer.
 
 {% prettify yaml %}
 dependencies:
-  angular2: 2.1.0
-  [[highlight]]angular_components: 0.2.0[[/highlight]]
-  browser: ^0.10.0
-  dart_to_js_script_rewriter: ^1.0.1
+  angular2: ^3.0.0
+  [[highlight]]angular_components: 0.5.0[[/highlight]]
   intl: ^0.14.0
 {% endprettify %}
 </li>
