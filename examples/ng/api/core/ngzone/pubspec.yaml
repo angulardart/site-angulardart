@@ -6,7 +6,7 @@ environment:
   sdk: '>=1.23.0 <2.0.0'
 
 dependencies:
-  angular2: ^3.0.0-beta+2
+  angular2: ^3.0.0
 
 dev_dependencies:
   browser: ^0.10.0

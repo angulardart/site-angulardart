@@ -8,12 +8,12 @@ environment:
   sdk: '>=1.23.0 <2.0.0'
 
 dependencies:
-  angular2: ^3.0.0-beta+2
+  angular2: ^3.0.0
 
 # #docregion dev_dependencies
 dev_dependencies:
   # #enddocregion initial
-  angular_test: ^1.0.0-beta
+  angular_test: ^1.0.0-beta+2
   # #docregion initial
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1

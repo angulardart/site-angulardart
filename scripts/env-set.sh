@@ -19,8 +19,9 @@ if [[ -z "$NGIO_ENV_DEFS" ]]; then
     export ACX_REPO
 
     # Git tag names
-    export NG_RELEASE=3.0.0-beta+2
-    export ACX_RELEASE=v0.5.0-beta+1
+    export NG_RELEASE=3.0.0
+    export NG_TEST_RELEASE=1.0.0-beta+2
+    export ACX_RELEASE=v0.5.0
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

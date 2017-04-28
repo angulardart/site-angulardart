@@ -1,11 +1,5 @@
 An example of using the new `NgTestBed` API with AoT-enabled!
 
-> This is currently targeting [AngularDart 3.0.0][version], which is alpha, but
-> of production quality. Using `package:angular_test`, specifically, requires
-> the `3.0.0` release(s).
-
-[version]: https://webdev.dartlang.org/angular/version
-
 ![demo3](https://cloud.githubusercontent.com/assets/168174/19536743/156845e4-9602-11e6-9f39-b682176b370b.gif)
 
 To run the demo application locally, simply use `pub`:

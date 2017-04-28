@@ -20,7 +20,7 @@ dart_vm:  "https://www.dartlang.org/dart-vm"
 flutter:  "https://flutter.io"
 dartino:  "https://dartino.org"
 dart_api: "https://api.dartlang.org/stable"
-acx_api: "https://www.dartdocs.org/documentation/angular_components/latest"
+acx_api: "/components/api"
 flutter_api: "http://docs.flutter.io"
 dartino_api: "https://dartino.github.io/api"
 
@@ -84,7 +84,7 @@ custom:
     stable-version: 3.0
     stable-version-full: 3.0.0
     dev-version:
-    url-next-vers: https://webdev-angular3-dartlang-org.firebaseapp.com
+    # url-next-vers: https://webdev-angular3-dartlang-org.firebaseapp.com
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"
@@ -107,7 +107,6 @@ custom:
         name: Linux
         ext: zip
         editor-ext: zip
-
 
 # Build settings
 safe: false
@@ -155,5 +154,3 @@ assets:
     liquid: true # default: false
     automatic_img_size: true # default: true
     automatic_img_alt : true # default: true
-
-

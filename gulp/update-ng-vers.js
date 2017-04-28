@@ -29,6 +29,8 @@ module.exports = function (gulp, plugins, config) {
 
   const ACX_VERS = `^${process.env.ACX_RELEASE.replace(/^v/, '')}`;
   const NG_VERS = `^${process.env.NG_RELEASE}`;
+  const NG_TEST_VERS = `^${process.env.NG_TEST_RELEASE}`;
+
   const depOvr = 'dependency_overrides:\n' +
     '  angular2:\n' +
     '    git: https://github.com/dart-lang/angular2.git\n';
@@ -57,6 +59,7 @@ module.exports = function (gulp, plugins, config) {
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
       .pipe(replace(/(^\s+angular2:) \S+$/m, `$1 ${NG_VERS}`))
+      .pipe(replace(/(^\s+angular_test:) \S+$/m, `$1 ${NG_TEST_VERS}`))
       .pipe(gulp.dest(baseDir));
   });
 
@@ -64,7 +67,6 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = path.resolve(EXAMPLES_PATH, '..');
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/ng_test/github_issues/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
       .pipe(replace(/\btransformers:/, `${depOvr}$&`))
@@ -75,7 +77,6 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = path.resolve(EXAMPLES_PATH, '..');
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/ng_test/github_issues/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
       .pipe(replace('git: https://github.com/dart-lang/angular2.git', `${depOvr2}`))
@@ -86,7 +87,6 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = path.resolve(EXAMPLES_PATH, '..');
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/ng_test/github_issues/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
       .pipe(replace(depOvr3, ''))

@@ -62,8 +62,7 @@ after_script:
 
 deploy:
   - provider: script
-    # Until angular 3.x is release, deploy to ng3
-    script: ./scripts/deploy/firebase.sh ng3
+    script: ./scripts/deploy/firebase.sh
     skip_cleanup: true
     on:
       repo: dart-lang/site-webdev
