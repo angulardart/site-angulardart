@@ -32,10 +32,10 @@ module.exports = function (gulp, plugins, config) {
   const ngFragsPath = path.join(path2ApiDocFor('ng'), frags.dirName);
 
   const _projs = plugins.genDartdocForProjs();
-  plugins.gutil.log(`Generating dartdocs for ${_projs.length ? _projs : 'no projects (all exist or are being skipped)'}.`);
+  plugins.gutil.log(`Dartdocs targets: ${_projs.length ? _projs : 'no projects (all exist or are being skipped)'}.`);
 
   // Task: dartdoc
-  // --dartdoc='all|acx|ng', default is just 'ng'.
+  // --dartdoc='all|none|acx|ng', default is 'all'.
   // --fast   skip prep and API doc generation if API docs already exist.
   // --clean  removes angular2 doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
   gulp.task('dartdoc', _projs.map(p => `dartdoc-${p}`));

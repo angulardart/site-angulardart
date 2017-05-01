@@ -47,7 +47,6 @@ const TOOLS_PATH = './tools';
 const TMP_PATH = process.env.TMP;
 
 const angulario = path.resolve('../angular.io');
-gutil.log(`Using angular.io repo at ${angulario}`)
 
 const isSilent = !!argv.silent;
 if (isSilent) gutil.log = gutil.noop;
@@ -101,8 +100,7 @@ function path2ApiDocFor(r) {
 }
 
 function _dartdocForRepo(repo) {
-  if (!argv.dartdoc) return repo == 'ng';
-  if (argv.dartdoc == 'all') return true;
+  if (argv.dartdoc === undefined || argv.dartdoc == 'all') return true;
   const re = new RegExp('\\b' + repo + '\\b');
   return (argv.dartdoc + '').match(re);
 }

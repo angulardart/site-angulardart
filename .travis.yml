@@ -15,7 +15,7 @@ env:
     - CHROME_BIN=chromium-browser
     - JEKYLL_ENV=production
   matrix:
-    - CI_TASK="build --dartdoc=all"
+    - CI_TASK=build
     - CI_TASK=test
     - CI_TASK="e2e --fast"
 
