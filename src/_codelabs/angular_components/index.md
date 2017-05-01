@@ -20,7 +20,7 @@ Google’s Dart apps.
 
 To complete this codelab, you need the following:
 
-*   A Windows, Mac, or Linux computer with Dart SDK 1.20 (or a higher version)
+*   A Windows, Mac, or Linux computer with Dart SDK 1.23 (or a higher version)
 *   A web connection and modern browser
 
 This codelab assumes that you are familiar with Dart web app development.
@@ -45,7 +45,8 @@ use AngularDart Components.
 <img src="/codelabs/angular_components/images/cartoon-guy.png"
     alt="top-hatted guy from the cartoon that appears in the app's About tab"
     align="right">
-<h2> Contents </h2>
+
+## Contents
 
 * [Step 1: Get to Know the Software](/codelabs/angular_components/1-base)
   * Get the app code
