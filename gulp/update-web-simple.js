@@ -27,7 +27,6 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/^name: angular_quickstart/, '# #docregion\n$&'))
       .pipe(replace(/(^description: )A simple AngularDart app/m, '$1QuickStart'))
       .pipe(replace(/^#(author|homepage).*\n/gm, ''))
-      .pipe(replace(/(^  angular2: \^).*/m, '$13.0.0-alpha+1'))
       // index.html
       .pipe(replace(/^<!DOCTYPE html>/, '<!-- #docregion -->\n$&'))
       .pipe(replace(/(\s*)(<my-app>[^<]*<\/my-app>.*)/,
