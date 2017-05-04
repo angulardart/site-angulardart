@@ -57,36 +57,27 @@ You can find the instructions at
 [Configuring Dart Support](/tools/webstorm#configuring-dart-support).
 </li>
 
-<li markdown="1">Choose **Create New Project** from the welcome screen,
-or **File > New > Project...** from the menu.  A dialog appears.
+<li markdown="1">From the welcome screen,
+choose **Check out from Version Control > Git**.  
+Alternatively, choose **VCS > Git > Clone...** from the menu.  
+A **Clone Repository** dialog appears.
 </li>
 
-<li markdown="1">Select **Dart** from the list on the left.
+<li markdown="1">Fill out the fields:
+   * **Git Repository URL:** `https://github.com/angular-examples/quickstart`
+   * **Parent Directory:** _(wherever you like to keep your practice code)_
+   * **Directory Name:** `pirate_badge` <br><br>
 </li>
 
-<li markdown="1">In the **Location** input field, check that
-the project folder is where you want it.
+<li markdown="1">Click **Clone**.
 </li>
 
-<li markdown="1">Also in the **Location** field,
-change the name of the project from `untitled` to `pirate_badge`.
+<li markdown="1">In the project view, double-click `pubspec.yaml`.
 </li>
 
-<li markdown="1">Make sure that **Generate sample content** is checked.
-</li>
-
-<li markdown="1">Select **Simple Angular Example** from the list.
-
-The form should look similar to the following:
-
-<img src="images/create-ng2-project.png" alt="A screenshot of the Welcome to WebStorm screen, with the specified selections">
-</li>
-
-<li markdown="1">Click **Create**.
-</li>
-
-<li markdown="1">Double-click **pubspec.yaml** to open the file,
-and then click **Get dependencies**.
+<li markdown="1">At the upper right of the editor view of `pubspec.yaml`:
+  1. Click **Enable Dart support**.
+  2. Click **Get dependencies**.
 </li>
 </ol>
 
@@ -109,20 +100,20 @@ navigate to a method's declaration, or **Shift+F6** to refactor or rename.
 <ol markdown="1">
 <li markdown="1">Create a directory on your computer for the project.
 
-{% prettify none %}
+{% prettify sh %}
 mkdir pirate_badge
 {% endprettify %}
 
 </li>
-<li markdown="1">Copy the contents of the
-    [one-hour-code-lab/ng2/1-skeleton](https://github.com/dart-lang/one-hour-codelab/archive/master.zip)
-    directory into your new project's directory.
-    Or, better yet, use `stagehand` to get the starting files:
+<li markdown="1">Clone or
+  [download](https://github.com/angular-examples/quickstart/archive/master.zip)
+  the [angular-examples/quickstart](https://github.com/angular-examples/quickstart)
+  repo into your new project's directory.
+</li>
 
-{% prettify none %}
-cd pirate_badge
-pub global activate stagehand
-stagehand web-angular-simple
+<li markdown="1">Get dependencies:
+{% prettify sh %}
+pub get
 {% endprettify %}
 
 </li>

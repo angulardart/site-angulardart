@@ -68,6 +68,10 @@ Here's one way to configure Dart support in WebStorm:
   The <b>Dartium</b> path specifies the full path to the
   `Chromium` executable that contains the Dart VM.
   WebStorm ensures that the paths are valid.
+  For more information, see the Dart installation guide for your OS:
+  [Windows](https://www.dartlang.org/install/windows),
+  [Linux](https://www.dartlang.org/install/linux), or
+  [Mac](https://www.dartlang.org/install/mac).
 </aside>
 </li>
 </ol>
