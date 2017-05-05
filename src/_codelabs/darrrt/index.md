@@ -19,7 +19,7 @@ We recommend Angular for writing Dart web apps.
 See [Avast, Ye Pirates: Write an AngularDart App](/codelabs/ng2)
 for an Angular version of this codelab.
 You can find other codelabs on the
-[webdev codelabs](/codelabs) page.
+[web codelabs](/codelabs) page.
 </aside>
 
 All you need is a browser and some familiarity with programming.
