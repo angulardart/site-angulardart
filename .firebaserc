@@ -3,6 +3,7 @@
     "default": "webdev-dartlang-org",
     "dev": "angulardart-org-dev",
     "dev2": "angulardart-org-dev2",
+    "filiph-staging": "filiph-webdev-staging",
     "kw-staging": "kw-webdev-dartlang-1",
     "ng3": "webdev-angular3-dartlang-org"
   }
