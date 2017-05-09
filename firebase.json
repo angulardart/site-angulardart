@@ -4,6 +4,8 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
+      { "source": "/components", "destination": "/codelabs/angular_components", "type": 307 },
+
       { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0.html", "type": 301 },
       { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet.html", "type": 301 },
       { "source": "/angular/guide/glossary", "destination": "/angular/glossary.html", "type": 301 },
