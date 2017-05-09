@@ -42,8 +42,7 @@
 /components/api/static-assets/fonts
 
 # Angular component page errors:
-/components/api/angular_components/MaterialTooltipDirective/_show
-/components/api/angular_components/ScoreboardComponent/_scrollable
+/components/api/angular_components/EnterAcceptsDirective/_enterAccepts
 
 # API entry page URLs back into docs are wrong
 # https://github.com/dart-lang/site-webdev/issues/273
