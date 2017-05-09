@@ -33,13 +33,15 @@ mission-critical apps that bring in much of Google’s revenue.
 Angular news from
 [news.dartlang.org](http://news.dartlang.org/){: .no-automatic-external}:
 
-* [AngularDart 2.1 and new components](http://news.dartlang.org/2016/11/angulardart-21-and-new-components.html){: .no-automatic-external}
+* [AngularDart 3.0: Easy upgrade, better performance](http://news.dartlang.org/2017/05/angulardart-3.0-easy-upgrade-better-performance.html){: .no-automatic-external}
+* [Making a Dart web app offline-capable: 3 lines of code](http://news.dartlang.org/2017/03/making-dart-web-app-offline-capable-3.html){: .no-automatic-external}
+* [From GWT to AngularDart: a case study](http://news.dartlang.org/2017/03/from-gwt-to-angulardart-case-study-with.html){: .no-automatic-external}
 * [The new Google AdSense user interface: built with AngularDart
 ](http://news.dartlang.org/2016/10/google-adsense-angular-dart.html){: .no-automatic-external}
-* [AngularDart is going all Dart](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html){: .no-automatic-external}
-* [The new AdWords UI uses Dart — we asked why](http://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html){: .no-automatic-external}
-<!-- PENDING: We should automate this. To do that, we'll probaby need to label all relevant Angular posts with "angular" or maybe "angular-news" so that they show up here:
-http://news.dartlang.org/search/label/angular or http://news.dartlang.org/search/label/angular-news -->
+{% comment %}
+PENDING: We should automate this. To do that, we'll probaby need to label all relevant Angular posts with "angular" or maybe "angular-news" so that they show up here:
+http://news.dartlang.org/search/label/angular or http://news.dartlang.org/search/label/angular-news
+{% endcomment %}
 </div>
 <div class="col-md-6" markdown="1">
 ## Videos
