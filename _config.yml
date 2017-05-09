@@ -1,6 +1,6 @@
 # Site settings
 title: webdev.dartlang.org
-description: "Dart webdev is a platform for building structured web apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript."
+description: "Dart is a programming language for building high quality apps. This site includes documentation for building such apps for the web."
 url: https://webdev.dartlang.org
 baseurl: ""
 port: 4001

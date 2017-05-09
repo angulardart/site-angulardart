@@ -198,7 +198,7 @@ For a gentler approach, try the codelab
 
 Or check out these resources:
 
-* Dart webdev tutorials and codelabs
+* Web-related tutorials and codelabs for Dart
   * [Tutorials](/tutorials)
   * [Codelabs](/codelabs)
 * Dart language, libraries, and conventions
