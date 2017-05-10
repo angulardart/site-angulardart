@@ -12,10 +12,12 @@ module.exports = function (gulp, plugins, config) {
   // const qsProjName = config.qsProjName;
   const webSimpleProjPath = config.webSimpleProjPath;
 
-  gulp.task('update-web-simple', cb => {
+  gulp.task('get-stagehand-proj', () => true);
+
+  gulp.task('_disabled-for-now-get-stagehand-proj', cb => {
     const baseDir = webSimpleProjPath;
     if (plugins.argv.clean) cp.execSync(`rm -Rf ${baseDir}`);
-    if (!fs.existsSync(baseDir)) cp.execSync(`./scripts/get-ng-web-simple.sh`);
+    if (!fs.existsSync(baseDir)) cp.execSync(`./scripts/get-ng-web-angular.sh`);
     return gulp.src([
       `${baseDir}/analysis_options.yaml`,
       `${baseDir}/pubspec.yaml`,

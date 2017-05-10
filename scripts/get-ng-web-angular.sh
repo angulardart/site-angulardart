@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Get the stagehand `web-angular-simple`
+# Get the stagehand `web-angular`
 
 set -e -o pipefail
 
@@ -19,7 +19,7 @@ fi
 travis_fold start get_angular_quickstart
 set -x
 cd "$TMP_QS"
-pub global run stagehand web-angular-simple
+pub global run stagehand web-angular
 pub get
 set +x
 travis_fold end get_angular_quickstart
