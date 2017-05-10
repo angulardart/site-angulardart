@@ -3,11 +3,13 @@ layout: guide
 title: "Get Started"
 description: "A guide to get you quickly writing web apps in Dart."
 ---
-
 Follow these steps to start using Dart to develop web apps.
 First you'll play with Dart in your browser, no download required.
 Then you'll install Dart and build a small app
-that uses the AngularDart framework.
+that uses the [AngularDart][] framework and [AngularDart Components][].
+
+[AngularDart]: /angular
+[AngularDart Components]: /components
 
 
 ## 1. Play with DartPad
@@ -16,17 +18,17 @@ With DartPad you can experiment with the Dart language and APIs,
 no download necessary.
 
 For example, here's an embedded DartPad that lets you play with
-the code for a superhero name generator.
+the code for a todo-list generator.
 Click run ( {% img 'red-run.png' %} ) to run the app.
-You can also edit the source code—perhaps you'd like to add a "dog" suffix.
-To get the full DartPad experience,
-<a href="https://dartpad.dartlang.org/d01f9074dc1001595159ef2b4eb68a0d"
+You can also edit the source code—perhaps you'd like to add "horse"
+to the list of pets. To get the full DartPad experience,
+<a href="https://dartpad.dartlang.org/9ab0406003c8ba8c727861c9468ba158"
    target="_blank">open the example at dartpad.dartlang.org</a>.
 
 <iframe
-    src="{{site.custom.dartpad.embed-inline-prefix}}?id=d01f9074dc1001595159ef2b4eb68a0d&verticalRatio=60"
+    src="{{site.custom.dartpad.embed-inline-prefix}}?id=9ab0406003c8ba8c727861c9468ba158&verticalRatio=70"
     width="100%"
-    height="500px"
+    height="450px"
     style="border: 1px solid #ccc;">
 </iframe>
 
@@ -106,7 +108,7 @@ in Dartium or any other browser.
 More information: [Dart tools for the web](/tools)
 
 
-## 4. Create and run a web app
+## 4. Create a web app
 
 We recommend using Angular for your Dart web apps,
 but you have [other options](/guides/web-programming) as well.
@@ -118,9 +120,16 @@ Here's how to use WebStorm to create a web app that uses AngularDart:
 1. If the **Dart SDK path** and **Dartium path** fields don't have values, enter them.
 1. Edit the **Location** field to set the app location and name. 
 1. Select **Generate sample content** to show the list of templates.
-1. Choose the **Angular Web Application** template.
+1. Choose the **AngularDart Web App** template.
 1. Click **Create**.<br clear>
 ![WebStorm screenshot](images/create-ng2-project.png)
+
+More information:
+
+* [Installing and using WebStorm](/tools/webstorm)
+* [Setup for AngularDart development](/angular/guide/setup)
+
+## 5. Run the app
 
 To run the app from WebStorm, right-click the app's `web/index.html` file and choose
 **Run 'index.html'**.
@@ -129,54 +138,37 @@ To run the app from WebStorm, right-click the app's `web/index.html` file and ch
 
 {% include pub-get-workaround.html %}
 
-More information:
+You should see a simple todo list manager. Try it out!
 
-* [Installing and using WebStorm](/tools/webstorm)
-* [Setup for AngularDart development](/angular/guide/setup)
+![Running the customized app from WebStorm](images/run-app.png)
 
-
-## 5. Add custom code to the app
+## 6. Add custom code to the app
 
 Let's customize the app you just created.
 
 <ol markdown="1">
 <li markdown="1">
-  Copy the `buildNames()` function from the DartPad above
-  to the bottom of the `lib/app_component.dart` file.
+  Copy the `thingsTodo()` function from the DartPad above
+  to the bottom of the `lib/todo_list/todo_list_service.dart` file.
 </li>
 
 <li markdown="1">
-  Still in `lib/app_component.dart`, add a `heroes` field to the `AppComponent` class:
+  Still in `todo_list_service.dart`, initialize the `mockTodoList` field using
+  `thingsTodo()`:
 
 {% prettify dart %}
-class AppComponent {
-  [[highlight]]List<String> heroes = buildNames().toList();[[/highlight]]
+class TodoListService {
+  [[highlight]]List<String> mockTodoList = thingsTodo().toList();[[/highlight]]
+  ...
 }
+
+[[highlight]]Iterable<String> thingsTodo() sync* { ... }[[/highlight]]
 {% endprettify %}
 </li>
 
 <li markdown="1">
-  Edit the corresponding template, `lib/app_component.html`,
-  copying the following code to the bottom of the file:
-
-{% prettify html %}{% raw %}
-<material-list>
-    <material-list-item *ngFor="let hero of heroes"
-                        (click)="myDialog.open(hero)">
-        {{ hero }}
-    </material-list-item>
-</material-list>
-{% endraw %}{% endprettify %}
-
-  This code uses the Angular `*ngFor` syntax to loop through
-  the component's `heroes` list.
-  At runtime, Angular creates a `<material-list-item>` element for each item in `heroes`,
-  replacing `{% raw %}{{ hero }}{% endraw %}`
-  with the current item's value (a hero's name).
-</li>
-
-<li markdown="1">
-  Run the app. You should see the list of heroes! 
+  Run the app. Now the initial todo list has things to do!
+  After you feed the cats, your todo list should look like this:
 
   ![Running the customized app from WebStorm](images/run-customized-app.png)
 </li>
