@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:mockito/mockito_no_mirrors.dart';
+import 'package:mockito/mockito.dart';
 import 'package:pageloader/objects.dart';
 
 import 'api.dart';

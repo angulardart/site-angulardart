@@ -10,7 +10,7 @@ import 'package:ng_test.github_issues/testing.dart';
 
 import 'package:angular2/angular2.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:mockito/mockito_no_mirrors.dart';
+import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 @Component(
