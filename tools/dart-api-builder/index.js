@@ -46,7 +46,7 @@ module.exports = new Package('dart-api-and-cheatsheet-builder', [basePackage, ta
     readFilesProcessor.basePath = DOCS_PATH;
     readFilesProcessor.sourceFiles = [{
       basePath: ANGULAR_DOCS_PATH,
-      include: path.resolve(ANGULAR_DOCS_PATH, 'cheatsheet/*.md')
+      include: path.resolve(PROJECT_PATH, 'doc', 'cheatsheet', '*.md')
     }];
   })
 
