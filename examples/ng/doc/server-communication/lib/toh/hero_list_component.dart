@@ -1,16 +1,18 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'hero.dart';
 import 'hero_service.dart';
 
 @Component(
-    selector: 'hero-list',
-    templateUrl: 'hero_list_component.html',
-    providers: const [HeroService],
-    styles: const ['.error {color:red;}'])
+  selector: 'hero-list',
+  templateUrl: 'hero_list_component.html',
+  providers: const [HeroService],
+  styles: const ['.error {color:red;}'],
+  directives: const [CORE_DIRECTIVES],
+)
 // #docregion component
 class HeroListComponent implements OnInit {
   final HeroService _heroService;

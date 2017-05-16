@@ -1,22 +1,24 @@
 // #docregion
 import 'dart:async';
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:stream_transformers/stream_transformers.dart';
 
 import 'wikipedia_service.dart';
 
 @Component(
-    selector: 'my-wiki-smart',
-    template: '''
-      <h1>Smarter Wikipedia Demo</h1>
-      <p><i>Fetches when typing stops</i></p>
+  selector: 'my-wiki-smart',
+  template: '''
+    <h1>Smarter Wikipedia Demo</h1>
+    <p><i>Fetches when typing stops</i></p>
 
-      <input #term (keyup)="search(term.value)"/>
-      <ul>
-        <li *ngFor="let item of items">{{item}}</li>
-      </ul>
-    ''',
-    providers: const [WikipediaService])
+    <input #term (keyup)="search(term.value)"/>
+    <ul>
+      <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+  ''',
+  directives: const [CORE_DIRECTIVES],
+  providers: const [WikipediaService],
+)
 class WikiSmartComponent {
   final WikipediaService _wikipediaService;
   List items = [];

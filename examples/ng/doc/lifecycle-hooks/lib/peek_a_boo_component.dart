@@ -13,7 +13,9 @@ class PeekABoo implements OnInit {
   PeekABoo(this._logger);
 
   // implement OnInit's `ngOnInit` method
-  void ngOnInit() { _logIt('OnInit'); }
+  void ngOnInit() {
+    _logIt('OnInit');
+  }
 
   void _logIt(String msg) {
     // Don't tick or else
@@ -40,7 +42,8 @@ class PeekABooComponent extends PeekABoo
         AfterViewInit,
         AfterViewChecked,
         OnDestroy {
-  @Input() String name;
+  @Input()
+  String name;
 
   int _afterContentCheckedCounter = 1;
   int _afterViewCheckedCounter = 1;
@@ -75,13 +78,17 @@ class PeekABooComponent extends PeekABoo
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterContentChecked() { _logIt('AfterContentChecked (${_afterContentCheckedCounter++})'); }
+  ngAfterContentChecked() {
+    _logIt('AfterContentChecked (${_afterContentCheckedCounter++})');
+  }
 
   ngAfterViewInit() => _logIt('AfterViewInit');
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterViewChecked() { _logIt('AfterViewChecked (${_afterViewCheckedCounter++})'); }
+  ngAfterViewChecked() {
+    _logIt('AfterViewChecked (${_afterViewCheckedCounter++})');
+  }
 
   ngOnDestroy() => _logIt('OnDestroy');
 }

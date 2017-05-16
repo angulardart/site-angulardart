@@ -12,4 +12,4 @@ import 'sales_tax_component.dart';
       <sales-tax></sales-tax>''',
     directives: const [HeroListComponent, SalesTaxComponent])
 // #docregion export
-class AppComponent { }
+class AppComponent {}

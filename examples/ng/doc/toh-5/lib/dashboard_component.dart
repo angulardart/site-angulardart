@@ -2,7 +2,7 @@
 // #docregion , imports
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 // #docregion import-router
 import 'package:angular2/router.dart';
 // #enddocregion import-router
@@ -20,7 +20,7 @@ import 'hero_service.dart';
   styleUrls: const ['dashboard_component.css'],
   // #enddocregion css
   // #docregion metadata
-  directives: const [ROUTER_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 )
 // #enddocregion metadata
 // #docregion class

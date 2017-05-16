@@ -1,7 +1,7 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
 import 'crisis.dart';
@@ -9,9 +9,11 @@ import 'crisis_service.dart';
 import 'dialog_service.dart';
 
 @Component(
-    selector: 'my-crisis-detail',
-    templateUrl: 'crisis_detail_component.html',
-    styleUrls: const ['crisis_detail_component.css'])
+  selector: 'my-crisis-detail',
+  templateUrl: 'crisis_detail_component.html',
+  styleUrls: const ['crisis_detail_component.css'],
+  directives: const [COMMON_DIRECTIVES],
+)
 class CrisisDetailComponent
     implements
         CanDeactivate,

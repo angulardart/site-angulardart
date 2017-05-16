@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'hero.dart';
 import 'hero_detail_component.dart';
@@ -6,13 +6,13 @@ import 'hero_service.dart';
 
 // #docregion metadata
 @Component(
-    selector: 'hero-list',
-    templateUrl: 'hero_list_component.html',
-    directives: const [HeroDetailComponent],
-    // #docregion providers
-    providers: const [HeroService]
-    // #enddocregion providers
-    )
+  selector: 'hero-list',
+  templateUrl: 'hero_list_component.html',
+  directives: const [COMMON_DIRECTIVES, HeroDetailComponent],
+  // #docregion providers
+  providers: const [HeroService],
+  // #enddocregion providers
+)
 // #docregion class
 class HeroListComponent implements OnInit {
   // #enddocregion metadata

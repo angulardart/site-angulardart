@@ -9,14 +9,14 @@ import 'logger_service.dart';
 class HeroService {
   final BackendService _backendService;
   final Logger _logger;
-  final List<Hero> heroes = [];
+  final heroes = <Hero>[];
 
   HeroService(this._logger, this._backendService);
 
   List<Hero> getHeroes() {
     _backendService.getAll(Hero).then((heroes) {
       _logger.log('Fetched ${heroes.length} heroes.');
-      this.heroes.addAll(heroes); // fill cache
+      this.heroes.addAll(heroes as List<Hero>); // fill cache
     });
     return heroes;
   }

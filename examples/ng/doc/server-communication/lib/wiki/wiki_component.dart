@@ -1,21 +1,23 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'wikipedia_service.dart';
 
 @Component(
-    selector: 'my-wiki',
-    template: '''
-      <h1>Wikipedia Demo</h1>
-      <p><i>Fetches after each keystroke</i></p>
-      <input #term (keyup)="search(term.value)"/>
-      <ul>
-        <li *ngFor="let item of items">{{item}}</li>
-      </ul>
-    ''',
-    providers: const [WikipediaService])
+  selector: 'my-wiki',
+  template: '''
+    <h1>Wikipedia Demo</h1>
+    <p><i>Fetches after each keystroke</i></p>
+    <input #term (keyup)="search(term.value)"/>
+    <ul>
+      <li *ngFor="let item of items">{{item}}</li>
+    </ul>
+  ''',
+  directives: const [CORE_DIRECTIVES],
+  providers: const [WikipediaService],
+)
 class WikiComponent {
   final WikipediaService _wikipediaService;
   List items = [];

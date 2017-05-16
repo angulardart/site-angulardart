@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 class Hero {
   String name;
@@ -8,19 +8,21 @@ class Hero {
 }
 
 @Component(
-    selector: 'do-check',
-    template: '''
-      <div class="hero">
-        <p>{{hero.name}} can {{power}}</p>
+  selector: 'do-check',
+  template: '''
+    <div class="hero">
+      <p>{{hero.name}} can {{power}}</p>
 
-        <h4>-- Change Log --</h4>
-        <div *ngFor="let chg of changeLog">{{chg}}</div>
-      </div>
+      <h4>-- Change Log --</h4>
+      <div *ngFor="let chg of changeLog">{{chg}}</div>
+    </div>
   ''',
-    styles: const [
-      '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
-      'p {background: Yellow; padding: 8px; margin-top: 8px}'
-    ])
+  styles: const [
+    '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
+    'p {background: Yellow; padding: 8px; margin-top: 8px}'
+  ],
+  directives: const [CORE_DIRECTIVES],
+)
 class DoCheckComponent implements DoCheck {
   @Input()
   Hero hero;
@@ -79,10 +81,11 @@ class DoCheckComponent implements DoCheck {
 /***************************************/
 
 @Component(
-    selector: 'do-check-parent',
-    templateUrl: 'do_check_parent_component.html',
-    styles: const ['.parent {background: Lavender}'],
-    directives: const [DoCheckComponent])
+  selector: 'do-check-parent',
+  templateUrl: 'do_check_parent_component.html',
+  styles: const ['.parent {background: Lavender}'],
+  directives: const [COMMON_DIRECTIVES, DoCheckComponent],
+)
 class DoCheckParentComponent {
   Hero hero;
   String power;

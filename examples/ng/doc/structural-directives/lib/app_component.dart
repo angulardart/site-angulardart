@@ -7,11 +7,16 @@ import 'unless_directive.dart';
 import 'hero_switch_components.dart';
 
 @Component(
-    selector: 'my-app',
-    templateUrl: 'app_component.html',
-    styleUrls: const ['app_component.css'],
-    directives: const [heroSwitchComponents, materialDirectives, UnlessDirective],
-    providers: const [materialProviders],
+  selector: 'my-app',
+  templateUrl: 'app_component.html',
+  styleUrls: const ['app_component.css'],
+  directives: const [
+    COMMON_DIRECTIVES,
+    heroSwitchComponents,
+    materialDirectives,
+    UnlessDirective
+  ],
+  providers: const [materialProviders],
 )
 class AppComponent {
   final List<Hero> heroes = mockHeroes;

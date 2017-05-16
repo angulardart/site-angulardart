@@ -4,12 +4,14 @@ import 'dart:async';
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: 'hero-message',
-    template: '''
-      <h2>Async Hero Message and AsyncPipe</h2>
-      <p>Message: {{ message | async }}</p>
-      <button (click)="resend()">Resend</button>
-    ''')
+  selector: 'hero-message',
+  template: '''
+    <h2>Async Hero Message and AsyncPipe</h2>
+    <p>Message: {{ message | async }}</p>
+    <button (click)="resend()">Resend</button>
+  ''',
+  pipes: const [COMMON_PIPES],
+)
 class HeroAsyncMessageComponent {
   static const _msgEventDelay = const Duration(milliseconds: 500);
 

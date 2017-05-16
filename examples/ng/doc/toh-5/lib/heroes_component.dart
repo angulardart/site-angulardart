@@ -2,7 +2,7 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
 import 'hero.dart';
@@ -10,12 +10,14 @@ import 'hero_service.dart';
 
 // #docregion metadata, renaming
 @Component(
-    selector: 'my-heroes',
-    // #enddocregion renaming
-    templateUrl: 'heroes_component.html',
-    styleUrls: const ['heroes_component.css']
-    // #docregion renaming
-    )
+  selector: 'my-heroes',
+  // #enddocregion renaming
+  templateUrl: 'heroes_component.html',
+  styleUrls: const ['heroes_component.css'],
+  directives: const [CORE_DIRECTIVES],
+  pipes: const [COMMON_PIPES],
+  // #docregion renaming
+)
 // #enddocregion metadata
 // #docregion class
 class HeroesComponent implements OnInit {

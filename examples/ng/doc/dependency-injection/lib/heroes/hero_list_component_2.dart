@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'hero.dart';
 // #enddocregion
@@ -13,16 +13,17 @@ import 'hero_service.dart';
 // #docregion
 
 @Component(
-    selector: 'hero-list',
-    template: '''
-      <div *ngFor="let hero of heroes">
-        {{hero.id}} - {{hero.name}}
-      </div>''')
+  selector: 'hero-list',
+  template: '''
+    <div *ngFor="let hero of heroes">
+      {{hero.id}} - {{hero.name}}
+    </div>''',
+  directives: const [CORE_DIRECTIVES],
+)
 class HeroListComponent {
   final List<Hero> heroes;
 
   // #docregion ctor
-  HeroListComponent(HeroService heroService)
-      : heroes = heroService.getHeroes();
+  HeroListComponent(HeroService heroService) : heroes = heroService.getHeroes();
   // #enddocregion ctor
 }

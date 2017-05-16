@@ -2,7 +2,7 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 import 'package:stream_transformers/stream_transformers.dart';
 
@@ -10,10 +10,13 @@ import 'hero_search_service.dart';
 import 'hero.dart';
 
 @Component(
-    selector: 'hero-search',
-    templateUrl: 'hero_search_component.html',
-    styleUrls: const ['hero_search_component.css'],
-    providers: const [HeroSearchService])
+  selector: 'hero-search',
+  templateUrl: 'hero_search_component.html',
+  styleUrls: const ['hero_search_component.css'],
+  directives: const [CORE_DIRECTIVES],
+  providers: const [HeroSearchService],
+  pipes: const [COMMON_PIPES],
+)
 class HeroSearchComponent implements OnInit {
   HeroSearchService _heroSearchService;
   Router _router;

@@ -1,7 +1,7 @@
 // #docregion
 import 'dart:convert';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 class Hero {
   String name;
@@ -10,8 +10,8 @@ class Hero {
 }
 
 @Component(
-    selector: 'on-changes',
-    template: '''
+  selector: 'on-changes',
+  template: '''
     <div class="hero">
       <p>{{hero.name}} can {{power}}</p>
 
@@ -19,15 +19,19 @@ class Hero {
       <div *ngFor="let chg of changeLog">{{chg}}</div>
     </div>
     ''',
-    styles: const [
-      '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
-      'p {background: Yellow; padding: 8px; margin-top: 8px}'
-    ])
+  styles: const [
+    '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
+    'p {background: Yellow; padding: 8px; margin-top: 8px}'
+  ],
+  directives: const [CORE_DIRECTIVES],
+)
 class OnChangesComponent implements OnChanges {
-// #docregion inputs
-  @Input() Hero hero;
-  @Input() String power;
-// #enddocregion inputs
+  // #docregion inputs
+  @Input()
+  Hero hero;
+  @Input()
+  String power;
+  // #enddocregion inputs
 
   List<String> changeLog = [];
 
@@ -35,26 +39,31 @@ class OnChangesComponent implements OnChanges {
   ngOnChanges(Map<String, SimpleChange> changes) {
     changes.forEach((String propName, SimpleChange change) {
       String cur = JSON.encode(change.currentValue);
-      String prev =
-          change.previousValue == null ? "{}" : JSON.encode(change.previousValue);
+      String prev = change.previousValue == null
+          ? "{}"
+          : JSON.encode(change.previousValue);
       changeLog.add('$propName: currentValue = $cur, previousValue = $prev');
     });
   }
   // #enddocregion ng-on-changes
 
-  void reset() { changeLog.clear(); }
+  void reset() {
+    changeLog.clear();
+  }
 }
 
 @Component(
-    selector: 'on-changes-parent',
-    templateUrl: 'on_changes_parent_component.html',
-    styles: const ['.parent {background: Lavender}'],
-    directives: const [OnChangesComponent])
+  selector: 'on-changes-parent',
+  templateUrl: 'on_changes_parent_component.html',
+  styles: const ['.parent {background: Lavender}'],
+  directives: const [COMMON_DIRECTIVES, OnChangesComponent],
+)
 class OnChangesParentComponent {
   Hero hero;
   String power;
   String title = 'OnChanges';
-  @ViewChild(OnChangesComponent) OnChangesComponent childView;
+  @ViewChild(OnChangesComponent)
+  OnChangesComponent childView;
 
   OnChangesParentComponent() {
     reset();

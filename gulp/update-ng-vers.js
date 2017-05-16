@@ -40,7 +40,10 @@ module.exports = function (gulp, plugins, config) {
   const depOvr3 = 'dependency_overrides:\n' +
     `  angular2:\n    ${depOvr2}\n`;
 
-  gulp.task('update-ng-vers', ['_update-acx-vers', '_update-ng-vers', '_remove_dep_overrides']);
+  gulp.task('update-ng-vers', [
+    '_update-acx-vers', '_update-ng-vers',
+    '_remove_platform_entries',
+    '_remove_dep_overrides']);
 
   gulp.task('_update-acx-vers', (cb) => {
     const baseDir = path.resolve(EXAMPLES_PATH, '..');
@@ -90,6 +93,23 @@ module.exports = function (gulp, plugins, config) {
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
       .pipe(replace(depOvr3, ''))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  const platform_star = 
+  `    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+`;
+
+  gulp.task('_remove_platform_entries', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
+    const baseDir = path.resolve(EXAMPLES_PATH, '..');
+    return gulp.src([
+      `${baseDir}/**/pubspec.yaml`,
+      `!${baseDir}/**/.pub/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(platform_star, ''))
       .pipe(gulp.dest(baseDir));
   });
 

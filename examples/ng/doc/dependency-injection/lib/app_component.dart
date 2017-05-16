@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'app_config.dart';
 import 'car/car_component.dart';
@@ -26,6 +26,7 @@ import 'providers_component.dart';
       <my-providers></my-providers>
       ''',
     directives: const [
+      CORE_DIRECTIVES,
       CarComponent,
       HeroesComponent,
       InjectorComponent,

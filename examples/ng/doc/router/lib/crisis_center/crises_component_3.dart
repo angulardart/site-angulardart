@@ -1,16 +1,18 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
 import 'crisis.dart';
 import 'crisis_service.dart';
 
 @Component(
-    selector: 'my-crises',
-    templateUrl: 'crises_component_3.html',
-    styleUrls: const ['crises_component.css'])
+  selector: 'my-crises',
+  templateUrl: 'crises_component_3.html',
+  styleUrls: const ['crises_component.css'],
+  directives: const [CORE_DIRECTIVES],
+)
 class CrisesComponent implements OnInit {
   final Router _router;
   final RouteParams _routeParams;

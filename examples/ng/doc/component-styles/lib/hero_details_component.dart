@@ -13,6 +13,7 @@ import 'hero_team_component.dart';
     directives: const [HeroTeamComponent])
 class HeroDetailsComponent {
   // #enddocregion styleurls
-  @Input() Hero hero;
+  @Input()
+  Hero hero;
   // #docregion styleurls
 }

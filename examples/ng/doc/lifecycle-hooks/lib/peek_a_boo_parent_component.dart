@@ -1,12 +1,12 @@
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'logger_service.dart';
 import 'peek_a_boo_component.dart';
 
 @Component(
-    selector: 'peek-a-boo-parent',
-    template: '''
+  selector: 'peek-a-boo-parent',
+  template: '''
     <div class="parent">
       <h2>Peek-A-Boo</h2>
 
@@ -22,9 +22,10 @@ import 'peek_a_boo_component.dart';
       <div *ngFor="let msg of logs">{{msg}}</div>
     </div>
     ''',
-    styles: const ['.parent {background: moccasin}'],
-    directives: const [PeekABooComponent],
-    providers: const [LoggerService])
+  styles: const ['.parent {background: moccasin}'],
+  directives: const [COMMON_DIRECTIVES, PeekABooComponent],
+  providers: const [LoggerService],
+)
 class PeekABooParentComponent {
   final LoggerService _logger;
   bool hasChild = false;

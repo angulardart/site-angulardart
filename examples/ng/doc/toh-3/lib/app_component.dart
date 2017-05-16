@@ -1,5 +1,5 @@
 //#docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 // #docregion hero-import
 import 'hero.dart';
@@ -22,23 +22,23 @@ final List<Hero> mockHeroes = [
 ];
 
 @Component(
-    selector: 'my-app',
-    // #docregion hero-detail-template
-    template: '''
-      <h1>{{title}}</h1>
-      <h2>My Heroes</h2>
-      <ul class="heroes">
-        <li *ngFor="let hero of heroes"
-          [class.selected]="hero == selectedHero"
-          (click)="onSelect(hero)">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </li>
-      </ul>
-      <my-hero-detail [hero]="selectedHero"></my-hero-detail>
-    ''',
-    // #enddocregion hero-detail-template
-    styles: const [
-      '''
+  selector: 'my-app',
+  // #docregion hero-detail-template
+  template: '''
+    <h1>{{title}}</h1>
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes"
+        [class.selected]="hero == selectedHero"
+        (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </li>
+    </ul>
+    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+  ''',
+  // #enddocregion hero-detail-template
+  styles: const [
+    '''
       .selected {
         background-color: #CFD8DC !important;
         color: white;
@@ -86,13 +86,14 @@ final List<Hero> mockHeroes = [
         border-radius: 4px 0px 0px 4px;
       }
     '''
-    ],
-    // #docregion directives
-    directives: const [
-      HeroDetailComponent,
-    ]
-    // #enddocregion directives
-    )
+  ],
+  // #docregion directives
+  directives: const [
+    COMMON_DIRECTIVES,
+    HeroDetailComponent,
+  ],
+  // #enddocregion directives
+)
 class AppComponent {
   final title = 'Tour of Heroes';
   final List<Hero> heroes = mockHeroes;

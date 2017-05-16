@@ -1,14 +1,14 @@
 // #docregion
 import 'dart:async';
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'hero.dart';
 import 'heroes_service.dart';
 import 'hero_tax_return_component.dart';
 
 @Component(
-    selector: 'heroes-list',
-    template: '''
+  selector: 'heroes-list',
+  template: '''
       <div>
         <h3>Hero Tax Returns</h3>
         <ul>
@@ -23,8 +23,10 @@ import 'hero_tax_return_component.dart';
         </hero-tax-return>
       </div>
     ''',
-    styles: const ['li {cursor: pointer;}'],
-    directives: const [HeroTaxReturnComponent])
+  styles: const ['li {cursor: pointer;}'],
+  directives: const [CORE_DIRECTIVES, HeroTaxReturnComponent],
+  pipes: const [COMMON_PIPES],
+)
 class HeroesListComponent {
   final HeroesService _heroesService;
 

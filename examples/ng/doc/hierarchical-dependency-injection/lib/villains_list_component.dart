@@ -1,13 +1,13 @@
 // #docregion
 import 'dart:async';
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'villains_service.dart';
 
 // #docregion metadata
 @Component(
-    selector: 'villains-list',
-    template: '''
+  selector: 'villains-list',
+  template: '''
       <div>
         <h3>Villains</h3>
         <ul>
@@ -15,7 +15,10 @@ import 'villains_service.dart';
         </ul>
       </div>
     ''',
-    providers: const [VillainsService])
+  directives: const [CORE_DIRECTIVES],
+  providers: const [VillainsService],
+  pipes: const [COMMON_PIPES],
+)
 // #enddocregion metadata
 class VillainsListComponent {
   final VillainsService _villainsService;

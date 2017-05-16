@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion on-init
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 // #enddocregion on-init
 import 'hero.dart';
@@ -9,16 +9,17 @@ import 'hero_service_1.dart';
 
 // Testable but never shown
 @Component(
-    selector: 'my-app',
-    template: '''
+  selector: 'my-app',
+  template: '''
     <div *ngFor="let hero of heroes" (click)="onSelect(hero)">
       {{hero.name}}
     </div>
     <my-hero-detail [hero]="selectedHero"></my-hero-detail>
     ''',
-    directives: const [HeroDetailComponent],
-    // #docregion providers
-    providers: const [HeroService])
+  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  // #docregion providers
+  providers: const [HeroService],
+)
 // #enddocregion providers
 // #docregion on-init
 class AppComponent implements OnInit {

@@ -5,10 +5,12 @@ import 'flying_heroes_pipe.dart';
 import 'heroes.dart';
 
 @Component(
-    selector: 'flying-heroes',
-    templateUrl: 'flying_heroes_component.html',
-    styles: const ['#flyers, #all {font-style: italic}'],
-    pipes: const [FlyingHeroesPipe])
+  selector: 'flying-heroes',
+  templateUrl: 'flying_heroes_component.html',
+  styles: const ['#flyers, #all {font-style: italic}'],
+  pipes: const [FlyingHeroesPipe],
+  directives: const [COMMON_DIRECTIVES],
+)
 // #docregion v1
 class FlyingHeroesComponent {
   List<Hero> heroes;
@@ -25,7 +27,7 @@ class FlyingHeroesComponent {
   void addHero(String name) {
     name = name.trim();
     if (name.isEmpty) return;
-    
+
     var hero = new Hero(name, canFly);
     // #enddocregion v1
     if (mutate) {
@@ -52,15 +54,16 @@ class FlyingHeroesComponent {
 //\\\\ Identical except for impure pipe \\\\\\
 // #docregion impure-component
 @Component(
-    selector: 'flying-heroes-impure',
-    templateUrl: 'flying_heroes_component.html',
-    // #enddocregion impure-component
-    styles: const ['.flyers, .all {font-style: italic}'],
-    // #docregion impure-component
-    pipes: const [FlyingHeroesImpurePipe])
+  selector: 'flying-heroes-impure',
+  templateUrl: 'flying_heroes_component.html',
+  // #enddocregion impure-component
+  styles: const ['.flyers, .all {font-style: italic}'],
+  // #docregion impure-component
+  pipes: const [FlyingHeroesImpurePipe],
+  directives: const [COMMON_DIRECTIVES],
+)
 class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
   FlyingHeroesImpureComponent() {
     title = 'Flying Heroes (impure pipe)';
   }
 }
-// #docregion impure-component

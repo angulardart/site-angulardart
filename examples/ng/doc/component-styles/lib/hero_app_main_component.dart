@@ -18,5 +18,6 @@ import 'quest_summary_component.dart';
       QuestSummaryComponent
     ])
 class HeroAppMainComponent {
-  @Input() Hero hero;
+  @Input()
+  Hero hero;
 }

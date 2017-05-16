@@ -1,6 +1,6 @@
 # #docregion , additions
 name: angular_tour_of_heroes
-  # #enddocregion additions
+# #enddocregion additions
 description: Tour of Heroes
 version: 0.0.1
 environment:
@@ -20,12 +20,6 @@ dev_dependencies:
   # #docregion additions
 transformers:
 - angular2:
-    # #enddocregion additions
-    platform_directives:
-    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
-    platform_pipes:
-    - 'package:angular2/common.dart#COMMON_PIPES'
-    # #docregion additions
     entry_points: web/main.dart
     resolved_identifiers:
         BrowserClient: 'package:http/browser_client.dart'

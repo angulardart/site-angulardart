@@ -1,24 +1,25 @@
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 // #docregion import
 import 'hero.dart';
 // #enddocregion import
 
 @Component(
-    selector: 'my-app',
-    // #docregion template
-    template: '''
-      <h1>{{title}}</h1>
-      <h2>My favorite hero is: {{myHero.name}}</h2>
-      <p>Heroes:</p>
-      <ul>
-        <li *ngFor="let hero of heroes">
-          {{ hero.name }}
-        </li>
-      </ul>
-    '''
-    // #enddocregion template
-    )
+  selector: 'my-app',
+  // #docregion template
+  template: '''
+    <h1>{{title}}</h1>
+    <h2>My favorite hero is: {{myHero.name}}</h2>
+    <p>Heroes:</p>
+    <ul>
+      <li *ngFor="let hero of heroes">
+        {{ hero.name }}
+      </li>
+    </ul>
+  ''',
+  // #enddocregion template
+  directives: const [CORE_DIRECTIVES],
+)
 // #docregion class
 class AppComponent {
   String title = 'Tour of Heroes';

@@ -2,7 +2,7 @@
 // #docregion , v2
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 import 'package:angular2/platform/common.dart';
 
@@ -10,9 +10,11 @@ import 'hero.dart';
 import 'hero_service.dart';
 
 @Component(
-    selector: 'my-hero-detail',
-    templateUrl: 'hero_detail_component.html',
-    styleUrls: const ['hero_detail_component.css'])
+  selector: 'my-hero-detail',
+  templateUrl: 'hero_detail_component.html',
+  styleUrls: const ['hero_detail_component.css'],
+  directives: const [COMMON_DIRECTIVES],
+)
 class HeroDetailComponent implements OnInit {
   Hero hero;
   final HeroService _heroService;

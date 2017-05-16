@@ -4,7 +4,7 @@
 import 'dart:async';
 
 // #enddocregion added-imports
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 // #docregion added-imports
 import 'package:angular2/router.dart';
 import 'package:angular2/platform/common.dart';
@@ -16,13 +16,14 @@ import 'hero_service.dart';
 // #enddocregion added-imports
 
 @Component(
-    selector: 'my-hero-detail',
-    // #docregion metadata, templateUrl
-    templateUrl: 'hero_detail_component.html',
-    // #enddocregion metadata, templateUrl, v2
-    styleUrls: const ['hero_detail_component.css']
-    // #docregion v2
-    )
+  selector: 'my-hero-detail',
+  // #docregion metadata, templateUrl
+  templateUrl: 'hero_detail_component.html',
+  // #enddocregion metadata, templateUrl, v2
+  styleUrls: const ['hero_detail_component.css'],
+  directives: const [COMMON_DIRECTIVES],
+  // #docregion v2
+)
 // #docregion implement
 class HeroDetailComponent implements OnInit {
   // #enddocregion implement
