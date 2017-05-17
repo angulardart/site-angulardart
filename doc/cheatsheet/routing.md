@@ -35,7 +35,7 @@ See:
 
 @cheatsheetItem
 syntax:
-`<a [routerLink]="[ '/MyCmp', {myParam: 'value' } ]">`|`[routerLink]`
+`<a [routerLink]="['/MyCmp', {myParam: 'value'}]">`|`[routerLink]`
 description:
 Creates a link to a different view based on a route instruction consisting of a route name and optional parameters. To navigate to a root route, use the `/` prefix; for a child route, use the `./`prefix.
 

@@ -2,7 +2,9 @@
 Forms
 @cheatsheetIndex 3
 @description
-Available using `platform_directives` in pubspec
+`import 'package:angular2/angular2.dart';`
+Available from [COMMON_DIRECTIVES](/angular/api/angular2.common/COMMON_DIRECTIVES-constant) or
+[FORM_DIRECTIVES](/angular/api/angular2.common/FORM_DIRECTIVES-constant) 
 
 @cheatsheetItem
 syntax:

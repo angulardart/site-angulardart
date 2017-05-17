@@ -7,7 +7,7 @@ so the `@Directive` configuration applies to components as well
 
 @cheatsheetItem
 syntax:
-`viewProviders: [MyService, provide(...)]`|`viewProviders:`
+`viewProviders: const [MyService, const Provider(...)]`|`viewProviders:`
 description:
 List of dependency injection providers scoped to this component's view.
 
@@ -26,8 +26,8 @@ See: [Architecture Overview](/angular/guide/architecture)
 
 @cheatsheetItem
 syntax:
-`styles: ['.primary {color: red}']
-styleUrls: ['my-component.css']`|`styles:`|`styleUrls:`
+`styles: const ['.primary {color: red}']
+styleUrls: const ['my-component.css']`|`styles:`|`styleUrls:`
 description:
 List of inline CSS styles or external stylesheet URLs for styling the component’s view.
 
@@ -36,17 +36,17 @@ See: [Component Styles](/angular/guide/component-styles)
 
 @cheatsheetItem
 syntax:
-`directives: [MyDirective, MyComponent]`|`directives:`
+`directives: const [COMMON_DIRECTIVES, MyDirective, MyComponent]`|`directives:`
 description:
 List of directives used in the component's template.
 
-See: [Architecture Overview](/angular/guide/architecture)
+See: [Architecture Overview](/angular/guide/architecture), [CORE_DIRECTIVES](/angular/api/angular2.common/CORE_DIRECTIVES-constant), [COMMON_DIRECTIVES](/angular/api/angular2.common/COMMON_DIRECTIVES-constant)
 
 
 @cheatsheetItem
 syntax:
-`pipes: [MyPipe, OtherPipe]`|`pipes:`
+`pipes: const [COMMON_PIPES, MyPipe, ...]`|`pipes:`
 description:
 List of pipes used in the component's template.
 
-See: [Pipes](/angular/guide/pipes)
+See: [Pipes](/angular/guide/pipes), [COMMON_PIPES](/angular/api/angular2.common/COMMON_PIPES-constant)

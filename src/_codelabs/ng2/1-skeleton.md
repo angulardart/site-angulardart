@@ -434,10 +434,6 @@ dev_dependencies:
   dart_to_js_script_rewriter: ^1.0.1
 transformers:
 - angular2:
-    platform_directives:
-    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
-    platform_pipes:
-    - 'package:angular2/common.dart#COMMON_PIPES'
     entry_points: web/main.dart
 - dart_to_js_script_rewriter
 {% endprettify %}
@@ -465,17 +461,6 @@ transformers:
 * The `angular2` transformer generates static structures that
   remove the need for reflection at runtime, making your app
   run more efficiently.
-
-* The `platform_directives` definition makes some common
-  Angular directives available to every component.
-  An example of a common Angular directive is NgIf,
-  which lets a component change its UI based on a true-false value
-  in your Dart code.
-
-* The `platform_pipes` definition makes some common
-  Angular pipes available to every component.
-  For example, you can use the built-in PercentPipe to format
-  a number as a percentage.
 
 * The `entry_points` section tells the Angular transformer which file contains
   the starting point for the app. Some apps have multiple entry points.

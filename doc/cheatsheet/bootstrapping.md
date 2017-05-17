@@ -6,7 +6,7 @@ Bootstrapping
 
 @cheatsheetItem
 syntax:
-`bootstrap​(AppComponent, [MyService, provide(...)]);`|`provide`
+`bootstrap​(AppComponent, [MyService, provide(...)]);`|`bootstrap​`
 description:
 Bootstraps the app, using `AppComponent` as the root component.
 

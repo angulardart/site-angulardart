@@ -1,8 +1,9 @@
 @cheatsheetSection
-Built-in directives
+Core directives
 @cheatsheetIndex 2
 @description
-Available using `platform_directives` in pubspec
+`import 'package:angular2/angular2.dart';`
+Available from [CORE_DIRECTIVES](/angular/api/angular2.common/CORE_DIRECTIVES-constant)
 
 @cheatsheetItem
 syntax:
