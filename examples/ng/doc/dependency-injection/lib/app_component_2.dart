@@ -1,7 +1,7 @@
 // #docregion
 
 // #docregion imports
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'app_config.dart';
 import 'car/car_component.dart';

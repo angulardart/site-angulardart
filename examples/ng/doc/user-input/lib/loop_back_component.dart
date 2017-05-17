@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 // #docregion loop-back-component
 @Component(

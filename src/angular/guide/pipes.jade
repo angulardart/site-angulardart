@@ -151,11 +151,11 @@ figure.image-display
 
   * A pipe is a class decorated with pipe metadata.
   * The pipe class implements the `PipeTransform` interface's `transform` method that
-  accepts an input value followed by optional parameters and returns the transformed value.
+    accepts an input value followed by optional parameters and returns the transformed value.
   * There will be one additional argument to the `transform` method for each parameter passed to the pipe.
-  Your pipe has one such parameter: the `exponent`.
+    Your pipe has one such parameter: the `exponent`.
   * To tell Angular that this is a pipe, you apply the
-  `@Pipe` #{_decorator}, which you import from the core Angular library.
+    `@Pipe` #{_decorator}, which you import from the main Angular library.
   * The `@Pipe` #{_decorator} allows you to define the
      pipe name that you'll use within template expressions. It must be a valid Dart identifier.
      Your pipe's name is `exponentialStrength`.

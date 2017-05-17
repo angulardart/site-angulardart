@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
 // Not yet used: import 'compose_message_component.dart';

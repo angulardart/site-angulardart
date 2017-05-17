@@ -1,6 +1,6 @@
 // #docregion
 import 'dart:html';
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/platform/browser.dart';
 
 import 'package:template_syntax/app_component.dart';

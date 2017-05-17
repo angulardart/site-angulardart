@@ -23,8 +23,8 @@ import 'hero.dart';
       </div>
     </div>''',
   // #enddocregion template
-  directives: const [COMMON_DIRECTIVES],
   // #docregion v1
+  directives: const [COMMON_DIRECTIVES],
 )
 class HeroDetailComponent {
   // #enddocregion v1

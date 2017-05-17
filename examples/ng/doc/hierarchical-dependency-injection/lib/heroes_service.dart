@@ -1,6 +1,6 @@
 // #docregion
 import 'dart:async';
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 import 'hero.dart';
 

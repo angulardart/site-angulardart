@@ -66,7 +66,7 @@ importing the Angular components and informing Angular about
 [`materialDirectives`]({{site.acx_api}}/angular_components/materialDirectives-constant.html) and [`materialProviders`]({{site.acx_api}}/angular_components/materialProviders-constant.html):
 
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 [[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
 ...
 @Component(

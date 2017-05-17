@@ -213,14 +213,14 @@ but we've provided one for you to copy and paste into your project.
 ## <i class="fa fa-anchor"> </i> Edit badge_component.dart.
 
 <div class="trydart-step-details" markdown="1">
-Import Angular's core library.
+Import Angular's main library.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
+[[highlight]]import 'package:angular2/angular2.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -234,7 +234,7 @@ instance variable&mdash;replace "Sundar" with your name.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 [[highlight]]@Component([[/highlight]]
     [[highlight]]selector: 'pirate-badge',[[/highlight]]
@@ -317,7 +317,7 @@ Import the pirate badge component.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 [[highlight]]import 'badge_component.dart';[[/highlight]]
 {% endprettify %}

@@ -127,6 +127,18 @@ include keep-app-running
     [Template Syntax](../guide/template-syntax.html#ngModel) pages.
 
 :marked
+  ### @Component(directives: ...)
+
+  Before you can use Angular directives (like `ngModel`) in a template,
+  you need to list them in the `directives` argument of your component's
+  `@Component` annotation. Although you can list directives individually,
+  it is more convenient to include all common directives in one go using
+  the [COMMON_DIRECTIVES](/angular/api/angular2.common/COMMON_DIRECTIVES-constant)
+  list:
+
++makeExcerpt('lib/app_component.dart (directives)')
+
+:marked
   Refresh the browser. You can edit the hero's name and see the changes
   reflected immediately in the `<h2>` above the textbox.
 
@@ -137,11 +149,13 @@ include keep-app-running
   Take stock of what you've built.
 
   * The Tour of Heroes app uses the double curly braces of interpolation (a type of one-way data binding)
-  to display the app title and properties of a `Hero` object.
+    to display the app title and properties of a `Hero` object.
   * You wrote a multi-line template using Dart's template strings to make the template readable.
   * You added a two-way data binding to the `<input>` element
-  using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
-  * The `ngModel` directive propagates changes to every other binding of the `hero.name`.
+    using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
+  * You added [COMMON_DIRECTIVES](/angular/api/angular2.common/COMMON_DIRECTIVES-constant)
+    to the `directives` argument of the app's `@Component` annotation so that Angular knows
+    where `ngModel` is defined.
 
   Your app should look like this <live-example></live-example>.
 

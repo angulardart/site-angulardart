@@ -61,7 +61,7 @@ Add imports to the file.
 {% prettify dart %}
 [[highlight]]import 'dart:math' show Random;[[/highlight]]
 
-[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
+[[highlight]]import 'package:angular2/angular2.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -74,7 +74,7 @@ Add imports to the file.
 
 * `Random` provides a random number generator.
 
-* The `angular2/core.dart` library gives you access to the
+* The `angular2/angular2.dart` library gives you access to the
   `Injectable` class that you'll add next.
 
 </div></div>
@@ -288,7 +288,7 @@ Import the pirate name service.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 [[highlight]]import 'name_service.dart';[[/highlight]]
 {% endprettify %}

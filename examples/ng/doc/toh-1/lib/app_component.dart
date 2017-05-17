@@ -10,8 +10,10 @@ class Hero {
 }
 // #enddocregion hero-class-1
 
+// #docregion directives
 @Component(
   selector: 'my-app',
+  // #enddocregion directives
   // #docregion editing-Hero, template
   template: '''
     <h1>{{title}}</h1>
@@ -22,8 +24,10 @@ class Hero {
       <input [(ngModel)]="hero.name" placeholder="name">
     </div>''',
   // #enddocregion editing-Hero, template
+  // #docregion directives
   directives: const [COMMON_DIRECTIVES],
 )
+// #enddocregion directives
 class AppComponent {
   String title = 'Tour of Heroes';
   // #docregion hero-property-1

@@ -95,9 +95,9 @@ final mockHeroes = <Hero>[
       }
     '''
   ],
+  // #enddocregion styles
   directives: const [COMMON_DIRECTIVES],
 )
-// #enddocregion styles
 class AppComponent {
   final title = 'Tour of Heroes';
   final List<Hero> heroes = mockHeroes;

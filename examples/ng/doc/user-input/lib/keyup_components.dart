@@ -2,7 +2,7 @@
 // #docregion
 import 'dart:html';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 // #docregion key-up-component-1
 @Component(

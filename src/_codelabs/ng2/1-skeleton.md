@@ -369,7 +369,7 @@ void main() {
 <div class="trydart-step-details" markdown="1">
 
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 @Component(selector: 'my-app', template: '<h1>Hello {% raw %}{{name}}{% endraw %}</h1>')
 class AppComponent {
@@ -382,7 +382,7 @@ class AppComponent {
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* Importing `core.dart` lets the app use `Component` and other
+* Importing `angular2.dart` lets the app use `Component` and other
   common Angular types.
 
 * The `@Component` annotation defines `AppComponent` as an Angular

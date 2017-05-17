@@ -91,12 +91,14 @@ code-example(language="sh" class="code-shell").
       Learn more in [Naming Conventions]
 
 :marked
-  We begin by importing the Angular `core.dart` file,
+  We begin by importing the main Angular library file,
   so that we can use common types like `@Component` when we create
   our component.
 
   We create metadata with the `@Component` annotation where we
-  specify the selector name that identifies this component's element.
+  specify the selector name that identifies this component's element,
+  and declare our intent to use common Angular directives in the template
+  that we'll be adding shortly.
 
   When we finish here, we'll import it into `AppComponent` and create a corresponding `<my-hero-detail>`  element.
 
@@ -219,13 +221,14 @@ code-example(language="html").
 
   A browser ignores HTML tags and attributes that it doesn't recognize. So does Angular.
 
-  We've imported `HeroDetailComponent`, we've used it in the template, but we haven't told Angular about it.
+  We've imported `HeroDetailComponent`,
+  we've used `<my-hero-detail>` in the template,
+  but we haven't told Angular about it.
 
-  We tell Angular about it by listing it in the metadata `directives` list. Let's add that list property to the bottom of the
-  `@Component` configuration object, immediately after the `template` and `styles` properties.
+  Just as we've done for the common Angular directives, we tell Angular about the hero detail
+  component by listing it in the metadata `directives` list:
 
 +makeExcerpt('lib/app_component.dart', 'directives')
-
 
 :marked
   ### It works!
