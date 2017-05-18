@@ -251,11 +251,11 @@ Because \<acx-scorecard> isn’t included in `materialDirectives`,
 you need to explicitly register its Dart class,
 [ScorecardComponent]({{site.acx_api}}/angular_components/ScorecardComponent-class.html).
 We’ll use the scorecards in the app’s custom ScoresComponent
-(\<scores-component>), which is implemented in lib/scores/scores.*.
+(\<scores-component>), which is implemented in `lib/scores/scores.*`.
 
 <ol markdown="1">
 
-<li markdown="1"> Edit **lib/scores/score.dart** (the Dart file
+<li markdown="1"> Edit **lib/scores/scores.dart** (the Dart file
     for ScoresComponent) to register ScorecardComponent and the
     `materialProviders` provider:
 
@@ -271,7 +271,7 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 {% endprettify %}
 </li>
 
-<li markdown="1"> Edit **lib/scores/score.html**
+<li markdown="1"> Edit **lib/scores/scores.html**
     (the template file for ScoresComponent)
     to change the **Betting** section from a \<div> to an \<acx-scorecard>.
     Specify the following attributes (documented in the
@@ -299,7 +299,7 @@ to an \<acx-scorecard>. A few notes:
   \<p> section.
 * **Don't** specify a `changeType` attribute.
 </li>
-<li markdown="1"> Edit **lib/scores/score.css** (styles for ScoresComponent)
+<li markdown="1"> Edit **lib/scores/scores.css** (styles for ScoresComponent)
     to specify that `.investing` floats to the right.
     You can also remove the unneeded `.positive` and `.negative` styles.
 
