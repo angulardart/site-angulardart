@@ -92,8 +92,10 @@ navigate to a method's declaration, or **Shift+F6** to refactor or rename.
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* WebStorm loads its Dart project templates from
-  [Stagehand](http://stagehand.pub/), a Dart project generator.
+* WebStorm can create a Dart project directly from a Git repo.
+* You can also create Dart projects from templates, as shown in
+  [Create a web app](/guides/get-started#4-create-a-web-app)
+  from the [Get Started](/guides/get-started) page.
 
 <i class="fa fa-lightbulb-o key-header"> </i> <strong> Not using WebStorm? </strong>
 
