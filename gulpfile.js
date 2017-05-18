@@ -44,7 +44,8 @@ const PUBLIC_PATH = './public';
 const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
 const EXAMPLES_PATH = './examples/ng/doc';
 const TOOLS_PATH = './tools';
-const TMP_PATH = process.env.TMP;
+const TMP_PATH = process.env.TMP; // shared temp folder (for larger downloads, etc)
+const LOCAL_TMP = 'tmp'; // temp folder local to this project
 
 const angulario = path.resolve('../angular.io');
 
@@ -53,7 +54,7 @@ if (isSilent) gutil.log = gutil.noop;
 const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 
 const ngDocSrc = path.join('src', 'angular');
-const fragsPath = path.join(ngDocSrc, '_fragments');
+const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_quickstart';
 const config = {
   _dgeniLogLevel: _dgeniLogLevel,
@@ -154,7 +155,7 @@ gulp.task('build-deploy', ['build'], () => {
 
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
-const _cleanTargets = ['publish'];
+const _cleanTargets = ['publish', LOCAL_TMP];
 const _delTmp = () => del(_cleanTargets, { force: true });
 gulp.task('clean', cb => _delTmp());
 gulp.task('_clean', cb => argv.clean ? _delTmp() : cb());

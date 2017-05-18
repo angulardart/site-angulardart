@@ -32,7 +32,11 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide', 'add-example-boilerplate'], (done) => shred(_devguideShredOptions, done));
 
-  gulp.task('_shred-api-examples', ['_shred-clean-api'], (cb) => shred(_apiShredOptions));
+  gulp.task('_shred-api-examples', ['_shred-clean-api'], (cb) => shred(_apiShredOptions).then(() => {
+      // Setup path aliases for API doc fragments
+      cp.execSync(`ln -s .. doc`, { cwd: _apiShredOptions.fragmentsDir });
+      cp.execSync(`ln -s doc docs`, { cwd: _apiShredOptions.fragmentsDir });
+    }));
 
   // Create *.txt fragment files from *.md files.
   function createTxTFragFiles() {

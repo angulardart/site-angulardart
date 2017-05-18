@@ -24,12 +24,10 @@ module.exports = function (gulp, plugins, config) {
       angular2.transformer_dart`.replace(/\s+/g, ','),
   };
 
-  const frags = config.frags;
   const repoPath = config.repoPath;
   function path2ApiDocFor(r) {
     return path.resolve(repoPath[r], config.relDartDocApiDir);
   }
-  const ngFragsPath = path.join(path2ApiDocFor('ng'), frags.dirName);
 
   const _projs = plugins.genDartdocForProjs();
   plugins.gutil.log(`Dartdocs targets: ${_projs.length ? _projs : 'no projects (all exist or are being skipped)'}.`);
@@ -45,18 +43,10 @@ module.exports = function (gulp, plugins, config) {
 
     // Task: _dartdoc-* is like the 'dartdoc' task but builds the docs even if --fast is used
     // (but --fast will still skip copying boilerplate files)
-    gulp.task(`_dartdoc-${p}`, [`_dartdoc-prep-${p}`], cb => _dartdoc(p));
+    gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], cb => _dartdoc(p));
 
     gulp.task(`_dartdoc-clean-${p}`, () => _cleanIfArgSet(p));
   });
-
-  gulp.task('_dartdoc-prep-acx', ['_dartdoc-clean-acx']);
-  gulp.task('_dartdoc-prep-ng', ['_dartdoc-clean-ng', '_setup-fragments-for-dartdoc-ng']);
-
-  function _cleanThenDartdoc(proj) {
-    _cleanIfArgSet(proj);
-    return _dartdoc(proj);
-  }
 
   function _cleanIfArgSet(proj) {
     if (!argv.clean) return;
@@ -67,7 +57,6 @@ module.exports = function (gulp, plugins, config) {
 
   function _dartdoc(proj) {
     if (!proj) throw `_dartdoc(): no project specified`;
-    if (proj == 'ng' && !fs.existsSync(ngFragsPath)) throw `_dartdoc(${proj}): fragments dir missing, ${ngFragsPath}`;
     return _dartdoc1(proj, libsToDoc[proj]);
   }
 
@@ -75,44 +64,10 @@ module.exports = function (gulp, plugins, config) {
     const args = [];
     if (libs) args.push(`--include=${libs}`);
     args.push(`--output ${config.relDartDocApiDir}`);
-    // `--example-path-prefix ${ngFragsPath}`, // We don't use @example anymore
     return plugins.q.all(
       plugins.execp(`${dartdocCmd} ${args.join(' ')}`, { cwd: repoPath[proj] }),
       plugins.execp(`${dartdocCmd} --version`)
     );
-  }
-
-  gulp.task('_clean-ng-frag', () => cp.execSync(`rm -Rf ${ngFragsPath}`));
-
-  gulp.task('_setup-fragments-for-dartdoc-ng',
-    ['_dartdoc-clean-ng', '_clean-ng-frag', 'create-example-fragments'],
-    () => _ngLinkFrags()
-  );
-
-  gulp.task('_ng-link-frags', () => _ngLinkFrags());
-
-  function _ngLinkFrags() {
-    // Fragments have been created via `create-example-fragments`.
-    // Now copy/link the local fragments to the angular2 repo so that
-    // dartdoc, when run over the angular2 repo, can find them.
-
-    // Handle doc sample frags
-    plugins.gutil.log(`Linking to fragment folders ${ngFragsPath}`);
-    cp.execSync(`mkdir -p ${ngFragsPath}`);
-    const webdevFragPath = path.resolve(frags.path);
-    cp.execSync(`ln -s ${webdevFragPath} doc`, { cwd: ngFragsPath });
-    cp.execSync(`ln -s doc docs`, { cwd: ngFragsPath });
-
-    // Handle API samples
-    // plugins.gutil.log(`  cd ${ngFragsPath}`);
-    const apiFragsPath = path.join(frags.path, frags.apiDirName);
-    plugins.fs.readdirSync(apiFragsPath).forEach(subdir => {
-      const srcFragsPath = path.resolve(apiFragsPath, subdir); // Note: no dart subfolder needed here
-      const cmd = `ln -s ${srcFragsPath} ${subdir}`;
-      // plugins.gutil.log(`    ${cmd}`);
-      cp.execSync(cmd, { cwd: ngFragsPath });
-    });
-    return true;
   }
 
 };

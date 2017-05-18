@@ -38,7 +38,7 @@ module Jekyll
     end
 
     def getCodeFrag(path)
-      path2frag = File.join Dir.pwd, "src/angular", path
+      path2frag = File.join Dir.pwd, "tmp", path
       if File.exists? path2frag
         lines = File.readlines path2frag
         result = stripMdCodeMarkers(lines)
