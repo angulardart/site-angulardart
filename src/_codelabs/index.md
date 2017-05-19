@@ -6,8 +6,13 @@ permalink: /codelabs
 toc: false
 ---
 
-Choose from one or more of these step-by-step introductions to
-writing Dart code.
+The latest Dart codelabs are on the Google Developers site:
+
+* **[Intro to Dart for Java Developers](https://codelabs.developers.google.com/codelabs/from-java-to-dart)**
+* **[Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)**
+* **[Build an AngularDart & Firebase Web App](https://codelabs.developers.google.com/codelabs/angulardart-firebase-web-app)**
+
+Or check out one of these older codelabs:
 
 [Avast, Ye Pirates: Write an AngularDart App](/codelabs/ng2)
 : Learn how to use AngularDart while building
