@@ -1,27 +1,83 @@
 ---
-layout: default
-title: "CE Playground"
-short-title: "CE Playground"
-description: "A playground to test web components."
+layout: angular
+title: "Writers' Playground"
 permalink: /playground
 ---
 
-### Live Example
-<live-example name="Playground is Live"></live-example>
+Title and code not tied to a file:
+<?code-excerpt title="some title!"?>
+```dart
+  var y = 3; // title="some title!"
+```
 
-### Code Tabs + Code Panes
+Quickstart pubspec w/ title:
+<?code-excerpt "quickstart/lib/app_component.dart" title?>
+```
+  import 'package:angular2/angular2.dart';
 
-<code-tabs>
-  <code-pane name="Pane 1">
-    Pane 1
-  </code-pane>
-  <code-pane name="Pane 2">
-    Pane 2
-  </code-pane>
-  <code-pane name="Pane 3">
-    Pane 3
-  </code-pane>
-  <code-pane name="Pane 4">
-    Pane 4
-  </code-pane>
-</code-tabs>
+  [!@Component(
+    selector: 'my-app',
+    template: '<h1>Hello {{name}}</h1>')!]
+  class AppComponent {
+    var [!name!] = 'Angular';
+  }
+```
+
+<?code-excerpt path-base="quickstart"?>
+
+Quickstart pubspec w/ title:
+<?code-excerpt "pubspec.yaml" title?>
+```
+  name: angular_quickstart
+  description: QuickStart
+  version: 0.0.1
+
+  environment:
+    sdk: '>=1.23.0 <2.0.0'
+
+  dependencies:
+    angular2: ^3.0.0
+
+  dev_dependencies:
+    angular_test: ^1.0.0-beta+2
+    browser: ^0.10.0
+    dart_to_js_script_rewriter: ^1.0.1
+    test: ^0.12.0
+
+  transformers:
+  - angular2:
+      entry_points: web/main.dart
+  - angular2/transform/reflection_remover:
+      $include: test/**_test.dart
+  - test/pub_serve:
+      $include: test/**_test.dart
+  - dart_to_js_script_rewriter
+```
+
+`index.html` my-app excerpt (no title)
+<?code-excerpt "web/index.html (my-app)"?>
+```
+  <my-app>Loading...</my-app>
+```
+
+## Converted (manually)
+
+This seems to be our manual translation target:
+
+<div class="code-example">
+<header><h4>lib/x.dart</h4></header>
+<code-example language="dart">
+  var x = '&lt;b&gt;x&lt;/b&gt;';
+<span class="highlight">  var z = 'x';
+  var y = 3;</span>
+</code-example>
+</div>
+
+<div class="code-example">
+<header><h4>lib/x2.dart</h4></header>
+<div code-example language="dart" markdown="1">
+```
+  var x = '<b>x</b>';
+```
+</div>
+</div>

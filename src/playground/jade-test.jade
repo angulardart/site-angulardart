@@ -1,0 +1,65 @@
+---
+layout: angular
+title: "Writer's Playground"
+permalink: /playground/jade-test
+---
+//- FilePath: src/playground/jade.jade
+
+:marked
+  (Code excerpts are not yet properly formatted in this file.)
+
+  Title and code not tied to a file:
+  <?code-excerpt title="some title!"?>
+  ```dart
+  var y = 4; // title="some title!"
+  ```
+
+  Quickstart pubspec w/ title:
+  <?code-excerpt "quickstart/lib/app_component.dart" title?>
+  ```
+  import 'package:angular2/angular2.dart';
+
+  [!@Component(
+    selector: 'my-app',
+    template: '<h1>Hello {{name}}</h1>')!]
+  class AppComponent {
+    var [!name!] = 'Angular';
+  }
+  ```
+
+  <?code-excerpt path-base="quickstart"?>
+
+  Quickstart pubspec w/ title:
+  <?code-excerpt "pubspec.yaml" title?>
+  ```
+  name: angular_quickstart
+  description: QuickStart
+  version: 0.0.1
+
+  environment:
+    sdk: '>=1.23.0 <2.0.0'
+
+  dependencies:
+    angular2: ^3.0.0
+
+  dev_dependencies:
+    angular_test: ^1.0.0-beta+2
+    browser: ^0.10.0
+    dart_to_js_script_rewriter: ^1.0.1
+    test: ^0.12.0
+
+  transformers:
+  - angular2:
+      entry_points: web/main.dart
+  - angular2/transform/reflection_remover:
+      $include: test/**_test.dart
+  - test/pub_serve:
+      $include: test/**_test.dart
+  - dart_to_js_script_rewriter
+  ```
+
+  `index.html` my-app excerpt (no title)
+  <?code-excerpt "web/index.html (my-app)"?>
+  ```
+  <my-app>Loading...</my-app>
+  ```

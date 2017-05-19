@@ -47,18 +47,21 @@ angularIO.controller('AppCtrl', ['$mdDialog', '$timeout', '$http', '$sce', funct
    * Finish Rendereding code directives then prettify code
    */
 
-  // GRAB ALL TAGS NOT USING DIRECTIVES
-  var preTags = angular.element(document.body).find('pre');
-
-  // LOOP THROUGH AND ADD PRETTIFY CLASS
-  _.each(preTags, function (element) {
-    var preTag = angular.element(element);
-
-    // IF NOT FORMATTED, ADD PRETTY PRINT
-    if (!preTag.hasClass('prettyprint')) {
-      preTag.addClass('prettyprint linenums');
-    }
-  });
+  // 2017-05: don't manipulate pre tags anymore.
+  // All relevant doc code excerpts are handled via <code-excerpt>.
+  //
+  // // GRAB ALL TAGS NOT USING DIRECTIVES
+  // var preTags = angular.element(document.body).find('pre');
+  //
+  // // LOOP THROUGH AND ADD PRETTIFY CLASS
+  // _.each(preTags, function (element) {
+  //   var preTag = angular.element(element);
+  //
+  //   // IF NOT FORMATTED, ADD PRETTY PRINT
+  //   if (!preTag.hasClass('prettyprint')) {
+  //     preTag.addClass('prettyprint linenums');
+  //   }
+  // });
 
   // TRIGGER PRETTYPRINT AFTER DIGEST LOOP COMPLETE
   $timeout(prettyPrint, 1);
