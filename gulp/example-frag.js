@@ -6,6 +6,7 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const del = plugins.del;
+  const fs = require("fs");
   const gutil = plugins.gutil;
   const path = plugins.path;
 
@@ -33,16 +34,17 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide', 'add-example-boilerplate'], (done) => shred(_devguideShredOptions, done));
 
   gulp.task('_shred-api-examples', ['_shred-clean-api'], (cb) => shred(_apiShredOptions).then(() => {
-      // Setup path aliases for API doc fragments
-      cp.execSync(`ln -s .. doc`, { cwd: _apiShredOptions.fragmentsDir });
-      cp.execSync(`ln -s doc docs`, { cwd: _apiShredOptions.fragmentsDir });
-    }));
+    // Setup path aliases for API doc fragments
+    const frags = _apiShredOptions.fragmentsDir;
+    if (!fs.existsSync(path.join(frags, 'doc'))) cp.execSync(`ln -s .. doc`, { cwd: frags });
+    if (!fs.existsSync(path.join(frags, 'docs'))) cp.execSync(`ln -s doc docs`, { cwd: frags });
+  }));
 
   // Create *.txt fragment files from *.md files.
   function createTxTFragFiles() {
     let find = `find ${frags.path}`;
     if (argv.filter) find = `${find} -path "*${argv.filter}*"`;
-    
+
     gutil.log('Create *.txt frag files: duplicate *.md files, but change extension to .txt');
     cp.execSync(`${find} -name "*.md" -exec bash -c 'cp "$0" "\${0%.md}.txt"' {} \\;`);
 
