@@ -87,6 +87,7 @@ module.exports = function (gulp, plugins, config) {
       // `${baseDir}/ts/${dirName}/_quickstart_repo.jade`,
       `${baseDir}/ts/${dirName}/tutorial/index.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt1.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt2.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt5.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt6.jade`,
       // These files are no longer Jade extended but we still sync them for diffs.
@@ -313,12 +314,12 @@ module.exports = function (gulp, plugins, config) {
             .replace(/(^|(^|\\/)(dart|ts)\\/)src\\//, '$1')`;
     return gulp.src([
       `${baseDir}/resources/js/**/*`,
+      `!${baseDir}/resources/js/controllers/**`,
       `${baseDir}/resources/css/_options.scss`,
       `${baseDir}/resources/css/layout/_{grids,layout}.scss`,
       `${baseDir}/resources/css/base/_{colors,mixins,reset}.scss`,
       `${baseDir}/resources/css/module/_{alert,api,banner,buttons,callout,code,code-box,code-shell,filetree,form,images,symbol,table}.scss`,
       `!${baseDir}/resources/js/vendor/{jquery,lang-*,prettify}.js`,
-      `!${baseDir}/resources/js/controllers/resources-controller.js`,
       `!${baseDir}/resources/js/directives/scroll-y-offset-element.js`,
     ], { base: baseDir })
       // Patch resources/js/site.js
