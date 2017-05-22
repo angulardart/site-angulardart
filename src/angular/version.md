@@ -1,18 +1,19 @@
 ---
 layout: angular
-title: Angular Versions
+title: AngularDart Versions
 description: The AngularDart versions that this documentation and its examples use.
 ---
-The AngularDart documentation and the examples embedded in it reflect
+This site's documentation and examples reflect
 the **latest stable release** of the
-[angular2 package.](https://pub.dartlang.org/packages/angular2)
-The package often has a more recent development _(dev)_ release.
+[angular2](https://pub.dartlang.org/packages/angular2) and
+[angular_components](https://pub.dartlang.org/packages/angular_components)
+packages. These packages often have a more recent development _(dev)_ release.
 
 <table>
   <tr>
-    <th>Angular release</th>
+    <th>Release</th>
     <th>Latest version</th>
-    <th>Documentation server</th>
+    <th>Documentation</th>
   </tr>
   <tr>
     <td>
@@ -20,11 +21,21 @@ The package often has a more recent development _(dev)_ release.
     </td>
     <td>
       <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.stable-version-full}}#-pkg-tab-changelog">
-        {{site.custom.angular.stable-version-full}}
+        angular2 <b>{{site.custom.angular.stable-version-full}}</b>
+      </a>
+      <br>
+      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.components.stable-version-full}}#-pkg-tab-changelog">
+        angular_components <b>{{site.custom.components.stable-version-full}}</b>
       </a>
     </td>
     <td>
-      <a href="/angular/guide">{{site.url | regex_replace: '^https?://' }}</a>
+      <a href="/angular/guide">
+        {{site.url | regex_replace: '^https?://' }}<b>/angular/guide</b>
+      </a>
+      <br>
+      <a href="/components">
+        {{site.url | regex_replace: '^https?://' }}<b>/components</b>
+      </a>
     </td>
   </tr>
   <tr>
@@ -36,6 +47,10 @@ The package often has a more recent development _(dev)_ release.
       <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.dev-version}}#-pkg-tab-changelog">
         {{site.custom.angular.dev-version}}
       </a>
+      <br>
+      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.angular.dev-version}}#-pkg-tab-changelog">
+        {{site.custom.components.dev-version}}
+      </a>
       {% else %}
       (none yet)
       {% endif %}
@@ -43,7 +58,11 @@ The package often has a more recent development _(dev)_ release.
     <td>
       {% if site.custom.angular.dev-version %}
       <a href="{{site.custom.angular.url-next-vers}}/angular/guide">
-        {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}
+        {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/angular/guide</b>
+      </a>
+      <br>
+      <a href="{{site.custom.angular.url-next-vers}}/components">
+        {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/components</b>
       </a>
       {% else %}
       (none yet)
@@ -71,3 +90,13 @@ Each example in the AngularDart documentation has a repo under the GitHub organi
 [angular-examples](https://github.com/angular-examples).
 These example repos are generated from the [dart-lang/site-webdev]({{site.repo}}) repo,
 using files under the [examples]({{site.repo}}/tree/master/examples) directory.
+
+
+## Other Angular versions
+
+AngularDart started out with the same codebase as the TypeScript Angular framework,
+which is documented at [angular.io](https://angular.io).
+
+Although the [code is now separate](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html),
+the two projects are as similar as possible,
+while still making the most of Dart features and libraries.

@@ -49,6 +49,10 @@
   {% endfor %}
   {% include analytics.html %}
 
+  {% if page.layout == "components" %}
+  <link rel="stylesheet" href="/styles/components.css">
+  {% endif %}
+
   {% if page.layout == "angular" %}
   <!-- Angular.io styles for directives, etc -->
   <link rel="stylesheet" href="/styles/angular.css">

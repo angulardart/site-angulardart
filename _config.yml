@@ -85,6 +85,10 @@ custom:
     stable-version-full: 3.1.0
     dev-version:
     # url-next-vers: https://webdev-angular3-dartlang-org.firebaseapp.com
+  components:
+    stable-version: 0.5.1
+    stable-version-full: 0.5.1
+    dev-version:
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"

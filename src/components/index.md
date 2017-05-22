@@ -1,5 +1,5 @@
 ---
-layout: angular
+layout: components
 title: About AngularDart Components
 description: Material design components for AngularDart
 toc: false
@@ -13,9 +13,9 @@ provide a productive and stable set of widgets.
 Supported browsers include the last two versions of
 Chrome, Edge, Firefox, and Safari.
 
-<div class="alert is-helpful">
+<aside class="alert-info alert">
 Internet Explorer is not currently supported.
-</div>
+</aside>
 
 <div class="row">
 <div class="col-md-6" markdown="1">
