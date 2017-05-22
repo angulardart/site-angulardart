@@ -10,7 +10,7 @@ import 'hero.dart';
 
 // #docregion v1
 @Component(
-  selector: 'my-hero-detail',
+  selector: 'hero-detail',
   // #enddocregion v1
   // #docregion template
   template: '''

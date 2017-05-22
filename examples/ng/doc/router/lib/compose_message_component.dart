@@ -7,7 +7,7 @@ import 'package:angular2/router.dart';
 // import 'animations.dart' show slideInDownAnimation;
 
 @Component(
-  selector: 'my-crisis-center',
+  selector: 'crisis-center',
   templateUrl: 'compose_message_component.html',
   styles: const [':host { position: relative; bottom: 10%; }'],
   // animations: const [slideInDownAnimation]

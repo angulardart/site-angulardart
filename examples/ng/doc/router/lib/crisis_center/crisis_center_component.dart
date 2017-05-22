@@ -7,7 +7,7 @@ import 'crises_component.dart';
 import 'dialog_service.dart';
 
 @Component(
-    selector: 'my-crisis-center',
+    selector: 'crisis-center',
     template: '''
       <router-outlet></router-outlet>
     ''',

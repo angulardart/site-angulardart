@@ -9,7 +9,7 @@ import 'crisis_service.dart';
 import 'dialog_service.dart';
 
 @Component(
-  selector: 'my-crisis-detail',
+  selector: 'crisis-detail',
   templateUrl: 'crisis_detail_component.html',
   styleUrls: const ['crisis_detail_component.css'],
   directives: const [COMMON_DIRECTIVES],

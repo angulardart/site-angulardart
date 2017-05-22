@@ -8,7 +8,7 @@ import 'crisis.dart';
 import 'crisis_service.dart';
 
 @Component(
-  selector: 'my-crisis-detail',
+  selector: 'crisis-detail',
   templateUrl: 'crisis_detail_component_1.html',
   directives: const [
     COMMON_DIRECTIVES,

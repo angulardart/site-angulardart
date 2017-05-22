@@ -13,15 +13,15 @@ describe('Router', () => {
 
   function getPageStruct() {
     const hrefEles = element.all(by.css('my-app a'));
-    const crisisDetail = element(by.css('my-app > my-crisis-center my-crisis-detail > div'));
-    const heroDetail = element(by.css('my-app > my-hero-detail > div'));
+    const crisisDetail = element(by.css('my-app > crisis-center crisis-detail > div'));
+    const heroDetail = element(by.css('my-app > hero-detail > div'));
 
     return {
       hrefs: hrefEles,
       activeHref: element(by.css('my-app a.router-link-active')),
 
       crisisHref: hrefEles.get(0),
-      crisisList: element.all(by.css('my-app > my-crisis-center li')),
+      crisisList: element.all(by.css('my-app > crisis-center li')),
       crisisDetail: crisisDetail,
       crisisDetailTitle: crisisDetail.element(by.xpath('*[1]')),
 

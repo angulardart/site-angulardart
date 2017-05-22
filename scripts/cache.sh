@@ -29,6 +29,8 @@ guide/server-communication.jade
 tutorial/index.jade
 tutorial/toh-pt1.jade
 tutorial/toh-pt2.jade
+tutorial/toh-pt3.jade
+tutorial/toh-pt4.jade
 tutorial/toh-pt5.jade
 tutorial/toh-pt6.jade
 glossary.jade

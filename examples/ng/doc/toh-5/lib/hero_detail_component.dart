@@ -16,7 +16,7 @@ import 'hero_service.dart';
 // #enddocregion added-imports
 
 @Component(
-  selector: 'my-hero-detail',
+  selector: 'hero-detail',
   // #docregion metadata, templateUrl
   templateUrl: 'hero_detail_component.html',
   // #enddocregion metadata, templateUrl, v2

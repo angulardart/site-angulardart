@@ -88,6 +88,8 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/ts/${dirName}/tutorial/index.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt1.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt2.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt3.jade`,
+      `${baseDir}/ts/${dirName}/tutorial/toh-pt4.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt5.jade`,
       `${baseDir}/ts/${dirName}/tutorial/toh-pt6.jade`,
       // These files are no longer Jade extended but we still sync them for diffs.
@@ -120,8 +122,6 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/include (\.\.\/)*_util-fns(\.jade)?/g, '//- $&'))
       // General patch
       .pipe(replace(/target="_blank"/g, '$& rel="noopener"'))
-      // 2017-03-24 Patch: undo Ward's tag rename my-hero-detail -> hero-detail
-      .pipe(replace(/((\&lt;|<)\/?)(hero-detail(\&gt;|>| ))/g, '$1my-$3'))
       // Patch toh-5; don't include TS-specific _see-addr-bar.jade
       .pipe(replace(/include (\.\.\/)*_includes\/_see-addr-bar(\.jade)?/g, '//- $&'))
       // Patch guide/index - set the advancedLandingPage  because it is not worth trying to read it from the harp _data file
@@ -374,8 +374,6 @@ module.exports = function (gulp, plugins, config) {
       `!${baseDir}/{homepage-*,ngmodule,node_modules,reactive-forms}/**`,
       `!${baseDir}/{setup,style-guide,styleguide,testing,upgrade*,webpack}/**`,
     ], { base: baseDir })
-      // 2017-03-24 Patch: undo Ward's tag rename my-hero-detail -> hero-detail
-      .pipe(replace(/(my-app( >)? )(hero-detail )/g, '$1my-$3'))
       // Patch security/e2e-spec.ts
       .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
       // Patch component-styles/e2e-spec.ts

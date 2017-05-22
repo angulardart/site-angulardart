@@ -4,7 +4,7 @@ import 'package:angular2/angular2.dart';
 import 'hero.dart';
 
 @Component(
-  selector: 'my-hero-detail',
+  selector: 'hero-detail',
   template: '''
     <div *ngIf="hero != null">
       <h2>{{hero.name}} details!</h2>
