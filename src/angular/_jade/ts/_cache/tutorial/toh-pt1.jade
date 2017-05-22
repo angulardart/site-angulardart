@@ -4,7 +4,7 @@
   ## Setup to develop locally
 
   Follow the [setup](../guide/setup.html) instructions for creating a new project
-  named `angular_tour_of_heroes`.
+  named <code>angular-tour-of-heroes</code>.
 
   The file structure should look like this:
 
@@ -79,7 +79,7 @@ code-example(language="sh" class="code-shell").
 +makeExcerpt('app/app.component.ts (Hero class)', 'hero-class-1')
 
 :marked
-  In the `Hero` class, refactor the component's `hero` property to be of type `Hero`,
+  In the `AppComponent` class, refactor the component's `hero` property to be of type `Hero`,
   then initialize it with an `id` of `1` and the name `Windstorm`.
 
 +makeExcerpt('app/app.component.ts (hero property)', 'hero-property-1')
@@ -125,7 +125,7 @@ code-example(language="sh" class="code-shell").
 :marked
   `[(ngModel)]` is the Angular syntax to bind the `hero.name` property
   to the textbox.
-  Data flow _in both directions_: from the property to the textbox;
+  Data flows _in both directions:_ from the property to the textbox,
   and from the textbox back to the property.
 
   Unfortunately, immediately after this change, the application breaks.

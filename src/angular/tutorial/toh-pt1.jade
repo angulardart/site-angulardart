@@ -75,7 +75,7 @@ include keep-app-running
 +makeExcerpt('app/app.component.ts (Hero class)', 'hero-class-1')
 
 :marked
-  In the `Hero` class, refactor the component's `hero` property to be of type `Hero`,
+  In the `AppComponent` class, refactor the component's `hero` property to be of type `Hero`,
   then initialize it with an `id` of `1` and the name `Windstorm`.
 
 +makeExcerpt('app/app.component.ts (hero property)', 'hero-property-1')
@@ -129,6 +129,20 @@ include keep-app-running
 :marked
   ### @Component(directives: ...)
 
+  Unfortunately, immediately after this change, the **application breaks**!
+  If you open the browser console and refresh the page, you'll see Angular
+  complaining.  To know why, look at the `pub serve` output. The template
+  compiler doesn't recognize `ngModel`, and issues a parse error for
+  `AppComponent`:
+  
+  ```
+    Can't bind to 'ngModel' since it isn't a known native property or known directive. Please fix typo or add to directives list.
+    [(ngModel)]="hero.name"
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+  Although `NgModel` is a valid Angular directive, it isn't available by default.
+
   Before you can use Angular directives (like `ngModel`) in a template,
   you need to list them in the `directives` argument of your component's
   `@Component` annotation. Although you can list directives individually,
@@ -139,8 +153,8 @@ include keep-app-running
 +makeExcerpt('lib/app_component.dart (directives)')
 
 :marked
-  Refresh the browser. You can edit the hero's name and see the changes
-  reflected immediately in the `<h2>` above the textbox.
+  Refresh the browser and the app should work again.
+  You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the textbox.
 
 .l-main-section
 :marked
