@@ -108,6 +108,13 @@ body.homepage .get-started-section {
   }
 }
 
+/* Centered image style */
+img.centered {
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+}
+
 /* Don't display navigation aids when printing */
 @media print {
   #page-header, #sidenav, #subnav, #page-footer, .banner, #toc {

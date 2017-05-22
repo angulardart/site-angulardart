@@ -88,6 +88,9 @@
 
 - title: Angular&nbsp;Dart Components
   children:
+    - title: About
+      permalink: /components
+      urlExactMatch: true
     - title: Codelab
       permalink: https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app
     - title: Example
