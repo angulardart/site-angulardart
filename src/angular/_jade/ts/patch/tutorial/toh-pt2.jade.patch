@@ -1,5 +1,5 @@
 diff --git a/./src/angular/_jade/ts/latest/tutorial/toh-pt2.jade b/./src/angular/tutorial/toh-pt2.jade
-index 66f0ecb..431e263 100644
+index 53131bc..946e769 100644
 --- a/./src/angular/_jade/ts/latest/tutorial/toh-pt2.jade
 +++ b/./src/angular/tutorial/toh-pt2.jade
 @@ -1,4 +1,16 @@
@@ -142,18 +142,19 @@ index 66f0ecb..431e263 100644
    Adding these styles makes the file much longer. In a later page you'll move the styles to a separate file.
  
    When you assign styles to a component, they are scoped to that specific component.
-@@ -209,8 +201,8 @@ code-example(language="sh" class="code-shell").
+@@ -209,9 +201,9 @@ code-example(language="sh" class="code-shell").
    :marked
      ### Hide the empty detail with ngIf
  
--    When the app loads, the `selectedHero` is undefined and won't be defined until you click a hero's name.
+-    When the app loads, `selectedHero` is undefined.
++    When the app loads, `selectedHero` is null.
+     The selected hero is initialized when the user clicks a hero's name.
 -    Angular can't display properties of the undefined `selectedHero` and throws the following error,
-+    When the app loads, the `selectedHero` is null and won't be initialized until you click a hero's name.
 +    Angular can't display properties of the null `selectedHero` and throws the following error,
      visible in the browser's console:
  
    code-example(format="nocode").
-@@ -221,7 +213,7 @@ code-example(language="sh" class="code-shell").
+@@ -222,7 +214,7 @@ code-example(language="sh" class="code-shell").
      you must keep the hero detail out of the DOM until there is a selected hero.
  
      Wrap the HTML hero detail content of the template with a `<div>`.
@@ -162,7 +163,7 @@ index 66f0ecb..431e263 100644
  
    +makeExcerpt('app/app.component.1.html (ngIf)', 'ng-if')
  
-@@ -230,13 +222,13 @@ code-example(language="sh" class="code-shell").
+@@ -231,13 +223,13 @@ code-example(language="sh" class="code-shell").
        Don't forget the asterisk (`*`) in front of `ngIf`.
  
    :marked
@@ -178,7 +179,7 @@ index 66f0ecb..431e263 100644
      `ngIf` puts the hero detail content into the DOM and evaluates the nested bindings.
  
    .l-sub-section
-@@ -266,7 +258,7 @@ code-example(language="sh" class="code-shell").
+@@ -267,7 +259,7 @@ code-example(language="sh" class="code-shell").
    +makeExcerpt('app/app.component.1.html (setting the CSS class)', 'class-selected-1')
  
    :marked
