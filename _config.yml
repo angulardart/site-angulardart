@@ -81,8 +81,8 @@ defaults:
 
 custom:
   angular:
-    stable-version: 3.0
-    stable-version-full: 3.0.0
+    stable-version: 3.1
+    stable-version-full: 3.1.0
     dev-version:
     # url-next-vers: https://webdev-angular3-dartlang-org.firebaseapp.com
   dartpad:
