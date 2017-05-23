@@ -1,17 +1,15 @@
 ---
 layout: angular
-title: "Writer's Playground"
+title: "Writers' Playground"
 permalink: /playground/jade-test
 ---
-//- FilePath: src/playground/jade.jade
+//- FilePath: src/playground/jade-test.jade
 
 :marked
-  (Code excerpts are not yet properly formatted in this file.)
-
   Title and code not tied to a file:
   <?code-excerpt title="some title!"?>
   ```dart
-  var y = 4; // title="some title!"
+  var y = 0; // title="some title!"
   ```
 
   Quickstart pubspec w/ title:
@@ -63,3 +61,44 @@ permalink: /playground/jade-test
   ```
   <my-app>Loading...</my-app>
   ```
+
+  ## Converted (manually)
+
+  Jade-specific translation:
+
+.code-example
+  header: h4 _lib/x.dart_
+  code-example(language="dart").
+    var xx = '&lt;b&gt;x&lt;/b&gt;';
+    <span class="highlight">var z = 'x' **abc**;
+    var y = 3;</span>
+
+:marked
+  These translation come close, but still don't work:
+
+  <div class="code-example">
+  <header><h4>_lib/x.dart_</h4></header>
+  <code-example language="dart">  var x = '&lt;b&gt;x&lt;/b&gt;';
+  <span class="highlight">  var z = 'x' **this is bold markdown text**;
+    var y = 3;</span>
+  </code-example>
+  </div>
+
+  <div class="code-example">
+  <header><h4>_strangely/title/in/italics.dart_</h4></header>
+  <code-example language="dart">
+  ``` var xx = '&lt;b&gt;x&lt;/b&gt;';
+  <span class="highlight">  var z = 'x' **abc**;
+  var y = 3;</span>
+  ```
+  </code-example>
+  </div>
+
+  <div class="code-example">
+  <header><h4>_lib/x.dart_</h4></header>
+  <code-example language="dart">
+      var x = '&lt;b&gt;x&lt;/b&gt;';
+      <span class="highlight">  var z = 'x' **abc**;
+      var y = 3;</span>
+  </code-example>
+  </div>

@@ -7,7 +7,7 @@ permalink: /playground
 Title and code not tied to a file:
 <?code-excerpt title="some title!"?>
 ```dart
-  var y = 3; // title="some title!"
+  var y = 0; // title="some title!"
 ```
 
 Quickstart pubspec w/ title:
@@ -62,16 +62,15 @@ Quickstart pubspec w/ title:
 
 ## Converted (manually)
 
-This seems to be our manual translation target:
-
 <div class="code-example">
 <header><h4>lib/x.dart</h4></header>
-<code-example language="dart">
-  var x = '&lt;b&gt;x&lt;/b&gt;';
+<code-example language="dart">  var x = '&lt;b&gt;x&lt;/b&gt;';
 <span class="highlight">  var z = 'x';
   var y = 3;</span>
 </code-example>
 </div>
+
+This doesn't quite work:
 
 <div class="code-example">
 <header><h4>lib/x2.dart</h4></header>

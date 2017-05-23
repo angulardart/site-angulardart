@@ -1,10 +1,13 @@
 ##
-## This Plugin enables Jade support to pages and posts.
+## Plugin for converting Jade pages. It also:
+##
+## - Inserts code excerpts (required by makeExample, makeExcerpt, and makeTabs).
+## - Supports the <?code-excerpt?> processing instruction.
 ##
 
 require 'cgi'
 require 'open3'
-# require 'pathname'
+require_relative 'code_excerpt_processor'
 
 module Jekyll
 
@@ -51,6 +54,17 @@ module Jekyll
 
     def convert(content)
       begin
+        # Process code excerpts
+        @cep = NgCodeExcerpt::JadeMarkdownProcessor.new() unless @cep
+        @cep.codeExcerptProcessingInit()
+        content.gsub!(@cep.codeExcerptRE) {
+          @cep.processCodeExcerpt(Regexp.last_match, 'jade')
+        }
+        # logPuts '>>>> File after PI processing: **************************************'
+        # logPuts content
+        # logPuts '>>>> ****************************************************************'
+
+        # Process Jade
         matches = /- FilePath: (.*)/.match(content);
         filePath = matches ? matches[1] : 'src/angular/unknown-file.jade'
         baseNoExt = File.basename(filePath, '.jade')
@@ -86,8 +100,6 @@ module Jekyll
       # puts " >> new href #{newHref}"
       return newHref
     end
-
   end
-
 end
 
