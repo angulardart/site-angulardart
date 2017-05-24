@@ -6,7 +6,7 @@ set -e -o pipefail
 [[ -n "$TRAVIS" ]] && . ./scripts/env-info-and-check.sh
 
 travis_fold start before_install.npm_install
-(set -x; npm install -g firebase-tools@3.5.0 gulp --no-optional)
+(set -x; npm install -g firebase-tools gulp --no-optional)
 travis_fold end before_install.npm_install
 
 travis_fold start before_install.linkcheck

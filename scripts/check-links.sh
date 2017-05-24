@@ -10,10 +10,17 @@ export CHECK_EXIT_CODE=0
 if [ ! -e "publish" ]; then
   echo "Site not built, skipping link check."
   exit $CHECK_EXIT_CODE
+elif [ -z "$FIREBASE_TOKEN" ]; then
+  echo "===================================================================="
+  echo "Warning: FIREBASE_TOKEN isn't set, so 'firebase serve' can't be run."
+  echo "Warning: Skipping link check."
+  echo "===================================================================="
+  exit $CHECK_EXIT_CODE
 fi
 
 set -x
-firebase serve --port $PORT > /dev/null &
+: ${FB_PROJ:=dev}
+firebase serve --port $PORT --token "$FIREBASE_TOKEN" --project $FB_PROJ > /dev/null &
 FBS_PID=$!
 
 sleep 4
