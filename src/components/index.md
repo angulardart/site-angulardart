@@ -21,7 +21,7 @@ Internet Explorer is not currently supported.
 <div class="col-md-6" markdown="1">
 Resources for using AngularDart Components:
 
-* [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app){: .no-automatic-external}
+* [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/){: .no-automatic-external}
 * [Dart Summit 2016 codelab](/codelabs/angular_components)
 * [AngularDart Components example](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
 * [API reference](/components/api)

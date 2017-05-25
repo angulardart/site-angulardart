@@ -22,7 +22,7 @@ Google’s Dart apps.
 <aside class="alert alert-info" markdown="1">
 This codelab was first presented at Dart Summit 2016.
 A shorter codelab for AngularDart Components debuted at Google I/O 2017:
-[Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app).
+[Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/).
 </aside>
 
 To complete this codelab, you need the following:
