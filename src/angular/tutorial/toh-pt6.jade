@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: HTTP
-description: Using HTTP services
+description: Convert the service and components to use Angular's HTTP service.
 prevpage:
   title: Routing
   url: /angular/tutorial/toh-pt5
@@ -20,14 +20,7 @@ block includes
   - var _JSON_stringify = 'JSON.encode'
 
 block start-server-and-watch
-  :marked
-    ## Keep the app compiling and running
-
-    Open a terminal/console window.
-    Start the Dart compiler, watch for changes, and start the server by entering the command:
-
-  code-example(language="sh" class="code-shell").
-      pub serve
+  include keep-app-running
 
 block http-library
   :marked

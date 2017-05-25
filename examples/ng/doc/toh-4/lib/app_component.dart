@@ -11,9 +11,9 @@ import 'hero_service.dart';
 // #enddocregion hero-service-import
 
 @Component(
-    selector: 'my-app',
-    // #docregion template
-    template: '''
+  selector: 'my-app',
+  // #docregion template
+  template: '''
       <h1>{{title}}</h1>
       <h2>My Heroes</h2>
       <ul class="heroes">
@@ -25,9 +25,9 @@ import 'hero_service.dart';
       </ul>
       <hero-detail [hero]="selectedHero"></hero-detail>
     ''',
-    // #enddocregion template
-    styles: const [
-      '''
+  // #enddocregion template
+  styles: const [
+    '''
       .selected {
         background-color: #CFD8DC !important;
         color: white;
@@ -75,14 +75,10 @@ import 'hero_service.dart';
         border-radius: 4px 0px 0px 4px;
       }
    '''
-    ],
-    directives: const [
-      CORE_DIRECTIVES,
-      HeroDetailComponent
-    ],
-    providers: const [
-      HeroService
-    ])
+  ],
+  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  providers: const [HeroService],
+)
 class AppComponent implements OnInit {
   String title = 'Tour of Heroes';
   List<Hero> heroes;
@@ -92,11 +88,11 @@ class AppComponent implements OnInit {
 
   AppComponent(this._heroService);
 
-  // #docregion get-heroes
+  // #docregion getHeroes
   Future<Null> getHeroes() async {
     heroes = await _heroService.getHeroes();
   }
-  // #enddocregion get-heroes
+  // #enddocregion getHeroes
 
   void ngOnInit() {
     getHeroes();

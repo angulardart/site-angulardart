@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: Routing
-description: We add the Angular Component Router and learn to navigate among the views
+description: Add the Angular component router and learn to navigate among the views.
 prevpage:
   title: Services
   url: /angular/tutorial/toh-pt4
@@ -39,14 +39,7 @@ block intro-file-tree
       .file pubspec.yaml
 
 block keep-app-running
-  :marked
-    ### Keep the app compiling and running
-
-    Open a terminal/console window.
-    Start the Dart compiler, watch for changes, and start the server by entering the command:
-
-  code-example(language="sh" class="code-shell").
-    pub serve
+  include keep-app-running
 
 block app-comp-v1
   +makeExcerpt('lib/app_component_1.dart (v1)', '')

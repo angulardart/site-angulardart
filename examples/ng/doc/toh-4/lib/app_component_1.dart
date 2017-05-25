@@ -19,8 +19,8 @@ import 'hero_service_1.dart';
   directives: const [CORE_DIRECTIVES, HeroDetailComponent],
   // #docregion providers
   providers: const [HeroService],
-)
 // #enddocregion providers
+)
 // #docregion on-init
 class AppComponent implements OnInit {
   // #enddocregion on-init
