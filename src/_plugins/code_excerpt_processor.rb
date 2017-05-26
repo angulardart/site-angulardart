@@ -6,7 +6,7 @@ module NgCodeExcerpt
 
   class MarkdownProcessor
     def codeExcerptRE
-      /^(\s*(<\?code-excerpt[^>]+\??>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
+      /^(\s*(<\?code-excerpt[^>]*>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
     end
 
     def codeExcerptProcessingInit()
@@ -26,8 +26,9 @@ module NgCodeExcerpt
 
       title = args['title']
       indent = match[4]
-      lang = match[5].empty? ? args['ext'] : match[5];
-      format = getCodeExampleFormat(lang)
+      lang = match[5].empty? ? (args['ext'] || 'nocode') : match[5];
+      langAttr = mkCodeExampleDirectiveAttributes(lang)
+      classes = args['class']
       code = match[6]
 
       # Indented code bocks are easier to read in markdown, but they affect layout.
@@ -42,31 +43,31 @@ module NgCodeExcerpt
       escapedCode.gsub!(/\[!/, '<span class="highlight">')
       escapedCode.gsub!(/!\]/, '</span>')
 
-      return codeExcerpt(title, format, escapedCode, indent)
+      return codeExcerpt(title, classes, langAttr, escapedCode, indent)
     end
 
-    def codeExcerpt(title, format, escapedCode, indent)
-      result = _unindentedTemplate(title, format, escapedCode)
+    def codeExcerpt(title, classes, langAttr, escapedCode, indent)
+      result = _unindentedTemplate(title, classes, langAttr, escapedCode)
       result.gsub!(/^/, indent) if indent
       return result
     end
 
-    def _unindentedTemplate(title, format, escapedCode)
-      "<div class=\"code-example\">\n" +
+    def _unindentedTemplate(title, classes, langAttr, escapedCode)
+      "<div class=\"code-example #{classes || ''}\">\n" +
         (title ? "<header><h4>#{title}</h4></header>\n" : '') +
-        "<code-example #{format}>" +
+        "<code-example #{langAttr}>" +
           escapedCode +
         "</code-example>\n" +
       "</div>\n"
     end
 
-    def getCodeExampleFormat(lang)
-      !lang || lang.empty? || lang == 'nocode' ? "format=\"nocode\"" : "language=\"#{lang}\""
+    def mkCodeExampleDirectiveAttributes(lang)
+      lang == 'nocode' ? 'format="nocode"' : "language=\"#{lang}\""
     end
 
     def processPiArgs(pi)
       # match = /<\?code-excerpt\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\??>/.match(pi)
-      match = /<\?code-excerpt\s*([^\?>]+)\s*\??>/.match(pi)
+      match = /<\?code-excerpt\s*([^\?>]*)\s*\??>/.match(pi)
       if !match
           puts "ERROR: improperly formatted instruction: #{pi}"
           return nil
@@ -107,18 +108,19 @@ module NgCodeExcerpt
 
   class JadeMarkdownProcessor < MarkdownProcessor
 
-    def codeExcerpt(title, format, escapedCode, indent)
+    def codeExcerpt(title, classes, langAttr, escapedCode, indent)
       # Unindent by 2 spaces so as to get out of current
       # `:marked` region, since the code-excerpt will be a
       # separate (non-markdown) Jade region.
       indent.sub!(/^  /,'') if indent;
-      return super(title, format, escapedCode, indent)
+      return super(title, classes, langAttr, escapedCode, indent)
     end
 
-    def _unindentedTemplate(title, format, escapedCode)
-      ".code-example\n" +
+    def _unindentedTemplate(title, classes, langAttr, escapedCode)
+      classes = '.' + classes.sub(/\s+/, '.') if classes
+      ".code-example#{classes}\n" +
       (title ? "  header: h4 #{title}\n" : '') +
-      "  code-example(#{format}).\n" +
+      "  code-example(#{langAttr}).\n" +
       "#{escapedCode.gsub(/^/, '    ')}\n" +
       ":marked"
     end

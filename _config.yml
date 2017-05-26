@@ -23,6 +23,7 @@ dart_api: "https://api.dartlang.org/stable"
 acx_api: "/components/api"
 flutter_api: "http://docs.flutter.io"
 dartino_api: "https://dartino.github.io/api"
+api: "https://www.dartdocs.org/documentation"
 
 collections:
   articles:

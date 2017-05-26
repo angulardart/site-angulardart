@@ -1,8 +1,10 @@
 // #docregion
 
+// #docregion imports
 import 'dart:async';
 
 import 'package:pageloader/objects.dart';
+// #enddocregion imports
 
 class AppPO {
   @ByTagName('h1')

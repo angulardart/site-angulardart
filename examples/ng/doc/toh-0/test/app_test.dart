@@ -2,16 +2,20 @@
 @Tags(const ['aot'])
 @TestOn('browser')
 
+// #enddocregion
 import 'package:angular2/angular2.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:test/test.dart';
 
 import 'package:angular_tour_of_heroes/app_component.dart';
 
+// #docregion initial
 @AngularEntrypoint()
 void main() {
+  // #docregion testbed-and-fixture
   final testBed = new NgTestBed<AppComponent>();
   NgTestFixture<AppComponent> fixture;
+  // #enddocregion testbed-and-fixture
 
   setUp(() async {
     fixture = await testBed.create();
