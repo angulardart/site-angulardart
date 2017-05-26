@@ -127,3 +127,8 @@ img.centered {
     }
   }
 }
+
+/* Overwrite bootstrap */
+pre code {
+  white-space: pre;
+}
