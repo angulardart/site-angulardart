@@ -5,7 +5,7 @@
 
 
 /*
-* Class
+* Original Classes for use in Jade files
 */
 
 .filetree {
@@ -43,5 +43,63 @@
         border-radius: 0 0 0 3px;
       }
     }
+  }
+}
+
+// Classes for use in markdown
+
+.ul-filetree {
+  background: $white;
+  box-shadow: 0 2px 2px rgba($black, 0.24), 0 0 2px rgba($black, 0.12);
+  border: 4px solid $blue-grey-50;
+  padding: $unit * 3;
+  color: $blue-grey-600;
+
+  ul {
+    margin-left: -$unit;
+    list-style: none;
+    line-height: 2em;
+    font-family: $mono-font;
+    padding-left: 2em;
+
+    li {
+      position: relative;
+      &:before {
+        position: absolute;
+        left: -($unit * 2);
+        top: 0px;
+        content: '';
+        display: block;
+        border-left: 1px solid $blue-grey-100;
+        height: 1em;
+        border-bottom: 1px solid $blue-grey-100;
+        width: 10px;
+      }
+      &:after {
+        position: absolute;
+        left: -($unit * 2);
+        bottom: -$unit;
+        content: '';
+        display: block;
+        border-left: 1px solid $blue-grey-100;
+        height: 100%;
+      }
+      &.root {
+        margin: 0px 0px 0px -20px;
+        &:before { display: none; }
+        &:after { display: none; }
+      }
+      &:last-child {
+        &:after {
+          display: none
+        }
+      }
+    }
+  }
+  > ul > li:first-child {
+    // A copy of ul li.root above
+    margin: 0px 0px 0px -20px;
+    &:before { display: none; }
+    &:after { display: none; }
   }
 }
