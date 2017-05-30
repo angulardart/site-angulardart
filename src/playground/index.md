@@ -36,7 +36,7 @@ Quickstart pubspec w/ title:
     sdk: '>=1.23.0 <2.0.0'
 
   dependencies:
-    angular2: ^3.0.0
+    angular2: ^3.1.0
 
   dev_dependencies:
     angular_test: ^1.0.0-beta+2

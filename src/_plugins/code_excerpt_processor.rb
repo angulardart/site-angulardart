@@ -1,12 +1,16 @@
 ##
-## Classes that support the processing of <?code-excerpt?> instructions.
+## Classes that support the processing of <?code-excerpt?> and
+## <?code-pane?> instructions.
 ##
 
 module NgCodeExcerpt
 
   class MarkdownProcessor
+
+    @@logEntryCount = 0;
+
     def codeExcerptRE
-      /^(\s*(<\?code-excerpt[^>]*>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
+      /^(\s*(<\?(code-\w+)[^>]*>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
     end
 
     def codeExcerptProcessingInit()
@@ -14,22 +18,29 @@ module NgCodeExcerpt
     end
 
     def processCodeExcerpt(match, templateLang)
-      piLine = match[1]
-      pi = match[2] # processing instruction <?code-excerpt ...?>
+      # piLineWithWhitespace = match[1]
+      pi = match[2] # full processing instruction <?code-excerpt...?>
+      piName = match[3]
       args = processPiArgs(pi);
-      optionalCodeBlock = match[3]
-      if !optionalCodeBlock
+      optionalCodeBlock = match[4]
+      indent = match[5]
+      lang = !match[6] || match[6].empty? ? (args['ext'] || 'nocode') : match[6]
+      attrs = mkCodeExampleDirectiveAttributes(lang, args['linenums'] || piName == 'code-pane')
+
+      if piName == 'code-pane'
+        return processCodePane(pi, attrs, args)
+      elsif piName != 'code-excerpt'
+        logPuts "Warning: unrecognized instruction: #{pi}"
+        return match[0]
+      elsif !optionalCodeBlock
         # w/o a code block assume it is a set cmd
         processSetCommand(pi, args)
         return ''
       end
 
       title = args['title']
-      indent = match[4]
-      lang = match[5].empty? ? (args['ext'] || 'nocode') : match[5];
-      langAttr = mkCodeExampleDirectiveAttributes(lang)
       classes = args['class']
-      code = match[6]
+      code = match[7]
 
       # Indented code bocks are easier to read in markdown, but they affect layout.
       # If the first line is indented by 2 spaces, trim out that indentation.
@@ -43,31 +54,36 @@ module NgCodeExcerpt
       escapedCode.gsub!(/\[!/, '<span class="highlight">')
       escapedCode.gsub!(/!\]/, '</span>')
 
-      return codeExcerpt(title, classes, langAttr, escapedCode, indent)
+      return codeExcerpt(title, classes, attrs, escapedCode, indent)
     end
 
-    def codeExcerpt(title, classes, langAttr, escapedCode, indent)
-      result = _unindentedTemplate(title, classes, langAttr, escapedCode)
+    def codeExcerpt(title, classes, attrs, escapedCode, indent)
+      result = _unindentedTemplate(title, classes, attrs, escapedCode)
       result.gsub!(/^/, indent) if indent
       return result
     end
 
-    def _unindentedTemplate(title, classes, langAttr, escapedCode)
+    def _unindentedTemplate(title, classes, attrs, escapedCode)
       "<div class=\"code-example #{classes || ''}\">\n" +
         (title ? "<header><h4>#{title}</h4></header>\n" : '') +
-        "<code-example #{langAttr}>" +
+        "<code-example #{attrs}>" +
           escapedCode +
         "</code-example>\n" +
       "</div>\n"
     end
 
-    def mkCodeExampleDirectiveAttributes(lang)
-      lang == 'nocode' ? 'format="nocode"' : "language=\"#{lang}\""
+    def mkCodeExampleDirectiveAttributes(lang, linenums)
+      formats = linenums ? ['linenums'] : [];
+      formats.push('nocode') if lang == 'nocode'
+      attrs = []
+      attrs.push("language=\"#{lang}\"") unless lang == 'nocode'
+      attrs.push("format=\"#{formats * ' '}\"") if !formats.empty?
+      return attrs * ' '
     end
 
     def processPiArgs(pi)
-      # match = /<\?code-excerpt\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\??>/.match(pi)
-      match = /<\?code-excerpt\s*([^\?>]*)\s*\??>/.match(pi)
+      # match = /<\?code-\w+\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\??>/.match(pi)
+      match = /<\?code-\w+\s*([^\?>]*)\s*\??>/.match(pi)
       if !match
           puts "ERROR: improperly formatted instruction: #{pi}"
           return nil
@@ -90,37 +106,86 @@ module NgCodeExcerpt
       # Process remaining args
       argString.scan(/\b(\w[-\w]*)(="([^"]*)")?/) { |id,arg,val|
         val = args[''] if id == 'title' && !arg
-        args[id] = val
+        args[id] = val || ''
       }
       # puts "  >> args: #{args}"
       return args
     end
 
+    def processCodePane(pi, attrs, args)
+      title = args['title'] || args['']
+      escapedCode = getCodeFrag(fullFragPath(args['path'], args['region']))
+      result =
+      "#{pi}\n" +
+      "<code-pane name=\"#{title}\" #{attrs}>" +
+        escapedCode +
+      "</code-pane>\n"
+      # puts ">> code-pane:\n#{result}\n"
+      return result
+    end
+    
     def processSetCommand(pi, args)
       pathBase = nil
       if !args || !(pathBase = args['path-base'])
         puts "ERROR: code block expected immediately after #{pi}"
+        return;
       end
       @pathBase = pathBase.sub(/\/$/, '');
       # puts ">> path base set to #{@pathBase}"
     end
+  
+    def getCodeFrag(path)
+      if File.exists? path
+        lines = File.readlines path
+        result = escapeAndTrimCode(lines)
+      else
+        result = "BAD FILENAME: #{path}"
+        logPuts result
+      end
+      return result
+    end
+
+    def fullFragPath(projRelPath, region)
+      fragRelPath = File.join(@pathBase, projRelPath)
+      if region && !region.empty?
+        dir = File.dirname(fragRelPath)
+        basename = File.basename(fragRelPath, '.*')
+        ext = File.extname(fragRelPath)
+        fragRelPath = File.join(dir, "#{basename}-#{region}#{ext}")
+      end
+      fragExtension = '.txt'
+      fullPath = File.join(Dir.pwd, 'tmp', '_fragments', fragRelPath + fragExtension)
+    end
+
+    def escapeAndTrimCode(lines)
+      # Skip blank lines at the end too
+      while !lines.empty? && lines.last.strip == '' do lines.pop end
+      return CGI::escapeHTML(lines.join)
+    end
+
+    def logPuts(s)
+      puts(s)
+      fileMode = (@@logEntryCount += 1) <= 1 ? 'w' : 'a'
+      File.open('code-excerpt-log.txt', fileMode) do |logFile| logFile.puts(s) end
+    end
+
   end
 
   class JadeMarkdownProcessor < MarkdownProcessor
 
-    def codeExcerpt(title, classes, langAttr, escapedCode, indent)
+    def codeExcerpt(title, classes, attrs, escapedCode, indent)
       # Unindent by 2 spaces so as to get out of current
       # `:marked` region, since the code-excerpt will be a
       # separate (non-markdown) Jade region.
       indent.sub!(/^  /,'') if indent;
-      return super(title, classes, langAttr, escapedCode, indent)
+      return super(title, classes, attrs, escapedCode, indent)
     end
 
-    def _unindentedTemplate(title, classes, langAttr, escapedCode)
+    def _unindentedTemplate(title, classes, attrs, escapedCode)
       classes = '.' + classes.sub(/\s+/, '.') if classes
       ".code-example#{classes}\n" +
       (title ? "  header: h4 #{title}\n" : '') +
-      "  code-example(#{langAttr}).\n" +
+      "  code-example(#{attrs}).\n" +
       "#{escapedCode.gsub(/^/, '    ')}\n" +
       ":marked"
     end

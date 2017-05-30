@@ -32,7 +32,7 @@ npm-debug*.log*
 /src/angular/api/api-list.json
 /src/angular/cheatsheet.json
 /src/styles/angular.css
-/jade-log.txt
+/*-log.txt
 
 # /public/**
 

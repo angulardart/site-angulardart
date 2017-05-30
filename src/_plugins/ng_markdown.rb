@@ -21,6 +21,10 @@ module Jekyll
     end
 
     def convert(content)
+      # Unescape {!{ ... }!} back to Angular {{ }}
+      content.gsub!(/{!{/, '{{') # &#123;&#123;
+      content.gsub!(/}!}/, '}}') # &#125;&#125;
+
       @cep = NgCodeExcerpt::MarkdownProcessor.new() unless @cep
       @cep.codeExcerptProcessingInit()
       content.gsub!(@cep.codeExcerptRE) {
