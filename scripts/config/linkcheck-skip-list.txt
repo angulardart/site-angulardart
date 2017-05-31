@@ -23,7 +23,6 @@
 # Dartdoc related
 /angular/api/static-assets/fonts
 /components/api/static-assets/fonts
-/components/api/angular_components/ActivateItemOnKeyPressMixin/(handleEndKey|handleHomeKey|onKeyDown|onKeyPress|onKeyUp|isRtl)
-
+/components/api/angular_components/ActivateItemOnKeyPressMixin/(handleBackspaceKey|handleDeleteKey|handleEndKey|handleHomeKey|onKeyDown|onKeyPress|onKeyUp|isRtl)
 # Link placeholders
 \#link-TBD
