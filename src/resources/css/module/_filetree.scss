@@ -62,13 +62,14 @@
     line-height: 2em;
     font-family: $mono-font;
     padding-left: 2em;
+    margin-bottom: 0;
 
     li {
       position: relative;
       &:before {
         position: absolute;
         left: -($unit * 2);
-        top: 0px;
+        top: 0;
         content: '';
         display: block;
         border-left: 1px solid $blue-grey-100;
@@ -86,7 +87,7 @@
         height: 100%;
       }
       &.root {
-        margin: 0px 0px 0px -20px;
+        margin: 0 0 0 -20px;
         &:before { display: none; }
         &:after { display: none; }
       }
@@ -99,7 +100,7 @@
   }
   > ul > li:first-child {
     // A copy of ul li.root above
-    margin: 0px 0px 0px -20px;
+    margin: 0 0 0 -20px;
     &:before { display: none; }
     &:after { display: none; }
   }
