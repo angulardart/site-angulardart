@@ -11,7 +11,7 @@ if [ ! -e "publish" ]; then
   echo "Site not built, skipping link check."
   exit $CHECK_EXIT_CODE
 elif [ -n "$FIREBASE_TOKEN" ]; then
-  FB_TOKEN_OPTN="--token '$FIREBASE_TOKEN'"
+  FB_TOKEN_OPTN="--token $FIREBASE_TOKEN"
 elif [ -n "$TRAVIS" ]; then
   echo "===================================================================="
   echo "Warning: Travis requires that FIREBASE_TOKEN be set so that firebase"
