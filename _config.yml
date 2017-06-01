@@ -113,12 +113,13 @@ custom:
         ext: zip
         editor-ext: zip
 
+# For defaults see:
+# https://jekyllrb.com/docs/configuration/#default-configuration
+
 # Build settings
-safe: false
 source: src
 destination: publish
 bundler_args: --without production
-markdown: kramdown
 
 # exclude: ['.asset-cache']
 

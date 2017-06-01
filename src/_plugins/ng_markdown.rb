@@ -12,6 +12,8 @@ module Jekyll
 
   class NgMarkdown < Converter
 
+    priority :high
+
     def matches(ext)
       ext =~ /^\.md$/i
     end

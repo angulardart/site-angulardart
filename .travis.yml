@@ -29,7 +29,8 @@ before_install:
   - source ./scripts/env-set.sh
   - ./scripts/install-dart-sdk.sh
   - ./scripts/before-install.sh
-  - rvm install 2.3.0
+  - rvm get stable
+  - rvm install 2.3
 
 install:
   - sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula
