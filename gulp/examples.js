@@ -6,8 +6,7 @@ module.exports = function (gulp, plugins, config) {
 
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
   const LOCAL_TMP = config.LOCAL_TMP;
-  const siteFolder = 'publish';
-  const siteExPath = plugins.path.join(siteFolder, 'examples');
+  const siteExPath = plugins.path.join(config.siteFolder, 'examples');
 
   const argv = plugins.argv;
   const execp = plugins.execp;
@@ -46,11 +45,7 @@ module.exports = function (gulp, plugins, config) {
     return plugins.q.all(promises);
   });
 
-  gulp.task('_examples-cp-to-site-folder', ['_clean'], (cb) => {
-    if (argv.clean) {
-      gutil.log(`  Cleaning out ${siteExPath}`);
-      plugins.del.sync(siteExPath);
-    }
+  gulp.task('_examples-cp-to-site-folder', ['_clean', '_examples-get-repos'], (cb) => {
     if (fs.existsSync(siteExPath)) {
       gutil.log(`  No examples to copy since folder exists: '${siteExPath}'.`);
       gutil.log(`  Use '--clean' to have '${siteExPath}' refreshed.`);
@@ -58,7 +53,6 @@ module.exports = function (gulp, plugins, config) {
     }
     gutil.log(`  Copying examples to ${siteExPath}`);
     const baseDir = LOCAL_TMP;
-    const js = filter(`${baseDir}/examples/**/*.js`, { restore: true });
     const indexHtml = filter(`${baseDir}/examples/ng/doc/*/index.html`, { restore: true });
     return gulp.src([
       `${baseDir}/examples/**`,
@@ -68,7 +62,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(indexHtml)
       .pipe(replace(/(<base href=")([^"]+">)/, `$1/examples/ng/doc$2`)) //, { skipBinary: true }
       .pipe(indexHtml.restore)
-      .pipe(gulp.dest(siteFolder));
+      .pipe(gulp.dest(config.siteFolder));
   });
 
 };

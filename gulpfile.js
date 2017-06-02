@@ -38,6 +38,8 @@ const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
 const THIS_PROJECT_PATH = path.resolve('.');
+const siteFolder = 'publish';
+
 // angular.io constants
 // TODO: get path from the env
 const PUBLIC_PATH = './public';
@@ -60,23 +62,24 @@ const config = {
   _dgeniLogLevel: _dgeniLogLevel,
   angulario: angulario,
   dartdocProj: ['acx', 'ng'],
-  repoPath: {
-    acx: process.env.ACX_REPO,
-    ng: process.env.NG2_REPO,
-  },
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
-  ngDocSrc: ngDocSrc,
-  qsProjName: qsProjName,
-  relDartDocApiDir: path.join('doc', 'api'),
-  THIS_PROJECT_PATH: THIS_PROJECT_PATH,
-  TOOLS_PATH: TOOLS_PATH,
   frags: {
     apiDirName: '_api',
     dirName: path.basename(fragsPath),
     path: fragsPath,
   },
   LOCAL_TMP: LOCAL_TMP,
+  ngDocSrc: ngDocSrc,
+  qsProjName: qsProjName,
+  relDartDocApiDir: path.join('doc', 'api'),
+  repoPath: {
+    acx: process.env.ACX_REPO,
+    ng: process.env.NG2_REPO,
+  },
+  siteFolder: siteFolder,
+  THIS_PROJECT_PATH: THIS_PROJECT_PATH,
+  TOOLS_PATH: TOOLS_PATH,
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
 
@@ -157,8 +160,11 @@ gulp.task('build-deploy', ['build'], () => {
 
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
-const _cleanTargets = ['publish', LOCAL_TMP];
-const _delTmp = () => del(_cleanTargets, { force: true });
+const _cleanTargets = [siteFolder, LOCAL_TMP];
+function _delTmp() {
+  gutil.log(`  Deleting ${_cleanTargets}`);
+  return del(_cleanTargets, { force: true });
+}
 gulp.task('clean', cb => _delTmp());
 gulp.task('_clean', cb => argv.clean ? _delTmp() : cb());
 gulp.task('clean-src', cb => execp(`git clean -xdf src`));
