@@ -98,15 +98,15 @@ angularIO.directive('liveExample', ['$location', function ($location) {
         template = embeddedTemplate(href, img, zipHref);
       } else {
         var href = isForDart
-          ? 'http://angular-examples.github.io/' + ex
+          ? '/examples/ng/doc/' + ex
           : '/resources/live-examples/' + ex + '/' + exLang + '/' + plnkr + '.html'
 
         // Link to live example.
         var template = a(text, { href: href, target: '_blank" rel="noopener' });
 
-        if (false) {
-          template += ' / ' + a('downloadable example', { href: zipHref, target: '_blank" rel="noopener' });
-        }
+        // if (false) {
+        //   template += ' / ' + a('downloadable example', { href: zipHref, target: '_blank" rel="noopener' });
+        // }
 
         // The hosted example and sources are in different locations for Dart.
         // Also show link to sources for Dart, unless noSource is specified.

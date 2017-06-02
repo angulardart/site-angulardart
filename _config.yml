@@ -124,6 +124,7 @@ bundler_args: --without production
 # exclude: ['.asset-cache']
 
 keep_files:
+  - examples
   - angular/api
   - components/api
 
