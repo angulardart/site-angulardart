@@ -48,8 +48,11 @@ module.exports = function (gulp, plugins, config) {
     gutil.log('Create *.txt frag files: duplicate *.md files, but change extension to .txt');
     cp.execSync(`${find} -name "*.md" -exec bash -c 'cp "$0" "\${0%.md}.txt"' {} \\;`);
 
+    // The sed `-i` flag works differently under MacOS and Linux:
+    // https://stackoverflow.com/questions/5694228/sed-in-place-flag-that-works-both-on-mac-bsd-and-linux
+    const inplace = process.env._OS_NAME === 'macos' ? "-i ''" : '-i';
     gutil.log('Create *.txt frag files: keep only the code excerpt between ``` line markers');
-    cp.execSync(find + " -name '*.txt' -exec sed -ne '/^```/,/^```/{ /^```/d; $d; p; }' -i '' {} \\;");
+    cp.execSync(find + " -name '*.txt' -exec sed -ne '/^```/,/^```/{ /^```/d; $d; p; }' " + inplace + " {} \\;");
   }
 
   function shred(options) {
