@@ -105,7 +105,12 @@ module NgCodeExcerpt
 
       # Process remaining args
       argString.scan(/\b(\w[-\w]*)(="([^"]*)")?/) { |id,arg,val|
-        val = args[''] if id == 'title' && !arg
+        if id == 'title' && !arg
+          val = args['']
+          # Title like styles.1.css or foo_1.dart? Then drop the '.1' or '_1' qualifier:
+          match = /^(.*)[\._]\d(\.\w+)(\s+.+)?$/.match(val)
+          val = "#{match[1]}#{match[2]}#{match[3]}" if match
+        end
         args[id] = val || ''
       }
       # puts "  >> args: #{args}"
