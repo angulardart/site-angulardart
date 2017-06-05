@@ -1,11 +1,5 @@
-- var _example = 'toh-5';
-
 block includes
   //- include ../_util-fns
-  - var _appRoutingTsVsAppComp = 'app.module.ts'
-  - var _RoutesVsAtRouteConfig = 'Routes'
-  - var _RouterModuleVsRouterDirectives = 'RouterModule'
-  - var _redirect = 'redirect'
 
 :marked
   There are new requirements for the Tour of Heroes app:
@@ -30,8 +24,7 @@ figure.image-display
 :marked
   When you're done with this page, the app should look like this <live-example></live-example>.
 
-+ifDocsFor('ts|js')
-  //- include ../../../_includes/_see-addr-bar
+//- include ../../../_includes/_see-addr-bar
 
 .l-main-section
 :marked
@@ -110,6 +103,7 @@ block keep-app-running
   and create a separate `AppComponent` shell.
 
   Do the following:
+
   * Rename the `app_component.dart` file to `heroes_component.dart`.
   * Rename the `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file).
   * Rename the selector `my-app` to `my-heroes`.
@@ -277,7 +271,7 @@ block routerLink
 
   `AppComponent` now looks like this:
 
-+makeExample('app/app.component.1.ts', 'v2', 'app/app.component.ts (v2)')
++makeExcerpt('app/app.component.1.ts (v2)')
 
 :marked
   The  *AppComponent* is now attached to a router and displays routed views.
@@ -360,7 +354,7 @@ block templateUrl-path-resolution
 :marked
   Create that file with this content:
 
-+makeExample('app/dashboard.component.1.html', '', 'app/dashboard.component.html')
++makeExample('app/dashboard.component.1.html')
 
 :marked
   `*ngFor` is used again to iterate over a list of heroes and display their names.
@@ -419,7 +413,7 @@ block templateUrl-path-resolution
   hero object with a binding like this:
 
 code-example(language="html").
-  &lt;my-hero-detail [hero]="selectedHero">&lt;/my-hero-detail>
+  &lt;hero-detail [hero]="selectedHero">&lt;/hero-detail>
 
 :marked
   But this binding won't work in any of the routing scenarios.
@@ -447,10 +441,9 @@ code-example(format="nocode").
   The colon (:) in the path indicates that `:id` is a placeholder for a specific hero `id`
   when navigating to the `HeroDetailComponent`.
 
-+ifDocsFor('dart')
-  .l-sub-section
-    :marked
-      Be sure to import the hero detail component before creating this route.
+.l-sub-section
+  :marked
+    Be sure to import the hero detail component before creating this route.
 
 :marked
   You're finished with the app routes.
@@ -484,7 +477,7 @@ block route-params
   Add the following imports:
 
 - var _vers = _docsFor == 'dart' ? '' : '.1'
-+makeExcerpt('app/hero-detail.component' + _vers + '.ts', 'added-imports', 'app/hero-detail.component')
++makeExcerpt('app/hero-detail.component' + _vers + '.ts', 'added-imports')
 
 - var _ActivatedRoute = _docsFor == 'dart' ? 'RouteParams' : 'ActivatedRoute'
 :marked
@@ -502,7 +495,7 @@ block route-params
 :marked
   Tell the class to implement the `OnInit` interface.
 
-+makeExcerpt('app/hero-detail.component.ts', 'implement', 'app/hero-detail.component.ts')
++makeExcerpt('app/hero-detail.component.ts', 'implement')
 
 block ngOnInit
   :marked
@@ -510,8 +503,7 @@ block ngOnInit
     extract the `id` parameter value from the `ActivatedRoute` service
     and use the `HeroService` to fetch the hero with that `id`.
 
-+makeExcerpt('app/hero-detail.component.ts', 'ngOnInit', 'app/hero-detail.component.ts')
-
++makeExcerpt('app/hero-detail.component.ts', 'ngOnInit')
 
 block extract-id
   :marked
@@ -596,7 +588,7 @@ block extract-id
   To achieve this effect, reopen `dashboard_component.html` and replace the repeated `<div *ngFor...>` tags
   with `<a>` tags. Change the opening `<a>` tag to the following:
 
-+makeExample('app/dashboard.component.html', 'click', 'app/dashboard.component.html (repeated <a> tag)')
++makeExcerpt('app/dashboard.component.html (repeated <a> tag)', 'click')
 
 - var _pathVsName = _docsFor == 'dart' ? 'name' : 'path'
 :marked
@@ -685,7 +677,7 @@ block extract-id
 :marked
   Delete the `<h1>` at the top.
 
-  Delete the last line of the template with the `<my-hero-detail>` tags.
+  Delete the last line of the template with the `<hero-detail>` tags.
 
   You'll no longer show the full `HeroDetailComponent` here.
   Instead, you'll display the hero detail on its own page and route to it as you did in the dashboard.
@@ -695,7 +687,7 @@ block extract-id
 
   ### Add the *mini detail*
 
-  Add the following HTML fragment at the bottom of the template where the `<my-hero-detail>` used to be:
+  Add the following HTML fragment at the bottom of the template where the `<hero-detail>` used to be:
 
 +makeExcerpt('app/heroes.component.html', 'mini-detail', 'app/heroes.component.ts')
 
@@ -771,8 +763,8 @@ block heroes-component-cleanup
 
   This approach requires the following changes to the component class:
 
-  1. Import the `router` from the Angular router library.
-  1. Inject the `router` in the constructor, along with the `HeroService`.
+  1. Import the `Router` from the Angular router library.
+  1. Inject the `Router` in the constructor, along with the `HeroService`.
   1. Implement `gotoDetail()` by calling the router `navigate()` method.
 
 +makeExcerpt('app/heroes.component.ts', 'gotoDetail')
