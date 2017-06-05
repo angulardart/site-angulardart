@@ -281,7 +281,8 @@ a#oninit
     [Asynchronous Programming: Futures]: https://www.dartlang.org/tutorials/language/futures
 
 :marked
-  Update the `HeroService` with this `Future`-returning `getHeroes()` method:
+  Add an import of `'dart:async'` because it defines `Future`, and
+  update the `HeroService` with this `Future`-returning `getHeroes()` method:
 
 +makeExcerpt('lib/hero_service.dart (excerpt)', 'get-heroes')
 
