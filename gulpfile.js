@@ -129,7 +129,7 @@ const plugins = {
 
 const extraTasks = `
   api api-list cheatsheet dartdoc e2e examples example-frag example-template
-  get-stagehand-proj ngio-get ngio-put sass test update-ng-vers`;
+  get-stagehand-proj jade-to-md ngio-get ngio-put sass test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
