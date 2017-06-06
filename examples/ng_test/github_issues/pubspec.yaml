@@ -13,7 +13,7 @@ dev_dependencies:
   browser: 0.10.0+2
   mockito: ^2.0.2
   pageloader: ^2.2.5
-  test: 0.12.18+1
+  test: ^0.12.21
 transformers:
   - angular2/transform/codegen:
       platform_directives:

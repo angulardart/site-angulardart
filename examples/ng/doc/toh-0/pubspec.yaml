@@ -18,7 +18,7 @@ dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   # #enddocregion initial
-  test: ^0.12.0
+  test: ^0.12.21
   # #docregion initial
 # #enddocregion dev_dependencies
 

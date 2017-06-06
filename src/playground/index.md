@@ -42,7 +42,7 @@ Quickstart pubspec w/ title:
     angular_test: ^1.0.0-beta+2
     browser: ^0.10.0
     dart_to_js_script_rewriter: ^1.0.1
-    test: ^0.12.0
+    test: ^0.12.21
 
   transformers:
   - angular2:

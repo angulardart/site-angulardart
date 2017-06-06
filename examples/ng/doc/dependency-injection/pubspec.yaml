@@ -9,7 +9,7 @@ dependencies:
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
-  test: any
+  test: ^0.12.21
 transformers:
 - angular2:
     entry_points: web/main.dart
