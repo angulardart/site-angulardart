@@ -46,7 +46,10 @@ included in the SDK, the following tools
 offer specialized support for web programming.
 
 [dart2js](/tools/dart2js)
-: Dart-to-JavaScript compiler
+: The original Dart-to-JavaScript compiler, with tree shaking
+
+[dartdevc](/tools/dartdevc)
+: The Dart dev compiler, a modular Dart-to-JavaScript compiler
 
 [pub build](/tools/pub/pub-build)
 : Pub command for building a web app
