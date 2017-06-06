@@ -418,7 +418,8 @@ module.exports = function (gulp, plugins, config) {
     } else {
       var pubUpgradeSpawnInfo = spawnExt('pub', ['upgrade'], { cwd: appDir });
       var prepPromise = pubUpgradeSpawnInfo.promise.then(function (data) {
-        return spawnExt('pub', ['build'], { cwd: appDir }).promise;
+        const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
+        return spawnExt('pub', ['build', `--web-compiler=${wc}`], { cwd: appDir }).promise;
       });
     }
     return runProtractor(prepPromise, appDir, appRunSpawnInfo, outputFile);
