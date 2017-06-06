@@ -25,30 +25,17 @@ matrix:
     - env: CI_TASK="e2e --fast"
 
 before_install:
-  - sudo apt-get update --yes
   - source ./scripts/env-set.sh
-  - ./scripts/install-dart-sdk.sh
   - ./scripts/before-install.sh
-  - rvm get stable
-  - rvm install 2.3
 
 install:
-  - sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula
-    select true | debconf-set-selections"
-  - sudo apt-get install --yes ttf-indic-fonts ttf-mscorefonts-installer ttf-dejavu-core
-    ttf-kochi-gothic ttf-kochi-mincho fonts-tlwg-garuda
-    # ttf-thai-tlwg # Package 'ttf-thai-tlwg' has no installation candidate
   - ./scripts/install.sh
-  - ./scripts/get-ng-repo.sh
 
 before_script:
-  - sh -e /etc/init.d/xvfb start
-  - t=0; until (xdpyinfo -display :99 &> /dev/null || test $t -gt 10); do sleep 1; let t=$t+1; done
-  - content_shell --run-layout-test --disable-gpu-early-init --disable-gpu
+  - ./scripts/browser.sh
 
 script:
-  # - ./scripts/deploy/runtests.sh
-  # - ./scripts/deploy/cibuild
+  # - ./scripts/deploy/runtests.sh; ./scripts/deploy/cibuild
   - gulp $CI_TASK
 
 after_script:
