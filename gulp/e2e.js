@@ -418,8 +418,12 @@ module.exports = function (gulp, plugins, config) {
     } else {
       var pubUpgradeSpawnInfo = spawnExt('pub', ['upgrade'], { cwd: appDir });
       var prepPromise = pubUpgradeSpawnInfo.promise.then(function (data) {
-        const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
-        return spawnExt('pub', ['build', `--web-compiler=${wc}`], { cwd: appDir }).promise;
+        // This won't work until Dart 1.24:
+        // const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
+        // return spawnExt('pub', ['build', `--web-compiler=${wc}`], { cwd: appDir }).promise;
+        const wc = process.env.WEB_COMPILER, args = ['build'];
+        if (wc === 'dartdevc') args.push(`--web-compiler=${wc}`);
+        return spawnExt('pub', args, { cwd: appDir }).promise;
       });
     }
     return runProtractor(prepPromise, appDir, appRunSpawnInfo, outputFile);
