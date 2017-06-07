@@ -25,3 +25,6 @@ transformers:
           - web/main.dart
   - test/pub_serve:                                                                                                                                                                                        
       $include: test/**_test.dart
+web:
+  compiler:
+    debug: dartdevc

@@ -33,3 +33,6 @@ transformers:
     $include: test/**_test.dart
 # #docregion initial
 - dart_to_js_script_rewriter
+web:
+  compiler:
+    debug: dartdevc
