@@ -285,15 +285,23 @@ module.exports = function (gulp, plugins, config) {
       // get all of the examples under each dir where a pcFilename is found
       let localExamplePaths = getExamplePaths(specPath, true);
       // Filter by example name
-      if (filter) {
-        localExamplePaths = localExamplePaths.filter(function (fn) {
-          return fn.match(filter) != null;
-        })
+      if (filter) localExamplePaths = localExamplePaths.filter(p => p.match(filter));
+
+      // Until we have a better mechanism, hard code the E2E tests to skip when using dartdevc
+      // https://github.com/dart-lang/site-webdev/issues/703
+      if (process.env.WEB_COMPILER === 'dartdevc') {
+        localExamplePaths = localExamplePaths.filter(p => {
+          if (p.match(/toh-[56]|lifecycle-hooks|server-communication|template-syntax/)) {
+            gutil.log(`E2E: under dartdevc, we SKIP ${p}`);
+            return false;
+          }
+          return true;
+        });
       }
-      localExamplePaths.forEach(function(examplePath) {
-        examplePaths.push(examplePath);
-      });
+      examplePaths.push(...localExamplePaths);
     });
+
+    gutil.log(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
 
     // run the tests sequentially
     var status = { passed: [], failed: [] };
