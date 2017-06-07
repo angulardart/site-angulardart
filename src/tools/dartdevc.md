@@ -86,7 +86,7 @@ To make pub use dartdevc, do one of the following:
       debug: dartdevc
   ```
 
-* **Use the new `--web-compiler` flag** to `pub build` or `pub serve`.
+* Alternately, **use the new `--web-compiler` flag** to `pub build` or `pub serve`.
   Specify the `dartdevc` option:
 
   ```
