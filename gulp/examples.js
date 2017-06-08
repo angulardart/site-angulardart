@@ -16,6 +16,8 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
   const replace = plugins.replace;
 
+  const tmpReposPath = path.join(LOCAL_TMP, 'deploy-repos');
+
   let examples = plugins.fs.readdirSync(EXAMPLES_PATH)
     .filter(name => !name.match(/^toh-0$|^_|\.|node_modules/));
 
@@ -29,7 +31,7 @@ module.exports = function (gulp, plugins, config) {
     // var promise = Promise.resolve(true);
     const promises = [];
     examples.forEach((name) => {
-      const exPath = path.join(LOCAL_TMP, EXAMPLES_PATH, name)
+      const exPath = path.join(tmpReposPath, EXAMPLES_PATH, name)
       if (fs.existsSync(exPath)) {
         // gutil.log(`  Repo ${exPath} exists`);
         // TODO: pull?
@@ -52,7 +54,7 @@ module.exports = function (gulp, plugins, config) {
       return;
     }
     gutil.log(`  Copying examples to ${siteExPath}`);
-    const baseDir = LOCAL_TMP;
+    const baseDir = tmpReposPath;
     const indexHtml = filter(`${baseDir}/examples/ng/doc/*/index.html`, { restore: true });
     return gulp.src([
       `${baseDir}/examples/**`,

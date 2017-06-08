@@ -84,7 +84,7 @@ The app contains the following core files:
   <?code-pane "web/main.dart"?>
   <?code-pane "web/index.html"?>
   <?code-pane "web/styles.css (excerpt)" region="quickstart"?>
-  <?code-pane "pubspec.yaml" region="initial"?>
+  <?code-pane "pubspec.yaml"?>
 </code-tabs>
 
 These files are organized as follows:

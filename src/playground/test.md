@@ -9,7 +9,7 @@ permalink: /playground/test
 <code-tabs>
   <?code-pane "lib/app_component.dart"?>
   <?code-pane "web/styles.css (excerpt)" region="quickstart"?>
-  <?code-pane "pubspec.yaml" region="initial"?>
+  <?code-pane "pubspec.yaml"?>
 </code-tabs>
 
 ### File tree

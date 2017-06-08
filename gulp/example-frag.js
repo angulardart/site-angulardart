@@ -6,7 +6,7 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const del = plugins.del;
-  const fs = require("fs");
+  const fs = plugins.fs;
   const gutil = plugins.gutil;
   const path = plugins.path;
 
@@ -29,9 +29,17 @@ module.exports = function (gulp, plugins, config) {
     logLevel: config._dgeniLogLevel
   };
 
-  gulp.task('create-example-fragments', ['_shred-api-examples', '_shred-devguide-examples'], () => createTxTFragFiles());
+  gulp.task('create-example-fragments',
+    ['add-example-boilerplate', '_shred-api-examples',
+     '_shred-devguide-examples', '_shred-generated-examples'], () => createTxTFragFiles());
 
-  gulp.task('_shred-devguide-examples', ['_shred-clean-devguide', 'add-example-boilerplate'], (done) => shred(_devguideShredOptions, done));
+  gulp.task('_shred-devguide-examples', ['_shred-clean-devguide'], done => shred(_devguideShredOptions, done));
+
+  gulp.task('_shred-generated-examples', ['_shred-clean-devguide', 'create-toh-0'], done => {
+    const options = Object.assign({}, _devguideShredOptions);
+    options.examplesDir = path.join(config.LOCAL_TMP, EXAMPLES_PATH);
+    return shred(options, done);
+  });
 
   gulp.task('_shred-api-examples', ['_shred-clean-api'], (cb) => shred(_apiShredOptions).then(() => {
     // Setup path aliases for API doc fragments
