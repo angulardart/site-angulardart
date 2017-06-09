@@ -6,23 +6,22 @@ description: "Fast, modular compilation of Dart code to JavaScript."
 ---
 
 The Dart development compiler _(dartdevc_, also known as _DDC)_
-lets you run and debug your Dart web app
-in any modern browser.
+lets you run and debug your Dart web app in Chrome.
 As of SDK release 1.24,
 `pub build` and `pub serve` support dartdevc.
 
-Unlike the original Dart-to-JavaScript compiler ([dart2js](/tools/dart2js)),
+Unlike the [dart2js](/tools/dart2js) compiler,
 dartdevc supports incremental compilation and emits modular JavaScript.
 When you use `pub serve` with dartdevc,
 you can edit your Dart files,
-refresh in a modern browser like Chrome,
+refresh in Chrome,
 and see your edits almost immediately.
 This speed is possible because pub compiles only updated modules,
 not all the packages that your app depends on.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The first compilation with dartdevc takes as long it would with dart2js
+The first compilation with dartdevc takes the longest,
 because the entire app must be compiled.
 After that, as long as `pub serve` keeps running,
 refresh times with dartdevc are much faster than with dart2js.
@@ -90,7 +89,7 @@ To make pub use dartdevc, do one of the following:
   Specify the `dartdevc` option:
 
   ```
-  pub serve --web-compiler=dartdevc
+  pub build --web-compiler=dartdevc
   ```
 
 <aside class="alert alert-info" markdown="1">
@@ -111,11 +110,11 @@ pub run test -p chrome --pub-serve=8080
 ```
 
 
-{% comment %}
 ## More information
 
-[PENDING:
-Link to FAQ.
-Point to more info about pub and --web-compiler.]
-{% endcomment %}
+* [dartdevc: FAQ](/tools/dartdevc/faq)
+* Pub documentation:
+  * [`pub build`](/tools/pub/pub-build)
+  * [`pub serve`](/tools/pub/pub-serve)
+  * [package layout conventions](https://www.dartlang.org/tools/pub/package-layout)
 

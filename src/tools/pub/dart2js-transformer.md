@@ -7,8 +7,9 @@ permalink: /tools/pub/dart2js-transformer
 
 The [pub serve](/tools/pub/pub-serve), [pub build](/tools/pub/pub-build),
 and [pub run]({{site.dartlang}}/tools/pub/cmd/pub-run.html)
-commands use the [dart2js](/tools/dart2js)
-compiler to convert your Dart files to JavaScript.
+commands use the [dart2js](/tools/dart2js) compiler
+(unless you specify another compiler)
+to convert your Dart files to JavaScript.
 
 You can configure dart2js in the
 [pubspec]({{site.dartlang}}/tools/pub/pubspec.html) for your package.

@@ -9,8 +9,7 @@ _Serve_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub).
 
 {% prettify sh %}
-$ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [<directories>]
-$ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [--all]
+$ pub serve [<options>] [<directories>]
 {% endprettify %}
 
 This command starts up a _development server_, or _dev server_,
@@ -39,11 +38,19 @@ server. When you're ready to deploy, generate output files by running
 
 Pub automatically includes a dart2js transformer that compiles your Dart code
 to JavaScript. With this, you can change some Dart code, refresh your
-non-Dartium browser, and immediately see the changes.
-
-See
+non-Dartium browser, and soon see the changes. See
 [Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer)
 for information on how to configure the dart2js options in your pubspec.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The 1.24 Dart SDK introduced pub support for a second Dart-to-JavaScript compiler,
+the Dart development compiler (_dartdevc_).
+You can use dartdevc with `pub serve` to generate JavaScript code that
+runs in any modern browser and has a fast edit-refresh cycle.
+For more information, see the [dartdevc documentation.](/tools/dartdevc)
+</aside>
+
 
 See [Pub Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers) for
 information on:
@@ -64,7 +71,7 @@ For options that apply to all pub commands, see
 as input for the serve command, in addition to <code>lib</code>
 (which is always processed).
 The default values are <code>web</code> and <code>test</code>.
-Directories you might specify typically include the following:
+Directories you might typically specify include the following:
 
 <ul>
 <li>benchmark</li>
@@ -89,6 +96,7 @@ The <code>web</code> directory is not served because it isn't specified.</dd>
 <dd>Optional. Serves all of the buildable directories (benchmark, bin, example,
 test, and web) that are present.</dd>
 
+
 <dt><code>--hostname=&lt;host&gt;</code></dt>
 <dd>Optional. By default, the dev server listens on <code>localhost</code>.
 You can specify another host using the <code>--hostname</code> option.
@@ -102,6 +110,7 @@ Build completed successfully
 {% endprettify %}
 </dd>
 
+
 <dt><code>--port=&lt;number&gt;</code></dt>
 <dd>Optional. By default, the dev server uses <code>http://localhost:8080</code>.
 To change the port number, use the <code>--port</code> option:
@@ -111,19 +120,32 @@ Serving helloworld web on http://localhost:9080
 {% endprettify %}
 </dd>
 
+
 <dt><code>--mode=&lt;mode&gt;</code></dt>
 <dd>Optional. Specifies a transformation mode. Typical values are
 "debug" and "release", but any word is allowed.
 Transformers may use this to change how they behave.<br><br>
 
-If set to "release" pub generates minified JavaScript using dart2js.
-Otherwise, it generates unminified JavaScript.
-Also, in release mode, Pub does not include any source .dart
-files in the resulting build output since they have
-been compiled to JavaScript. In any other mode, the raw Dart files are
-included.<br><br>
-If omitted, it defaults to "debug".</dd>
+If the mode is "release",
+then pub generates minified JavaScript using dart2js (or the specified compiler).
+Otherwise, pub uses dart2js (or the specified compiler)
+to generate unminified JavaScript.
+In release mode, pub does not
+include any source <code>.dart</code> files in the build output.
+In any other mode, the raw Dart files are included.<br><br>
 
+If this option is omitted, its default value is "debug".</dd>
+
+
+<dt><code>--web-compiler=&lt;compiler&gt;</code> </dt>
+<dd>Optional (added in 1.24).
+Specifies which Dart-to-JavaScript compiler to use.
+Possible values are "<a href="/tools/dart2js">dart2js</a>",
+"<a href="/tools/dartdevc">dartdevc</a>", and "none" (no generated JavaScript).
+<br><br>
+
+If this option is omitted, its default value is "dart2js".
+</dd>
 </dl>
 
 <aside class="alert alert-info" markdown="1">

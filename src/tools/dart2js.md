@@ -6,13 +6,23 @@ permalink: /tools/dart2js
 short-title: "dart2js"
 ---
 
-Use the _dart2js_ tool to compile Dart code to JavaScript.
+Use the _dart2js_ tool to compile Dart code to deployable JavaScript.
 The [`pub serve`](/tools/pub/pub-serve),
 [`pub run`]({{site.dartlang}}/tools/pub/cmd/pub-run), and
 [`pub build`](/tools/pub/pub-build) commands use dart2js.
 If you are using dart2js through one of the pub commands, see [Configuring
 the Built-in dart2js Transformer for Pub](/tools/pub/dart2js-transformer)
 for information on how to specify dart2js flags in your pubspec file.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The 1.24 Dart SDK introduced pub support for a second Dart-to-JavaScript compiler,
+the Dart development compiler (_dartdevc_).
+You can use dartdevc with `pub serve` to generate JavaScript code that
+runs in any modern browser and has a fast edit-refresh cycle.
+For more information, see the [dartdevc documentation.](/tools/dartdevc)
+</aside>
+
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line

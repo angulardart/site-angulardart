@@ -8,6 +8,11 @@ description: "FAQ and other tips for using Dart for web development."
 This FAQ applies to web programming. For more general Dart questions,
 see the [FAQ]({{site.dartlang}}/faq), or the [Tools FAQ]({{site.dartlang}}/tools/faq),
 both on dartlang.
+{% comment %}
+[TODO: Search for dart2js and Dartium.
+Update for dartdevc+Chrome, link to dartdevc FAQ.
+We should also update the supported browser list.]
+{% endcomment %}
 
 ## General
 
