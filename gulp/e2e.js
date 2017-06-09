@@ -291,7 +291,7 @@ module.exports = function (gulp, plugins, config) {
       // https://github.com/dart-lang/site-webdev/issues/703
       if (process.env.WEB_COMPILER === 'dartdevc') {
         localExamplePaths = localExamplePaths.filter(p => {
-          if (p.match(/toh-[56]|lifecycle-hooks|server-communication|template-syntax/)) {
+          if (p.match(/toh-[56]|lifecycle-hooks|template-syntax/)) {
             gutil.log(`E2E: under dartdevc, we SKIP ${p}`);
             return false;
           }

@@ -41,12 +41,11 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('create-toh-0', ['_create-toh-0'], () => {
     plugins.gutil.log(`Making files in ${toh0Path} read-only.`)
-    // cp.execSync(`chmod -R -w ${toh0Files}`, { cwd: toh0Path });
   });
 
   gulp.task('_create-toh-0', cb => {
     const baseDir = qsPath;
-    // if (fs.existsSync(toh0Path)) cp.execSync(`chmod -R +w ${toh0Files}`, { cwd: toh0Path });
+    if (fs.existsSync(toh0Path)) cp.execSync(`chmod -R +w ${toh0Files}`, { cwd: toh0Path });
     return gulp.src([
       `${baseDir}/**`,
       `!${baseDir}/.*`,

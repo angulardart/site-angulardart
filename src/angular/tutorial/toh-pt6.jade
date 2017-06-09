@@ -108,12 +108,12 @@ block observable-transformers
     Instead, you can chain `!{_Observable}` operators that reduce the request flow to the string `!{_Observable}`.
     You'll make fewer calls to the `HeroSearchService` and still get timely results. Here's how:
 
-    * `transform(new Debounce(... 300)))` waits until the flow of search terms pauses for 300
+    * `transform(debounce(... 300)))` waits until the flow of search terms pauses for 300
       milliseconds before passing along the latest string.
       You'll never make requests more frequently than 300ms.
     * `distinct()` ensures that a request is sent only if the filter text changed.
-    * `transform(new FlatMapLatest(...))` calls the search service for each 
-      search term that makes it through `Debounce()` and `distinct()`.
+    * `transform(switchMap(...))` calls the search service for each 
+      search term that makes it through `debounce()` and `distinct()`.
       It cancels and discards previous searches, returning only the 
       latest search service stream element.
     * `handleError()` handles errors. The simple example prints the error
