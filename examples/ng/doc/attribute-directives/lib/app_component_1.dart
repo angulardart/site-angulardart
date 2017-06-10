@@ -1,7 +1,7 @@
 // #docregion
 import 'package:angular2/angular2.dart';
 
-import 'highlight_directive_2.dart';
+import 'src/highlight_directive_2.dart';
 
 @Component(
     selector: 'my-app',

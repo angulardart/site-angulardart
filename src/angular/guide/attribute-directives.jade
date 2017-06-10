@@ -63,7 +63,7 @@ include ../_util-fns
 
   Create the following source file in the indicated folder:
 
-+makeExample('app/highlight.directive.1.ts')
++makeExample('lib/src/highlight_directive_1.dart')
 
 :marked
   `@Directive` requires a CSS selector to identify
@@ -158,7 +158,7 @@ figure.image-display
   Add two eventhandlers that respond when the mouse enters or leaves,
   each adorned by the `HostListener` !{_decorator}.
 
-+makeExcerpt('app/highlight.directive.2.ts','mouse-methods', '')
++makeExcerpt('app/src/highlight.directive.2.ts','mouse-methods', '')
 
 :marked
   The `@HostListener` !{_decorator} lets you subscribe to events of the DOM 
@@ -177,12 +177,12 @@ figure.image-display
   The handlers delegate to a helper method that sets the color on the DOM element, `#{_priv}el`,
   which you declare and initialize in the constructor.
 
-+makeExcerpt('app/highlight.directive.2.ts (constructor)', 'ctor')
++makeExcerpt('app/src/highlight.directive.2.ts (constructor)', 'ctor')
 
 :marked
   Here's the updated directive in full:
 
-+makeExample('app/highlight.directive.2.ts')
++makeExample('app/src/highlight.directive.2.ts')
 
 :marked
   Run the app and confirm that the background color appears when
@@ -200,7 +200,7 @@ figure.image-display
 
   Start by adding a `highlightColor` property to the directive class like this:
 
-+makeExcerpt('app/highlight.directive.2.ts (highlightColor)','color')
++makeExcerpt('app/src/highlight.directive.2.ts (highlightColor)','color')
 
 a#input
 :marked
@@ -238,7 +238,7 @@ a#input
 
   You'll have to rename the directive's `highlightColor` property to `myHighlight` because that's now the color property binding name.
 
-+makeExcerpt('app/highlight.directive.2.ts (renamed to match directive selector)', 'color-2')
++makeExcerpt('app/src/highlight.directive.2.ts (renamed to match directive selector)', 'color-2')
 
 :marked
   This is disagreeable. The word, `myHighlight`, is a terrible property name and it doesn't convey the property's intent.
@@ -251,7 +251,7 @@ a#input-alias
 
   Restore the original property name and specify the selector as the alias in the argument to `@Input`.
 
-+makeExcerpt('app/highlight.directive.ts (color property with alias)', 'color')
++makeExcerpt('app/src/highlight.directive.ts (color property with alias)', 'color')
 
 :marked
   _Inside_ the directive the property is known as `highlightColor`.
@@ -265,12 +265,12 @@ a#input-alias
   Now that you're binding to `highlightColor`, modify the `onMouseEnter()` method to use it.
   If someone neglects to bind to `highlightColor`, highlight in red:
 
-+makeExcerpt('app/highlight.directive.3.ts (mouse enter)', 'mouse-enter')
++makeExcerpt('app/src/highlight.directive.3.ts (mouse enter)', 'mouse-enter')
 
 :marked
   Here's the latest version of the directive class.
 
-+makeExcerpt('app/highlight.directive.3.ts')
++makeExcerpt('app/src/highlight.directive.3.ts')
 
 :marked
   ## Write a harness to try it
@@ -306,13 +306,13 @@ figure.image-display
 
   Add a second **input** property to `HighlightDirective` called `defaultColor`:
 
-+makeExcerpt('app/highlight.directive.ts (defaultColor)')
++makeExcerpt('app/src/highlight.directive.ts (defaultColor)')
 
 :marked
   Revise the directive's `onMouseEnter` so that it first tries to highlight with the `highlightColor`,
   then with the `defaultColor`, and falls back to "red" if both properties are undefined.
 
-+makeExcerpt('app/highlight.directive.ts', 'mouse-enter', '')
++makeExcerpt('app/src/highlight.directive.ts', 'mouse-enter', '')
 
 :marked
   How do you bind to a second property when you're already binding to the `myHighlight` attribute name?
@@ -348,14 +348,14 @@ figure.image-display
 +makeTabs(
   `attribute-directives/dart/lib/app_component.dart,
    attribute-directives/dart/lib/app_component.html,
-   attribute-directives/dart/lib/highlight_directive.dart,
+   attribute-directives/dart/lib/src/highlight_directive.dart,
    attribute-directives/dart/web/main.dart,
    attribute-directives/dart/web/index.html
   `,
   '',
   `lib/app_component.dart,
    lib/app_component.html,
-   lib/highlight_directive.dart,
+   lib/src/highlight_directive.dart,
    web/main.dart,
    web/index.html
   `)
@@ -370,12 +370,12 @@ figure.image-display
   In this demo, the `hightlightColor` property is an ***input*** property of
   the `HighlightDirective`. You've seen it applied without an alias:
 
-+makeExcerpt('app/highlight.directive.2.ts', 'color', '')
++makeExcerpt('app/src/highlight.directive.2.ts', 'color', '')
 
 :marked
   You've seen it with an alias:
 
-+makeExcerpt('app/highlight.directive.ts', 'color', '')
++makeExcerpt('app/src/highlight.directive.ts', 'color', '')
 
 :marked
   Either way, the `@Input` !{_decorator} tells Angular that this property is

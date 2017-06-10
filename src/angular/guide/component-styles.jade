@@ -41,7 +41,7 @@ include ../_util-fns
   The `styles` property takes #{_an} #{_array} of strings that contain CSS code.
   Usually you give it one string, as in the following example:
   
-+makeExample('component-styles/ts/app/hero-app.component.ts')(format='.')
++makeExample('app/app.component.ts')(format='.')
 
 :marked
   The selectors you put into a component's styles apply only within the template
@@ -75,7 +75,7 @@ a(id="special-selectors")
   Use the `:host` pseudo-class selector to target styles in the element that *hosts* the component (as opposed to
   targeting elements *inside* the component's template).
   
-+makeExample('component-styles/ts/app/hero-details.component.css', 'host')(format='.')
++makeExample('app/src/hero-details.component.css', 'host')(format='.')
 
 :marked
   The `:host` selector is the only way to target the host element. You can't reach
@@ -87,7 +87,7 @@ a(id="special-selectors")
   
   The next example targets the host element again, but only when it also has the `active` CSS class.
   
-+makeExample('component-styles/ts/app/hero-details.component.css', 'hostfunction')(format=".")
++makeExample('app/src/hero-details.component.css', 'hostfunction')(format=".")
   
 :marked
   ### :host-context
@@ -103,7 +103,7 @@ a(id="special-selectors")
   The following example applies a `background-color` style to all `<h2>` elements *inside* the component, only
   if some ancestor element has the CSS class `theme-light`.
   
-+makeExample('component-styles/ts/app/hero-details.component.css', 'hostcontext')(format='.')
++makeExample('app/src/hero-details.component.css', 'hostcontext')(format='.')
   
 :marked
   ### /deep/
@@ -116,7 +116,7 @@ a(id="special-selectors")
   
   The following example targets all `<h3>` elements, from the host element down 
   through this component to all of its child elements in the DOM. 
-+makeExample('component-styles/ts/app/hero-details.component.css', 'deep')(format=".")
++makeExample('app/src/hero-details.component.css', 'deep')(format=".")
 
 :marked
   The `/deep/` selector also has the alias `>>>`. You can use either interchangeably.
@@ -144,7 +144,7 @@ a(id='loading-styles')
   You can add a `styles` #{_array} property to the `@Component` #{_decorator}.
   Each string in the #{_array} (usually just one string) defines the CSS.
 
-+makeExample('component-styles/ts/app/hero-app.component.ts')
++makeExample('app/app.component.ts')
 
 :marked
   ### Style URLs in metadata
@@ -152,7 +152,7 @@ a(id='loading-styles')
   You can load styles from external CSS files by adding a `styleUrls` attribute
   into a component's `@Component` #{_decorator}:
 
-+makeExample('component-styles/ts/app/hero-details.component.ts', 'styleurls')
++makeExample('app/src/hero-details.component.ts', 'styleurls')
 
 :marked
   Note that the URLs in `styleUrls` are relative to the component.
@@ -166,7 +166,7 @@ a(id='loading-styles')
   You can embed styles directly into the HTML template by putting them
   inside `<style>` tags.
   
-+makeExample('component-styles/ts/app/hero-controls.component.ts', 'inlinestyles')
++makeExample('app/src/hero-controls.component.ts', 'inlinestyles')
 
 :marked
   ### Template link tags
@@ -176,7 +176,7 @@ a(id='loading-styles')
   The link tag's `href` URL is relative to the 
   application root, not the component file.
 
-+makeExample('component-styles/ts/app/hero-team.component.ts', 'stylelink')
++makeExample('app/src/hero-team.component.ts', 'stylelink')
 
 :marked
   ### CSS @imports
@@ -194,7 +194,7 @@ a(id='loading-styles')
     Until this issue is fixed, absolute package-reference style URLs must 
     be given, as illustrated below.
   
-+makeExample('component-styles/ts/app/hero-details.component.css', 'import', 'app/hero-details.component.css (excerpt)')
++makeExcerpt('app/src/hero-details.component.css (excerpt)', 'import')
 
 a#view-encapsulation
 .l-main-section
@@ -223,7 +223,7 @@ a#view-encapsulation
     
   To set the components encapsulation mode, use the `encapsulation` property in the component metadata:
   
-+makeExample('component-styles/ts/app/quest-summary.component.ts', 'encapsulation.native')(format='.')
++makeExample('app/src/quest-summary.component.ts', 'encapsulation.native')(format='.')
 
 :marked
   `Native` view encapsulation only works on browsers that have native support
@@ -298,5 +298,5 @@ code-example(format="nocode").
 
   Thankfully, this is the default interpretation of relative URLs in AngularDart:
 
-+makeExcerpt('app/quest-summary.component.ts', 'urls', '')
++makeExcerpt('app/src/quest-summary.component.ts', 'urls', '')
 
