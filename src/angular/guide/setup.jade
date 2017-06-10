@@ -50,7 +50,7 @@ a#create
   1. From the welcome screen, choose **Check out from Version Control > Git**.  
   Alternatively, choose **VCS > Git > Clone...** from the menu.  
   A **Clone Repository** dialog appears.
-  1. Fill out the fields:
+  1. Fill out the fields:<a id="directory-name"></a>
      * **Git Repository URL:** `https://github.com/angular-examples/quickstart`
      * **Parent Directory:** _(wherever you like to keep your practice code)_
      * **Directory Name:** `angular_tour_of_heroes` _(or any other
@@ -80,6 +80,27 @@ a#get
   in a terminal window, go to the project root and run `pub get`.
 
 
+  ## Customize the project
+
+  Using WebStorm, or your favorite editor:
+
+  1. Open **`web/index.html`**, and replace the text of the **`<title>`** element
+     with a title suitable for your app. For example: `<title>Angular Tour
+     of Heroes</title>`.
+
+  1. Open **`pubspec.yaml`**, and update the **description** to suit your project.
+     For example: `description: Tour of Heroes`.
+
+  1. _Optional_. If you'd like to change your project's name, then do a
+     project-wide _search-and-replace_ of the current value of the **pubspec
+     `name`** entry (**`angular_app`**) with a name suitable for your app
+     &mdash; usually it will be the same as the [directory name](#directory-name)
+     you chose earlier.
+
+     This project-global rename will touch: `pubspec.yaml`, `web/main.dart` and
+     `test/app_test.dart`.
+
+
 a#running-the-app
 :marked
   ## Run the app
@@ -96,7 +117,7 @@ a#running-the-app
 
   You should see the following app in a [Dartium](/tools/dartium) browser window:
 
-  ![A web page with the title and header: Hello Angular](/angular/guide/images/starter-app.png)
+  ![A web page with the header: Hello Angular](/angular/guide/images/starter-app.png)
 
   To run the app from the command line, use the `pub serve` command
   to start the Dart compiler and an HTTP server.

@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: The Starter App
-description: We look at a simple Angular app
+description: A bare-bones Angular app
 prevpage:
   title: "Tutorial: Tour of Heroes"
   url: /angular/tutorial
@@ -10,9 +10,8 @@ nextpage:
   url: /angular/tutorial/toh-pt1
 ---
 <?code-excerpt path-base="toh-0"?>
-This tutorial starts with a bare-bones Angular app.
-Run the <live-example name="quickstart">live example</live-example>
-to see the app.
+This tutorial starts with a bare-bones Angular app,
+derived from the <live-example name="quickstart">quickstart example</live-example>.
 
 ## Create the app
 

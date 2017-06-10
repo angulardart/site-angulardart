@@ -57,7 +57,7 @@ const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
 
 const ngDocSrc = path.join('src', 'angular');
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
-const qsProjName = 'angular_quickstart';
+const qsProjName = 'angular_app';
 const config = {
   _dgeniLogLevel: _dgeniLogLevel,
   angulario: angulario,

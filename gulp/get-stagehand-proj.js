@@ -26,7 +26,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/lib/app_component.dart`
     ], { base: baseDir })
       // pubspec.yaml
-      .pipe(replace(/^name: angular_quickstart/, '# #docregion\n$&'))
+      .pipe(replace(/^name: angular_app/, '# #docregion\n$&'))
       .pipe(replace(/(^description: )A simple AngularDart app/m, '$1QuickStart'))
       .pipe(replace(/^#(author|homepage).*\n/gm, ''))
       // index.html

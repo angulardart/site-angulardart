@@ -28,8 +28,8 @@ Quickstart pubspec w/ title:
 Quickstart pubspec w/ title:
 <?code-excerpt "pubspec.yaml" title?>
 ```
-  name: angular_quickstart
-  description: QuickStart
+  name: angular_app
+  description: A web app that uses AngularDart
   version: 0.0.1
 
   environment:
