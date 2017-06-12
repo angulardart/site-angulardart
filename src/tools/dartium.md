@@ -161,15 +161,7 @@ DART_FLAGS='--checked' path/chrome
 On Mac:
 
 {% prettify sh %}
-DART_FLAGS='--checked'              \
-  path/Chromium.app/Contents/MacOS/Chromium
-{% endprettify %}
-
-Or (also on Mac):
-
-{% prettify sh %}
-DART_FLAGS='--checked'              \
-   open path/Chromium.app
+open path/Chromium.app --args --checked
 {% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
