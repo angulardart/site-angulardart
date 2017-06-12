@@ -69,7 +69,7 @@ module Jekyll
         # logPuts '>>>> ****************************************************************'
 
         # Process Jade
-        matches = /- FilePath: (.*)/.match(content);
+        matches = /- FilePath: (\S+)/.match(content);
         filePath = matches ? matches[1] : 'src/angular/unknown-file.jade'
         baseNoExt = File.basename(filePath, '.jade')
         dir = File.dirname(filePath).split('/')

@@ -12,6 +12,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
 
   function mkExcerptPER(match, instr, path, excerptText, regionFromExcerpt, dontcare, region, notitle) {
+    if (excerptText === ' ()') excerptText = ' (excerpt)';
     const dartPath = NgIoUtil.adjustTsExamplePathForDart(path);
     const titleAttr = notitle ? '' : ' title';
     const regionAttr = region ? ` region="${region}"` : '';
@@ -27,8 +28,10 @@ module.exports = function (gulp, plugins, config) {
     return `<div class="ul-filetree" markdown="1">\n${ul}</div>\n`
   }
 
-  function subsection(match, text) {
-    return `\n<div class="l-sub-section" markdown="1">\n${text}</div>\n`
+  function subsection(match, classes, text) {
+    classes = classes.replace(/^\./, '').replace('.', ' ');
+    text = text.replace(/^\s+:marked\n/mg, '');
+    return `\n<div class="${classes}" markdown="1">\n${text}</div>\n`
   }
 
   let frontMatterMarkerCount = 0;
@@ -38,6 +41,36 @@ module.exports = function (gulp, plugins, config) {
       return match;
     }
     return frontMatterMarkerCount >= 2 ? '' : match;
+  }
+
+  function abbrValue(key) {
+    const _FutureUrl = 'https://api.dartlang.org/dart_async/Future.html';
+    switch(key) {
+      case '_docsFor': return 'dart';
+      case '_decorator': return 'annotation';
+      case '_Array': return 'List';
+      case '_array': return 'list';
+      case '_a': return 'an';
+      case '_an': return 'a';
+      case '_priv': return '_';
+      case '_Lang': return 'Dart';
+      case '_Promise': return 'Future';
+      case '_FutureUrl': return _FutureUrl;
+      case '_PromiseLinked': return `<a href="${_FutureUrl}">Future</a>`;
+      case '_Observable': return 'Stream';
+      case '_liveLink': return 'sample repo';
+      case '_truthy': return 'true';
+      case '_falsy': return 'false';
+      case '_appDir': return 'lib';
+      case '_indexHtmlDir': return 'web';
+      case '_mainDir': return 'web';
+      default: return null;
+    }
+  }
+
+  function abbr(match, leadingChar, key) {
+    const val = abbrValue(key);
+    return val ? `${leadingChar}${val}` : match[0];
   }
 
   // Arguments:
@@ -52,12 +85,17 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/${targets}`,
     ], { base: baseDir })
       .pipe(replace(/^\/\/- (FilePath: [^\.]+)\.jade$/m, '<!-- $1.md -->'))
-      .pipe(replace(/^(\.l-main-section|:marked)\n/mg, ''))
-      .pipe(replace(/\n\.l-sub-section\n(( +[^\n]+\n)+)/g, subsection))
+      .pipe(replace(/\+ifDocsFor\('ts'\)\n\s*:marked\n(\s*\n|\s+[^\n]+\n)*/g, ''))
+      .pipe(replace(/^(\.l-main-section|:marked|include .*_util-fns(.jade)?)\n/mg, ''))
+      .pipe(replace(/^\.l-main-section#(\S+)/mg, '<a id="$1"></a>'))
+      .pipe(replace(/^a?#(\w+)/mg, '<a id="$1"></a>'))
+      .pipe(replace(/\n(\.alert.*|\.callout.*|\.l-sub-section)\n(( +[^\n]+\n)+)/g, subsection))
       .pipe(argv.unindent === false ? plugins.gutil.noop() : replace(/^(---|  )/mg, unindent))
-      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']+)\))?'(, '([^']+)'(, '')?)?\)/g, mkExcerptPER))
+      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']+)'(, '')?)?\)/g, mkExcerptPER))
       .pipe(replace(/\.filetree\n((\s*\..*\n)+)/g, filetree))
       .pipe(replace(/^include (.+)/mg, '{% include_relative $1.md %}'))
+      .pipe(replace(/^figure.image-display\n\s*img\(((\s*\w+="[^"]+")+)\)/mg, '<img $1>'))
+      .pipe(replace(/([^{])!{([_\w]+)}/g, abbr))
       .pipe(gulp.dest(baseDir));
   });
 
