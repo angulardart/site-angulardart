@@ -19,9 +19,7 @@ env:
     - CI_TASK=test  DART_CHANNEL=stable
     - CI_TASK=test  DART_CHANNEL=dev
     - CI_TASK="e2e --fast" DART_CHANNEL=stable
-    # Dart stable doesn't have dartdevc yet. Once 1.24.0 is out, uncomment
-    # the next line, and delete the line after that (and fix allowed_failures):
-    # - CI_TASK="e2e --fast" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - CI_TASK="e2e --fast" DART_CHANNEL=stable WEB_COMPILER=dartdevc
     - CI_TASK="e2e --fast" DART_CHANNEL=dev WEB_COMPILER=dartdevc
     - CI_TASK="e2e --fast" DART_CHANNEL=dev
 
@@ -30,6 +28,7 @@ matrix:
   allow_failures:
     - env: CI_TASK=test  DART_CHANNEL=dev
     - env: CI_TASK="e2e --fast" DART_CHANNEL=stable
+    - env: CI_TASK="e2e --fast" DART_CHANNEL=stable WEB_COMPILER=dartdevc
     - env: CI_TASK="e2e --fast" DART_CHANNEL=dev WEB_COMPILER=dartdevc
     - env: CI_TASK="e2e --fast" DART_CHANNEL=dev
 

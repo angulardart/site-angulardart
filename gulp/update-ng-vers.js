@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, config) {
   //---------------------------------------------------------------------------
   // Updating SDK version
 
-  const SDK_VERS = '>=1.23.0 <2.0.0';
+  const SDK_VERS = '>=1.24.0 <2.0.0';
 
   gulp.task('update-sdk-vers', ['update-ng-vers'], (cb) => {
     const baseDir = path.resolve(EXAMPLES_PATH, '..');

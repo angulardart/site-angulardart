@@ -16,7 +16,7 @@ if  [[ -z "$(type -t dart)" ]]; then
     CHANNEL=$DART_CHANNEL
     DART_ARCHIVE=https://storage.googleapis.com/dart-archive/channels
     VERS=$CHANNEL/release/latest
-    # VERS=$CHANNEL/release/1.23.0 # If necessary, pin a specific version like this
+    # VERS=$CHANNEL/release/1.24.0 # If necessary, pin a specific version like this
 
     mkUrl() {
         local dir=$1

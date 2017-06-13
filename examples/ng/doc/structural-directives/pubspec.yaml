@@ -3,10 +3,12 @@ name: structural_directives
 description: Structural directives example
 version: 0.0.1
 environment:
-  sdk: '>=1.23.0 <2.0.0'
+  sdk: '>=1.24.0 <2.0.0'
+
 dependencies:
   angular2: ^3.1.0
   angular_components: ^0.5.2
+
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
@@ -15,6 +17,7 @@ transformers:
 - angular2:
     entry_points: web/main.dart
 - dart_to_js_script_rewriter
+
 web:
   compiler:
     debug: dartdevc

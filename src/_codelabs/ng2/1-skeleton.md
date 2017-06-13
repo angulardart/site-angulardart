@@ -428,7 +428,7 @@ name: pirate_badge
 description: A simple AngularDart app
 version: 0.0.1
 environment:
-  sdk: '>=1.23.0 <2.0.0'
+  sdk: '>=1.24.0 <2.0.0'
 dependencies:
   angular2: ^3.1.0
 dev_dependencies:
