@@ -18,4 +18,3 @@ void main() {
 // #docregion final
   bootstrap(AppComponent);
 }
-// #enddocregion final

@@ -1,7 +1,7 @@
 // #docregion
 import 'package:angular2/angular2.dart';
 // #docregion import
-import 'hero.dart';
+import 'src/hero.dart';
 // #enddocregion import
 
 @Component(
