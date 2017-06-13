@@ -105,12 +105,7 @@ module NgCodeExcerpt
 
       # Process remaining args
       argString.scan(/\b(\w[-\w]*)(="([^"]*)")?/) { |id,arg,val|
-        if id == 'title' && !arg
-          val = args['']
-          # Title like styles.1.css or foo_1.dart? Then drop the '.1' or '_1' qualifier:
-          match = /^(.*)[\._]\d(\.\w+)(\s+.+)?$/.match(val)
-          val = "#{match[1]}#{match[2]}#{match[3]}" if match
-        end
+        if id == 'title' && !arg then val = trimFileVers(args['']) end
         args[id] = val || ''
       }
       # puts "  >> args: #{args}"
@@ -118,7 +113,7 @@ module NgCodeExcerpt
     end
 
     def processCodePane(pi, attrs, args)
-      title = args['title'] || args['']
+      title = args['title'] || trimFileVers(args[''])
       escapedCode = getCodeFrag(fullFragPath(args['path'], args['region']))
       result =
       "#{pi}\n" +
@@ -172,6 +167,13 @@ module NgCodeExcerpt
       puts(s)
       fileMode = (@@logEntryCount += 1) <= 1 ? 'w' : 'a'
       File.open('code-excerpt-log.txt', fileMode) do |logFile| logFile.puts(s) end
+    end
+
+    def trimFileVers(s)
+      # Path/title like styles.1.css or foo_1.dart? Then drop the '.1' or '_1' qualifier:
+      match = /^(.*)[\._]\d(\.\w+)(\s+.+)?$/.match(s)
+      s = "#{match[1]}#{match[2]}#{match[3]}" if match
+      return s
     end
 
   end

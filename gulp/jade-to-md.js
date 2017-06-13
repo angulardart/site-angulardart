@@ -14,7 +14,17 @@ module.exports = function (gulp, plugins, config) {
   function mkExcerptPER(match, instr, path, excerptText, regionFromExcerpt, dontcare, region, notitle) {
     if (excerptText === ' ()') excerptText = ' (excerpt)';
     const dartPath = NgIoUtil.adjustTsExamplePathForDart(path);
+    if (dartPath.startsWith('lib/')
+      && !dartPath.startsWith('lib/app_component')
+      && !dartPath.startsWith('lib/src/')) {
+        dartPath = dartPath.replace(/^lib\//, '$0src/');
+    }
     const titleAttr = notitle ? '' : ' title';
+    if (!excerptText && region) {
+      excerptText = ` (${region})`;
+      region = null;
+    }
+    if (excerptText === ` (${region})`) region = null;
     const regionAttr = region ? ` region="${region}"` : '';
     const linenumsAttr = instr === 'Example' ? ' linenums' : '';
     return `<?code-excerpt "${dartPath}${excerptText || ''}"${regionAttr}${titleAttr}${linenumsAttr}?>\n`
@@ -29,9 +39,18 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function subsection(match, classes, text) {
+    text = text.replace(/\n$/g, '');
+    if (classes.startsWith('code-example')) {
+      const matches = classes.match(/language="([^"]+)"/);
+      const lang = matches ? matches[1] : '';
+      text = text.replace(/^/mg, '  ');
+      if (lang === 'html') text = text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      return `\n<?code-excerpt?>\n\`\`\`${lang}\n${text}\`\`\`\n\n`;
+    }
     classes = classes.replace(/^\./, '').replace('.', ' ');
+    text = text.replace(/^(\s*)header([^\n]+)\n/, '  $1<header>$2</header>\n');
     text = text.replace(/^\s+:marked\n/mg, '');
-    return `\n<div class="${classes}" markdown="1">\n${text}</div>\n`
+    return `\n<div class="${classes}" markdown="1">\n${text}</div>\n\n`
   }
 
   let frontMatterMarkerCount = 0;
@@ -45,7 +64,7 @@ module.exports = function (gulp, plugins, config) {
 
   function abbrValue(key) {
     const _FutureUrl = 'https://api.dartlang.org/dart_async/Future.html';
-    switch(key) {
+    switch (key) {
       case '_docsFor': return 'dart';
       case '_decorator': return 'annotation';
       case '_Array': return 'List';
@@ -64,13 +83,21 @@ module.exports = function (gulp, plugins, config) {
       case '_appDir': return 'lib';
       case '_indexHtmlDir': return 'web';
       case '_mainDir': return 'web';
+      case '_AppModuleVsAppComp': return 'AppComponent';
+      case '_appModuleTsVsAppCompTs': return 'app/app_component.dart';
+      case '_appModuleTsVsMainTs': return 'web/main.dart';
+      case '_bootstrapModule': return 'bootstrap';
+      case '_declsVsDirectives': return 'directives';
+      case '_moduleVsComp': return 'component';
+      case '_moduleVsRootComp': return 'root component';
+      case '_platformBrowserDynamicVsBootStrap': return 'bootstrap';
       default: return null;
     }
   }
 
   function abbr(match, leadingChar, key) {
     const val = abbrValue(key);
-    return val ? `${leadingChar}${val}` : match[0];
+    return val ? `${leadingChar}${val}` : match;
   }
 
   // Arguments:
@@ -80,22 +107,24 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = 'src/angular';
     if (!argv.file) throw `jade-to-md requires a --file glob argument, relative to ${baseDir}.`;
     let targets = argv.file.replace(/^\//, '');
-    if (!targets.endsWith('.jade')) throw `--file glob must end in '.jade'`;
+    if (!targets.match(/\.(jade|md)/)) throw `--file glob must end in '.jade' or '.md'`;
     return gulp.src([
       `${baseDir}/${targets}`,
     ], { base: baseDir })
       .pipe(replace(/^\/\/- (FilePath: [^\.]+)\.jade$/m, '<!-- $1.md -->'))
-      .pipe(replace(/\+ifDocsFor\('ts'\)\n\s*:marked\n(\s*\n|\s+[^\n]+\n)*/g, ''))
+      .pipe(replace(/\+ifDocsFor\('ts(\|js)?'\)\n\s*:marked\n(\n|\s+\n|\s+[^\n]+\n)*/g, ''))
+      .pipe(replace(/\n(\.alert.*|\.callout.*|\.l-sub-section|code-example.*)\n((\n|\s+\n| +[^\n]+\n)+)/g, subsection))
       .pipe(replace(/^(\.l-main-section|:marked|include .*_util-fns(.jade)?)\n/mg, ''))
-      .pipe(replace(/^\.l-main-section#(\S+)/mg, '<a id="$1"></a>'))
-      .pipe(replace(/^a?#(\w+)/mg, '<a id="$1"></a>'))
-      .pipe(replace(/\n(\.alert.*|\.callout.*|\.l-sub-section)\n(( +[^\n]+\n)+)/g, subsection))
+      .pipe(replace(/^\.l-main-section#(\S+)/mg, '<div id="$1"></div>'))
+      .pipe(replace(/^a?#([^#]\S+)/mg, '<div id="$1"></div>'))
+      .pipe(replace(/^a\(id="(\S+)"\)/mg, '<div id="$1"></div>'))
       .pipe(argv.unindent === false ? plugins.gutil.noop() : replace(/^(---|  )/mg, unindent))
       .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']+)'(, '')?)?\)/g, mkExcerptPER))
       .pipe(replace(/\.filetree\n((\s*\..*\n)+)/g, filetree))
       .pipe(replace(/^include (.+)/mg, '{% include_relative $1.md %}'))
-      .pipe(replace(/^figure.image-display\n\s*img\(((\s*\w+="[^"]+")+)\)/mg, '<img $1>'))
-      .pipe(replace(/([^{])!{([_\w]+)}/g, abbr))
+      .pipe(replace(/^figure\.image-display\n\s*img\(((\s*\w+=['"][^'"]+['"])+)\s*\)/mg, '<img class="image-display" $1>'))
+      .pipe(replace(/([^{])[#!]{([_\w]+)}/g, abbr))
+      .pipe(replace(/^(\s*)- var _example = '([^']+)';/mg, '$1<?code-excerpt path-base="$2"?>'))
       .pipe(gulp.dest(baseDir));
   });
 
