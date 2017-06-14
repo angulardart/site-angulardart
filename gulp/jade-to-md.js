@@ -13,11 +13,11 @@ module.exports = function (gulp, plugins, config) {
 
   function mkExcerptPER(match, instr, path, excerptText, regionFromExcerpt, dontcare, region, notitle) {
     if (excerptText === ' ()') excerptText = ' (excerpt)';
-    const dartPath = NgIoUtil.adjustTsExamplePathForDart(path);
+    let dartPath = NgIoUtil.adjustTsExamplePathForDart(path);
     if (dartPath.startsWith('lib/')
       && !dartPath.startsWith('lib/app_component')
       && !dartPath.startsWith('lib/src/')) {
-        dartPath = dartPath.replace(/^lib\//, '$0src/');
+        dartPath = dartPath.replace(/^lib\//, '$&src/');
     }
     const titleAttr = notitle ? '' : ' title';
     if (!excerptText && region) {
