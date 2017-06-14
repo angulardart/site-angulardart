@@ -780,9 +780,10 @@ Our final project folder structure should look like this:
 - angular_forms
   - lib
     - app_component.dart
-    - hero.dart
-    - hero_form_component.dart
-    - hero_form_component.html
+    - src
+      - hero.dart
+      - hero_form_component.dart
+      - hero_form_component.html
   - web
     - forms.css
     - index.html
