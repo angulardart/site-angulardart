@@ -9,16 +9,12 @@ if [[ -z "$CEU_REPO" || ! -e $CEU_REPO ]]; then
   exit 1
 fi
 
-CEU_CMD=\
-  dart $CEU_REPO/bin/code_excerpt_updater.dart \
+LOG=$(dart \
+  $CEU_REPO/bin/code_excerpt_updater.dart \
     --fragment-dir-path tmp/_fragments \
     --indentation 2 \
     --write-in-place \
-    src/angular/
-LOG=$($CEU_CMD)
-CHECK_EXIT_CODE=0
+    src/angular)
+echo $LOG
 
-if echo "$LOG" | grep '0 out of' | wc -l > /dev/null; then
-  CHECK_EXIT_CODE=1
-fi
-exit $CHECK_EXIT_CODE
+[[ $LOG == *" 0 out of"* ]]
