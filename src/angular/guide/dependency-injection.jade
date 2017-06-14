@@ -15,8 +15,8 @@ extends /_jade/ts/_cache/guide/dependency-injection.jade
 
 block includes
   - var _example = 'dependency-injection';
-  include ../_util-fns
   - var _thisDot = '';
+  include ../_util-fns
 
 block ctor-syntax
   .l-sub-section
@@ -64,7 +64,7 @@ block always-include-paren
     A metadata annotation must be either a reference to a
     compile-time constant variable or a call to a constant
     constructor such as `Injectable()`.
-    
+
     If we forget the parentheses, the analyzer will complain:
     "Annotation creation must have arguments". If we try to run the
     app anyway, it won't work, and the console will say
@@ -83,7 +83,7 @@ block provider-shorthand
     [Provider](/angular/api/angular2.core/Provider-class.html) class:
 
 block provider-ctor-args
-  - var _secondParam = 'named parameter, such as <code>useClass</code>' 
+  - var _secondParam = 'named parameter, such as <code>useClass</code>'
   :marked
     We supply two arguments (or more) to the `Provider` constructor.
 
@@ -97,7 +97,7 @@ block dart-diff-const-metadata
       Instead, we use constant literals or constant constructors.
       For example, a TypeScript program will use the
       object literal `{ provide: Logger, useClass: BetterLogger }`.
-      A Dart annotation would instead use the constant value 
+      A Dart annotation would instead use the constant value
       `const Provider(Logger, useClass: BetterLogger)`.
 
 block dart-diff-const-metadata-ctor
@@ -111,7 +111,7 @@ block dart-diff-const-metadata-ctor
       To create a class that can provide constant objects,
       ensure all its instance variables are `final`,
       and give it a `const` constructor.
-      
+
       Create a constant instance of the class by using `const` instead of `new`.
 
 // - var stylePattern = { otl: /(useValue.*\))/gm };
@@ -121,13 +121,13 @@ block non-class-dep-eg
   span string, list, map, or maybe a function.
 
 block config-obj-maps
-  | . They can be 
+  | . They can be
   | <b><a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map</a></b>
   | literals
 
 block what-should-we-use-as-token
   :marked
-    But what should we use as the token? 
+    But what should we use as the token?
     While we _could_ use **[Map][]**, we _should not_ because (like
     `String`) `Map` is too general. Our app might depend on several maps, each
     for a different purpose.
@@ -149,17 +149,17 @@ block dart-map-alternative
     As an alternative to using a configuration `Map`, we can define
     a custom configuration class:
 
-  +makeExcerpt('lib/app_config.dart (alternative config)','config-alt')
+  +makeExcerpt('lib/src/app_config.dart (alternative config)','config-alt')
 
   :marked
     Defining a configuration class has a few benefits. One key benefit
     is strong static checking: we'll be warned early if we misspell a property
     name or assign it a value of the wrong type.
     The Dart [cascade notation][cascade] (`..`) provides a convenient means of initializing
-    a configuration object. 
+    a configuration object.
 
     If we use cascades, the configuration object can't be declared `const` and
-    we can't use a [value provider](#value-provider). 
+    we can't use a [value provider](#value-provider).
     A solution is to use a [factory provider](#factory-provider).
     We illustrate this next. We also show how to provide and inject the
     configuration object in our top-level `AppComponent`:
