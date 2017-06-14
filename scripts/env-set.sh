@@ -17,6 +17,8 @@ if [[ -z "$NGIO_ENV_DEFS" ]]; then
     export NGDOCEX
     : ${ACX_REPO:=../angular_components}
     export ACX_REPO
+    : ${CEU_REPO:=../code_excerpt_updater}
+    export CEU_REPO
 
     # Git tag names
     export NG_RELEASE=3.1.0
