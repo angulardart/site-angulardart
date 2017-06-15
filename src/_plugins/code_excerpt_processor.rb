@@ -42,9 +42,7 @@ module NgCodeExcerpt
       classes = args['class']
       code = match[7]
 
-      # Indented code bocks are easier to read in markdown, but they affect layout.
-      # If the first line is indented by 2 spaces, trim out that indentation.
-      code.gsub!(/^  /m, '') if code.start_with?('  ')
+      code = trimMinLeadingSpace(code)
 
       # We escape all code fragments (not just HTML fragments),
       # because we're rendering the code block as HTML.
@@ -59,7 +57,8 @@ module NgCodeExcerpt
 
     def codeExcerpt(title, classes, attrs, escapedCode, indent)
       result = _unindentedTemplate(title, classes, attrs, escapedCode)
-      result.gsub!(/^/, indent) if indent
+      # For markdown, indent at most the first line (in particular, we don't want to indent the code)
+      result.sub!(/^/, indent) if indent
       return result
     end
 
@@ -71,6 +70,20 @@ module NgCodeExcerpt
         "</code-example>\n" +
       "</div>\n"
     end
+
+    def trimMinLeadingSpace(code)
+      lines = code.split(/\n/);
+      nonblanklines = lines.reject { |s| s.match(/^\s*$/) }
+      
+      # Length of leading spaces to be trimmed
+      len = nonblanklines.map{ |s|
+          matches = s.match(/^[ \t]*/)
+          matches ? matches[0].length : 0 }.min
+        
+      return len == 0 ? code :
+        lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n") 
+    end
+
 
     def mkCodeExampleDirectiveAttributes(lang, linenums)
       formats = linenums ? ['linenums'] : [];

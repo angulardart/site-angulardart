@@ -11,7 +11,7 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const replace = plugins.replace;
 
-  function mkExcerptPER(match, instr, path, excerptText, regionFromExcerpt, dontcare, region, notitle) {
+  function mkExcerptPER(match, instr, path, excerptText, regionFromExcerpt, dontcare, region, notitle, format) {
     if (excerptText === ' ()') excerptText = ' (excerpt)';
     let dartPath = NgIoUtil.adjustTsExamplePathForDart(path);
     if (dartPath.startsWith('lib/')
@@ -26,7 +26,7 @@ module.exports = function (gulp, plugins, config) {
     }
     if (excerptText === ` (${region})`) region = null;
     const regionAttr = region ? ` region="${region}"` : '';
-    const linenumsAttr = instr === 'Example' ? ' linenums' : '';
+    const linenumsAttr = instr === 'Example' && !format ? ' linenums' : '';
     return `<?code-excerpt "${dartPath}${excerptText || ''}"${regionAttr}${titleAttr}${linenumsAttr}?>\n`
       + '```\n\n```';
   }
@@ -113,13 +113,14 @@ module.exports = function (gulp, plugins, config) {
     ], { base: baseDir })
       .pipe(replace(/^\/\/- (FilePath: [^\.]+)\.jade$/m, '<!-- $1.md -->'))
       .pipe(replace(/\+ifDocsFor\('ts(\|js)?'\)\n\s*:marked\n(\n|\s+\n|\s+[^\n]+\n)*/g, ''))
+      .pipe(replace(/\n\/\/-?[^\n]*\n((\n|\s+\n| +[^\n]+\n)+)/g, '{%comment%}$&{%endcomment%}\n'))
       .pipe(replace(/\n(\.alert.*|\.callout.*|\.l-sub-section|code-example.*)\n((\n|\s+\n| +[^\n]+\n)+)/g, subsection))
       .pipe(replace(/^(\.l-main-section|:marked|include .*_util-fns(.jade)?)\n/mg, ''))
       .pipe(replace(/^\.l-main-section#(\S+)/mg, '<div id="$1"></div>'))
       .pipe(replace(/^a?#([^#]\S+)/mg, '<div id="$1"></div>'))
       .pipe(replace(/^a\(id="(\S+)"\)/mg, '<div id="$1"></div>'))
       .pipe(argv.unindent === false ? plugins.gutil.noop() : replace(/^(---|  )/mg, unindent))
-      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']+)'(, '')?)?\)/g, mkExcerptPER))
+      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']+)'(, '')?)?\)(\(format=[^\)]+\))?/g, mkExcerptPER))
       .pipe(replace(/\.filetree\n((\s*\..*\n)+)/g, filetree))
       .pipe(replace(/^include (.+)/mg, '{% include_relative $1.md %}'))
       .pipe(replace(/^figure\.image-display\n\s*img\(((\s*\w+=['"][^'"]+['"])+)\s*\)/mg, '<img class="image-display" $1>'))
