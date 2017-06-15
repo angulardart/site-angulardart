@@ -3,9 +3,9 @@
 import 'package:angular2/angular2.dart';
 
 // #enddocregion on-init
-import 'hero.dart';
-import 'hero_detail_component.dart';
-import 'hero_service_1.dart';
+import 'src/hero.dart';
+import 'src/hero_detail_component.dart';
+import 'src/hero_service_1.dart';
 
 // Testable but never shown
 @Component(

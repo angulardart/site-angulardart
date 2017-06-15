@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
-import 'hero.dart';
-import 'hero_service.dart';
+import 'src/hero.dart';
+import 'src/hero_service.dart';
 
 @Component(
   selector: 'my-app',

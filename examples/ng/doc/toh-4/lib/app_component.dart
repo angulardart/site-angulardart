@@ -4,10 +4,10 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
-import 'hero.dart';
-import 'hero_detail_component.dart';
+import 'src/hero.dart';
+import 'src/hero_detail_component.dart';
 // #docregion hero-service-import
-import 'hero_service.dart';
+import 'src/hero_service.dart';
 // #enddocregion hero-service-import
 
 @Component(
