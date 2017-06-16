@@ -25,7 +25,7 @@ module.exports = function (gulp, plugins, config) {
       region = null;
     }
     if (excerptText === ` (${region})`) region = null;
-    const regionAttr = region ? ` region="${region}"` : '';
+    const regionAttr = region || region == '' ? ` region="${region}"` : '';
     const linenumsAttr = instr === 'Example' && !format ? ' linenums' : '';
     return `<?code-excerpt "${dartPath}${excerptText || ''}"${regionAttr}${titleAttr}${linenumsAttr}?>\n`
       + '```\n\n```';
@@ -120,7 +120,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/^a?#([^#]\S+)/mg, '<div id="$1"></div>'))
       .pipe(replace(/^a\(id="(\S+)"\)/mg, '<div id="$1"></div>'))
       .pipe(argv.unindent === false ? plugins.gutil.noop() : replace(/^(---|  )/mg, unindent))
-      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']+)'(, '')?)?\)(\(format=[^\)]+\))?/g, mkExcerptPER))
+      .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']*)'(, '')?)?\)(\(format=[^\)]+\))?/g, mkExcerptPER))
       .pipe(replace(/\.filetree\n((\s*\..*\n)+)/g, filetree))
       .pipe(replace(/^include (.+)/mg, '{% include_relative $1.md %}'))
       .pipe(replace(/^figure\.image-display\n\s*img\(((\s*\w+=['"][^'"]+['"])+)\s*\)/mg, '<img class="image-display" $1>'))

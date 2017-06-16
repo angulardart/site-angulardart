@@ -13,7 +13,8 @@ if [ ! -e "publish" ]; then
 fi
 
 set -x
-superstatic --port $PORT > /dev/null &
+((superstatic --port $PORT > /dev/null  2>&1) \
+  || echo "Failed to launch superstatic server. Maybe it is already running?") &
 SERVER_PID=$!
 
 sleep 4
