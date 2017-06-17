@@ -117,7 +117,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/\n(\.alert.*|\.callout.*|\.l-sub-section|code-example.*)\n((\n|\s+\n| +[^\n]+\n)+)/g, subsection))
       .pipe(replace(/^(\.l-main-section|:marked|include .*_util-fns(.jade)?)\n/mg, ''))
       .pipe(replace(/^\.l-main-section#(\S+)/mg, '<div id="$1"></div>'))
-      .pipe(replace(/^a?#([^#]\S+)/mg, '<div id="$1"></div>'))
+      .pipe(replace(/^a?#([^\s#]\S+)/mg, '<div id="$1"></div>'))
       .pipe(replace(/^a\(id="(\S+)"\)/mg, '<div id="$1"></div>'))
       .pipe(argv.unindent === false ? plugins.gutil.noop() : replace(/^(---|  )/mg, unindent))
       .pipe(replace(/\+make(Example|Excerpt)\('([^'\(]+)( \(([^\)']*)\))?'(, '([^']*)'(, '')?)?\)(\(format=[^\)]+\))?/g, mkExcerptPER))
