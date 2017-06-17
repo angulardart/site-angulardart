@@ -24,8 +24,8 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 
 Once everything's installed, you can build and serve:
 
-- `gulp build` # use --fast to avoid running dartdoc when API docs already exist
-- `firebase serve --port 4001`
+- `gulp build` # use `--fast` to avoid running dartdoc when API docs already exist
+- `superstatic serve --port 4001`
 
 Or, to build, serve, and have a watcher for changes:
 
