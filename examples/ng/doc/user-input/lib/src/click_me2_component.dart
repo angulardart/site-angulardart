@@ -2,10 +2,12 @@
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: 'click-me2',
-    template: '''
-      <button (click)="onClickMe2(\$event)">No! .. Click me!</button>
-      {{clickMessage}}''')
+  selector: 'click-me2',
+  template: '''
+    <button (click)="onClickMe2(\$event)">No! .. Click me!</button>
+    {{clickMessage}}
+  ''',
+)
 class ClickMe2Component {
   String clickMessage = '';
   int _clicks = 1;

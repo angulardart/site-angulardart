@@ -24,4 +24,3 @@ class LittleTourComponent {
     }
   }
 }
-// #enddocregion little-tour
