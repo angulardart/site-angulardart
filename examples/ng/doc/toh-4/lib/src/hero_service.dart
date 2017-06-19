@@ -1,6 +1,5 @@
 // #docplaster
 // #docregion
-// #docregion just-get-heroes
 import 'dart:async';
 
 import 'package:angular2/angular2.dart';
@@ -10,16 +9,15 @@ import 'mock_heroes.dart';
 
 @Injectable()
 class HeroService {
-  // #docregion get-heroes
+  // #docregion getHeroes, get-heroes
   Future<List<Hero>> getHeroes() async => mockHeroes;
-  // #enddocregion get-heroes, just-get-heroes
+  // #enddocregion getHeroes, get-heroes
   // #enddocregion
   // See the "Take it slow" appendix
-  // #docregion get-heroes-slowly
+  // #docregion getHeroesSlowly
   Future<List<Hero>> getHeroesSlowly() {
     return new Future.delayed(const Duration(seconds: 2), getHeroes);
   }
-  // #enddocregion get-heroes-slowly
+  // #enddocregion getHeroesSlowly
   // #docregion
-  // #docregion just-get-heroes
 }

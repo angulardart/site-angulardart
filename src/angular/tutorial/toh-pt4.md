@@ -466,7 +466,7 @@ Read about the Angular component router and navigation among the views in the [n
 To simulate a slow connection,
 add the following `getHeroesSlowly()` method to the `HeroService`.
 
-<?code-excerpt "lib/src/hero_service.dart (getHeroesSlowly)" region="get-heroes-slowly" title?>
+<?code-excerpt "lib/src/hero_service.dart (getHeroesSlowly)" title?>
 ```
   Future<List<Hero>> getHeroesSlowly() {
     return new Future.delayed(const Duration(seconds: 2), getHeroes);
