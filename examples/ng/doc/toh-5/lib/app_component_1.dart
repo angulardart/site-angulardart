@@ -6,8 +6,8 @@ import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 // #docregion
 
-import 'hero_service.dart';
-import 'heroes_component.dart';
+import 'src/hero_service.dart';
+import 'src/heroes_component.dart';
 
 // #enddocregion v2
 @Component(
