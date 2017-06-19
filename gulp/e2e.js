@@ -32,7 +32,7 @@ module.exports = function (gulp, plugins, config) {
     // but they are handled via _exampleDartWebBoilerPlateFiles.
   ];
 
-  var _exampleDartWebBoilerPlateFiles = [/*'a2docs.css',*/ 'styles.css'];
+  var _exampleDartWebBoilerPlateFiles = [/*'a2docs.css',*/'favicon.png', 'styles.css'];
 
   var _exampleUnitTestingBoilerplateFiles = [
     'browser-test-shim.js',

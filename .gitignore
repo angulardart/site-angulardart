@@ -45,4 +45,5 @@ a2docs.css
 # !/public/docs/_examples/
 # /public/docs/_examples/node_modules
 /examples/ng/doc/*/web/styles.css
+/examples/ng/doc/*/web/favicon.png
 protractor-results.txt
