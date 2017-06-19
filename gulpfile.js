@@ -128,7 +128,7 @@ const plugins = {
 };
 
 const extraTasks = `
-  api api-list cheatsheet dartdoc e2e examples example-frag example-template
+  api api-list dartdoc e2e examples example-frag example-template
   get-stagehand-proj jade-to-md ngio-get ngio-put sass test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
@@ -144,7 +144,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 // tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
 // a problem. We can always fix the dependencies once gulp 4.x is out.
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
-  'build-api-list-json', 'build-cheatsheet', 'finalize-api-docs', 'sass',
+  'build-api-list-json', 'finalize-api-docs', 'sass',
   'add-examples-to-site'], cb => {
     // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
     // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
