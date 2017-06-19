@@ -4,13 +4,14 @@ import 'dart:math';
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: 'my-sizer',
-    template: '''
-      <div>
-        <button (click)="dec()" [disabled]="size <= minSize">-</button>
-        <button (click)="inc()" [disabled]="size >= maxSize">+</button>
-        <label [style.font-size.px]="size">FontSize: {{size}}px</label>
-      </div>''')
+  selector: 'my-sizer',
+  template: '''
+    <div>
+      <button (click)="dec()" [disabled]="size <= minSize">-</button>
+      <button (click)="inc()" [disabled]="size >= maxSize">+</button>
+      <label [style.font-size.px]="size">FontSize: {{size}}px</label>
+    </div>''',
+)
 class SizerComponent {
   final minSize = 8;
   final maxSize = 40;

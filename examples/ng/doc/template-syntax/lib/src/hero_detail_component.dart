@@ -6,21 +6,22 @@ import 'package:angular2/angular2.dart';
 import 'hero.dart';
 
 @Component(
-    selector: 'hero-detail',
-    styles: const [
-      'button {margin-left: 8px} div {margin: 8px 0} img {height:24px}'
-    ],
-    // #docregion template-1
-    template: '''
-      <div>
-        <img src="{{heroImageUrl}}">
-        <span [style.text-decoration]="lineThrough">
-          {{prefix}} {{hero?.name}}
-        </span>
-        <button (click)="delete()">Delete</button>
-      </div>'''
-    // #enddocregion template-1
-    )
+  selector: 'hero-detail',
+  styles: const [
+    'button {margin-left: 8px} div {margin: 8px 0} img {height:24px}'
+  ],
+  // #docregion template-1
+  template: '''
+    <div>
+      <img src="{{heroImageUrl}}">
+      <span [style.text-decoration]="lineThrough">
+        {{prefix}} {{hero?.name}}
+      </span>
+      <button (click)="delete()">Delete</button>
+    </div>
+  ''',
+  // #enddocregion template-1
+)
 class HeroDetailComponent implements OnInit {
   // #docregion input-output-1
   @Input()

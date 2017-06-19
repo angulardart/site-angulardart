@@ -26,12 +26,12 @@ class ClickDirective {
 
 // #docregion output-myClick2
 @Directive(
-    // #enddocregion output-myClick2
-    selector: '[myClick2]',
-    // #docregion output-myClick2
-    // ...
-    outputs: const ['clicks:myClick'] // propertyName:alias
-    )
+  // #enddocregion output-myClick2
+  selector: '[myClick2]',
+  // #docregion output-myClick2
+  // ...
+  outputs: const ['clicks:myClick'], // propertyName:alias
+)
 // #enddocregion output-myClick2
 class ClickDirective2 {
   final _onClick = new StreamController<String>();

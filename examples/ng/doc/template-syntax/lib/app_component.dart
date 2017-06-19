@@ -4,36 +4,35 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:angular_components/angular_components.dart';
 
-import 'hero.dart';
-import 'hero_detail_component.dart';
-import 'hero_form_component.dart';
-import 'hero_switch_components.dart';
-import 'click_directive.dart';
-import 'sizer_component.dart';
+import 'src/hero.dart';
+import 'src/hero_detail_component.dart';
+import 'src/hero_form_component.dart';
+import 'src/hero_switch_components.dart';
+import 'src/click_directive.dart';
+import 'src/sizer_component.dart';
 
 enum Color { red, green, blue }
 
 /// Giant grab bag of stuff to drive the chapter
 @Component(
-    selector: 'my-app',
-    templateUrl: 'app_component.html',
-    styleUrls: const ['app_component.css'],
-    directives: const [
-      COMMON_DIRECTIVES,
-      BigHeroDetailComponent,
-      HeroDetailComponent,
-      HeroFormComponent,
-      heroSwitchComponents,
-      ClickDirective,
-      ClickDirective2,
-      SizerComponent,
-      materialDirectives
-    ],
+  selector: 'my-app',
+  templateUrl: 'app_component.html',
+  styleUrls: const ['app_component.css'],
+  directives: const [
+    COMMON_DIRECTIVES,
+    BigHeroDetailComponent,
+    HeroDetailComponent,
+    HeroFormComponent,
+    heroSwitchComponents,
+    ClickDirective,
+    ClickDirective2,
+    SizerComponent,
+    materialDirectives
+  ],
   providers: const [materialProviders],
   pipes: const [COMMON_PIPES],
 )
 class AppComponent implements AfterViewInit, OnInit {
-
   @override
   void ngOnInit() {
     resetHeroes();
@@ -44,12 +43,14 @@ class AppComponent implements AfterViewInit, OnInit {
   @override
   void ngAfterViewInit() {
     // Detect effects of NgForTrackBy
-    trackChanges(heroesNoTrackBy,   () => heroesNoTrackByCount++);
+    trackChanges(heroesNoTrackBy, () => heroesNoTrackByCount++);
     trackChanges(heroesWithTrackBy, () => heroesWithTrackByCount++);
   }
 
-  @ViewChildren('noTrackBy') QueryList<ElementRef> heroesNoTrackBy;
-  @ViewChildren('withTrackBy') QueryList<ElementRef> heroesWithTrackBy;
+  @ViewChildren('noTrackBy')
+  QueryList<ElementRef> heroesNoTrackBy;
+  @ViewChildren('withTrackBy')
+  QueryList<ElementRef> heroesWithTrackBy;
 
   String actionName = 'Go for it';
   String badCurly = 'bad curly';
@@ -92,11 +93,12 @@ class AppComponent implements AfterViewInit, OnInit {
   }
 
   // #docregion evil-title
-  String evilTitle = 'Template <script>alert("evil never sleeps")</script>Syntax';
+  String evilTitle =
+      'Template <script>alert("evil never sleeps")</script>Syntax';
   // #enddocregion evil-title
 
-  var/*String|int*/ fontSizePx = '16';
-  
+  var /*String|int*/ fontSizePx = '16';
+
   String title = 'Template Syntax';
 
   int getVal() => 2;
@@ -106,7 +108,7 @@ class AppComponent implements AfterViewInit, OnInit {
   final List<Hero> heroes = [];
 
   // trackBy change counting
-  int heroesNoTrackByCount   = 0;
+  int heroesNoTrackByCount = 0;
   int heroesWithTrackByCount = 0;
   int heroesWithTrackByCountReset = 0;
 
@@ -141,10 +143,7 @@ class AppComponent implements AfterViewInit, OnInit {
 
   void onSubmit(form) {/* referenced but not used */}
 
-  Map product = {
-  'name': 'frimfram',
-  'price': 42
-  };
+  Map product = {'name': 'frimfram', 'price': 42};
 
   // updates with fresh set of cloned heroes
   void resetHeroes() {
