@@ -422,50 +422,7 @@ from everywhere.
 **Try it!** Click run ( {% img 'red-run.png' %} )
 and then click the **Get portmanteaux** button.
 
-{% comment %}
-https://gist.github.com/Sfshaza/8640071ecb67b1309938
-
-main.dart:
-// Copyright (c) 2012, the Dart project authors.
-// Please see the AUTHORS file for details.
-// All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'dart:async';
-import 'dart:convert';
-import 'dart:html';
-
-var wordList;
-
-void main() {
-  querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList');
-}
-
-Future makeRequest(Event e) async {
-  var path = 'https://www.dartlang.org/f/portmanteaux.json';
-  try {
-    processString(await HttpRequest.getString(path));
-  } catch (e) {
-    print('Couldn\'t open $path');
-    handleError(e);
-  }
-}
-
-processString(String jsonString) {
-  List<String> portmanteaux = JSON.decode(jsonString);
-  for (int i = 0; i < portmanteaux.length; i++) {
-    wordList.children.add(new LIElement()..text = portmanteaux[i]);
-  }
-}
-
-handleError(Object error) {
-  wordList.children.add(new LIElement()..text = 'Request failed.');
-}
-{% endcomment %}
-
-
+{% comment %} https://gist.github.com/Sfshaza/8640071ecb67b1309938 {% endcomment %}
 <iframe
 src="{{site.custom.dartpad.embed-html-prefix}}?id=8640071ecb67b1309938&horizontalRatio=68&verticalRatio=80"
     width="100%"
@@ -511,48 +468,7 @@ and use the `send()` method to make the request.
 This section rewrites the portmanteaux code to explicitly construct
 an HttpRequest object.
 
-{% comment %}
-https://gist.github.com/Sfshaza/83f7779d18a8bbe8ccb1
-
-main.dart:
-// Copyright (c) 2012, the Dart project authors.
-// Please see the AUTHORS file for details.
-// All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'dart:html';
-import 'dart:convert';
-
-var wordList;
-
-void main() {
-  querySelector('#getWords').onClick.listen(makeRequest);
-  wordList = querySelector('#wordList');
-}
-
-void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/f/portmanteaux.json';
-  var httpRequest = new HttpRequest();
-  httpRequest
-    ..open('GET', path)
-    ..onLoadEnd.listen((e) => requestComplete(httpRequest))
-    ..send('');
-}
-
-requestComplete(HttpRequest request) {
-  if (request.status == 200) {
-    List<String> portmanteaux = JSON.decode(request.responseText);
-    for (int i = 0; i < portmanteaux.length; i++) {
-      wordList.children.add(new LIElement()..text = portmanteaux[i]);
-    }
-  } else {
-    wordList.children.add(new LIElement()
-      ..text = 'Request failed, status=${request.status}');
-  }
-}
-{% endcomment %}
-
+{% comment %} https://gist.github.com/Sfshaza/83f7779d18a8bbe8ccb1 {% endcomment %}
 <iframe
 src="{{site.custom.dartpad.embed-html-prefix}}?id=83f7779d18a8bbe8ccb1&horizontalRatio=68&verticalRatio=80"
     width="100%"
