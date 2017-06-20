@@ -90,13 +90,13 @@ and trigger events don’t fire when the element is disabled.
 
 The primary UI is looking good!
 Now let’s start improving the settings section of the UI,
-which is implemented in lib/settings/settings_component.* files.
+which is implemented in lib/src/settings/settings_component.* files.
 First, let’s change the checkbox to use \<material-checkbox>.
 
 <ol markdown="1">
 
 <li markdown="1"> Edit the Dart file for \<settings-component>
-    (**lib/settings/settings_component.dart**) to import angular_components,
+    (**lib/src/settings/settings_component.dart**) to import angular_components,
     and to register
     [MaterialCheckboxComponent]({{site.acx_api}}/angular_components/MaterialCheckboxComponent-class.html)
     and `materialProviders`:
@@ -116,7 +116,7 @@ First, let’s change the checkbox to use \<material-checkbox>.
 </li>
 
 <li markdown="1"> Edit the template file
-    (**lib/settings/settings_component.html**),
+    (**lib/src/settings/settings_component.html**),
     changing the “checkbox” input (and its surrounding label)
     into a \<material-checkbox>.
 
@@ -137,7 +137,7 @@ is contained by a \<material-radio-group>.
 <ol markdown="1">
 
 <li markdown="1"> Edit the Dart file for \<settings-component>
-    (**lib/settings/settings_component.dart**) to register
+    (**lib/src/settings/settings_component.dart**) to register
     [MaterialRadioComponent]({{site.acx_api}}/angular_components/MaterialRadioComponent-class.html) and
     [MaterialRadioGroupComponent]({{site.acx_api}}/angular_components/MaterialRadioGroupComponent-class.html):
 
@@ -157,7 +157,7 @@ is contained by a \<material-radio-group>.
 </li>
 
 <li markdown="1"> In the template file
-    (**lib/settings/settings_component.html**),
+    (**lib/src/settings/settings_component.html**),
     find the string `"radio"`. Change the enclosing label to
     **\<material-radio>**, and then the immediately enclosing **\<div>**
     to **\<material-radio-group>**.
@@ -171,7 +171,7 @@ is contained by a \<material-radio-group>.
 <li markdown="1"> Change `(click)` to `(checkedChange)`,
     and `current.checked` to `$event`.
     Here’s why:
-    [MaterialRadioComponent](https://user.git.corp.google.com/filiph/acx/+/master/lib/src/components/material_radio/material_radio.dart)
+    [MaterialRadioComponent]({{site.acx_api}}/angular_components/MaterialRadioComponent-class.html)
     fires checkedChange when the radio button’s selection state changes.
     The event’s value is true if the radio button has become selected,
     and otherwise false.
@@ -193,7 +193,7 @@ is contained by a \<material-radio-group>.
 </li>
 
 <li markdown="1"> Fix the appearance problem by editing
-    **lib/settings/settings_component.css** to add a rule that
+    **lib/src/settings/settings_component.css** to add a rule that
     maximizes that component’s width:
 
 {% prettify css %}
@@ -207,7 +207,7 @@ information. We’ll fix that in the next step.
 
 <aside class="alert alert-info" markdown="1">
 **Note:** You might notice that the
-lib/settings/settings_component.html still has a few \<button>
+lib/src/settings/settings_component.html still has a few \<button>
 elements—all the Save and Cancel buttons.
 You’ll remove those in the next step.
 </aside>

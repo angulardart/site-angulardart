@@ -25,13 +25,13 @@ information until the user needs it. You’ll use these components:
 
 Expansion panels are especially good for settings,
 so let’s use them in the custom \<settings-component>,
-implemented in lib/settings/settings_component.* files.
+implemented in lib/src/settings/settings_component.* files.
 
 
 <ol markdown="1">
 
 <li markdown="1"> Edit the Dart file
-    (**lib/settings/settings_component.dart**),
+    (**lib/src/settings/settings_component.dart**),
     adding the expansion panel directives
     [MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html) and
     [MaterialExpansionPanelSet]({{site.acx_api}}/angular_components/MaterialExpansionPanelSet-class.html):
@@ -47,14 +47,14 @@ directives: const [
 </li>
 
 <li markdown="1"> Edit the template file
-    (**lib/settings/settings_component.html**) to change the
+    (**lib/src/settings/settings_component.html**) to change the
     enclosing **\<div>** element (the first and last lines of the file)
     to be a **\<material-expansionpanel-set>**.
 </li>
 
 <li markdown="1"> Convert the Wallet div into a
     **\<material-expansionpanel>**
-    ([MaterialExpansionPanel](https://user.git.corp.google.com/filiph/acx/+/master/lib/src/components/material_expansionpanel/material_expansionpanel.dart)):
+    ([MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html)):
 
 <ol type="a" markdown="1">
 <li markdown="1"> Change the **\<div>** element to **\<material-expansionpanel>**.
