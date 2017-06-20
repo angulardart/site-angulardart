@@ -64,7 +64,7 @@ A **Clone Repository** dialog appears.
 </li>
 
 <li markdown="1">Fill out the fields:
-   * **Git Repository URL:** `https://github.com/angular-examples/quickstart`
+   * **Git Repository URL:** <https://github.com/angular-examples/quickstart>
    * **Parent Directory:** _(wherever you like to keep your practice code)_
    * **Directory Name:** `pirate_badge` <br><br>
 </li>
@@ -373,7 +373,10 @@ void main() {
 {% prettify dart %}
 import 'package:angular2/angular2.dart';
 
-@Component(selector: 'my-app', template: '<h1>Hello {% raw %}{{name}}{% endraw %}</h1>')
+@Component(
+  selector: 'my-app',
+  template: '<h1>Hello {!{name}}</h1>',
+)
 class AppComponent {
   var name = 'Angular';
 }
@@ -438,6 +441,9 @@ transformers:
 - angular2:
     entry_points: web/main.dart
 - dart_to_js_script_rewriter
+web:
+  compiler:
+    debug: dartdevc
 {% endprettify %}
 
 </div>
@@ -469,6 +475,11 @@ transformers:
 
 * Pub uses the `dart_to_js_script_rewriter` transformer when building
   your app for deployment.
+
+* The `web: compiler: ...` entry tells pub to use the Dart development compiler
+  ([dartdevc][]) when building or serving the app in `debug` mode.
+
+  [dartdevc]: https://webdev.dartlang.org/tools/dartdevc
 
 * Running `pub get` installs the packages that your app depends on,
   as defined by your app's pubspec.

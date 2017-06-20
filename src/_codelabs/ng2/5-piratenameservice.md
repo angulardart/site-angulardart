@@ -26,16 +26,10 @@ as you add a service that returns a pirate name.
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
+  1. In WebStorm's Project view, right-click the `lib/src` directory and
+    select **New > Dart File** from the menu that pops up.
 
-<ol markdown="1">
-<li markdown="1">In WebStorm's Project view,
-   right-click the `lib` directory and
-   select **New > Dart File** from the menu that pops up.
-</li>
-<li markdown="1">Enter "name_service" as the filename
-   and click **OK**.
-</li>
-</ol>
+  1. Enter "name_service" as the filename and click **OK**.
 </div>
 
 </div> <div class="col-md-5" markdown="1">
@@ -163,11 +157,13 @@ class NameService {
   static final Random _indexGen = new Random();
 
   [[highlight]]final _names = <String>[[[/highlight]]
-    [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
-    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane'];[[/highlight]]
+    [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger', //[[/highlight]]
+    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane'
+  ];[[/highlight]]
   [[highlight]]final _appellations = <String>[[[/highlight]]
-    [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
-    [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
+    [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe', //[[/highlight]]
+    [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'
+  ];[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -205,7 +201,8 @@ class NameService {
   ...
   final _appellations = <String>[
     'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
-    'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
+    'Young', 'Brave', 'Eager', 'Wily', 'Zesty'
+  ];
 
   [[highlight]]String _randomFirstName() =>[[/highlight]]
       [[highlight]]_names[_indexGen.nextInt(_names.length)];[[/highlight]]
@@ -539,5 +536,5 @@ Finally, if you still haven't found the problem
 check your code against the files in
 [5-piratenameservice](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/5-piratenameservice).
 
-* [lib/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/5-piratenameservice/lib/badge_component.dart)
-* [lib/name_service.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/5-piratenameservice/lib/name_service.dart)
+* [lib/src/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/5-piratenameservice/lib/src/badge_component.dart)
+* [lib/src/name_service.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/5-piratenameservice/lib/src/name_service.dart)

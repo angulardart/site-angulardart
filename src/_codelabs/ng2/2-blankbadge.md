@@ -30,22 +30,24 @@ where you add interactivity, are easy and fun.
 
 <div class="trydart-step-details" markdown="1">
 
-<ol markdown="1">
-<li markdown="1">In WebStorm's Project view,
-   right-click the `lib` directory and
+1. In WebStorm's Project view, right-click the `lib` directory and
+   select **New > Directory** from the menu that pops up.
+
+1. Enter `src` as the directory name and click **OK**.
+
+1. In WebStorm's Project view, right-click the newly created `src` directory and
    select **New > File** from the menu that pops up.
-</li>
-<li markdown="1">Enter `badge_component.html` as the filename
+
+1. Enter `badge_component.html` as the filename
    and click **OK**.
-</li>
-</ol>
+
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* WebStorm creates an empty `badge_component.html` file under `lib`.
+* WebStorm creates an empty `badge_component.html` file under `lib/src`.
 
 * You can also create the file by selecting **New > HTML File** from
   the menu, and entering `badge_component` as the name, but the
@@ -138,26 +140,23 @@ The style sheet is too long to include here,
 but we've provided one for you to copy and paste into your project.
 
 <div class="trydart-step-details" markdown="1">
-<ol markdown="1">
-<li markdown="1">In WebStorm's Project view,
-    right click the `lib` directory,
-    and select **New -> Stylesheet** from the menu that pops up.
-</li>
-<li markdown="1">Enter `badge_component` as the filename
-    and click **OK**.
-</li>
-<li markdown="1">Paste the contents from
-    [badge_component.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/badge_component.css)
-    into the newly created file.
-</li>
-</ol>
+
+1. In WebStorm's Project view, right click the `lib/src` directory,
+  and select **New -> Stylesheet** from the menu that pops up.
+
+1. Enter `badge_component` as the filename and click **OK**.
+
+1. Paste the contents from
+   [badge_component.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/badge_component.css)
+  into the newly created file.
+
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* WebStorm creates an empty `badge_component.css` file under `lib`.
+* WebStorm creates an empty `badge_component.css` file under `lib/src`.
   Note that the CSS extension is provided for you.
 
 * Cascading Style Sheets (CSS) is a language used for describing
@@ -185,16 +184,11 @@ but we've provided one for you to copy and paste into your project.
 
 <div class="trydart-step-details" markdown="1">
 
-<ol markdown="1">
-<li markdown="1">In WebStorm's Project view,
-   right-click the `lib` directory, and
+1. In WebStorm's Project view,
+   right-click the `lib/src` directory, and
    select **New > Dart File** from the menu that pops up.
-</li>
-<li markdown="1">Enter `badge_component` as the filename
-   and click **OK**.
-</li>
 
-</ol>
+1. Enter `badge_component` as the filename and click **OK**.
 
 </div>
 
@@ -319,7 +313,7 @@ Import the pirate badge component.
 {% prettify dart %}
 import 'package:angular2/angular2.dart';
 
-[[highlight]]import 'badge_component.dart';[[/highlight]]
+[[highlight]]import 'src/badge_component.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -333,7 +327,7 @@ import 'package:angular2/angular2.dart';
 
 * When you have multiple Dart files under `lib`, they can import
   each other using relative paths, for example,
-  `import 'badge_component.dart'`.
+  `import 'src/badge_component.dart'`.
   However, any file that's not under `lib` (`web/main.dart`, for example)
   must use a `package:` URL to import libraries defined under `lib`.
 
@@ -517,8 +511,8 @@ check your code against the files in
 
 * [lib/app_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/app_component.dart)
 * [lib/app_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/app_component.html)
-* [lib/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/badge_component.dart)
-* [lib/badge_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/badge_component.html)
-* [lib/badge_component.css](https://github.com/dart-lang/one-hour-codelab/blob/master/ng2/2-blankbadge/lib/badge_component.css)
+* [lib/src/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.dart)
+* [lib/src/badge_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.html)
+* [lib/src/badge_component.css](https://github.com/dart-lang/one-hour-codelab/blob/master/ng2/2-blankbadge/lib/src/badge_component.css)
 * [web/index.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/web/index.html)
 * [web/styles.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/web/styles.css)

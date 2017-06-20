@@ -137,5 +137,5 @@ Finally, if you still haven't found the problem
 check your code against the files in
 [3-inputnamebadge](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/3-inputnamebadge).
 
-* [lib/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/3-inputnamebadge/lib/badge_component.dart)
-* [lib/badge_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/3-inputnamebadge/lib/badge_component.html)
+* [lib/src/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/3-inputnamebadge/lib/src/badge_component.dart)
+* [lib/src/badge_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/3-inputnamebadge/lib/src/badge_component.html)
