@@ -40,7 +40,7 @@ module.exports = function (gulp, plugins, config) {
   const toh0Files='*.yaml lib test web'
 
   gulp.task('create-toh-0', ['_create-toh-0'], () => {
-    plugins.gutil.log(`Making files in ${toh0Path} read-only.`)
+    // plugins.gutil.log(`Making files in ${toh0Path} read-only.`)
   });
 
   gulp.task('_create-toh-0', cb => {
@@ -62,7 +62,7 @@ module.exports = function (gulp, plugins, config) {
       // index.html
       .pipe(replace(/(<title>)[^<]+(<\/title>)/, '$1Angular Tour of Heroes$2'))
       // *.dart
-      .pipe(replace(/(package:angular)_quickstart\b/, '$1_tour_of_heroes'))
+      .pipe(replace(/(package:angular)_app\b/, '$1_tour_of_heroes'))
       .pipe(gulp.dest(toh0Path));
   });
 
