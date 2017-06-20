@@ -24,6 +24,7 @@ transformers:
     resolved_identifiers:
         BrowserClient: 'package:http/browser_client.dart'
         Client: 'package:http/http.dart'
+# #enddocregion additions
 - angular2/transform/reflection_remover:
     $include: test/**_test.dart
 - test/pub_serve:

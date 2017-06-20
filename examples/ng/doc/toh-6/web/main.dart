@@ -8,12 +8,11 @@ import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
 import 'package:http/http.dart';
 
 void main() {
-  bootstrap(AppComponent,
-    [provide(Client, useClass: InMemoryDataService)]
-    // Using a real back end?
-    // Import browser_client.dart and change the above to:
-    // [provide(Client, useFactory: () => new BrowserClient(), deps: [])]
-  );
+  bootstrap(AppComponent, [provide(Client, useClass: InMemoryDataService)]
+      // Using a real back end?
+      // Import browser_client.dart and change the above to:
+      // [provide(Client, useFactory: () => new BrowserClient(), deps: [])]
+      );
 }
 // #enddocregion v2,
 /*
