@@ -46,7 +46,6 @@ to navigate between this Dashboard view and a Heroes view.
 If you click the dashboard hero "Magneta," the router opens a "Hero Details" view
 where you can change the hero's name.
 
-
 <img class="image-display" src='/resources/images/devguide/toh/hero-details-1.png' alt="Details of hero in app">
 
 Clicking the "Back" button returns you to the Dashboard.

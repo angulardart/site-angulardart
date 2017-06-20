@@ -4,8 +4,8 @@
 
 import 'package:angular2/angular2.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/hero.dart';
-import 'package:angular_tour_of_heroes/hero_detail_component.dart';
+import 'package:angular_tour_of_heroes/src/hero.dart';
+import 'package:angular_tour_of_heroes/src/hero_detail_component.dart';
 import 'package:test/test.dart';
 
 import 'hero_detail_po.dart';

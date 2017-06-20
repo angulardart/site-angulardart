@@ -43,25 +43,26 @@ If not, go back to the previous pages.
 
 ## Make a hero detail component
 
-Add a file named `hero_detail_component.dart` to the `lib/` folder.
+Create the `lib/src` folder and add a file named `hero_detail_component.dart` to it.
 This file will hold the new `HeroDetailComponent`.
 
 <div class="l-sub-section" markdown="1">
-  **Angular naming conventions**:
+  **Angular conventions**:
 
-  * The component _class_ name should be written in _upper camel case_ and
+  * The component _class_ name should be written in [upper camel case](/angular/glossary#pascalcase) and
     end in the word "Component".  The hero detail component class is
     `HeroDetailComponent`.
 
-  * The component _file_ name should be spelled in [_lower underscore
-    case_](/angular/glossary#snake_case), each word separated by
-    underscores, and end in `_component.dart`.  The `HeroDetailComponent`
-    class goes in the `hero_detail_component.dart` file.
+  * The component _file_ name should be in [snake case](/angular/glossary#snake_case)
+    &mdash;lowercase with underscore separation&mdash;and end in `_component.dart`.
+    The `HeroDetailComponent` class goes in the `hero_detail_component.dart` file.
+
+  * Internal implementation files should be placed under `lib/src`. See the [pub package layout conventions](https://www.dartlang.org/tools/pub/package-layout) for details.
 </div>
 
 Start writing the `HeroDetailComponent` as follows:
 
-<?code-excerpt "lib/hero_detail_component.dart (initial version)" region="v1" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (initial version)" region="v1" title?>
 ```
   import 'package:angular2/angular2.dart';
 
@@ -92,7 +93,7 @@ The `HeroDetailComponent` has a _hero_, not a _selected hero_.
 Replace the word, "selectedHero", with the word, "hero", everywhere in the template.
 When you're done, the new template should look like this:
 
-<?code-excerpt "lib/hero_detail_component.dart (template)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (template)" title?>
 ```
   template: '''
     <div *ngIf="hero != null">
@@ -110,7 +111,7 @@ When you're done, the new template should look like this:
 The `HeroDetailComponent` template binds to the component's `hero` property.
 Add that property to the `HeroDetailComponent` class like this:
 
-<?code-excerpt "lib/hero_detail_component.dart (hero)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (hero)" title?>
 ```
   Hero hero;
 ```
@@ -121,7 +122,7 @@ Now there are two components that need to reference the `Hero` class.
 
 Move the `Hero` class from `app_component.dart` to its own `hero.dart` file.
 
-<?code-excerpt "lib/hero.dart" title linenums?>
+<?code-excerpt "lib/src/hero.dart" title linenums?>
 ```
   class Hero {
     final int id;
@@ -134,7 +135,7 @@ Move the `Hero` class from `app_component.dart` to its own `hero.dart` file.
 Now that the `Hero` class is in its own file, the `AppComponent` and the `HeroDetailComponent` have to import it.
 Add the following `import` statement near the top of _both_ the `app_component.dart` and the `hero_detail_component.dart` files.
 
-<?code-excerpt "lib/hero_detail_component.dart (hero import)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (hero import)" title?>
 ```
   import 'hero.dart';
 ```
@@ -158,7 +159,7 @@ Otherwise, Angular rejects the binding and throws an error.
 
 Declare that `hero` is an *input* property by annotating it with `@Input()`:
 
-<?code-excerpt "lib/hero_detail_component.dart (inputs)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (inputs)" title?>
 ```
     @Input()
     Hero hero;
@@ -173,7 +174,7 @@ That's it. The `hero` property is the only thing in the `HeroDetailComponent` cl
 All it does is receive a hero object through its `hero` input property and then bind to that property with its template.
 Here's the complete `HeroDetailComponent`.
 
-<?code-excerpt "lib/hero_detail_component.dart" title linenums?>
+<?code-excerpt "lib/src/hero_detail_component.dart" title linenums?>
 ```
   import 'package:angular2/angular2.dart';
 
@@ -209,7 +210,7 @@ Start by importing the `HeroDetailComponent` so `AppComponent` can refer to it.
 
 <?code-excerpt "lib/app_component.dart (hero-detail import)"?>
 ```
-  import 'hero_detail_component.dart';
+  import 'src/hero_detail_component.dart';
 ```
 
 Recall that `hero-detail` is the CSS [`selector`](#selector "HeroDetailComponent selector")
@@ -301,8 +302,9 @@ Verify that you have the following structure:
 - angular_tour_of_heroes
   - lib
     - app_component.dart
-    - hero.dart
-    - hero_detail_component.dart
+    - src
+      - hero.dart
+      - hero_detail_component.dart
   - web
     - index.html
     - main.dart
@@ -313,9 +315,9 @@ Verify that you have the following structure:
 Here are the code files discussed in this page.
 
 <code-tabs>
-  <?code-pane "lib/hero_detail_component.dart"?>
+  <?code-pane "lib/src/hero_detail_component.dart"?>
   <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/hero.dart"?>
+  <?code-pane "lib/src/hero.dart"?>
 </code-tabs>
 
 ## The road you’ve travelled
