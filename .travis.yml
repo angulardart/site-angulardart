@@ -48,9 +48,7 @@ script:
   - gulp $CI_TASK
 
 after_script:
-  - ./scripts/check-build.sh || travis_terminate 1
-  - ./scripts/check-links.sh || travis_terminate 1
-  - ./scripts/check-code-excerpts.sh || travis_terminate 1
+  - ./scripts/check-all.sh || travis_terminate 1
 
 # branch whitelist
 # branches:
