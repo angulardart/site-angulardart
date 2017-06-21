@@ -101,7 +101,7 @@ describe('Lifecycle hooks', function () {
       expect(commentEle.getText()).toContain('long name');
       return logEles.count();
     }).then(function(count: number) {
-      expect(logCount + 7).toEqual(count, '7 additional log messages should have been added');
+      expect(logCount + 6).toEqual(count, '6 additional log messages should have been added');
       logCount = count;
       return buttonEle.click();
     }).then(function() {
