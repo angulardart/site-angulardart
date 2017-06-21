@@ -3,10 +3,10 @@
 
 module.exports = function (gulp, plugins, config) {
 
+  const argv = plugins.argv;
   const path = plugins.path;
   // TODO: change global EXAMPLES_PATH to refer to this too:
   const EXAMPLES_PATH = path.join(config.EXAMPLES_PATH, '..', '..');
-  const DOC_EXAMPLES_PATH = config.EXAMPLES_PATH;
 
   // Since we are still using content-shell, then it doesn't matter which web compiler we use
   // but we'll still honor the WEB_COMPILER setting.
@@ -15,41 +15,41 @@ module.exports = function (gulp, plugins, config) {
     + ` --serve-arg=--web-compiler=${wc}`
     + ' --test-arg=--platform=content-shell';
 
-  const docEx = ('quickstart template-syntax '
-    + 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6').split(' ');
+  const pathOfExamplesToTest = ('quickstart template-syntax '
+    + 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6').split(' ')
+    .map(name => path.join('ng', 'doc', name))
+    .concat(path.join('ng_test', 'github_issues'))
+    .filter(name => !argv.filter || name.match(new RegExp(argv.filter)));
 
-  const docExStatus = { passed: [], failed: [], skipped: [] };
+  const testStatus = { passed: [], failed: [], skipped: [] };
 
-  gulp.task('test', ['_test-ng-doc', '_test-ng-test'], (cb) => {
-    plugins.gutil.log(`Passed:\n  ${docExStatus.passed.join('\n  ')}\n`);
-    plugins.gutil.log(`Skipped:\n  ${docExStatus.skipped.join('\n  ')}\n`);
-    plugins.gutil.log(`Failed:\n  ${docExStatus.failed.join('\n  ')}\n`);
-    process.exitCode = docExStatus.failed.length;
+  gulp.task('test', ['_test'], (cb) => {
+    plugins.gutil.log(`Passed:\n  ${testStatus.passed.join('\n  ')}\n`);
+    plugins.gutil.log(`Skipped:\n  ${testStatus.skipped.join('\n  ')}\n`);
+    plugins.gutil.log(`Failed:\n  ${testStatus.failed.join('\n  ')}\n`);
+    process.exitCode = testStatus.failed.length;
   });
 
-  gulp.task('_test-ng-doc', ['create-toh-0'], cb => {
+  gulp.task('_test', cb => {
     var promise = Promise.resolve(true);
-    docEx.forEach(dir => promise = promise.then(() => {
-      plugins.gutil.log(`Running tests for ${dir}`);
-      let exPathPrefix = DOC_EXAMPLES_PATH;
-      if (dir == 'toh-0') exPathPrefix = path.join(config.LOCAL_TMP, exPathPrefix);
-      return pubGetAndRunTest(path.join(exPathPrefix, dir));
+    pathOfExamplesToTest.forEach(ex => promise = promise.then(() => {
+      plugins.gutil.log(`Running tests for ${ex}`);
+      return pubGetAndRunTest(path.join(EXAMPLES_PATH, ex));
     }))
     return promise;
   });
 
-  gulp.task('_test-ng-test', cb => {
-    const exPath = path.join(EXAMPLES_PATH, 'ng_test', 'github_issues');
-    return pubGetAndRunTest(exPath);
+  gulp.task('__list-tests', () => {
+    plugins.gutil.log(`tests:\n  ${pathOfExamplesToTest.join('\n  ')}`)
   });
 
   function pubGetAndRunTest(exPath) {
     return plugins.execp('pub get', { cwd: exPath })
       .then(() => plugins.execp(runAngularTest, { cwd: exPath }))
-      .then(() => docExStatus.passed.push(exPath))
+      .then(() => testStatus.passed.push(exPath))
       .catch(function (err) {
         plugins.gutil.log(`Error running tests. Cmd exit code: ${err}\n`);
-        docExStatus.failed.push(exPath);
+        testStatus.failed.push(exPath);
       });
 
   }

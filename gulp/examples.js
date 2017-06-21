@@ -19,7 +19,7 @@ module.exports = function (gulp, plugins, config) {
   const tmpReposPath = path.join(LOCAL_TMP, 'deploy-repos');
 
   let examples = plugins.fs.readdirSync(EXAMPLES_PATH)
-    .filter(name => !name.match(/^toh-0$|^_|\.|node_modules/));
+    .filter(name => !name.match(/^_|\.|node_modules/));
 
   gulp.task('__list-examples', () => {
     gutil.log(`examples: ${examples}`)

@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
 
   const qsPath = path.join(EXAMPLES_PATH, 'quickstart');
-  const toh0Path = path.join(LOCAL_TMP, EXAMPLES_PATH, 'toh-0');
+  const toh0Path = path.join(EXAMPLES_PATH, 'toh-0');
 
   // Stagehand related tasks (currently outdated)
 
@@ -35,25 +35,15 @@ module.exports = function (gulp, plugins, config) {
       return stream;
     });
 
-  // toh-0 setup
+  // toh-0
 
-  const toh0Files='*.yaml lib test web'
-
-  gulp.task('create-toh-0', ['_create-toh-0'], () => {
-    // plugins.gutil.log(`Making files in ${toh0Path} read-only.`)
-  });
-
-  gulp.task('_create-toh-0', cb => {
+  gulp.task('update-toh-0', cb => {
     const baseDir = qsPath;
-    if (fs.existsSync(toh0Path)) cp.execSync(`chmod -R +w ${toh0Files}`, { cwd: toh0Path });
     return gulp.src([
       `${baseDir}/**`,
-      `!${baseDir}/.*`,
-      `!${baseDir}/.*/**`,
+      `!${baseDir}/pubspec.lock`,
       `!${baseDir}/build`,
       `!${baseDir}/build/**`,
-      `!${baseDir}/example-config.json`,
-      `!${baseDir}/e2e-spec.ts`,
     ], { base: baseDir })
       // pubspec.yaml
       .pipe(replace(/^(name:) .*$/m, '$1 angular_tour_of_heroes'))
@@ -63,6 +53,9 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/(<title>)[^<]+(<\/title>)/, '$1Angular Tour of Heroes$2'))
       // *.dart
       .pipe(replace(/(package:angular)_app\b/, '$1_tour_of_heroes'))
+      // E2E
+      .pipe(replace(/E2E Tests/, 'Tutorial $&'))
+
       .pipe(gulp.dest(toh0Path));
   });
 

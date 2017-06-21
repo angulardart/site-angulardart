@@ -10,8 +10,8 @@ nextpage:
   url: /angular/tutorial/toh-pt1
 ---
 <?code-excerpt path-base="toh-0"?>
-This tutorial starts with a bare-bones Angular app,
-derived from the <live-example name="quickstart">quickstart example</live-example>.
+This tutorial starts with a bare-bones Angular app.
+Run the <live-example></live-example> to see the app.
 
 ## Create the app
 

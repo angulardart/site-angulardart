@@ -35,7 +35,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide'], done => shred(_devguideShredOptions, done));
 
-  gulp.task('_shred-generated-examples', ['_shred-clean-devguide', 'create-toh-0'], done => {
+  gulp.task('_shred-generated-examples', ['_shred-clean-devguide'], done => {
     const options = Object.assign({}, _devguideShredOptions);
     options.examplesDir = path.join(config.LOCAL_TMP, EXAMPLES_PATH);
     return shred(options, done);

@@ -2,7 +2,7 @@
 
 import { browser, element, by } from 'protractor';
 
-describe('E2E Tests', function () {
+describe('Tutorial E2E Tests', function () {
 
   let expectedMsg = 'Hello Angular';
 
