@@ -15,7 +15,7 @@ module.exports = function (gulp, plugins, config) {
   const ngContentAstIndexRelPath = 'angular2.compiler/NgContentAst/index.html';
 
   // Copy (and patch) API docs to ${destPath(p)} for each project p specified via --dartdoc
-  gulp.task('finalize-api-docs', _projs.map(p => `finalize-api-docs-${p}`));
+  gulp.task('finalize-api-docs', config.dartdocProj.map(p => `finalize-api-docs-${p}`));
 
   gulp.task('finalize-api-docs-acx', ['dartdoc-acx', '_api-copy-index+styles-acx', '_api-copy+patch-html-acx']);
   gulp.task('finalize-api-docs-ng', ['dartdoc-ng', '_api-copy-index+styles-ng', '_api-copy+patch-html-ng', '_api-patch-base-href-ng']);

@@ -38,14 +38,18 @@ module.exports = function (gulp, plugins, config) {
   // --clean  removes angular2 doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
   gulp.task('dartdoc', _projs.map(p => `dartdoc-${p}`));
 
-  _projs.forEach(p => {
-    gulp.task(`dartdoc-${p}`, [`_dartdoc-${p}`]);
+  config.dartdocProj.forEach(p => {
+    if (_projs.includes(p)) {
+      gulp.task(`dartdoc-${p}`, [`_dartdoc-${p}`]);
 
-    // Task: _dartdoc-* is like the 'dartdoc' task but builds the docs even if --fast is used
-    // (but --fast will still skip copying boilerplate files)
-    gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], cb => _dartdoc(p));
+      // Task: _dartdoc-* is like the 'dartdoc' task but builds the docs even if --fast is used
+      // (but --fast will still skip copying boilerplate files)
+      gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], cb => _dartdoc(p));
 
-    gulp.task(`_dartdoc-clean-${p}`, () => _cleanIfArgSet(p));
+      gulp.task(`_dartdoc-clean-${p}`, () => _cleanIfArgSet(p));
+    } else {
+      gulp.task(`dartdoc-${p}`, () => true);
+    }
   });
 
   function _cleanIfArgSet(proj) {
