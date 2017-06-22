@@ -36,7 +36,7 @@ Here are some of the advantages of dartdevc over dart2js:
 
 * Faster refreshing after code changes.
 * Stronger runtime checks, based on
-  [sound Dart](https://www.dartlang.org/guides/language/sound-dart).
+  [strong mode Dart](https://www.dartlang.org/guides/language/sound-dart).
 * Simpler, more readable, more idiomatic JavaScript output
   containing fewer runtime checks.
 * Integration with Chrome dev tools for easier debugging.
