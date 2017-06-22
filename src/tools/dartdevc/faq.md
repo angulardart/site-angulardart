@@ -82,7 +82,7 @@ you may see runtime errors in dartdevc that you don't see in dart2js or the VM
 (even in checked mode).
 
 For more information, see
-[Sound Dart](https://www.dartlang.org/guides/language/sound-dart)
+[Strong Mode Dart](https://www.dartlang.org/guides/language/sound-dart)
 (especially the sections on
 [runtime checks](https://www.dartlang.org/guides/language/sound-dart#runtime-checks)
 and
@@ -114,7 +114,7 @@ For more information, see
 #### Why is dartdevc producing so many JavaScript files?
 
 Pub is probably creating too many modules
-because implementation files aren't under `lib/src`. 
+because implementation files aren't under `lib/src`.
 For more information, see
 [How are the modules created?](#how-are-the-modules-created)
 
@@ -152,7 +152,7 @@ Addy Osmani’s
 When you use pub with dartdevc,
 a heuristic that's based on package structure
 determines which modules pub creates:
- 
+
 * One module for each Dart file that’s under `lib`, but not under `lib/src`. <br>
   These are the Dart files that are part of the package's public API,
   and can be imported by other packages.
@@ -166,11 +166,11 @@ determines which modules pub creates:
 * Shared modules. <br>
   Pub produces a minimum set of shared modules,
   taking care not to introduce cycles.
- 
+
 Any Dart file that is imported ends up either
 directly in the importing file’s module
 or (if it’s imported more than once) in a shared module.
- 
+
 These rules ensure that no Dart file is compiled into more than one module.
 Importing only from `lib` and not `lib/src`
 minimizes the amount of code that your app loads.
