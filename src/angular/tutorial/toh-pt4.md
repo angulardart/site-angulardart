@@ -330,7 +330,7 @@ can register callback functions that will be invoked when the computation
 completes (and results are ready), or when a computational error needs to be
 reported.
 
-[Future]: https://api.dartlang.org/stable/latest/dart-async/Future-class.html
+[Future]: https://api.dartlang.org/stable/dart-async/Future-class.html
 
 <div class="l-sub-section" markdown="1">
   This is a simplified explanation. Read more about Futures in the

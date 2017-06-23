@@ -13,6 +13,14 @@
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
 
+# Ignore warnings about missing anchors into the live example apps:
+http://angular-examples.github.io/[^/]+/?#
+
+# Sites using hash location strategy or anchors instead of query params.
+# Hence linkcheck issues a warning about the missing "anchor". Silence these:
+http://caniuse.com/#
+https://groups.google.com/a/dartlang.org/forum/#
+
 # Dartdoc related
 /angular/api/static-assets/fonts
 /components/api/static-assets/fonts

@@ -20,11 +20,11 @@ packages. These packages often have a more recent development _(dev)_ release.
       Stable
     </td>
     <td>
-      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.stable-version-full}}#-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.stable-version-full}}#pub-pkg-tab-changelog">
         angular2 <b>{{site.custom.angular.stable-version-full}}</b>
       </a>
       <br>
-      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.components.stable-version-full}}#-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.components.stable-version-full}}#pub-pkg-tab-changelog">
         angular_components <b>{{site.custom.components.stable-version-full}}</b>
       </a>
     </td>
@@ -44,11 +44,11 @@ packages. These packages often have a more recent development _(dev)_ release.
     </td>
     <td>
       {% if site.custom.angular.dev-version %}
-      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.dev-version}}#-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
         {{site.custom.angular.dev-version}}
       </a>
       <br>
-      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.angular.dev-version}}#-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
         {{site.custom.components.dev-version}}
       </a>
       {% else %}

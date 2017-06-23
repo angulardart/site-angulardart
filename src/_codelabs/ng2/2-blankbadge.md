@@ -147,7 +147,7 @@ but we've provided one for you to copy and paste into your project.
 1. Enter `badge_component` as the filename and click **OK**.
 
 1. Paste the contents from
-   [badge_component.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/badge_component.css)
+   [badge_component.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.css)
   into the newly created file.
 
 </div>
@@ -513,6 +513,6 @@ check your code against the files in
 * [lib/app_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/app_component.html)
 * [lib/src/badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.dart)
 * [lib/src/badge_component.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.html)
-* [lib/src/badge_component.css](https://github.com/dart-lang/one-hour-codelab/blob/master/ng2/2-blankbadge/lib/src/badge_component.css)
+* [lib/src/badge_component.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/lib/src/badge_component.css)
 * [web/index.html](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/web/index.html)
 * [web/styles.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/master/ng2/2-blankbadge/web/styles.css)

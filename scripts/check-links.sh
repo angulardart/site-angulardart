@@ -19,7 +19,10 @@ SERVER_PID=$!
 
 sleep 4
 
-linkcheck :$PORT --skip-file ./scripts/config/linkcheck-skip-list.txt \
+linkcheck \
+  --skip-file ./scripts/config/linkcheck-skip-list.txt \
+  --external \
+  :$PORT \
   | tee $TMP/linkcheck-log.txt
 
 set +x

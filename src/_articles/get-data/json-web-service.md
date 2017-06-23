@@ -432,7 +432,7 @@ dart:convert library by letting you use dot notation to access data fields.
 ### About the author
 
 Chris Buckett is a Technical Manager for
-[Entity Group Ltd](http://www.entity.co.uk/), responsible for building and
+[Entity Group Ltd](https://www.entitygroup.com), responsible for building and
 delivering enterprise client-server webapps, mostly with GWT, Java and .Net.
 He wrote _Dart in Action_, which is available
 at [manning.com](http://www.manning.com/buckett).
