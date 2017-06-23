@@ -13,13 +13,6 @@
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
 
-# LINKS excluded via if-docs, but still visible to linkchecker
-/angular/guide/change-log.html$
-/angular/cookbook/
-/angular/guide/appmodule.html$
-/angular/guide/server-communication#.*(observable|promise|rxjs|search-parameters|server)
-/angular/tutorial/toh-pt6#rxjs-imports
-
 # Dartdoc related
 /angular/api/static-assets/fonts
 /components/api/static-assets/fonts
