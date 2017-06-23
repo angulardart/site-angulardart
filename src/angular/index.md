@@ -51,7 +51,7 @@ Angular videos from
 
 * [Web development using AngularDart 2.0](https://www.youtube.com/watch?v=8ixOkJOXdMo&index=2&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 * [Angular components](https://www.youtube.com/watch?v=vAUUOwBJetg&index=6&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
-* [AdSense material design](https://www.youtube.com/watch?v=BlAS1mlYRlA&index=7&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [AdSense Material Design](https://www.youtube.com/watch?v=BlAS1mlYRlA&index=7&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 * [Overflow: a large scale JS to AngularDart rewrite](https://www.youtube.com/watch?v=b0b5FtnB3vE&index=9&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 * [Learnings from building a CRM app at Google](https://www.youtube.com/watch?v=IMNUiC2O9M8&index=14&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
 </div>

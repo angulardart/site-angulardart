@@ -77,7 +77,7 @@ For example, you could use `pub serve` and then visit `localhost:8080` in any mo
 Play with the base app. It works, but it’s not pretty. Consider these issues:
 
 * The app doesn’t adhere to Google’s
-  [material design guidelines](https://material.google.com).
+  [Material Design guidelines](https://material.google.com).
 * The buttons would be prettier and easier to understand if they had images.
 * The user must scroll to see the whole UI.
 * Settings are visible even when the user has no interest in changing them.
