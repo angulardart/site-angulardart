@@ -4,8 +4,8 @@ title: Hierarchical Dependency Injectors
 description: Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.
 sideNavGroup: advanced
 prevpage:
-  title: Component Styles
-  url: /angular/guide/component-styles
+  title: Deployment
+  url: /angular/guide/deployment
 nextpage:
   title: HTTP Client
   url: /angular/guide/server-communication

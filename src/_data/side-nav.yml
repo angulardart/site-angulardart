@@ -62,6 +62,8 @@
           permalink: /angular/guide/attribute-directives
         - title: Component Styles
           permalink: /angular/guide/component-styles
+        - title: Deployment
+          permalink: /angular/guide/deployment
         - title: Hierarchical Injectors
           permalink: /angular/guide/hierarchical-dependency-injection
         - title: HTTP Client

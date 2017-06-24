@@ -13,6 +13,10 @@
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
 
+# angular.io is now an Angular app; the link checker has difficulty seeing anchors
+# (probably because the page hasn't been fully generated yet), so skip such links:
+https://angular.io/[^#]*#
+
 # Ignore warnings about missing anchors into the live example apps:
 http://angular-examples.github.io/[^/]+/?#
 
