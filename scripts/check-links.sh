@@ -19,9 +19,9 @@ SERVER_PID=$!
 
 sleep 4
 
+# Don't check for external links yet since it seems to cause problems on Travis: --external 
 linkcheck \
   --skip-file ./scripts/config/linkcheck-skip-list.txt \
-  --external \
   :$PORT \
   | tee $TMP/linkcheck-log.txt
 
