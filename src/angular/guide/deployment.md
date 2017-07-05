@@ -42,7 +42,8 @@ Here's what happens when you use `pub build` with the default settings:
 * The dart2js compiler runs in **release** mode,
   producing minified JavaScript in the file `build/web/main.dart.js`.
 * As long as **dart_to_js_script_rewriter** is
-  the last transformer in your app's `pubspec.yaml` file,
+  the last transformer in your app's `pubspec.yaml` file
+  (or next to last, if you're using the `$dart2js` transformer),
   the `build/web/index.html` file is rewritten to link to `main.dart.js`
   instead of `main.dart`.
 
@@ -53,7 +54,51 @@ search for **pubspec** in the
 [pubspec.yaml section](/codelabs/ng2/1-skeleton#pubspecyaml)
 of the AngularDart codelab.
 
-### Making your app smaller, faster, and more reliable {#making-your-app-smaller-faster-and-more-reliable}
+
+### Use dart2js flags to produce better JavaScript
+
+Google's apps often use the following dart2js options:
+
+* `--trust-type-annotations`
+* `--trust-primitives`
+* `--fast-startup`
+
+**Test your apps before deploying with these options!**
+If your app runs under [dart2js](/tools/dart2js) in checked mode
+or under [dartdevc](/tools/dartdevc),
+then we recommend using `--trust-type-annotations`.
+However, `--trust-primitives` can have unexpected results
+(even in well-typed code) if your data isn't always valid.
+Build your app both with and without `--fast-startup`,
+so you can judge whether the speedup is worth the increase in JavaScript size.
+
+<aside class="alert alert-warning" markdown="1">
+**Important:**
+Make sure your app has good [test coverage](/angular/guide/testing)
+before you use either of the `--trust-*` options.
+If some code paths aren't tested,
+your app might run in dartdevc but
+misbehave when compiled using dart2js.
+</aside>
+
+You can specify dart2js options in your app's pubspec
+using the `$dart2js` transformer,
+which should be the last transformer in the pubspec file:
+
+```
+transformers:
+- ...all other transformers...
+- $dart2js:
+    commandLineOptions: [--trust-type-annotations, --trust-primitives, --fast-startup]
+```
+
+For more information, see the dart2js
+[size and speed options](/tools/dart2js#size-and-speed-options) and
+the documentation on
+[configuring the dart2js transformer for pub](/tools/pub/dart2js-transformer).
+
+
+### Make your app smaller, faster, and more reliable {#making-your-app-smaller-faster-and-more-reliable}
 
 The following steps are optional,
 but they can help make your app more reliable and responsive.

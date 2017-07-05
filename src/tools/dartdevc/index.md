@@ -10,7 +10,14 @@ lets you run and debug your Dart web app in Chrome.
 As of SDK release 1.24,
 `pub build` and `pub serve` support dartdevc.
 
-Unlike the [dart2js](/tools/dart2js) compiler,
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The dartdevc compiler is for development only.
+Continue to use [dart2js](/tools/dart2js)
+to compile for [deployment](/angular/guide/deployment).
+</aside>
+
+Unlike dart2js,
 dartdevc supports incremental compilation and emits modular JavaScript.
 When you use `pub serve` with dartdevc,
 you can edit your Dart files,
@@ -19,19 +26,16 @@ and see your edits almost immediately.
 This speed is possible because pub compiles only updated modules,
 not all the packages that your app depends on.
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
 The first compilation with dartdevc takes the longest,
 because the entire app must be compiled.
 After that, as long as `pub serve` keeps running,
 refresh times with dartdevc are much faster than with dart2js.
-</aside> 
 
 
 ## Preparing your code
 
 To compile with dartdevc, your web app's code—and
-all packages you depend on—must be **type safe**.
+all packages it depends on—must be **type safe**.
 For practical details on how to make your code type safe, see the list of
 [common errors and warnings.](https://www.dartlang.org/guides/language/sound-problems#common-errors-and-warnings)
 More information is in the
@@ -117,4 +121,3 @@ pub run test -p chrome --pub-serve=8080
   * [`pub build`](/tools/pub/pub-build)
   * [`pub serve`](/tools/pub/pub-serve)
   * [package layout conventions](https://www.dartlang.org/tools/pub/package-layout)
-
