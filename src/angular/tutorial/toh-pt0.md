@@ -140,38 +140,6 @@ Each file has a distinct purpose and evolves independently as the application gr
 </tr>
 </table>
 
-
-<!--
-
-tr
-  td <code>web/main.dart</code>
-  td
-    :marked
-      Bootstraps the application to run in the browser.
-tr
-  td <code>web/index.html</code>
-  td
-    :marked
-      Contains the `<my-app>` tag in its `<body>`.
-      This is where the app lives!
-tr
-  td <code>web/styles.css</code>
-  td
-    :marked
-      A set of styles used throughout the app.
-tr
-  td <code>pubspec.yaml</code>
-  td
-    :marked
-      The file that describes this Dart package (the app) and its dependencies.
-      For example, it specifies the **angular2** and **browser** packages as dependencies,
-      as well as the **angular2** transformer.
-
-      **Note:** The **dart_to_js_script_rewriter** transformer, if present,
-      must be **after angular2** in the **transformers** list.
-      If the order is wrong, Angular templates don't work.
--->
-
 ## What's next
 
 In the [next tutorial page](./toh-pt1),
