@@ -1,10 +1,8 @@
 ---
-layout: codelab
 title: "Low-Level HTML Pirate Codelab"
 description: "Take your first step to learning Dart fast."
 permalink: /codelabs/darrrt
-snippet_img: images/piratemap.jpg
-
+image: images/piratemap.jpg?3
 header:
   css: ["/codelabs/darrrt/darrrt.css"]
 ---

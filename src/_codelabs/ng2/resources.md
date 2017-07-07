@@ -1,13 +1,9 @@
 ---
-layout: codelab
 title: "Resources"
 description: "Take your first step to learning Dart fast."
-snippet_img: images/piratemap.jpg
-
 prevpage:
   url: /codelabs/ng2/what-next
   title: "What Next?"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

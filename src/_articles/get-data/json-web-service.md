@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Using Dart with JSON Web Services"
 description: "Learn how to consume JSON-based web services with Dart."
 written: 2012-04-01

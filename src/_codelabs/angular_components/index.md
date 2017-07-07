@@ -1,15 +1,11 @@
 ---
-layout: codelab
 title: "Codelab: AngularDart Components"
 description: "Learn how to use AngularDart Components—a preview of Material Design components that are widely used in Google's Dart apps."
 toc: false
 permalink: /codelabs/angular_components
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 nextpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

@@ -1,0 +1,3 @@
+# Site settings for development mode
+url: https://angulardart-org-dev.firebaseapp.com
+port: 4001

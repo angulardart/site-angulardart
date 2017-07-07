@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 1: Create a Basic Web App"
 description: "Create an Angular app using a Dart template and run it in Dartium."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/2-blankbadge
   title: "Step 2: Add a Pirate Badge Component"
 prevpage:
   url: /codelabs/ng2/0-setup
   title: "Step 0: Set Up"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

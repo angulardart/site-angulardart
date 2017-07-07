@@ -1,7 +1,5 @@
 ---
-layout: guide
 title: Polymer
-permalink: /guides/polymer
 description: Using Polymer elements with Dart.
 ---
 

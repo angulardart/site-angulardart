@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 6: Read a  JSON File"
 description: "Write asynchronous code to read a JSON file."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/what-next
   title: "What Next?"
 prevpage:
   url: /codelabs/ng2/5-piratenameservice
   title: "Step 5: Create a Name Service"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

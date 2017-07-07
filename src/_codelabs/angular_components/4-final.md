@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 4: Add Expansion Panels and Tabs"
 description: "Add material panels and tabs to your app."
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 nextpage:
   url: /codelabs/angular_components/what-next
   title: "What Next?"
 prevpage:
   url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

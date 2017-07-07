@@ -2,9 +2,7 @@
 title: webdev.dartlang.org
 description: "Documentation to help you build high-quality web apps, using Dart tools and libraries. Includes AngularDart docs."
 url: https://webdev.dartlang.org
-baseurl: ""
-port: 4001
-permalink: /:title
+permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
 
 # Global variables
@@ -28,57 +26,42 @@ api: "https://www.dartdocs.org/documentation"
 collections:
   articles:
     output: true
-    permalink: /articles/:path
   tutorials:
     output: true
-    permalink: /tutorials/:path
-  samples:
-    output: true
-    permalink: /samples/:path
   guides:
     output: true
-    permalink: /guides/:path
   codelabs:
     output: true
-    permalink: /codelabs/:path
 
 defaults:
 - scope:
     path: ""
-    type: pages
+    # type: pages
   values:
     layout: default
-    toc: true
-- scope:
-    path: ""
-    type: articles
-  values:
-    layout: article
     toc: true
 - scope:
     path: ""
     type: tutorials
   values:
     layout: tutorial
-    toc: true
-- scope:
-    path: ""
-    type: samples
-  values:
-    layout: sample
-    toc: true
-- scope:
-    path: ""
-    type: guides
-  values:
-    layout: guide
-    toc: true
 - scope:
     path: ""
     type: codelabs
   values:
-    layout: codelab
-    toc: true
+    og_type: article
+- scope:
+    path: _codelabs/angular_components
+    type: codelabs
+  values:
+    # The `image` query parameter is a version number. Change the number after the file has been updated,
+    # otherwise the old cached version will be used by Facebook, etc.
+    image: /codelabs/angular_components/images/cartoon.jpeg?3
+- scope:
+    path: _codelabs/ng2
+    type: codelabs
+  values:
+    image: /codelabs/ng2/images/piratemap.jpg?3
 
 custom:
   angular:

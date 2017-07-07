@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "Embedding Dart in HTML"
 description: "Find out how you can embed Dart into HTML pages."
 written: 2011-10-01

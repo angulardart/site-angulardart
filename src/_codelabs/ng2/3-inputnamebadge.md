@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 3: Add an Input Field"
 description: "Add an input field to your Angular app."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/4-buttonbadge
   title: "Step 4: Add a Button"
 prevpage:
   url: /codelabs/ng2/2-blankbadge
   title: "Step 2: Add a Pirate Badge Component"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

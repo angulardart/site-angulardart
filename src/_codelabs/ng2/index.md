@@ -1,15 +1,11 @@
 ---
-layout: codelab
 title: "Avast, Ye Pirates: Write an AngularDart App"
 description: "Learn how to use Dart + Angular by creating a simple web app."
 toc: false
 permalink: /codelabs/ng2
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/0-setup
   title: "Step 0: Set Up"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

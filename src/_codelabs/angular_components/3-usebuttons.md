@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 3: Upgrade Buttons and Inputs"
 description: "Add material buttons and inputs to your app."
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 nextpage:
   url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
 prevpage:
   url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

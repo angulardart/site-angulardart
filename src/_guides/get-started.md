@@ -1,5 +1,4 @@
 ---
-layout: guide
 title: "Get Started"
 description: "A guide to get you quickly writing web apps in Dart."
 ---

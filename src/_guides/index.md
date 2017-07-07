@@ -1,5 +1,4 @@
 ---
-layout: guide
 title: "Guides"
 description: "Guides to web programming with Dart."
 permalink: /guides

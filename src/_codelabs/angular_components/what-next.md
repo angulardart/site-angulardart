@@ -1,13 +1,9 @@
 ---
-layout: codelab
 title: "What Next?"
 description: "You've finished the AngularDart Components codelab! What next?"
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 prevpage:
   url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

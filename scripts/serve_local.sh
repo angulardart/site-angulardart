@@ -4,7 +4,11 @@ set -e -o pipefail
 
 cd `dirname $0`/..
 
-bundle exec jekyll build --incremental --watch &
+if [[ -e _config_dev.yml ]]; then
+  CONFIG="--config _config.yml,_config_dev.yml"
+fi
+
+bundle exec jekyll build $CONFIG --incremental --watch &
 j_pid=$!
 firebase serve --port 4001 &
 f_pid=$!

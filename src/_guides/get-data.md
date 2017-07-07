@@ -1,5 +1,4 @@
 ---
-layout: guide
 title: "Get Data"
 description: "Tutorials pertaining to fetching data in Dart, such as using the JSON web services."
 toc: false

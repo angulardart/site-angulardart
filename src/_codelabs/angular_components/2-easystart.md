@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 2: Start Using AngularDart Components"
 description: "Add material components to your app."
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 nextpage:
   url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
 prevpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

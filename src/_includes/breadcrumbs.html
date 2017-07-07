@@ -12,7 +12,7 @@
     {% assign caption = crumb.title %}
     {% assign position = position  | plus: 1 %}
     <li class="breadcrumb-item{% if crumb.url == page.url %} active{% endif %}" property="itemListElement" typeof="ListItem">
-      {% if crumb.url != page.url %}<a property="item" typeof="WebPage" href="{{ crumb.url | prepend: site.baseurl | prepend: site.url }}">{% endif %}
+      {% if crumb.url != page.url %}<a property="item" typeof="WebPage" href="{{ crumb.url | absolute_url }}">{% endif %}
       <span property="name">{{ caption }}</span>
       {% if crumb.url != page.url %}</a>{% endif %}
       <meta property="position" content="{{ position }}" />

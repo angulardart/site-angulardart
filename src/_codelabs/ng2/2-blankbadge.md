@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 2: Add a Badge Component"
 description: "Extend the basic Angular app with a custom component.."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/3-inputnamebadge
   title: "Step 3: Add an Input Field"
 prevpage:
   url: /codelabs/ng2/1-skeleton
   title: "Step 1: Create a Basic Web App"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

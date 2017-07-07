@@ -1,5 +1,4 @@
 ---
-layout: article
 title: "The Event Loop and Dart"
 description: "Learn how Dart handles the event queue and microtask queue, so you can write better asynchronous code with fewer surprises."
 written: 2013-09-30

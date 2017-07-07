@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 0: Set up"
 description: "Install any software you need and learn where to find the sample code."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/1-skeleton
   title: "Step 1: Create a Basic Web App"
 prevpage:
   url: /codelabs/ng2
   title: "Avast Ye Pirates: Write an AngularDart App"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

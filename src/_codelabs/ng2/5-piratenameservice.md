@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 5: Create a Name Service"
 description: "Take your first step to learning Dart fast."
-snippet_img: images/piratemap.jpg
-
 nextpage:
   url: /codelabs/ng2/6-readjsonfile
   title: "Step 6: Read a JSON File"
 prevpage:
   url: /codelabs/ng2/4-buttonbadge
   title: "Step 4: Add a Button"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

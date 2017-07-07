@@ -1,16 +1,12 @@
 ---
-layout: codelab
 title: "Step 1: Get to Know the Software"
 description: "Get the base app for the codelab, and play with the AngularDart Component demo."
-snippet_img: /codelabs/angular_components/images/cartoon.jpeg
-
 nextpage:
   url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
 prevpage:
   url: /codelabs/angular_components
   title: "Codelab: AngularDart Components"
-
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---
