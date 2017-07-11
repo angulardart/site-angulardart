@@ -26,7 +26,7 @@ Dart makes writing modern apps easy and fun.
      width="150px"
      alt="Screenshot of startup_namer app">
 <div class="details" markdown="1">
-#### [Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/")
+#### [Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/)
 {: .title}
 
 Create a web app that uses AngularDart and material design components.
