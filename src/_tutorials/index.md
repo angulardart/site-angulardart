@@ -13,7 +13,7 @@ These tutorials cover topics relevant to Dart web applications.
 
 * [Tour of Heroes](/angular/tutorial)
 
-## Get data
+## Getting data
 
 * [Fetch Data Dynamically](/tutorials/get-data/fetch-data)
 

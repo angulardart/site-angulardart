@@ -102,13 +102,15 @@
 
 - title: "Resources"
   children:
-  - title: "Dart Tools for the Web"
-    permalink: /tools
-  - title: "Web Libraries"
-    permalink: /guides/web-programming
+  - title: "Codelabs"
+    permalink: /codelabs
   - title: "Tutorials"
     permalink: /tutorials
   - title: "Articles"
     permalink: /articles
+  - title: "Web Libraries"
+    permalink: /guides/web-programming
+  - title: "Dart Tools for the Web"
+    permalink: /tools
   - title: "Community and Support"
     permalink: /community
