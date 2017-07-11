@@ -14,7 +14,8 @@ fi
 
 # Needed for Jekyll
 travis_fold start before_install.ruby
-  (set -x; [[ -z "$TRAVIS" ]] || rvm get stable; rvm install 2.3)
+  # (set -x; [[ -z "$TRAVIS" ]] || rvm get stable; rvm install 2.3)
+  (set -x; rvm get stable && rvm install 2.3)
 travis_fold end before_install.ruby
 
 ./scripts/install-dart-sdk.sh

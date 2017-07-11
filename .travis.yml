@@ -35,7 +35,7 @@ matrix:
 before_install:
   - source ./scripts/env-set.sh
   - ./scripts/before-install.sh
-  - rvm reload && rvm current
+  - rvm use 2.3
 
 install:
   - ./scripts/install.sh

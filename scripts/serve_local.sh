@@ -4,7 +4,7 @@ set -e -o pipefail
 
 cd `dirname $0`/..
 
-if [[ -e _config_dev.yml ]]; then
+if [[ "$1" == "--dev" && -e _config_dev.yml ]]; then
   CONFIG="--config _config.yml,_config_dev.yml"
 fi
 
