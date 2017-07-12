@@ -54,7 +54,7 @@ Update `pubspec.yaml` to look like this (additions are highlighted):
   dependencies:
     angular2: ^3.1.0
     http: ^0.11.0
-    stream_transform: ^0.0.5
+    stream_transform: ^0.0.6
     # . . .
   transformers:
   - angular2:
