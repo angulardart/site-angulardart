@@ -16,5 +16,5 @@ class DashboardPO {
   Future<List<String>> get heroNames =>
       inIndexOrder(_heroes.map((el) => el.visibleText)).toList();
 
-  Future clickHero(int index) => _heroes[index].click();
+  Future selectHero(int index) => _heroes[index].click();
 }

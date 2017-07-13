@@ -87,7 +87,7 @@ void heroSearchTests() {
 
   test('select hero and navigate to detail', () async {
     clearInteractions(mockPlatformLocation);
-    await po.clickHero(0);
+    await po.selectHero(0);
     final c = verify(mockPlatformLocation.pushState(any, any, captureAny));
     expect(c.captured.single, '/detail/15');
   });

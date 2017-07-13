@@ -6,20 +6,18 @@ import 'utils.dart';
 
 class HeroDetailPO {
   @FirstByCss('div h2')
-  @optional
   PageLoaderElement _title; // e.g. 'Mr Freeze details!'
 
   @FirstByCss('div div')
-  @optional
   PageLoaderElement _id;
 
   @ByTagName('input')
-  @optional
   PageLoaderElement _input;
 
+  // #docregion back-button
   @ByTagName('button')
-  @optional
   PageLoaderElement _button;
+  // #enddocregion back-button
 
   Future<Map> get heroFromDetails async {
     if (_id == null) return null;
@@ -32,5 +30,7 @@ class HeroDetailPO {
   Future clear() => _input.clear();
   Future type(String s) => _input.type(s);
 
+  // #docregion back-button
   Future back() => _button.click();
+  // #enddocregion back-button
 }

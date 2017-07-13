@@ -34,7 +34,7 @@ class HeroesPO {
   Iterable<Future<Map>> get heroes =>
       _heroes.map((el) async => _heroDataFromLi(await el.visibleText));
 
-  Future clickHero(int index) => _heroes[index].click();
+  Future selectHero(int index) => _heroes[index].click();
   Future deleteHero(int index) => _deleteHeroes[index].click();
 
   Future<Map> get selectedHero async => _selectedHero == null

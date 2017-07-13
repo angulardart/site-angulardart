@@ -13,10 +13,10 @@ class AppPO {
   @FirstByCss('h2')
   PageLoaderElement _tabTitle;
 
-  // #docregion _heroes
+  // #docregion _heroes, selectHero
   @ByTagName('li')
   List<PageLoaderElement> _heroes;
-  // #enddocregion _heroes
+  // #enddocregion _heroes, selectHero
 
   @ByTagName('li')
   @WithClass('selected')
@@ -45,7 +45,9 @@ class AppPO {
       _heroes.map((el) async => _heroDataFromLi(await el.visibleText));
 
   // #enddocregion heroes
-  Future clickHero(int index) => _heroes[index].click();
+  // #docregion selectHero
+  Future selectHero(int index) => _heroes[index].click();
+  // #enddocregion selectHero
 
   Future<Map> get selectedHero async => _selectedHero == null
       ? null

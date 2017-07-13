@@ -6,15 +6,12 @@ import 'utils.dart';
 
 class HeroDetailPO {
   @FirstByCss('div h2')
-  @optional
   PageLoaderElement _title; // e.g. 'Mr Freeze details!'
 
   @FirstByCss('div div')
-  @optional
   PageLoaderElement _id;
 
   @ByTagName('input')
-  @optional
   PageLoaderElement _input;
 
   @ByTagName('button')
