@@ -61,7 +61,9 @@ class AppPO {
     return _heroData(idAsString, matches[1]);
   }
 
+  // #docregion clear
   Future clear() => _input.clear();
+  // #enddocregion clear
   Future type(String s) => _input.type(s);
 
   Map<String, dynamic> _heroData(String idAsString, String name) =>
