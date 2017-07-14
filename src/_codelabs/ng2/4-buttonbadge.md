@@ -112,7 +112,6 @@ Add a `generateBadge()` function.
 
 <div class="trydart-step-details">
 {% prettify dart %}
-@Component(selector: 'pirate-badge', templateUrl: 'badge_component.html')
 class BadgeComponent {
   String badgeName = '';
   String buttonText = 'Aye! Gimme a name!';
