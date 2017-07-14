@@ -21,7 +21,7 @@ travis_fold end before_install.ruby
 ./scripts/install-dart-sdk.sh
 
 travis_fold start before_install.npm_install
-  (set -x; npm install -g firebase-tools gulp superstatic --no-optional)
+  (set -x; npm install --global firebase-tools gulp-cli superstatic --no-optional)
 travis_fold end before_install.npm_install
 
 travis_fold start before_install.linkcheck
