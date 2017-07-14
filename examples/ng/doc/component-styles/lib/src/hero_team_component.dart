@@ -1,7 +1,7 @@
 import 'package:angular2/angular2.dart';
 import 'hero.dart';
 
-// #docregion stylelink
+// #docregion stylesheet-link
 @Component(
   selector: 'hero-team',
   template: '''

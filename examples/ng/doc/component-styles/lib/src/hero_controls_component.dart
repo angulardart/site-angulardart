@@ -1,7 +1,7 @@
 import 'package:angular2/angular2.dart';
 import 'hero.dart';
 
-// #docregion inlinestyles
+// #docregion inline-styles
 @Component(
     selector: 'hero-controls',
     template: '''

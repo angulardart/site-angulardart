@@ -13,17 +13,17 @@ pub build fails on
 }
 /* #enddocregion host */
 
-/* #docregion hostfunction */
+/* #docregion host-function */
 :host(.active) {
   border-width: 3px;
 }
-/* #enddocregion hostfunction */
+/* #enddocregion host-function */
 
-/* #docregion hostcontext */
+/* #docregion host-context */
 :host-context(.theme-light) h2 {
   background-color: #eef;
 }
-/* #enddocregion hostcontext */
+/* #enddocregion host-context */
 
 /* #docregion deep */
 :host /deep/ h3 {

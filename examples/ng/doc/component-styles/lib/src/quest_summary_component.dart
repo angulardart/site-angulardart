@@ -11,8 +11,8 @@ import 'package:angular2/angular2.dart';
 class QuestSummaryComponent {}
 // #enddocregion
 /*
-// #docregion encapsulation.native
+// #docregion native-encapsulation
   // warning: few browsers support shadow DOM encapsulation at this time
   encapsulation: ViewEncapsulation.Native
-  // #enddocregion encapsulation.native
+  // #enddocregion native-encapsulation
 */
