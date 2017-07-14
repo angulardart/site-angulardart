@@ -12,6 +12,7 @@ import 'package:test/test.dart';
 
 import 'heroes_po.dart';
 
+// #docregion providers-with-context
 NgTestFixture<HeroesComponent> fixture;
 HeroesPO po;
 
@@ -21,10 +22,12 @@ class MockRouter extends Mock implements Router {}
 
 @AngularEntrypoint()
 void main() {
+  // #docregion providers
   final testBed = new NgTestBed<HeroesComponent>().addProviders([
     provide(Router, useValue: mockRouter),
     HeroService,
   ]);
+  // #enddocregion providers
 
   setUp(() async {
     fixture = await testBed.create();
@@ -32,10 +35,13 @@ void main() {
   });
 
   tearDown(disposeAnyRunningTest);
+  // #enddocregion providers-with-context
 
   group('Basics:', basicTests);
   group('Selected hero:', selectedHeroTests);
+  // #docregion providers-with-context
 }
+// #enddocregion providers-with-context
 
 void basicTests() {
   test('title', () async {

@@ -95,11 +95,11 @@ Notice that you used an `@Injectable()` annotation.
 
 Add a `getHeroes()` method stub.
 
-<?code-excerpt "lib/src/hero_service_1.dart (getHeroes stub)" region="getHeroes-stub" title?>
+<?code-excerpt "lib/src/hero_service_1.dart (getHeroes stub)" title?>
 ```
   @Injectable()
   class HeroService {
-    List<Hero> getHeroes() {} // stub
+    List<Hero> getHeroes() {}
   }
 ```
 
@@ -282,7 +282,7 @@ Each interface has a single method. When the component implements that method, A
 
 Add `OnInit` to the list of interfaces implemented by `AppComponent`:
 
-<?code-excerpt "lib/app_component_1.dart (ngOnInit method stub)" region="on-init" title?>
+<?code-excerpt "lib/app_component_1.dart (ngOnInit stub)" title?>
 ```
   import 'package:angular2/angular2.dart';
 
@@ -295,7 +295,7 @@ Add `OnInit` to the list of interfaces implemented by `AppComponent`:
 Write an `ngOnInit()` method with the initialization logic inside. Angular will call it
 at the right time. In this case, initialize by calling `getHeroes()`.
 
-<?code-excerpt "lib/app_component_1.dart (ng-on-init)"?>
+<?code-excerpt "lib/app_component_1.dart (ngOnInit)"?>
 ```
     void ngOnInit() {
       getHeroes();
@@ -376,7 +376,7 @@ Pass the callback function as an argument to the `Future.then()` method:
 
 <?code-excerpt "lib/app_component_2.dart (asynchronous getHeroes)" region="getHeroes" title?>
 ```
-  Future<Null> getHeroes() {
+  void getHeroes() {
     _heroService.getHeroes().then((heroes) => this.heroes = heroes);
   }
 ```
