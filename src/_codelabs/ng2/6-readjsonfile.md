@@ -218,6 +218,7 @@ class BadgeComponent {
   String buttonText = 'Aye! Gimme a name!';
   bool isButtonEnabled = [[highlight]]false[[/highlight]];
   [[highlight]]bool isInputEnabled = false[[/highlight]];
+  ...
 }
 {% endprettify %}
 </div>
