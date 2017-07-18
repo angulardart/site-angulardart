@@ -20,11 +20,11 @@ packages. These packages often have a more recent development _(dev)_ release.
       Stable
     </td>
     <td>
-      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.stable-version-full}}#pub-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/angular2/versions/{{site.custom.angular.stable-version-full}}#pub-pkg-tab-changelog">
         angular2 <b>{{site.custom.angular.stable-version-full}}</b>
       </a>
       <br>
-      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.components.stable-version-full}}#pub-pkg-tab-changelog">
+      <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.custom.components.stable-version-full}}#pub-pkg-tab-changelog">
         angular_components <b>{{site.custom.components.stable-version-full}}</b>
       </a>
     </td>
@@ -43,35 +43,37 @@ packages. These packages often have a more recent development _(dev)_ release.
       Dev
     </td>
     <td>
-      {% if site.custom.angular.dev-version %}
-      <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
-        {{site.custom.angular.dev-version}}
+      {% if site.custom.angular.dev-version == nil and site.custom.components.dev-version == nil %}
+      (none yet)
+      {% elsif site.custom.angular.dev-version %}
+      <a href="https://pub.dartlang.org/packages/angular/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
+        angular <b>{{site.custom.angular.dev-version}}</b>
       </a>
       <br>
-      <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
-        {{site.custom.components.dev-version}}
+      {% elsif site.custom.components.dev-version %}
+      <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
+        angular_components <b>{{site.custom.components.dev-version}}</b>
       </a>
-      {% else %}
-      (none yet)
       {% endif %}
     </td>
     <td>
-      {% if site.custom.angular.dev-version %}
+      {% if site.custom.angular.dev-version == nil and site.custom.components.dev-version == nil %}
+      (none yet)
+      {% elsif site.custom.angular.dev-version %}
       <a href="{{site.custom.angular.url-next-vers}}/angular/guide">
         {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/angular/guide</b>
       </a>
       <br>
+      {% elsif site.custom.components.dev-version %}
       <a href="{{site.custom.angular.url-next-vers}}/components">
         {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/components</b>
       </a>
-      {% else %}
-      (none yet)
       {% endif %}
     </td>
   </tr>
 </table>
 
-<!--
+<!-- Comment out when we're not in alpha -->
 ## Angular alpha releases are production quality
 
 Google thoroughly tests each version of AngularDart—even alpha releases—to
@@ -82,7 +84,7 @@ and that the release (or a release after it) might break your code.
 
 For more information, see the documentation for
 the [pub version scheme](https://www.dartlang.org/tools/pub/versioning).
--->
+<!-- -->
 
 ## Example code
 
