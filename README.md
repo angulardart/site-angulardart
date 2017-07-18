@@ -1,9 +1,16 @@
 # The webdev site
 
 [![Build Status](https://travis-ci.org/dart-lang/site-webdev.svg?branch=master)](https://travis-ci.org/dart-lang/site-webdev)
+[![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
 
 This repo implements the [webdev.dartlang.org](http://webdev.dartlang.org) website. It uses the tools and infrastructure of
 www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https://github.com/dart-lang/site-www)).
+
+[We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
+
+## Building this site
+
+For very simple changes, you probably don't need to build this site. But if you want/need to build, here's how.
 
 **Prerequisites** for building this site (assuming that you already have a local copy of the repo):
 
