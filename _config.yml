@@ -63,16 +63,24 @@ defaults:
   values:
     image: /codelabs/ng2/images/piratemap.jpg?3
 
+dev:
+  url: https://webdev-dartlang-org-dev.firebaseapp.com
+ng:
+  vers:
+    major: 3
+    abbr: 3.1
+    full: 3.1.0
+  dev:
+    version: 4.0.0-alpha
+acx:
+  vers:
+    major: 0.5
+    abbr: 0.5.3
+    full: 0.5.3+1
+  # dev:
+  #   version: ???
+    
 custom:
-  angular:
-    stable-version: 3.1
-    stable-version-full: 3.1.0
-    dev-version: 4.0.0-alpha
-    url-next-vers: https://webdev-dartlang-org-dev.firebaseapp.com
-  components:
-    stable-version: 0.5.3
-    stable-version-full: 0.5.3+1
-    dev-version:
   dartpad:
     embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"

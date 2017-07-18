@@ -17,63 +17,78 @@ packages. These packages often have a more recent development _(dev)_ release.
   </tr>
   <tr>
     <td>
+    {% if site.ng.vers.full contains "alpha" or site.ng.vers.full contains "beta" %}
+      Current
+    {% else %}
       Stable
+    {% endif %}
     </td>
     <td>
-      <a href="https://pub.dartlang.org/packages/angular2/versions/{{site.custom.angular.stable-version-full}}#pub-pkg-tab-changelog">
-        angular2 <b>{{site.custom.angular.stable-version-full}}</b>
-      </a>
-      <br>
-      <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.custom.components.stable-version-full}}#pub-pkg-tab-changelog">
-        angular_components <b>{{site.custom.components.stable-version-full}}</b>
-      </a>
+      <div>
+        <a href="https://pub.dartlang.org/packages/angular2/versions/{{site.ng.vers.full}}#pub-pkg-tab-changelog"
+          class="no-automatic-external">
+          angular2 <b>{{site.ng.vers.full}}</b>
+        </a>
+      </div>
+      <div>
+        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.vers.full}}#pub-pkg-tab-changelog"
+          class="no-automatic-external">
+          angular_components <b>{{site.acx.vers.full}}</b>
+        </a>
+      </div>
     </td>
     <td>
       <a href="/angular/guide">
-        {{site.url | regex_replace: '^https?://' }}<b>/angular/guide</b>
+        {{site.url | regex_replace: '^https?://'}}<b>/angular/guide</b>
       </a>
       <br>
       <a href="/components">
-        {{site.url | regex_replace: '^https?://' }}<b>/components</b>
+        {{site.url | regex_replace: '^https?://'}}<b>/components</b>
       </a>
     </td>
   </tr>
+  {% if site.dev %}
   <tr>
     <td>
       Dev
     </td>
     <td>
-      {% if site.custom.angular.dev-version == nil and site.custom.components.dev-version == nil %}
-      (none yet)
-      {% elsif site.custom.angular.dev-version %}
-      <a href="https://pub.dartlang.org/packages/angular/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
-        angular <b>{{site.custom.angular.dev-version}}</b>
-      </a>
-      <br>
-      {% elsif site.custom.components.dev-version %}
-      <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.custom.angular.dev-version}}#pub-pkg-tab-changelog">
-        angular_components <b>{{site.custom.components.dev-version}}</b>
-      </a>
+      {% if site.ng.dev.version %}
+      <div>
+        <a href="https://pub.dartlang.org/packages/angular/versions/{{site.ng.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
+          angular <b>{{site.ng.dev.version}}</b>
+        </a>
+      </div>
+      {% endif %}
+      {% if site.acx.dev.version %}
+      <div>
+        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
+          angular_components <b>{{site.acx.dev.version}}</b>
+        </a>
+      </div>
       {% endif %}
     </td>
     <td>
-      {% if site.custom.angular.dev-version == nil and site.custom.components.dev-version == nil %}
-      (none yet)
-      {% elsif site.custom.angular.dev-version %}
-      <a href="{{site.custom.angular.url-next-vers}}/angular/guide">
-        {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/angular/guide</b>
-      </a>
-      <br>
-      {% elsif site.custom.components.dev-version %}
-      <a href="{{site.custom.angular.url-next-vers}}/components">
-        {{site.custom.angular.url-next-vers | regex_replace: '^https?://' }}<b>/components</b>
-      </a>
+      {% if site.ng.dev.version %}
+      <div>
+        <a href="{{site.dev.url}}/angular/guide" class="no-automatic-external">
+          {{site.dev.url | regex_replace: '^https?://' }}<b>/angular/guide</b>
+        </a>
+      </div>
+      {% endif %}
+      {% if site.acx.dev.version %}
+      <div>
+        <a href="{{site.dev.url}}/components" class="no-automatic-external">
+          {{site.dev.url | regex_replace: '^https?://' }}<b>/components</b>
+        </a>
+      </div>
       {% endif %}
     </td>
   </tr>
+  {% endif %}
 </table>
 
-<!-- Comment out when we're not in alpha -->
+{% if site.ng.vers.full contains "alpha" or site.ng.dev.version contains "alpha" or site.acx.dev.version contains "alpha" %}
 ## Angular alpha releases are production quality
 
 Google thoroughly tests each version of AngularDart—even alpha releases—to
@@ -84,7 +99,7 @@ and that the release (or a release after it) might break your code.
 
 For more information, see the documentation for
 the [pub version scheme](https://www.dartlang.org/tools/pub/versioning).
-<!-- -->
+{% endif %}
 
 ## Example code
 

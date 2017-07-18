@@ -18,7 +18,7 @@ mission-critical apps that bring in much of Google’s revenue.
 
   <em>
     <a href="/angular/version">Latest stable version:</a>
-    <b>{{site.custom.angular.stable-version-full}}</b>
+    <b>{{site.ng.vers.full}}</b>
   </em>
 </div> <!--a:visited, button:visited-->
 
