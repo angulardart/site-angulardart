@@ -5,7 +5,7 @@ url: https://webdev.dartlang.org
 dev-url: https://webdev-dartlang-org-dev.firebaseapp.com
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
-branch: master
+branch: 4-dev
 
 # Global variables
 # use case:
