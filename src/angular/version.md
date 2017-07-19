@@ -109,7 +109,7 @@ These example repos are generated from the [dart-lang/site-webdev]({{site.repo}}
 using files under the [examples]({{site.repo}}/tree/master/examples) directory.
 
 
-## Other Angular versions
+## Other Angular implementations
 
 AngularDart started out with the same codebase as the TypeScript Angular framework,
 which is documented at [angular.io](https://angular.io).
