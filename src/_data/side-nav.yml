@@ -49,39 +49,39 @@
     - title: 6. HTTP
       permalink: /angular/tutorial/toh-pt6
 
-    - title: Advanced
+  - title: Advanced
+    permalink: /angular/guide/attribute-directives
+    sideNavGroup: advanced
+    children:
+    - title: Attribute Directives
       permalink: /angular/guide/attribute-directives
-      sideNavGroup: advanced
-      children:
-      - title: Attribute Directives
-        permalink: /angular/guide/attribute-directives
-      - title: Component Styles
-        permalink: /angular/guide/component-styles
-      - title: Deployment
-        permalink: /angular/guide/deployment
-      - title: Hierarchical Injectors
-        permalink: /angular/guide/hierarchical-dependency-injection
-      - title: HTTP Client
-        permalink: /angular/guide/server-communication
-      - title: Lifecycle Hooks
-        permalink: /angular/guide/lifecycle-hooks
-      - title: Pipes
-        permalink: /angular/guide/pipes
-      - title: Router
-        permalink: /angular/guide/router
-      - title: Security
-        permalink: /angular/guide/security
-      - title: Structural Directives
-        permalink: /angular/guide/structural-directives
-      - title: Testing
-        permalink: /angular/guide/testing
+    - title: Component Styles
+      permalink: /angular/guide/component-styles
+    - title: Deployment
+      permalink: /angular/guide/deployment
+    - title: Hierarchical Injectors
+      permalink: /angular/guide/hierarchical-dependency-injection
+    - title: HTTP Client
+      permalink: /angular/guide/server-communication
+    - title: Lifecycle Hooks
+      permalink: /angular/guide/lifecycle-hooks
+    - title: Pipes
+      permalink: /angular/guide/pipes
+    - title: Router
+      permalink: /angular/guide/router
+    - title: Security
+      permalink: /angular/guide/security
+    - title: Structural Directives
+      permalink: /angular/guide/structural-directives
+    - title: Testing
+      permalink: /angular/guide/testing
 
-    - title: Glossary
-      permalink: /angular/glossary
-    - title: Cheat Sheet
-      permalink: /angular/cheatsheet
-    - title: API Reference
-      permalink: /angular/api
+  - title: Glossary
+    permalink: /angular/glossary
+  - title: Cheat Sheet
+    permalink: /angular/cheatsheet
+  - title: API Reference
+    permalink: /angular/api
 
 - title: Angular&nbsp;Dart Components
   children:
