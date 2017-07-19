@@ -23,7 +23,7 @@ final List<Hero> mockHeroes = [
 
 @Component(
   selector: 'my-app',
-  // #docregion hero-detail-template
+  // #docregion hero-detail-template, template
   template: '''
     <h1>{{title}}</h1>
     <h2>My Heroes</h2>
@@ -36,7 +36,7 @@ final List<Hero> mockHeroes = [
     </ul>
     <hero-detail [hero]="selectedHero"></hero-detail>
   ''',
-  // #enddocregion hero-detail-template
+  // #enddocregion hero-detail-template, template
   styles: const [
     '''
       .selected {

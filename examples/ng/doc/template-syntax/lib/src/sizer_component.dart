@@ -3,6 +3,9 @@ import 'dart:async';
 import 'dart:math';
 import 'package:angular2/angular2.dart';
 
+const _minSize = 8;
+const _maxSize = _minSize * 5;
+
 @Component(
   selector: 'my-sizer',
   template: '''
@@ -13,10 +16,10 @@ import 'package:angular2/angular2.dart';
     </div>''',
 )
 class SizerComponent {
-  final minSize = 8;
-  final maxSize = 40;
+  // TODO: under Angular 4 we will be able to just export the const
+  final int minSize = _minSize, maxSize = _maxSize;
 
-  int _size = 16;
+  int _size = _minSize * 2;
   int get size => _size;
   @Input()
   void set size(/*int | String */ val) {

@@ -59,13 +59,16 @@ void main() {
     });
   });
 
+  // #docregion Output-after-inc
   group('inc:', () {
     const expectedSize = initSize + 1;
 
     setUp(() => po.inc());
 
     test('font size is $expectedSize', () async {
+      // #enddocregion Output-after-inc
       await _expectSize(expectedSize);
+      // #docregion Output-after-inc
     });
 
     test('@Output $expectedSize size event', () async {
@@ -74,6 +77,7 @@ void main() {
       });
     });
   });
+  // #enddocregion Output-after-inc
 }
 
 Future<Null> _expectSize(int size) async {
