@@ -57,6 +57,7 @@ void basicTests() {
   });
 }
 
+// #docregion go-to-detail
 void selectedHeroTests() {
   const targetHero = const {'id': 15, 'name': 'Magneta'};
 
@@ -65,6 +66,7 @@ void selectedHeroTests() {
     po = await fixture.resolvePageObject(HeroesPO);
   });
 
+  // #enddocregion go-to-detail
   test('is selected', () async {
     expect(await po.selectedHero, targetHero);
   });
@@ -74,6 +76,7 @@ void selectedHeroTests() {
         await po.myHeroNameInUppercase, equalsIgnoringCase(targetHero['name']));
   });
 
+  // #docregion go-to-detail
   test('go to detail', () async {
     await po.gotoDetail();
     final c = verify(mockRouter.navigate(captureAny));
@@ -83,6 +86,7 @@ void selectedHeroTests() {
     ];
     expect(c.captured.single, linkParams);
   });
+  // #enddocregion go-to-detail
 
   test('select another hero', () async {
     await po.selectHero(0);
@@ -90,4 +94,5 @@ void selectedHeroTests() {
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
   });
+  // #docregion go-to-detail
 }

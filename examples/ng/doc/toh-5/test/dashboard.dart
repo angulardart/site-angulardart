@@ -14,6 +14,7 @@ import 'package:test/test.dart';
 
 import 'dashboard_po.dart';
 
+// #docregion providers-with-context
 NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
@@ -31,13 +32,16 @@ void main() {
       HeroService,
     ]);
   final testBed = new NgTestBed<DashboardComponent>().addProviders(providers);
+  // #enddocregion providers-with-context
 
+  // #docregion setUpAll
   setUpAll(() async {
     when(mockPlatformLocation.pathname).thenReturn('');
     when(mockPlatformLocation.search).thenReturn('');
     when(mockPlatformLocation.hash).thenReturn('');
     when(mockPlatformLocation.getBaseHrefFromDOM()).thenReturn('');
   });
+  // #enddocregion setUpAll
 
   setUp(() async {
     fixture = await testBed.create();
@@ -55,10 +59,13 @@ void main() {
     expect(await po.heroNames, expectedNames);
   });
 
+  // #docregion go-to-detail
   test('select hero and navigate to detail', () async {
     clearInteractions(mockPlatformLocation);
     await po.selectHero(3);
     final c = verify(mockPlatformLocation.pushState(any, any, captureAny));
     expect(c.captured.single, '/detail/15');
   });
+  // #enddocregion go-to-detail
+  // #docregion providers-with-context
 }
