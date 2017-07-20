@@ -25,6 +25,9 @@ module.exports = function (gulp, plugins, config) {
   const TOOLS_PATH = config.TOOLS_PATH;
   const STYLES_SOURCE_PATH = path.join(TOOLS_PATH, 'styles-builder/less');
 
+  let skipRegEx = argv.skip;
+  let skippedExPaths = [];
+
   const lang='dart';
 
   var _exampleBoilerplateFiles = [
@@ -203,9 +206,9 @@ module.exports = function (gulp, plugins, config) {
    * Run Protractor End-to-End Specs for Doc Samples
    * Alias for 'run-e2e-tests'
    */
-  gulp.task('e2e', runE2e);
+  gulp.task('e2e', (cb) => runE2e());
 
-  gulp.task('run-e2e-tests', runE2e);
+  gulp.task('run-e2e-tests', (cb) => runE2e());
 
   /**
    * Run Protractor End-to-End Tests for Doc Samples
@@ -222,6 +225,13 @@ module.exports = function (gulp, plugins, config) {
    *     e.g. gulp e2e --lang=ts  // only TypeScript apps
    */
   function runE2e() {
+    const skipList = skipRegEx ? [skipRegEx] : [];
+    // https://github.com/dart-lang/site-webdev/issues/703
+    if (process.env.WEB_COMPILER === 'dartdevc') {
+      skipList.push('toh-[56]|lifecycle-hooks|template-syntax');
+    }
+    skipRegEx = skipList.join('|');
+
     var promise;
     if (argv.fast) {
       // fast; skip all setup
@@ -281,27 +291,23 @@ module.exports = function (gulp, plugins, config) {
     // combo consists of { examplePath: ... }
     var examplePaths = [];
     var e2eSpecPaths = getE2eSpecPaths(EXAMPLES_PATH);
+
+    // Do negative filter first (remove what we don't want):
+    if (skipRegEx) {
+      skippedExPaths = e2eSpecPaths.filter(p => p.match(skipRegEx));
+      e2eSpecPaths = e2eSpecPaths.filter(p => !p.match(skipRegEx));
+    }
+    // Then do positive filter (keep what we want):
+    if (filter) e2eSpecPaths = e2eSpecPaths.filter(p => p.match(filter));
+
     e2eSpecPaths.forEach(function(specPath) {
       // get all of the examples under each dir where a pcFilename is found
       let localExamplePaths = getExamplePaths(specPath, true);
-      // Filter by example name
-      if (filter) localExamplePaths = localExamplePaths.filter(p => p.match(filter));
-
-      // Until we have a better mechanism, hard code the E2E tests to skip when using dartdevc
-      // https://github.com/dart-lang/site-webdev/issues/703
-      if (process.env.WEB_COMPILER === 'dartdevc') {
-        localExamplePaths = localExamplePaths.filter(p => {
-          if (p.match(/toh-[56]|lifecycle-hooks|template-syntax/)) {
-            gutil.log(`E2E: under dartdevc, we SKIP ${p}`);
-            return false;
-          }
-          return true;
-        });
-      }
       examplePaths.push(...localExamplePaths);
     });
 
     gutil.log(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
+    gutil.log(`\nE2E skipping:\n  ${skippedExPaths.join('\n  ')}`);
 
     // run the tests sequentially
     var status = { passed: [], failed: [] };
@@ -450,6 +456,7 @@ module.exports = function (gulp, plugins, config) {
     }
     log.push('\nElapsed time: ' +  status.elapsedTime + ' seconds');
     var log = log.join('\n');
+    log += `\nE2E skipped:\n  ${skippedExPaths.join('\n  ')}`;
     gutil.log(log);
     fs.appendFileSync(outputFile, log);
   }

@@ -14,23 +14,25 @@ env:
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
     - JEKYLL_ENV=production
+    # E2E: use --skip=t1|t2|...|tx to skip tests
+    - E2E_OPT="--fast"
   matrix:
     - CI_TASK=build DART_CHANNEL=stable
     - CI_TASK=test  DART_CHANNEL=stable
     - CI_TASK=test  DART_CHANNEL=dev
-    - CI_TASK="e2e --fast" DART_CHANNEL=stable
-    - CI_TASK="e2e --fast" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - CI_TASK="e2e --fast" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - CI_TASK="e2e --fast" DART_CHANNEL=dev
+    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable
+    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev
 
 matrix:
   fast_finish: true
   allow_failures:
     - env: CI_TASK=test  DART_CHANNEL=dev
-    - env: CI_TASK="e2e --fast" DART_CHANNEL=stable
-    - env: CI_TASK="e2e --fast" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e --fast" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e --fast" DART_CHANNEL=dev
+    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable
+    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev
 
 before_install:
   - source ./scripts/env-set.sh
