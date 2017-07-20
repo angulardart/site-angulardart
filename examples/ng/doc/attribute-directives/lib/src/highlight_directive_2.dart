@@ -1,3 +1,4 @@
+// #docplaster
 // #docregion
 import 'package:angular2/angular2.dart';
 
@@ -39,4 +40,5 @@ class HighlightDirective {
   @Input()
   String myHighlight;
   // #enddocregion color-2
+  // #docregion
 }

@@ -236,6 +236,7 @@ Here's the updated directive in full:
     void _highlight([String color]) {
       _el.nativeElement.style.backgroundColor = color;
     }
+  }
 ```
 
 Run the app and confirm that the background color appears when
