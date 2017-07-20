@@ -283,7 +283,7 @@ It's intended source is implicit.
 Angular sets `let-hero` to the value of the context's `$implicit` property
 which `NgFor` has initialized with the hero for the current iteration.
 
-* The [API guide](/angular/api/angular2.common/NgFor-class.html "API: NgFor")
+* The [API guide](/angular/api/angular2/NgFor-class.html "API: NgFor")
 describes additional `NgFor` directive properties and context properties.
 
 These microsyntax mechanisms are available to you when you write your own structural directives.

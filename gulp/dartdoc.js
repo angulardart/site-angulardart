@@ -10,18 +10,16 @@ module.exports = function (gulp, plugins, config) {
   const dartdocCmd = 'pub global run dartdoc'
   const libsToDoc = {
     acx: `angular_components`,
-    ng: `angular2.common
+    ng:
+     `angular2
+      angular2.common
       angular2.compiler
       angular2.core
       angular2.platform.browser
-      angular2.platform.browser_static
       angular2.platform.common
       angular2.platform.common_dom
       angular2.router
-      angular2.security
-      angular2.transform.deferred_rewriter.dart
-      angular2.transform.reflection_remover.dart
-      angular2.transformer_dart`.replace(/\s+/g, ','),
+      angular2.security`.replace(/\s+/g, ','),
   };
 
   const repoPath = config.repoPath;

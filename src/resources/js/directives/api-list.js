@@ -75,8 +75,9 @@ angularIO.directive('apiList', function () {
         { cssClass: 'interface', title: 'Interface', matches: ['interface'] },
         { cssClass: 'function', title: 'Function', matches: ['function'] },
         { cssClass: 'enum', title: 'Enum', matches: ['enum'] },
-        { cssClass: 'type-alias', title: 'Type Alias', matches: ['type-alias'] },
-        { cssClass: 'const', title: 'Const', matches: ['const', 'var', 'let'] }
+        { cssClass: 'const', title: 'Const', matches: ['const', 'constant'] },
+        { cssClass: 'typedef', title: 'Typedef', matches: ['typedef'] },
+        { cssClass: 'var', title: 'Var', matches: ['var', 'let'] }
       ];
 
       // STATUSES
@@ -143,7 +144,7 @@ angularIO.directive('apiList', function () {
         $ctrl.isForDart = true;
         $ctrl.statuses = [];
         $ctrl.types = $ctrl.types.filter(function (t) {
-          return t.cssClass.match(/^(class|function|const)$/);
+          return t.cssClass.match(/^(class|const|function|typedef|var)$/);
         });
       }
 
@@ -185,10 +186,12 @@ angularIO.directive('apiList', function () {
         var isConst = false;
 
         switch(item.docType) {
-          case 'let': isConst = true; break;
-          case 'var': isConst = true; break;
-          case 'const': isConst = true; break;
-          default: isConst = false;
+          case 'const':
+          case 'constant':
+            isConst = true;
+            break;
+          default:
+            isConst = false;
         }
 
         return isConst;

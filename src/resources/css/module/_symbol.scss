@@ -38,20 +38,24 @@ $api-symbols: (
     background: $amber-700
   ),
   var: (
-    content: 'K',
-    background: $purple-600
+    content: 'V',
+    background: $pink-600
   ),
   let: (
-    content: 'K',
+    content: '?',
     background: $purple-600
   ),
   const: (
     content: 'K',
     background: $purple-600
   ),
-  type-alias: (
+  constant: (
+    content: 'K',
+    background: $purple-600
+  ),
+  typedef: (
     content: 'T',
-    background: $light-green-600
+    background: $blue-grey-600
   )
 );
 

@@ -40,8 +40,7 @@ module.exports = function preprocessDartDocData(log, dartPkgConfigInfo) {
           const qualifiedName = e.qualifiedName;
           const matches = e.href.match(/-([a-z]+)\.html/);
           let type = matches ? (e.typeFromHref = matches[1]) : e.type;
-          // Conform to TS type names for now.
-          if (type === 'constant') type = 'let';
+          if (type === 'top-level property') type = 'var';
 
           let libName;
           e.enclosedByQualifiedName = path.dirname(e.href);

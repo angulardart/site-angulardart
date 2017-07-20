@@ -58,7 +58,7 @@ Focus on the component's template.
 ```
 
 Inside the interpolation expression, you flow the component's `birthday` value through the
-[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/angular/api/angular2.common/DatePipe-class.html)
+[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/angular/api/angular2/DatePipe-class.html)
 function on the right. All pipes work this way.
 
 <div class="l-sub-section" markdown="1">
@@ -142,7 +142,7 @@ As you click the button, the displayed date alternates between
 
 
 <div class="l-sub-section" markdown="1">
-  Read more about the `DatePipe` format options in the [Date Pipe](/angular/api/angular2.common/DatePipe-class.html)
+  Read more about the `DatePipe` format options in the [Date Pipe](/angular/api/angular2/DatePipe-class.html)
   API Reference page.
 </div>
 
@@ -623,7 +623,7 @@ It displays the same hero data in JSON format by chaining through to the built-i
 
 <div class="callout is-helpful" markdown="1">
   <header> Debugging with the json pipe</header>
-  The [JsonPipe](/angular/api/angular2.common/JsonPipe-class.html)
+  The [JsonPipe](/angular/api/angular2/JsonPipe-class.html)
   provides an easy way to diagnosis a mysteriously failing data binding or
   inspect an object for future binding.
 </div>

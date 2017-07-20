@@ -1467,7 +1467,7 @@ That `ngModel` directive hides these onerous details behind its own  `ngModel` i
   listens for changes to the element's value.
 
   The details are specific to each kind of element and therefore the `NgModel` directive only works for an element
-  supported by a [ControlValueAccessor](/angular/api/angular2.common/ControlValueAccessor-class.html)
+  supported by a [ControlValueAccessor](/angular/api/angular2/ControlValueAccessor-class.html)
   that adapts an element to this protocol.
   The `<input>` box is one of those elements.
   Angular provides *value accessors* for all of the basic HTML form elements and the
@@ -1718,7 +1718,7 @@ The next example captures the `index` in a variable named `i` and displays it wi
 
 <div class="l-sub-section" markdown="1">
   Learn about the other `NgFor` context values such as `last`, `even`,
-  and `odd` in the [NgFor API reference](/angular/api/angular2.common/NgFor-class.html).
+  and `odd` in the [NgFor API reference](/angular/api/angular2/NgFor-class.html).
 </div>
 
 <div id="trackBy"></div>
@@ -1882,7 +1882,7 @@ A template reference variable, `heroForm`, appears three times in this example, 
 by a large amount of HTML.
 What is the value of `heroForm`?
 The `heroForm` is a reference to an Angular
-[NgForm](/angular/api/angular2.common/NgForm-class.html "API: NgForm")
+[NgForm](/angular/api/angular2/NgForm-class.html "API: NgForm")
 directive with the ability to track the value and validity of every control in the form.
 
 The native `<form>` element doesn't have a `form` property.
