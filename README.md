@@ -26,7 +26,7 @@ installation instructions.
   - **content shell**
 
 > IMPORTANT: Follow the installation instructions for each of the tools carefully.
-In particular, ensure that you configure your shell/environment initialiation so
+In particular, configure your shell/environment so
 that the tools are available in every terminal/command window you create.
 
 ### 2. Clone this repo
