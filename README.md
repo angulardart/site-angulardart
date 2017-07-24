@@ -25,7 +25,7 @@ installation instructions.
   - **Dartium**
   - **content shell**
 
-> IMPORTANT: follow the installation instructions for each of the tools carefully.
+> IMPORTANT: Follow the installation instructions for each of the tools carefully.
 In particular, ensure that you configure your shell/environment initialiation so
 that the tools are available in every terminal/command window you create.
 
