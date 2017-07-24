@@ -46,7 +46,14 @@ angularIO.directive('apiList', function () {
       '      ' +
       '<article class="l-content-small docs-content">' +
       '  <div ng-repeat="section in $ctrl.groupedSections" ng-if="$ctrl.filterSections(section)" ng-cloak="ng-cloak">' +
-      '    <h2>{{ section.title }}</h2>' +
+      '    <h2>' +
+      '      <a ng-href="/angular/api/{{section.title}}/{{section.title}}-library" target="_blank" rel="noopener">' +
+      '        {{section.title}}&nbsp;&nbsp' +
+      '      </a>' +
+      '      <span class="api-doc-code">' +
+      '        import&nbsp;\'package:angular2/{{section.title}}.dart\';' +
+      '      </span>' +
+      '    </h2>' +
       '    <ul class="api-list">' +
       '      <li ng-repeat="item in section.items" ng-show="item.show" class="api-item">' +
       '        <a ng-href="{{ \'/angular/api/\' + item.path }}" target="_blank" rel="noopener"><span class="symbol {{ item.docType }}"></span>{{ item.title }}</a>' +
