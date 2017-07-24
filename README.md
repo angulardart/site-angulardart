@@ -12,7 +12,7 @@ For very simple changes, you probably don't need to build this site. But if you 
 
 ## Before you build this site
 
-### A. Prerequisites
+### 1. Get the prerequisites
 
 Install the following tools if you don't have them already. Links are given to 
 installation instructions. 
@@ -29,7 +29,7 @@ installation instructions.
 In particular, ensure that you configure your shell/environment initialiation so
 that the tools are available in every terminal/command window you create.
 
-### B. Clone this repo
+### 2. Clone this repo
 
 1. **Create or choose a directory** to hold this site's Git repository, and the
    other repositories needed to build this site (which will be fetched later);
@@ -37,7 +37,7 @@ that the tools are available in every terminal/command window you create.
 1. **Clone this repo** ([site-webdev][]) into the chosen directory by following 
    the instructions given in the GitHub help on [Cloning a repository][].
 
-### C. Installation
+### 3. Run installation scripts
 
 > NOTE: It is safe to (re-)run all of the commands and scripts given below even
 if you already have the required packages installed.
