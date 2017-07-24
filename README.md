@@ -14,14 +14,13 @@ For very simple changes, you probably don't need to build this site. But if you 
 
 ### 1. Get the prerequisites
 
-Install the following tools if you don't have them already. Links are given to 
-installation instructions. 
+Install the following tools if you don't have them already.
 
-- **[nvm][]**, the Node Version Manager, then install the required version of node:
+- **[nvm][]**, the Node Version Manager. Then install the required version of node:
   - `nvm install 6`
-- **[rvm][]**, the Ruby Version Manager, then install the required version of ruby:
+- **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
   - `rvm install 2.3`
-- **[Dart][]**, _including_ two browsers used for testing doc examples:
+- **[Dart][]**, _including_ both browsers used for testing doc examples:
   - **Dartium**
   - **content shell**
 
