@@ -35,9 +35,9 @@ matrix:
     - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev
 
 before_install:
+  - source ./scripts/get-ruby.sh
   - source ./scripts/env-set.sh
   - ./scripts/before-install.sh
-  - rvm use 2.3
 
 install:
   - ./scripts/install.sh

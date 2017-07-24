@@ -8,49 +8,111 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
-## Building this site
-
 For very simple changes, you probably don't need to build this site. But if you want/need to build, here's how.
 
-**Prerequisites** for building this site (assuming that you already have a local copy of the repo):
+## Before you build this site
 
-- [Dart](https://www.dartlang.org/install), aim for the latest version.
-- Node v6; instructions below assume use of [nvm](https://github.com/creationix/nvm).
-  (HomeBrew users shall set the `NVM_DIR` env as instructed after `brew install nvm`.)
-- The ruby gem `bundler`. (HomeBrew users can get it with: `brew install ruby` and `gem install bundler`)
+### A. Prerequisites
 
-**Installation** instructions:
+Install the following tools if you don't have them already. Links are given to 
+installation instructions. 
 
-1. `nvm install 6` (on clean install) and/or `nvm use 6`
-1. `source ./scripts/env-set.sh`
-1. `./scripts/before-install.sh`
-1. `./scripts/get-ng-repo.sh` (only if the repos aren't already there).<br>
-   This step ensures that local angular-related repos are present as siblings to this repo;
-   and that `angular-dart` is an alias to `angular2`.
-1. `./scripts/install.sh`
+- **[nvm][]**, the Node Version Manager, then install the required version of node:
+  - `nvm install 6`
+- **[rvm][]**, the Ruby Version Manager, then install the required version of ruby:
+  - `rvm install 2.3`
+- **[Dart][]**, _including_ two browsers used for testing doc examples:
+  - **Dartium**
+  - **content shell**
 
-Once everything's installed, you can build and serve:
+> IMPORTANT: follow the installation instructions for each of the tools carefully.
+In particular, ensure that you configure your shell/environment initialiation so
+that the tools are available in every terminal/command window you create.
 
-- `gulp build` # use `--fast` to avoid running dartdoc when API docs already exist
-- `superstatic serve --port 4001`
+### B. Clone this repo
 
-Or, to build, serve, and have a watcher for changes:
+1. **Create or choose a directory** to hold this site's Git repository, and the
+   other repositories needed to build this site (which will be fetched later);
+   for example, `~/git`.
+1. **Clone this repo** ([site-webdev][]) into the chosen directory by following 
+   the instructions given in the GitHub help on [Cloning a repository][].
 
-- `./scripts/serve_local.sh`
+### C. Installation
 
-Or, to make sure everything's created from scratch:
+> NOTE: It is safe to (re-)run all of the commands and scripts given below even
+if you already have the required packages installed.
 
-```
-source ./scripts/env-set.sh    # avoids errors if your environment's not quite right
-nvm use 6                      # makes sure you're using the right version of node
-gulp clean && gulp build --clean; ./scripts/serve_local.sh
-```
+**Open a terminal/command window** and execute the following commands:
 
-Various useful gulp tasks:
+1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
+   **root of this repo**, e.g.: `~/git/site-webdev`
+1. <code>source [./scripts/env-set.sh][]</code> &nbsp;&nbsp;#
+   initialize environment variables, set node & ruby version
+1. <code>[./scripts/before-install.sh][]</code> &nbsp;&nbsp;#
+   install required tools
+1. <code>[./scripts/install.sh][]</code>
 
-- `gulp clean` # deletes `publish`
-- `gulp clean && gulp build --clean` # really cleans up
-- `gulp build --dgeni-log=info` # trace at `info` level (`warn` is default)
-- `gulp build-deploy` # build and deploy to active firebase project
+> IMPORTANT: Any time you create a **new terminal/command window** to work on
+this repo, **repeat steps 1 and 2** above.
 
-See the [dart-lang/site-www README](https://github.com/dart-lang/site-www/blob/master/README.md) for more setup and build instructions.
+## Building this site
+
+Once everything is installed, you need to do a full site build at least once:
+
+- `gulp build` &nbsp;&nbsp;# generate sibling site API docs and this site
+
+The generated site is placed in the `publish` folder. To serve this folder use:
+
+- `superstatic --port 4001`
+
+To view the generated site open [localhost:4001](http://localhost:4001/) in a browser.
+
+You can build, serve, and have a watcher for changes by running the following command:
+
+- <code>[./scripts/serve_local.sh][]</code>
+
+If you'd like to separately build and then serve, the commands are:
+
+- `gulp build` &nbsp;&nbsp;# generate sibling site API docs and this site
+- `superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
+
+By default `gulp build` generates API docs for sibling repos (including `angular`).
+
+Some `gulp build` options include:
+
+- `--clean` &nbsp;&nbsp;# deletes sibling repo API docs before regenerating them
+- `--fast` &nbsp;&nbsp;# will only regenerate API docs if none are present
+- `--dgeni-log=info` &nbsp;&nbsp;# set dgeni package logging at `info` level (`warn` is default)
+
+## Rebuilding this site from scratch
+
+If you encounter build problems, or if you haven't build this site in a while,
+you might want to rebuild it from scratch:
+
+1. <code>source [./scripts/env-set.sh][] --reset</code> &nbsp;&nbsp;#
+   reinitialize environment variables
+2. `gulp clean` &nbsp;&nbsp;# cleans out temporary folders.
+3. `gulp build --clean` &nbsp;&nbsp;# cleans out API files from sibling sites
+4. <code>[./scripts/serve_local.sh][]</code>
+
+If you are still having build problems, you might need to once again step
+through the installation instructions given above.
+
+## Other useful Gulp tasks
+
+- `gulp clean` &nbsp;&nbsp;# deletes `publish`, `tmp`, etc.
+- `gulp clean && gulp build --clean` &nbsp;&nbsp;# really cleans up, then builds
+- `gulp build-deploy` &nbsp;&nbsp;# build and deploy to active firebase project
+
+[Cloning a repository]: https://help.github.com/articles/cloning-a-repository
+[Dart]: https://www.dartlang.org/install
+[Dart install]: https://www.dartlang.org/install
+[nvm]: https://github.com/creationix/nvm#installation
+[rvm]: https://rvm.io/rvm/install#installation
+[site-webdev]: https://github.com/dart-lang/site-webdev
+[./scripts/env-set.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/env-set.sh
+
+[./scripts/before-install.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/before-install.sh
+[./scripts/get-ng-repo.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/get-ng-repo.sh
+[./scripts/install.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/install.sh
+[./scripts/serve_local.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/serve_local.sh

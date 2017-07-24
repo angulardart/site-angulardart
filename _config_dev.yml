@@ -1,6 +1,5 @@
 # Site settings for development mode
 url: https://angulardart-org-dev.firebaseapp.com
-port: 4001
 # Increment this site-global image URL version number query parameter when you
 # need to test og:image updates on a development server (in the absense of
 # file fingerprinting).

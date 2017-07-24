@@ -27,7 +27,7 @@ FBS_PID=$!
 
 sleep 4
 
-linkcheck :$PORT --skip-file ./scripts/config/linkcheck-skip-list.txt \
+pub global run linkcheck :$PORT --skip-file ./scripts/config/linkcheck-skip-list.txt \
   | tee $TMP/linkcheck-log.txt
 
 set +x

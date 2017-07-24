@@ -67,11 +67,10 @@ if  [[ -z "$(type -t dart)" ]]; then
         echo
         dart --version
     fi
+    ls -l $PKG
     travis_fold end install.dart
 else
     echo Dart SDK appears to be installed: `type dart`
     # PATH is set in ./scripts/env-set.sh
     dart --version
 fi
-
-ls -l $PKG
