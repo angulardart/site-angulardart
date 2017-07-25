@@ -174,19 +174,19 @@ each adorned by the `HostListener` annotation.
 
 <?code-excerpt "lib/src/highlight_directive_2.dart (mouse-methods)"?>
 ```
-    @HostListener('mouseenter')
-    void onMouseEnter() {
-      _highlight('yellow');
-    }
+  @HostListener('mouseenter')
+  void onMouseEnter() {
+    _highlight('yellow');
+  }
 
-    @HostListener('mouseleave')
-    void onMouseLeave() {
-      _highlight();
-    }
+  @HostListener('mouseleave')
+  void onMouseLeave() {
+    _highlight();
+  }
 
-    void _highlight([String color]) {
-      _el.nativeElement.style.backgroundColor = color;
-    }
+  void _highlight([String color]) {
+    _el.nativeElement.style.backgroundColor = color;
+  }
 ```
 
 The `@HostListener` annotation lets you subscribe to events of the DOM 

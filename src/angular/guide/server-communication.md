@@ -465,15 +465,15 @@ Now that you know how the API works, implement `create()` as follows:
 
 <?code-excerpt "lib/src/toh/hero_service.dart (create)" title?>
 ```
-    Future<Hero> create(String name) async {
-      try {
-        final response = await _http.post(_heroesUrl,
-            headers: _headers, body: JSON.encode({'name': name}));
-        return new Hero.fromJson(_extractData(response));
-      } catch (e) {
-        throw _handleError(e);
-      }
+  Future<Hero> create(String name) async {
+    try {
+      final response = await _http.post(_heroesUrl,
+          headers: _headers, body: JSON.encode({'name': name}));
+      return new Hero.fromJson(_extractData(response));
+    } catch (e) {
+      throw _handleError(e);
     }
+  }
 ```
 
 ### Headers

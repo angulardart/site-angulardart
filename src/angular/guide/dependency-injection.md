@@ -405,8 +405,8 @@ would be explicitly created:
 
 <?code-excerpt "lib/src/car/car_injector.dart (injector-create-and-call)"?>
 ```
-    injector = ReflectiveInjector.resolveAndCreate([Car, Engine, Tires]);
-    var car = injector.get(Car);
+  injector = ReflectiveInjector.resolveAndCreate([Car, Engine, Tires]);
+  var car = injector.get(Car);
 ```
 
 We won't find code like that in the Tour of Heroes or any of our other samples.

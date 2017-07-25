@@ -1975,11 +1975,11 @@ In the `HeroDetailComponent`, such properties are marked as input or output prop
 
 <?code-excerpt "lib/src/hero_detail_component.dart (input-output-1)"?>
 ```
-    @Input()
-    Hero hero;
-    final _deleteRequest = new StreamController<Hero>();
-    @Output()
-    Stream<Hero> get deleteRequest => _deleteRequest.stream;
+  @Input()
+  Hero hero;
+  final _deleteRequest = new StreamController<Hero>();
+  @Output()
+  Stream<Hero> get deleteRequest => _deleteRequest.stream;
 ```
 
 <div class="l-sub-section" markdown="1">

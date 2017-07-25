@@ -163,15 +163,15 @@ Consider the following template:
 
 <?code-excerpt "lib/app_component_1.dart (template and styles)" region="template" title?>
 ```
-    template: '''
-      <h1>Angular Router</h1>
-      <nav>
-        <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-        <a [routerLink]="['Heroes']">Heroes</a>
-      </nav>
-      <router-outlet></router-outlet>
-    ''',
-    styles: const ['.router-link-active {color: #039be5;}'],
+  template: '''
+    <h1>Angular Router</h1>
+    <nav>
+      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
+      <a [routerLink]="['Heroes']">Heroes</a>
+    </nav>
+    <router-outlet></router-outlet>
+  ''',
+  styles: const ['.router-link-active {color: #039be5;}'],
 ```
 
 The `RouterLink` directives on the anchor tags give the router control over those elements.

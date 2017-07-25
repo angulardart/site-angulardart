@@ -161,8 +161,8 @@ Declare that `hero` is an *input* property by annotating it with `@Input()`:
 
 <?code-excerpt "lib/src/hero_detail_component.dart (inputs)" title?>
 ```
-    @Input()
-    Hero hero;
+  @Input()
+  Hero hero;
 ```
 
 <div class="l-sub-section" markdown="1">

@@ -255,9 +255,9 @@ You don't really need a dedicated method to wrap one line.  Write it anyway:
 
 <?code-excerpt "lib/app_component_1.dart (getHeroes)" title?>
 ```
-    void getHeroes() {
-      heroes = _heroService.getHeroes();
-    }
+  void getHeroes() {
+    heroes = _heroService.getHeroes();
+  }
 ```
 
 <div id="oninit"></div>
@@ -297,9 +297,9 @@ at the right time. In this case, initialize by calling `getHeroes()`.
 
 <?code-excerpt "lib/app_component_1.dart (ngOnInit)"?>
 ```
-    void ngOnInit() {
-      getHeroes();
-    }
+  void ngOnInit() {
+    getHeroes();
+  }
 ```
 
 The app should run as expected, showing a list of heroes and a hero detail view
@@ -367,9 +367,9 @@ Here is the current implementation:
 
 <?code-excerpt "lib/app_component_1.dart (synchronous getHeroes)" region="getHeroes" title?>
 ```
-    void getHeroes() {
-      heroes = _heroService.getHeroes();
-    }
+  void getHeroes() {
+    heroes = _heroService.getHeroes();
+  }
 ```
 
 Pass the callback function as an argument to the `Future.then()` method:

@@ -352,27 +352,27 @@ After revision, the core of our form should look like this:
 
 <?code-excerpt "lib/src/hero_form_component_3.html (controls)" title?>
 ```
-      {!{diagnostic}!}
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required
-               [(ngModel)]="model.name"
-               ngControl="name">
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" id="alterEgo"
-               [(ngModel)]="model.alterEgo"
-               ngControl="alterEgo">
-      </div>
-      <div class="form-group">
-        <label for="power">Hero Power</label>
-        <select class="form-control" id="power" required
-                [(ngModel)]="model.power"
-                ngControl="power">
-          <option *ngFor="let p of powers" [value]="p">{!{p}!}</option>
-        </select>
-      </div>
+  {!{diagnostic}!}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required
+           [(ngModel)]="model.name"
+           ngControl="name">
+  </div>
+  <div class="form-group">
+    <label for="alterEgo">Alter Ego</label>
+    <input type="text" class="form-control" id="alterEgo"
+           [(ngModel)]="model.alterEgo"
+           ngControl="alterEgo">
+  </div>
+  <div class="form-group">
+    <label for="power">Hero Power</label>
+    <select class="form-control" id="power" required
+            [(ngModel)]="model.power"
+            ngControl="power">
+      <option *ngFor="let p of powers" [value]="p">{!{p}!}</option>
+    </select>
+  </div>
 ```
 
 <div class="l-sub-section" markdown="1">
@@ -545,14 +545,14 @@ Here's an example of adding an error message to the _name_ input box:
 
 <?code-excerpt "lib/src/hero_form_component.html (excerpt)" region="name-with-error-msg" title?>
 ```
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required
-                 [(ngModel)]="model.name"
-                 #name="ngForm" [ngClass]="controlStateClasses(name)"
-                 ngControl="name">
-          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-            Name is required
-          </div>
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" required
+         [(ngModel)]="model.name"
+         #name="ngForm" [ngClass]="controlStateClasses(name)"
+         ngControl="name">
+  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+    Name is required
+  </div>
 ```
 
 We control visibility of the name error message by binding properties of the `name`
@@ -702,11 +702,11 @@ its `hidden` property to the `HeroFormComponent.submitted` property.
 
 <?code-excerpt "lib/src/hero_form_component.html (excerpt)" region="edit-div" title?>
 ```
-    <div [hidden]="submitted">
-      <h1>Hero Form</h1>
-      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-      </form>
-    </div>
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    </form>
+  </div>
 ```
 
 The main form is visible from the start because the

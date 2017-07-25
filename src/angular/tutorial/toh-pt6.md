@@ -241,30 +241,30 @@ Now convert `getHeroes()` to use HTTP.
 
 <?code-excerpt "lib/src/hero_service.dart (updated getHeroes and new class members)" region="getHeroes" title?>
 ```
-    static const _heroesUrl = 'api/heroes'; // URL to web API
+  static const _heroesUrl = 'api/heroes'; // URL to web API
 
-    final Client _http;
+  final Client _http;
 
-    HeroService(this._http);
+  HeroService(this._http);
 
-    Future<List<Hero>> getHeroes() async {
-      try {
-        final response = await _http.get(_heroesUrl);
-        final heroes = _extractData(response)
-            .map((value) => new Hero.fromJson(value))
-            .toList();
-        return heroes;
-      } catch (e) {
-        throw _handleError(e);
-      }
+  Future<List<Hero>> getHeroes() async {
+    try {
+      final response = await _http.get(_heroesUrl);
+      final heroes = _extractData(response)
+          .map((value) => new Hero.fromJson(value))
+          .toList();
+      return heroes;
+    } catch (e) {
+      throw _handleError(e);
     }
+  }
 
-    dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
+  dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
 
-    Exception _handleError(dynamic e) {
-      print(e); // for demo purposes only
-      return new Exception('Server error; cause: $e');
-    }
+  Exception _handleError(dynamic e) {
+    print(e); // for demo purposes only
+    return new Exception('Server error; cause: $e');
+  }
 ```
 
 Update the import statements as follows:
@@ -495,13 +495,13 @@ The `<li>` element should now look like this:
 
 <?code-excerpt "lib/src/heroes_component.html (li element)" title?>
 ```
-    <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-        [class.selected]="hero === selectedHero">
-      <span class="badge">{!{hero.id}!}</span>
-      <span>{!{hero.name}!}</span>
-      <button class="delete"
-        (click)="delete(hero); $event.stopPropagation()">x</button>
-    </li>
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero">
+    <span class="badge">{!{hero.id}!}</span>
+    <span>{!{hero.name}!}</span>
+    <button class="delete"
+      (click)="delete(hero); $event.stopPropagation()">x</button>
+  </li>
 ```
 
 In addition to calling the component's `delete()` method, the delete button's
