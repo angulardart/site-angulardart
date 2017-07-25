@@ -83,26 +83,6 @@ Some `gulp build` options include:
 - `--fast` &nbsp;&nbsp;# will only regenerate API docs if none are present
 - `--dgeni-log=info` &nbsp;&nbsp;# set dgeni package logging at `info` level (`warn` is default)
 
-## Rebuilding this site from scratch
-
-If you encounter build problems, or if you haven't build this site in a while,
-you might want to rebuild it from scratch:
-
-1. <code>source [./scripts/env-set.sh][] --reset</code> &nbsp;&nbsp;#
-   reinitialize environment variables
-2. `gulp clean` &nbsp;&nbsp;# cleans out temporary folders.
-3. `gulp build --clean` &nbsp;&nbsp;# cleans out API files from sibling sites
-4. <code>[./scripts/serve_local.sh][]</code>
-
-If you are still having build problems, you might need to once again step
-through the installation instructions given above.
-
-## Other useful Gulp tasks
-
-- `gulp clean` &nbsp;&nbsp;# deletes `publish`, `tmp`, etc.
-- `gulp clean && gulp build --clean` &nbsp;&nbsp;# really cleans up, then builds
-- `gulp build-deploy` &nbsp;&nbsp;# build and deploy to active firebase project
-
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install
 [Dart install]: https://www.dartlang.org/install
@@ -115,3 +95,29 @@ through the installation instructions given above.
 [./scripts/get-ng-repo.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/get-ng-repo.sh
 [./scripts/install.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/install.sh
 [./scripts/serve_local.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/serve_local.sh
+
+
+## Rebuilding this site from scratch
+
+If you encounter build problems, or if you haven't build this site in a while,
+you might want to rebuild it from scratch,
+doing all of the following steps (in order):
+
+```
+source ./scripts/env-set.sh --reset  # reinitializes environment vars
+gulp clean                           # cleans out temporary folders
+gulp build --clean                   # cleans out API files from sibling sites
+./scripts/serve_local.sh
+```
+
+If you are still having build problems, you might need to once again step
+through the installation instructions.
+
+## Other useful Gulp tasks
+
+```
+gulp clean && gulp build --clean  # really cleans up, then builds
+gulp clean && gulp build --fast   # clean up non-API files, then build
+gulp build-deploy                 # builds & deploys to active firebase project
+```
+
