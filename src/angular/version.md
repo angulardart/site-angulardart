@@ -88,6 +88,13 @@ packages. These packages often have a more recent development _(dev)_ release.
   {% endif %}
 </table>
 
+<aside class="alert alert-info" markdown="1">
+**Migration tip:**
+To see how the AngularDart documentation and examples have changed
+in response to each release, read the [changelog](/angular/changelog).
+</aside>
+
+
 {% if site.ng.vers.full contains "alpha" or site.ng.dev.version contains "alpha" or site.acx.dev.version contains "alpha" %}
 ## Angular alpha releases are production quality
 
@@ -117,3 +124,4 @@ which is documented at [angular.io](https://angular.io).
 Although the [code is now separate](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html),
 the two projects are as similar as possible,
 while still making the most of Dart features and libraries.
+
