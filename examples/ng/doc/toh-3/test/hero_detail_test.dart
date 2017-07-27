@@ -29,15 +29,15 @@ void main() {
       fixture = await testBed.create();
       po = await fixture.resolvePageObject(HeroDetailPO);
     });
-
     // #enddocregion transition-to-hero
+
     test('has empty view', () async {
       expect(fixture.rootElement.text.trim(), '');
       expect(await po.heroFromDetails, isNull);
     });
     // #enddocregion no-initial-hero
-
     // #docregion transition-to-hero
+
     test('transition to ${targetHero['name']} hero', () async {
       fixture.update((comp) {
         comp.hero = new Hero(targetHero['id'], targetHero['name']);
@@ -52,8 +52,10 @@ void main() {
 
   // #docregion initial-hero
   group('${targetHero['name']} initial @Input() hero:', () {
+    // #enddocregion initial-hero
     final Map updatedHero = {'id': targetHero['id']};
 
+    // #docregion initial-hero
     setUp(() async {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>

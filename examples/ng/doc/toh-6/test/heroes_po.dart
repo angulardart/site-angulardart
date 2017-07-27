@@ -20,8 +20,14 @@ class HeroesPO {
   @optional
   PageLoaderElement _miniDetailHeading;
 
-  @ByCss('div button')
-  List<PageLoaderElement> _buttons;
+  @ByTagName('button')
+  @WithVisibleText('View Details')
+  @optional
+  PageLoaderElement _gotoDetail;
+
+  @ByCss('button')
+  @WithVisibleText('Add')
+  PageLoaderElement _add;
 
   @ByCss('li button')
   List<PageLoaderElement> _deleteHeroes;
@@ -48,13 +54,15 @@ class HeroesPO {
     return matches[1];
   }
 
+  // #docregion addHero
   Future<Null> addHero(String name) async {
     await _input.clear();
     await _input.type(name);
-    return _buttons[0].click();
+    return _add.click();
   }
+  // #enddocregion addHero
 
-  Future<Null> gotoDetail() async => _buttons[1].click();
+  Future<Null> gotoDetail() async => _gotoDetail.click();
 
   Map<String, dynamic> _heroDataFromLi(String liText) {
     final matches = new RegExp((r'^(\d+) (.*) x$')).firstMatch(liText);
