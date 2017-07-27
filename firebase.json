@@ -18,7 +18,7 @@
     "rewrites": [
       { "source": "/examples/ng/doc/router/**", "destination": "/examples/ng/doc/router/index.html" },
       { "source": "/examples/ng/doc/toh-5/**", "destination": "/examples/ng/doc/toh-5/index.html" },
-      { "source": "/examples/ng/doc/toh-6/**", "destination": "/examples/ng/doc/toh-6/index.html" }
+      { "source": "/examples/ng/doc/toh-6/**", "destination": "/examples/ng/doc/toh-6/index.html" },
       { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming" }
     ],
     "ignore": [
