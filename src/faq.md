@@ -19,15 +19,14 @@ Update for dartdevc+Chrome, link to dartdevc FAQ.]
 
 We support the following browsers:
 
-  * Internet Explorer, versions 10 and 11
-    * Dart v1.5 was the last release to support Internet Explorer 9.
-  * Firefox, latest version
   * Chrome, latest version
-  * Safari for desktop, latest version
-  * Safari for mobile, latest version
+  * Firefox, latest version
+  * Microsoft Edge, latest version
+  * Internet Explorer, latest version
+  * Safari, latest version
 
 {% comment %}
-[TODO: check version #s every time we update this file]
+[TODO: check version #s/browsers every time we update this file]
 {% endcomment %}
 
 #### Q. Is Dart supported by my browser?
@@ -41,10 +40,6 @@ has the Dart VM integrated into it.
 A new development compiler, [_dartdevc_](/tools/dartdevc)
 (also known as _DDC_) is available for web development as of Dart 1.24.
 This compiler allows you to run and debug your Dart web apps in Chrome.
-
-The dartdevc compiler is for development only, but you can play
-with it now. Continue to use [dart2js](/tools/dart2js) for
-[deployment](/angular/guide/deployment).
 
 For information on Dart 2.0 and the eventual phasing out of Dartium,
 see [A stronger Dart for
@@ -88,33 +83,33 @@ option.
 
 #### Q. Isn't Dart a lot like JavaScript?
 
-Yes and no.  The Dart project thinks that JavaScript can use some changes for
+Yes and no. The Dart project thinks that JavaScript can use some changes for
 more productive software engineering, smarter editors and development
-environments, and web apps that are as beautiful and pleasing as the best client
-apps can be.  On the other hand, we don't think everything needs to change,
-and why change what isn't broken?
+environments, and web apps that are as beautiful and pleasing as the best
+client apps can be. On the other hand, we don't think everything needs
+to change, and why change what isn't broken?
 
-JavaScript is a dynamically typed language,
-and Dart supports the `dynamic` type. Dart also supports
-[strong mode](https://www.dartlang.org/guides/language/sound-dart)
-which helps you catch errors earlier.
-
-<aside>
-</aside>
-
-Dart takes out a few features of JavaScript, such as prototypes and the
-global `object:`. This streamlines the VM, enables faster execution,
-and makes it easier to do code completion and refactoring.
-And Dart adds some goodies.  To name a few:
+Dart 1.x, like JavaScript, is a dynamically typed language. It adds optional
+type annotations to help you catch errors earlier. It takes out a
+few features of JavaScript, such as prototypes and the global
+`object:`. This streamlines the VM, enables faster execution, and
+makes it easier to do code completion and refactoring. And Dart adds
+some goodies. To name a few:
 
 * User-defined operator methods.  We like the lightweight, readable code
   these give for our DOM interface. For more information, see the
-  [dart:html](https://www.dartdocs.org/documentation/html/latest/) library.
+  [dart:html](https://api.dartlang.org/stable/dart-html ) library.
 
 * Lightweight syntax for anonymous functions.  You use them a lot in
   web programming; now they look great.  And they come with correct
   binding of <code>this</code> and full block-level lexical scoping,
   no gotchas.
+
+Dart 2.0, currently in development, differs from 1.x one important way.
+Static typing is no longer optional. This allows the creation of new
+tools, such as dartdevc, that provide a faster development cycle and
+help you find bugs earlier. For more information, see [A stronger Dart for
+everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
 
 Dart is a full language with its own semantics.
 Dart differs from JavaScript in many ways, including:
@@ -141,7 +136,8 @@ only when necessary.
 
 #### Q. How does Dart compare with using the Closure compiler on JavaScript?
 
-The idea of type annotations is similar.  Dart's are nicer syntactically.
+The idea of optional type annotations is similar.
+Dart's are nicer syntactically.
 
 Compare the following Closure compiler code:
 
@@ -198,14 +194,15 @@ are pointing to a brighter future for web developers. You can read a
 
 #### Q. I have a large application written in GWT. How do I port it to Dart?
 
-Java and Dart are syntactically similar, so this might be easier than you think.
+Java and Dart are syntactically similar,
+so this might be easier than you think.
 You can rely on the [Dart analyzer][dartanalyzer]
 to flag any syntax problems. Alternatively, you may
 consider porting one feature at a time to Dart and using the
 [JavaScript interoperability library][jsinterop] as the common middle
 ground. Be sure to watch [Dart-JavaScript
-interoperability](https://www.youtube.com/watch?v=aIonwL-8hdE),
-a talk from the Dart Developer Summit 2016).
+interoperability,](https://www.youtube.com/watch?v=aIonwL-8hdE)
+a talk from Dart Developer Summit 2016).
 
 ---
 
@@ -213,8 +210,8 @@ a talk from the Dart Developer Summit 2016).
 
 #### Q. Will any valid Dart code compile to JavaScript, or are there limitations?
 
-We intend for any valid Dart code to compile to JavaScript.  Of course, there
-are some libraries that will only run on the server because they
+We intend for any valid Dart code to compile to JavaScript.  Of course,
+there are some libraries that will only run on the server because they
 don't make sense in a browser context. For example, the `dart:io` library
 provides access to operating system files and directories with APIs not
 available to the browser.
