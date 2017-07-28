@@ -12,7 +12,7 @@ Here are a couple of ways that you can contribute:
   labeled **[beginner](https://github.com/dart-lang/site-webdev/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22help%20wanted%22%20label%3Abeginner%20)**.
   Beginner issues may or may not be easy to fix.
   Sometimes they're issues we don't have the expertise to fix ourselves,
-  and where we'd love to get help from a contributor with the right skills.
+  and we'd love to work with a contributor who has the right skills.
   * We use the usual [GitHub pull request](https://help.github.com/articles/about-pull-requests/) process.
   * We follow the [Google Developer Documentation Style Guide](https://developers.google.com/style/).
 
