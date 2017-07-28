@@ -24,8 +24,8 @@ Install the following tools if you don't have them already.
   - **Dartium**
   - **content shell**
 
-> IMPORTANT: Follow the installation instructions for each of the tools carefully.
-In particular, configure your shell/environment so
+> IMPORTANT: Follow the installation instructions for each of the tools
+carefully. In particular, configure your shell/environment so
 that the tools are available in every terminal/command window you create.
 
 ### 2. Clone this repo
@@ -33,7 +33,7 @@ that the tools are available in every terminal/command window you create.
 1. **Create or choose a directory** to hold this site's Git repository, and the
    other repositories needed to build this site (which will be fetched later);
    for example, `~/git`.
-1. **Clone this repo** ([site-webdev][]) into the chosen directory by following 
+1. **Clone this repo** ([site-webdev][]) into the chosen directory by following
    the instructions given in the GitHub help on [Cloning a repository][].
 
 ### 3. Run installation scripts
@@ -121,3 +121,14 @@ gulp clean && gulp build --fast   # clean up non-API files, then build
 gulp build-deploy                 # builds & deploys to active firebase project
 ```
 
+## Prepping for Dart 2.0
+
+Please add the following comment to docs that will need
+updating for Dart 2.0. We're doing what we can now, but some things
+are not yet ready.
+
+<pre>
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+</pre>

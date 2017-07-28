@@ -17,13 +17,13 @@ Update for dartdevc+Chrome, link to dartdevc FAQ.]
 
 #### Q. What browsers do you support as JavaScript compilation targets?
 
-We support the following browsers:
+We support the latest version of the following browsers:
 
-  * Chrome, latest version
-  * Firefox, latest version
-  * Microsoft Edge, latest version
-  * Internet Explorer, latest version
-  * Safari, latest version
+  * Chrome
+  * Firefox
+  * Microsoft Edge
+  * Internet Explorer
+  * Safari
 
 {% comment %}
 [TODO: check version #s/browsers every time we update this file]
@@ -38,7 +38,7 @@ you can use a version of Chromium (nicknamed [Dartium]) that
 has the Dart VM integrated into it.
 
 A new development compiler, [_dartdevc_](/tools/dartdevc)
-(also known as _DDC_) is available for web development as of Dart 1.24.
+(also known as _DDC_), is available for web development as of Dart 1.24.
 This compiler allows you to run and debug your Dart web apps in Chrome.
 
 For information on Dart 2.0 and the eventual phasing out of Dartium,
@@ -48,7 +48,10 @@ Also see the [dartdevc FAQ.](/tools/dartdevc/faq)
 
 #### Q. How do I debug an app once it has been compiled to JavaScript?
 
-Dart web apps are easiest to debug with an IDE, like WebStorm.
+Dart web apps are easiest to debug with an IDE, like WebStorm, and Dartium.
+{% comment %}
+update-for-dart-2
+{% endcomment %}
 The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
 
@@ -98,14 +101,14 @@ some goodies. To name a few:
 
 * User-defined operator methods.  We like the lightweight, readable code
   these give for our DOM interface. For more information, see the
-  [dart:html](https://api.dartlang.org/stable/dart-html ) library.
+  [dart:html](https://api.dartlang.org/stable/dart-html) library.
 
 * Lightweight syntax for anonymous functions.  You use them a lot in
   web programming; now they look great.  And they come with correct
   binding of <code>this</code> and full block-level lexical scoping,
   no gotchas.
 
-Dart 2.0, currently in development, differs from 1.x one important way.
+Dart 2.0, currently in development, differs from 1.x one important way:
 Static typing is no longer optional. This allows the creation of new
 tools, such as dartdevc, that provide a faster development cycle and
 help you find bugs earlier. For more information, see [A stronger Dart for
@@ -202,7 +205,7 @@ consider porting one feature at a time to Dart and using the
 [JavaScript interoperability library][jsinterop] as the common middle
 ground. Be sure to watch [Dart-JavaScript
 interoperability,](https://www.youtube.com/watch?v=aIonwL-8hdE)
-a talk from Dart Developer Summit 2016).
+a talk from Dart Developer Summit 2016.
 
 ---
 
