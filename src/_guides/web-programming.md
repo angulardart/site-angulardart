@@ -62,9 +62,6 @@ check out the original [Pirate codelab](/codelabs/darrrt).
 The [low-level HTML tutorials](/tutorials/low-level-html) have
 further information on how to include a Dart script in an HTML page,
 and how to add and remove elements from a web page.
-The [Improving the DOM](/articles/low-level-html/improving-the-dom) article
-gives an overview of Dart's DOM API,
-and how it differs from the JavaScript DOM API.
 
 ## Other libraries
 

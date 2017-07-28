@@ -10,41 +10,49 @@ see the [FAQ]({{site.dartlang}}/faq), or the [Tools FAQ]({{site.dartlang}}/tools
 both on dartlang.
 {% comment %}
 [TODO: Search for dart2js and Dartium.
-Update for dartdevc+Chrome, link to dartdevc FAQ.
-We should also update the supported browser list.]
+Update for dartdevc+Chrome, link to dartdevc FAQ.]
 {% endcomment %}
 
 ## General
 
 #### Q. What browsers do you support as JavaScript compilation targets?
 
-We support the following browsers:
+We support the latest version of the following browsers:
 
-  * Internet Explorer, versions 10 and 11
-    * Dart v1.5 was the last release to support Internet Explorer 9.
-  * Firefox, latest version
-  * Chrome, latest version
-  * Safari for desktop, latest version
-  * Safari for mobile, latest version
+  * Chrome
+  * Firefox
+  * Microsoft Edge
+  * Internet Explorer
+  * Safari
 
 {% comment %}
-[TODO: check version #s every time we update this file]
+[TODO: check version #s/browsers every time we update this file]
 {% endcomment %}
 
 #### Q. Is Dart supported by my browser?
 
 Although no production browsers can execute Dart code directly,
 all modern browsers can execute Dart code that's been compiled to JavaScript.
-For convenience while you're developing Dart code,
-you can use a version of Chromium (nicknamed [Dartium])
+For convenience while you're developing Dart code on Dart 1.x,
+you can use a version of Chromium (nicknamed [Dartium]) that
 has the Dart VM integrated into it.
+
+A new development compiler, [_dartdevc_](/tools/dartdevc)
+(also known as _DDC_), is available for web development as of Dart 1.24.
+This compiler allows you to run and debug your Dart web apps in Chrome.
+
+For information on Dart 2.0 and the eventual phasing out of Dartium,
+see [A stronger Dart for
+everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
+Also see the [dartdevc FAQ.](/tools/dartdevc/faq)
 
 #### Q. How do I debug an app once it has been compiled to JavaScript?
 
-Dart web apps are easiest to debug with an IDE, like WebStorm,
-and Dartium. However,
-the [debugging](/tools/dart2js#debugging)
-section of the dart2js documentation
+Dart web apps are easiest to debug with an IDE, like WebStorm, and Dartium.
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
 
 #### Q. Can I use Angular with Dart?
@@ -78,27 +86,35 @@ option.
 
 #### Q. Isn't Dart a lot like JavaScript?
 
-Yes and no.  The Dart project thinks that JavaScript can use some changes for
+Yes and no. The Dart project thinks that JavaScript can use some changes for
 more productive software engineering, smarter editors and development
-environments, and web apps that are as beautiful and pleasing as the best client
-apps can be.  On the other hand, we don't think everything needs to change, and
-why change what isn't broken?
+environments, and web apps that are as beautiful and pleasing as the best
+client apps can be. On the other hand, we don't think everything needs
+to change, and why change what isn't broken?
 
-Dart, like JavaScript, is a dynamically typed language.  It adds optional
-type annotations to help you catch errors earlier.  It takes out a
-few features of JavaScript, such as prototypes and the global object: this
-streamlines the VM, enables faster execution, and makes it easier to do code
-completion and refactoring.  And Dart adds some goodies.  To name a few:
+Dart 1.x, like JavaScript, is a dynamically typed language. It adds optional
+type annotations to help you catch errors earlier. It takes out a
+few features of JavaScript, such as prototypes and the global
+`object:`. This streamlines the VM, enables faster execution, and
+makes it easier to do code completion and refactoring. And Dart adds
+some goodies. To name a few:
 
 * User-defined operator methods.  We like the lightweight, readable code
-these give for
-<a href="/articles/low-level-html/improving-the-dom">our DOM interface</a>.
+  these give for our DOM interface. For more information, see the
+  [dart:html](https://api.dartlang.org/stable/dart-html) library.
 
 * Lightweight syntax for anonymous functions.  You use them a lot in
-web programming; now they look great.  And they come with correct
-binding of <code>this</code> and full block-level lexical scoping, no gotchas.
+  web programming; now they look great.  And they come with correct
+  binding of <code>this</code> and full block-level lexical scoping,
+  no gotchas.
 
-Dart is more than a new syntax, it's a full language with its own semantics.
+Dart 2.0, currently in development, differs from 1.x one important way:
+Static typing is no longer optional. This allows the creation of new
+tools, such as dartdevc, that provide a faster development cycle and
+help you find bugs earlier. For more information, see [A stronger Dart for
+everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
+
+Dart is a full language with its own semantics.
 Dart differs from JavaScript in many ways, including:
 
 * Only `true` is true.
@@ -123,8 +139,8 @@ only when necessary.
 
 #### Q. How does Dart compare with using the Closure compiler on JavaScript?
 
-The idea of optional type annotations is similar.  Dart's are nicer
-syntactically.
+The idea of optional type annotations is similar.
+Dart's are nicer syntactically.
 
 Compare the following Closure compiler code:
 
@@ -166,7 +182,7 @@ Dart introduces new semantics, while CoffeeScript retains the semantics
 of JavaScript.
 
 If you like CoffeeScript for its more structured feel than raw JavaScript, you
-may like Dart's optional static type annotations.
+may like Dart's static type annotations.
 
 #### Q. What does Google think of TypeScript?
 
@@ -181,15 +197,15 @@ are pointing to a brighter future for web developers. You can read a
 
 #### Q. I have a large application written in GWT. How do I port it to Dart?
 
-Java and Dart are syntactically similar, so this might be easier than you think.
+Java and Dart are syntactically similar,
+so this might be easier than you think.
 You can rely on the [Dart analyzer][dartanalyzer]
 to flag any syntax problems. Alternatively, you may
 consider porting one feature at a time to Dart and using the
 [JavaScript interoperability library][jsinterop] as the common middle
-ground. Be sure to watch our Google I/O 2012 talk <a
-href="http://www.youtube.com/watch?v=EvACKPBo_R8">Migrating Code from GWT to
-Dart</a>, but keep in mind that it predates our JavaScript interoperability
-library.
+ground. Be sure to watch [Dart-JavaScript
+interoperability,](https://www.youtube.com/watch?v=aIonwL-8hdE)
+a talk from Dart Developer Summit 2016.
 
 ---
 
@@ -197,8 +213,8 @@ library.
 
 #### Q. Will any valid Dart code compile to JavaScript, or are there limitations?
 
-We intend for any valid Dart code to compile to JavaScript.  Of course, there
-are some libraries that will only run on the server because they
+We intend for any valid Dart code to compile to JavaScript.  Of course,
+there are some libraries that will only run on the server because they
 don't make sense in a browser context. For example, the `dart:io` library
 provides access to operating system files and directories with APIs not
 available to the browser.
@@ -281,8 +297,7 @@ capable of high-performance implementations.
 We want to [fix ALL the things][fixallthethings].  There's "Dart" the language,
 and then there's "Dart" the overall project.  The Dart _project_ is
 betting that the language needs some changes, but we also want to
-[improve the DOM][improvethedom] and other libraries, and
-to improve the tools we use.
+improve the DOM and other libraries, and to improve the tools we use.
 
 At the same time, Google is also placing bets that JavaScript _can_ be
 evolved as needed, and contributing to that work.  Google wants web development
@@ -382,7 +397,6 @@ achievement.
 [dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
-[improvethedom]: /articles/low-level-html/improving-the-dom
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
 [Dartium]: /tools/dartium
 
