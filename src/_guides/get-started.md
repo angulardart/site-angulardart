@@ -43,6 +43,10 @@ More information:
 Once you're ready to move beyond DartPad and develop real apps,
 you need the Dart SDK and Dartium (a special build of Chromium with the Dart VM).
 
+{% comment %}
+update-for-dart-2.0
+{% endcomment %}
+
 As you install, **note the paths to the SDK and Dartium.**
 You'll need them in step 4.
 
@@ -89,7 +93,7 @@ installing Dart is easy.
 {% prettify shell %}
 brew tap dart-lang/dart
 brew install dart --with-content-shell --with-dartium
-{% endprettify %}   
+{% endprettify %}
 </div>
 More information:
 [installing and updating Dart]({{site.dartlang}}/install)
@@ -117,7 +121,7 @@ Here's how to use WebStorm to create a web app that uses AngularDart:
    or **File > New > Project...** from the menu.  A dialog appears.
 1. Choose **Dart** from the list on the left.
 1. If the **Dart SDK path** and **Dartium path** fields don't have values, enter them.
-1. Edit the **Location** field to set the app location and name. 
+1. Edit the **Location** field to set the app location and name.
 1. Select **Generate sample content** to show the list of templates.
 1. Choose the **AngularDart Web App** template.
 1. Click **Create**.<br clear>

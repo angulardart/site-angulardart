@@ -10,6 +10,22 @@ Dartium is a special build of Chromium that includes the Dart VM.
 Using Dartium means you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 
+<aside class="alert alert-info" markdown="1">
+**Dartium is going away in Dart 2.0:**
+In Dart 2.0, you'll use Chrome or other standard browsers for testing
+instead of Dartium, thanks to a new development compiler called
+[_dartdevc_](/tools/dartdevc). For information on Dartium's removal,
+see [A stronger Dart for
+everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
+Once your code is [strong mode]({{site.www}}/guides/language/sound-dart) clean,
+you can start to play with dartdevc now,
+though it doesn't yet work for AngularDart apps.
+</aside>
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 <aside class="alert alert-warning" markdown="1">
 **Warning:** This browser is intended for Dart development.
 As a reminder, the following message appears on launch:

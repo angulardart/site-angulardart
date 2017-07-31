@@ -21,6 +21,22 @@ with another JetBrains IDE such as IntelliJ IDEA, see the page
 To get started with WebStorm,
 install it and then tell it where to find the Dart SDK and Dartium.
 
+<aside class="alert alert-info" markdown="1">
+**Dartium is going away in Dart 2.0:**
+In Dart 2.0, you'll use Chrome or other standard browsers for testing
+instead of Dartium, thanks to a new development compiler called
+[_dartdevc_](/tools/dartdevc). For information on Dartium's removal,
+see [A stronger Dart for
+everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
+Once your code is [strong mode]({{site.www}}/guides/language/sound-dart) clean,
+you can start to play with dartdevc now,
+though it doesn't yet work for AngularDart apps.
+</aside>
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 ### Installing software
 
 * [Install WebStorm](http://www.jetbrains.com/webstorm/download/) or,
