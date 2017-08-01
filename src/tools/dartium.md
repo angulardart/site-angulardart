@@ -10,6 +10,12 @@ Dartium is a special build of Chromium that includes the Dart VM.
 Using Dartium means you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 
+{% include dartium-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 <aside class="alert alert-warning" markdown="1">
 **Warning:** This browser is intended for Dart development.
 As a reminder, the following message appears on launch:

@@ -16,6 +16,12 @@ For information about general tools for Dart apps, see
 
 Dartium is a special build of Chromium used for developing web apps.
 
+{% include dartium-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 <a href="/tools/dartium">
 <img src="{% asset_path 'dartium-logo-48.jpg' %}" alt="Dart logo" /><br>
 <b>Dartium</b>

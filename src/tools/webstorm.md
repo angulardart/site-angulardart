@@ -21,6 +21,12 @@ with another JetBrains IDE such as IntelliJ IDEA, see the page
 To get started with WebStorm,
 install it and then tell it where to find the Dart SDK and Dartium.
 
+{% include dartium-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 ### Installing software
 
 * [Install WebStorm](http://www.jetbrains.com/webstorm/download/) or,
