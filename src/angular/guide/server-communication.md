@@ -114,9 +114,6 @@ transformer in `pubspec.yaml`:
           BrowserClient: 'package:http/browser_client.dart'
           Client: 'package:http/http.dart'
   - dart_to_js_script_rewriter
-  web:
-    compiler:
-      debug: dartdevc
 ```
 
 <div id="http-client"></div>
