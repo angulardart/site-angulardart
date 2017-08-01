@@ -2,6 +2,7 @@
 layout: angular
 title: "Writers' Playground"
 permalink: /playground
+sitemap: false
 ---
 
 Title and code not tied to a file:

@@ -122,7 +122,6 @@ keep_files:
 plugins:
 - jekyll-assets
 - jekyll-toc
-- jekyll-sitemap
 
 assets:
   # compress:
