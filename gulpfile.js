@@ -146,10 +146,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
   'build-api-list-json', 'finalize-api-docs', 'sass',
   'add-examples-to-site'], cb => {
-    // There is a rule in public/docs/_examples/.gitignore that prevents a2docs.css
-    // from being excluded. Let's stay synced with the TS counterpart of that .gitignore
-    // and just delete the file:
-    child_process.execSync(`rm -f public/docs/_examples/_boilerplate/a2docs.css`);
+    child_process.execSync(`cp src/angular/api/api-list.json src/_data`);
     return execp(`jekyll build`);
   });
 
