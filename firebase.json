@@ -16,8 +16,10 @@
       { "source": "/codelabs/angular2_components/4-final", "destination": "/codelabs/angular_components/4-final", "type": 301 },
       { "source": "/codelabs/angular2_components/what-next", "destination": "/codelabs/angular_components/what-next", "type": 301 },
 
+      { "source":      "/angular/api/angular2.common/*/**",
+        "destination": "/angular/api/angular2.common/angular2.common-library", "type": 301 },
       { "source":      "/angular/api/angular2.common/!(angular2.common-library)",
-        "destination": "/angular/api/angular2.common/angular2.common-library", "type": 301 }      
+        "destination": "/angular/api/angular2.common/angular2.common-library", "type": 301 }
     ],
     "rewrites": [
       { "source": "/examples/ng/doc/router/**", "destination": "/examples/ng/doc/router/index.html" },
