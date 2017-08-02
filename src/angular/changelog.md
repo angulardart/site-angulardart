@@ -19,6 +19,27 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
 
 
+## Testing docs, part 2 (August 2017)
+
+Created several test-related pages.
+The original page, [Testing](/angular/guide/testing),
+is now mostly a table of contents.
+
+All of these pages are drafts, and we'd appreciate your feedback.
+
+- [Component testing](/angular/guide/testing/component)
+  - [Running component tests](/angular/guide/testing/component/running-tests)
+  - <span>Writing component tests</span>
+    - [Basics](/angular/guide/testing/component/basics): pubspec config, test
+      API fundamentals
+    - [Page objects](/angular/guide/testing/component/page-objects): field annotation, initialization and more
+    - [Simulating user action](/angular/guide/testing/component/simulating-user-action): click, type, clear
+    - [Services](/angular/guide/testing/component/services): local, external, mock or real
+    - [`@Input()` and `@Output()`](/angular/guide/testing/component/input-and-output)
+    - [Routing components](/angular/guide/testing/component/routing-components): mocking the router or platform location
+- [End-to-end (E2E) testing](/angular/guide/testing/e2e) _(placeholder)_
+
+
 ## AngularDart 4.0 alpha (July 2017)
 
 <aside class="alert alert-info" markdown="1">
