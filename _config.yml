@@ -62,6 +62,11 @@ defaults:
     type: codelabs
   values:
     image: /codelabs/ng2/images/piratemap.jpg?3
+- scope:
+    path: angular/guide/testing
+  values:
+    # layout: angular
+    status: '(DRAFT)'
 
 dev:
   url: https://webdev-dartlang-org-dev.firebaseapp.com

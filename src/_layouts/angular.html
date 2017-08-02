@@ -17,13 +17,21 @@ image_asset: angulardart.png
           <div class="ng-page-title">
             <h1>
               <a href="/angular"><img src="/angular/images/angulardart.svg"></a>
-              {% if page.long-title %}{{ page.long-title }}{% else %}{{ page.title }}{% endif %} </h1>
+              {% assign title = page.long-title | default: page.title | append: ' ' | append: page.status %}
+              {{ title }}
+            </h1>
             <p>
               <a href="/angular/version">{{site.ng.vers.abbr}}</a>
             </p>
           </div>
           <a href="https://github.com/dart-lang/site-webdev/issues" target="_blank" rel="noopener" class="hide">Send feedback</a>
           <hr>
+          {% if page.status %}
+          <div class="alert is-helpful">
+            If you notice any issues with this page, please
+            <a href="{{site.repo}}/issues/new?title=Feedback+on+page%3A+{{title | cgi_escape}}&body=URL%3A+{{site.url | append: page.url | cgi_escape}}%0A%0A">report them.</a>
+          </div>
+          {% endif %}
           {{ content | inject_anchors }}
           {% include navigation-sub.html %}
         </div>
