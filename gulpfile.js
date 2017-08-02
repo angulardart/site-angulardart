@@ -146,7 +146,8 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
   'build-api-list-json', 'finalize-api-docs', 'sass',
   'add-examples-to-site'], cb => {
-    child_process.execSync(`cp src/angular/api/api-list.json src/_data`);
+    child_process.execSync(`cp src/angular/api/api-list.json src/_data/ng-api-list.json`);
+    child_process.execSync(`cp ${config.repoPath.acx}/doc/api/index.json src/_data/acx-api-list.json`);
     return execp(`jekyll build`);
   });
 
