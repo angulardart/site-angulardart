@@ -45,11 +45,11 @@ if you already have the required packages installed.
 
 1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
    **root of this repo**, e.g.: `~/git/site-webdev`
-1. <code>source [./scripts/env-set.sh][]</code> &nbsp;&nbsp;#
+1. `source ./scripts/env-set.sh` &nbsp;&nbsp;#
    initialize environment variables, set node & ruby version
-1. <code>[./scripts/before-install.sh][]</code> &nbsp;&nbsp;#
+1. `./scripts/before-install.sh` &nbsp;&nbsp;#
    install required tools
-1. <code>[./scripts/install.sh][]</code>
+1. `./scripts/install.sh`
 
 > IMPORTANT: Any time you create a **new terminal/command window** to work on
 this repo, **repeat steps 1 and 2** above.
@@ -68,7 +68,7 @@ To view the generated site open [localhost:4001](http://localhost:4001/) in a br
 
 You can build, serve, and have a watcher for changes by running the following command:
 
-- <code>[./scripts/serve_local.sh][]</code>
+- `./scripts/serve_local.sh`
 
 If you'd like to separately build and then serve, the commands are:
 
