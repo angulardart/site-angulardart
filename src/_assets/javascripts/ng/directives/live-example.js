@@ -58,7 +58,11 @@ angularIO.directive('liveExample', ['$location', function ($location) {
     var loc = $location.absUrl();
     // E.g., https://.../guide/displaying-data.html
     var matches = loc.match(/.*\/([\w\-]+)(\.html)?/);
-    return matches ? matches[1] : null;
+    if (!matches) return null;
+    var name = matches[1];
+    matches = name.match(/(toh-)pt(\d+)/);
+    if (matches) name = matches[1] + matches[2];
+    return name;
   }
 
   function span(text) { return '<span>' + text + '</span>'; }

@@ -61,7 +61,7 @@ angularIO.directive('apiList', function () {
       '  </div>' +
       '</article>',
     controllerAs: '$ctrl',
-    controller: function($scope, $attrs, $http, $location) {
+    controller: ['$scope', '$attrs', '$http', '$location', function($scope, $attrs, $http, $location) {
       // DEFAULT VALUES
       var $ctrl = this;
       $ctrl.showTypeMenu = false;
@@ -273,7 +273,7 @@ angularIO.directive('apiList', function () {
 
         return isVisible;
       };
-    }
+    }]
   };
 });
 // {% endraw %}

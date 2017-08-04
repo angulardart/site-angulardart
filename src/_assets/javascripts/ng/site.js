@@ -4,7 +4,7 @@
 */
 
 var angularIO = angular.module('angularIOApp', ['ngMaterial'])
-.config(function($mdThemingProvider) {
+.config(['$mdThemingProvider', function($mdThemingProvider) {
 
   // THEMEING FOR ANGULAR MATERIAL
   $mdThemingProvider.theme('default')
@@ -19,8 +19,8 @@ var angularIO = angular.module('angularIOApp', ['ngMaterial'])
     .accentPalette('purple', {
       'default': '200' // use shade 200 for default, and keep all other shades the same
     });
-})
+}])
 
-.config(function($locationProvider) {
+.config(['$locationProvider', function($locationProvider) {
   $locationProvider.hashPrefix('!');
-});
+}]);

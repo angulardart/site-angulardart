@@ -1,4 +1,4 @@
-angularIO.directive('bold', function ($timeout) {
+angularIO.directive('bold', ['$timeout', function ($timeout) {
   return {
     scope: { bold: '=bold' },
     link:  postLink
@@ -17,4 +17,4 @@ angularIO.directive('bold', function ($timeout) {
       element.html(html);
     });
   }
-});
+}]);

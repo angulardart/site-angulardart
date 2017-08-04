@@ -5,7 +5,7 @@
 * displayed in the same container
 */
 
-angularIO.directive('codeTabs', function($timeout) {
+angularIO.directive('codeTabs', ['$timeout', function($timeout) {
   return {
     restrict: 'E',
     scope: {},
@@ -60,5 +60,5 @@ angularIO.directive('codeTabs', function($timeout) {
       ' <div class="code-box-examples" ng-transclude></div>' +
       '</div>'
   };
-});
+}]);
 // {% endraw %}

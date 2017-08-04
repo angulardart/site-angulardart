@@ -7,7 +7,7 @@
 * E.g. `<code ng-compile>{{ 'do interpolate' + 'me' }}</code>`
 */
 
-angularIO.directive('code', function($compile) {
+angularIO.directive('code', ['$compile', function($compile) {
   return {
     priority: 100,
     restrict: 'E',
@@ -20,5 +20,5 @@ angularIO.directive('code', function($compile) {
       }
     }
   };
-});
+}]);
 // {% endraw %}
