@@ -31,7 +31,7 @@ on the previous page.
   - pubspec.yaml
 </div>
 
-{% include_relative keep-app-running.md %}
+{% include_relative _keep-app-running.md %}
 
 ## Show the hero
 

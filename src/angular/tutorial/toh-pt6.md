@@ -23,7 +23,7 @@ When you're done with this page, the app should look like this <live-example></l
 
 In the [previous page](toh-pt5), you learned to navigate between the dashboard and the fixed heroes list, editing a selected hero along the way. That's the starting point for this page.
 
-{% include_relative keep-app-running.md %}
+{% include_relative _keep-app-running.md %}
 
 <div id="http-providers"></div>
 # Providing HTTP Services

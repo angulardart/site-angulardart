@@ -53,7 +53,7 @@ Before continuing with the Tour of Heroes, verify that you have the following st
   - pubspec.yaml
 </div>
 
-{% include_relative keep-app-running.md %}
+{% include_relative _keep-app-running.md %}
 
 ## Action plan
 

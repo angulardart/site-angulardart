@@ -44,7 +44,7 @@ If not, go back to the previous pages.
   - pubspec.yaml
 </div>
 
-{% include_relative keep-app-running.md %}
+{% include_relative _keep-app-running.md %}
 
 ## Creating a hero service
 

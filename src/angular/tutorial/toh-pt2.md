@@ -34,7 +34,7 @@ If your structure doesn't match, go back to that page to figure out what you mis
   - pubspec.yaml
 </div>
 
-{% include_relative keep-app-running.md %}
+{% include_relative _keep-app-running.md %}
 
 ## Displaying heroes
 
