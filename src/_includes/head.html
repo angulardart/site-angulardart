@@ -41,8 +41,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
   {% stylesheet style %}
+  {% if page.layout == "angular" %}{% stylesheet angular %}{% endif %}
+  {% if page.layout == "components" %}{% stylesheet acx %}{% endif %}
   {% for css in page.css %}
-    <link href="{{ css.url }}" rel="stylesheet" type="text/css">
+  <link href="{{ css.url }}" rel="stylesheet" type="text/css">
   {% endfor %}
 
   <!--
@@ -54,52 +56,35 @@
       application programming, not page scripting.
    -->
   {% javascript main %}
-  {% javascript 'vendor/document-register-elements' %}
 
   {% for js in page.js %}
   <script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>
   {% endfor %}
   {% include analytics.html %}
 
-  {% if page.layout == "components" %}
-  <link rel="stylesheet" href="/styles/components.css">
-  {% endif %}
-
   {% if page.layout == "angular" %}
-  <!-- Angular.io styles for directives, etc -->
-  <link rel="stylesheet" href="/styles/angular.css">
-
   <!-- VENDORS -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/>
-  <!-- Probably don't need these under webdev
-  <script src="/resources/js/vendor/prettify.js"></script>
-  <script src="/resources/js/vendor/lang-basic.js"></script>
-  <script src="/resources/js/vendor/lang-dart.js"></script>
+  <!--
   -->
-  <script src="/resources/js/vendor/lodash.js"></script>
-  <script src="/resources/js/vendor/clipboard.min.js"></script>
+  {% javascript "ng/vendor/lodash.js" %}
+  {% javascript ng/vendor/clipboard.min.js %}
   <!-- Angular Material Dependencies -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
   <!-- Angular.io Site JS -->
-  <script src="/resources/js/site.js"></script>
-  <script src="/resources/js/util.js"></script>
-  <script src="/resources/js/controllers/app-controller.js"></script>
-  <!--script src="/resources/js/controllers/resources-controller.js"></script-->
-  <script src="/resources/js/directives/api-list.js"></script>
-  <!--script src="/resources/js/directives/bio.js"></script>-->
-  <script src="/resources/js/directives/bold.js"></script>
-  <!--<script src="/resources/js/directives/announcement-bar.js"></script-->
-  <script src="/resources/js/directives/code.js"></script>
-  <script src="/resources/js/directives/copy.js"></script>
-  <script src="/resources/js/directives/code-tabs.js"></script>
-  <script src="/resources/js/directives/code-pane.js"></script>
-  <script src="/resources/js/directives/code-example.js"></script>
-  <script src="/resources/js/directives/if-docs.js"></script>
-  <script src="/resources/js/directives/live-example.js"></script>
-  <script src="/resources/js/directives/ngio-ex-path.js"></script>
-  <script src="/resources/js/directives/scroll-y-offset-element.js"></script>
+  {% javascript ng/site.js %}
+  {% javascript ng/controllers/app-controller.js %}
+  {% javascript ng/directives/api-list.js %}
+  {% javascript ng/directives/bold.js %}
+  {% javascript ng/directives/code.js %}
+  {% javascript ng/directives/copy.js %}
+  {% javascript ng/directives/code-tabs.js %}
+  {% javascript ng/directives/code-pane.js %}
+  {% javascript ng/directives/code-example.js %}
+  {% javascript ng/directives/live-example.js %}
+  {% javascript ng/directives/scroll-y-offset-element.js %}
   {% endif %}
 </head>

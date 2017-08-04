@@ -117,7 +117,7 @@ Here's what the UI displays:
   a | ab | abc | ab | a | |
 ```
 
-<img class="image-display" src='/resources/images/devguide/user-input/keyup1-anim.gif' alt="key up 1">
+<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup1-anim.gif' %}" alt="key up 1">
 
 <a id="keyup1"></a>
 <div class="l-sub-section" markdown="1">
@@ -177,7 +177,7 @@ and the component does nothing.
 
 Type in the input box, and watch the display update with each keystroke. *Voila!*
 
-<img class="image-display" src='/resources/images/devguide/user-input/keyup-loop-back-anim.gif' alt="loop back">
+<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup-loop-back-anim.gif' %}" alt="loop back">
 
 <div class="l-sub-section" markdown="1">
   **This won't work at all unless we bind to an event**.
@@ -244,7 +244,7 @@ would be to put the update code in the component.)
 
 Here's how it works.
 
-<img class="image-display" src='/resources/images/devguide/user-input/keyup3-anim.gif' alt="key up 3">
+<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup3-anim.gif' %}" alt="key up 3">
 
 ## On blur
 
@@ -280,7 +280,7 @@ that can display a list of heroes and add new heroes to that list.
 The user can add a hero by first typing in the input box and then
 pressing Enter, clicking the Add button, or clicking elsewhere on the page.
 
-<img class="image-display" src='/resources/images/devguide/user-input/little-tour-anim.gif' alt="Little Tour of Heroes">
+<img class="image-display" src="{% asset_path 'ng/devguide/user-input/little-tour-anim.gif' %}" alt="Little Tour of Heroes">
 
 Below is the "Little Tour of Heroes"  component.
 We'll call out the highlights after we bask briefly in its minimalist glory.

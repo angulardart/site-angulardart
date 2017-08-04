@@ -64,7 +64,7 @@ you must add the mock router to the providers list of the `NgTestBed`:
 Selecting a hero from the heroes list causes a
 ["mini detail" view to appear](/angular/tutorial/toh-pt5#add-the-mini-detail):
 
-<img class="image-display" src='/resources/images/devguide/toh/mini-hero-detail.png' alt="Mini Hero Detail" width="250">
+<img class="image-display" src="{% asset_path 'ng/devguide/toh/mini-hero-detail.png' %}" alt="Mini Hero Detail" width="250">
 
 Clicking the "View Details" button should cause a [request to navigate to the
 corresponding hero's detail view](/angular/tutorial/toh-pt5#update-the-heroescomponent-class).

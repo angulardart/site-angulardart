@@ -124,7 +124,7 @@ It takes a boolean expression and makes an entire chunk of the DOM appear or dis
 The `ngIf` directive doesn't hide elements with CSS. It adds and removes them physically from the DOM.
 Confirm that fact using browser developer tools to inspect the DOM.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/element-not-in-dom.png' alt="ngIf=false element not in DOM">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/element-not-in-dom.png' %}" alt="ngIf=false element not in DOM">
 
 The top paragraph is in the DOM. The bottom, disused paragraph is not;
 in its place is a comment about "template bindings" (more about that [later](#asterisk)).
@@ -152,7 +152,7 @@ A directive could hide the unwanted paragraph instead by setting its `display` s
 
 While invisible, the element remains in the DOM.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/element-display-in-dom.png' alt="hidden element still in DOM">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/element-display-in-dom.png' %}" alt="hidden element still in DOM">
 
 The difference between hiding and removing doesn't matter for a simple paragraph.
 It does matter when the host element is attached to a resource intensive component.
@@ -213,7 +213,7 @@ Then it translates the template _attribute_ into a template _element_, wrapped a
 None of these forms are actually rendered.
 Only the finished product ends up in the DOM.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/hero-div-in-dom.png' alt="hero div in DOM">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/hero-div-in-dom.png' %}" alt="hero div in DOM">
 
 Angular consumed the `<template>` content during its actual rendering and
 replaced the `<template>` with a diagnostic comment.
@@ -431,7 +431,7 @@ That's the fate of the middle "Hip!" in the phrase "Hip! Hip! Hooray!".
 
 Angular erases the middle "Hip!", leaving the cheer a bit less enthusiastic.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/template-rendering.png' width="382" alt="template tag rendering">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/template-rendering.png' %}" width="382" alt="template tag rendering">
 
 A structural directive puts a `<template>` to work
 as you'll see when you [write your own structural directive](#unless).
@@ -485,7 +485,7 @@ You also have a CSS style rule that happens to apply to a `<span>` within a `<p>
 
 The constructed paragraph renders strangely.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/bad-paragraph.png' alt="spanned paragraph with bad style">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/bad-paragraph.png' %}" alt="spanned paragraph with bad style">
 
 The `p span` style, intended for use elsewhere, was inadvertently applied here.
 
@@ -512,7 +512,7 @@ When you try this,
 
 the drop down is empty.
 
-<img class="image-display" src="/resources/images/devguide/structural-directives/bad-select.png" alt="spanned options don't work">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/bad-select.png' %}" alt="spanned options don't work">
 
 The browser won't display an `<option>` within a `<span>`.
 
@@ -536,7 +536,7 @@ Here's the conditional paragraph again, this time using `<{{page.ng_container}}>
 
 It renders properly. Notice the use of a desugared form of [NgIf](#ngIf).
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/good-paragraph.png' alt="ngcontainer paragraph with proper style">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/good-paragraph.png' %}" alt="ngcontainer paragraph with proper style">
 
 Now conditionally exclude a _select_ `<option>` with `<{{page.ng_container}}>`.
 
@@ -557,7 +557,7 @@ Now conditionally exclude a _select_ `<option>` with `<{{page.ng_container}}>`.
 
 The drop down works properly.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/select-ngcontainer-anim.gif' alt="ngcontainer options work properly">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/select-ngcontainer-anim.gif' %}" alt="ngcontainer options work properly">
 
 The `<{{page.ng_container}}>` is a syntax element recognized by the Angular parser.
 It's not a directive, component, class, or interface.
@@ -713,7 +713,7 @@ Then create some HTML to try it.
 When the `condition` is false, the top (A) paragraph appears and the bottom (B) paragraph disappears.
 When the `condition` is true, the top (A) paragraph is removed and the bottom (B) paragraph appears.
 
-<img class="image-display" src='/resources/images/devguide/structural-directives/unless-anim.gif' alt="UnlessDirective in action">
+<img class="image-display" src="{% asset_path 'ng/devguide/structural-directives/unless-anim.gif' %}" alt="UnlessDirective in action">
 
 ## Summary
 

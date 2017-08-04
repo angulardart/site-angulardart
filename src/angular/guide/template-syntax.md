@@ -787,7 +787,7 @@ nor property binding.
 Interpolation handles the script tags differently than property binding but both approaches render the
 content harmlessly.
 
-<img class="image-display" src='/resources/images/devguide/template-syntax/evil-title.png' alt="evil title made safe" width='500px'>
+<img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/evil-title.png' %}" alt="evil title made safe" width='500px'>
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>
@@ -1510,7 +1510,7 @@ The following contrived example forces the input value to uppercase:
 
 Here are all variations in action, including the uppercase version:
 
-<img class="image-display" src='/resources/images/devguide/template-syntax/ng-model-anim.gif' alt="NgModel variations">
+<img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/ng-model-anim.gif' %}" alt="NgModel variations">
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>
@@ -1758,7 +1758,7 @@ Here is an illustration of the _trackBy_ effect.
 * With no `trackBy`, both buttons trigger complete DOM element replacement.
 * With `trackBy`, only changing the `id` triggers element replacement.
 
-<img class="image-display" src='/resources/images/devguide/template-syntax/ng-for-track-by-anim.gif' alt="trackBy">
+<img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/ng-for-track-by-anim.gif' %}" alt="trackBy">
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>
@@ -1788,7 +1788,7 @@ Angular puts only the *selected* element into the DOM.
   That is the deprecated name for `NgSwitchCase`.
 </div>
 
-<img class="image-display" src='/resources/images/devguide/template-syntax/switch-anim.gif' alt="trackBy">
+<img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/switch-anim.gif' %}" alt="trackBy">
 
 `NgSwitch` is the controller directive. Bind it to an expression that returns the *switch value*.
 The `emotion` value in this example is a string, but the switch value can be of any type.
@@ -2005,7 +2005,7 @@ In the `HeroDetailComponent`, such properties are marked as input or output prop
 
 The terms _input_ and _output_ reflect the perspective of the target directive.
 
-<img class="image-display" src='/resources/images/devguide/template-syntax/input-output.png' alt="Inputs and outputs">
+<img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/input-output.png' %}" alt="Inputs and outputs">
 
 `HeroDetailComponent.hero` is an **input** property from the perspective of `HeroDetailComponent`
 because data flows *into* that property from a template binding expression.

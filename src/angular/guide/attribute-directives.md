@@ -94,7 +94,6 @@ Angular locates all elements in the template that have an attribute named `myHig
 
 After the `@Directive` metadata comes the directive's controller class, 
 called `HighlightDirective`, which contains the logic for the directive.
-<span if-docs="ts">Exporting `HighlightDirective` makes it accessible to other components.</span>
 
 Angular creates a new instance of the directive's controller class for
 each matching element, injecting an Angular `ElementRef`
@@ -139,7 +138,7 @@ recognizes the directive when it encounters `myHighlight` in the template.
 
 Now when the app runs, the `myHighlight` directive highlights the paragraph text.
 
-<img class="image-display" src="/resources/images/devguide/attribute-directives/first-highlight.png" alt="First Highlight">
+<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/first-highlight.png' %}" alt="First Highlight">
 
 <div class="l-sub-section" markdown="1">
 ### Your directive isn't working?
@@ -242,7 +241,7 @@ Here's the updated directive in full:
 Run the app and confirm that the background color appears when
 the mouse hovers over the `p` and disappears as it moves out.
 
-<img class="image-display" src="/resources/images/devguide/attribute-directives/highlight-directive-anim.gif" alt="Second Highlight">
+<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-anim.gif' %}" alt="Second Highlight">
 
 <div id="bindings"></div>
 ## Pass values into the directive with an _@Input_ data binding
@@ -403,7 +402,7 @@ Revise the `AppComponent.color` so that it has no initial value.
 
 Here are the harness and directive in action.
 
-<img class="image-display" src="/resources/images/devguide/attribute-directives/highlight-directive-v2-anim.gif" alt="Highlight v.2">
+<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-v2-anim.gif' %}" alt="Highlight v.2">
 
 <div id="second-property"></div>
 ## Bind to a second property
@@ -449,7 +448,7 @@ because you made it _public_ with the `@Input` annotation.
 
 Here's how the harness should work when you're done coding.
 
-<img class="image-display" src="/resources/images/devguide/attribute-directives/highlight-directive-final-anim.gif" alt="Final Highlight">
+<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-final-anim.gif' %}" alt="Final Highlight">
 
 ## Summary
 

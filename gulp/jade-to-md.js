@@ -7,7 +7,7 @@
 
 module.exports = function (gulp, plugins, config) {
 
-  const NgIoUtil = require('../src/resources/js/util.js').NgIoUtil;
+  const NgIoUtil = require('./ngio-util.js').NgIoUtil;
   const argv = plugins.argv;
   const replace = plugins.replace;
 

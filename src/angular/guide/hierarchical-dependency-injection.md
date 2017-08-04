@@ -48,7 +48,7 @@ The `HeroesListComponent` holds and manages multiple instances of the `HeroTaxRe
 The following diagram represents the state of the this guide's three-level component tree when there are three instances of `HeroTaxReturnComponent`
 open simultaneously.
 
-<img class="image-display" src="/resources/images/devguide/dependency-injection/component-hierarchy.png" alt="injector tree">
+<img class="image-display" src="{% asset_path 'ng/devguide/dependency-injection/component-hierarchy.png' %}" alt="injector tree">
 
 ### Injector bubbling
 
@@ -75,7 +75,7 @@ Thus, a provider in an intermediate injector intercepts a request for a service 
 It effectively "reconfigures" and "shadows" a provider at a higher level in the tree.
 
 If you only specify providers at the top level (typically the root `AppComponent`), the tree of injectors appears to be flat.
-All requests bubble up to the root <span if-docs="ts"><code>NgModule</code></span> injector that you configured with the `bootstrap` method.
+All requests bubble up to the root injector that you configured with the `bootstrap` method.
 
 ## Component injectors
 
@@ -138,7 +138,7 @@ Each tax return component has the following characteristics:
 - Can change a tax return without affecting a return in another component.
 - Has the ability to save the changes to its tax return or cancel them.
 
-<img class="image-display" src="/resources/images/devguide/dependency-injection/hid-heroes-anim.gif" width="432" alt="Heroes in action">
+<img class="image-display" src="{% asset_path 'ng/devguide/dependency-injection/hid-heroes-anim.gif' %}" width="432" alt="Heroes in action">
 
 One might suppose that the `HeroTaxReturnComponent` has logic to manage and restore changes.
 That would be a pretty easy task for a simple hero tax return.
@@ -301,7 +301,7 @@ that have special capabilites suitable for whatever is going on in component (B)
 
 Component (B) is the parent of another component (C) that defines its own, even _more specialized_ provider for `CarService`.
 
-<img class="image-display" src="/resources/images/devguide/dependency-injection/car-components.png" alt="car components" width="252">
+<img class="image-display" src="{% asset_path 'ng/devguide/dependency-injection/car-components.png' %}" alt="car components" width="252">
 
 Behind the scenes, each component sets up its own injector with zero, one, or more providers defined for that component itself.
 
@@ -309,7 +309,7 @@ When you resolve an instance of `Car` at the deepest component (C),
 its injector produces an instance of `Car` resolved by injector (C) with an `Engine` resolved by injector (B) and
 `Tires` resolved by the root injector (A).
 
-<img class="image-display" src="/resources/images/devguide/dependency-injection/injector-tree.png" alt="car injector tree">
+<img class="image-display" src="{% asset_path 'ng/devguide/dependency-injection/injector-tree.png' %}" alt="car injector tree">
 
 Here is the code for this _cars_ scenario:
 

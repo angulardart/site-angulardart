@@ -57,7 +57,7 @@ otherwise wrestle with ourselves.
 
 We'll discuss and learn to build a template-driven form that looks like this:
 
-<img class="image-display" src="/resources/images/devguide/forms/hero-form-1.png" width="432" alt="Clean Form">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form-1.png' %}" width="432" alt="Clean Form">
 
 Here at the *Hero Employment Agency* we use this form to maintain personal information about heroes.
 Every hero needs a job. It's our company mission to match the right hero with the right crisis!
@@ -66,7 +66,7 @@ Two of the three fields on this form are required. Required fields have a green 
 
 If we delete the hero name, the form displays a validation error in an attention-grabbing style:
 
-<img class="image-display" src="/resources/images/devguide/forms/hero-form-2.png" width="432" alt="Invalid, Name Required">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form-2.png' %}" width="432" alt="Invalid, Name Required">
 
 Note that the submit button is disabled, and the "required" bar to the left of the input control changed from green to red.
 
@@ -284,7 +284,7 @@ we display its name using the interpolation syntax.
 
 Running the app right now would be disappointing.
 
-<img class="image-display" src="/resources/images/devguide/forms/hero-form-3.png" width="432" alt="Early form with no binding">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form-3.png' %}" width="432" alt="Early form with no binding">
 
 We don't see hero data because we are not binding to the `Hero` yet.
 We know how to do that from earlier guides.
@@ -321,7 +321,7 @@ adding and deleting characters, we'd see them appearing and disappearing
 from the interpolated text.
 At some point it might look like this.
 
-<img class="image-display" src="/resources/images/devguide/forms/ng-model-in-action.png" width="432" alt="ngModel in action">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/ng-model-in-action.png' %}" width="432" alt="ngModel in action">
 
 The diagnostic is evidence that values really are flowing from the input box to the model and
 back again.
@@ -478,11 +478,11 @@ Follow the next four steps *precisely*:
 
 The actions and effects are as follows:
 
-<img class="image-display" src="/resources/images/devguide/forms/control-state-transitions-anim.gif"  alt="Control State Transition">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/control-state-transitions-anim.gif' %}"  alt="Control State Transition">
 
 We should see the following transitions and class names:
 
-<img class="image-display" src="/resources/images/devguide/forms/ng-control-class-changes.png" width="532" alt="Control state transitions">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/ng-control-class-changes.png' %}" width="532" alt="Control state transitions">
 
 {% comment %} Keep the textual form for now, in case we decide to drop the figure.
   The classes are displayed as follows:
@@ -504,7 +504,7 @@ To create such visual feedback, let's add definitions for the `ng-*` CSS classes
 We can mark required fields and invalid data at the same time with a colored bar
 on the left of the input box:
 
-<img class="image-display" src="/resources/images/devguide/forms/validity-required-indicator.png" width="432" alt="Invalid Form">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/validity-required-indicator.png' %}" width="432" alt="Invalid Form">
 
 {% comment %} TODO: consider associating the CSS with a component {% endcomment %}
 We achieve this effect by adding these class definitions to a new `forms.css` file:
@@ -536,7 +536,7 @@ We can leverage the control's state to reveal a helpful message.
 
 Here's the way it should look when the user deletes the name:
 
-<img class="image-display" src="/resources/images/devguide/forms/name-required-error.png" width="432" alt="Name required">
+<img class="image-display" src="{% asset_path 'ng/devguide/forms/name-required-error.png' %}" width="432" alt="Name required">
 
 To achieve this effect we extend the `<input>` tag with
 the "*is required*" message in a nearby `<div>` which we'll display only if the control is invalid.

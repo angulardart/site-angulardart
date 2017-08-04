@@ -351,7 +351,7 @@ To make the selected hero more visible, you'll apply this `selected` class to th
 For example, when the user clicks "Magneta", it should render with a distinctive but subtle background color
 like this:
 
-<img class="image-display" src='/resources/images/devguide/toh/heroes-list-selected.png' alt="Selected hero">
+<img class="image-display" src="{% asset_path 'ng/devguide/toh/heroes-list-selected.png' %}" alt="Selected hero">
 
 In the template, add the following `[class.selected]` binding to  the `<li>`:
 
@@ -381,7 +381,7 @@ The final version of the `<li>` looks like this:
 
 After clicking "Magneta", the list should look like this:
 
-<img class="image-display" src='/resources/images/devguide/toh/heroes-list-1.png' alt="Output of heroes list app">
+<img class="image-display" src="{% asset_path 'ng/devguide/toh/heroes-list-1.png' %}" alt="Output of heroes list app">
 
 Here's the complete `app_component.dart` as of now:
 

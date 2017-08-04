@@ -109,7 +109,7 @@ function createShredExamplePackage(shredOptions) {
 
   initializePackage(pkg)
     .factory(require('./fileReaders/regionFileReader'))
-    .processor(require('./processors/renderAsMarkdownProcessor'))
+    .processor(require('./processors/renderAsTextProcessor'))
     .config(function(readFilesProcessor, regionFileReader) {
       readFilesProcessor.fileReaders = [regionFileReader];
     })

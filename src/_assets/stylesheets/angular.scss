@@ -1,0 +1,109 @@
+/* -----------------------------------------
+  Dart Lang
+  ----------------------------------------- */
+
+@import '_variables';
+
+$shield-22: "{% asset_path 'ng/logos/inverse/shield/22.png' %}";
+$shield-22-at-2x:  "{% asset_path 'ng/logos/inverse/shield/22@2x.png' %}";
+
+/* -----------------------------------------
+  Angular
+  ----------------------------------------- */
+
+@import 'ng/ngio/_options';
+
+@import 'ng/ngio/base/_colors';
+@import 'ng/ngio/base/_mixins';
+@import 'ng/ngio/base/_reset';
+
+@import 'ng/ngio/layout/_layout';
+@import 'ng/ngio/module/_alert';
+@import 'ng/ngio/module/_api';
+@import 'ng/ngio/module/_banner';
+@import 'ng/ngio/module/_buttons';
+@import 'ng/_callout';
+@import 'ng/_code';
+@import 'ng/_code-box';
+@import 'ng/ngio/module/_code-shell';
+@import 'ng/ngio/module/_filetree';
+@import 'ng/ngio/module/_form';
+@import 'ng/ngio/module/_images';
+@import 'ng/ngio/module/_symbol';
+@import 'ng/ngio/module/_table';
+
+// Give Angular pages a unique look-and-feel
+
+.ng-page-title p, .ng-page-title h1 {
+  display: inline;
+}
+
+.ng-page-title img {
+  height: 1.2em;
+}
+
+// General overrides
+
+// Tweaks for subnav prev/next links when view is narrow and link text word wraps.
+#subnav {
+  ul {
+    li {
+      display: flex;
+      display: -webkit-flex;
+      white-space: nowrap;
+      a {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline;
+      }
+      &.previous {
+        float: left;
+      }
+      &.previous:before {
+        display: inline;
+        color: $brand-primary;
+        content: "\2329"; // &lang;
+      }
+      &.next {
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+      }
+      &.next:after {
+        display: inline;
+        color: $brand-primary;
+        content: "\232A"; // &rang;
+      }
+    }
+  }
+}
+
+// BOOTSTRAP OVERRIDES
+blockquote {
+  font-size: 1em;
+}
+
+.l-content-small {
+  padding: 0;
+}
+
+// ANGULAR.IO CSS COLLISIONS WITH WEBDEV
+.banner {
+  border-bottom: 0;
+  padding: 5px 0;
+  margin-bottom: 40px;
+  min-height: 0;
+}
+
+#mainnav {
+  // Copied from main.scss
+  input {
+    font-size: 13px;
+    color: $gray-dark;
+    font-family: $font-family-base;
+    width: 205px;
+  }
+  a {
+    font-family: $font-family-base;
+    font-weight: bold;
+  }
+}

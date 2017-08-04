@@ -9,10 +9,6 @@ if [[ -n $TRAVIS && $CI_TASK != build* ]]; then
   exit 0;
 fi
 
-travis_fold start check_build
-(set -x; ./scripts/check-build.sh)
-travis_fold end check_build
-
 travis_fold start check_links
 (set -x; ./scripts/check-links.sh)
 travis_fold end check_links

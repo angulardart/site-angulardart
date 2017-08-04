@@ -129,7 +129,7 @@ const plugins = {
 
 const extraTasks = `
   api api-list dartdoc e2e examples example-frag example-template
-  get-stagehand-proj jade-to-md ngio-get ngio-put sass test update-ng-vers`;
+  get-stagehand-proj jade-to-md ngio-get ngio-put test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
@@ -144,8 +144,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 // tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
 // a problem. We can always fix the dependencies once gulp 4.x is out.
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
-  'build-api-list-json', 'finalize-api-docs', 'sass',
-  'add-examples-to-site'], cb => {
+  'build-api-list-json', 'finalize-api-docs', 'add-examples-to-site'], cb => {
     child_process.execSync(`cp src/angular/api/api-list.json src/_data/ng-api-list.json`);
     child_process.execSync(`cp ${config.repoPath.acx}/doc/api/index.json src/_data/acx-api-list.json`);
     return execp(`jekyll build`);

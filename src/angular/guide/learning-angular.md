@@ -11,7 +11,7 @@ nextpage:
   title: Architecture Overview
   url: /angular/guide/architecture
 ---
-<img src="/resources/images/devguide/intro/people.png" width="200px" height="152px" alt="Us" align="right">
+<img src="{% asset_path 'ng/devguide/intro/people.png' %}" width="200px" height="152px" alt="Us" align="right">
 
 You don't have to read the documentation straight through,
 but here's a possible learning path if you're new to Angular:

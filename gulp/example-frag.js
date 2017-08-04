@@ -31,7 +31,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('create-example-fragments',
     ['add-example-boilerplate', '_shred-api-examples',
-     '_shred-devguide-examples', '_shred-generated-examples'], () => createTxTFragFiles());
+     '_shred-devguide-examples', '_shred-generated-examples']);
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide'], done => shred(_devguideShredOptions, done));
 
@@ -47,21 +47,6 @@ module.exports = function (gulp, plugins, config) {
     if (!fs.existsSync(path.join(frags, 'doc'))) cp.execSync(`ln -s .. doc`, { cwd: frags });
     if (!fs.existsSync(path.join(frags, 'docs'))) cp.execSync(`ln -s doc docs`, { cwd: frags });
   }));
-
-  // Create *.txt fragment files from *.md files.
-  function createTxTFragFiles() {
-    let find = `find ${frags.path}`;
-    if (argv.filter) find = `${find} -path "*${argv.filter}*"`;
-
-    gutil.log('Create *.txt frag files: duplicate *.md files, but change extension to .txt');
-    cp.execSync(`${find} -name "*.md" -exec bash -c 'cp "$0" "\${0%.md}.txt"' {} \\;`);
-
-    // The sed `-i` flag works differently under MacOS and Linux:
-    // https://stackoverflow.com/questions/5694228/sed-in-place-flag-that-works-both-on-mac-bsd-and-linux
-    const inplace = process.env._OS_NAME === 'macos' ? "-i ''" : '-i';
-    gutil.log('Create *.txt frag files: keep only the code excerpt between ``` line markers');
-    cp.execSync(find + " -name '*.txt' -exec sed -ne '/^```/,/^```/{ /^```/d; $d; p; }' " + inplace + " {} \\;");
-  }
 
   function shred(options) {
     // Split big shredding task into partials 2016-06-14

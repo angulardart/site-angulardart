@@ -306,11 +306,11 @@ Try it by clicking on this <live-example title="Hero Employment Agency Live Exam
 Once the app warms up, you'll see a row of navigation buttons
 and the *Heroes* view with its list of heroes.
 
-<img class="image-display" src='/resources/images/devguide/router/hero-list-2-tab.png' alt="Hero List" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/router/hero-list-2-tab.png' %}" alt="Hero List" width="282">
 
 Select one hero and the app takes you to a hero editing screen.
 
-<img class="image-display" src='/resources/images/devguide/router/hero-detail-2-tab.png' alt="Crisis Center Detail" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/router/hero-detail-2-tab.png' %}" alt="Crisis Center Detail" width="282">
 
 Alter the name.
 Click the "Back" button and the app returns to the heroes list which displays the changed hero name.
@@ -322,7 +322,7 @@ Angular app navigation updates the browser history as normal web navigation does
 
 Now click the *Crisis Center* link for a list of ongoing crises.
 
-<img class="image-display" src='/resources/images/devguide/router/crisis-center-list-2-tab.png' alt="Crisis Center List" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/router/crisis-center-list-2-tab.png' %}" alt="Crisis Center List" width="282">
 
 Select a crisis and the application takes you to a crisis editing screen.
 The _Crisis Detail_ appears in a child view on the same page, beneath the list.
@@ -330,7 +330,7 @@ The _Crisis Detail_ appears in a child view on the same page, beneath the list.
 Alter the name of a crisis.
 Notice that the corresponding name in the crisis list does _not_ change.
 
-<img class="image-display" src='/resources/images/devguide/router/crisis-center-detail-2-tab.png' alt="Crisis Center Detail" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/router/crisis-center-detail-2-tab.png' %}" alt="Crisis Center Detail" width="282">
 
 Unlike *Hero Detail*, which updates as you type,
 *Crisis Detail* changes are temporary until you either save or discard them by pressing the "Save" or "Cancel" buttons.
@@ -341,7 +341,7 @@ Click the browser back button or the "Heroes" link instead.
 
 Up pops a dialog box.
 
-<img class="image-display" src='/resources/images/devguide/router/confirm-dialog.png' alt="Confirm Dialog" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/router/confirm-dialog.png' %}" alt="Confirm Dialog" width="282">
 
 You can select "OK" and lose your changes or click "Cancel" and continue editing.
 

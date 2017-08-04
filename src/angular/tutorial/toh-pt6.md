@@ -819,7 +819,7 @@ Finally, import `HeroSearchComponent` from `hero_search_component.dart` and add 
 Run the app again. In the Dashboard, enter some text in the search box.
 If you enter characters that match any existing hero names, you'll see something like this.
 
-<img class="image-display" src='/resources/images/devguide/toh/toh-hero-search.png' alt="Hero Search Component">
+<img class="image-display" src="{% asset_path 'ng/devguide/toh/toh-hero-search.png' %}" alt="Hero Search Component">
 
 ## App structure and code
 

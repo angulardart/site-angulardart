@@ -125,7 +125,7 @@ The app uses the Dart `BrowserClient` client to communicate via **XMLHttpRequest
 
 It works like this:
 
-<img class="image-display" src='/resources/images/devguide/server-communication/http-toh.gif' alt="ToH mini app" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/http-toh.gif' %}" alt="ToH mini app" width="282">
 
 This demo has a single component, the `HeroListComponent`.  Here's its template:
 
@@ -526,7 +526,7 @@ Wikipedia is one such server.
 Here is a simple search that shows suggestions from Wikipedia as the user
 types in a text box:
 
-<img class="image-display" src='/resources/images/devguide/server-communication/wiki-1.gif' alt="Wikipedia search app (v.1)" width="282">
+<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/wiki-1.gif' %}" alt="Wikipedia search app (v.1)" width="282">
 
 Wikipedia offers a modern `CORS` API and a legacy `JSONP` search API.
 
@@ -618,7 +618,7 @@ Presently, the code calls the server after every keystroke.
 It should only make requests when the user *stops typing*.
 Here's how it will work after refactoring:
 
-<img class="image-display" src='/resources/images/devguide/server-communication/wiki-2.gif' alt="Wikipedia search app (v.2)" width="250">
+<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/wiki-2.gif' %}" alt="Wikipedia search app (v.2)" width="250">
 
 ### 2. Search when the search term changes
 

@@ -4,8 +4,7 @@
   "private": true,
   "description": "Dart webdev",
   "scripts": {
-    "test": "echo \"Error: no test specified (top level package.json)\" && exit 1",
-    "dev": "rm -Rf ./publish; gulp site-refresh; gulp sass; ./scripts/serve_local.sh"
+    "test": "echo \"Error: no test specified (top level package.json)\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,11 @@
     }
   ],
   "devDependencies": {
+    "assert-plus": "^1.0.0",
     "bootstrap": "3.3.6",
     "canonical-path": "0.0.2",
     "cheerio": "^0.22.0",
+    "cross-spawn": "^5.1.0",
     "del": "^2.2.0",
     "dgeni": "^0.4.0",
     "dgeni-packages": "^0.16.10",
@@ -31,12 +32,8 @@
     "gulp-filter": "^5.0.0",
     "gulp-less": "^3.1.0",
     "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.0.0",
     "gulp-task-listing": "^1.0.0",
     "gulp-watch": "^4.0.0",
-    "jade": "^1.11.0",
-    "jade-cli": "^0.1.1",
-    "jstransformer-marked": "^1.0.1",
     "lodash": "^4.13.1",
     "marked": "^0.3.5",
     "q": "^1.4.1",

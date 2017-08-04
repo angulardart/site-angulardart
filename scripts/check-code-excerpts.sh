@@ -37,12 +37,12 @@ FRAG="$webdevRepoDir/tmp/_fragments$API"
 echo "Source:     $SRC"
 echo "Fragments:  $FRAG"
 echo "Other args: $ARGS"
-LOG=$(dart \
-  $CEU_REPO/bin/code_excerpt_updater.dart \
-    --fragment-dir-path "$FRAG" \
-    $ARGS \
-    --write-in-place \
-    "$SRC")
-echo $LOG
+LOG_FILE=$TMP/check-code-excerpts-log.txt
+dart $CEU_REPO/bin/code_excerpt_updater.dart \
+  --fragment-dir-path "$FRAG" \
+  $ARGS \
+  --write-in-place \
+  "$SRC" 2>&1 | tee $LOG_FILE
+LOG=$(cat $LOG_FILE)
 
-[[ $LOG == *" 0 out of"* ]]
+[[ $LOG == *" 0 out of"* && $LOG != *Error* ]]
