@@ -40,8 +40,8 @@ or you can start from scratch.
 <div class="trydart-step-details" markdown="1">
 
 <ol>
-<li markdown="1">Launch WebStorm. <img src="images/WebStorm.png" alt="WebStorm icon">
-  <br><br>
+<li markdown="1">Launch WebStorm.
+  <img src="{% asset_path 'webstorm.svg' %}" alt="WebStorm icon" width="30"><br>
   If this is the first time you are running WebStorm, or if
   you have no open projects from a previous session,
   a "Welcome to WebStorm" screen appears.
