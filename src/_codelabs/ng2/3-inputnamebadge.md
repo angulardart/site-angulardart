@@ -86,7 +86,7 @@ Delete the hardcoded badge name and add an event handler,
 {% prettify dart %}
 class BadgeComponent {
   String badgeName = [[highlight]]''[[/highlight]];
-  
+
   [[highlight]]void updateBadge(String inputName) {[[/highlight]]
     [[highlight]]badgeName = inputName;[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -128,6 +128,10 @@ Look in WebStorm's window for possible errors.
 If that fails, look in your browser's JavaScript console.
 In Dartium or Chrome, bring up the console using
 **View > Developer > JavaScript Console**.
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
 
 Finally, if you still haven't found the problem
 check your code against the files in

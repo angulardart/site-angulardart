@@ -193,6 +193,10 @@ If that fails, look in your browser's JavaScript console.
 In Dartium or Chrome, bring up the console using
 **View > Developer > JavaScript Console**.
 
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 Finally, if you still haven't found the problem
 check your code against the files in
 [4-buttonbadge](https://github.com/dart-lang/one-hour-codelab/tree/master/ng2/4-buttonbadge).

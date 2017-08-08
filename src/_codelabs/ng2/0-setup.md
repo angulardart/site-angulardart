@@ -11,6 +11,10 @@ header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---
 
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 In this step, you install any software that you need,
 and learn where to find the sample code.
 
@@ -26,6 +30,9 @@ If you wish to run the Dart tools from the command line, add
 `<path-to-the-SDK>/dart-sdk/bin` to your path.
 
 You will need Dartium to test your app during development.
+
+{% include dartium-2.0.html %}
+
 </div>
 
 ## <i class="fa fa-anchor"> </i> Get WebStorm or a plugin.

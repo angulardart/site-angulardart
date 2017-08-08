@@ -11,8 +11,14 @@ header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---
 
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 In this step, you create an Angular app, look at its code,
 and run the app in Dartium.
+
+{% include dartium-2.0.html %}
 
 <div class="trydart-step-details" markdown="1">
 <aside class="alert alert-success" markdown="1">
@@ -54,8 +60,8 @@ You can find the instructions at
 </li>
 
 <li markdown="1">From the welcome screen,
-choose **Check out from Version Control > Git**.  
-Alternatively, choose **VCS > Git > Clone...** from the menu.  
+choose **Check out from Version Control > Git**.
+Alternatively, choose **VCS > Git > Clone...** from the menu.
 A **Clone Repository** dialog appears.
 </li>
 
@@ -169,7 +175,7 @@ Dart's static analyzer over the code to look for errors and warnings.
 
 {% prettify none %}
 pub get
-{% endprettify %}  
+{% endprettify %}
 
   Pub is Dart's package management tool.
 </li>

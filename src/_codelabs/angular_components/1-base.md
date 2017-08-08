@@ -30,7 +30,7 @@ GitHub repo. **Choose one:**
   `one-hour-codelab-master`.
 </li>
 
-<li> 
+<li>
   <p> Clone the repo. For example, from the command line: </p>
 
 {% prettify none %}
@@ -68,6 +68,8 @@ Use the tools of your choice to run the base app.
 
 For example, you could use `pub serve` and then visit `localhost:8080` in any modern web browser. Or you could use WebStorm to run the app in Dartium.
 </li>
+
+{% include dartium-2.0.html %}
 
 <li markdown="1">
 Play with the base app. It works, but it’s not pretty. Consider these issues:

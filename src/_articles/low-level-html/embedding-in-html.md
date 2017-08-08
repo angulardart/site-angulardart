@@ -69,8 +69,10 @@ Here is an example:
 
 Dart doesn't support inline scripts (scripts defined inside the HTML page).
 While an inline script technically works in Dartium (a build of Chromium
-with the Dart VM), the Dart-to-JavaScript compiler (dart2js) doesn't work with inline
-scripts.
+with the Dart VM), the Dart-to-JavaScript compiler (dart2js) doesn't work with
+inline scripts.
+
+{% include dartium-2.0.html %}
 
 The Dart app must have a visible top-level function called `main()`.
 The browser invokes `main()` when the DOM content is loaded (but see

@@ -6,12 +6,8 @@ description: "FAQ and other tips for using Dart for web development."
 ---
 
 This FAQ applies to web programming. For more general Dart questions,
-see the [FAQ]({{site.dartlang}}/faq), or the [Tools FAQ]({{site.dartlang}}/tools/faq),
-both on dartlang.
-{% comment %}
-[TODO: Search for dart2js and Dartium.
-Update for dartdevc+Chrome, link to dartdevc FAQ.]
-{% endcomment %}
+see the [FAQ]({{site.dartlang}}/faq)
+or the [Tools FAQ]({{site.dartlang}}/tools/faq), both on www.dartlang.org.
 
 ## General
 
@@ -26,7 +22,7 @@ We support the latest version of the following browsers:
   * Safari
 
 {% comment %}
-[TODO: check version #s/browsers every time we update this file]
+[TODO: check browsers every time we update this file]
 {% endcomment %}
 
 #### Q. Is Dart supported by my browser?
@@ -37,14 +33,11 @@ For convenience while you're developing Dart code on Dart 1.x,
 you can use a version of Chromium (nicknamed [Dartium]) that
 has the Dart VM integrated into it.
 
-A new development compiler, [_dartdevc_](/tools/dartdevc)
-(also known as _DDC_), is available for web development as of Dart 1.24.
-This compiler allows you to run and debug your Dart web apps in Chrome.
+{% include dartium-2.0.html %}
 
-For information on Dart 2.0 and the eventual phasing out of Dartium,
-see [A stronger Dart for
-everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
-Also see the [dartdevc FAQ.](/tools/dartdevc/faq)
+{% comment %}
+update-for-dart-2.0
+{% endcomment %}
 
 #### Q. How do I debug an app once it has been compiled to JavaScript?
 
@@ -98,6 +91,9 @@ few features of JavaScript, such as prototypes and the global
 `object:`. This streamlines the VM, enables faster execution, and
 makes it easier to do code completion and refactoring. And Dart adds
 some goodies. To name a few:
+{% comment %}
+update-for-dart-2.0
+{% endcomment %}
 
 * User-defined operator methods.  We like the lightweight, readable code
   these give for our DOM interface. For more information, see the
@@ -108,11 +104,7 @@ some goodies. To name a few:
   binding of <code>this</code> and full block-level lexical scoping,
   no gotchas.
 
-Dart 2.0, currently in development, differs from 1.x one important way:
-Static typing is no longer optional. This allows the creation of new
-tools, such as dartdevc, that provide a faster development cycle and
-help you find bugs earlier. For more information, see [A stronger Dart for
-everyone.](http://news.dartlang.org/2017/06/a-stronger-dart-for-everyone.html)
+{% include optional-types-2.0.html %}
 
 Dart is a full language with its own semantics.
 Dart differs from JavaScript in many ways, including:
@@ -326,16 +318,9 @@ should have this kind of flexibility.
 #### Q. Will the Dart VM get into Chrome?
 
 [No.](http://news.dartlang.org/2015/03/dart-for-entire-web.html)
-Dart is designed to compile to JavaScript to run across the modern web, and the
-dart2js compiler is a top priority for the team.
+Dart is designed to compile to JavaScript to run across the modern web.
 
-#### Q. Why doesn't Dart support IE9 or earlier?
-
-Supporting legacy browsers takes a lot of engineering resources and testing infrastructure.
-Dart is a bet for the future, and the project can't push forward if it needs to
-spend valuable resources on supporting browsers that are dying or dead.
-Also, dart2js can emit efficient code if it assumes a modern browser with
-ECMAScript5 or greater features.
+{% include dartium-2.0.html %}
 
 #### Q. Why not compile Dart to asm.js instead of building a specialized VM?
 

@@ -207,8 +207,15 @@ Making a typo in any of the string names will return a null value which could
 then go on to cause a NoSuchMethodError.  Accessing the values from the map
 cannot be validated before run-time.
 
-One of the benefits of using Dart is support for optional static types. Static
-types help you catch bugs early by allowing tools to detect type mismatches
+One of the benefits of using Dart is support for optional static types.
+
+{% include optional-types-2.0.html %}
+
+{% comment %}
+update-for-dart-2.0
+{% endcomment %}
+
+Static types help you catch bugs early by allowing tools to detect type mismatches
 before you run your code, and to throw exceptions as soon as a runtime issue
 occurs.  An additional benefit of using static types is that code editors
 and IDEs (such as WebStorm, Sublime, vim)

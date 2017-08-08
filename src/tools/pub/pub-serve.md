@@ -51,6 +51,10 @@ runs in any modern browser and has a fast edit-refresh cycle.
 For more information, see the [dartdevc documentation.](/tools/dartdevc)
 </aside>
 
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 
 See [Pub Assets and Transformers]({{site.dartlang}}/tools/pub/assets-and-transformers) for
 information on:
