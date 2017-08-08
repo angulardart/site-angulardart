@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function logFactory() {
+module.exports = function () {
   var winston = require('winston');
   winston.cli();
   winston.level = 'info';

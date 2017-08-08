@@ -81,7 +81,7 @@ Some `gulp build` options include:
 
 - `--clean` &nbsp;&nbsp;# deletes sibling repo API docs before regenerating them
 - `--fast` &nbsp;&nbsp;# will only regenerate API docs if none are present
-- `--dgeni-log=info` &nbsp;&nbsp;# set dgeni package logging at `info` level (`warn` is default)
+- `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
 
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install

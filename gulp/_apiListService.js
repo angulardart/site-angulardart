@@ -3,23 +3,24 @@
 const assert = require('assert-plus');
 const fs = require('fs-extra');
 const path = require('canonical-path');
-const Array_from = require('./arrayFromIterable');
 
-module.exports = function apiListDataFileService(log, dartPkgConfigInfo) {
+module.exports = function apiListService(log) {
+
+  function arrayFromIterable(iterable) {
+    const arr = [];
+    for (let e of iterable) arr.push(e);
+    return arr;
+  };
 
   const _self = {
 
-    mainDataFileName: 'api-list.json',
-    mainDataFilePath: null,
-
     libToEntryMap: null,
     containerToEntryMap: null,
-    numExcludedEntries: 0,
+    // numExcludedEntries: 0,
 
-    createDataAndSaveToFile: function (dartDocDataWithExtraProps) {
+    createApiListMap: function (dartDocDataWithExtraProps) {
       const libToEntryMap = _self.libToEntryMap = new Map();
       const containerToEntryMap = _self.containerToEntryMap = new Map();
-      const re = dartPkgConfigInfo.excludeLibRegExp;
 
       // Populate the two maps from dartDocDataWithExtraProps.
       dartDocDataWithExtraProps.forEach((e) => {
@@ -27,7 +28,7 @@ module.exports = function apiListDataFileService(log, dartPkgConfigInfo) {
         if (!e.kind) return true;
 
         // Exclude non-public APIs.
-        if (e.libName.match(re)) { _self.numExcludedEntries++; return true; }
+        // if (e.libName.match(excludeLibRegExp)) { _self.numExcludedEntries++; return true; }
 
         let key;
         if (e.kind.startsWith('entry')) {
@@ -49,18 +50,13 @@ module.exports = function apiListDataFileService(log, dartPkgConfigInfo) {
         }
         _set(containerToEntryMap, key, e);
       });
-      log.info('Excluded', _self.numExcludedEntries, 'library entries (regexp match).');
-
-      // Write the library map out as the top-level data file.
-      _self.mainDataFilePath = path.resolve(path.join(dartPkgConfigInfo.ngIoDartApiDocPath, _self.mainDataFileName));
+      // log.info('Excluded', _self.numExcludedEntries, 'library entries (regexp match).');
 
       // The data file needs to be a map of lib names to an array of entries
       const fileData = Object.create(null);
-      for (let name of Array_from(libToEntryMap.keys()).sort()) {
-        fileData[name] = Array_from(libToEntryMap.get(name).values());
+      for (let name of arrayFromIterable(libToEntryMap.keys()).sort()) {
+        fileData[name] = arrayFromIterable(libToEntryMap.get(name).values());
       }
-      fs.writeFileSync(_self.mainDataFilePath, JSON.stringify(fileData, null, 2));
-      log.info('Wrote', Object.keys(fileData).length, 'library entries to', _self.mainDataFilePath);
       return fileData;
     },
 

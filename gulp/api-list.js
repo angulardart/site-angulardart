@@ -6,6 +6,11 @@
 module.exports = function (gulp, plugins, config) {
 
   const path = plugins.path;
+  const log = require('./_log-factory')();
+  log.level = config._logLevel;
+  // Converts a dartdoc index.json file into an api-list.json file suitable for processing by the api directive:
+  const preprocessor = require('./_preprocessDartDocData')(log);
+  const apiListService = require('./_apiListService')(log);
 
   const DOCS_PATH = config.DOCS_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
@@ -13,31 +18,26 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('build-api-list-json', ['dartdoc'], () => buildApiListJson());
 
   function buildApiListJson() {
-    const dab = require(path.resolve(TOOLS_PATH, 'dart-api-builder', 'dab'))(config.THIS_PROJECT_PATH);
-    const log = dab.log;
+    const srcPath = path.join(config.repoPath.ng, config.relDartDocApiDir);
+    const srcData = path.resolve(srcPath, 'index.json');
+    const dartDocData = require(srcData);
+    log.info('Number of Dart API entries loaded:', dartDocData.length);
 
-    log.level = config._dgeniLogLevel;
-    const dabInfo = dab.dartPkgConfigInfo;
-    dabInfo.ngIoDartApiDocPath = path.join(config.THIS_PROJECT_PATH, 'src', 'angular', 'api'); // was: path.join(DOCS_PATH, 'dart', vers, 'api');
-    dabInfo.ngDartDocPath = path.join(config.repoPath.ng, config.relDartDocApiDir);
-
-    try {
-      // checkAngularProjectPath(ngPathFor('dart'));
-      var destPath = dabInfo.ngIoDartApiDocPath;
-      let filesAndFolders = plugins.fs.readdirSync(dabInfo.ngDartDocPath)
-        .map(name => path.join(dabInfo.ngDartDocPath, name));
-      log.info(`Building Dart API list data for ${filesAndFolders.length} libraries`);
-
-      const apiEntries = dab.loadApiDataAndSaveToApiListFile();
-      const tmpDocsPath = path.resolve(path.join(process.env.HOME, 'tmp/docs.json'));
-      if (plugins.argv.dumpDocsJson) plugins.fs.writeFileSync(tmpDocsPath, JSON.stringify(apiEntries, null, 2));
-      // We don't actually need to create the page entries anymore.
-      // dab.createApiDataAndJadeFiles(apiEntries);
-    } catch(err) {
-      console.error(err);
-      console.error(err.stack);
-      throw err;
+    const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'angular', 'api');
+    plugins.fs.writeFileSync(path.join(destFolder, 'index.json'), stringify(dartDocData));
+    preprocessor.preprocess(dartDocData);
+    const apiListMap = apiListService.createApiListMap(dartDocData);
+    for (let name in apiListMap) {
+      log.info('  ', name, 'has', apiListMap[name].length, 'top-level entries');
     }
+    const apiListFilePath = path.join(destFolder, 'api-list.json');
+    plugins.fs.writeFileSync(apiListFilePath, stringify(apiListMap));
+    log.info('Wrote', Object.keys(apiListMap).length, 'library entries to', apiListFilePath);
   }
 
+  function stringify(o) {
+    return process.env.JEKYLL_ENV === 'production'
+      ? JSON.stringify(o)
+      : JSON.stringify(o, null, 2);
+  }
 };

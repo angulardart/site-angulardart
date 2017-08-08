@@ -20,13 +20,13 @@ module.exports = function (gulp, plugins, config) {
   var _devguideShredOptions = {
     examplesDir: EXAMPLES_PATH,
     fragmentsDir: frags.path,
-    logLevel: config._dgeniLogLevel
+    logLevel: config._logLevel
   };
 
   var _apiShredOptions = {
     examplesDir: path.join(EXAMPLES_PATH, '..', 'api'),
     fragmentsDir: path.join(frags.path, frags.apiDirName),
-    logLevel: config._dgeniLogLevel
+    logLevel: config._logLevel
   };
 
   gulp.task('create-example-fragments',

@@ -1,10 +1,11 @@
+// Given an array of API entry data created by dartdoc, this adds the properties needed to generate api-list.json
 'use strict';
 
 const assert = require('assert-plus');
 const path = require('canonical-path');
 const fs = require('fs-extra');
 
-module.exports = function preprocessDartDocData(log, dartPkgConfigInfo) {
+module.exports = function preprocessDartDocData(log) {
 
   const _self = {
 

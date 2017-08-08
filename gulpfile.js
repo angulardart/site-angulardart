@@ -21,7 +21,6 @@ const globby = require("globby");
 // const os = require('os');
 const path = require('canonical-path');
 const Q = require("q");
-const replace = require('gulp-replace');
 const spawn = require('child_process').spawn;
 const taskListing = require('gulp-task-listing');
 // cross platform version of spawn that also works on windows.
@@ -53,13 +52,14 @@ const angulario = path.resolve('../angular.io');
 
 const isSilent = !!argv.silent;
 if (isSilent) gutil.log = gutil.noop;
-const _dgeniLogLevel = argv.dgeniLog || (isSilent ? 'error' : 'warn');
+const _logLevel = argv.log || (isSilent ? 'error' : 'warn');
 
 const ngDocSrc = path.join('src', 'angular');
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_app';
 const config = {
-  _dgeniLogLevel: _dgeniLogLevel,
+  _dgeniLogLevel: _logLevel,
+  _logLevel: _logLevel,
   angulario: angulario,
   dartdocProj: ['acx', 'ng'],
   DOCS_PATH: DOCS_PATH,
@@ -123,8 +123,8 @@ const plugins = {
   path2ApiDocFor: path2ApiDocFor,
   path: path,
   q: Q,
-  replace: replace,
-  spawnExt: spawnExt
+  replace: require('gulp-replace'),
+  spawnExt: spawnExt,
 };
 
 const extraTasks = `
@@ -145,6 +145,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 // a problem. We can always fix the dependencies once gulp 4.x is out.
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
   'build-api-list-json', 'finalize-api-docs', 'add-examples-to-site'], cb => {
+    // Make API lists available for the sitemap generation:
     child_process.execSync(`cp src/angular/api/api-list.json src/_data/ng-api-list.json`);
     child_process.execSync(`cp ${config.repoPath.acx}/doc/api/index.json src/_data/acx-api-list.json`);
     return execp(`jekyll build`);
