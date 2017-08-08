@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, config) {
   const EXAMPLES_TESTING_PATH = path.join(EXAMPLES_PATH, 'testing/ts');
   const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');
   const TOOLS_PATH = config.TOOLS_PATH;
-  const STYLES_SOURCE_PATH = path.join(TOOLS_PATH, 'styles-builder/less');
+  // const STYLES_SOURCE_PATH = path.join(TOOLS_PATH, 'styles-builder/less');
 
   let skipRegEx = argv.skip;
   let skippedExPaths = [];
