@@ -26,7 +26,7 @@ In the [previous page](toh-pt5), you learned to navigate between the dashboard a
 {% include_relative _keep-app-running.md %}
 
 <div id="http-providers"></div>
-# Providing HTTP Services
+## Providing HTTP services
 
 You'll be using the Dart [http][] package's `BrowserClient` class to communicate with a server.
 
