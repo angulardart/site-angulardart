@@ -82,8 +82,8 @@ acx:
     major: 0.5
     abbr: 0.5.3
     full: 0.5.3+1
-  # dev:
-  #   version: ???
+  dev:
+    version: 0.6.0-alpha+2
     
 custom:
   dartpad:
