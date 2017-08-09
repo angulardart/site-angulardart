@@ -3,89 +3,57 @@ layout: angular
 title: AngularDart Versions
 description: The AngularDart versions that this documentation and its examples use.
 ---
-This site's documentation and examples reflect
-the **latest stable release** of the
-[angular2](https://pub.dartlang.org/packages/angular2) and
-[angular_components](https://pub.dartlang.org/packages/angular_components)
-packages. These packages often have a more recent development _(dev)_ release.
+{%
+assign pubPkgUrl = 'https://pub.dartlang.org/packages' %}{%
+assign mainPkgVers = site.data.ng-pkg-vers['angular2'].stable %}{%
+assign stableOrCurrent = 'stable' %}{%
+if mainPkgVers contains 'alpha' or mainPkgVers contains 'beta' %}{%
+  assign stableOrCurrent = 'current' %}{%
+endif
+%}
+This site's documentation and examples reflect the {{stableOrCurrent}} package
+versions listed in the following table. Some packages also have a more recent
+development (_dev_) release.
 
-<table>
+<style>
+.material-icons { font-size: 16px; }
+#vers { table-layout: fixed; width: 100%; }
+#vers td { text-align: center; }
+#vers td:first-child { overflow: hidden; text-overflow: ellipsis;  direction: rtl; }
+@media (max-width: 550px) { #vers td { padding: 1px 4px !important; transition: padding 0.5s; }}
+</style>
+<table id="vers" >
   <tr>
-    <th>Release</th>
-    <th>Latest version</th>
-    <th>Documentation</th>
-  </tr>
+    <th>Package</th>
+    <th>{{stableOrCurrent  | capitalize }}</th>{%
+    if site.dev-url %}
+    <th>Dev</th>{%
+    endif %}
+  </tr>{%
+  for pkgDataPair in site.data.ng-pkg-vers %}{%
+  assign name = pkgDataPair[0] %}{%
+  assign info = pkgDataPair[1] %}
   <tr>
-    <td>
-    {% if site.ng.vers.full contains "alpha" or site.ng.vers.full contains "beta" %}
-      Current
-    {% else %}
-      Stable
-    {% endif %}
-    </td>
-    <td>
-      <div>
-        <a href="https://pub.dartlang.org/packages/angular2/versions/{{site.ng.vers.full}}#pub-pkg-tab-changelog"
-          class="no-automatic-external">
-          angular2 <b>{{site.ng.vers.full}}</b>
-        </a>
-      </div>
-      <div>
-        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.vers.full}}#pub-pkg-tab-changelog"
-          class="no-automatic-external">
-          angular_components <b>{{site.acx.vers.full}}</b>
-        </a>
-      </div>
-    </td>
-    <td>
-      <a href="/angular/guide">
-        {{site.url | regex_replace: '^https?://'}}<b>/angular/guide</b>
-      </a>
-      <br>
-      <a href="/components">
-        {{site.url | regex_replace: '^https?://'}}<b>/components</b>
-      </a>
-    </td>
-  </tr>
-  {% if site.dev %}
-  <tr>
-    <td>
-      Dev
-    </td>
-    <td>
-      {% if site.ng.dev.version %}
-      <div>
-        <a href="https://pub.dartlang.org/packages/angular/versions/{{site.ng.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
-          angular <b>{{site.ng.dev.version}}</b>
-        </a>
-      </div>
-      {% endif %}
-      {% if site.acx.dev.version %}
-      <div>
-        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
-          angular_components <b>{{site.acx.dev.version}}</b>
-        </a>
-      </div>
-      {% endif %}
-    </td>
-    <td>
-      {% if site.ng.dev.version %}
-      <div>
-        <a href="{{site.dev.url}}/angular/guide" class="no-automatic-external">
-          {{site.dev.url | regex_replace: '^https?://' }}<b>/angular/guide</b>
-        </a>
-      </div>
-      {% endif %}
-      {% if site.acx.dev.version %}
-      <div>
-        <a href="{{site.dev.url}}/components" class="no-automatic-external">
-          {{site.dev.url | regex_replace: '^https?://' }}<b>/components</b>
-        </a>
-      </div>
-      {% endif %}
-    </td>
-  </tr>
-  {% endif %}
+    <td>{{info.tmp-name | default: name}}</td>
+    <td>{% if info.stable %}
+      <a href="{{pubPkgUrl}}/{{info.tmp-name | default: name}}/versions/{{info.stable}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.stable}}</a>
+      {% if info.doc-path %}<a href="/{{info.doc-path}}"><i class="material-icons">info_outline</i></a>{% endif %}{%
+      else %}-{%
+      endif %}
+    </td>{%
+    if site.dev-url %}
+    <td>{% if info.dev %}
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.dev}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.dev}}</a>
+      {% if info.doc-path%}<a href="{{site.dev-url}}/{{info.doc-path}}"
+        class="no-automatic-external"><i class="material-icons md-18">info_outline</i></a>{% endif %}{%
+      else %}-{%
+      endif %}
+    </td>{%
+    endif %}
+  </tr>{%
+  endfor %}
 </table>
 
 <aside class="alert alert-info" markdown="1">
@@ -95,7 +63,6 @@ in response to each release, read the [changelog](/angular/changelog).
 </aside>
 
 
-{% if site.ng.vers.full contains "alpha" or site.ng.dev.version contains "alpha" or site.acx.dev.version contains "alpha" %}
 ## Angular alpha releases are production quality
 
 Google thoroughly tests each version of AngularDart—even alpha releases—to
@@ -106,7 +73,7 @@ and that the release (or a release after it) might break your code.
 
 For more information, see the documentation for
 the [pub version scheme](https://www.dartlang.org/tools/pub/versioning).
-{% endif %}
+
 
 ## Example code
 

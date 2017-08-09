@@ -2,6 +2,7 @@
 title: webdev.dartlang.org
 description: "Documentation to help you build high-quality web apps, using Dart tools and libraries. Includes AngularDart docs."
 url: https://webdev.dartlang.org
+dev-url: https://webdev-dartlang-org-dev.firebaseapp.com
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
 
@@ -67,23 +68,6 @@ defaults:
   values:
     # layout: angular
     status: '(DRAFT)'
-
-dev:
-  url: https://webdev-dartlang-org-dev.firebaseapp.com
-ng:
-  vers:
-    major: 3
-    abbr: 3.1
-    full: 3.1.0
-  dev:
-    version: 4.0.0-alpha+2
-acx:
-  vers:
-    major: 0.5
-    abbr: 0.5.3
-    full: 0.5.3+1
-  dev:
-    version: 0.6.0-alpha+2
     
 custom:
   dartpad:

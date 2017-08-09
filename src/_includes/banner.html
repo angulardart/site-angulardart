@@ -1,6 +1,6 @@
 <div class="banner">
   <p class="banner__text">
-    {% if site.ng.vers.full contains "alpha" or site.ng.vers.full contains "beta" %}
+    {% if site.data.ng-pkg-vers.angular2.stable contains "alpha" or site.data.ng-pkg-vers.angular2.stable contains "beta" %}
     <div class="alert alert-warning">
       <strong>
         WARNING: This is a PREVIEW release of
@@ -8,7 +8,7 @@
           {{site.url | regex_replace: '^https?://'}}
         </a>
         based on
-        <a href="/angular/version">Angular {{site.ng.vers.full}}</a>.
+        <a href="/angular/version">Angular {{site.data.ng-pkg-vers.angular2.stable}}</a>.
       </strong>
     </div>
     {% else %}
