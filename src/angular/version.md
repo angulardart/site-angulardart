@@ -5,8 +5,8 @@ description: The AngularDart versions that this documentation and its examples u
 ---
 This site's documentation and examples reflect
 the **latest stable release** of the
-[angular2](https://pub.dartlang.org/packages/%61ngular2) and
-[angular_components](https://pub.dartlang.org/packages/%61ngular_components)
+[angular2](https://pub.dartlang.org/packages/angular2) and
+[angular_components](https://pub.dartlang.org/packages/angular_components)
 packages. These packages often have a more recent development _(dev)_ release.
 
 <table>
@@ -25,13 +25,13 @@ packages. These packages often have a more recent development _(dev)_ release.
     </td>
     <td>
       <div>
-        <a href="https://pub.dartlang.org/packages/%61ngular2/versions/{{site.ng.vers.full}}#pub-pkg-tab-changelog"
+        <a href="https://pub.dartlang.org/packages/angular2/versions/{{site.ng.vers.full}}#pub-pkg-tab-changelog"
           class="no-automatic-external">
           angular2 <b>{{site.ng.vers.full}}</b>
         </a>
       </div>
       <div>
-        <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.acx.vers.full}}#pub-pkg-tab-changelog"
+        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.vers.full}}#pub-pkg-tab-changelog"
           class="no-automatic-external">
           angular_components <b>{{site.acx.vers.full}}</b>
         </a>
@@ -55,14 +55,14 @@ packages. These packages often have a more recent development _(dev)_ release.
     <td>
       {% if site.ng.dev.version %}
       <div>
-        <a href="https://pub.dartlang.org/packages/%61ngular/versions/{{site.ng.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
+        <a href="https://pub.dartlang.org/packages/angular/versions/{{site.ng.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
           angular <b>{{site.ng.dev.version}}</b>
         </a>
       </div>
       {% endif %}
       {% if site.acx.dev.version %}
       <div>
-        <a href="https://pub.dartlang.org/packages/%61ngular_components/versions/{{site.acx.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
+        <a href="https://pub.dartlang.org/packages/angular_components/versions/{{site.acx.dev.version}}#pub-pkg-tab-changelog" class="no-automatic-external">
           angular_components <b>{{site.acx.dev.version}}</b>
         </a>
       </div>

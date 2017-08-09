@@ -76,7 +76,7 @@ function setupTableOfContents() {
 }
 
 function setupLocalAnchors() {
-  $('a[href*="#"]').on('click', function (e) {
+  $('#toc a[href*="#"]').on('click', function (e) {
     var h = $(this).attr('href'),
       p = window.location.pathname;
     if (h.includes(p)) {
