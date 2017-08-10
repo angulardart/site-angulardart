@@ -3,31 +3,24 @@ layout: angular
 title: AngularDart Versions
 description: The AngularDart versions that this documentation and its examples use.
 ---
-{%
-assign pubPkgUrl = 'https://pub.dartlang.org/packages' %}{%
-assign mainPkgVers = site.data.ng-pkg-vers['angular2'].stable %}{%
-assign stableOrCurrent = 'stable' %}{%
-if mainPkgVers contains 'alpha' or mainPkgVers contains 'beta' %}{%
-  assign stableOrCurrent = 'current' %}{%
-endif
-%}
-This site's documentation and examples reflect the {{stableOrCurrent}} package
-versions listed in the following table. Some packages also have a more recent
-development (_dev_) release.
+{% assign pubPkgUrl = 'https://pub.dartlang.org/packages' %}
+This site's documentation and examples reflect the package versions in the
+**Current** column of the following table. Some packages also have a development
+version, listed in the **Next** column.
 
 <style>
 .material-icons { font-size: 16px; }
 #vers { table-layout: fixed; width: 100%; }
-#vers td { text-align: center; }
+#vers td, #vers th { text-align: center; }
 #vers td:first-child { overflow: hidden; text-overflow: ellipsis;  direction: rtl; }
 @media (max-width: 550px) { #vers td { padding: 1px 4px !important; transition: padding 0.5s; }}
 </style>
 <table id="vers" >
   <tr>
     <th>Package</th>
-    <th>{{stableOrCurrent  | capitalize }}</th>{%
+    <th>Current</th>{%
     if site.dev-url %}
-    <th>Dev</th>{%
+    <th>Next</th>{%
     endif %}
   </tr>{%
   for pkgDataPair in site.data.ng-pkg-vers %}{%
@@ -35,17 +28,17 @@ development (_dev_) release.
   assign info = pkgDataPair[1] %}
   <tr>
     <td>{{info.tmp-name | default: name}}</td>
-    <td>{% if info.stable %}
-      <a href="{{pubPkgUrl}}/{{info.tmp-name | default: name}}/versions/{{info.stable}}#pub-pkg-tab-changelog"
-        class="no-automatic-external">{{info.stable}}</a>
+    <td>{% if info.vers %}
+      <a href="{{pubPkgUrl}}/{{info.tmp-name | default: name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.vers}}</a>
       {% if info.doc-path %}<a href="/{{info.doc-path}}"><i class="material-icons">info_outline</i></a>{% endif %}{%
       else %}-{%
       endif %}
     </td>{%
     if site.dev-url %}
-    <td>{% if info.dev %}
-      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.dev}}#pub-pkg-tab-changelog"
-        class="no-automatic-external">{{info.dev}}</a>
+    <td>{% if info.next-vers %}
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.next-vers}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.next-vers}}</a>
       {% if info.doc-path%}<a href="{{site.dev-url}}/{{info.doc-path}}"
         class="no-automatic-external"><i class="material-icons md-18">info_outline</i></a>{% endif %}{%
       else %}-{%

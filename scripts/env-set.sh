@@ -19,7 +19,7 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
         echo $RVM_SILENCE_PATH=1 >> $RVMRC
     fi
     rvm use 2.3
-    
+
     : ${NGIO_REPO:=../angular.io}
     export NGIO_REPO
     : ${NG2_REPO:=../angular2}
@@ -32,11 +32,6 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     export ACX_REPO
     : ${CEU_REPO:=../code_excerpt_updater}
     export CEU_REPO
-
-    # Git tag names
-    export NG_RELEASE=3.1.0
-    export NG_TEST_RELEASE=1.0.0-beta+2
-    export ACX_RELEASE=v0.5.3+1
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

@@ -7,6 +7,8 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
   const replace = plugins.replace;
 
+  const ngPkgVers = require('../src/_data/ng-pkg-vers.json');
+
   gulp.task('update-pubspec', ['update-ng-vers', 'update-sdk-vers']);
 
   //---------------------------------------------------------------------------
@@ -27,9 +29,9 @@ module.exports = function (gulp, plugins, config) {
   //---------------------------------------------------------------------------
   // Updating ACX and NG versions
 
-  const ACX_VERS = `^${process.env.ACX_RELEASE.replace(/^v/, '')}`;
-  const NG_VERS = `^${process.env.NG_RELEASE}`;
-  const NG_TEST_VERS = `^${process.env.NG_TEST_RELEASE}`;
+  const ACX_VERS = ngPkgVers.angular_components.vers;
+  const NG_VERS = ngPkgVers.angular.vers;
+  const NG_TEST_VERS = ngPkgVers.angular_test.vers;
 
   const depOvr = 'dependency_overrides:\n' +
     '  angular2:\n' +
@@ -96,7 +98,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(gulp.dest(baseDir));
   });
 
-  const platform_star = 
+  const platform_star =
   `    platform_directives:
     - 'package:angular2/common.dart#COMMON_DIRECTIVES'
     platform_pipes:
