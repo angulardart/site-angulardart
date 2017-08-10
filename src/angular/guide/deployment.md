@@ -35,7 +35,7 @@ With a little extra work, you can make your deployable app
 To create a deployable version of your app, use the `pub build` command.
 By default, this command uses
 [dart2js](/tools/dart2js) and the angular2 transformer to
-produce the JavaScript file that implements your app. 
+produce the JavaScript file that implements your app.
 Here's what happens when you use `pub build` with the default settings:
 
 * The deployable files appear under your app's **build/web** directory.
@@ -71,6 +71,12 @@ However, `--trust-primitives` can have unexpected results
 (even in well-typed code) if your data isn't always valid.
 Build your app both with and without `--fast-startup`,
 so you can judge whether the speedup is worth the increase in JavaScript size.
+
+{% include checked-mode-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
 
 <aside class="alert alert-warning" markdown="1">
 **Important:**

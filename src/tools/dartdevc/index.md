@@ -37,22 +37,22 @@ refresh times with dartdevc are much faster than with dart2js.
 To compile with dartdevc, your web app's code—and
 all packages it depends on—must be **type safe**.
 For practical details on how to make your code type safe, see the list of
-[common errors and warnings.](https://www.dartlang.org/guides/language/sound-problems#common-errors-and-warnings)
+[common errors and warnings.]({{site.dartlang}}/guides/language/sound-problems#common-errors-and-warnings)
 More information is in the
-[sound Dart guide.](https://www.dartlang.org/guides/language/sound-dart)
+[sound Dart guide.]({{site.dartlang}}/guides/language/sound-dart)
 
 <aside class="alert alert-info" markdown="1">
 **Tip:**
 Your code might already be type safe.
 You can check it just by building with dartdevc, or you can run
-`dartanalyzer` with [strong mode enabled.](https://www.dartlang.org/guides/language/sound-problems#command-line-analyzer)
+`dartanalyzer` with [strong mode enabled.]({{site.dartlang}}/guides/language/sound-problems#command-line-analyzer)
 </aside>
 
 For best performance, **put implementation files under `/lib/src`**,
 instead of anywhere else under `/lib`.
 Also, **avoid imports of <code>package:<em>package_name</em>/src/...</code>.**
 The
-[pub package layout conventions](https://www.dartlang.org/tools/pub/package-layout)
+[pub package layout conventions]({{site.dartlang}}/tools/pub/package-layout)
 have more information about how to structure your code.
 {% comment %}
 [PENDING: Can we specify a list of local directories that can import from src/
@@ -120,4 +120,4 @@ pub run test -p chrome --pub-serve=8080
 * Pub documentation:
   * [`pub build`](/tools/pub/pub-build)
   * [`pub serve`](/tools/pub/pub-serve)
-  * [package layout conventions](https://www.dartlang.org/tools/pub/package-layout)
+  * [package layout conventions]({{site.dartlang}}/tools/pub/package-layout)

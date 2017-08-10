@@ -689,11 +689,16 @@ The `hero` property of the `HeroDetail` component expects a `Hero` object, which
   <header> Checked mode type exceptions</header>
   In checked mode, if the template expression result type and the target
   property type are not assignment compatible, then a type exception will
-  be thrown.
-  For information on checked mode, see
-  [Important concepts](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#important-concepts)
+  be thrown. For information on checked mode, see [Important
+  concepts]({{site.dartlang}}/guides/language/language-tour#important-concepts)
   in the Dart language tour.
 </div>
+
+{% include checked-mode-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
 
 ### Remember the brackets
 
@@ -716,6 +721,13 @@ Don't make the following mistake:
   In checked mode, the code above will result in a type exception:
   `String` isn't a subtype of `Hero`.
 </div>
+
+{% include checked-mode-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
+
 
 ### One-time string initialization {#one-time-initialization}
 
@@ -967,7 +979,7 @@ The following example conditionally sets the font size in  “em” and “%” 
   and `setProperty()`.
   So using dash-case for style property names is generally preferred.
 
-  [CssSD]: https://api.dartlang.org/stable/dart-html/CssStyleDeclaration-class.html
+  [CssSD]: {{site.dart_api}}/dart-html/CssStyleDeclaration-class.html
 </div>
 
 <a href="#contents">back to top</a>
@@ -1577,9 +1589,15 @@ from the DOM, destroying that component and all of its sub-components.
   can lead to exceptions in checked mode, such as
   "EXCEPTION: type 'Hero' is not a subtype of type 'bool' of 'boolean expression'".
   For more information, see
-  [Booleans](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#booleans)
-  in the [Dart language tour](https://www.dartlang.org/docs/dart-up-and-running/ch02.html).
+  [Booleans]({{site.dartlang}}/guides/language/language-tour#booleans)
+  in the [Dart language tour.]({{site.dartlang}}/guides/language/language-tour)
 </div>
+
+{% include checked-mode-2.0.html %}
+
+{% comment %}
+update-for-dart-2
+{% endcomment %}
 
 #### Show/hide is not the same thing
 
@@ -2128,9 +2146,9 @@ The generated output would look something like this
 <div id="safe-navigation-operator"></div>
 ### The safe navigation operator ( <span class="syntax">?.</span> ) and null property paths
 
-The Angular **safe navigation operator (`?.`)**, like the Dart
-[conditional member access](https://www.dartlang.org/guides/language/language-tour#other-operators) operator,
-is a fluent and convenient way to
+The Angular **safe navigation operator (`?.`)**, like the Dart [conditional member
+access]({{site.dartlang}}/guides/language/language-tour#other-operators)
+operator, is a fluent and convenient way to
 guard against null values in property paths.
 Here it is, protecting against a view render failure if the `currentHero` is null.
 
@@ -2209,4 +2227,4 @@ It works perfectly with long property paths such as `a?.b?.c?.d`.
 You've completed this survey of template syntax.
 Now it's time to put that knowledge to work on your own components and directives.
 
-[Map]: https://api.dartlang.org/stable/dart-core/Map-class.html
+[Map]: {{site.dart_api}}/dart-core/Map-class.html

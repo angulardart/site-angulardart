@@ -89,4 +89,4 @@ to Material Design components that are widely used in Google's Dart apps.
 
 For other available labs, see the
 [codelabs]({{site.dartlang}}/codelabs) page on
-[dartlang.org.](https://www.dartlang.org)
+[dartlang.org.]({{site.dartlang}})

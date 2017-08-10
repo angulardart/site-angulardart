@@ -44,7 +44,7 @@ Or use WebStorm's Git support:
    * **Git Repository URL:** `https://github.com/angular-examples/quickstart`
    * **Parent Directory:** _(wherever you like to keep your practice code)_
    * **Directory Name:** `angular_tour_of_heroes` _(or any other
-   [valid package name](https://www.dartlang.org/tools/pub/pubspec#name))_
+   [valid package name]({{site.dartlang}}/tools/pub/pubspec#name))_
 1. Click **Clone**.
 
 ## Get dependencies  {#get}

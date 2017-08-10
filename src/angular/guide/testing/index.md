@@ -21,4 +21,4 @@ Topics are organized by [kind of testing][].
 
 {% include_relative e2e/_toc.md %}
 
-[kind of testing]: https://www.dartlang.org/guides/testing#kinds-of-testing
+[kind of testing]: {{site.dartlang}}/guides/testing#kinds-of-testing

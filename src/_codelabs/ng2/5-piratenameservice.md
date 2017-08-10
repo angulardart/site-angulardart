@@ -177,7 +177,7 @@ class NameService {
 
 * You could specify the type for `_names` and `_appellations` by changing
  `final` to `final List<String>`, but you don't need to. Even in
-  [strong mode](https://www.dartlang.org/guides/language/sound-dart),
+  [strong mode]({{site.dartlang}}/guides/language/sound-dart),
   Dart can get the type information from the initial value.
 
 </div></div>

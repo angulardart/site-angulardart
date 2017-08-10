@@ -36,7 +36,7 @@ Here are some of the advantages of dartdevc over dart2js:
 
 * Faster refreshing after code changes.
 * Stronger runtime checks, based on
-  [strong mode Dart](https://www.dartlang.org/guides/language/sound-dart).
+  [strong mode Dart]({{site.dartlang}}/guides/language/sound-dart).
 * Simpler, more readable, more idiomatic JavaScript output
   containing fewer runtime checks.
 * Integration with Chrome dev tools for easier debugging.
@@ -82,13 +82,13 @@ you may see runtime errors in dartdevc that you don't see in dart2js or the VM
 (even in checked mode).
 
 For more information, see
-[Strong Mode Dart](https://www.dartlang.org/guides/language/sound-dart)
+[Strong Mode Dart]({{site.dartlang}}/guides/language/sound-dart)
 (especially the sections on
-[runtime checks](https://www.dartlang.org/guides/language/sound-dart#runtime-checks)
+[runtime checks]({{site.dartlang}}/guides/language/sound-dart#runtime-checks)
 and
-[resources](https://www.dartlang.org/guides/language/sound-dart#other-resources))
+[resources]({{site.dartlang}}/guides/language/sound-dart#other-resources))
 and the
-[common problems page.](https://www.dartlang.org/guides/language/sound-problems)
+[common problems page.]({{site.dartlang}}/guides/language/sound-problems)
 
 
 #### Why does dartdevc take longer to run the first time?
@@ -206,7 +206,7 @@ Try one of the [Dart Gitter rooms](https://gitter.im/dart-lang/home)—perhaps
 #### Where can I learn what to do about common dartdevc errors?
 
 Although you can find help for
-[common analyzer errors and warnings,](https://www.dartlang.org/guides/language/sound-problems#common-errors-and-warnings)
+[common analyzer errors and warnings,]({{site.dartlang}}/guides/language/sound-problems#common-errors-and-warnings)
 there's no similar help for dartdevc-specific errors.
 See [SDK issue #29825](https://github.com/dart-lang/sdk/issues/29825)
 for more information.

@@ -403,7 +403,7 @@ template file, and add the directives shown below:
   package. To use an asset in another package, use a full package reference,
   such as `'package:some_other_package/dashboard_component.html'`.
 
-  [asset]: https://www.dartlang.org/tools/pub/glossary#asset
+  [asset]: {{site.dartlang}}/tools/pub/glossary#asset
 </div>
 
 Create that file with this content:

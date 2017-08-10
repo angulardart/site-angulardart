@@ -1156,7 +1156,7 @@ class PirateName {
    request that returns a string.
 
 * `getString()` is reading the
-   [piratenames.json](https://www.dartlang.org/f/piratenames.json)
+   [piratenames.json]({{site.dartlang}}/f/piratenames.json)
    file stored on dartlang.
 
 * `getString()` is asynchronous. It sets up the GET request

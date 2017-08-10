@@ -335,8 +335,8 @@ reported.
 <div class="l-sub-section" markdown="1">
   This is a simplified explanation. Read more about Futures in the
   Dart language tutorial on [Asynchronous Programming: Futures][].
-  
-  [Asynchronous Programming: Futures]: https://www.dartlang.org/tutorials/language/futures
+
+  [Asynchronous Programming: Futures]: {{site.dartlang}}/tutorials/language/futures
 </div>
 
 Add an import of `'dart:async'` because it defines `Future`, and
@@ -353,7 +353,7 @@ by returning a `Future` whose mock heroes become available immediately.
 <div class="l-sub-section" markdown="1">
   Marking a method as `async` automatically sets the return type to `Future`.
   For more information on `async` functions, see
-  [Declaring async functions](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#async) in the Dart language tour.
+  [Declaring async functions]({{site.dartlang}}/guides/language/language-tour#async) in the Dart language tour.
 </div>
 
 ### Processing the _Future_
@@ -405,9 +405,9 @@ The `Future<Null>` return type is the asynchronous equivalent of `void`.
 Read more about asynchronous programming using `async`/`await` in the [Async
 and await][] section of the Dart language tutorial on [Asynchronous
 Programming: Futures][].
-  
-[Asynchronous Programming: Futures]: https://www.dartlang.org/tutorials/language/futures
-[Async and await]: https://www.dartlang.org/tutorials/language/futures#async-and-await
+
+[Asynchronous Programming: Futures]: {{site.dartlang}}/tutorials/language/futures
+[Async and await]: {{site.dartlang}}/tutorials/language/futures#async-and-await
 
 <div class="l-sub-section" markdown="1">
   At the end of this page, [Appendix: Take it slow](#slow) describes what the app might be like with a poor connection.

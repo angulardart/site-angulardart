@@ -65,8 +65,7 @@ The _alpha_ label indicates that the API is changing,
 and that the release (or a release after it) might break your code.
 
 For more information, see the documentation for
-the [pub version scheme](https://www.dartlang.org/tools/pub/versioning).
-
+the [pub version scheme]({{site.dartlang}}/tools/pub/versioning).
 
 ## Example code
 

@@ -32,13 +32,13 @@ unexpected definitions.
   annotation (as opposed to, say, a type annotation).  A metadata
   annotation begins with the character `@`, followed by either a reference
   to a compile-time constant (such as [`Component`](#component)) or a call
-  to a constant constructor. See the [Dart Language tour][metadata] for
-  details.
+  to a constant constructor. See the [metadata section][metadata]
+  of the Dart language tour for details.
 
   The corresponding term in TypeScript and JavaScript is
   _decorator_.
 
-  [metadata]: https://www.dartlang.org/guides/language/language-tour#metadata
+  [metadata]: {{site.dartlang}}/guides/language/language-tour#metadata
 </div>
 
 ## Attribute directive
@@ -345,7 +345,7 @@ unexpected definitions.
   directive, then that file itself is a library and thus a compilation
   unit. For more information about compilation units, see
   the Libraries and Scripts chapter in the
-  [Dart Language Specification](https://www.dartlang.org/docs/spec/).
+  [Dart Language Specification.]({{site.dartlang}}/guides/language/spec)
 </div>
 
 
@@ -384,7 +384,7 @@ unexpected definitions.
   a numeric value in the local currency.
 
   <code-example language="html">&lt;label>Price: &lt;/label>{!{product.price | currency}}</code-example>
-  
+
   You can also write your own custom pipes.
   Read more in the page on [pipes](/angular/guide/pipes).
 </div>
@@ -445,8 +445,8 @@ unexpected definitions.
   The practice of writing compound words or phrases such that an
   underscore (`_`) separates one word from the next. This form is also known as *underscore case*.
 
-  Dart package names and filenames are spelled in snake_case,
-  [by convention](https://www.dartlang.org/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercasewithunderscores).
+  Dart package names and filenames are spelled in snake_case, [by
+  convention.]({{site.dartlang}}/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercasewithunderscores)
   For example, `angular_tour_of_heroes` and `app_component.dart`.
 </div>
 
@@ -525,5 +525,5 @@ unexpected definitions.
 
   Read more about zones in [this article][zones].
 
-  [zones]: https://www.dartlang.org/articles/libraries/zones
+  [zones]: {{site.dartlang}}/articles/libraries/zones
 </div>

@@ -71,7 +71,7 @@ as a library, or a package. (If a Dart file has no `library` or `part`
 directive, then that file itself is a library and thus a compilation
 unit.) For more information about compilation units, see
 the chapter on "Libraries and Scripts" in the
-[Dart Language Specification](https://www.dartlang.org/docs/spec/).
+[Dart Language Specification]({{site.dartlang}}/guides/language/spec).
 <br class="l-clear-both">
 
 Every Angular app has at least one module, the _root module_.

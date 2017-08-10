@@ -57,7 +57,9 @@ This file will hold the new `HeroDetailComponent`.
     &mdash;lowercase with underscore separation&mdash;and end in `_component.dart`.
     The `HeroDetailComponent` class goes in the `hero_detail_component.dart` file.
 
-  * Internal implementation files should be placed under `lib/src`. See the [pub package layout conventions](https://www.dartlang.org/tools/pub/package-layout) for details.
+  * Internal implementation files should be placed under `lib/src`. See the
+ [pub package layout conventions]({{site.dartlang}}/tools/pub/package-layout)
+ for details.
 </div>
 
 Start writing the `HeroDetailComponent` as follows:

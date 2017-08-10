@@ -969,7 +969,7 @@ A solution is to use a [factory provider](#factory-provider).
 We illustrate this next. We also show how to provide and inject the
 configuration object in our top-level `AppComponent`:
 
-[cascade]: https://www.dartlang.org/docs/dart-up-and-running/ch02.html#cascade
+[cascade]: {{site.dartlang}}/guides/language/language-tour#cascade
 
 <?code-excerpt "lib/app_component.dart (providers)" title?>
 ```

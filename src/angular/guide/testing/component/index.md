@@ -13,7 +13,7 @@ toc: false
 {% comment %}
 TODO(chalin):
 - The original plan called for an Appendix covering Mockito. If we do, add a link
-  to it under the package:mockito bullet below. Otherwise, 
+  to it under the package:mockito bullet below. Otherwise,
   remove reference to the appendix elsewhere in the doc.
 {% endcomment %}
 
@@ -31,7 +31,7 @@ This part of the [Testing](/angular/guide/testing) how-to guide covers
 - **[package:angular_test][]**, which complements the standard test package by
   providing a means of interacting with Angular components created as test fixtures.
 
-- [package:mockito][], a library for creating 
+- [package:mockito][], a library for creating
   [mock objects](https://en.wikipedia.org/wiki/Mock_object).
   Not all component tests require mock objects, but in later sections, you'll learn
   the fundamentals of using `package:mockito` as needed &mdash; for complete details
@@ -65,5 +65,5 @@ These are the component testing topics covered in this guide:
 [package:angular_test]: https://pub.dartlang.org/packages/angular_test
 [package:mockito]: https://pub.dartlang.org/packages/mockito
 [package:test]: https://pub.dartlang.org/packages/test
-[testing]: https://www.dartlang.org/guides/testing
+[testing]: {{site.dartlang}}/guides/testing
 [unit testing]: https://en.wikipedia.org/wiki/Unit_testing

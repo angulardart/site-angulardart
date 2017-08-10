@@ -217,9 +217,9 @@ respectively. The hero list component `getHeroes()` and `addHero()` methods spec
 the actions to be taken when the asynchronous method calls succeed or fail.
 
 For more information about `Future`s, consult any one
-of the [articles](https://www.dartlang.org/articles/) on asynchronous
+of the [articles]({{site.dartlang}}/articles) on asynchronous
 programming in Dart, or the tutorial on
-[_Asynchronous Programming: Futures_](https://www.dartlang.org/docs/tutorials/futures/).
+[_Asynchronous Programming: Futures_]({{site.dartlang}}/tutorials/language/futures).
 
 With a basic understanding of the component, you're ready to look inside the `HeroService`.
 

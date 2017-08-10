@@ -421,7 +421,7 @@ Before doing that, understand the difference between pure and impure, starting w
 
 Angular executes a *pure pipe* only when it detects a *pure change* to the input value.
 In AngularDart, a *pure change* results only from a change in object reference
-(given that [everything is an object in Dart](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#important-concepts)).
+(given that [everything is an object in Dart]({{site.dartlang}}/guides/language/language-tour#important-concepts)).
 
 Angular ignores changes within (composite) objects.
 It won't call a pure pipe if you change an input month, add to an input list, or update an input object property.
