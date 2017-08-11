@@ -28,8 +28,6 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     export NGDOCEX
     : ${ACX_REPO:=../angular_components}
     export ACX_REPO
-    : ${CEU_REPO:=../code_excerpt_updater}
-    export CEU_REPO
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

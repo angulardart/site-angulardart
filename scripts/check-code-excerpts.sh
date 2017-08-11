@@ -14,11 +14,6 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
 [[ -z "$NGIO_ENV_DEFS" ]] && . $webdevRepoDir/scripts/env-set.sh
 
-if [[ -z "$CEU_REPO" || ! -e $CEU_REPO ]]; then
-  echo "ERROR: expect to find repo at $CEU_REPO. Ensure that you have it checked out."
-  exit 1
-fi
-
 ARGS='--escape-ng-interpolation --indentation 2'
 
 if [[ $1 == '--api' ]]; then
@@ -38,7 +33,7 @@ echo "Source:     $SRC"
 echo "Fragments:  $FRAG"
 echo "Other args: $ARGS"
 LOG_FILE=$TMP/check-code-excerpts-log.txt
-dart $CEU_REPO/bin/code_excerpt_updater.dart \
+pub global run code_excerpt_updater \
   --fragment-dir-path "$FRAG" \
   $ARGS \
   --write-in-place \
