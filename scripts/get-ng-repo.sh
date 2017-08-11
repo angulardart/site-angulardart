@@ -45,13 +45,6 @@ else
   travis_fold end get_repos_ceu
 fi
 
-# Temporary until we eliminate use of NG2DART_REPO
-if [[ -e "$NG2DART_REPO" ]]; then
-  echo Angular repo alias is already present at: $NG2DART_REPO
-else
-  (set -x; ln -s ${NG2_REPO/..\//} $NG2DART_REPO)
-fi
-
 echo PWD `pwd`
 echo INSTALLED repos:
 ls -ld ../a*

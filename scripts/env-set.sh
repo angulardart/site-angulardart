@@ -24,8 +24,6 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     export NGIO_REPO
     : ${NG2_REPO:=../angular2}
     export NG2_REPO
-    # TODO: replace all occurrences of NG2DART_REPO by NG2_REPO
-    export NG2DART_REPO=../angular-dart
     : ${NGDOCEX:=examples/ng/doc}
     export NGDOCEX
     : ${ACX_REPO:=../angular_components}
