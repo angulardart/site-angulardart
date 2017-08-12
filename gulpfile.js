@@ -18,6 +18,7 @@ const del = require('del');
 const fsExtra = require('fs-extra');
 const fs = fsExtra;
 const globby = require("globby");
+const ngPkgVers = require('./src/_data/ng-pkg-vers.json');
 // const os = require('os');
 const path = require('canonical-path');
 const Q = require("q");
@@ -71,6 +72,7 @@ const config = {
   },
   LOCAL_TMP: LOCAL_TMP,
   ngDocSrc: ngDocSrc,
+  ngPkgVers: ngPkgVers,
   qsProjName: qsProjName,
   relDartDocApiDir: path.join('doc', 'api'),
   repoPath: {
@@ -123,6 +125,7 @@ const plugins = {
   path2ApiDocFor: path2ApiDocFor,
   path: path,
   q: Q,
+  rename: require('gulp-rename'),
   replace: require('gulp-replace'),
   spawnExt: spawnExt,
 };

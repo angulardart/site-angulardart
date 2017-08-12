@@ -4,10 +4,9 @@
 module.exports = function (gulp, plugins, config) {
 
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const ngPkgVers = config.ngPkgVers;
   const path = plugins.path;
   const replace = plugins.replace;
-
-  const ngPkgVers = require('../src/_data/ng-pkg-vers.json');
 
   gulp.task('update-pubspec', ['update-ng-vers', 'update-sdk-vers']);
 
