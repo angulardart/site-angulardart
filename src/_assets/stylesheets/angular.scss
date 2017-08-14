@@ -34,12 +34,15 @@ $shield-22-at-2x:  "{% asset_path 'ng/logos/inverse/shield/22@2x.png' %}";
 
 // Give Angular pages a unique look-and-feel
 
-.ng-page-title p, .ng-page-title h1 {
-  display: inline;
-}
-
-.ng-page-title img {
-  height: 1.2em;
+.ng-page-title {
+  img {
+    float: left;
+    margin-right: $unit * .5;
+    width: $unit * 5;
+  }
+  a {
+    font-size: $font-size-base;
+  }
 }
 
 // General overrides

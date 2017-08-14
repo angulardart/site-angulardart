@@ -14,16 +14,14 @@ image_asset: angulardart.png
           {% include banner.html %}
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
-          <div class="ng-page-title">
-            <h1>
-              <a href="/angular"><img src="/angular/images/angulardart.svg"></a>
-              {% assign title = page.long-title | default: page.title | append: ' ' | append: page.status %}
+          <h1 class="ng-page-title">
+              <a href="/angular"><img src="{% asset_path angulardart.svg %}"></a>
+              {% assign title = page.long-title | default: page.title |
+                                append: ' ' | append: page.status %}
               {{ title }}
-            </h1>
-            <p>
-              <a href="/angular/version">{{site.data.ng-pkg-vers.angular.vers | regex_replace: '\.[^\.]+$'}}</a>
-            </p>
-          </div>
+              <a href="/angular/version">{{site.data.ng-pkg-vers.angular.vers |
+              regex_replace: '\.[^\.]+$'}}</a>
+          </h1>
           <a href="https://github.com/dart-lang/site-webdev/issues" target="_blank" rel="noopener" class="hide">Send feedback</a>
           <hr>
           {% if page.status %}

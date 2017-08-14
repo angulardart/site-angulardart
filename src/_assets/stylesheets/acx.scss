@@ -1,5 +1,7 @@
-.ng-page-title p, .ng-page-title h1 {
-  display: inline; }
+@import '_variables';
 
-.ng-page-title img {
-  height: 1.2em; }
+.ng-page-title {
+  a {
+    font-size: $font-size-base;
+  }
+}
