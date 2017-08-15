@@ -14,8 +14,8 @@ Also see:
 * [History of commits to AngularDart documentation](https://github.com/dart-lang/site-webdev/commits/master/src/angular)
 * [History of commits to AngularDart examples](https://github.com/dart-lang/site-webdev/commits/master/examples/ng/doc)
 * Package changelogs:
-  * [`angular2` changelog](https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog)
-  * [`angular` changelog](https://pub.dartlang.org/packages/angular/versions/4.0.0-alpha%2B1#pub-pkg-tab-changelog)
+  * [`angular2` changelog][]
+  * [`angular` changelog][]
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
 
 
@@ -40,7 +40,7 @@ All of these pages are drafts, and we'd appreciate your feedback.
 - [End-to-end (E2E) testing](/angular/guide/testing/e2e) _(placeholder)_
 
 
-## AngularDart 4.0 alpha (July 2017)
+## AngularDart 4.0 alpha (July-August 2017)
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -51,22 +51,32 @@ but you can see a preview at
 
 All pubspecs and imports changed, as well as API doc URLs,
 due to the `angular2` package changing its name to `angular`.
-We expect imports (and API doc URLs) to change again before 4.0 is stable,
-because the router and forms implementations are moving into new packages
-(`angular_router` and `angular_forms`).
-We also expect to remove references to `resolved_identifiers`.
+We expect some imports (and API doc URLs) to change again before 4.0 is stable,
+because the forms implementation is moving into a new package (`angular_forms`).
 
-* Updated references to packages and transformers in `pubspec.yaml`:
+* Updated package versions in `pubspec.yaml`:
+  * `angular`: `^3.1.0` &rarr; `^4.0.0-alpha+2`
+  * `angular_components`: `^0.5.2` &rarr; `^0.6.0-alpha+2`
+  * `angular_test`: `^1.0.0-beta+2` &rarr; `^1.0.0-beta+5`
+* Updated transformers in `pubspec.yaml`:
   * `angular2` &rarr; `angular`
-* Updated `angular` <!-- & angular_components --> version:
-  * `^3.1.0` &rarr; `^4.0.0-alpha`
-* Changed imports:
-    * `angular2/angular2.dart` &rarr; `angular/angular.dart`
-    * `angular2/platform/browser.dart` &rarr; `angular/angular.dart`
-      <!-- [PENDING: why?] -->
-    * `angular2/common.dart` &rarr; `angular/angular.dart`
+  * Removed `resolved_identifiers` entry from the `angular` transformer
+  * Removed `reflection_remover` transformer entry
+  * Added `test/**_test.dart` as an `angular: entry_points:` for packages
+    with component tests
+  * Added `angular_router: ^1.0.0` for packages using the router
+* Changed imports in Dart files:
+  * `angular2/angular2.dart` &rarr; `angular/angular.dart`
+  * `angular2/common.dart` &rarr; `angular/angular.dart`
+  * `angular2/platform/browser.dart` &rarr; `angular/angular.dart`
+  * `angular2/platform/common.dart` &rarr; `angular/angular.dart`
+  * `angular2/router.dart` &rarr; `angular_router/angular_router.dart`
+* Other Dart file changes:
+  * `FORM_DIRECTIVES` &rarr; `formDirectives`
+  * `const Provider(x,y)` &rarr; `const Provider<T>(x,y)` for a provider of `T` instances;
+     this is a first step towards [strongly-typed providers](https://github.com/dart-lang/angular/issues/407)
+
 {% comment %}
-    * `angular2/router.dart` &rarr; ... [PENDING: fix]
     * In Dart files that use form directives
     (those that use `COMMON_DIRECTIVES` or `FORM_DIRECTIVES`)
     add an import of ... [PENDING: fix].
@@ -78,10 +88,14 @@ We also expect to remove references to `resolved_identifiers`.
     [.../angular2/NgFor-class](/angular/api/angular2/NgFor-class)
     &rarr;
     [.../angular/NgFor-class](https://webdev-dartlang-org-dev.firebaseapp.com/angular/api/angular/NgFor-class)
+{% comment %}
+  * router
+{% endcomment %}
 
 More information:
 
-* [`angular` changelog](https://pub.dartlang.org/packages/angular/versions/4.0.0-alpha%2B1#pub-pkg-tab-changelog)
+* [`angular` changelog][]
+* [Diff between 4-dev and master branches](https://github.com/dart-lang/site-webdev/compare/4-dev)
 * [History for site-webdev/examples/ng (4-dev branch)](https://github.com/dart-lang/site-webdev/commits/4-dev/examples/ng)
 * [4.0 prep tracking issue](https://github.com/dart-lang/site-webdev/issues/670)
 
@@ -179,3 +193,5 @@ More information:
 * [PR #478](https://github.com/dart-lang/site-webdev/pull/478/files) (initial text and toh-0 tests)
 * [PR #567](https://github.com/dart-lang/site-webdev/pull/567/files?w=1) (toh-6 tests)
 
+[`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/4.0.0-alpha%2B2#pub-pkg-tab-changelog
+[`angular2` changelog]: https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog
