@@ -121,6 +121,8 @@ module.exports = function (gulp, plugins, config) {
       .pipe(gulp.dest(baseDir));
   });
 
+  const formsImport = "import 'package:angular_forms/angular_forms.dart';"
+
   gulp.task('_update-dart', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
@@ -129,7 +131,10 @@ module.exports = function (gulp, plugins, config) {
     ]) // , { base: baseDir }
       .pipe(replace(/angular2\/(angular2|common|platform\/browser|platform\/common).dart/g, 'angular/angular.dart'))
       .pipe(replace(/angular2\/router.dart/g, 'angular_router/angular_router.dart'))
+      .pipe(replace(/(import 'package:angular\/angular.dart';)([\s\S]*)FORM_DIRECTIVES/, `$1\n${formsImport}$2formDirectives`))
       .pipe(replace(/FORM_DIRECTIVES/g, 'formDirectives'))
+      .pipe(replace(/(import 'package:angular\/angular.dart';)([\s\S]*)COMMON_DIRECTIVES/, `$1\n${formsImport}$2CORE_DIRECTIVES, formDirectives`))
+      .pipe(replace(/COMMON_DIRECTIVES/g, 'CORE_DIRECTIVES, formDirectives'))
       .pipe(gulp.dest(baseDir));
   });
 

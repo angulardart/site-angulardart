@@ -54,43 +54,44 @@ due to the `angular2` package changing its name to `angular`.
 We expect some imports (and API doc URLs) to change again before 4.0 is stable,
 because the forms implementation is moving into a new package (`angular_forms`).
 
+{% comment %}
+Ensure that the Liquid variables below are properly hard-coded once 4-dev becomes master.
+{% endcomment %}
 * Updated package versions in `pubspec.yaml`:
-  * `angular`: `^3.1.0` &rarr; `^4.0.0-alpha+2`
-  * `angular_components`: `^0.5.2` &rarr; `^0.6.0-alpha+2`
-  * `angular_test`: `^1.0.0-beta+2` &rarr; `^1.0.0-beta+5`
+  * `angular`: `^{{site.data.ng-pkg-vers.angular.vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular.next-vers}}`
+  * `angular_components`: `^{{site.data.ng-pkg-vers.angular_components.vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular_components.next-vers}}`
+  * `angular_test`: `^{{site.data.ng-pkg-vers.angular_test.vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular_test.next-vers}}`
+  * Added `angular_forms: ^0.1.0` for examples using forms
+  * Added `angular_router: ^1.0.0` for examples using the router
 * Updated transformers in `pubspec.yaml`:
   * `angular2` &rarr; `angular`
   * Removed `resolved_identifiers` entry from the `angular` transformer
   * Removed `reflection_remover` transformer entry
-  * Added `test/**_test.dart` as an `angular: entry_points:` for packages
+  * Added `test/**_test.dart` as an `angular: entry_points:` for examples
     with component tests
-  * Added `angular_router: ^1.0.0` for packages using the router
 * Changed imports in Dart files:
   * `angular2/angular2.dart` &rarr; `angular/angular.dart`
   * `angular2/common.dart` &rarr; `angular/angular.dart`
   * `angular2/platform/browser.dart` &rarr; `angular/angular.dart`
   * `angular2/platform/common.dart` &rarr; `angular/angular.dart`
   * `angular2/router.dart` &rarr; `angular_router/angular_router.dart`
+  * Added `angular_forms/angular_forms.dart` to files using `formDirectives`
 * Other Dart file changes:
   * `FORM_DIRECTIVES` &rarr; `formDirectives`
+  * `COMMON_DIRECTIVES` &rarr; `CORE_DIRECTIVES, formDirectives`
   * `const Provider(x,y)` &rarr; `const Provider<T>(x,y)` for a provider of `T` instances;
      this is a first step towards [strongly-typed providers](https://github.com/dart-lang/angular/issues/407)
-
-{% comment %}
-    * In Dart files that use form directives
-    (those that use `COMMON_DIRECTIVES` or `FORM_DIRECTIVES`)
-    add an import of ... [PENDING: fix].
-    * [PENDING: add any other import changes here...]
-{% endcomment %}
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:
     [.../angular2/NgFor-class](/angular/api/angular2/NgFor-class)
     &rarr;
     [.../angular/NgFor-class](https://webdev-dartlang-org-dev.firebaseapp.com/angular/api/angular/NgFor-class)
-{% comment %}
-  * router
-{% endcomment %}
+  * `angular2` &rarr; `angular_forms` for forms API elements, such as `formDirectives`
+  * `angular2` &rarr; `angular_router` for router API elements, such as `Route`
 
 More information:
 

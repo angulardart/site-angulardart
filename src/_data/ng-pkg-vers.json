@@ -3,7 +3,7 @@
         "tmp-name": "angular2",
         "doc-path": "angular/guide",
         "vers": "3.1.0",
-        "next-vers": "4.0.0-alpha+2"
+        "next-vers": "4.0.0-alpha+3"
     },
     "angular_components": {
         "doc-path": "components",
