@@ -77,7 +77,7 @@ const config = {
   relDartDocApiDir: path.join('doc', 'api'),
   repoPath: {
     acx: process.env.ACX_REPO,
-    ng: process.env.NG2_REPO,
+    ng: process.env.NG_REPO,
   },
   siteFolder: siteFolder,
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
@@ -161,13 +161,14 @@ gulp.task('build-deploy', ['build'], () => {
 
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
+const _quickCleanTargets = [siteFolder, path.join(fragsPath, '**')];
 const _cleanTargets = [siteFolder, LOCAL_TMP];
-function _delTmp() {
-  gutil.log(`  Deleting ${_cleanTargets}`);
-  return del(_cleanTargets, { force: true });
+function _delTmp(delTargets) {
+  gutil.log(`  Deleting ${delTargets}`);
+  return del(delTargets, { force: true });
 }
-gulp.task('clean', cb => _delTmp());
-gulp.task('_clean', cb => argv.clean ? _delTmp() : cb());
+gulp.task('clean', cb => _delTmp(_cleanTargets));
+gulp.task('_clean', cb => argv.clean ? _delTmp(_quickCleanTargets) : cb());
 gulp.task('clean-src', cb => execp(`git clean -xdf src`));
 
 gulp.task('default', ['help']);

@@ -33,7 +33,7 @@ module.exports = function (gulp, plugins, config) {
   // Task: dartdoc
   // --dartdoc='all|none|acx|ng', default is 'all'.
   // --fast   skip prep and API doc generation if API docs already exist.
-  // --clean  removes angular2 doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
+  // --clean  removes package doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
   gulp.task('dartdoc', _projs.map(p => `dartdoc-${p}`));
 
   config.dartdocProj.forEach(p => {
@@ -44,7 +44,7 @@ module.exports = function (gulp, plugins, config) {
       // (but --fast will still skip copying boilerplate files)
       gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], cb => _dartdoc(p));
 
-      gulp.task(`_dartdoc-clean-${p}`, () => _cleanIfArgSet(p));
+      gulp.task(`_dartdoc-clean-${p}`, ['_clean'], () => _cleanIfArgSet(p));
     } else {
       gulp.task(`dartdoc-${p}`, () => true);
     }
@@ -73,40 +73,3 @@ module.exports = function (gulp, plugins, config) {
   }
 
 };
-
-// Extra from ng.io gulpfile that might prove useful soon:
-//
-
-// gulp.task('pub upgrade', [], function() {
-//   const ngRepoPath = ngPathFor('dart');
-//   if (argv.fast && fs.existsSync(path.resolve(ngRepoPath, 'packages'))) {
-//     gutil.log('Skipping pub upgrade: --fast flag enabled and "packages" dir exists');
-//     return true;
-//   }
-//   checkAngularProjectPath(ngRepoPath);
-//   const pubUpgrade = spawnExt('pub', ['upgrade'], { cwd: ngRepoPath});
-//   return pubUpgrade.promise;
-// });
-
-// gulp.task('dartdoc', ['pub upgrade'], function() {
-//   const ngRepoPath = ngPathFor('dart');
-//   if (argv.fast && fs.existsSync(path.resolve(ngRepoPath, relDartDocApiDir))) {
-//     gutil.log(`Skipping dartdoc: --fast flag enabled and api dir exists (${relDartDocApiDir})`);
-//     return true;
-//   }
-//   checkAngularProjectPath(ngRepoPath);
-//   const topLevelLibFilePath = path.resolve(ngRepoPath, 'lib', 'angular2.dart');
-//   const tmpPath = topLevelLibFilePath + '.disabled';
-//   renameIfExistsSync(topLevelLibFilePath, tmpPath);
-//   gutil.log(`Hiding top-level angular2 library: ${topLevelLibFilePath}`);
-//   // Remove dartdoc '--add-crossdart' flag while we are fixing links to API pages.
-//   const dartdoc = spawnExt('dartdoc', ['--output', relDartDocApiDir], { cwd: ngRepoPath});
-//   return dartdoc.promise.finally(() => {
-//       gutil.log(`Restoring top-level angular2 library: ${topLevelLibFilePath}`);
-//       renameIfExistsSync(tmpPath, topLevelLibFilePath);
-//   })
-// });
-
-// return dartdoc.promise.finally(() => {
-//     gutil.log(`Restoring top-level angular2 library: ${topLevelLibFilePath}`);
-//     renameIfExistsSync(tmpPath, topLevelLibFilePath);

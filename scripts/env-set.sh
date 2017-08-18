@@ -22,8 +22,8 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
 
     : ${NGIO_REPO:=../angular.io}
     export NGIO_REPO
-    : ${NG2_REPO:=../angular2}
-    export NG2_REPO
+    : ${NG_REPO:=../angular2}
+    export NG_REPO
     : ${NGDOCEX:=examples/ng/doc}
     export NGDOCEX
     : ${ACX_REPO:=../angular_components}

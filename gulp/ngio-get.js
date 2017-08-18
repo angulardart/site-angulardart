@@ -21,8 +21,8 @@ module.exports = function (gulp, plugins, config) {
   const ngioExPath = path.join(angulario, 'public/docs/_examples');
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
   const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');
-  
-  // To force a refresh of Dart Jade file invoke with --dart. 
+
+  // To force a refresh of Dart Jade file invoke with --dart.
   // You'd usually only do that if you put-ngio and made edits to Dart Jade.
   gulp.task('get-ngio-files', ['_clean', 'get-ngio-examples+', '_get-pages', '_get-resources']);
 
@@ -58,7 +58,7 @@ module.exports = function (gulp, plugins, config) {
     var apiPageEntryName = matches[i++];
     var apiEntryKind = matches[i++];
     var suffix = matches[i++];
-    return hrefPrefix + '/angular/api/angular2.' + libName + '/' + apiPageEntryName + '-class' + suffix;
+    return hrefPrefix + '/angular/api/angular.' + libName + '/' + apiPageEntryName + '-class' + suffix;
   }
 
   function ngioExPathForDart(match, path) {
@@ -68,7 +68,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_get-ts-jade', cb => _getTsJade('latest'));
   // TODO: drop this next task. We'll stop syncing the cache very soon.
   gulp.task('_get-ts-jade-cache', cb => _getTsJade('_cache'));
-  
+
   function _getTsJade(dirName) {
     const baseDir = path.join(angulario, 'public/docs');
     return gulp.src([
@@ -376,9 +376,6 @@ module.exports = function (gulp, plugins, config) {
     ], { base: baseDir })
       // Patch security/e2e-spec.ts
       .pipe(replace(/(.toContain\('Template) alert\("0wned"\) (Syntax'\))/, '$1 $2', {skipBinary:true}))
-      // Patch component-styles/e2e-spec.ts
-      // https://github.com/dart-lang/angular2/issues/39
-      .pipe(replace(/(it\('includes styles loaded with CSS @import')/, 'x$1', {skipBinary:true}))
       .pipe(gulp.dest(EXAMPLES_PATH));
   });
 

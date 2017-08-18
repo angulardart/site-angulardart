@@ -45,7 +45,7 @@ module.exports = function apiListService(log) {
           // but not the lib map which is used to create the main API page index.
           key = e.libName;
           _set(containerToEntryMap, key, e);
-          // Add the library as an entry to the Angular2 package container:
+          // Add the library as an entry to the package container:
           key = '';
         }
         _set(containerToEntryMap, key, e);

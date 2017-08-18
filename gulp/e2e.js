@@ -49,7 +49,7 @@ module.exports = function (gulp, plugins, config) {
 
 
   // requires admin access because it adds symlinks
-  gulp.task('add-example-boilerplate', function(done) {
+  gulp.task('add-example-boilerplate', ['_clean'], function(done) {
     var realPath = path.join(EXAMPLES_PATH, '/node_modules');
     // var nodeModulesPaths = excludeDartPaths(getNodeModulesPaths(EXAMPLES_PATH));
 

@@ -30,7 +30,7 @@ module.exports = function (gulp, plugins, config) {
   };
 
   gulp.task('create-example-fragments',
-    ['add-example-boilerplate', '_shred-api-examples',
+    ['_clean', 'add-example-boilerplate', '_shred-api-examples',
      '_shred-devguide-examples', '_shred-generated-examples']);
 
   gulp.task('_shred-devguide-examples', ['_shred-clean-devguide'], done => shred(_devguideShredOptions, done));
@@ -59,7 +59,7 @@ module.exports = function (gulp, plugins, config) {
     return promise;
   }
 
-  gulp.task('_shred-clean-devguide', (cb) => {
+  gulp.task('_shred-clean-devguide', ['_clean'], (cb) => {
     const globPattern = `${argv.filter || '*'}*/*.*`;
     const cleanPath = path.join(_devguideShredOptions.fragmentsDir, globPattern);
     const args = [cleanPath, '!**/*.ovr.*', '!**/_api/**'];
@@ -67,7 +67,7 @@ module.exports = function (gulp, plugins, config) {
     return del(args);
   });
 
-  gulp.task('_shred-clean-api', function (cb) {
+  gulp.task('_shred-clean-api', ['_clean'], function (cb) {
     const globPattern = `${argv.filter || '*'}*/*.*`;
     const cleanPath = path.join(_apiShredOptions.fragmentsDir, globPattern);
     const args = [cleanPath, '!**/*.ovr.*'];

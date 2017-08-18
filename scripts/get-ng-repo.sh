@@ -7,15 +7,15 @@ set -e -o pipefail
 NG_RELEASE=$(node -p 'require("./src/_data/ng-pkg-vers.json").angular.vers')
 ACX_RELEASE=v$(node -p 'require("./src/_data/ng-pkg-vers.json").angular_components.vers')
 
-if [[ -e "$NG2_REPO" ]]; then
-  echo Angular repo is already present at: $NG2_REPO
+if [[ -e "$NG_REPO" ]]; then
+  echo Angular repo is already present at: $NG_REPO
 else
   travis_fold start get_repos_ng
   echo GETTING Angular $NG_RELEASE from GitHub ...
   set -x
-  git clone https://github.com/dart-lang/angular2.git $NG2_REPO
-  git -C $NG2_REPO fetch origin refs/tags/$NG_RELEASE
-  git -C $NG2_REPO checkout tags/$NG_RELEASE -b $NG_RELEASE
+  git clone https://github.com/dart-lang/angular2.git $NG_REPO
+  git -C $NG_REPO fetch origin refs/tags/$NG_RELEASE
+  git -C $NG_REPO checkout tags/$NG_RELEASE -b $NG_RELEASE
   set +x
   travis_fold end get_repos_ng
 fi

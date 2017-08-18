@@ -8,20 +8,33 @@ module.exports = function (gulp, plugins, config) {
   // TODO: change global EXAMPLES_PATH to refer to this too:
   const EXAMPLES_PATH = path.join(config.EXAMPLES_PATH, '..', '..');
 
+  const chooseRegEx = argv.filter || '.';
+  const skipRegEx = argv.skip || null;
+
   // Since we are still using content-shell, then it doesn't matter which web compiler we use
   // but we'll still honor the WEB_COMPILER setting.
   const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
   const runAngularTest = 'pub run angular_test'
     + ` --serve-arg=--web-compiler=${wc}`
-    + ' --test-arg=--platform=content-shell';
+    + ' --test-arg=--platform=content-shell --test-arg=--tags=aot'
+    + ' --test-arg=--reporter=expanded'
+    + ' --verbose';
 
-  const pathOfExamplesToTest = ('quickstart template-syntax '
-    + 'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6').split(' ')
+  const allExamplesWithTests = ('quickstart ' +
+    'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6 ' +
+    'template-syntax').split(' ')
     .map(name => path.join('ng', 'doc', name))
-    .concat(path.join('ng_test', 'github_issues'))
-    .filter(name => !argv.filter || name.match(new RegExp(argv.filter)));
+    .concat(path.join('ng_test', 'github_issues'));
 
-  const testStatus = { passed: [], failed: [], skipped: [] };
+  const testStatus = {
+    passed: [],
+    failed: [],
+    skipped: allExamplesWithTests.filter(p => p.match(skipRegEx))
+  };
+
+  const examplesToTest = allExamplesWithTests
+    .filter(p => !p.match(skipRegEx))
+    .filter(p => p.match(chooseRegEx))
 
   gulp.task('test', ['_test'], (cb) => {
     plugins.gutil.log(`Passed:\n  ${testStatus.passed.join('\n  ')}\n`);
@@ -32,7 +45,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_test', cb => {
     var promise = Promise.resolve(true);
-    pathOfExamplesToTest.forEach(ex => promise = promise.then(() => {
+    examplesToTest.forEach(ex => promise = promise.then(() => {
       plugins.gutil.log(`Running tests for ${ex}`);
       return pubGetAndRunTest(path.join(EXAMPLES_PATH, ex));
     }))
@@ -40,7 +53,7 @@ module.exports = function (gulp, plugins, config) {
   });
 
   gulp.task('__list-tests', () => {
-    plugins.gutil.log(`tests:\n  ${pathOfExamplesToTest.join('\n  ')}`)
+    plugins.gutil.log(`tests:\n  ${examplesToTest.join('\n  ')}`)
   });
 
   function pubGetAndRunTest(exPath) {

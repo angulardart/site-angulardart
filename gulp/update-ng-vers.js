@@ -14,14 +14,14 @@ module.exports = function (gulp, plugins, config) {
   }
 
   // To update NG 3 code to NG 4 code use --ng-vers=4
-  gulp.task('update-pubspec-etc', ['update-ng-vers', 'update-sdk-vers']);
+  gulp.task('update-pubspec-etc', ['update-sdk-vers', 'update-pkg-vers']);
 
   //---------------------------------------------------------------------------
   // Updating SDK version
 
   const SDK_VERS = '>=1.24.0 <2.0.0';
 
-  gulp.task('update-sdk-vers', ['update-ng-vers'], (cb) => {
+  gulp.task('update-sdk-vers', (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -34,96 +34,75 @@ module.exports = function (gulp, plugins, config) {
   //---------------------------------------------------------------------------
   // Updating ACX and NG versions
 
-  const ACX_VERS = ngPkgVers.angular_components.vers;
-  const NG_VERS = ngPkgVers.angular.vers;
-  const NG_TEST_VERS = ngPkgVers.angular_test.vers;
+  console.log('Using package versions:');
+  for (var pkg in ngPkgVers) { console.log(`  ${pkg}: ${ngPkgVers[pkg].vers}`); }
 
-  const depOvr = 'dependency_overrides:\n' +
-    '  angular2:\n' +
-    '    git: https://github.com/dart-lang/angular2.git\n';
-  const depOvr2 = 'git:\n' +
-    '      url: https://github.com/dart-lang/angular2.git\n' +
-    '      ref: 3.0.0-alpha+1\n';
-  const depOvr3 = 'dependency_overrides:\n' +
-    `  angular2:\n    ${depOvr2}\n`;
-
-  gulp.task('update-ng-vers', [
-    '_update-acx-vers', '_update-ng-vers',
-    ...(argv.ngVers && argv.ngVers >= '4' ? ['_remove_platform_entries_etc', '_update-dart'] : []),
-  ]);
-
-  gulp.task('_update-acx-vers', (cb) => {
+  gulp.task('update-pkg-vers', ['update-sdk-vers',
+    ...(argv.ngVers >= '4' ? ['_remove_platform_entries_etc', '_update-dart'] : []),
+  ], (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(/(^\s+angular2?_components:) \S+$/m, `$1 ^${ACX_VERS}`))
+      .pipe(replace(/(^\s+)(angular\w*):\s+(\S+)$/gm, pkgEntry))
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('_update-ng-vers', ['_update-acx-vers'], (cb) => {
-    const baseDir = getBaseDir();
-    return gulp.src([
-      `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/**/.pub/**`,
-    ]) // , { base: baseDir }
-      .pipe(replace(/(^\s+angular2:) \S+$/m, `$1 ^${NG_VERS}`))
-      .pipe(replace(/(^\s+angular_test:) \S+$/m, `$1 ^${NG_TEST_VERS}`))
-      .pipe(gulp.dest(baseDir));
-  });
+  function pkgEntry(match, indent, pkg, currentVers) {
+    if (argv.ngVers >= '4' || ngPkgVers['angular'].vers[0] >= '4') {
+      pkg = pkg.replace(/^angular2/, 'angular');
+    }
+    let vers = ngPkgVers[pkg] ? mkVers(pkg) : currentVers;
+    return `${indent}${pkg}: ${vers}`;
+  }
 
-  gulp.task('_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
-    const baseDir = getBaseDir();
-    return gulp.src([
-      `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/**/.pub/**`,
-    ]) // , { base: baseDir }
-      .pipe(replace(/\btransformers:/, `${depOvr}$&`))
-      .pipe(gulp.dest(baseDir));
-  });
+  function mkVers(pkg) {
+    let vers = ngPkgVers[pkg].vers;
+    // ^ is meaningless when the major version number is 0; see http://semver.org/#spec-item-4
+    return vers[0] != '0' ? `^${vers}` : vers;
+  }
 
-  gulp.task('_dep_overrides2', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
-    const baseDir = getBaseDir();
-    return gulp.src([
-      `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/**/.pub/**`,
-    ]) // , { base: baseDir }
-      .pipe(replace('git: https://github.com/dart-lang/angular2.git', `${depOvr2}`))
-      .pipe(gulp.dest(baseDir));
-  });
+  // const depOvr = 'dependency_overrides:\n' +
+  //   '  some-pkg:\n' +
+  //   '    git: https://github.com/dart-lang/some-pkg.git\n';
+  // const depOvr2 = 'git:\n' +
+  //   '      url: https://github.com/dart-lang/some-pkg.git\n' +
+  //   '      ref: 1.2.3\n';
+  // const depOvr3 = 'dependency_overrides:\n' +
+  //   `  some-pkg:\n    ${depOvr2}\n`;
 
-  gulp.task('_remove_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
-    const baseDir = getBaseDir();
-    return gulp.src([
-      `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/**/.pub/**`,
-    ]) // , { base: baseDir }
-      .pipe(replace(depOvr3, ''))
-      .pipe(gulp.dest(baseDir));
-  });
+  // gulp.task('_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
+  //   const baseDir = getBaseDir();
+  //   return gulp.src([
+  //     `${baseDir}/**/pubspec.yaml`,
+  //     `!${baseDir}/**/.pub/**`,
+  //   ]) // , { base: baseDir }
+  //     .pipe(replace(/\btransformers:/, `${depOvr}$&`))
+  //     .pipe(gulp.dest(baseDir));
+  // });
 
   const platform_star =
-  `    platform_directives:
-    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    `    platform_directives:
+    - 'package:angular2?/common.dart#COMMON_DIRECTIVES'
     platform_pipes:
-    - 'package:angular2/common.dart#COMMON_PIPES'
+    - 'package:angular2?/common.dart#COMMON_PIPES'
 `;
 
-  gulp.task('_remove_platform_entries_etc', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
+  gulp.task('_remove_platform_entries_etc', ['update-sdk-vers'], (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(platform_star, ''))
+      .pipe(replace(new RegExp(platform_star), ''))
       .pipe(replace(/\s+resolved_identifiers:(\s+\w+: .*)+/g, ''))
       .pipe(gulp.dest(baseDir));
   });
 
   const formsImport = "import 'package:angular_forms/angular_forms.dart';"
 
-  gulp.task('_update-dart', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
+  gulp.task('_update-dart', ['update-sdk-vers'], (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/*.dart`,

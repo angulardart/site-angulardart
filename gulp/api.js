@@ -8,7 +8,11 @@ module.exports = function (gulp, plugins, config) {
     acx: 'components',
     ng: 'angular',
   }
-  function destPath(p) { return `publish/${webdevDirName[p]}/api`; }
+  function destPath(p) {
+    const dir = webdevDirName[p];
+    if (!dir) throw `webdevDirName mpa is missing a case for ${p}`;
+    return `publish/${dir}/api`;
+  }
   function path2GeneratedAPI(p) {
     return plugins.path.resolve(config.repoPath[p], config.relDartDocApiDir);
   }
@@ -37,16 +41,16 @@ module.exports = function (gulp, plugins, config) {
       .pipe(gulp.dest(destPath(p)));
   }
 
-  gulp.task('_api-copy+patch-html-acx', ['dartdoc-acx'], cb => apiCopyAndPatchHtml('acx'));
-  gulp.task('_api-copy+patch-html-ng', ['dartdoc-ng'], cb => apiCopyAndPatchHtml('ng'));
+  config.dartdocProj.forEach(p => {
+    gulp.task(`_api-copy+patch-html-${p}`, [`dartdoc-${p}`], cb => apiCopyAndPatchHtml(p));
+  });
 
   function apiCopyAndPatchHtml(p) {
     plugins.gutil.log(`Copy API docs to ${destPath(p)}`)
     const urlToExamples = 'http://angular-examples.github.io/';
     const baseDir = path2GeneratedAPI(p);
     return gulp.src([
-      `${baseDir}/angular_components/**/*.html`,
-      `${baseDir}/angular2*/**/*.html`,
+      `${baseDir}/angular*/**/*.html`,
       `!${baseDir}/${ngContentAstIndexRelPath}`,
     ], { base: baseDir })
       // Adjust hrefs to doc pages; https://github.com/dart-lang/site-webdev/issues/273
@@ -55,7 +59,7 @@ module.exports = function (gulp, plugins, config) {
       // We could use something like cheerio but a simple in-place search/replace is good enough.
 
       // 2017-04-14: these transformations are temporary until all relative links
-      // are eliminated from the angular2 and angular_components API docs:
+      // are eliminated from the API docs:
       .pipe(plugins.replace(/(href=")docs\//g, `$1/angular/`)) // ${webdevDirName[p]}
       .pipe(plugins.replace(/(href=")examples\//g, `$1${urlToExamples}`))
       .pipe(gulp.dest(destPath(p)));

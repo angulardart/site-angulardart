@@ -26,11 +26,11 @@ module.exports = function preprocessDartDocData(log) {
           // Sample entry (note that enclosedBy is optional):
           // {
           //   "name": "Pipe",
-          //   "qualifiedName": "angular2.core.Pipe",
-          //   "href": "angular2.core/Pipe-class.html",
+          //   "qualifiedName": "angular.core.Pipe",
+          //   "href": "angular.core/Pipe-class.html",
           //   "type": "class",
           //   "enclosedBy": {
-          //       "name": "angular2.core",
+          //       "name": "angular.core",
           //       "type": "library"
           //   }
           // }
