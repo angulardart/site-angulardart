@@ -84,6 +84,10 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
   * `COMMON_DIRECTIVES` &rarr; `CORE_DIRECTIVES, formDirectives`
   * `const Provider(x,y)` &rarr; `const Provider<T>(x,y)` for a provider of `T` instances;
      this is a first step towards [strongly-typed providers](https://github.com/dart-lang/angular/issues/407)
+  * Changed injected `ElementRef` to `Element`, which requires an import of `dart:html`
+  * Changed the CSS pseudo selector `/deep/` to `::ng-deep`
+  * Changed a component ([PR#950][]) to use the new `exports` parameter of `@Component`
+    ([RFC#374][]) to export enums to the component template
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:
@@ -100,6 +104,8 @@ More information:
 * [History for site-webdev/examples/ng (4-dev branch)](https://github.com/dart-lang/site-webdev/commits/4-dev/examples/ng)
 * [4.0 prep tracking issue](https://github.com/dart-lang/site-webdev/issues/670)
 
+[PR#950]: https://github.com/dart-lang/site-webdev/pull/950
+[RFC#374]: https://github.com/dart-lang/angular/issues/374
 
 ## API doc changes (July 2017)
 
@@ -108,8 +114,7 @@ We also fixed some bugs in the API doc homepage
 and added import information for each library.
 
 * `angular2.common` &rarr; `angular2` <br>
-  Example: .../angular2.common/NgFor-class &rarr;
-  [.../angular2/NgFor-class](/angular/api/angular2/NgFor-class)
+  Example: .../angular2.common/NgFor-class &rarr; .../angular2/NgFor-class
 * [The AngularDart API doc homepage](/angular/api)
   now shows an `import` statement next to each library's heading.
 
@@ -174,7 +179,7 @@ Common directive constants include `COMMON_DIRECTIVES`, `CORE_DIRECTIVES`,
 
 More information:
 
-* [`angular2` changelog](https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog)
+* [`angular2` changelog][]
 * [PR #625](https://github.com/dart-lang/site-webdev/pull/625/files?w=1)
   (moves directive and pipe lists from pubspecs to components)
 
@@ -194,5 +199,5 @@ More information:
 * [PR #478](https://github.com/dart-lang/site-webdev/pull/478/files) (initial text and toh-0 tests)
 * [PR #567](https://github.com/dart-lang/site-webdev/pull/567/files?w=1) (toh-6 tests)
 
-[`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/4.0.0-alpha%2B2#pub-pkg-tab-changelog
+[`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.ng-pkg-vers.angular.vers | url_escapse}}#pub-pkg-tab-changelog
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog
