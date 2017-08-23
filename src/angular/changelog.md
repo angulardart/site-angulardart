@@ -19,6 +19,11 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
 
 
+## API Reference (August 2017)
+
+The API entries from both the `angular` and `angular_components` packages
+have been combined into a single unified [API Reference](/api).
+
 ## Testing docs, part 2 (August 2017)
 
 Created several test-related pages.

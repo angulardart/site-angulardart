@@ -9,9 +9,12 @@
       { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet.html", "type": 301 },
       { "source": "/angular/guide/glossary", "destination": "/angular/glossary.html", "type": 301 },
 
+      { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
       { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
 
+      { "source": "/angular/api", "destination": "/api#!?package=angular2", "type": 301 },
       { "source": "/angular/api/**", "destination": "/api#!?package=angular2", "type": 301 },
+      { "source": "/components/api", "destination": "/api#!?package=angular_components", "type": 301 },
       { "source": "/components/api/**", "destination": "/api#!?package=angular_components", "type": 301 }
     ],
     "rewrites": [

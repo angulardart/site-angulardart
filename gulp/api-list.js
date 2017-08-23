@@ -23,26 +23,10 @@ module.exports = function (gulp, plugins, config) {
 
   function buildApiListJson() {
     _buildApiListJson();
-    // _buildNgApiListJson(); // for /angular/api
   }
 
   function _buildApiListJson() {
     const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'api');
-    // We no longer currently need a unified index.json, but keeping the code just a little longer.
-    // // Note: we read the dartdoc data twice because the preprocess()
-    // // modifies its array argument, but we only want to write out the original data.
-
-    // log.verbose(`Creating combined API index.json:`);
-    // const dartDocData = [];
-    // config.dartdocProj.forEach(p => {
-    //   const srcPath = path.join(config.repoPath[p], config.relDartDocApiDir);
-    //   const srcData = path.resolve(srcPath, 'index.json');
-    //   const _dartDocData = require(srcData);
-    //   log.verbose(`  ${p}: number of Dart API entries: ${_dartDocData.length}`);
-    //   Array.prototype.push.apply(dartDocData, _dartDocData);
-    // });
-    // log.info('Combined API index.json number of API entries:', dartDocData.length);
-    // plugins.fs.writeFileSync(path.join(destFolder, 'index.json'), stringify(dartDocData));
 
     log.info(`Creating combined api-list.json:`);
 

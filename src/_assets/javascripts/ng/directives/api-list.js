@@ -147,7 +147,8 @@ angularIO.directive('apiList', function () {
         });
         var pkgs = Object.keys(pkgsMap);
         $ctrl.packages = pkgs;
-        $ctrl.pkgList = pkgs.slice(0, pkgs.length - 1).join(', ') + ' and ' + pkgs[pkgs.length - 1];
+        var and = pkgs.length > 2 ? ', and ' : ' and ';
+        $ctrl.pkgList = pkgs.slice(0, pkgs.length - 1).join(', ') + and + pkgs[pkgs.length - 1];
         if ($ctrl.packages && $ctrl.packages.indexOf($ctrl.pkg) < 0) $ctrl.pkg = null
       });
 
@@ -229,7 +230,7 @@ angularIO.directive('apiList', function () {
         section.items.forEach(function(item) {
           item.show = false;
           if (!statusSelected(item) || !queryEntered(section, item)) return true;
-          if ($ctrl.pkg && !item.href.startsWith($ctrl.pkg)) return true;
+          if ($ctrl.pkg && (!item.href.startsWith($ctrl.pkg) || item.href.startsWith($ctrl.pkg + '_'))) return true;
           if ($ctrl.type === null || $ctrl.type === item.docType || $ctrl.type === 'const' && isConst(item)) {
             showSection = item.show = true;
           }
