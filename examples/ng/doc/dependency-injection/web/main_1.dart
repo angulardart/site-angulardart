@@ -7,7 +7,7 @@
 //
 // Rename main_alt() to main().
 
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 
 import 'package:dependency_injection/app_component_1.dart';
 import 'package:dependency_injection/src/heroes/hero_service_1.dart';

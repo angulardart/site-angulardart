@@ -1,5 +1,6 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 import 'logger_service.dart';
 import 'spy_directive.dart';
@@ -11,7 +12,7 @@ import 'spy_directive.dart';
     '.parent {background: khaki}',
     '.heroes {background: LightYellow; padding: 0 8px}'
   ],
-  directives: const [COMMON_DIRECTIVES, SpyDirective],
+  directives: const [CORE_DIRECTIVES, formDirectives, SpyDirective],
   providers: const [LoggerService],
 )
 class SpyParentComponent {

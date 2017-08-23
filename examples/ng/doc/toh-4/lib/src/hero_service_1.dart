@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion final
 // #docregion empty-class
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // #enddocregion empty-class
 import 'hero.dart';

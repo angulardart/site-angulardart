@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'src/car/car_component.dart';
 import 'src/heroes/heroes_component_1.dart';

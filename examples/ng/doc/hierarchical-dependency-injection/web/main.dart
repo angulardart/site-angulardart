@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 
 import 'package:hierarchical_di/app_component.dart';
 

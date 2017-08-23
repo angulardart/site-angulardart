@@ -1,4 +1,5 @@
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 import 'hero.dart';
 import 'hero_detail_component.dart';
@@ -8,7 +9,7 @@ import 'hero_service.dart';
 @Component(
   selector: 'hero-list',
   templateUrl: 'hero_list_component.html',
-  directives: const [COMMON_DIRECTIVES, HeroDetailComponent],
+  directives: const [CORE_DIRECTIVES, formDirectives, HeroDetailComponent],
   // #docregion providers
   providers: const [HeroService],
   // #enddocregion providers

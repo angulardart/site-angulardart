@@ -3,8 +3,8 @@
 <tr>
   <th>Core directives</th>
   <th markdown="1">
-  `import 'package:angular2/angular2.dart';`
-  Available from [CORE_DIRECTIVES](/api/angular2/angular2/CORE_DIRECTIVES-constant)
+  `import 'package:angular/angular.dart';`
+  Available from [CORE_DIRECTIVES](/api/angular/angular/CORE_DIRECTIVES-constant)
   </th>
 </tr>
 
@@ -16,7 +16,7 @@
   Removes or recreates a portion of the DOM tree based on the `showSection` expression.
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [NgIf class](/api/angular2/angular2/NgIf-class)
+  [NgIf class](/api/angular/angular/NgIf-class)
   </td>
 </tr>
 
@@ -28,7 +28,7 @@
   Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [NgFor class](/api/angular2/angular2/NgFor-class)
+  [NgFor class](/api/angular/angular/NgFor-class)
   </td>
 </tr>
 
@@ -44,9 +44,9 @@
   Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of conditionExpression.
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [NgSwitch class](/api/angular2/angular2/NgSwitch-class),
-  [NgSwitchCase class](/api/angular2/angular2/NgSwitchWhen-class),
-  [NgSwitchDefault class](/api/angular2/angular2/NgSwitchDefault-class)
+  [NgSwitch class](/api/angular/angular/NgSwitch-class),
+  [NgSwitchCase class](/api/angular/angular/NgSwitchWhen-class),
+  [NgSwitchDefault class](/api/angular/angular/NgSwitchDefault-class)
   </td>
 </tr>
 
@@ -58,7 +58,7 @@
   Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [NgClass class](/api/angular2/angular2/NgClass-class)
+  [NgClass class](/api/angular/angular/NgClass-class)
   </td>
 </tr>
 

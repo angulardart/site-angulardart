@@ -1,7 +1,7 @@
 // Simulate a simple test
 // Reader should look to the testing chapter for the real thing
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'heroes/hero.dart';
 import 'heroes/hero_list_component.dart';

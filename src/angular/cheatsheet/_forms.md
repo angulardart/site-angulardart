@@ -3,9 +3,9 @@
 <tr>
   <th>Forms</th>
   <th markdown="1">
-  `import 'package:angular2/angular2.dart';`
-  Available from [COMMON_DIRECTIVES](/api/angular2/angular2/COMMON_DIRECTIVES-constant) or
-  [FORM_DIRECTIVES](/api/angular2/angular2/FORM_DIRECTIVES-constant)
+  `import 'package:angular/angular.dart';`
+  Available from [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant) or
+  [formDirectives](/api/angular_forms/angular_forms/formDirectives-constant)
   </th>
 </tr>
 
@@ -17,7 +17,7 @@
   Provides two-way data-binding, parsing, and validation for form controls.
 
   See: [Forms](/angular/guide/forms),
-  [NgModel class](/api/angular2/angular2/NgModel-class)
+  [NgModel class](/api/angular_forms/angular_forms/NgModel-class)
   </td>
 </tr>
 

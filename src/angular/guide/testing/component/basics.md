@@ -26,15 +26,15 @@ are under **`dev_dependencies`**, for example:
 <?code-excerpt "toh-0/pubspec.yaml (dev_dependencies)" title?>
 ```
   dev_dependencies:
-    angular_test: ^1.0.0-beta+2
+    angular_test: ^1.0.0
     browser: ^0.10.0
     dart_to_js_script_rewriter: ^1.0.1
     test: ^0.12.21
 ```
 
-The `pubspec.yaml` file should also include
-the `reflection_remover` and `pub_serve` transformers.
-Without these, `angular_test`-based tests won't run.
+The `pubspec.yaml` file should also include the `pub_serve` transformer,
+and list test files as Angular `entry_points`.
+Without these changes, `angular_test`-based tests won't run.
 
 {% comment %}
 TODO: add highlights of the key region once highlighting works again:
@@ -44,10 +44,10 @@ https://github.com/dart-lang/site-webdev/issues/374
 <?code-excerpt "toh-0/pubspec.yaml (transformers)" title?>
 ```
   transformers:
-  - angular2:
-      entry_points: web/main.dart
-  - angular2/transform/reflection_remover:
-      $include: test/**_test.dart
+  - angular:
+      entry_points:
+      - web/main.dart
+      - test/**_test.dart
   - test/pub_serve:
       $include: test/**_test.dart
   - dart_to_js_script_rewriter

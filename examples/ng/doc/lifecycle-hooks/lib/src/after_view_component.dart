@@ -1,6 +1,7 @@
 // #docplaster
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 import 'logger_service.dart';
 
@@ -9,7 +10,7 @@ import 'logger_service.dart';
 @Component(
   selector: 'my-child-view',
   template: '<input [(ngModel)]="hero">',
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class ChildViewComponent {
   String hero = 'Magneta';

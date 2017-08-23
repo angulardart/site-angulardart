@@ -3,7 +3,7 @@
 <tr>
   <th>Class decorators</th>
   <th markdown="1">
-  `import 'package:angular2/angular2.dart';`
+  `import 'package:angular/angular.dart';`
   </th>
 </tr>
 

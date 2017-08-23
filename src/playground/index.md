@@ -14,7 +14,7 @@ Title and code not tied to a file:
 Quickstart pubspec w/ title:
 <?code-excerpt "quickstart/lib/app_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   [!@Component(
     selector: 'my-app',

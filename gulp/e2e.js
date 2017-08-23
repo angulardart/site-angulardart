@@ -225,12 +225,12 @@ module.exports = function (gulp, plugins, config) {
    *     e.g. gulp e2e --lang=ts  // only TypeScript apps
    */
   function runE2e() {
-    const skipList = skipRegEx ? [skipRegEx] : [];
-    // https://github.com/dart-lang/site-webdev/issues/703
-    if (process.env.WEB_COMPILER === 'dartdevc') {
-      skipList.push('toh-[56]|lifecycle-hooks|template-syntax');
-    }
-    skipRegEx = skipList.join('|');
+    // const skipList = skipRegEx ? [skipRegEx] : [];
+    // // https://github.com/dart-lang/site-webdev/issues/703
+    // if (process.env.WEB_COMPILER === 'dartdevc') {
+    //   skipList.push('toh-[56]|lifecycle-hooks');
+    // }
+    // skipRegEx = skipList.join('|');
 
     var promise;
     if (argv.fast) {

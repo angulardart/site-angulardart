@@ -5,7 +5,7 @@ version: 0.0.1
 environment:
   sdk: '>=1.24.0 <2.0.0'
 dependencies:
-  angular2: ^3.1.0
+  angular: ^4.0.0
   http: ^0.11.0
   jsonpadding: ^0.1.0
   stream_transform: ^0.0.5
@@ -14,9 +14,6 @@ dev_dependencies:
   dart_to_js_script_rewriter: ^1.0.1
 # #docregion transformers
 transformers:
-- angular2:
+- angular:
     entry_points: web/main.dart
-    resolved_identifiers:
-        BrowserClient: 'package:http/browser_client.dart'
-        Client: 'package:http/http.dart'
 - dart_to_js_script_rewriter

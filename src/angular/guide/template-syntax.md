@@ -616,8 +616,8 @@ You can't bind to a property of the target element to _read_ it. You can only _s
   If you must read a target element property or call one of its methods,
   you'll need a different technique.
   See the API reference for
-  [ViewChild](/api/angular2/angular2/ViewChild-class.html) and
-  [ContentChild](/api/angular2/angular2/ContentChild-class.html).
+  [ViewChild](/api/angular/angular/ViewChild-class.html) and
+  [ContentChild](/api/angular/angular/ContentChild-class.html).
 </div>
 
 ### Binding target
@@ -650,9 +650,8 @@ as it is in the following example:
 ```
 
 <div class="l-sub-section" markdown="1">
-  Technically, Angular is matching the name to a directive [input](#inputs-outputs),
-  one of the property names listed in the directive's `inputs` array or a property decorated with `@Input()`.
-  Such inputs map to the directive's own properties.
+  Technically, Angular is matching the name to a directive [input](#inputs-outputs)
+  or a property decorated with `@Input()`. Such inputs map to the directive's own properties.
 </div>
 
 If the name fails to match a property of a known directive or element, Angular reports an “unknown directive” error.
@@ -711,9 +710,9 @@ Don't make the following mistake:
 
 <?code-excerpt "lib/app_component.html (property-binding-6)"?>
 ```
-  <!-- ERROR: HeroDetailComponent.hero expects a
-       Hero object, not the string "currentHero" -->
-    <hero-detail hero="currentHero"></hero-detail>
+  <!-- ERROR: A value of type 'String' can't be assigned to a variable of type 'Hero'.
+  <hero-detail hero="currentHero"></hero-detail>
+  -->
 ```
 
 <div class="callout is-helpful" markdown="1">
@@ -1213,7 +1212,7 @@ It has a `size` value property and a companion `sizeChange` event:
 ```
   import 'dart:async';
   import 'dart:math';
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   const _minSize = 8;
   const _maxSize = _minSize * 5;
@@ -1479,7 +1478,7 @@ That `ngModel` directive hides these onerous details behind its own  `ngModel` i
   listens for changes to the element's value.
 
   The details are specific to each kind of element and therefore the `NgModel` directive only works for an element
-  supported by a [ControlValueAccessor](/api/angular2/angular2/ControlValueAccessor-class.html)
+  supported by a [ControlValueAccessor](/api/angular_forms/angular_forms/ControlValueAccessor-class.html)
   that adapts an element to this protocol.
   The `<input>` box is one of those elements.
   Angular provides *value accessors* for all of the basic HTML form elements and the
@@ -1736,7 +1735,7 @@ The next example captures the `index` in a variable named `i` and displays it wi
 
 <div class="l-sub-section" markdown="1">
   Learn about the other `NgFor` context values such as `last`, `even`,
-  and `odd` in the [NgFor API reference](/api/angular2/angular2/NgFor-class.html).
+  and `odd` in the [NgFor API reference](/api/angular/angular/NgFor-class.html).
 </div>
 
 <div id="trackBy"></div>
@@ -1900,7 +1899,7 @@ A template reference variable, `heroForm`, appears three times in this example, 
 by a large amount of HTML.
 What is the value of `heroForm`?
 The `heroForm` is a reference to an Angular
-[NgForm](/api/angular2/angular2/NgForm-class.html "API: NgForm")
+[NgForm](/api/angular_forms/angular_forms/NgForm-class.html "API: NgForm")
 directive with the ability to track the value and validity of every control in the form.
 
 The native `<form>` element doesn't have a `form` property.
@@ -2000,21 +1999,6 @@ In the `HeroDetailComponent`, such properties are marked as input or output prop
   Stream<Hero> get deleteRequest => _deleteRequest.stream;
 ```
 
-<div class="l-sub-section" markdown="1">
-  Alternatively, you can identify members in the `inputs` and `outputs` lists
-  of the directive metadata, as in this example:
-
-<?code-excerpt "lib/src/hero_detail_component.dart (input-output-2)"?>
-```
-  @Component(
-    inputs: const ['hero'],
-    outputs: const ['deleteRequest'],
-  )
-```
-  You can specify an input/output property either with a annotation or in a metadata list.
-  Don't do both!
-</div>
-
 ### Input or output?
 
 *Input* properties usually receive data values.
@@ -2063,20 +2047,6 @@ You can specify the alias for the property name by passing it into the input/out
   @Output('myClick')
   Stream<String> get clicks => _onClick.stream;
 ```
-
-<div class="l-sub-section" markdown="1">
-  You can also alias property names in the `inputs` and `outputs` lists.
-  You write a colon-delimited (`:`) string with
-  the directive property name on the *left* and the public alias on the *right*:
-
-<?code-excerpt "lib/src/click_directive.dart (output-myClick2)"?>
-```
-  @Directive(
-    // ...
-    outputs: const ['clicks:myClick'], // propertyName:alias
-  )
-```
-</div>
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>

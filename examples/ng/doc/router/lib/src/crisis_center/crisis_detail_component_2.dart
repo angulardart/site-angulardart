@@ -1,8 +1,9 @@
 // #docregion
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
-import 'package:angular2/router.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
+import 'package:angular_router/angular_router.dart';
 
 import 'crisis.dart';
 import 'crisis_service.dart';
@@ -12,7 +13,7 @@ import 'dialog_service.dart';
   selector: 'crisis-detail',
   templateUrl: 'crisis_detail_component.html',
   styleUrls: const ['crisis_detail_component.css'],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class CrisisDetailComponent implements CanDeactivate, OnInit {
   Crisis crisis;

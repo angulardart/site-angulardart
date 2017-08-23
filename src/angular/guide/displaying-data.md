@@ -45,7 +45,7 @@ When you're done, it should look like this:
 
 <?code-excerpt "lib/app_component_1.dart" title linenums?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Component(
     selector: 'my-app',

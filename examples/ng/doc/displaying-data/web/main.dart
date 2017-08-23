@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion final
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 // #enddocregion final
 
 //import 'package:displaying_data/app_component_1.dart' as v1;

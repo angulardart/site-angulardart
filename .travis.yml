@@ -14,25 +14,36 @@ env:
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
     - JEKYLL_ENV=production
-    # E2E: use --skip=t1|t2|...|tx to skip tests
-    - E2E_OPT="--fast"
+    # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
+    # https://github.com/dart-lang/angular/issues/612
+    - E2E_OPT1="--fast --filter=examples/ng/doc/[a-s] --skip=dependency-injection"
+    - E2E_OPT2="--fast --filter=examples/ng/doc/[t-z]"
+    - TEST_OPT=""
   matrix:
-    - CI_TASK=build DART_CHANNEL=stable
-    - CI_TASK=test  DART_CHANNEL=stable
-    - CI_TASK=test  DART_CHANNEL=dev
-    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable
-    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev
+    - CI_TASK="build --dartdoc=acx,forms,ng,router" DART_CHANNEL=stable
+    - CI_TASK="test $TEST_OPT" DART_CHANNEL=stable
+    - CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
+    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
+    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable
+    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev
+    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: CI_TASK=test  DART_CHANNEL=dev
-    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable
-    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT" DART_CHANNEL=dev
+    - env: CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
+    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
+    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable
+    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev
+    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev
 
 before_install:
   - source ./scripts/get-ruby.sh

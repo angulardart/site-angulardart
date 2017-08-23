@@ -63,12 +63,12 @@ because the forms implementation is moving into a new package (`angular_forms`).
 Ensure that the Liquid variables below are properly hard-coded once 4-dev becomes master.
 {% endcomment %}
 * Updated package versions in `pubspec.yaml`:
-  * `angular`: `^{{site.data.ng-pkg-vers.angular.vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular.next-vers}}`
-  * `angular_components`: `^{{site.data.ng-pkg-vers.angular_components.vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular_components.next-vers}}`
-  * `angular_test`: `^{{site.data.ng-pkg-vers.angular_test.vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular_test.next-vers}}`
+  * `angular`: `^{{site.data.ng-pkg-vers.angular.prev-vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular.vers}}`
+  * `angular_components`: `^{{site.data.ng-pkg-vers.angular_components.prev-vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular_components.vers}}`
+  * `angular_test`: `^{{site.data.ng-pkg-vers.angular_test.prev-vers}}`
+    &rarr; `^{{site.data.ng-pkg-vers.angular_test.vers}}`
   * Added `angular_forms: ^1.0.0` for examples using forms
   * Added `angular_router: ^1.0.0` for examples using the router
 * Updated transformers in `pubspec.yaml`:
@@ -98,9 +98,9 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:
-    [.../angular2/NgFor-class](/api/angular2/angular2/NgFor-class)
+    .../angular2/NgFor-class
     &rarr;
-    [.../angular/NgFor-class](https://webdev-dartlang-org-dev.firebaseapp.com/api/angular/angular/NgFor-class)
+    [.../angular/NgFor-class](/api/angular/angular/NgFor-class)
   * `angular2` &rarr; `angular_forms` for forms API elements, such as `formDirectives`
   * `angular2` &rarr; `angular_router` for router API elements, such as `Route`
 
@@ -152,7 +152,7 @@ The examples changed to update the release and reflect new recommendations.
 * Replaced `core.dart` imports:
   `angular2/core.dart` &rarr; `angular2/angular2.dart`
 * Updated `angular2.core` API doc references. Example: .../angular2.core/OnInit-class
-  &rarr; [.../angular2/OnInit-class](/api/angular2/angular2/OnInit-class)
+  &rarr; [.../angular2/OnInit-class](/api/angular/angular/OnInit-class)
 * To prepare for 3.1's experimental compiler, in each example:
   * Removed `platform_directives` from `pubspec.yaml`,
     moving the directives it listed

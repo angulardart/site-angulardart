@@ -13,7 +13,7 @@ else
   travis_fold start get_repos_ng
   echo GETTING Angular $NG_RELEASE from GitHub ...
   set -x
-  git clone https://github.com/dart-lang/angular2.git $NG_REPO
+  git clone https://github.com/dart-lang/angular.git $NG_REPO
   git -C $NG_REPO fetch origin refs/tags/$NG_RELEASE
   git -C $NG_REPO checkout tags/$NG_RELEASE -b $NG_RELEASE
   set +x

@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion
 import 'dart:async';
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'hero.dart';
 
@@ -56,14 +56,8 @@ class HeroDetailComponent implements OnInit {
   // #enddocregion deleteRequest
 }
 
-// #docregion input-output-2
 @Component(
-  // #enddocregion input-output-2
   selector: 'big-hero-detail',
-  // #docregion input-output-2
-  inputs: const ['hero'],
-  outputs: const ['deleteRequest'],
-  // #enddocregion input-output-2
   template: '''
     <div class="detail">
       <img src="{{heroImageUrl}}">
@@ -82,9 +76,7 @@ class HeroDetailComponent implements OnInit {
     'img     { float: left; margin-right: 8px; height: 100px; }'
   ],
   pipes: const [COMMON_PIPES],
-  // #docregion input-output-2
 )
-// #enddocregion input-output-2
 class BigHeroDetailComponent extends HeroDetailComponent {
   @override
   void delete() {

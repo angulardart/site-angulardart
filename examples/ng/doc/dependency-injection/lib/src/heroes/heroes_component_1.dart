@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion
 // #docregion full, v1
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // #enddocregion full, v1
 import 'hero_list_component_2.dart';

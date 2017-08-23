@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
-import 'package:angular2/di.dart';
+import 'package:angular/di.dart';
 
 import 'api.dart';
 
@@ -10,7 +10,7 @@ import 'api.dart';
 @Injectable()
 class HtmlGithubService implements GithubService {
   static const String _apiEndpoint = 'https://api.github.com';
-  static const String _repoEndpoint = '$_apiEndpoint/repos/dart-lang/angular2';
+  static const String _repoEndpoint = '$_apiEndpoint/repos/dart-lang/angular';
   static const String _allIssuesEndpoint = '$_repoEndpoint/issues?filter=all';
 
   @override

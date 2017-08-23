@@ -1,5 +1,6 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'exponential_strength_pipe.dart';
 
 @Component(
@@ -12,7 +13,7 @@ import 'exponential_strength_pipe.dart';
       Super Hero Power: {{power | exponentialStrength: factor}}
     </p>
   ''',
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
   pipes: const [ExponentialStrengthPipe],
 )
 class PowerBoostCalculatorComponent {

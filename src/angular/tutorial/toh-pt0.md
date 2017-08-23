@@ -47,7 +47,7 @@ A _component_ is the combination of an HTML template and a component class that 
 
 <?code-excerpt "lib/app_component.dart" title linenums?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Component(
     selector: 'my-app',
@@ -133,11 +133,11 @@ Each file has a distinct purpose and evolves independently as the application gr
 </tr><tr>
   <td><code>pubspec.yaml</code></td>
   <td markdown="1">The file that describes this Dart package (the app) and its dependencies.
-  For example, it specifies the **angular2** and **browser** packages as dependencies,
-  as well as the **angular2** transformer.
+  For example, it specifies the **angular** and **browser** packages as dependencies,
+  as well as the **angular** transformer.
 
   **Note:** The **dart_to_js_script_rewriter** transformer, if present,
-  must be **after angular2** in the **transformers** list.
+  must be **after angular** in the **transformers** list.
   If the order is wrong, Angular templates don't work.
   </td>
 </tr>

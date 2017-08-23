@@ -1,5 +1,6 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/angular_components.dart';
 
 import 'src/hero.dart';
@@ -11,7 +12,7 @@ import 'src/hero_switch_components.dart';
   templateUrl: 'app_component.html',
   styleUrls: const ['app_component.css'],
   directives: const [
-    COMMON_DIRECTIVES,
+    CORE_DIRECTIVES, formDirectives,
     heroSwitchComponents,
     materialDirectives,
     UnlessDirective

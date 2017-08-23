@@ -1,7 +1,6 @@
 // #docplaster
 // #docregion , v1, v2
-import 'package:angular2/angular2.dart';
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
 // #enddocregion v1
 import 'package:angular_tour_of_heroes/in_memory_data_service.dart';

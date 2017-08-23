@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'src/bypass_security_component.dart';
 import 'src/inner_html_binding_component.dart';

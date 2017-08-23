@@ -11,6 +11,7 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 
 const argv = require('yargs').argv;
+const assert = require('assert-plus');
 const cheerio = require('gulp-cheerio');
 const child_process = require('child_process');
 const cpExec = require('child_process').exec;
@@ -64,7 +65,7 @@ const config = {
   _dgeniLogLevel: _logLevel,
   _logLevel: _logLevel,
   angulario: angulario,
-  _dartdocProj: ['acx', 'ng'],
+  _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
@@ -81,7 +82,10 @@ const config = {
   relDartDocApiDir: path.join('doc', 'api'),
   repoPath: {
     acx: process.env.ACX_REPO,
-    ng: process.env.NG_REPO,
+    forms: path.join(process.env.NG_REPO, 'angular_forms'),
+    ng: path.join(process.env.NG_REPO, 'angular'),
+    router: path.join(process.env.NG_REPO, 'angular_router'),
+    test: path.join(process.env.NG_REPO, 'angular_test'),
   },
   siteFolder: siteFolder,
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
@@ -110,6 +114,7 @@ const plugins = {
 
 const _warnedAboutSkipping = {};
 config.dartdocProj = genDartdocForProjs();
+assert.deepEqual(config._dartdocProj, Object.keys(config.repoPath));
 
 function genDartdocForProjs() {
   const projs = [];

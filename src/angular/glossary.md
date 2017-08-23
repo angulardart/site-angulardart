@@ -65,7 +65,7 @@ unexpected definitions.
 
 ## Bootstrap
 <div class="l-sub-section" markdown="1">
-  You launch an Angular application by "bootstrapping" it using the [bootstrap][bootstrap] method.
+  You launch an Angular application by "bootstrapping" it using the [bootstrap][] method.
   Bootstrapping identifies an application's top level "root" [component](#component),
   which is the first component that is loaded for the application.
   Bootstrapping optionally registers service [providers](#provider) with the
@@ -74,7 +74,7 @@ unexpected definitions.
 
   You can bootstrap multiple apps in the same `index.html`, each app with its own top-level root.
 
-  [bootstrap]: /api/angular2/angular2.platform.browser/bootstrap.html
+  [bootstrap]: /api/angular/angular/bootstrap
 </div>
 
 <div class="l-main-section"><a id="C"></a></div>

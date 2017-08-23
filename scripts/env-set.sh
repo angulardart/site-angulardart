@@ -21,7 +21,7 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     rvm use 2.3
 
     export NGIO_REPO=../angular.io
-    export NG_REPO=../angular2
+    export NG_REPO=../angular
     export NGDOCEX=examples/ng/doc
     export ACX_REPO=../angular_components
 

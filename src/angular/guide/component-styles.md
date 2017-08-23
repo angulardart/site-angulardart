@@ -120,12 +120,12 @@ if some ancestor element has the CSS class `theme-light`.
   }
 ```
 
-### /deep/
+### ::ng-deep
 
 Component styles normally apply only to the HTML in the component's own template.
 
-Use the `/deep/` selector to force a style down through the child component tree into all the child component views.
-The `/deep/` selector works to any depth of nested components, and it applies to both the view
+Use the `::ng-deep` selector to force a style down through the child component tree into all the child component views.
+The `::ng-deep` selector works to any depth of nested components, and it applies to both the view
 children and content children of the component.
 
 The following example targets all `<h3>` elements, from the host element down
@@ -133,15 +133,13 @@ through this component to all of its child elements in the DOM.
 
 <?code-excerpt "lib/src/hero_details_component.css (deep)" title?>
 ```
-  :host /deep/ h3 {
+  :host ::ng-deep h3 {
     font-style: italic;
   }
 ```
 
-The `/deep/` selector also has the alias `>>>`. You can use either interchangeably.
-
 <div class="alert is-important" markdown="1">
-  Use the `/deep/` and `>>>` selectors only with *emulated* view encapsulation.
+  Use the `::ng-deep` selector only with *emulated* view encapsulation.
   Emulated is the default and most commonly used view encapsulation. For more information, see the
   [Controlling view encapsulation](#view-encapsulation) section.
 </div>
@@ -262,32 +260,12 @@ You can also import CSS files into the CSS files using the standard CSS `@import
 For details, see [`@import`](https://developer.mozilla.org/en/docs/Web/CSS/@import)
 on the [MDN](https://developer.mozilla.org) site.
 
-<div class="alert is-important" markdown="1">
-  {%comment%}Uncomment text below once the fix is confirmed.{%endcomment%}
-  CSS @imports cannot currently be used &mdash; see
-  [issue #39](https://github.com/dart-lang/angular2/issues/39).
-  It will be fixed in AngularDart 4.0.
-</div>
-
-{%comment%}
 In *this* case the URL is relative to the CSS file into which we are importing.
-
-<div class="alert is-important" markdown="1">
-  URLs are currently not interpreted in this way, see
-  [issue #39](https://github.com/dart-lang/angular2/issues/39).
-  Until this issue is fixed, absolute package-reference style URLs must
-  be given, as illustrated below.
-</div>
 
 <?code-excerpt "lib/src/hero_details_component.css (excerpt)" region="import" title?>
 ```
-  /*
-  https://github.com/dart-lang/angular2/issues/39
-  pub build fails on
-    @ import 'hero_details_box.css';
-  */
+  @import 'hero_details_box.css';
 ```
-{%endcomment%}
 
 <div id="view-encapsulation"></div>
 ## Controlling view encapsulation: native, emulated, and none

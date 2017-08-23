@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:template_syntax/src/sizer_component.dart';
 import 'package:test/test.dart';

@@ -1,8 +1,8 @@
 // #docplaster
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 // #docregion import-router
-import 'package:angular2/router.dart';
+import 'package:angular_router/angular_router.dart';
 // #enddocregion import-router
 
 import 'src/dashboard_component.dart';

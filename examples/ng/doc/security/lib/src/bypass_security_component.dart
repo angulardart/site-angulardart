@@ -1,7 +1,7 @@
 // #docplaster
 // #docregion
-import 'package:angular2/angular2.dart';
-import 'package:angular2/security.dart';
+import 'package:angular/angular.dart';
+import 'package:angular/security.dart';
 
 /// NOTE: this implementation is incomplete. Current content is provided
 /// as a placeholder.

@@ -1,8 +1,8 @@
 @Tags(const ['aot'])
 @TestOn('browser')
-library angular2_simple_test;
+library angular_simple_test;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:ng_test.github_issues/api.dart';
 import 'package:ng_test.github_issues/ui.dart';
 import 'package:angular_test/angular_test.dart';

@@ -128,7 +128,7 @@ angularIO.directive('apiList', function () {
 
         $ctrl.groupedSections = Object.keys($ctrl.sections).sort().map(function(pkgLib) {
           var p = pkgLib.split('/');
-          var pkg = p.length == 1 ? 'angular2' : p[0];
+          var pkg = p.length == 1 ? 'angular' : p[0];
           var title = p[1] || p[0];
           var isSdkLib = title.startsWith('dart:');
           var lib = isSdkLib ? title.replace('dart:', 'dart-') : title;

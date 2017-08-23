@@ -1,4 +1,4 @@
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 
 import 'package:dependency_injection/app_component.dart';
 

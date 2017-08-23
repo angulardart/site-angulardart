@@ -1,5 +1,6 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 // #docregion hero-class-1
 class Hero {
@@ -25,7 +26,7 @@ class Hero {
     </div>''',
   // #enddocregion editing-Hero, template
   // #docregion directives
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 // #enddocregion directives
 class AppComponent {

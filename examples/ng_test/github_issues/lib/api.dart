@@ -1,11 +1,11 @@
-import 'package:angular2/di.dart';
+import 'package:angular/di.dart';
 
 import 'src/api.dart';
 import 'src/api_impl.dart';
 
 export 'src/api.dart' show GithubService, GithubIssue;
 
-/// DI providerse for using the [GithubService] API.
+/// DI providers for using the [GithubService] API.
 const apiProviders = const [
-  const Provider(GithubService, useClass: HtmlGithubService),
+  const Provider<GithubService>(GithubService, useClass: HtmlGithubService),
 ];

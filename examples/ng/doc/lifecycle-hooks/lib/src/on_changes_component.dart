@@ -1,7 +1,8 @@
 // #docregion
 import 'dart:convert';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 class Hero {
   String name;
@@ -56,7 +57,7 @@ class OnChangesComponent implements OnChanges {
   selector: 'on-changes-parent',
   templateUrl: 'on_changes_parent_component.html',
   styles: const ['.parent {background: Lavender}'],
-  directives: const [COMMON_DIRECTIVES, OnChangesComponent],
+  directives: const [CORE_DIRECTIVES, formDirectives, OnChangesComponent],
 )
 class OnChangesParentComponent {
   Hero hero;

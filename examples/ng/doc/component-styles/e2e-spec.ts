@@ -36,7 +36,7 @@ describe('Component Style Tests', function () {
     expect(h2.getCssValue('backgroundColor')).toEqual('rgba(238, 238, 255, 1)'); // #eeeeff
   });
 
-  it('styles both view and content children with /deep/', function() {
+  it('styles both view and content children with ::ng-deep', function() {
     let viewH3 = element(by.css('hero-team h3'));
     let contentH3 = element(by.css('hero-controls h3'));
 
@@ -44,7 +44,7 @@ describe('Component Style Tests', function () {
     expect(contentH3.getCssValue('fontStyle')).toEqual('italic');
   });
 
-  xit('includes styles loaded with CSS @import', function() {
+  it('includes styles loaded with CSS @import', function() {
     let host = element(by.css('hero-details'));
 
     expect(host.getCssValue('padding')).toEqual('10px');

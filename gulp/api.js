@@ -30,7 +30,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**`,
     ];
     const indexHtml = filter(`${baseDir}/index.html`, { restore: true });
-    const ngContentAstIndex = filter(`${baseDir}/angular2.compiler/NgContentAst/index.html`, { restore: true });
+    const ngContentAstIndex = filter(`${baseDir}/angular.compiler/NgContentAst/index.html`, { restore: true });
     return gulp.src(src, { base: baseDir })
       .pipe(indexHtml)
       .pipe(plugins.replace(/<\/title>/, `$&\n  <base href="/api/${pkgName}/">`, { skipBinary: true }))

@@ -27,7 +27,7 @@ nextpage:
 AngularDart (which we usually call simply Angular in this documentation)
 is a framework for building client applications in HTML and Dart.
 It is published as the
-[**angular2**](https://pub.dartlang.org/packages/angular2) package, which
+[**angular**](https://pub.dartlang.org/packages/angular) package, which
 (like many other Dart packages) is available via the Pub tool.
 
 You write Angular applications by composing HTML *templates* with Angularized markup,
@@ -95,17 +95,16 @@ By convention, the name of the root component is `AppComponent`.
 <img class="image-left" src="{% asset_path 'ng/devguide/architecture/library-module.png' %}" alt="Libraries" width="200px">
 
 Angular ships as a collection of libraries within the
-[**angular2**](https://pub.dartlang.org/packages/angular2) package.
-The main Angular library is [angular2](/api/#!?package=angular2), which most application modules import as follows:
+[**angular**](https://pub.dartlang.org/packages/angular) package.
+The main Angular library is [angular](/api/#!?package=angular), which most application modules import as follows:
 
 <?code-excerpt "lib/app_component.dart (import)" class="guide-architecture-fix-overflow"?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 ```
 
-The angular2 package has other important libraries, such as
-[angular2.router](/api/angular2/angular2.router/angular2.router-library) and
-[angular2.security](/api/angular2/angular2.security/angular2.security-library).
+The angular package has other important libraries, such as
+[angular.security](/api/angular/angular.security/angular.security-library).
 
 <div class="l-hr"></div>
 
@@ -216,7 +215,7 @@ Here's some metadata for `HeroListComponent`:
   @Component(
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
-    directives: const [COMMON_DIRECTIVES, HeroDetailComponent],
+    directives: const [CORE_DIRECTIVES, formDirectives, HeroDetailComponent],
     providers: const [HeroService],
   )
   class HeroListComponent implements OnInit {

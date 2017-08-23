@@ -73,7 +73,7 @@ Name the class `HeroService`.
 
 <?code-excerpt "lib/src/hero_service_1.dart (starting point)" region="empty-class" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'hero.dart';
   import 'mock_heroes.dart';
@@ -147,7 +147,7 @@ The `HeroService` looks like this:
 
 <?code-excerpt "lib/src/hero_service_1.dart (final)" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'hero.dart';
   import 'mock_heroes.dart';
@@ -284,7 +284,7 @@ Add `OnInit` to the list of interfaces implemented by `AppComponent`:
 
 <?code-excerpt "lib/app_component_1.dart (ngOnInit stub)" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   class AppComponent implements OnInit {
     void ngOnInit() {

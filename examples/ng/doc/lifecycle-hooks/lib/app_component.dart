@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'src/after_content_component.dart';
 import 'src/after_view_component.dart';

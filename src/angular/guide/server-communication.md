@@ -40,7 +40,7 @@ The root `AppComponent` orchestrates these demos:
 
 <?code-excerpt "lib/app_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'src/toh/hero_list_component.dart';
   import 'src/wiki/wiki_component.dart';
@@ -79,9 +79,7 @@ Register providers using the `bootstrap()` method:
 
 <?code-excerpt "web/main.dart (v1)" title?>
 ```
-  import 'package:angular2/angular2.dart';
-  import 'package:angular2/platform/browser.dart';
-
+  import 'package:angular/angular.dart';
   import 'package:server_communication/app_component.dart';
 
   void main() {
@@ -89,31 +87,6 @@ Register providers using the `bootstrap()` method:
       provide(BrowserClient, useFactory: () => new BrowserClient(), deps: [])
     ]);
   }
-```
-
-Actually, it is unnecessary to include `BrowserClient` in the list of providers.
-***But*** as is mentioned in the *Angular Dart Transformer* [wiki page][ng2dtri],
-the template compiler _generates_ dependency injection code, hence all the
-identifiers used in DI have to be collected by the Angular transformer
-so that the libraries containing these identifiers can be transformed.
-
-Unless special steps are taken, Dart libraries like `http`
-are not transformed. To ensure that the `BrowserClient` identifier is available
-for DI, you must add a `resolved_identifiers` parameter to the `angular2`
-transformer in `pubspec.yaml`:
-
-[ng2dtri]: https://github.com/dart-lang/angular2/wiki/Transformer#resolved_identifiers
-
-<!--stylePattern = { pnk: /(resolved_identifiers:|Browser.*)/gm, otl: /(- angular2:)|(transformers:)/g };-->
-<?code-excerpt "pubspec.yaml (transformers)" title?>
-```
-  transformers:
-  - angular2:
-      entry_points: web/main.dart
-      resolved_identifiers:
-          BrowserClient: 'package:http/browser_client.dart'
-          Client: 'package:http/http.dart'
-  - dart_to_js_script_rewriter
 ```
 
 <div id="http-client"></div>
@@ -233,7 +206,7 @@ returning mock heroes in a service like this one:
 ```
   import 'dart:async';
 
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'hero.dart';
   import 'mock_heroes.dart';
@@ -251,7 +224,7 @@ You can revise that `HeroService` to get the heroes from the server using the Da
   import 'dart:async';
   import 'dart:convert';
 
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
   import 'package:http/http.dart';
 
   import 'hero.dart';

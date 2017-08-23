@@ -1,11 +1,13 @@
 // #docplaster
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'dart:html';
+
+import 'package:angular/angular.dart';
 
 @Directive(selector: '[myHighlight]')
 class HighlightDirective {
   // #docregion ctor
-  final ElementRef _el;
+  final Element _el;
 
   HighlightDirective(this._el);
   // #enddocregion ctor
@@ -27,7 +29,7 @@ class HighlightDirective {
   // #enddocregion host
 
   void _highlight([String color]) {
-    _el.nativeElement.style.backgroundColor = color;
+    _el.style.backgroundColor = color;
   }
   // #enddocregion mouse-methods,
 

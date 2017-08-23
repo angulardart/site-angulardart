@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 enum Color { gray, green, gold }
 
@@ -20,7 +20,7 @@ class VisualizeWinningsComponent implements OnInit {
   static const int _pointMargin = 1;
 
   @ViewChild('canvas')
-  ElementRef canvas;
+  Element canvas;
 
   CanvasRenderingContext2D _ctx;
 

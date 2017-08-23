@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion no-docs, skeleton,
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // #enddocregion no-docs, skeleton
 /// Add the template content to the DOM unless the condition is true.

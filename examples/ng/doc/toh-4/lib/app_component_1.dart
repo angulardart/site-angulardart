@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion ngOnInit-stub
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // #enddocregion ngOnInit-stub
 import 'src/hero.dart';

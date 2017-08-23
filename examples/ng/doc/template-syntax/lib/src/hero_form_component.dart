@@ -1,4 +1,5 @@
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'hero.dart';
 
 @Component(
@@ -10,7 +11,7 @@ import 'hero.dart';
       #heroForm { border: 1px solid black; margin: 20px 0; padding: 8px; max-width: 350px; }
     '''
   ],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class HeroFormComponent {
   @Input()

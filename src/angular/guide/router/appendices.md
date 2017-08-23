@@ -211,4 +211,4 @@ Those developers may still use HTML 5 URLs by taking two remedial steps:
 1. Provide the router with an appropriate [APP_BASE_HREF][] value.
 1. Use _root URLs_ for all web resources: css, images, scripts, and template html files.
 
-[APP_BASE_HREF]: /api/angular2/angular2.platform.common/APP_BASE_HREF-constant.html
+[APP_BASE_HREF]: /api/angular_router/angular_router/APP_BASE_HREF-constant.html

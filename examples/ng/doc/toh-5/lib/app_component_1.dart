@@ -1,9 +1,9 @@
 // #docplaster
 // #docregion , v2
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 // #enddocregion ,
 // #docregion v2
-import 'package:angular2/router.dart';
+import 'package:angular_router/angular_router.dart';
 // #docregion
 
 import 'src/hero_service.dart';

@@ -1,6 +1,6 @@
 // #docregion
 // #docregion lc-imports
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'logger_service.dart';
 

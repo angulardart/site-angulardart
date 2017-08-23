@@ -1,4 +1,4 @@
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'sales_tax_service.dart';
 import 'tax_rate_service.dart';

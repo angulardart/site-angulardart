@@ -1,9 +1,11 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'dart:html';
+
+import 'package:angular/angular.dart';
 
 @Directive(selector: '[myHighlight]')
 class HighlightDirective {
-  HighlightDirective(ElementRef el) {
-    el.nativeElement.style.backgroundColor = 'yellow';
+  HighlightDirective(Element el) {
+    el.style.backgroundColor = 'yellow';
   }
 }

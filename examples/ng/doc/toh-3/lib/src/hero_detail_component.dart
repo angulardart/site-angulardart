@@ -1,7 +1,8 @@
 // #docplaster
 // #docregion
 // #docregion v1
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 // #enddocregion v1
 // #docregion hero-import
@@ -24,7 +25,7 @@ import 'hero.dart';
     </div>''',
   // #enddocregion template
   // #docregion v1
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class HeroDetailComponent {
   // #enddocregion v1

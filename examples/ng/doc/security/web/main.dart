@@ -1,5 +1,5 @@
 // #docregion
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 
 // #docregion import
 import 'package:angular_security/app_component.dart';

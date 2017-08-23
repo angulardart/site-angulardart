@@ -1,6 +1,7 @@
 // #docplaster
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'flying_heroes_pipe.dart';
 import 'heroes.dart';
 
@@ -9,7 +10,7 @@ import 'heroes.dart';
   templateUrl: 'flying_heroes_component.html',
   styles: const ['#flyers, #all {font-style: italic}'],
   pipes: const [FlyingHeroesPipe],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 // #docregion v1
 class FlyingHeroesComponent {
@@ -60,7 +61,7 @@ class FlyingHeroesComponent {
   styles: const ['.flyers, .all {font-style: italic}'],
   // #docregion impure-component
   pipes: const [FlyingHeroesImpurePipe],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
   FlyingHeroesImpureComponent() {

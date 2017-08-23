@@ -1,7 +1,7 @@
 // This is a copy of app_component_4.dart
 // #docregion
-import 'package:angular2/angular2.dart';
-import 'package:angular2/router.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_router/angular_router.dart';
 
 // Not yet used: import 'src/compose_message_component.dart';
 import 'src/crisis_center/crisis_center_component.dart';

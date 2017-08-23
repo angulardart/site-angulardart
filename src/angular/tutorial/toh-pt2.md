@@ -387,7 +387,8 @@ Here's the complete `app_component.dart` as of now:
 
 <?code-excerpt "lib/app_component.dart" title linenums?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
 
   class Hero {
     final int id;
@@ -480,7 +481,7 @@ Here's the complete `app_component.dart` as of now:
         }
       '''
     ],
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class AppComponent {
     final title = 'Tour of Heroes';

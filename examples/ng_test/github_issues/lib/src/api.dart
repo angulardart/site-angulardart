@@ -2,7 +2,7 @@ import 'dart:async';
 
 /// A simple Dart interface for accessing the GitHub APIs.
 abstract class GithubService {
-  /// Returns all [GithubIssue]s for `https://github.com/dart-lang/angular2`.
+  /// Returns all [GithubIssue]s for `https://github.com/dart-lang/angular`.
   Stream<GithubIssue> getIssues();
 }
 

@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
-import 'package:angular2/security.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
+import 'package:angular/security.dart';
 import 'package:ng_test.github_issues/api.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:ng_bootstrap/ng_bootstrap.dart';
@@ -10,6 +11,8 @@ import 'package:ng_bootstrap/ng_bootstrap.dart';
   selector: 'issue-list',
   directives: const [
     BS_DIRECTIVES,
+    CORE_DIRECTIVES,
+    formDirectives,
     IssueBodyComponent,
     IssueTitleComponent,
   ],

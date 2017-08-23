@@ -23,7 +23,8 @@ the `HeroDetailComponent`:
 
 <?code-excerpt "toh-3/lib/src/hero_detail_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
 
   import 'hero.dart';
 
@@ -38,7 +39,7 @@ the `HeroDetailComponent`:
           <input [(ngModel)]="hero.name" placeholder="name">
         </div>
       </div>''',
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class HeroDetailComponent {
     @Input()

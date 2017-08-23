@@ -1,7 +1,7 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 // #docregion import
-import 'package:angular2/router.dart';
+import 'package:angular_router/angular_router.dart';
 // #enddocregion import
 
 import 'src/crisis_center_component_1.dart';

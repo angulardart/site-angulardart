@@ -4,10 +4,10 @@
 import 'dart:async';
 
 // #enddocregion added-imports
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 // #docregion added-imports
-import 'package:angular2/router.dart';
-import 'package:angular2/platform/common.dart';
+import 'package:angular_router/angular_router.dart';
 
 // #enddocregion added-imports
 import 'hero.dart';
@@ -21,7 +21,7 @@ import 'hero_service.dart';
   templateUrl: 'hero_detail_component.html',
   // #enddocregion metadata, templateUrl, v2
   styleUrls: const ['hero_detail_component.css'],
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
   // #docregion v2
 )
 // #docregion implement

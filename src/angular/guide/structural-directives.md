@@ -283,7 +283,7 @@ It's intended source is implicit.
 Angular sets `let-hero` to the value of the context's `$implicit` property
 which `NgFor` has initialized with the hero for the current iteration.
 
-* The [API guide](/api/angular2/angular2/NgFor-class.html "API: NgFor")
+* The [API guide](/api/angular/angular/NgFor-class.html "API: NgFor")
 describes additional `NgFor` directive properties and context properties.
 
 These microsyntax mechanisms are available to you when you write your own structural directives.
@@ -590,7 +590,7 @@ Here's how you might begin:
 
 <?code-excerpt "lib/src/unless_directive.dart (skeleton)" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Directive(selector: '[myUnless]')
   class UnlessDirective {
@@ -612,15 +612,15 @@ Angular's own directives do not.
 ### _TemplateRef_ and _ViewContainerRef_
 
 A simple structural directive like this one creates an
-[_embedded view_](/api/angular2/angular2/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
+[_embedded view_](/api/angular/angular/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
 from the Angular-generated `<template>` and inserts that view in a
-[_view container_](/api/angular2/angular2/ViewContainerRef-class.html "API: ViewContainerRef")
+[_view container_](/api/angular/angular/ViewContainerRef-class.html "API: ViewContainerRef")
 adjacent to the directive's original `<p>` host element.
 
 You'll acquire the `<template>` contents with a
-[`TemplateRef`](/api/angular2/angular2/TemplateRef-class.html "API: TemplateRef")
+[`TemplateRef`](/api/angular/angular/TemplateRef-class.html "API: TemplateRef")
 and access the _view container_ through a
-[`ViewContainerRef`](/api/angular2/angular2/ViewContainerRef-class.html "API: ViewContainerRef").
+[`ViewContainerRef`](/api/angular/angular/ViewContainerRef-class.html "API: ViewContainerRef").
 
 You inject both in the directive constructor as private variables of the class.
 
@@ -670,7 +670,7 @@ The completed directive code looks like this:
 
 <?code-excerpt "lib/src/unless_directive.dart (excerpt)" region="no-docs" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Directive(selector: '[myUnless]')
   class UnlessDirective {

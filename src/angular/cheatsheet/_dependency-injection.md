@@ -3,7 +3,7 @@
 <tr>
   <th>Dependency injection configuration</th>
   <th markdown="1">
-  `import 'package:angular2/angular2.dart';`
+  `import 'package:angular/angular.dart';`
   </th>
 </tr>
 
@@ -16,8 +16,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2/provide),
-  [Provider class](/api/angular2/angular2/Provider-class)
+  [provide function](/api/angular/angular/provide),
+  [Provider class](/api/angular/angular/Provider-class)
   </td>
 </tr>
 
@@ -30,8 +30,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2/provide),
-  [Provider class](/api/angular2/angular2/Provider-class)
+  [provide function](/api/angular/angular/provide),
+  [Provider class](/api/angular/angular/Provider-class)
   </td>
 </tr>
 
@@ -44,8 +44,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2/provide),
-  [Provider class](/api/angular2/angular2/Provider-class)
+  [provide function](/api/angular/angular/provide),
+  [Provider class](/api/angular/angular/Provider-class)
   </td>
 </tr>
 

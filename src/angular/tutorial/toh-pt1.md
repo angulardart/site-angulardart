@@ -166,7 +166,7 @@ Before you can use Angular directives (like `ngModel`) in a template,
 you need to list them in the `directives` argument of your component's
 `@Component` annotation. Although you can list directives individually,
 it is more convenient to include all common directives in one go using
-the [COMMON_DIRECTIVES](/api/angular2/angular2/COMMON_DIRECTIVES-constant)
+the [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant)
 list:
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
@@ -174,7 +174,7 @@ list:
   @Component(
     selector: 'my-app',
     /* . . . */
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
 ```
 
@@ -190,7 +190,7 @@ Take stock of what you've built.
 * You wrote a multi-line template using Dart's template strings to make the template readable.
 * You added a two-way data binding to the `<input>` element
   using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
-* You added [COMMON_DIRECTIVES](/api/angular2/angular2/COMMON_DIRECTIVES-constant)
+* You added [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant)
   to the `directives` argument of the app's `@Component` annotation so that Angular knows
   where `ngModel` is defined.
 
@@ -200,7 +200,8 @@ Here's the complete `app_component.dart` as it stands now:
 
 <?code-excerpt "lib/app_component.dart" title linenums?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
 
   class Hero {
     final int id;
@@ -219,7 +220,7 @@ Here's the complete `app_component.dart` as it stands now:
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name">
       </div>''',
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class AppComponent {
     String title = 'Tour of Heroes';

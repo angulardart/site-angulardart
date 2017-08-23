@@ -2,7 +2,7 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 // #docregion
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 
 import 'package:angular_tour_of_heroes/app_component.dart';
 

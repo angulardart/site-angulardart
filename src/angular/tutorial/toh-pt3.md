@@ -66,11 +66,12 @@ Start writing the `HeroDetailComponent` as follows:
 
 <?code-excerpt "lib/src/hero_detail_component.dart (initial version)" region="v1" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
 
   @Component(
     selector: 'hero-detail',
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class HeroDetailComponent {
   }
@@ -178,7 +179,8 @@ Here's the complete `HeroDetailComponent`.
 
 <?code-excerpt "lib/src/hero_detail_component.dart" title linenums?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
 
   import 'hero.dart';
 
@@ -193,7 +195,7 @@ Here's the complete `HeroDetailComponent`.
           <input [(ngModel)]="hero.name" placeholder="name">
         </div>
       </div>''',
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class HeroDetailComponent {
     @Input()
@@ -272,7 +274,7 @@ list:
 <?code-excerpt "lib/app_component.dart (directives)" title?>
 ```
   directives: const [
-    COMMON_DIRECTIVES,
+    CORE_DIRECTIVES, formDirectives,
     HeroDetailComponent,
   ],
 ```

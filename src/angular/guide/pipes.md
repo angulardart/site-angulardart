@@ -38,7 +38,7 @@ a human-friendly date.
 
 <?code-excerpt "lib/src/hero_birthday1_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Component(
     selector: 'hero-birthday',
@@ -58,7 +58,7 @@ Focus on the component's template.
 ```
 
 Inside the interpolation expression, you flow the component's `birthday` value through the
-[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/api/angular2/angular2/DatePipe-class.html)
+[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/api/angular/angular/DatePipe-class.html)
 function on the right. All pipes work this way.
 
 <div class="l-sub-section" markdown="1">
@@ -142,7 +142,7 @@ As you click the button, the displayed date alternates between
 
 
 <div class="l-sub-section" markdown="1">
-  Read more about the `DatePipe` format options in the [Date Pipe](/api/angular2/angular2/DatePipe-class.html)
+  Read more about the `DatePipe` format options in the [Date Pipe](/api/angular/angular/DatePipe-class.html)
   API Reference page.
 </div>
 
@@ -176,7 +176,7 @@ Here's a custom pipe named `ExponentialStrengthPipe` that can boost a hero's pow
 <?code-excerpt "lib/src/exponential_strength_pipe.dart" title?>
 ```
   import 'dart:math' as math;
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   /*
    * Raise the value exponentially
@@ -218,7 +218,7 @@ Now you need a component to demonstrate the pipe.
 
 <?code-excerpt "lib/src/power_booster_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
   import 'exponential_strength_pipe.dart';
 
   @Component(
@@ -257,7 +257,8 @@ your pipe and two-way data binding with `ngModel`.
 
 <?code-excerpt "lib/src/power_boost_calculator_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
+  import 'package:angular_forms/angular_forms.dart';
   import 'exponential_strength_pipe.dart';
 
   @Component(
@@ -270,7 +271,7 @@ your pipe and two-way data binding with `ngModel`.
         Super Hero Power: {!{power | exponentialStrength: factor}!}
       </p>
     ''',
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
     pipes: const [ExponentialStrengthPipe],
   )
   class PowerBoostCalculatorComponent {
@@ -351,7 +352,7 @@ Here's the `FlyingHeroesPipe` implementation, which follows the pattern for cust
 
 <?code-excerpt "lib/src/flying_heroes_pipe.dart (pure)" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
   import 'heroes.dart';
 
   @Pipe('flyingHeroes')
@@ -478,7 +479,7 @@ You can derive a `FlyingHeroesImpureComponent` from `FlyingHeroesComponent`.
     selector: 'flying-heroes-impure',
     templateUrl: 'flying_heroes_component.html',
     pipes: const [FlyingHeroesImpurePipe],
-    directives: const [COMMON_DIRECTIVES],
+    directives: const [CORE_DIRECTIVES, formDirectives],
   )
   class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
     FlyingHeroesImpureComponent() {
@@ -508,7 +509,7 @@ This next example binds an `Stream` of message strings
 ```
   import 'dart:async';
 
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Component(
     selector: 'hero-message',
@@ -561,7 +562,7 @@ In the following code, the pipe only calls the server when the request URL chang
   import 'dart:convert';
   import 'dart:html';
 
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Pipe('fetch', pure: false)
   class FetchJsonPipe extends PipeTransform {
@@ -586,7 +587,7 @@ both requesting the heroes from the `heroes.json` file.
 
 <?code-excerpt "lib/src/hero_list_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'fetch_json_pipe.dart';
 
@@ -622,7 +623,7 @@ It displays the same hero data in JSON format by chaining through to the built-i
 
 <div class="callout is-helpful" markdown="1">
   <header> Debugging with the json pipe</header>
-  The [JsonPipe](/api/angular2/angular2/JsonPipe-class.html)
+  The [JsonPipe](/api/angular/angular/JsonPipe-class.html)
   provides an easy way to diagnosis a mysteriously failing data binding or
   inspect an object for future binding.
 </div>

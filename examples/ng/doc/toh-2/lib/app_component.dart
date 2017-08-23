@@ -1,5 +1,6 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 class Hero {
   final int id;
@@ -96,7 +97,7 @@ final mockHeroes = <Hero>[
     '''
   ],
   // #enddocregion styles
-  directives: const [COMMON_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class AppComponent {
   final title = 'Tour of Heroes';

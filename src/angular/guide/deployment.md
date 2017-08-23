@@ -34,7 +34,7 @@ With a little extra work, you can make your deployable app
 
 To create a deployable version of your app, use the `pub build` command.
 By default, this command uses
-[dart2js](/tools/dart2js) and the angular2 transformer to
+[dart2js](/tools/dart2js) and the Angular transformer to
 produce the JavaScript file that implements your app.
 Here's what happens when you use `pub build` with the default settings:
 
@@ -143,7 +143,7 @@ Here are a few resources:
 
 #### Remove unneeded build files {#remove-unneeded-build-files}
 
-The angular2 transformer currently produces many intermediate
+The Angular transformer currently produces many intermediate
 files (with suffixes like `.ng_meta.json` and `.ng_summary.json`)
 that you don't need when deploying your app.
 To remove these files, you can use a command like the following:

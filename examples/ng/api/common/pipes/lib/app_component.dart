@@ -1,7 +1,7 @@
 /// @license
 /// Copyright Google Inc. All Rights Reserved.
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'async_pipe.dart';
 

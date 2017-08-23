@@ -269,7 +269,7 @@ Let's make a service that hides how we get hero data.
 
 <?code-excerpt "lib/src/heroes/hero_service_1.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'hero.dart';
   import 'mock_heroes.dart';
@@ -341,7 +341,7 @@ Here's a revised `HeroesComponent` that registers the `HeroService`.
 {%comment%}var stylePattern = { otl: /(providers:[^,]+),/ };{%endcomment%}
 <?code-excerpt "lib/src/heroes/heroes_component_1.dart (revised)" region="full" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'hero_list_component.dart';
   import 'hero_service.dart';
@@ -474,7 +474,7 @@ error when trying to instantiate a class that is not marked as
 `@Injectable()`.
 
 {%comment%}
-The [Angular Dart Transformer](https://github.com/dart-lang/angular2/wiki/Transformer)
+The [Angular Dart Transformer](https://github.com/dart-lang/angular/wiki/Transformer)
 generates static code to replace the use of dart:mirrors. It requires that types be
 identified as targets for static code generation. Generally this is achieved
 by marking the class as @Injectable (though there are other mechanisms).
@@ -491,7 +491,7 @@ is a subtype of [Injectable][].  It is in
 fact `Injectable` annotations that
 identify a class as a target for instantiation by an injector.
 
-[Injectable]: /api/angular2/angular2/Injectable-class.html
+[Injectable]: /api/angular/angular/Injectable-class.html
 
 <div class="callout is-critical" markdown="1">
   <header> Always include the parentheses</header>
@@ -517,7 +517,7 @@ Our logger service is quite simple:
 
 <?code-excerpt "lib/src/logger_service.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   @Injectable()
   class Logger {
@@ -598,7 +598,7 @@ We wrote the `providers` list like this:
 
 This is actually a shorthand expression for a provider registration
 that creates a new instance of the
-[Provider](/api/angular2/angular2/Provider-class.html) class:
+[Provider](/api/angular/angular/Provider-class.html) class:
 
 <?code-excerpt "lib/src/providers_component.dart (providers-3)"?>
 ```
@@ -813,7 +813,7 @@ We inject both the `Logger` and the `UserService` into the factory provider and 
 
 <?code-excerpt "lib/src/heroes/hero_service_provider.dart (excerpt)" region="provider" title?>
 ```
-  const heroServiceProvider = const Provider(HeroService,
+  const heroServiceProvider = const Provider<HeroService>(HeroService,
       useFactory: heroServiceFactory,
       deps: const [Logger, UserService]);
 ```
@@ -907,7 +907,7 @@ for a different purpose.
   it's just *unsuitable* as a token because it's too general.
 </div>
 
-{%comment%}FIXME update once https://github.com/dart-lang/angular2/issues/16 is addressed.{%endcomment%}
+{%comment%}FIXME update once https://github.com/dart-lang/angular/issues/16 is addressed.{%endcomment%}
 ### OpaqueToken
 
 One solution to choosing a provider token for non-class dependencies is
@@ -916,7 +916,7 @@ The definition looks like this:
 
 <?code-excerpt "lib/src/app_config.dart (token)"?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   const APP_CONFIG = const OpaqueToken('app.config');
 ```

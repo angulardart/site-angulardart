@@ -62,12 +62,14 @@ Create the following source file in the indicated folder:
 
 <?code-excerpt "lib/src/highlight_directive_1.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'dart:html';
+
+  import 'package:angular/angular.dart';
 
   @Directive(selector: '[myHighlight]')
   class HighlightDirective {
-    HighlightDirective(ElementRef el) {
-      el.nativeElement.style.backgroundColor = 'yellow';
+    HighlightDirective(Element el) {
+      el.style.backgroundColor = 'yellow';
     }
   }
 ```
@@ -88,18 +90,16 @@ Angular locates all elements in the template that have an attribute named `myHig
   This also reduces the risk of colliding with third-party directive names.
 
   Make sure you do **not** prefix the `highlight` directive name with **`ng`** because
-  that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose. 
+  that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
   For a simple demo, the short prefix, `my`, helps distinguish your custom directive.
 </div>
 
-After the `@Directive` metadata comes the directive's controller class, 
+After the `@Directive` metadata comes the directive's controller class,
 called `HighlightDirective`, which contains the logic for the directive.
 
 Angular creates a new instance of the directive's controller class for
-each matching element, injecting an Angular `ElementRef`
+each matching element, injecting an HTML [Element]({{site.dart_api}}/dart-html/Element-class.html)
 into the constructor.
-`ElementRef` is a service that grants direct access to the DOM element
-through its `nativeElement` property.
 
 <div id="apply-directive"></div>
 ## Apply the attribute directive
@@ -123,7 +123,7 @@ recognizes the directive when it encounters `myHighlight` in the template.
 
 <?code-excerpt "lib/app_component.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'package:angular/angular.dart';
 
   import 'src/highlight_directive.dart';
 
@@ -184,11 +184,11 @@ each adorned by the `HostListener` annotation.
   }
 
   void _highlight([String color]) {
-    _el.nativeElement.style.backgroundColor = color;
+    _el.style.backgroundColor = color;
   }
 ```
 
-The `@HostListener` annotation lets you subscribe to events of the DOM 
+The `@HostListener` annotation lets you subscribe to events of the DOM
 element that hosts an attribute directive, the `<p>` in this case.
 
 <div class="l-sub-section" markdown="1">
@@ -205,7 +205,7 @@ which you declare and initialize in the constructor.
 
 <?code-excerpt "lib/src/highlight_directive_2.dart (constructor)" region="ctor" title?>
 ```
-  final ElementRef _el;
+  final Element _el;
 
   HighlightDirective(this._el);
 ```
@@ -214,11 +214,13 @@ Here's the updated directive in full:
 
 <?code-excerpt "lib/src/highlight_directive_2.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'dart:html';
+
+  import 'package:angular/angular.dart';
 
   @Directive(selector: '[myHighlight]')
   class HighlightDirective {
-    final ElementRef _el;
+    final Element _el;
 
     HighlightDirective(this._el);
 
@@ -233,7 +235,7 @@ Here's the updated directive in full:
     }
 
     void _highlight([String color]) {
-      _el.nativeElement.style.backgroundColor = color;
+      _el.style.backgroundColor = color;
     }
   }
 ```
@@ -347,11 +349,13 @@ Here's the latest version of the directive class.
 
 <?code-excerpt "lib/src/highlight_directive_3.dart" title?>
 ```
-  import 'package:angular2/angular2.dart';
+  import 'dart:html';
+
+  import 'package:angular/angular.dart';
 
   @Directive(selector: '[myHighlight]')
   class HighlightDirective {
-    final ElementRef _el;
+    final Element _el;
 
     HighlightDirective(this._el);
 
@@ -365,7 +369,7 @@ Here's the latest version of the directive class.
     void onMouseLeave() => _highlight();
 
     void _highlight([String color]) {
-      _el.nativeElement.style.backgroundColor = color;
+      _el.style.backgroundColor = color;
     }
   }
 ```

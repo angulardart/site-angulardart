@@ -1,5 +1,5 @@
 // #docregion import
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 // #enddocregion import
 
 import 'src/backend_service.dart';

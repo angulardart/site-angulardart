@@ -248,14 +248,11 @@ button</button>
 <!-- #enddocregion property-binding-5 -->
 
 <!-- #docregion property-binding-6 -->
-<!-- ERROR: HeroDetailComponent.hero expects a
-     Hero object, not the string "currentHero" -->
+<!-- ERROR: A value of type 'String' can't be assigned to a variable of type 'Hero'.
+<hero-detail hero="currentHero"></hero-detail>
+-->
 <!-- #enddocregion property-binding-6 -->
-<div *ngIf="false">
-<!-- #docregion property-binding-6 -->
-  <hero-detail hero="currentHero"></hero-detail>
-<!-- #enddocregion property-binding-6 -->
-</div>
+
 <!-- #docregion property-binding-7 -->
 <hero-detail prefix="You are my" [hero]="currentHero"></hero-detail>
 <!-- #enddocregion property-binding-7 -->
@@ -812,7 +809,7 @@ See console log:
 
 <p>
   <!-- #docregion enums -->
-  The name of the Color.red enum is {{colorRed}}.<br>
+  The name of the Color.red enum is {{Color.red}}.<br>
   The current color is {{color}} and its index is {{color.index}}.<br>
   <button [style.color]="color.toString().split('.')[1]" (click)="colorToggle()">Enum Toggle</button>
   <!-- #enddocregion enums -->

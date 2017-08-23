@@ -1,9 +1,11 @@
 // #docregion
-import 'package:angular2/angular2.dart';
+import 'dart:html';
+
+import 'package:angular/angular.dart';
 
 @Directive(selector: '[myHighlight]')
 class HighlightDirective {
-  final ElementRef _el;
+  final Element _el;
 
   HighlightDirective(this._el);
 
@@ -26,6 +28,6 @@ class HighlightDirective {
   void onMouseLeave() => _highlight();
 
   void _highlight([String color]) {
-    _el.nativeElement.style.backgroundColor = color;
+    _el.style.backgroundColor = color;
   }
 }

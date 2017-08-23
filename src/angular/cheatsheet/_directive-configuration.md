@@ -17,7 +17,7 @@
   Does not support parent-child relationship selectors.
 
   See: [Structural Directives](/angular/guide/structural-directives),
-  [selector property](/api/angular2/angular2/Directive/selector)
+  [selector property](/api/angular/angular/Directive/selector)
   </td>
 </tr>
 
@@ -31,7 +31,7 @@
   See:
   [Attribute Directives](/angular/guide/attribute-directives),
   [Structural Directives](/angular/guide/structural-directives),
-  [providers property](/api/angular2/angular2/Directive/providers)
+  [providers property](/api/angular/angular/Directive/providers)
   </td>
 </tr>
 

@@ -87,7 +87,7 @@ and `--enable-bar` configuration options:
 
 {% prettify yaml %}
 transformers:
-- angular2:
+- angular:
     entry_points: web/main.dart
 - dart_to_js_script_rewriter
 [[highlight]]- $dart2js:[[/highlight]]

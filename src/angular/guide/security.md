@@ -32,7 +32,7 @@ For more information about how Google handles security issues, see [Google's sec
 * **Keep current with the latest Angular library releases.**
   We regularly update the Angular libraries, and these updates may fix security defects discovered in
   previous versions. Check the Angular [change
-  log](https://github.com/dart-lang/angular2/blob/master/CHANGELOG.md) for security-related updates.
+  log](https://github.com/dart-lang/angular/blob/master/angular/CHANGELOG.md) for security-related updates.
 
 * **Don't modify your copy of Angular.**
   Private, customized versions of Angular tend to fall behind the current version and may not include
@@ -122,7 +122,7 @@ element but keeps safe content such as text and the `<b>` element.
 ### Avoid direct use of the DOM APIs
 
 The built-in browser DOM APIs don't automatically protect you from security vulnerabilities.
-For example, `document`, the node available through `ElementRef`, and many third-party APIs
+For example, [document]({{site.dart_api}}/dart-html/document.html), and many third-party APIs
 contain unsafe methods. Avoid directly interacting with the DOM and instead use Angular
 templates where possible.
 
