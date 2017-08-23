@@ -616,8 +616,8 @@ You can't bind to a property of the target element to _read_ it. You can only _s
   If you must read a target element property or call one of its methods,
   you'll need a different technique.
   See the API reference for
-  [ViewChild](/api/angular2/angular2.core/ViewChild-class.html) and
-  [ContentChild](/api/angular2/angular2.core/ContentChild-class.html).
+  [ViewChild](/api/angular2/angular2/ViewChild-class.html) and
+  [ContentChild](/api/angular2/angular2/ContentChild-class.html).
 </div>
 
 ### Binding target

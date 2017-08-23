@@ -16,8 +16,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2.core/provide),
-  [Provider class](/api/angular2/angular2.core/Provider-class)
+  [provide function](/api/angular2/angular2/provide),
+  [Provider class](/api/angular2/angular2/Provider-class)
   </td>
 </tr>
 
@@ -30,8 +30,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2.core/provide),
-  [Provider class](/api/angular2/angular2.core/Provider-class)
+  [provide function](/api/angular2/angular2/provide),
+  [Provider class](/api/angular2/angular2/Provider-class)
   </td>
 </tr>
 
@@ -44,8 +44,8 @@
 
   See:
   [Dependency Injection](/angular/guide/dependency-injection),
-  [provide function](/api/angular2/angular2.core/provide),
-  [Provider class](/api/angular2/angular2.core/Provider-class)
+  [provide function](/api/angular2/angular2/provide),
+  [Provider class](/api/angular2/angular2/Provider-class)
   </td>
 </tr>
 

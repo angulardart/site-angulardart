@@ -612,15 +612,15 @@ Angular's own directives do not.
 ### _TemplateRef_ and _ViewContainerRef_
 
 A simple structural directive like this one creates an
-[_embedded view_](/api/angular2/angular2.core/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
+[_embedded view_](/api/angular2/angular2/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
 from the Angular-generated `<template>` and inserts that view in a
-[_view container_](/api/angular2/angular2.core/ViewContainerRef-class.html "API: ViewContainerRef")
+[_view container_](/api/angular2/angular2/ViewContainerRef-class.html "API: ViewContainerRef")
 adjacent to the directive's original `<p>` host element.
 
 You'll acquire the `<template>` contents with a
-[`TemplateRef`](/api/angular2/angular2.core/TemplateRef-class.html "API: TemplateRef")
+[`TemplateRef`](/api/angular2/angular2/TemplateRef-class.html "API: TemplateRef")
 and access the _view container_ through a
-[`ViewContainerRef`](/api/angular2/angular2.core/ViewContainerRef-class.html "API: ViewContainerRef").
+[`ViewContainerRef`](/api/angular2/angular2/ViewContainerRef-class.html "API: ViewContainerRef").
 
 You inject both in the directive constructor as private variables of the class.
 

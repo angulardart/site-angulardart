@@ -16,7 +16,7 @@
   `<my-cmp [myProperty]="someExpression">`).
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [Input class](/api/angular2/angular2.core/Input-class)
+  [Input class](/api/angular2/angular2/Input-class)
   </td>
 </tr>
 
@@ -29,7 +29,7 @@
   Declares an output property that fires events that you can subscribe to with an event binding (example: `<my-cmp (myEvent)="doSomething()">`).
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [Output class](/api/angular2/angular2.core/Output-class)
+  [Output class](/api/angular2/angular2/Output-class)
   </td>
 </tr>
 
@@ -40,7 +40,7 @@
   <td markdown="1">
   Binds a host element property (here, the CSS class `valid`) to a directive/component property (`isValid`).
 
-  See: [HostBinding class](/api/angular2/angular2.core/HostBinding-class)
+  See: [HostBinding class](/api/angular2/angular2/HostBinding-class)
   </td>
 </tr>
 
@@ -53,7 +53,7 @@
   Subscribes to a host element event (`click`) with a directive/component method (`onClick`), optionally passing an argument (`$event`).
 
   See: [Attribute Directives](/angular/guide/attribute-directives),
-  [HostListener class](/api/angular2/angular2.core/HostListener-class)
+  [HostListener class](/api/angular2/angular2/HostListener-class)
   </td>
 </tr>
 
@@ -64,7 +64,7 @@
   <td markdown="1">
   Binds the first result of the component content query (`myPredicate`) to a property (`myChildComponent`) of the class.
 
-  See: [ContentChild class](/api/angular2/angular2.core/ContentChild-class)
+  See: [ContentChild class](/api/angular2/angular2/ContentChild-class)
   </td>
 </tr>
 
@@ -75,7 +75,7 @@
   <td markdown="1">
   Binds the results of the component content query (`myPredicate`) to a property (`myChildComponents`) of the class.
 
-  See: [ContentChildren class](/api/angular2/angular2.core/ContentChildren-class)
+  See: [ContentChildren class](/api/angular2/angular2/ContentChildren-class)
   </td>
 </tr>
 
@@ -86,7 +86,7 @@
   <td markdown="1">
   Binds the first result of the component view query (`myPredicate`) to a property (`myChildComponent`) of the class. Not available for directives.
 
-  See: [ViewChild class](/api/angular2/angular2.core/ViewChild-class)
+  See: [ViewChild class](/api/angular2/angular2/ViewChild-class)
   </td>
 </tr>
 
@@ -97,7 +97,7 @@
   <td markdown="1">
   Binds the results of the component view query (`myPredicate`) to a property (`myChildComponents`) of the class. Not available for directives.
 
-  See: [ViewChildren class](/api/angular2/angular2.core/ViewChildren-class)
+  See: [ViewChildren class](/api/angular2/angular2/ViewChildren-class)
   </td>
 </tr>
 

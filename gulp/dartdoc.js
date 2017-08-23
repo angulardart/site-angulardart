@@ -14,7 +14,6 @@ module.exports = function (gulp, plugins, config) {
      `angular2
       angular2.common
       angular2.compiler
-      angular2.core
       angular2.platform.browser
       angular2.platform.common
       angular2.platform.common_dom

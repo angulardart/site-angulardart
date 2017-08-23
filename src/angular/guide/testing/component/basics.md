@@ -79,7 +79,7 @@ Component tests must explicitly define the **component under test**. You define 
 ```
 
 You'll generally initialize the fixture in a `setUp()` function.
-Since component tests are often asynchronous, the `tearDown()` function 
+Since component tests are often asynchronous, the `tearDown()` function
 generally instructs the test framework to dispose of any running tests
 before it moves on to the next test group, if any. Here is an example:
 
@@ -112,7 +112,7 @@ Use [setUpAll()][] and [tearDownAll()][] for setup/teardown that should encompas
 ## More _package:test_ features
 
 You've just worked through the elementary features of `package:test`. For
-complete coverage of the package capabilities, see the package 
+complete coverage of the package capabilities, see the package
 [documentation][package:test].
 
 [angular_test]: https://pub.dartlang.org/packages/angular_test

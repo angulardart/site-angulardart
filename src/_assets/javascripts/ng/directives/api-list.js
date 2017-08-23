@@ -8,6 +8,8 @@
 * settings.
 */
 
+angularIO.filter('trustAsHtml', ['$sce', function($sce) { return $sce.trustAsHtml; }]);
+
 angularIO.directive('apiList', function () {
   var PKG_KEY = 'package';
   var QUERY_KEY = 'query';
@@ -18,7 +20,7 @@ angularIO.directive('apiList', function () {
     restrict: 'E',
     template:
       '<p>' +
-      '  This page lists API from libraries in the {{$ctrl.pkgList}} packages. ' +
+      '  This page lists API from libraries in the <span ng-bind-html="$ctrl.pkgList | trustAsHtml"></span> packages. ' +
       '  Other libraries commonly used by Dart web apps include ' +
       '  <a href="https://api.dartlang.org">Dart SDK libraries</a> such as ' +
       '  <a href="https://api.dartlang.org/stable/dart-async">dart:async</a>, ' +
@@ -148,7 +150,8 @@ angularIO.directive('apiList', function () {
         var pkgs = Object.keys(pkgsMap);
         $ctrl.packages = pkgs;
         var and = pkgs.length > 2 ? ', and ' : ' and ';
-        $ctrl.pkgList = pkgs.slice(0, pkgs.length - 1).join(', ') + and + pkgs[pkgs.length - 1];
+        var bPkgs = pkgs.map(function (p) { return '<b>' + p + '</b>'; });
+        $ctrl.pkgList = bPkgs.slice(0, pkgs.length - 1).join(', ') + and + bPkgs[pkgs.length - 1];
         if ($ctrl.packages && $ctrl.packages.indexOf($ctrl.pkg) < 0) $ctrl.pkg = null
       });
 

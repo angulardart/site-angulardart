@@ -19,10 +19,10 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
 
 
-## API Reference (August 2017)
+## API reference (August 2017)
 
 The API entries from both the `angular` and `angular_components` packages
-have been combined into a single unified [API Reference](/api).
+have been combined into a single unified [API reference](/api).
 
 ## Testing docs, part 2 (August 2017)
 
@@ -149,6 +149,8 @@ The examples changed to update the release and reflect new recommendations.
 
 * Replaced `core.dart` imports:
   `angular2/core.dart` &rarr; `angular2/angular2.dart`
+* Updated `angular2.core` API doc references. Example: .../angular2.core/OnInit-class
+  &rarr; [.../angular2/OnInit-class](/api/angular2/angular2/OnInit-class)
 * To prepare for 3.1's experimental compiler, in each example:
   * Removed `platform_directives` from `pubspec.yaml`,
     moving the directives it listed

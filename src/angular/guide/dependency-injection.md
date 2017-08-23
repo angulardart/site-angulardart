@@ -491,7 +491,7 @@ is a subtype of [Injectable][].  It is in
 fact `Injectable` annotations that
 identify a class as a target for instantiation by an injector.
 
-[Injectable]: /api/angular2/angular2.core/Injectable-class.html
+[Injectable]: /api/angular2/angular2/Injectable-class.html
 
 <div class="callout is-critical" markdown="1">
   <header> Always include the parentheses</header>
@@ -598,7 +598,7 @@ We wrote the `providers` list like this:
 
 This is actually a shorthand expression for a provider registration
 that creates a new instance of the
-[Provider](/api/angular2/angular2.core/Provider-class.html) class:
+[Provider](/api/angular2/angular2/Provider-class.html) class:
 
 <?code-excerpt "lib/src/providers_component.dart (providers-3)"?>
 ```
