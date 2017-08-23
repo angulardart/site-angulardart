@@ -5,7 +5,7 @@ description: Angular + Dart = productivity, performance, and stability
 toc: false
 ---
 
-AngularDart—also called _Angular 2 for Dart_ or simply _Angular_—is
+AngularDart is
 a web app framework that focuses on productivity, performance, and stability.
 Hundreds of Google engineers use AngularDart to build the sophisticated,
 mission-critical apps that bring in much of Google’s revenue.
