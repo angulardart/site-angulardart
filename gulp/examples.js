@@ -29,7 +29,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('add-examples-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
 
-  gulp.task('_examples-get-repos', ['_clean'], (cb) => {
+  gulp.task('_examples-get-repos', ['_clean'], () => {
     const promises = [];
     examples.forEach((name) => {
       const exPath = path.join(tmpReposPath, EXAMPLES_PATH, name)
@@ -44,10 +44,11 @@ module.exports = function (gulp, plugins, config) {
   });
 
   let c = 0;
-  gulp.task('_examples-cp-to-site-folder', ['_clean', '_examples-get-repos'], (cb) => {
+  gulp.task('_examples-cp-to-site-folder', ['_clean', '_examples-get-repos'], done => {
     if (fs.existsSync(siteExPath)) {
       gutil.log(`  No examples to copy since folder exists: '${siteExPath}'.`);
       gutil.log(`  Use '--clean' to have '${siteExPath}' refreshed.`);
+      done();
       return;
     }
     gutil.log(`  Copying version ${ngMajorVers} of examples to ${siteExPath}`);
@@ -62,8 +63,8 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/(<base href=")([^"]+)\/\d+(\/">)/, '$1/examples/ng/doc$2$3'))
       .pipe(indexHtml.restore)
       // Strip out NG version number from the path:
-      .pipe(rename((p) => {
-        p.dirname = p.dirname.replace(`/${ngMajorVers}/`, '/').replace(`/${ngMajorVers}`, '')
+      .pipe(rename(p => {
+        p.dirname = p.dirname.replace(`/${ngMajorVers}/`, '/').replace(`/${ngMajorVers}`, '');
       }))
       .pipe(gulp.dest(config.siteFolder));
   });

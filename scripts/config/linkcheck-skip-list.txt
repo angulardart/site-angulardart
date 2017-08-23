@@ -13,6 +13,9 @@
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
 
+# Temporary until we've adopted the unified API reference:
+/*/api
+
 # angular.io is now an Angular app; the link checker has difficulty seeing anchors
 # (probably because the page hasn't been fully generated yet), so skip such links:
 https://angular.io/[^#]*#

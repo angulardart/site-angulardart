@@ -70,10 +70,15 @@ $form: '.form';
 */
 
 $form-select-width: 200px;
+$form-select-wide-width: 240px;
 
 #{$form}-select-menu {
   position: relative;
   width: $form-select-width;
+
+  &.wide {
+    width: $form-select-wide-width;
+  }
 
   .overlay {
     display: none;
@@ -97,12 +102,16 @@ $form-select-width: 200px;
     outline: none;
     padding: 0 ($unit * 2);
     text-align: left;
-    width: $form-select-width - ($unit * 2);
+    width: $form-select-width; /* - ($unit * 2) */
 
     strong {
       font-weight: 600;
       margin-right: $unit;
       text-transform: uppercase;
+    }
+
+    &.wide {
+      width: $form-select-wide-width;
     }
 
     &.has-symbol {
@@ -123,8 +132,12 @@ $form-select-width: 200px;
     padding: $unit 0;
     position: absolute;
     top: -$unit;
-    width: 200px;
+    width: $form-select-width;
     z-index: $layer-2;
+
+    &.wide {
+      width: $form-select-wide-width;
+    }
 
     &.visible {
       display: block;

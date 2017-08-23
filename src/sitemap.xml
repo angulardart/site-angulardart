@@ -24,24 +24,16 @@ for page in site[colName] %}{% unless page.sitemap == false %}
 endunless %}{%
 endfor %}{%
 endfor %}{%
-for lib in site.data.ng-api-list %}{% comment %}
-  lib[0] is the key (library name)
-  lib[1] is the array of entries for the library
+for pkgLib in site.data.api-list %}{% comment %}
+  pkgLib[0] is the key (package/library name)
+  pkgLib[1] is the array of entries for the library
   {% endcomment %}{%
-for page in lib[1] %}
+for page in pkgLib[1] %}
 <url>
-  <loc>{{ site.url | append: '/angular/api/' | append: page.path | regex_replace: '(/|\.html)$' }}</loc>
+  <loc>{{ site.url | append: '/api/' | append: page.path | regex_replace: '(/|\.html)$' }}</loc>
   <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
   <changefreq>monthly</changefreq>
 </url>{%
 endfor %}{%
-endfor %}{%
-for page in site.data.acx-api-list %}{% if page.type == 'library' or page.type == 'class' %}
-<url>
-  <loc>{{ site.url | append: '/components/api/' | append: page.href | regex_replace: '(/|\.html)$' }}</loc>
-  <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-  <changefreq>monthly</changefreq>
-</url>{%
-endif %}{%
 endfor %}
 </urlset>

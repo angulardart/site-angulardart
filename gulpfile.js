@@ -53,7 +53,8 @@ const angulario = path.resolve('../angular.io');
 
 const isSilent = !!argv.silent;
 if (isSilent) gutil.log = gutil.noop;
-const _logLevel = argv.log || (isSilent ? 'error' : 'warn');
+// Use --log-at=LEVEL to avoid conflict with the gulp --log-level flag.
+const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 
 const ngDocSrc = path.join('src', 'angular');
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
@@ -82,6 +83,7 @@ const config = {
   siteFolder: siteFolder,
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
   TOOLS_PATH: TOOLS_PATH,
+  unifiedApiPath: path.join(siteFolder, 'api'),
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
 
@@ -149,8 +151,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
   'build-api-list-json', 'finalize-api-docs', 'add-examples-to-site'], cb => {
     // Make API lists available for the sitemap generation:
-    child_process.execSync(`cp src/angular/api/api-list.json src/_data/ng-api-list.json`);
-    child_process.execSync(`cp ${config.repoPath.acx}/doc/api/index.json src/_data/acx-api-list.json`);
+    child_process.execSync(`cp src/api/api-list.json src/_data/api-list.json`);
     return execp(`jekyll build`);
   });
 

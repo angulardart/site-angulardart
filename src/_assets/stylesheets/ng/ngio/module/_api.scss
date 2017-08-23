@@ -13,10 +13,14 @@
 .api-filter {
   .form-select-menu {
     float: left;
+    padding-top: $unit / 4;
+    margin-right: $unit / 4;
   }
 
   .form-search {
     float: left;
+    padding-top: $unit / 4;
+    margin-right: $unit / 4;
   }
 }
 

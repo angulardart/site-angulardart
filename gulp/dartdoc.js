@@ -42,7 +42,7 @@ module.exports = function (gulp, plugins, config) {
 
       // Task: _dartdoc-* is like the 'dartdoc' task but builds the docs even if --fast is used
       // (but --fast will still skip copying boilerplate files)
-      gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], cb => _dartdoc(p));
+      gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], () => _dartdoc(p));
 
       gulp.task(`_dartdoc-clean-${p}`, ['_clean'], () => _cleanIfArgSet(p));
     } else {

@@ -44,11 +44,11 @@ module.exports = function preprocessDartDocData(log) {
           if (type === 'top-level property') type = 'var';
 
           let libName;
-          e.enclosedByQualifiedName = path.dirname(e.href);
+          e.enclosedByQualifiedName = path.dirname(e.href).replace(/^dart-/, 'dart:');
           if (e.enclosedBy && e.enclosedBy.type === 'library') {
             e.kind = 'entry-dart-api';
             libName = e.enclosedBy.name;
-            assert.equal(libName, e.enclosedByQualifiedName, e.kind);
+            assert.equal(libName, e.enclosedByQualifiedName, `${libName} != ${e.enclosedByQualifiedName} for ${e.kind}`);
           } else if (e.origDartDocType === 'library') {
             e.kind = 'library-dart-api';
             libName = e.name;

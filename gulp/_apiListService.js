@@ -34,7 +34,7 @@ module.exports = function apiListService(log) {
         if (e.kind.startsWith('entry')) {
           // Store library entry info in lib map.
           key = e.libName;
-          assert.equal(key, e.enclosedByQualifiedName, e);
+          assert.equal(key, e.enclosedByQualifiedName, `${key} != ${e.enclosedByQualifiedName}`);
           _set(libToEntryMap, key, e);
         } else if (e.enclosedBy) {
           assert.notEqual(e.type, 'library');

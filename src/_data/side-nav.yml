@@ -80,8 +80,6 @@
     permalink: /angular/glossary
   - title: Cheat Sheet
     permalink: /angular/cheatsheet
-  - title: API Reference
-    permalink: /angular/api
 
 - title: Angular&nbsp;Dart Components
   children:
@@ -92,11 +90,13 @@
     permalink: https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/
   - title: Example
     permalink: https://dart-lang.github.io/angular_components_example/
-  - title: API Reference
-    permalink: /components/api
 
 - title: "Resources"
   children:
+  - title: API Reference
+    permalink: /api
+  - title: Changelog
+    permalink: /angular/changelog
   - title: "Codelabs"
     permalink: /codelabs
   - title: "Tutorials"
