@@ -17,7 +17,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('build-api-list-json', ['dartdoc', '_get-sdk-doc-index-json'], () => buildApiListJson());
 
-  gulp.task('_get-sdk-doc-index-json', () =>
+  gulp.task('_get-sdk-doc-index-json', ['_clean'], () =>
     plugins.child_process.exec(`curl https://api.dartlang.org/stable/1.24.2/index.json -o ${config.LOCAL_TMP}/index.json`)
   );
 

@@ -5,16 +5,11 @@
 # -----------------------
 
 # API search parameter links
-/angular/api/#!\?query=
-
-# We don't serve the dartdoc generated index.html; so the anchor to libraries isn't valid
-/angular/api/index(.html)?#libraries$
+/api/#!\?query=
+/api/#!\?package=
 
 # KNOWN ISSUES (to be investigated and/or resolved soon)
 # ------------
-
-# Temporary until we've adopted the unified API reference:
-/*/api
 
 # angular.io is now an Angular app; the link checker has difficulty seeing anchors
 # (probably because the page hasn't been fully generated yet), so skip such links:
@@ -28,9 +23,5 @@ http://angular-examples.github.io/[^/]+/?#
 http://caniuse.com/#
 https://groups.google.com/a/dartlang.org/forum/#
 
-# Dartdoc related
-/angular/api/static-assets/fonts
-/components/api/static-assets/fonts
-/components/api/angular_components/ActivateItemOnKeyPressMixin/(handleBackspaceKey|handleDeleteKey|handleEndKey|handleHomeKey|onKeyDown|onKeyPress|onKeyUp|isRtl)
 # Link placeholders
 \#link-TBD

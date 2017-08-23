@@ -166,7 +166,7 @@ Before you can use Angular directives (like `ngModel`) in a template,
 you need to list them in the `directives` argument of your component's
 `@Component` annotation. Although you can list directives individually,
 it is more convenient to include all common directives in one go using
-the [COMMON_DIRECTIVES](/angular/api/angular2/COMMON_DIRECTIVES-constant)
+the [COMMON_DIRECTIVES](/api/angular2/angular2/COMMON_DIRECTIVES-constant)
 list:
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
@@ -190,7 +190,7 @@ Take stock of what you've built.
 * You wrote a multi-line template using Dart's template strings to make the template readable.
 * You added a two-way data binding to the `<input>` element
   using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
-* You added [COMMON_DIRECTIVES](/angular/api/angular2/COMMON_DIRECTIVES-constant)
+* You added [COMMON_DIRECTIVES](/api/angular2/angular2/COMMON_DIRECTIVES-constant)
   to the `directives` argument of the app's `@Component` annotation so that Angular knows
   where `ngModel` is defined.
 

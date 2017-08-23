@@ -184,7 +184,7 @@ TODO: include code-tabs and show the PO?
 ## Which routing components can I test?
 
 You can test _any_ routing component, **except the application root** (usually `AppComponent`).
-This is because there is a circular dependency between the router 
+This is because there is a circular dependency between the router
 associated with the application root, and the application root instance itself.
 
 In the context of a real application, the
@@ -195,11 +195,11 @@ When the app root is a routing component, it is often only an [application shell
 delegating most of the work to other components. In such a case, it is these other components
 which will be the most useful test subjects.
 
-[APP_BASE_HREF]: /angular/api/angular2.platform.common/APP_BASE_HREF-constant
+[APP_BASE_HREF]: /api/angular2/angular2.platform.common/APP_BASE_HREF-constant
 [Mockito.when()]: https://www.dartdocs.org/documentation/mockito/2.0.2/mockito/when.html
-[PlatformLocation]: /angular/api/angular2.platform.common/PlatformLocation-class
-[ROUTER_PRIMARY_COMPONENT]: /angular/api/angular2.router/ROUTER_PRIMARY_COMPONENT-constant
-[ROUTER_PROVIDERS]: /angular/api/angular2.router/ROUTER_PROVIDERS-constant
+[PlatformLocation]: /api/angular2/angular2.platform.common/PlatformLocation-class
+[ROUTER_PRIMARY_COMPONENT]: /api/angular2/angular2.router/ROUTER_PRIMARY_COMPONENT-constant
+[ROUTER_PROVIDERS]: /api/angular2/angular2.router/ROUTER_PROVIDERS-constant
 [application shell]: /angular/tutorial/toh-pt5#create-appcomponent
 [bootstrapping]: /angular/guide/architecture#dependency-injection
 [dashboard]: /angular/tutorial/toh-pt5#add-heroes-to-the-dashboard

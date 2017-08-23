@@ -395,7 +395,7 @@ confirms that all of our changes are reflected in the model.
 A form isn't just about data binding. We'd also like to know the state of the controls in our form.
 Each control in an Angular form tracks its own state and makes it available for inspection
 through the following field members, as documented in the
-[NgControl](/angular/api/angular2/NgControl-class.html) API:
+[NgControl](/api/angular2/angular2/NgControl-class.html) API:
 
 - `dirty` / `pristine` indicate whether the control's **value has changed**
 - `touched` / `untouched` indicate whether the control has been **visited**
@@ -416,7 +416,7 @@ For our demo, we'll use the following CSS classes:
 
 <div class="l-sub-section" markdown="1">
   These are the CSS classes used by the now deprecated
-  [NgControlStatus](/angular/api/angular2/NgControlStatus-class.html) class.
+  [NgControlStatus](/api/angular2/angular2/NgControlStatus-class.html) class.
   We'll be using them in our demo. **Feel free to use these or other CSS classes.**
 </div>
 
@@ -458,13 +458,13 @@ to the _Name_ `<input>` tag and use it to display the input's CSS classes.
 <div class="l-sub-section" markdown="1">
   The `spy` [template reference variable](./template-syntax.html#ref-vars) gets bound to the
   `<input>` DOM element, whereas the `name` variable (through the `#name="ngForm"` syntax)
-  gets bound to the [NgModel](/angular/api/angular2/NgModel-class.html)
+  gets bound to the [NgModel](/api/angular2/angular2/NgModel-class.html)
   associated with the input element.
 
-  Why "ngForm"?  A [Directive](/angular/api/angular2.core/Directive-class)'s
-  [exportAs](/angular/api/angular2.core/Directive/exportAs) property tells Angular
+  Why "ngForm"?  A [Directive](/api/angular2/angular2.core/Directive-class)'s
+  [exportAs](/api/angular2/angular2.core/Directive/exportAs) property tells Angular
   how to link the reference variable to the directive. We set `name` to "ngForm"
-  because the [ngModel](/angular/api/angular2/NgModel-class.html)
+  because the [ngModel](/api/angular2/angular2/NgModel-class.html)
   directive's `exportAs` property is "ngForm".
 </div>
 
@@ -647,7 +647,7 @@ The variable `heroForm` is now a reference to the `NgForm` directive that govern
 ### The _NgForm_ directive
 
   What `NgForm` directive?
-  We didn't add an [NgForm](/angular/api/angular2/NgForm-class) directive!
+  We didn't add an [NgForm](/api/angular2/angular2/NgForm-class) directive!
 
   Angular did. Angular creates and attaches an `NgForm` directive to the `<form>` tag automatically.
 

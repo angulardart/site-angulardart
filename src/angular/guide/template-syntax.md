@@ -616,8 +616,8 @@ You can't bind to a property of the target element to _read_ it. You can only _s
   If you must read a target element property or call one of its methods,
   you'll need a different technique.
   See the API reference for
-  [ViewChild](/angular/api/angular2.core/ViewChild-class.html) and
-  [ContentChild](/angular/api/angular2.core/ContentChild-class.html).
+  [ViewChild](/api/angular2/angular2.core/ViewChild-class.html) and
+  [ContentChild](/api/angular2/angular2.core/ContentChild-class.html).
 </div>
 
 ### Binding target
@@ -1479,7 +1479,7 @@ That `ngModel` directive hides these onerous details behind its own  `ngModel` i
   listens for changes to the element's value.
 
   The details are specific to each kind of element and therefore the `NgModel` directive only works for an element
-  supported by a [ControlValueAccessor](/angular/api/angular2/ControlValueAccessor-class.html)
+  supported by a [ControlValueAccessor](/api/angular2/angular2/ControlValueAccessor-class.html)
   that adapts an element to this protocol.
   The `<input>` box is one of those elements.
   Angular provides *value accessors* for all of the basic HTML form elements and the
@@ -1736,7 +1736,7 @@ The next example captures the `index` in a variable named `i` and displays it wi
 
 <div class="l-sub-section" markdown="1">
   Learn about the other `NgFor` context values such as `last`, `even`,
-  and `odd` in the [NgFor API reference](/angular/api/angular2/NgFor-class.html).
+  and `odd` in the [NgFor API reference](/api/angular2/angular2/NgFor-class.html).
 </div>
 
 <div id="trackBy"></div>
@@ -1900,7 +1900,7 @@ A template reference variable, `heroForm`, appears three times in this example, 
 by a large amount of HTML.
 What is the value of `heroForm`?
 The `heroForm` is a reference to an Angular
-[NgForm](/angular/api/angular2/NgForm-class.html "API: NgForm")
+[NgForm](/api/angular2/angular2/NgForm-class.html "API: NgForm")
 directive with the ability to track the value and validity of every control in the form.
 
 The native `<form>` element doesn't have a `form` property.

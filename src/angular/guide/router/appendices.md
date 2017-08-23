@@ -79,7 +79,7 @@ Parse it out:
 * The default child route is `Crises`, which has path `/`.
 * The resulting path is `/crisis-center/`.
 
-Take it a step further. Consider the following router link that 
+Take it a step further. Consider the following router link that
 navigates from the root of the application down to the *Dragon Crisis*:
 
 <?code-excerpt "lib/app_component_4.dart (dragon-crisis)"?>
@@ -176,7 +176,7 @@ resort to hash routes.
 
 ### HTML 5 URLs and the  *&lt;base href>*
 
-While the router uses the 
+While the router uses the
 [HTML 5 pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)
 style by default, you *must* configure that strategy with a **base href**
 
@@ -211,4 +211,4 @@ Those developers may still use HTML 5 URLs by taking two remedial steps:
 1. Provide the router with an appropriate [APP_BASE_HREF][] value.
 1. Use _root URLs_ for all web resources: css, images, scripts, and template html files.
 
-[APP_BASE_HREF]: /angular/api/angular2.platform.common/APP_BASE_HREF-constant.html
+[APP_BASE_HREF]: /api/angular2/angular2.platform.common/APP_BASE_HREF-constant.html

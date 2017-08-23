@@ -49,7 +49,7 @@ a collection of pages devoted to that theme.
   </td>
 </tr>
 <tr>
-  <td><b><a href="./api">API Reference</a></b></td>
+  <td><b><a href="/api">API Reference</a></b></td>
   <td markdown="1">
   Authoritative details about each of the Angular libraries.
   </td>
@@ -73,7 +73,7 @@ such as this <live-example name="architecture"></live-example> from the [Archite
 
 * The [Glossary](./glossary) defines terms that Angular developers should know.
 * The [Cheat Sheet](./cheatsheet) lists Angular syntax for common scenarios.
-* The [API Reference](./api) is the authority on every public-facing member of the Angular libraries.
+* The [API Reference](/api) is the authority on every public-facing member of the Angular libraries.
 
 ## Feedback
 

@@ -409,7 +409,7 @@ This example monitors the `OnChanges` hook.
 ```
 
 The `ngOnChanges` method takes an object that maps each changed property name to a
-[SimpleChange](/angular/api/angular2.core/SimpleChange-class.html) object holding the current and previous property values.
+[SimpleChange](/api/angular2/angular2.core/SimpleChange-class.html) object holding the current and previous property values.
 This hook iterates over the changed properties and logs them.
 
 The example component, `OnChangesComponent`, has two input properties: `hero` and `power`.
@@ -536,7 +536,7 @@ The `AfterViewComponent` displays this child view *within its template*:
 
 The following hooks take action based on changing values *within the child view*
 which can only be reached by querying for the child view via the property decorated with
-[@ViewChild](/angular/api/angular2.core/ViewChild-class.html).
+[@ViewChild](/api/angular2/angular2.core/ViewChild-class.html).
 
 <?code-excerpt "lib/src/after_view_component.dart (class excerpts)" region="hooks" title?>
 ```
@@ -680,7 +680,7 @@ projected into the component.
 
 The following *AfterContent* hooks take action based on changing values in a  *content child*
 which can only be reached by querying for it via the property decorated with
-[@ContentChild](/angular/api/angular2.core/ContentChild-class.html).
+[@ContentChild](/api/angular2/angular2.core/ContentChild-class.html).
 
 <?code-excerpt "lib/src/after_content_component.dart (class excerpts)" region="hooks" title?>
 ```

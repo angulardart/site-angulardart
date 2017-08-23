@@ -96,7 +96,7 @@ By convention, the name of the root component is `AppComponent`.
 
 Angular ships as a collection of libraries within the
 [**angular2**](https://pub.dartlang.org/packages/angular2) package.
-The main Angular library is [angular2](/angular/api), which most application modules import as follows:
+The main Angular library is [angular2](/api/#!?package=angular2), which most application modules import as follows:
 
 <?code-excerpt "lib/app_component.dart (import)" class="guide-architecture-fix-overflow"?>
 ```
@@ -104,8 +104,8 @@ The main Angular library is [angular2](/angular/api), which most application mod
 ```
 
 The angular2 package has other important libraries, such as
-[angular2.router](/angular/api/angular2.router/angular2.router-library) and
-[angular2.security](/angular/api/angular2.security/angular2.security-library).
+[angular2.router](/api/angular2/angular2.router/angular2.router-library) and
+[angular2.security](/api/angular2/angular2.security/angular2.security-library).
 
 <div class="l-hr"></div>
 

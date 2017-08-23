@@ -649,7 +649,7 @@ using the `Location` service you injected previously.
 <div class="l-sub-section" markdown="1">
   Going back too far could take users out of the app.
   In a real app, you can prevent this issue with the _routerCanDeactivate()_ hook.
-  Read more on the [CanDeactivate](/angular/api/angular2.router/CanDeactivate-class) page.
+  Read more on the [CanDeactivate](/api/angular2/angular2.router/CanDeactivate-class) page.
 </div>
 
 You'll wire this method with an event binding to a *Back* button that you'll add to the component template.

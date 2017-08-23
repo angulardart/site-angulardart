@@ -74,7 +74,7 @@ unexpected definitions.
 
   You can bootstrap multiple apps in the same `index.html`, each app with its own top-level root.
 
-  [bootstrap]: /angular/api/angular2.platform.browser/bootstrap.html
+  [bootstrap]: /api/angular2/angular2.platform.browser/bootstrap.html
 </div>
 
 <div class="l-main-section"><a id="C"></a></div>

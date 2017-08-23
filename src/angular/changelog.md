@@ -91,9 +91,9 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:
-    [.../angular2/NgFor-class](/angular/api/angular2/NgFor-class)
+    [.../angular2/NgFor-class](/api/angular2/angular2/NgFor-class)
     &rarr;
-    [.../angular/NgFor-class](https://webdev-dartlang-org-dev.firebaseapp.com/angular/api/angular/NgFor-class)
+    [.../angular/NgFor-class](https://webdev-dartlang-org-dev.firebaseapp.com/api/angular/angular/NgFor-class)
   * `angular2` &rarr; `angular_forms` for forms API elements, such as `formDirectives`
   * `angular2` &rarr; `angular_router` for router API elements, such as `Route`
 
@@ -115,7 +115,7 @@ and added import information for each library.
 
 * `angular2.common` &rarr; `angular2` <br>
   Example: .../angular2.common/NgFor-class &rarr; .../angular2/NgFor-class
-* [The AngularDart API doc homepage](/angular/api)
+* [The AngularDart API doc homepage](/api/#!?package=angular2)
   now shows an `import` statement next to each library's heading.
 
 

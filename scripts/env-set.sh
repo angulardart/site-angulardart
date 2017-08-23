@@ -20,14 +20,10 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     fi
     rvm use 2.3
 
-    : ${NGIO_REPO:=../angular.io}
-    export NGIO_REPO
-    : ${NG_REPO:=../angular2}
-    export NG_REPO
-    : ${NGDOCEX:=examples/ng/doc}
-    export NGDOCEX
-    : ${ACX_REPO:=../angular_components}
-    export ACX_REPO
+    export NGIO_REPO=../angular.io
+    export NG_REPO=../angular2
+    export NGDOCEX=examples/ng/doc
+    export ACX_REPO=../angular_components
 
     if [ ! $(type -t travis_fold) ]; then
         # In case this is being run locally. Turn travis_fold into a noop.

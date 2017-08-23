@@ -13,7 +13,7 @@
   Bootstraps the app, using `AppComponent` as the root component.
 
   See: [Architecture Overview](/angular/guide/architecture),
-  [bootstrap function](/angular/api/angular2.platform.browser/bootstrap)
+  [bootstrap function](/api/angular2/angular2.platform.browser/bootstrap)
   </td>
 </tr>
 </table>

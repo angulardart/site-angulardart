@@ -58,7 +58,7 @@ Focus on the component's template.
 ```
 
 Inside the interpolation expression, you flow the component's `birthday` value through the
-[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/angular/api/angular2/DatePipe-class.html)
+[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/api/angular2/angular2/DatePipe-class.html)
 function on the right. All pipes work this way.
 
 <div class="l-sub-section" markdown="1">
@@ -78,8 +78,8 @@ Angular comes with a stock of pipes such as
 They are all available for use in any template.
 
 <div class="l-sub-section" markdown="1">
-  Read more about these and many other built-in pipes in the [pipes topics](../api/#!?query=pipe) of the
-  [API Reference](../api); filter for entries that include the word "pipe".
+  Read more about these and many other built-in pipes in the [pipes topics](/api/#!?query=pipe) of the
+  [API Reference](/api); filter for entries that include the word "pipe".
 
   Angular doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in the [Appendix](#no-filter-pipe) of this page.
 </div>
@@ -142,7 +142,7 @@ As you click the button, the displayed date alternates between
 
 
 <div class="l-sub-section" markdown="1">
-  Read more about the `DatePipe` format options in the [Date Pipe](/angular/api/angular2/DatePipe-class.html)
+  Read more about the `DatePipe` format options in the [Date Pipe](/api/angular2/angular2/DatePipe-class.html)
   API Reference page.
 </div>
 
@@ -622,7 +622,7 @@ It displays the same hero data in JSON format by chaining through to the built-i
 
 <div class="callout is-helpful" markdown="1">
   <header> Debugging with the json pipe</header>
-  The [JsonPipe](/angular/api/angular2/JsonPipe-class.html)
+  The [JsonPipe](/api/angular2/angular2/JsonPipe-class.html)
   provides an easy way to diagnosis a mysteriously failing data binding or
   inspect an object for future binding.
 </div>
@@ -649,7 +649,7 @@ transformations. Use them like styles, dropping them
 into your template's expressions to enrich the appeal and usability
 of your views.
 
-Explore Angular's inventory of built-in pipes in the [API Reference](../api/#!?query=pipe).
+Explore Angular's inventory of built-in pipes in the [API Reference](/api/#!?query=pipe).
 Try writing a custom pipe and perhaps contributing it to the community.
 
 <div id="no-filter-pipe"></div>
