@@ -1,6 +1,6 @@
+{% if site.data.ng-pkg-vers.angular.vers contains "alpha" or site.data.ng-pkg-vers.angular.vers contains "beta" %}
 <div class="banner">
   <p class="banner__text">
-    {% if site.data.ng-pkg-vers.angular.vers contains "alpha" or site.data.ng-pkg-vers.angular.vers contains "beta" %}
     <div class="alert alert-warning">
       <strong>
         WARNING: This is a PREVIEW release of
@@ -11,10 +11,6 @@
         <a href="/angular/version">Angular {{site.data.ng-pkg-vers.angular.vers}}</a>.
       </strong>
     </div>
-    {% else %}
-    <a target="_blank" rel="noopener"
-        href="https://www.youtube.com/playlist?list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2">Watch
-      the videos for Dart Developer Summit 2016.</a>
-    {% endif %}
   </p>
 </div>
+{% endif %}
