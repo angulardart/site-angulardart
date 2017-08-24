@@ -26,10 +26,10 @@ We recommend that you also get **WebStorm**.
 ## Create a starter project  {#create}
 
 The examples in this guide and tutorial are based on the
-[angular-examples/quickstart](https://github.com/angular-examples/quickstart)
+[angular-examples/quickstart]({{site.ghNgEx}}/quickstart/tree/{{site.branch}})
 GitHub project.
 You can get the project's files by
-[downloading them](https://github.com/angular-examples/quickstart/archive/master.zip)
+[downloading them]({{site.ghNgEx}}/quickstart/archive/{{site.branch}}.zip)
 or cloning the repo.
 
 Or use WebStorm's Git support:
@@ -41,11 +41,17 @@ Or use WebStorm's Git support:
    Alternatively, choose **VCS > Git > Clone...** from the menu.<br>
    A **Clone Repository** dialog appears.
 1. Fill out the fields:<a id="directory-name"></a>
-   * **Git Repository URL:** `https://github.com/angular-examples/quickstart`
+   * **Git Repository URL:** `{{site.ghNgEx}}/quickstart`
    * **Parent Directory:** _(wherever you like to keep your practice code)_
    * **Directory Name:** `angular_tour_of_heroes` _(or any other
    [valid package name]({{site.dartlang}}/tools/pub/pubspec#name))_
 1. Click **Clone**.
+{%- if site.branch != 'master' %}
+1. After the project opens, choose **VCS > Git > Branches...** from the menu.<br>
+   A **Git Branches** popup appears.
+1. From the popup, under **Remote Branches** choose<br>
+   **origin/{{site.branch}} > Checkout as new local branch**.
+{% endif %}
 
 ## Get dependencies  {#get}
 

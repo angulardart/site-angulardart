@@ -71,6 +71,7 @@ const config = {
     dirName: path.basename(fragsPath),
     path: fragsPath,
   },
+  ghNgEx: 'https://github.com/angular-examples', // should match _config.yml value
   LOCAL_TMP: LOCAL_TMP,
   ngDocSrc: ngDocSrc,
   ngPkgVers: ngPkgVers,

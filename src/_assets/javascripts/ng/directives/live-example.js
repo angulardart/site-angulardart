@@ -51,7 +51,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
   function a(text, attrs) {
     var attr = (attrs.href ? ' href="' + attrs.href + '"' : '') +
       (attrs.target ? ' target="' + attrs.target + '"' : '');
-    return '<a' + attr +  '>' + text + '</a>';
+    return '<a' + attr + '>' + text + '</a>';
   }
 
   function getExampleName($location) {
@@ -69,10 +69,10 @@ angularIO.directive('liveExample', ['$location', function ($location) {
 
   function embeddedTemplate(src, img, zipHref) {
     return '<div ng-if="embeddedShow">' +
-        '<iframe frameborder="0" width="100%" height="100%" src="' + src + '"></iframe>' +
+      '<iframe frameborder="0" width="100%" height="100%" src="' + src + '"></iframe>' +
       '</div>' +
       '<img ng-click="toggleEmbedded()" ng-if="!embeddedShow" src="' + img + '" alt="plunker">' +
-      '<p>You can also <a href="' + zipHref +'">download this example.</p>';
+      '<p>You can also <a href="' + zipHref + '">download this example.</p>';
   }
 
   return {
@@ -89,7 +89,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
       var embeddedStyle = embedded || attrs.hasOwnProperty('embeddedstyle') || attrs.hasOwnProperty('embeddedStyle');
       var plnkr = (embeddedStyle || !flatStyle) ? 'eplnkr' : 'plnkr';
       var zipHref = ex;
-      var imageBase  = '/resources/images/';
+      var imageBase = '/resources/images/';
       var defaultImg = 'plunker/placeholder.png';
 
       if (attrs.plnkr) {
@@ -123,7 +123,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
         // Also show link to sources for Dart, unless noSource is specified.
         if (isForDart && !attrs.hasOwnProperty('nosource')) {
           var srcText = attrs.srcText || 'view source';
-          var srcHref = 'http://github.com/angular-examples/' + ex;
+          var srcHref = '{{ site.ghNgEx }}/' + ex + '/tree/{{site.branch}}';
           template = span(template + ' (' + a(srcText, { href: srcHref, target: '_blank" rel="noopener' }) + ')');
         }
       }
@@ -133,7 +133,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
 
       // RETURN ELEMENT
       return function (scope, element, attrs) {
-        scope.toggleEmbedded = function() {
+        scope.toggleEmbedded = function () {
           scope.embeddedShow = !scope.embeddedShow;
         }
       };

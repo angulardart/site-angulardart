@@ -533,7 +533,7 @@ Wikipedia offers a modern `CORS` API and a legacy `JSONP` search API.
 <div class="alert is-important" markdown="1">
   The remaining content of this section is coming soon.
   In the meantime, consult the
-  [example sources](https://github.com/angular-examples/server-communication)
+  [example sources]({{site.ghNgEx}}/server-communication/tree/{{site.branch}})
   to see how to access Wikipedia via its `JSONP` API.
 </div>
 

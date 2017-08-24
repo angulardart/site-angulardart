@@ -18,9 +18,12 @@ Run the <live-example></live-example> to see the app.
 Let's get started.
 Create a project named `angular_tour_of_heroes`,
 using WebStorm or the command line
-and the [angular-examples/quickstart](https://github.com/angular-examples/quickstart)
-GitHub project.
-For detailed instructions, see 
+and the [angular-examples/quickstart]({{site.ghNgEx}}/quickstart/tree/{{site.branch}})
+GitHub project
+{%- if site.branch != 'master' %}
+(`{{site.branch}}` branch)
+{%- endif %}.
+For detailed instructions, see
 [Create a starter project](/angular/guide/setup#create-a-starter-project)
 from the [Setup for Development](/angular/guide/setup) page.
 
@@ -28,7 +31,7 @@ from the [Setup for Development](/angular/guide/setup) page.
 
 Run the app from your IDE or the command line,
 as explained in the
-[Run the app](/angular/guide/setup#run-the-app) section of the 
+[Run the app](/angular/guide/setup#run-the-app) section of the
 [Setup for Development](/angular/guide/setup) page.
 
 You'll be making changes to the app throughout this tutorial.

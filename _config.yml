@@ -5,6 +5,7 @@ url: https://webdev.dartlang.org
 dev-url: https://webdev-dartlang-org-dev.firebaseapp.com
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
+branch: master
 
 # Global variables
 # use case:
@@ -23,6 +24,10 @@ acx_api: "/api/angular_components"
 flutter_api: "http://docs.flutter.io"
 dartino_api: "https://dartino.github.io/api"
 api: "https://www.dartdocs.org/documentation"
+
+# ghNgEx should match value in gulpfile.js.
+ghNgEx: https://github.com/angular-examples
+# ghNgExBranch: --> use site.branch since branches should match across repos.
 
 collections:
   articles:

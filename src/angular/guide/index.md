@@ -58,8 +58,10 @@ a collection of pages devoted to that theme.
 
 A few early pages are written as tutorials and are clearly marked as such.
 The rest of the pages highlight key points in code rather than explain each step necessary to build the sample.
-You can always get the full source through the
-[sample repos](https://github.com/angular-examples).
+You can always get the full source through the [sample repos]({{site.ghNgEx}})
+{%- if site.branch != 'master' %}
+(`{{site.branch}}` branch)
+{%- endif %}.
 
 ## Code samples
 

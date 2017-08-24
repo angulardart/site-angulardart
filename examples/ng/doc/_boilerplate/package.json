@@ -1,5 +1,5 @@
 {
-  "name": "angular-examples",
+  "name": "examples-boilerplate",
   "version": "1.0.0",
   "private": true,
   "description": "Example package.json, only contains needed scripts for examples. See _examples/package.json for master package.json.",

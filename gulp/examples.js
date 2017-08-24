@@ -35,7 +35,7 @@ module.exports = function (gulp, plugins, config) {
       const exPath = path.join(tmpReposPath, EXAMPLES_PATH, name)
       if (fs.existsSync(exPath)) {
       } else {
-        const repo = `https://github.com/angular-examples/${name}.git`;
+        const repo = `${config.ghNgEx}/${name}.git`;
         const clone = `git clone --depth 1 --branch gh-pages ${repo} ${exPath}`;
         promises.push(execp(clone));
       }

@@ -66,7 +66,9 @@ A **Clone Repository** dialog appears.
 </li>
 
 <li markdown="1">Fill out the fields:
-   * **Git Repository URL:** <https://github.com/angular-examples/quickstart>
+   * **Git Repository URL:** <{{site.ghNgEx}}/quickstart>
+   {%- comment %}See setup.md for necessary additional instructions to be added
+   here if this codelab is updated {% endcomment %}
    * **Parent Directory:** _(wherever you like to keep your practice code)_
    * **Directory Name:** `pirate_badge` <br><br>
 </li>
@@ -110,8 +112,8 @@ mkdir pirate_badge
 
 </li>
 <li markdown="1">Clone or
-  [download](https://github.com/angular-examples/quickstart/archive/master.zip)
-  the [angular-examples/quickstart](https://github.com/angular-examples/quickstart)
+  [download]({{site.ghNgEx}}/quickstart/archive/{{site.branch}}.zip)
+  the [angular-examples/quickstart]({{site.ghNgEx}}/quickstart/tree/{{site.branch}})
   repo into your new project's directory.
 </li>
 
