@@ -60,7 +60,9 @@ module.exports = function (gulp, plugins, config) {
   function mkVers(pkg) {
     let vers = ngPkgVers[pkg].vers;
     // ^ is meaningless when the major version number is 0; see http://semver.org/#spec-item-4
-    return vers[0] != '0' ? `^${vers}` : vers;
+    // Apparently pub interprets ^ even when the major vers is 0.
+    // return vers[0] != '0' ? `^${vers}` : vers;
+    return `^${vers}`;
   }
 
   // const depOvr = 'dependency_overrides:\n' +
