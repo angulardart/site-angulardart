@@ -41,7 +41,7 @@ using whatever [Dart web development tools](/tools) you prefer.
 
 {% prettify yaml %}
 dependencies:
-  angular2: ^3.0.0
+  angular2: ^3.1.0
   [[highlight]]angular_components: ^0.5.0[[/highlight]]
   intl: ^0.14.0
 {% endprettify %}
@@ -100,7 +100,7 @@ That change is barely noticeable. Let’s make a bigger difference by adding ima
 
 ## <i class="fa fa-money"> </i> Use glyph in buttons
 
-Using \<glyph> 
+Using \<glyph>
 ([GlyphComponent]({{site.acx_api}}/angular_components/GlyphComponent-class.html))
 is similar to using \<material-progress>,
 except that you also need

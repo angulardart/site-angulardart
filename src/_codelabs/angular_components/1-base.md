@@ -11,7 +11,6 @@ header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---
 
-
 In this step, you’ll download the code for the app, and you’ll familiarize yourself with both the app and the components you’ll be adding to it.
 
 
@@ -19,15 +18,19 @@ In this step, you’ll download the code for the app, and you’ll familiarize y
 
 Download the app’s code from the
 [dart-lang/one-hour-codelab](https://github.com/dart-lang/one-hour-codelab)
-GitHub repo. **Choose one:**
+GitHub repo
+{%- if site.branch != 'master' %}
+(`{{site.branch}}` branch)
+{%- endif %}.
+**Choose one:**
 
 <ul markdown="1">
 
 <li markdown="1">
   Download the ZIP file,
-  [one-hour-codelab-master.zip](https://github.com/dart-lang/one-hour-codelab/archive/master.zip).
+  [one-hour-codelab-{{site.branch}}.zip](https://github.com/dart-lang/one-hour-codelab/archive/{{site.branch}}.zip).
   Unzip the ZIP file, which creates a directory called
-  `one-hour-codelab-master`.
+  `one-hour-codelab-{{site.branch}}`.
 </li>
 
 <li>
@@ -42,7 +45,7 @@ git clone https://github.com/dart-lang/one-hour-codelab.git
 </ul>
 
 All the code for this codelab is under the **`angular_components`**
-directory of `one-hour-codelab` or `one-hour-codelab-master`.
+directory of `one-hour-codelab` or `one-hour-codelab-{{site.branch}}`.
 
 
 ## <i class="fa fa-money"> </i> Get familiar with the base app
@@ -66,7 +69,8 @@ pub get
 <li markdown="1">
 Use the tools of your choice to run the base app.
 
-For example, you could use `pub serve` and then visit `localhost:8080` in any modern web browser. Or you could use WebStorm to run the app in Dartium.
+For example, you could use `pub serve` and then visit [localhost:8080](http://localhost:8080){: .no-automatic-external}
+in any modern web browser. Or you could use WebStorm to run the app in Dartium.
 </li>
 
 {% include dartium-2.0.html %}

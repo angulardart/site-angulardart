@@ -27,7 +27,7 @@ To complete this codelab, you need the following:
 * A web connection and modern browser
 
 This codelab assumes that you are familiar with Dart web app development.
-If you aren’t, instead try one of the 
+If you aren’t, instead try one of the
 [other Dart web codelabs](/codelabs).
 Familiarity with AngularDart development isn't required but is helpful, since
 this codelab doesn't explain
@@ -36,7 +36,8 @@ this codelab doesn't explain
 In this codelab, you’ll take a basic AngularDart app, called Lottery Simulator,
 and use AngularDart Components to simplify the code and beautify the UI.
 You can play with a
-[live copy of the final app](https://filiph.github.io/components_codelab/).
+{% assign ng-major-vers = site.data.ng-pkg-vers.angular.vers | regex_replace: '\.[^\.]+\.[^\.]+$' -%}
+[live copy of the final app](http://dart-lang.github.io/one-hour-codelab/{{ng-major-vers}}/angular_components/4-final/).
 
 Here are screenshots of the app’s UI, before and after conversion to
 use AngularDart Components.
