@@ -13,6 +13,6 @@ travis_fold start check_links
 (set -x; ./scripts/check-links.sh)
 travis_fold end check_links
 
-travis_fold start check_code_excerpts
-(set -x; ./scripts/check-code-excerpts.sh)
-travis_fold end check_code_excerpts
+travis_fold start refresh_code_excerpts
+(set -x; ./scripts/refresh-code-excerpts.sh)
+travis_fold end refresh_code_excerpts

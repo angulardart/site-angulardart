@@ -32,7 +32,7 @@ FRAG="$webdevRepoDir/tmp/_fragments$API"
 echo "Source:     $SRC"
 echo "Fragments:  $FRAG"
 echo "Other args: $ARGS"
-LOG_FILE=$TMP/check-code-excerpts-log.txt
+LOG_FILE=$TMP/refresh-code-excerpts-log.txt
 pub global run code_excerpt_updater \
   --fragment-dir-path "$FRAG" \
   $ARGS \
