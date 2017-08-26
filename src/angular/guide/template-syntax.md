@@ -1379,7 +1379,7 @@ Adding an `ngClass` property binding to `currentClasses` sets the element's clas
 ```
 
 <div class="l-sub-section" markdown="1">
-  It's up to you to call `setCurrentClassess()`, both initially and when the dependent properties change.
+  It's up to you to call `setCurrentClasses()`, both initially and when the dependent properties change.
 </div>
 
 <a href="#contents">back to top</a>

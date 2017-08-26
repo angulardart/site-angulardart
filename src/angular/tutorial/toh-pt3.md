@@ -251,7 +251,7 @@ The revised `AppComponent` template should look like this:
 ```
 
 The detail _should_ update every time the user picks a new hero.  It's not
-happening yet!  Click a heroe. No details. If you look for an error in the
+happening yet!  Click a hero. No details. If you look for an error in the
 console of the browser development tools. No error.
 
 It is as if Angular were ignoring the new tag. That's because _it is

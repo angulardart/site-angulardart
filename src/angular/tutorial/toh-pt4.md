@@ -390,7 +390,7 @@ responding to a name selection with a detail view.
 
 An asynchronous method containing one or more `Future.then()` methods can be
 difficult to read and understand. Thankfully, Dart's `async`/`await`
-language feature, lets you write asynchronous code that looks just
+language feature lets you write asynchronous code that looks just
 like synchronous code. Rewrite `getHeroes()`:
 
 <?code-excerpt "lib/app_component.dart (revised async/await getHeroes)" region="getHeroes" title?>
