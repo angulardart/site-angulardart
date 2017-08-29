@@ -1,9 +1,7 @@
 - title: Angular&nbsp;Dart
+  permalink: /angular
+  urlExactMatch: true
   children:
-  - title: About
-    permalink: /angular
-    urlExactMatch: true
-
   - title: Guide
     permalink: /angular/guide
     sideNavGroup: basic
@@ -76,36 +74,33 @@
     - title: Testing
       permalink: /angular/guide/testing
 
-  - title: Glossary
-    permalink: /angular/glossary
-  - title: Cheat Sheet
-    permalink: /angular/cheatsheet
-
 - title: Angular&nbsp;Dart Components
+  permalink: /components
+  urlExactMatch: true
   children:
-  - title: About
-    permalink: /components
-    urlExactMatch: true
-  - title: Codelab
-    permalink: https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/
   - title: Example
     permalink: https://dart-lang.github.io/angular_components_example/
 
-- title: "Resources"
+- title: Reference
   children:
-  - title: API Reference
+  - title: API
     permalink: /api
   - title: Changelog
     permalink: /angular/changelog
-  - title: "Codelabs"
+  - title: Cheat Sheet
+    permalink: /angular/cheatsheet
+  - title: Glossary
+    permalink: /angular/glossary
+
+- title: Resources
+  children:
+  - title: Codelabs
     permalink: /codelabs
-  - title: "Tutorials"
-    permalink: /tutorials
-  - title: "Articles"
-    permalink: /articles
-  - title: "Web Libraries"
-    permalink: /guides/web-programming
-  - title: "Dart Tools for the Web"
-    permalink: /tools
-  - title: "Community and Support"
+  - title: Community and Support
     permalink: /community
+  - title: Libraries
+    permalink: /guides/web-programming
+  - title: Tools
+    permalink: /tools
+  - title: Tutorials
+    permalink: /tutorials

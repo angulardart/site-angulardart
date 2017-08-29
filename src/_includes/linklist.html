@@ -1,24 +1,36 @@
-{% for link in linklist  %}
-  <h4 {% if page.url contains link.permalink %}class="active"{% endif %}>
-    {{ link.title }}
+{%- comment %}Strip out any trailing '/', etc. for exact URL match.{% endcomment -%}
+{%- assign pageUrl = page.url | regex_replace: '/index$|/index.html$|/$' -%}
+{%- for link in linklist -%}
+  {%- assign isActive = false -%}
+  {%- if link.urlExactMatch and pageUrl == link.permalink -%}
+    {%- assign isActive = true -%}
+  {%- elsif link.urlExactMatch == nil and pageUrl contains link.permalink -%}
+    {%- assign isActive = true -%}
+  {%- endif -%}
+  <h4 {% if isActive %}class="active"{% endif %}>
+    {%- if link.permalink -%}
+      <a href="{{link.permalink}}" title="{{link.title}}">{{link.title}}</a>
+    {%- else -%}
+      {{ link.title }}
+    {%- endif -%}
   </h4>
   <ul>
-    {% for child in link.children %}
-      {% capture dropdown %}{{ child.children | size }}{% endcapture %}
-      {% if dropdown == '0' %}
-        {% capture startsWithChildLink %}^{{ child.permalink }}{% endcapture %}
-        {% capture url %}{{ page.url | regex_replace: '/index$|/index.html$|/$' }}{% endcapture %}
-        {% capture p %}{{ url | regex_replace: startsWithChildLink }}{% endcapture %}
-        {% assign isActive = false %}
-        {% if child.urlExactMatch and child.permalink == url %}
-          {% assign isActive = true %}
-        {% elsif child.urlExactMatch == nil and url != p %}
-          {% assign isActive = true %}
-        {% endif %}
+    {%- for child in link.children -%}
+      {%- capture dropdown %}{{ child.children | size }}{% endcapture -%}
+      {%- if dropdown == '0' -%}
+        {%- capture startsWithChildLink %}^{{ child.permalink }}{% endcapture -%}
+        {%- capture url %}{{ page.url | regex_replace: '/index$|/index.html$|/$' }}{% endcapture -%}
+        {%- capture p %}{{ pageUrl | regex_replace: startsWithChildLink }}{% endcapture -%}
+        {%- assign isActive = false -%}
+        {%- if child.urlExactMatch and child.permalink == url -%}
+          {%- assign isActive = true -%}
+        {%- elsif child.urlExactMatch == nil and url != p -%}
+          {%- assign isActive = true -%}
+        {%- endif -%}
         <li {% if isActive %}class="active"{% endif %}>
           <a href="{{ child.permalink }}" title="{{ child.title }}">{{ child.title }}</a>
         </li>
-      {% else %}
+      {%- else -%}
         {% assign isActive = false %}
         {% if page.sideNavGroup and page.sideNavGroup == child.sideNavGroup %}
           {% assign isActive = true %}
@@ -29,21 +41,19 @@
           <a href="{{ child.permalink }}" title="{{ child.title }}">{{ child.title }}</a>
           <i class="icon icon-arrow"></i>
           <ul>
-            {% comment %}Because this site uses exact URLs, we need to strip out any trailing /.{% endcomment %}
-            {% assign pageUrl = page.url | regex_replace: '/$' %}
-            {% for c in child.children %}
-              {% assign isActive = false %}
-              {% if c.urlExactMatch and pageUrl == c.permalink %}
-                {% assign isActive = true %}
-              {% elsif c.urlExactMatch == nil and pageUrl contains c.permalink %}
-                {% assign isActive = true %}
-              {% endif %}
+            {%- for c in child.children -%}
+              {%- assign isActive = false -%}
+              {%- if c.urlExactMatch and pageUrl == c.permalink -%}
+                {%- assign isActive = true -%}
+              {%- elsif c.urlExactMatch == nil and pageUrl contains c.permalink -%}
+                {%- assign isActive = true -%}
+              {%- endif -%}
               <li {% if isActive %}class="active"{% endif %}>
                 <a href="{{ c.permalink }}" title="{{ c.title }}">{{ c.title }}</a>
               </li>
-            {% endfor %}
+            {%- endfor %}
           </ul>
-      {% endif %}
-    {% endfor %}
+      {%- endif -%}
+    {%- endfor %}
   </ul>
-{% endfor %}
+{%- endfor -%}

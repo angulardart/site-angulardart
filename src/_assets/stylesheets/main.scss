@@ -123,7 +123,7 @@ input, select {
   color: $gray-dark;
   &:focus, &:active {
     outline-color: #fff;
-  } 
+  }
 }
 
 pre {
@@ -379,10 +379,25 @@ img {
       font-size: 18px;
       font-weight: normal;
       text-transform: uppercase;
-      a {
+      &.active {
+        font-weight: bold;
+      }
+      /*a {
         color: $gray-dark;
-        &:hover, &:focus, &:active {
-          color: $gray-dark;
+        &:hover {
+          color: $brand-secondary;
+        }
+        &:active {
+          color: darken($gray-light, 15%);
+        }
+      }*/
+      a {
+        color: $default-link;
+        &:hover {
+          color: $brand-secondary;
+        }
+        &:active {
+          color: darken($brand-secondary, 15%);
         }
       }
     }
@@ -942,7 +957,7 @@ ul.nav-list {
   list-style: none;
   padding: 0;
   li {
-    border-bottom: 1px solid $gray-light; 
+    border-bottom: 1px solid $gray-light;
     h2 {
       font-weight: 400;
       font-size: 20px;
@@ -1092,7 +1107,7 @@ body.error {
 
 // Page States
 body.hide_toc {
-  #page-content { 
+  #page-content {
     > article {
       width: calc(100vw - 300px);
     }
@@ -1168,7 +1183,7 @@ body.obsolete {
   }
 
   body.hide_toc {
-    #page-content { 
+    #page-content {
       > article {
         width: 100%;
       }
