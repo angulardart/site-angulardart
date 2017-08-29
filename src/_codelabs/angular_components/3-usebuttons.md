@@ -7,8 +7,6 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 In this step you’ll change many of the controls in the app,

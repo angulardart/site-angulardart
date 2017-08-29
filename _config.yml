@@ -64,11 +64,6 @@ defaults:
     # otherwise the old cached version will be used by Facebook, etc.
     image: /codelabs/angular_components/images/cartoon.jpeg?3
 - scope:
-    path: _codelabs/ng2
-    type: codelabs
-  values:
-    image: /codelabs/ng2/images/piratemap.jpg?3
-- scope:
     path: angular/guide/testing
   values:
     # layout: angular

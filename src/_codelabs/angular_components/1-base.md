@@ -7,8 +7,6 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components
   title: "Codelab: AngularDart Components"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 In this step, you’ll download the code for the app, and you’ll familiarize yourself with both the app and the components you’ll be adding to it.

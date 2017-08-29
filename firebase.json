@@ -15,7 +15,13 @@
       { "source": "/angular/api", "destination": "/api#!?package=angular2", "type": 301 },
       { "source": "/angular/api/**", "destination": "/api#!?package=angular2", "type": 301 },
       { "source": "/components/api", "destination": "/api#!?package=angular_components", "type": 301 },
-      { "source": "/components/api/**", "destination": "/api#!?package=angular_components", "type": 301 }
+      { "source": "/components/api/**", "destination": "/api#!?package=angular_components", "type": 301 },
+
+      { "source": "/codelabs/darrrt", "destination": "/codelabs", "type": 301 },
+      { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
+      { "source": "/codelabs/ng2", "destination": "/codelabs", "type": 301 },
+      { "source": "/codelabs/ng2/**", "destination": "/codelabs", "type": 301 }
+
     ],
     "rewrites": [
       { "source": "/examples/ng/doc/router/**", "destination": "/examples/ng/doc/router/index.html" },

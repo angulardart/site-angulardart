@@ -7,8 +7,6 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 In this step, you’ll change the app to use a few of the AngularDart Components:

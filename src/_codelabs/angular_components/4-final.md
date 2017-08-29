@@ -7,8 +7,6 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 In this final step, you’ll use expansion panels and tabs to hide

@@ -48,11 +48,8 @@ Here's what happens when you use `pub build` with the default settings:
   instead of `main.dart`.
 
 For more information, see the documentation for
-[pub build](/tools/pub/pub-build),
-search for **pubspec** in the
-[starter app discussion](/angular/tutorial/toh-pt0), and see the
-[pubspec.yaml section](/codelabs/ng2/1-skeleton#pubspecyaml)
-of the AngularDart codelab.
+[pub build](/tools/pub/pub-build), or search for **pubspec** in the
+[starter app discussion](/angular/tutorial/toh-pt0).
 
 
 ### Use dart2js flags to produce better JavaScript

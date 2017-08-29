@@ -252,9 +252,8 @@ it returns no value and takes an Event object as a parameter.
 Rather than implement your web app using low-level APIs, you can leverage
 existing toolkits.
 
-* We recommend Angular 2, an application framework designed for building
-  scalable web apps. You can start by following the
-  [Angular for Dart codelab](/codelabs/ng2).
+* We recommend [AngularDart](/angular), an application framework designed for building
+  scalable web apps.
 
 * Another package is Polymer Dart, which makes manipulating the DOM easier
   with data binding, templates, and declarative event handlers.

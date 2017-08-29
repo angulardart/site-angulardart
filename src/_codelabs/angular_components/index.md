@@ -6,8 +6,6 @@ permalink: /codelabs/angular_components
 nextpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 This codelab introduces you to a preview release of

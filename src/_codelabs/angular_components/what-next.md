@@ -4,8 +4,6 @@ description: "You've finished the AngularDart Components codelab! What next?"
 prevpage:
   url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
-header:
-  css: ["/codelabs/ng2/darrrt.css"]
 ---
 
 Here are some resources to help you use AngularDart Components.

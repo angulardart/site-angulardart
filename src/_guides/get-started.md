@@ -182,8 +182,9 @@ class TodoListService {
 **Feeling lost? Don't worry!**
 This was a whirlwind introduction to Dart and Angular
 that left out many details.
-For a gentler approach, try the codelab
-[Avast, Ye Pirates: Write an AngularDart App.](/codelabs/ng2/)
+For a gentler approach, try the
+[AngularDart tutorial](/angular/tutorial) or
+one of the [codelabs](/codelabs).
 </aside>
 
 
