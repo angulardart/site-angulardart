@@ -45,6 +45,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/pubspec.yaml`,
       `!${baseDir}/**/.pub/**`,
     ]) // , { base: baseDir }
+      .pipe(replace(/(^\s*- angular)2:$/gm, '$1:'))
       .pipe(replace(/(^\s+)(angular\w*):\s+(\S+)$/gm, pkgEntry))
       .pipe(gulp.dest(baseDir));
   });
