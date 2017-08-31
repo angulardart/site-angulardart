@@ -7,8 +7,6 @@ module.exports = function (gulp, plugins, config) {
   const filter = require('gulp-filter');
   const rename = plugins.rename;
 
-  const _projs = plugins.genDartdocForProjs();
-
   function path2GeneratedAPI(p) {
     return plugins.path.resolve(config.repoPath[p], config.relDartDocApiDir);
   }

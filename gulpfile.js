@@ -59,11 +59,13 @@ const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 const ngDocSrc = path.join('src', 'angular');
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_app';
+
 const config = {
   _dgeniLogLevel: _logLevel,
   _logLevel: _logLevel,
   angulario: angulario,
-  dartdocProj: ['acx', 'ng'],
+  _dartdocProj: ['acx', 'ng'],
+  dartdocProj: "initialized below",
   DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
   frags: {
@@ -87,17 +89,18 @@ const config = {
   unifiedApiPath: path.join(siteFolder, 'api'),
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
+const _warnedAboutSkipping = {};
+config.dartdocProj = genDartdocForProjs();
 
-const warnedAboutSkipping = { acx: false, ng: false };
 function genDartdocForProjs() {
   const projs = [];
-  config.dartdocProj.forEach(p => {
+  config._dartdocProj.forEach(p => {
     if (!_dartdocForRepo(p)) {
       return true;
     } else if (fs.existsSync(path2ApiDocFor(p)) && !argv.clean && argv.fast) {
-      if (!warnedAboutSkipping[p])
+      if (!_warnedAboutSkipping[p])
         plugins.gutil.log(`Skipping ${p} dartdoc: --fast flag enabled and API docs exists ${path2ApiDocFor(p)}`);
-      warnedAboutSkipping[p] = true;
+      _warnedAboutSkipping[p] = true;
     } else {
       projs.push(p);
     }
