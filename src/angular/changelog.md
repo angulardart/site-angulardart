@@ -63,12 +63,9 @@ because the forms implementation is moving into a new package (`angular_forms`).
 Ensure that the Liquid variables below are properly hard-coded once 4-dev becomes master.
 {% endcomment %}
 * Updated package versions in `pubspec.yaml`:
-  * `angular`: `^{{site.data.ng-pkg-vers.angular.prev-vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular.vers}}`
-  * `angular_components`: `^{{site.data.ng-pkg-vers.angular_components.prev-vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular_components.vers}}`
-  * `angular_test`: `^{{site.data.ng-pkg-vers.angular_test.prev-vers}}`
-    &rarr; `^{{site.data.ng-pkg-vers.angular_test.vers}}`
+  * `angular`: `^3.1.0` &rarr; `^4.0.0`
+  * `angular_components`: `^0.5.3` &rarr; `^0.6.0`
+  * `angular_test`: `^1.0.0-beta` &rarr; `^1.0.0`
   * Added `angular_forms: ^1.0.0` for examples using forms
   * Added `angular_router: ^1.0.0` for examples using the router
 * Updated transformers in `pubspec.yaml`:
