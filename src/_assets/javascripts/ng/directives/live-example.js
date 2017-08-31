@@ -123,7 +123,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
         // Also show link to sources for Dart, unless noSource is specified.
         if (isForDart && !attrs.hasOwnProperty('nosource')) {
           var srcText = attrs.srcText || 'view source';
-          var srcHref = '{{ site.ghNgEx }}/' + ex + '/tree/{{site.branch}}';
+          var srcHref = '{{ site.ghNgEx }}/' + ex + '/tree/{{ site.branch }}';
           template = span(template + ' (' + a(srcText, { href: srcHref, target: '_blank" rel="noopener' }) + ')');
         }
       }
