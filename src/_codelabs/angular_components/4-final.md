@@ -8,6 +8,7 @@ prevpage:
   url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
 ---
+<?code-excerpt path-base="examples/acx/lottery"?>
 
 In this final step, you’ll use expansion panels and tabs to hide
 information until the user needs it. You’ll use these components:
@@ -30,14 +31,20 @@ implemented in lib/src/settings/settings_component.* files.
     [MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html) and
     [MaterialExpansionPanelSet]({{site.acx_api}}/angular_components/MaterialExpansionPanelSet-class.html):
 
-{% prettify dart %}
-...
-directives: const [
-  MaterialCheckboxComponent,
-  [[highlight]]MaterialExpansionPanel,[[/highlight]]
-  [[highlight]]MaterialExpansionPanelSet,[[/highlight]]
-  ...
-{% endprettify %}
+<?code-excerpt "3-usebuttons/lib/src/settings/settings_component.dart" diff-with="4-final/lib/src/settings/settings_component.dart"?>
+```diff
+--- 3-usebuttons/lib/src/settings/settings_component.dart
++++ 4-final/lib/src/settings/settings_component.dart
+@@ -15,6 +15,8 @@
+   templateUrl: 'settings_component.html',
+   directives: const [
+     MaterialCheckboxComponent,
++    MaterialExpansionPanel,
++    MaterialExpansionPanelSet,
+     MaterialRadioComponent,
+     MaterialRadioGroupComponent,
+     NgFor
+```
 </li>
 
 <li markdown="1"> Edit the template file
@@ -61,10 +68,36 @@ directives: const [
 
 <li markdown="1"> Remove the buttons from the bottom of the panel,
     putting their event handling code into **(save)** and
-    **(cancel)** bindings. Your code changes to the beginning of
+    **(cancel)** bindings. Your code changes to the _beginning_ of
     this file should look like this:
 
-<img style="border:1px solid black" src="images/material-expansionpanel-diffs.png" alt='Diffs: <div><div> -> <material-expansionpanel-set><material-expansionpanel>'>
+<?code-excerpt "3-usebuttons/lib/src/settings/settings_component.html" diff-with="4-final/lib/src/settings/settings_component.html" to="betting-panel"?>
+```diff
+--- 3-usebuttons/lib/src/settings/settings_component.html
++++ 4-final/lib/src/settings/settings_component.html
+@@ -1,7 +1,9 @@
+-<div>
+-  <div>
+-    <h2>Wallet</h2>
+-    <p>Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}.</p>
++<material-expansionpanel-set>
++  <material-expansionpanel
++      name="Wallet"
++      secondaryText="Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}."
++      (save)="settingsUpdated()"
++      (cancel)="resetWallet()">
+     <div>
+       <h3>Initial cash</h3>
+       <material-radio-group>
+@@ -21,12 +23,12 @@
+         </material-radio>
+       </material-radio-group>
+     </div>
+-    <button (click)="settingsUpdated()">Save</button>
+-    <button (click)="resetWallet()">Cancel</button>
+-  </div>
+-  <div class="betting-panel">
+```
 </li>
 </ol>
 
@@ -125,6 +158,15 @@ Edit **lib/lottery_simulator.html**:
 
 Your changes, so far, should look like this:
 
+{% comment %}
+Using manually created excerpt since the diff is too big and not
+easy to trim
+
+<?disabled-code-excerpt "3-usebuttons/lib/lottery_simulator.html" diff-with="4-final/lib/lottery_simulator.html"?>
+```diff
+```
+{% endcomment %}
+
 {% prettify html %}
 <h1>Lottery Simulator</h1>
 
@@ -155,16 +197,165 @@ If you run the app now, the top of the UI should look like this:
 
 The end of the file should look like this:
 
-{% prettify html %}
-  </material-tab>
-  <material-tab label="Help">
-    <help-component content="help">\</help-component>
-  </material-tab>
-  <material-tab label="About">
-    <help-component content="about">\</help-component>
-  </material-tab>
-</material-tab-panel>
-{% endprettify %}
+<?code-excerpt "3-usebuttons/lib/lottery_simulator.html" diff-with="4-final/lib/lottery_simulator.html" from="\/material-tab" to="\/material-tab-panel"?>
+```diff
+--- 3-usebuttons/lib/lottery_simulator.html
++++ 4-final/lib/lottery_simulator.html
+@@ -7,78 +7,79 @@
+  </p>
+ </div>
+
+-<div>
+-  <h2>Playing {!{ settings.lottery.shortName }!}</h2>
+-
+-  <scores-component [cash]="cash" [altCash]="altCash"
+-      class="scores-component"></scores-component>
+-
+-  <div class="days">
+-    <div class="days__start-day">
+-      <span>{!{ currentDay }!}</span>
+-    </div>
+-    <div class="days__end-day">
+-      <span>{!{ settings.years }!} years from now</span>
+-    </div>
+-    <div class="clear-floats"></div>
+-  </div>
+-
+-  <material-progress  [activeProgress]="progress" class="life-progress">
+-  </material-progress>
+-
+-  <div class="controls">
+-    <div class="controls__fabs">
+-      <material-fab raised (trigger)="play()"
+-          [disabled]="endOfDays || inProgress"
+-          id="play-button"
+-          aria-label="Play">
+-        <glyph icon="play_arrow"></glyph>
+-      </material-fab>
+-
+-      <material-fab mini raised (trigger)="step()"
+-          [disabled]="endOfDays || inProgress"
+-          aria-label="Step">
+-        <glyph icon="skip_next"></glyph>
+-      </material-fab>
+-
+-      <material-fab mini raised (trigger)="pause()"
+-          [disabled]="!inProgress"
+-          aria-label="Pause">
+-        <glyph icon="pause"></glyph>
+-      </material-fab>
+-
+-      <material-fab mini raised (trigger)="reset()"
+-          aria-label="Reset">
+-        <glyph icon="replay"></glyph>
+-      </material-fab>
++<material-tab-panel>
++  <material-tab label="Simulation">
++    <div>
++      <h2>Playing {!{ settings.lottery.shortName }!}</h2>
++
++      <scores-component [cash]="cash" [altCash]="altCash"
++          class="scores-component"></scores-component>
++
++      <div class="days">
++        <div class="days__start-day">
++          <span>{!{ currentDay }!}</span>
++        </div>
++        <div class="days__end-day">
++          <span>{!{ settings.years }!} years from now</span>
++        </div>
++        <div class="clear-floats"></div>
++      </div>
++
++      <material-progress  [activeProgress]="progress" class="life-progress">
++      </material-progress>
++
++      <div class="controls">
++        <div class="controls__fabs">
++          <material-fab raised (trigger)="play()"
++              [disabled]="endOfDays || inProgress"
++              id="play-button"
++              aria-label="Play">
++            <glyph icon="play_arrow"></glyph>
++          </material-fab>
++
++          <material-fab mini raised (trigger)="step()"
++              [disabled]="endOfDays || inProgress"
++              aria-label="Step">
++            <glyph icon="skip_next"></glyph>
++          </material-fab>
++
++          <material-fab mini raised (trigger)="pause()"
++              [disabled]="!inProgress"
++              aria-label="Pause">
++            <glyph icon="pause"></glyph>
++          </material-fab>
++
++          <material-fab mini raised (trigger)="reset()"
++              aria-label="Reset">
++            <glyph icon="replay"></glyph>
++          </material-fab>
++        </div>
++        <material-toggle class="controls__faster-button"
++            label="Go faster"
++            [(checked)]="fastEnabled">
++        </material-toggle>
++        <div class="clear-floats"></div>
++      </div>
++
++      <div class="history">
++        <stats-component [winningsMap]="winningsMap"
++            class="history__stats"></stats-component>
++        <visualize-winnings #vis
++            class="history__vis"></visualize-winnings>
++        <div class="clear-floats"></div>
++      </div>
++
++      <h2>Settings</h2>
++
++      <settings-component [settings]="settings"
++          (settingsChanged)="updateFromSettings()">
++      </settings-component>
+     </div>
+-    <material-toggle class="controls__faster-button"
+-        label="Go faster"
+-        [(checked)]="fastEnabled">
+-    </material-toggle>
+-    <div class="clear-floats"></div>
+-  </div>
+-
+-  <div class="history">
+-    <stats-component [winningsMap]="winningsMap"
+-        class="history__stats"></stats-component>
+-    <visualize-winnings #vis
+-        class="history__vis"></visualize-winnings>
+-    <div class="clear-floats"></div>
+-  </div>
+-
+-  <h2>Settings</h2>
+-
+-  <settings-component [settings]="settings"
+-      (settingsChanged)="updateFromSettings()">
+-  </settings-component>
+-</div>
+-<div>
+-  <h2>Help</h2>
+-  <help-component content="help"></help-component>
+-</div>
+-<div>
+-  <h2>About</h2>
+-  <help-component content="about"></help-component>
+-</div>
+-
++  </material-tab>
++  <material-tab label="Help">
++    <help-component content="help"></help-component>
++  </material-tab>
++  <material-tab label="About">
++    <help-component content="about"></help-component>
++  </material-tab>
++</material-tab-panel>
+```
 
 Your app should now look exactly like the one you saw in the
 first page of this codelab.

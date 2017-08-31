@@ -2,12 +2,12 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">{% 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">{%
   assign desc = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160
   %}
   <meta name="description" content="{{desc}}">
   <title>{% if page.short-title %}{{ page.short-title }}{% else %}{{ page.title }}{% endif %} | {{ site.title }}</title>
-  
+
   <!-- Favicon / Touch Icons -->
   <link href="/favicon.ico" rel="shortcut icon">
   <link href="{% asset_path 'touch-icon-iphone.png' %}" rel="apple-touch-icon">
@@ -86,5 +86,17 @@
   {% javascript ng/directives/code-example.js %}
   {% javascript ng/directives/live-example.js %}
   {% javascript ng/directives/scroll-y-offset-element.js %}
+  {% endif %}
+  {% if page.diff2html %}
+  {%- comment %}Get from CDN for now{% endcomment -%}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.0/diff2html.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.0/diff2html.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.0/diff2html-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>$(document).ready(function() {
+    var diff2htmlUi = new Diff2HtmlUI();
+    diff2htmlUi.highlightCode(".d2h-wrapper");
+  });</script>
   {% endif %}
 </head>

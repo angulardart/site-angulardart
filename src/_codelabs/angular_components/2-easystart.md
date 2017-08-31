@@ -8,6 +8,7 @@ prevpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
 ---
+<?code-excerpt path-base="examples/acx/lottery"?>
 
 In this step, you’ll change the app to use a few of the AngularDart Components:
 
@@ -37,12 +38,19 @@ using whatever [Dart web development tools](/tools) you prefer.
 
 <li markdown="1"> Edit **pubspec.yaml** to add a dependency to **angular_components**:
 
-{% prettify yaml %}
-dependencies:
-  angular2: ^3.1.0
-  [[highlight]]angular_components: ^0.5.0[[/highlight]]
-  intl: ^0.14.0
-{% endprettify %}
+<?code-excerpt "1-base/pubspec.yaml" diff-with="2-starteasy/pubspec.yaml"?>
+```diff
+--- 1-base/pubspec.yaml
++++ 2-starteasy/pubspec.yaml
+@@ -7,6 +7,7 @@
+
+ dependencies:
+   angular2: ^3.0.0
++  angular_components: ^0.5.0
+   intl: ^0.14.0
+
+ dev_dependencies:
+```
 </li>
 
 <li markdown="1"> Get the new package:
@@ -59,21 +67,35 @@ Edit **lib/lottery_simulator.dart**,
 importing the Angular components and informing Angular about
 [`materialDirectives`]({{site.acx_api}}/angular_components/materialDirectives-constant.html) and [`materialProviders`]({{site.acx_api}}/angular_components/materialProviders-constant.html):
 
-{% prettify dart %}
-import 'package:angular2/angular2.dart';
-[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
-...
-@Component(
-  selector: 'lottery-simulator',
-  styleUrls: const ['lottery_simulator.css'],
-  templateUrl: 'lottery_simulator.html',
-  directives: const [
-    [[highlight]]materialDirectives,[[/highlight]]
-    ...
-  ],
-  providers: const [[[highlight]]materialProviders[[/highlight]], Settings],
-)
-{% endprettify %}
+<?code-excerpt "1-base/lib/lottery_simulator.dart" diff-with="2-starteasy/lib/lottery_simulator.dart"?>
+```diff
+--- 1-base/lib/lottery_simulator.dart
++++ 2-starteasy/lib/lottery_simulator.dart
+@@ -5,6 +5,7 @@
+ import 'dart:async';
+
+ import 'package:angular2/angular2.dart';
++import 'package:angular_components/angular_components.dart';
+ import 'src/help/help.dart';
+ import 'src/scores/scores.dart';
+ import 'src/settings/settings.dart';
+@@ -22,13 +23,14 @@
+   styleUrls: const ['lottery_simulator.css'],
+   templateUrl: 'lottery_simulator.html',
+   directives: const [
++    materialDirectives,
+     HelpComponent,
+     ScoresComponent,
+     StatsComponent,
+     VisualizeWinningsComponent,
+     SettingsComponent,
+   ],
+-  providers: const [Settings],
++  providers: const [materialProviders, Settings],
+ )
+ class AppComponent implements OnInit {
+   final Settings _settings;
+```
 
 Now you’re ready to use the components.
 
@@ -84,7 +106,19 @@ Edit the template file **lib/lottery_simulator.html** to use the
 ([MaterialProgressComponent]({{site.acx_api}}/angular_components/MaterialProgressComponent-class.html)).
 The diffs should look similar to this:
 
-<img style="border:1px solid black" src="images/material-progress-diffs.png" alt="Progress...</progress> -> <material-progress...>">
+<?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="Progress" to="<\/material"?>
+```diff
+--- 1-base/lib/lottery_simulator.html
++++ 2-starteasy/lib/lottery_simulator.html
+@@ -23,35 +23,39 @@
+     <div class="clear-floats"></div>
+   </div>
+
+-  Progress: <strong>{!{progress}!}%</strong> <br>
+-  <progress max="100" [value]="progress"></progress>
++  <material-progress  [activeProgress]="progress" class="life-progress">
++  </material-progress>
+```
 
 Run the app, and you’ll see the new progress bar stretching across the window:
 
@@ -140,15 +174,27 @@ Find the icon font values for <b>skip next</b>, <b>pause</b>, and <b>replay</b>.
   Edit the main HTML file (<b>web/index.html</b>) to add the following code to the &lt;head> section:
   </p>
 
-{% prettify html %}
-<link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons">
-{% endprettify %}
+<?code-excerpt "1-base/web/index.html" diff-with="2-starteasy/web/index.html"?>
+```diff
+--- 1-base/web/index.html
++++ 2-starteasy/web/index.html
+@@ -2,6 +2,10 @@
+ <html>
+   <head>
+     <title>AngularDart Components Code Lab</title>
++
++    <link rel="stylesheet" type="text/css"
++        href="https://fonts.googleapis.com/icon?family=Material+Icons">
++
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+```
 </li>
 
-<li>
-  Edit <b>lib/lottery_simulator.html</b> to change the first button to use
-  a glyph instead of text:
+<li><p>Edit <b>lib/lottery_simulator.html</b> to change the first button to use
+a glyph instead of text:</p>
+
 <ol style="list-style-type: lower-alpha">
   <li>
   Add an <b>aria-label</b> attribute to the button,
@@ -157,15 +203,36 @@ Find the icon font values for <b>skip next</b>, <b>pause</b>, and <b>replay</b>.
   <li>
   Replace the button's text (<b>Play</b>) with a <b>&lt;glyph></b> element.
   </li>
-  <li>
-  Set the glyph's <b>icon</b> attribute to the icon code (<b>play_arrow</b>).
-  </li></ol>
-  <p>
-  Here are the diffs:
-  </p>
-  <p>
-  <img style="border:1px solid black" src="images/glyph-play-diffs.png" alt='id="play-button">Play -> id="play-button" aria-label="Play"><glyph icon="play_arrow"></glyph>'>
-  </p>
+  <li><p>Set the glyph's <b>icon</b> attribute to the icon code (<b>play_arrow</b>).</p></li>
+</ol>
+
+<p>Here are the diffs:</p>
+
+<?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="play" to="<\/button"?>
+```diff
+--- 1-base/lib/lottery_simulator.html
++++ 2-starteasy/lib/lottery_simulator.html
+@@ -23,35 +23,39 @@
+     <div class="clear-floats"></div>
+   </div>
+
+-  Progress: <strong>{!{progress}!}%</strong> <br>
+-  <progress max="100" [value]="progress"></progress>
++  <material-progress  [activeProgress]="progress" class="life-progress">
++  </material-progress>
+
+   <div class="controls">
+     <div class="controls__fabs">
+       <button (click)="play()"
+           [disabled]="endOfDays || inProgress"
+-          id="play-button">
+-        Play
++          id="play-button"
++          aria-label="Play">
++        <glyph icon="play_arrow"></glyph>
+       </button>
+```
+
 <li><p>Use similar changes to convert the <b>Step</b>, <b>Pause</b>, and
 <b>Reset</b> buttons to use glyphs instead of text.</p></li></li></ol>
 
@@ -207,19 +274,26 @@ class as a directive.
 Edit **lib/src/help/help.dart** to import the AngularDart Components and
 register `materialDirectives`.
 
+<?code-excerpt "1-base/lib/src/help/help.dart" diff-with="2-starteasy/lib/src/help/help.dart"?>
+```diff
+--- 1-base/lib/src/help/help.dart
++++ 2-starteasy/lib/src/help/help.dart
+@@ -3,12 +3,14 @@
+ // BSD-style license that can be found in the LICENSE file.
 
-{% prettify dart %}
-...
-[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
+ import 'package:angular2/angular2.dart';
++import 'package:angular_components/angular_components.dart';
 
-@Component(
-  ...
-  directives: const [
-    [[highlight]]materialDirectives,[[/highlight]]
-    ...
-  ],
-  ...
-{% endprettify %}
+ @Component(
+   selector: 'help-component',
+   templateUrl: 'help.html',
+   styleUrls: const ['help.css'],
+   directives: const [
++    materialDirectives,
+     NgSwitch,
+     NgSwitchWhen,
+     NgSwitchDefault,
+```
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -253,16 +327,26 @@ We’ll use the scorecards in the app’s custom ScoresComponent
     for ScoresComponent) to register ScorecardComponent and the
     `materialProviders` provider:
 
-{% prettify dart %}
-...
-[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
+<?code-excerpt "1-base/lib/src/scores/scores.dart" diff-with="2-starteasy/lib/src/scores/scores.dart"?>
+```diff
+--- 1-base/lib/src/scores/scores.dart
++++ 2-starteasy/lib/src/scores/scores.dart
+@@ -3,11 +3,14 @@
+ // BSD-style license that can be found in the LICENSE file.
 
-@Component(
-  ...
-  [[highlight]]directives: const [ScorecardComponent],[[/highlight]]
-  [[highlight]]providers: const [materialProviders],[[/highlight]]
-)
-{% endprettify %}
+ import 'package:angular2/angular2.dart';
++import 'package:angular_components/angular_components.dart';
+
+ @Component(
+   selector: 'scores-component',
+   styleUrls: const ['scores.css'],
+   templateUrl: 'scores.html',
++  directives: const [ScorecardComponent],
++  providers: const [materialProviders],
+ )
+ class ScoresComponent {
+   /// The state of cash the person would have if they saved instead of betting.
+```
 </li>
 
 <li markdown="1"> Edit **lib/src/scores/scores.html**
@@ -279,12 +363,11 @@ We’ll use the scorecards in the app’s custom ScoresComponent
   \<p> section.
 * **changeType:** Set this to the value that [class] is set
   to, surrounded by `{% raw %}{{ }}{% endraw %}`.
-
-Here are the code diffs:
-
-<img style="border:1px solid black" src="images/acx-scorecard-betting-diffs.png" alt='code diffs for <div><h4>Betting</h4>...</div>'>
 </li>
-<li markdown="1"> Similarly, change the **Investing** section from a \<div>
+
+<li markdown="1">
+
+Similarly, change the **Investing** section from a \<div>
 to an \<acx-scorecard>. A few notes:
 * **label:** Set this to "Investing".
 * **class:** Set this to "investing".
@@ -292,16 +375,51 @@ to an \<acx-scorecard>. A few notes:
 * **description:** As before, set this to the second line of content in the div’s
   \<p> section.
 * **Don't** specify a `changeType` attribute.
+
+Here are the code diffs for the last two steps:
+
+<?code-excerpt "1-base/lib/src/scores/scores.html" diff-with="2-starteasy/lib/src/scores/scores.html" from="." to="<\/acx-scorecard"?>
+```diff
+--- 1-base/lib/src/scores/scores.html
++++ 2-starteasy/lib/src/scores/scores.html
+@@ -1,15 +1,14 @@
+-<div>
+-  <h4>Betting</h4>
+-  <p>
+-    <strong [class]="cash > altCash ? 'positive' : cash < altCash ? 'negative' : 'neutral'">${!{ cash }!}</strong>
+-    {!{ outcomeDescription }!}
+-  </p>
+-</div>
++<acx-scorecard
++    label="Betting"
++    class="betting"
++    value="${!{ cash }!}"
++    description="{!{ outcomeDescription }!}"
++    changeType="{!{ cash > altCash ? 'positive' : cash < altCash ? 'negative' : 'neutral' }!}">
++</acx-scorecard>
+```
 </li>
+
 <li markdown="1"> Edit **lib/src/scores/scores.css** (styles for ScoresComponent)
     to specify that `.investing` floats to the right.
     You can also remove the unneeded `.positive` and `.negative` styles.
 
-{% prettify none %}
-.investing {
-  float: right;
-}
-{% endprettify %}
+<?code-excerpt "1-base/lib/src/scores/scores.css" diff-with="2-starteasy/lib/src/scores/scores.css"?>
+```diff
+--- 1-base/lib/src/scores/scores.css
++++ 2-starteasy/lib/src/scores/scores.css
+@@ -1,7 +1,3 @@
+-.positive {
+-  color: green;
+-}
+-
+-.negative {
+-  color: red;
++.investing {
++  float: right;
+ }
+\ No newline at end of file
+```
 </li>
 
 <li markdown="1"> Refresh the app, and look at the nice new UI:

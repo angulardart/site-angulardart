@@ -63,6 +63,7 @@ defaults:
     # The `image` query parameter is a version number. Change the number after the file has been updated,
     # otherwise the old cached version will be used by Facebook, etc.
     image: /codelabs/angular_components/images/cartoon.jpeg?3
+    diff2html: true
 - scope:
     path: angular/guide/testing
   values:

@@ -8,6 +8,7 @@ prevpage:
   url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
 ---
+<?code-excerpt path-base="examples/acx/lottery"?>
 
 In this step you’ll change many of the controls in the app,
 using these components:
@@ -25,7 +26,58 @@ and \<settings-component>.
 Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
 (and its children) into a \<material-toggle>, as the following diff shows:
 
-<img style="border:1px solid black" src="images/material-toggle-diffs.png" alt='diffs of changing the "controls__faster-button" <div> into a <material-toggle>'>
+<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="controls__faster-button" to="\/material-toggle"?>
+```diff
+--- 2-starteasy/lib/lottery_simulator.html
++++ 3-usebuttons/lib/lottery_simulator.html
+@@ -28,37 +28,34 @@
+
+   <div class="controls">
+     <div class="controls__fabs">
+-      <button (click)="play()"
++      <material-fab raised (trigger)="play()"
+           [disabled]="endOfDays || inProgress"
+           id="play-button"
+           aria-label="Play">
+         <glyph icon="play_arrow"></glyph>
+-      </button>
++      </material-fab>
+
+-      <button (click)="step()"
++      <material-fab mini raised (trigger)="step()"
+           [disabled]="endOfDays || inProgress"
+           aria-label="Step">
+         <glyph icon="skip_next"></glyph>
+-      </button>
++      </material-fab>
+
+-      <button (click)="pause()"
++      <material-fab mini raised (trigger)="pause()"
+           [disabled]="!inProgress"
+           aria-label="Pause">
+         <glyph icon="pause"></glyph>
+-      </button>
++      </material-fab>
+
+-      <button (click)="reset()"
++      <material-fab mini raised (trigger)="reset()"
+           aria-label="Reset">
+         <glyph icon="replay"></glyph>
+-      </button>
+-    </div>
+-    <div class="controls__faster-button">
+-      <label>
+-        <input #fastCheckbox type="checkbox"
+-          (change)="fastEnabled = fastCheckbox.checked">
+-        Go faster
+-      </label>
++      </material-fab>
+     </div>
++    <material-toggle class="controls__faster-button"
++        label="Go faster"
++        [(checked)]="fastEnabled">
++    </material-toggle>
+```
 
 Here’s the resulting UI:
 
@@ -54,13 +106,53 @@ Now convert the buttons that have icons into floating action buttons (FABs).
     adding the **raised** attribute and
     changing **`(click)`** to **`(trigger)`**:
 
-<img style="border:1px solid black" src="images/material-fab-play-diffs.png" alt='<button> -> <material-fab> diffs'>
+<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="play" to="\/material-fab"?>
+```diff
+--- 2-starteasy/lib/lottery_simulator.html
++++ 3-usebuttons/lib/lottery_simulator.html
+@@ -28,37 +28,34 @@
+
+   <div class="controls">
+     <div class="controls__fabs">
+-      <button (click)="play()"
++      <material-fab raised (trigger)="play()"
+           [disabled]="endOfDays || inProgress"
+           id="play-button"
+           aria-label="Play">
+         <glyph icon="play_arrow"></glyph>
+-      </button>
++      </material-fab>
+```
 </li>
 
 <li markdown="1"> Convert the remaining three buttons in the same way,
     but add the **mini** attribute. For example:
 
-<img style="border:1px solid black" src="images/material-fab-step-diffs.png" alt='more <button> -> <material-fab> diffs'>
+<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="step" to="\/material-fab"?>
+```diff
+--- 2-starteasy/lib/lottery_simulator.html
++++ 3-usebuttons/lib/lottery_simulator.html
+@@ -28,37 +28,34 @@
+
+   <div class="controls">
+     <div class="controls__fabs">
+-      <button (click)="play()"
++      <material-fab raised (trigger)="play()"
+           [disabled]="endOfDays || inProgress"
+           id="play-button"
+           aria-label="Play">
+         <glyph icon="play_arrow"></glyph>
+-      </button>
++      </material-fab>
+
+-      <button (click)="step()"
++      <material-fab mini raised (trigger)="step()"
+           [disabled]="endOfDays || inProgress"
+           aria-label="Step">
+         <glyph icon="skip_next"></glyph>
+-      </button>
++      </material-fab>
+```
 </li>
 </ol>
 
@@ -93,20 +185,36 @@ First, let’s change the checkbox to use \<material-checkbox>.
     (**lib/src/settings/settings_component.dart**) to import angular_components,
     and to register
     [MaterialCheckboxComponent]({{site.acx_api}}/angular_components/MaterialCheckboxComponent-class.html)
-    and `materialProviders`:
+    and `materialProviders` (ignore the `MaterialRadio*` components since you'll add them later):
 
-{% prettify dart %}
-[[highlight]]import 'package:angular_components/angular_components.dart';[[/highlight]]
-...
-@Component(
-  ...
-  directives: const [
-    [[highlight]]MaterialCheckboxComponent,[[/highlight]]
-    NgFor
-  ],
-  [[highlight]]providers: const [materialProviders],[[/highlight]]
-)
-{% endprettify %}
+<?code-excerpt "2-starteasy/lib/src/settings/settings_component.dart" diff-with="3-usebuttons/lib/src/settings/settings_component.dart"?>
+```diff
+--- 2-starteasy/lib/src/settings/settings_component.dart
++++ 3-usebuttons/lib/src/settings/settings_component.dart
+@@ -5,6 +5,7 @@
+ import 'dart:async';
+
+ import 'package:angular2/angular2.dart';
++import 'package:angular_components/angular_components.dart';
+ import 'package:components_codelab/src/lottery/lottery.dart';
+ import 'package:components_codelab/src/settings/settings.dart';
+
+@@ -12,7 +13,13 @@
+   selector: 'settings-component',
+   styleUrls: const ['settings_component.css'],
+   templateUrl: 'settings_component.html',
+-  directives: const [NgFor],
++  directives: const [
++    MaterialCheckboxComponent,
++    MaterialRadioComponent,
++    MaterialRadioGroupComponent,
++    NgFor
++  ],
++  providers: const [materialProviders],
+ )
+ class SettingsComponent implements OnInit {
+   final initialCashOptions = [0, 10, 100, 1000];
+```
 </li>
 
 <li markdown="1"> Edit the template file
@@ -114,7 +222,114 @@ First, let’s change the checkbox to use \<material-checkbox>.
     changing the “checkbox” input (and its surrounding label)
     into a \<material-checkbox>.
 
-<img style="border:1px solid black" src="images/material-checkbox-diffs.png" alt='<label><input> -> <material-checkbox> diffs'>
+<?code-excerpt "2-starteasy/lib/src/settings/settings_component.html" diff-with="3-usebuttons/lib/src/settings/settings_component.html" from="Annual interest rate" to="\/material-checkbox"?>
+```diff
+--- 2-starteasy/lib/src/settings/settings_component.html
++++ 3-usebuttons/lib/src/settings/settings_component.html
+@@ -4,28 +4,22 @@
+     <p>Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}.</p>
+     <div>
+       <h3>Initial cash</h3>
+-      <div>
+-        <label *ngFor="let item of initialCashOptions">
+-          <input
+-                 type="radio"
+-                 #current
+-                 [checked]="item == initialCash"
+-                 (click)="initialCash = current.checked ? item : initialCash">
++      <material-radio-group>
++        <material-radio *ngFor="let item of initialCashOptions"
++            [checked]="item == initialCash"
++            (checkedChange)="initialCash = $event ? item : initialCash">
+           ${!{ item }!}
+-        </label>
+-      </div>
++        </material-radio>
++      </material-radio-group>
+
+       <h3>Daily disposable income</h3>
+-      <div>
+-        <label *ngFor="let item of dailyDisposableOptions">
+-          <input
+-              type="radio"
+-              #current
+-              [checked]="item == dailyDisposable"
+-              (click)="dailyDisposable = current.checked ? item : dailyDisposable">
++      <material-radio-group>
++        <material-radio *ngFor="let item of dailyDisposableOptions"
++            [checked]="item == dailyDisposable"
++            (checkedChange)="dailyDisposable = $event ? item : dailyDisposable">
+           ${!{ item }!}
+-        </label>
+-      </div>
++        </material-radio>
++      </material-radio-group>
+     </div>
+     <button (click)="settingsUpdated()">Save</button>
+     <button (click)="resetWallet()">Cancel</button>
+@@ -35,29 +29,23 @@
+     <p>Lottery: {!{ settings.lottery.shortName }!}. Strategy: {!{ settings.strategy.shortName }!}.</p>
+     <div>
+       <h3>Lottery</h3>
+-      <div>
+-        <label *ngFor="let item of settings.lotteries">
+-          <input
+-              type="radio"
+-              #current
+-              [checked]="item == lottery"
+-              (click)="lottery = current.checked ? item : lottery">
++      <material-radio-group>
++        <material-radio *ngFor="let item of settings.lotteries"
++            [checked]="item == lottery"
++            (checkedChange)="lottery = $event ? item : lottery">
+           {!{ item.name }!}
+-        </label>
+-      </div>
++        </material-radio>
++      </material-radio-group>
+       <p><strong>Description:</strong> {!{ lottery.description }!}</p>
+
+       <h3>Strategy</h3>
+-      <div>
+-        <label *ngFor="let item of settings.strategies">
+-          <input
+-              type="radio"
+-              #current
+-              [checked]="item == strategy"
+-              (click)="strategy = current.checked ? item : strategy">
++      <material-radio-group>
++        <material-radio *ngFor="let item of settings.strategies"
++            [checked]="item == strategy"
++            (checkedChange)="strategy = $event ? item : strategy">
+           {!{ item.shortName }!} ({!{ item.name }!})
+-        </label>
+-      </div>
++        </material-radio>
++      </material-radio-group>
+       <p><strong>Description:</strong> {!{ strategy.description }!}</p>
+     </div>
+     <button (click)="settingsUpdated()">Save</button>
+@@ -68,35 +56,25 @@
+     <p>Interest rate: {!{ settings.interestRate }!}%. Years: {!{ settings.years }!}.</p>
+     <div>
+       <h3>Annual interest rate</h3>
+-      <label>
+-        <input #investingCheckbox type="checkbox"
+-               [checked]="isInvesting"
+-               (change)="isInvesting = investingCheckbox.checked">
+-        Investing
+-      </label><br>
+-      <div>
+-        <label *ngFor="let value of interestRateOptions">
+-          <input
+-              type="radio"
+-              #current
+-              [checked]="value == interestRate"
+-              [disabled]="!isInvesting"
+-              (click)="interestRate = current.checked ? value : interestRate">
++      <material-checkbox label="Investing" [(checked)]="isInvesting">
++      </material-checkbox><br>
+```
 </li>
 </ol>
 
@@ -135,19 +350,31 @@ is contained by a \<material-radio-group>.
     [MaterialRadioComponent]({{site.acx_api}}/angular_components/MaterialRadioComponent-class.html) and
     [MaterialRadioGroupComponent]({{site.acx_api}}/angular_components/MaterialRadioGroupComponent-class.html):
 
-{% prettify dart %}
-...
-@Component(
-  ...
-  directives: const [
-    MaterialCheckboxComponent,
-    [[highlight]]MaterialRadioComponent,[[/highlight]]
-    [[highlight]]MaterialRadioGroupComponent,[[/highlight]]
-    NgFor
-  ],
-  ...
-)
-{% endprettify %}
+<?code-excerpt "2-starteasy/lib/src/settings/settings_component.dart" diff-with="3-usebuttons/lib/src/settings/settings_component.dart" from="directives:" to="providers:"?>
+```diff
+--- 2-starteasy/lib/src/settings/settings_component.dart
++++ 3-usebuttons/lib/src/settings/settings_component.dart
+@@ -5,6 +5,7 @@
+ import 'dart:async';
+
+ import 'package:angular2/angular2.dart';
++import 'package:angular_components/angular_components.dart';
+ import 'package:components_codelab/src/lottery/lottery.dart';
+ import 'package:components_codelab/src/settings/settings.dart';
+
+@@ -12,7 +13,13 @@
+   selector: 'settings-component',
+   styleUrls: const ['settings_component.css'],
+   templateUrl: 'settings_component.html',
+-  directives: const [NgFor],
++  directives: const [
++    MaterialCheckboxComponent,
++    MaterialRadioComponent,
++    MaterialRadioGroupComponent,
++    NgFor
++  ],
++  providers: const [materialProviders],
+```
 </li>
 
 <li markdown="1"> In the template file
@@ -174,7 +401,31 @@ is contained by a \<material-radio-group>.
 <li markdown="1"> Remove the \<input> tag.
     Your code changes should look like this:
 
-<img style="border:1px solid black" src="images/material-radio-diffs.png" alt='<div><label><input> -> <material-radio-group><material-radio> diffs'>
+<?code-excerpt "2-starteasy/lib/src/settings/settings_component.html" diff-with="3-usebuttons/lib/src/settings/settings_component.html" from="Initial cash" to="\/material-radio-group"?>
+```diff
+--- 2-starteasy/lib/src/settings/settings_component.html
++++ 3-usebuttons/lib/src/settings/settings_component.html
+@@ -4,28 +4,22 @@
+     <p>Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}.</p>
+     <div>
+       <h3>Initial cash</h3>
+-      <div>
+-        <label *ngFor="let item of initialCashOptions">
+-          <input
+-                 type="radio"
+-                 #current
+-                 [checked]="item == initialCash"
+-                 (click)="initialCash = current.checked ? item : initialCash">
++      <material-radio-group>
++        <material-radio *ngFor="let item of initialCashOptions"
++            [checked]="item == initialCash"
++            (checkedChange)="initialCash = $event ? item : initialCash">
+           ${!{ item }!}
+-        </label>
+-      </div>
++        </material-radio>
++      </material-radio-group>
+```
 </li>
 
 <li markdown="1"> Repeat the process for the remaining radio button groups.
@@ -190,11 +441,19 @@ is contained by a \<material-radio-group>.
     **lib/src/settings/settings_component.css** to add a rule that
     maximizes that component’s width:
 
-{% prettify css %}
-.betting-panel material-radio {
-  width: 100%;
-}
-{% endprettify %}
+<?code-excerpt "2-starteasy/lib/src/settings/settings_component.css" diff-with="3-usebuttons/lib/src/settings/settings_component.css"?>
+```diff
+--- 2-starteasy/lib/src/settings/settings_component.css
++++ 3-usebuttons/lib/src/settings/settings_component.css
+@@ -1,5 +1,5 @@
+-.betting-panel label {
+-    display: block;
++.betting-panel material-radio {
++    width: 100%;
+ }
+
+ h3:not(:first-child) {
+```
 
 The app is now much better looking, but it still displays too much
 information. We’ll fix that in the next step.

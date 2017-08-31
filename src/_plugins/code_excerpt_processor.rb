@@ -3,10 +3,14 @@
 ## <?code-pane?> instructions.
 ##
 
+require 'open3'
+require 'nokogiri'
+
 module NgCodeExcerpt
 
   class MarkdownProcessor
 
+    @@logDiffs = false
     @@logEntryCount = 0;
 
     def codeExcerptRE
@@ -21,7 +25,7 @@ module NgCodeExcerpt
       # piLineWithWhitespace = match[1]
       pi = match[2] # full processing instruction <?code-excerpt...?>
       piName = match[3]
-      args = processPiArgs(pi);
+      args = processPiArgs(pi)
       optionalCodeBlock = match[4]
       indent = match[5]
       lang = !match[6] || match[6].empty? ? (args['ext'] || 'nocode') : match[6]
@@ -36,6 +40,8 @@ module NgCodeExcerpt
         # w/o a code block assume it is a set cmd
         processSetCommand(pi, args)
         return ''
+      elsif lang == 'diff'
+        return _diff(match[7], args)
       end
 
       title = args['title']
@@ -62,6 +68,46 @@ module NgCodeExcerpt
       return result
     end
 
+    def _diff(unifiedDiffText, args)
+      logPuts "Diff input:\n#{unifiedDiffText}" if @@logDiffs
+      begin
+        o, e, s = Open3.capture3("diff2html --su hidden -i stdin -o stdout", :stdin_data => unifiedDiffText)
+        logPuts e if e.length > 0
+      rescue Errno::ENOENT => e
+        puts "** ERROR: diff2html isn't installed or could not be found."
+        puts "** ERROR: To install with NPM run: npm install -g diff2html-cli"
+        return nil
+      end
+      doc = Nokogiri::HTML(o)
+      doc.css('div.d2h-file-header span.d2h-tag').remove
+      diffHtml = doc.search('.d2h-wrapper')
+      _trimDiff(diffHtml, args) if args['from'] || args['to']
+      logPuts "Diff output:\n#{diffHtml.to_s[0, [diffHtml.to_s.length, 100].min]}...\n" if @@logDiffs
+      return diffHtml.to_s
+    end
+
+    def _trimDiff(diffHtml, args)
+      # The code updater truncates the diff after `to`. Only trim before `from` here.
+      # (We don't trim after `to` here because of an unwanted optimizing behavior of diff2html.)
+      logPuts ">>> from='#{args['from']}' to='#{args['to']}'" if @@logDiffs
+      insideMatchingLines = done = false;
+      diffHtml.css('tbody.d2h-diff-tbody tr').each do |tr|
+        if tr.text.strip.start_with?('@')
+          tr.remove
+          next
+        end
+        codeLine = tr.xpath('td[2]//span').text
+        insideMatchingLines = true if !done && !insideMatchingLines && codeLine.match(args['from'] || '.')
+        savedInsideMatchingLines = insideMatchingLines
+        # if insideMatchingLines && args['to'] && codeLine.match(args['to'])
+        #   insideMatchingLines = false
+        #   done = true;
+        # end
+        logPuts ">>> tr (#{savedInsideMatchingLines}) #{codeLine} -> #{tr.text.gsub(/\s+/, ' ')}" if @@logDiffs
+        tr.remove unless savedInsideMatchingLines;
+      end
+    end
+
     def _unindentedTemplate(title, classes, attrs, escapedCode)
       "<div class=\"code-example #{classes || ''}\">\n" +
         (title ? "<header><h4>#{title}</h4></header>\n" : '') +
@@ -74,14 +120,14 @@ module NgCodeExcerpt
     def trimMinLeadingSpace(code)
       lines = code.split(/\n/);
       nonblanklines = lines.reject { |s| s.match(/^\s*$/) }
-      
+
       # Length of leading spaces to be trimmed
       len = nonblanklines.map{ |s|
           matches = s.match(/^[ \t]*/)
           matches ? matches[0].length : 0 }.min
-        
+
       return len == 0 ? code :
-        lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n") 
+        lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n")
     end
 
 
@@ -136,7 +182,7 @@ module NgCodeExcerpt
       # puts ">> code-pane:\n#{result}\n"
       return result
     end
-    
+
     def processSetCommand(pi, args)
       pathBase = nil
       if !args || !(pathBase = args['path-base'])
@@ -146,7 +192,7 @@ module NgCodeExcerpt
       @pathBase = pathBase.sub(/\/$/, '');
       # puts ">> path base set to #{@pathBase}"
     end
-  
+
     def getCodeFrag(path)
       if File.exists? path
         lines = File.readlines path
