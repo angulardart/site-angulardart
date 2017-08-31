@@ -89,6 +89,25 @@ const config = {
   unifiedApiPath: path.join(siteFolder, 'api'),
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
 };
+
+const plugins = {
+  argv: argv,
+  child_process: child_process,
+  copyFiles: copyFiles,
+  del: del,
+  execp: execp,
+  fs: fs,
+  genDartdocForProjs: genDartdocForProjs,
+  globby: globby,
+  gutil: gutil,
+  path2ApiDocFor: path2ApiDocFor,
+  path: path,
+  q: Q,
+  rename: require('gulp-rename'),
+  replace: require('gulp-replace'),
+  spawnExt: spawnExt,
+};
+
 const _warnedAboutSkipping = {};
 config.dartdocProj = genDartdocForProjs();
 
@@ -117,24 +136,6 @@ function _dartdocForRepo(repo) {
   const re = new RegExp('\\b' + repo + '\\b');
   return (argv.dartdoc + '').match(re);
 }
-
-const plugins = {
-  argv: argv,
-  child_process: child_process,
-  copyFiles: copyFiles,
-  del: del,
-  execp: execp,
-  fs: fs,
-  genDartdocForProjs: genDartdocForProjs,
-  globby: globby,
-  gutil: gutil,
-  path2ApiDocFor: path2ApiDocFor,
-  path: path,
-  q: Q,
-  rename: require('gulp-rename'),
-  replace: require('gulp-replace'),
-  spawnExt: spawnExt,
-};
 
 const extraTasks = `
   api api-list dartdoc e2e examples example-frag example-template

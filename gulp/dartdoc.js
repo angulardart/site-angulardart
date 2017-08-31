@@ -26,7 +26,7 @@ module.exports = function (gulp, plugins, config) {
     return path.resolve(repoPath[r], config.relDartDocApiDir);
   }
 
-  const _projs = plugins.genDartdocForProjs();
+  const _projs = config.dartdocProj;
   plugins.gutil.log(`Dartdocs targets: ${_projs.length ? _projs : 'no projects (all exist or are being skipped)'}.`);
 
   const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
