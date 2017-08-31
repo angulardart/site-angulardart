@@ -29,21 +29,28 @@ module.exports = function (gulp, plugins, config) {
   const _projs = plugins.genDartdocForProjs();
   plugins.gutil.log(`Dartdocs targets: ${_projs.length ? _projs : 'no projects (all exist or are being skipped)'}.`);
 
+  const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
+  if (_projs.length > 0) dartdocTargets.push('dartdoc-version');
+
+  gulp.task('dartdoc-version', () => plugins.execp(`${dartdocCmd} --version`));
+
   // Task: dartdoc
   // --dartdoc='all|none|acx|ng', default is 'all'.
   // --fast   skip prep and API doc generation if API docs already exist.
   // --clean  removes package doc/api (and so forces regeneration of docs; i.e. --fast is ignored)
-  gulp.task('dartdoc', _projs.map(p => `dartdoc-${p}`));
+  gulp.task('dartdoc', dartdocTargets);
 
+  let deps = [];
   config.dartdocProj.forEach(p => {
     if (_projs.includes(p)) {
-      gulp.task(`dartdoc-${p}`, [`_dartdoc-${p}`]);
+      const dep = `_dartdoc-${p}`;
+      gulp.task(`dartdoc-${p}`, [dep]);
 
       // Task: _dartdoc-* is like the 'dartdoc' task but builds the docs even if --fast is used
       // (but --fast will still skip copying boilerplate files)
-      gulp.task(`_dartdoc-${p}`, [`_dartdoc-clean-${p}`], () => _dartdoc(p));
-
+      gulp.task(dep, [`_dartdoc-clean-${p}`, ...deps], () => _dartdoc(p));
       gulp.task(`_dartdoc-clean-${p}`, ['_clean'], () => _cleanIfArgSet(p));
+      deps.push(dep);
     } else {
       gulp.task(`dartdoc-${p}`, () => true);
     }
@@ -63,12 +70,9 @@ module.exports = function (gulp, plugins, config) {
 
   function _dartdoc1(proj, libs) {
     const args = [];
-    if (libs) args.push(`--include=${libs}`);
+    if (libs || libs === '') args.push(`--include=${libs}`);
     args.push(`--output ${config.relDartDocApiDir}`);
-    return plugins.q.all(
-      plugins.execp(`${dartdocCmd} ${args.join(' ')}`, { cwd: repoPath[proj] }),
-      plugins.execp(`${dartdocCmd} --version`)
-    );
+    return plugins.execp(`${dartdocCmd} ${args.join(' ')}`, { cwd: repoPath[proj] });
   }
 
 };
