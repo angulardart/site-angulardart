@@ -69,7 +69,7 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
     &rarr; `^{{site.data.ng-pkg-vers.angular_components.next-vers}}`
   * `angular_test`: `^{{site.data.ng-pkg-vers.angular_test.vers}}`
     &rarr; `^{{site.data.ng-pkg-vers.angular_test.next-vers}}`
-  * Added `angular_forms: ^0.1.0` for examples using forms
+  * Added `angular_forms: ^1.0.0` for examples using forms
   * Added `angular_router: ^1.0.0` for examples using the router
 * Updated transformers in `pubspec.yaml`:
   * `angular2` &rarr; `angular`
@@ -93,6 +93,8 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
   * Changed the CSS pseudo selector `/deep/` to `::ng-deep`
   * Changed a component ([PR#950][]) to use the new `exports` parameter of `@Component`
     ([RFC#374][]) to export enums to the component template
+  * Switched from the use of `@Component` `inputs` and `outputs` parameters to appropriate
+    `@Input()` and `@Output()` annotations.
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:

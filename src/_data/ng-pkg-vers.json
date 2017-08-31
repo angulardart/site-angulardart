@@ -3,16 +3,16 @@
         "tmp-name": "angular2",
         "doc-path": "angular/guide",
         "vers": "3.1.0",
-        "next-vers": "4.0.0-alpha+3"
+        "next-vers": "4.0.0"
     },
     "angular_components": {
         "doc-path": "components",
         "vers": "0.5.3+1",
-        "next-vers": "0.6.0-alpha+3"
+        "next-vers": "0.6.0"
     },
     "angular_test": {
         "doc-path": "angular/guide/testing/component",
         "vers": "1.0.0-beta+2",
-        "next-vers": "1.0.0-beta+5"
+        "next-vers": "1.0.0"
     }
 }
