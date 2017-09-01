@@ -23,7 +23,7 @@ if [[ $1 == '--api' ]]; then
 fi
 
 SRC="$1"
-: ${SRC:="$webdevRepoDir/src/angular"}
+: ${SRC:="$webdevRepoDir/src"}
 [[ -e $SRC ]] || usage "ERROR: source file/folder does not exist: '$SRC'"
 
 FRAG="$webdevRepoDir/tmp/_fragments$API"

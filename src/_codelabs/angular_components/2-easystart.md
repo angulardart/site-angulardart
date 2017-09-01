@@ -45,8 +45,8 @@ using whatever [Dart web development tools](/tools) you prefer.
 @@ -7,6 +7,7 @@
 
  dependencies:
-   angular2: ^3.0.0
-+  angular_components: ^0.5.0
+   angular: ^4.0.0
++  angular_components: ^0.6.0
    intl: ^0.14.0
 
  dev_dependencies:
@@ -74,7 +74,7 @@ importing the Angular components and informing Angular about
 @@ -5,6 +5,7 @@
  import 'dart:async';
 
- import 'package:angular2/angular2.dart';
+ import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
  import 'src/help/help.dart';
  import 'src/scores/scores.dart';
@@ -281,7 +281,7 @@ register `materialDirectives`.
 @@ -3,12 +3,14 @@
  // BSD-style license that can be found in the LICENSE file.
 
- import 'package:angular2/angular2.dart';
+ import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
 
  @Component(
@@ -334,7 +334,7 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 @@ -3,11 +3,14 @@
  // BSD-style license that can be found in the LICENSE file.
 
- import 'package:angular2/angular2.dart';
+ import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
 
  @Component(

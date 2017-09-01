@@ -16,20 +16,29 @@ Quickstart pubspec w/ title:
 ```
   import 'package:angular/angular.dart';
 
-  [!@Component(
+  @Component(
     selector: 'my-app',
-    template: '<h1>Hello {{name}}</h1>')!]
+    template: '<h1>Hello {!{name}!}</h1>',
+  )
   class AppComponent {
-    var [!name!] = 'Angular';
+    var name = 'Angular';
   }
 ```
 
 <?code-excerpt path-base="quickstart"?>
 
 Quickstart pubspec w/ title:
-<?code-excerpt "pubspec.yaml" title?>
+<?code-excerpt "lib/app_component.dart" title?>
 ```
-  ...
+  import 'package:angular/angular.dart';
+
+  @Component(
+    selector: 'my-app',
+    template: '<h1>Hello {!{name}!}</h1>',
+  )
+  class AppComponent {
+    var name = 'Angular';
+  }
 ```
 
 `index.html` my-app excerpt (no title)

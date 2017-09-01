@@ -194,7 +194,7 @@ First, let’s change the checkbox to use \<material-checkbox>.
 @@ -5,6 +5,7 @@
  import 'dart:async';
 
- import 'package:angular2/angular2.dart';
+ import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
  import 'package:components_codelab/src/lottery/lottery.dart';
  import 'package:components_codelab/src/settings/settings.dart';
@@ -357,7 +357,7 @@ is contained by a \<material-radio-group>.
 @@ -5,6 +5,7 @@
  import 'dart:async';
 
- import 'package:angular2/angular2.dart';
+ import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
  import 'package:components_codelab/src/lottery/lottery.dart';
  import 'package:components_codelab/src/settings/settings.dart';
