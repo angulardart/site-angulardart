@@ -14,38 +14,12 @@ Also see:
 * [History of commits to AngularDart documentation](https://github.com/dart-lang/site-webdev/commits/master/src/angular)
 * [History of commits to AngularDart examples](https://github.com/dart-lang/site-webdev/commits/master/examples/ng/doc)
 * Package changelogs:
-  * [`angular2` changelog][]
   * [`angular` changelog][]
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
+  * [`angular2` changelog][]
 
-
-## API reference (August 2017)
-
-The API entries from both the `angular` and `angular_components` packages
-have been combined into a single unified [API reference](/api).
-
-## Testing docs, part 2 (August 2017)
-
-Created several test-related pages.
-The original page, [Testing](/angular/guide/testing),
-is now mostly a table of contents.
-
-All of these pages are drafts, and we'd appreciate your feedback.
-
-- [Component testing](/angular/guide/testing/component)
-  - [Running component tests](/angular/guide/testing/component/running-tests)
-  - <span>Writing component tests</span>
-    - [Basics](/angular/guide/testing/component/basics): pubspec config, test
-      API fundamentals
-    - [Page objects](/angular/guide/testing/component/page-objects): field annotation, initialization and more
-    - [Simulating user action](/angular/guide/testing/component/simulating-user-action): click, type, clear
-    - [Services](/angular/guide/testing/component/services): local, external, mock or real
-    - [`@Input()` and `@Output()`](/angular/guide/testing/component/input-and-output)
-    - [Routing components](/angular/guide/testing/component/routing-components): mocking the router or platform location
-- [End-to-end (E2E) testing](/angular/guide/testing/e2e) _(placeholder)_
-
-
-## AngularDart 4.0 alpha (July-August 2017)
+{% comment %}
+## AngularDart 5.0-dev (??? 2017)
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -53,15 +27,15 @@ These changes aren't yet visible on webdev.dartlang.org,
 but you can see a preview at
 [webdev-dartlang-org-dev.firebaseapp.com/angular.](https://webdev-dartlang-org-dev.firebaseapp.com/angular)
 </aside>
+{% endcomment %}
+
+## AngularDart 4.0.0 (August 2017)
 
 All pubspecs and imports changed, as well as API doc URLs,
 due to the `angular2` package changing its name to `angular`.
 We expect some imports (and API doc URLs) to change again before 4.0 is stable,
 because the forms implementation is moving into a new package (`angular_forms`).
 
-{% comment %}
-Ensure that the Liquid variables below are properly hard-coded once 4-dev becomes master.
-{% endcomment %}
 * Updated package versions in `pubspec.yaml`:
   * `angular`: `^3.1.0` &rarr; `^4.0.0`
   * `angular_components`: `^0.5.3` &rarr; `^0.6.0`
@@ -104,12 +78,37 @@ Ensure that the Liquid variables below are properly hard-coded once 4-dev become
 More information:
 
 * [`angular` changelog][]
-* [Diff between 4-dev and master branches](https://github.com/dart-lang/site-webdev/compare/4-dev)
+* [Diff between 3.x and 4-dev branches](https://github.com/dart-lang/site-webdev/compare/3.x...4-dev)
 * [History for site-webdev/examples/ng (4-dev branch)](https://github.com/dart-lang/site-webdev/commits/4-dev/examples/ng)
 * [4.0 prep tracking issue](https://github.com/dart-lang/site-webdev/issues/670)
 
 [PR#950]: https://github.com/dart-lang/site-webdev/pull/950
 [RFC#374]: https://github.com/dart-lang/angular/issues/374
+
+## API reference (August 2017)
+
+The API entries from both the `angular` and `angular_components` packages
+have been combined into a single unified [API reference](/api).
+
+## Testing docs, part 2 (August 2017)
+
+Created several test-related pages.
+The original page, [Testing](/angular/guide/testing),
+is now mostly a table of contents.
+
+All of these pages are drafts, and we'd appreciate your feedback.
+
+- [Component testing](/angular/guide/testing/component)
+  - [Running component tests](/angular/guide/testing/component/running-tests)
+  - <span>Writing component tests</span>
+    - [Basics](/angular/guide/testing/component/basics): pubspec config, test
+      API fundamentals
+    - [Page objects](/angular/guide/testing/component/page-objects): field annotation, initialization and more
+    - [Simulating user action](/angular/guide/testing/component/simulating-user-action): click, type, clear
+    - [Services](/angular/guide/testing/component/services): local, external, mock or real
+    - [`@Input()` and `@Output()`](/angular/guide/testing/component/input-and-output)
+    - [Routing components](/angular/guide/testing/component/routing-components): mocking the router or platform location
+- [End-to-end (E2E) testing](/angular/guide/testing/e2e) _(placeholder)_
 
 ## API doc changes (July 2017)
 
