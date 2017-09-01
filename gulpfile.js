@@ -19,14 +19,13 @@ const del = require('del');
 const fsExtra = require('fs-extra');
 const fs = fsExtra;
 const globby = require("globby");
-const ngPkgVers = require('./src/_data/ng-pkg-vers.json');
-// const os = require('os');
 const path = require('canonical-path');
 const Q = require("q");
 const spawn = require('child_process').spawn;
 const taskListing = require('gulp-task-listing');
 // cross platform version of spawn that also works on windows.
 const xSpawn = require('cross-spawn');
+const yamljs = require('yamljs');
 
 function xExec(cmd_and_args, options) {
   const cmd_and_args_arr = cmd_and_args.split(' ');
@@ -39,16 +38,16 @@ const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
 
 const THIS_PROJECT_PATH = path.resolve('.');
-const siteFolder = 'publish';
+const _configYml = yamljs.load('_config.yml');
+
+const siteFolder = _configYml.destination || _throw();
 
 // angular.io constants
-// TODO: get path from the env
-const PUBLIC_PATH = './public';
-const DOCS_PATH = path.join(PUBLIC_PATH, 'docs');
 const EXAMPLES_PATH = './examples/ng/doc';
 const TOOLS_PATH = './tools';
 const TMP_PATH = process.env.TMP; // shared temp folder (for larger downloads, etc)
 const LOCAL_TMP = 'tmp'; // temp folder local to this project
+if (!fs.existsSync(LOCAL_TMP)) fs.mkdirpSync(LOCAL_TMP);
 
 const angulario = path.resolve('../angular.io');
 
@@ -57,7 +56,10 @@ if (isSilent) gutil.log = gutil.noop;
 // Use --log-at=LEVEL to avoid conflict with the gulp --log-level flag.
 const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 
-const ngDocSrc = path.join('src', 'angular');
+const source = _configYml.source || _throw();
+
+const ngDocSrc = path.join(source, 'angular');
+const ngPkgVers = require(`./${source}/_data/ng-pkg-vers.json`);
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_app';
 
@@ -67,14 +69,13 @@ const config = {
   angulario: angulario,
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
-  DOCS_PATH: DOCS_PATH,
   EXAMPLES_PATH: EXAMPLES_PATH,
   frags: {
     apiDirName: '_api',
     dirName: path.basename(fragsPath),
     path: fragsPath,
   },
-  ghNgEx: 'https://github.com/angular-examples', // should match _config.yml value
+  ghNgEx: _configYml.ghNgEx || _throw(),
   LOCAL_TMP: LOCAL_TMP,
   ngDocSrc: ngDocSrc,
   ngPkgVers: ngPkgVers,
@@ -88,6 +89,7 @@ const config = {
     test: path.join(process.env.NG_REPO, 'angular_test'),
   },
   siteFolder: siteFolder,
+  source: source,
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
   TOOLS_PATH: TOOLS_PATH,
   unifiedApiPath: path.join(siteFolder, 'api'),
@@ -110,6 +112,7 @@ const plugins = {
   rename: require('gulp-rename'),
   replace: require('gulp-replace'),
   spawnExt: spawnExt,
+  yamljs: yamljs,
 };
 
 const _warnedAboutSkipping = {};
@@ -173,7 +176,11 @@ gulp.task('build-deploy', ['build'], () => {
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 
 const _quickCleanTargets = [siteFolder, path.join(fragsPath, '**')];
-const _cleanTargets = [siteFolder, LOCAL_TMP];
+const _cleanTargets = [
+  siteFolder,
+  LOCAL_TMP,
+  path.join(source, _configYml.assets.cache || _throw()),
+];
 function _delTmp(delTargets) {
   gutil.log(`  Deleting ${delTargets}`);
   return del(delTargets, { force: true });
@@ -192,6 +199,9 @@ gulp.task('help', taskListing.withFilters((taskName) => {
   return shouldRemove;
 }));
 
+gulp.task('_test', () => {
+  // Use to write experimental tasks.
+});
 
 //=============================================================================
 // Helper functions
@@ -257,3 +267,8 @@ function copyFiles(fileNames, destPaths, optional_destFileMode) {
   });
   return Q.all(copyPromises);
 }
+
+// Used to ensure that values/properties that are looked up from external
+// sources are actually defined (when expecting a truthy value).
+// Idiom: const foo = lookup('bar') || _throw()
+function _throw(opt) { throw 'Unexpected value' + opt ? `:${opt}` : ''; }

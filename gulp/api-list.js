@@ -12,14 +12,16 @@ module.exports = function (gulp, plugins, config) {
   const preprocessor = require('./_preprocessDartDocData')(log);
   const apiListService = require('./_apiListService')(log);
 
-  const DOCS_PATH = config.DOCS_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 
   gulp.task('build-api-list-json', ['dartdoc', '_get-sdk-doc-index-json'], () => buildApiListJson());
 
-  gulp.task('_get-sdk-doc-index-json', ['_clean'], () =>
-    plugins.child_process.exec(`curl https://api.dartlang.org/stable/1.24.2/index.json -o ${config.LOCAL_TMP}/index.json`)
-  );
+  const localDartApiIndexJson = path.resolve(config.LOCAL_TMP, 'index.json');
+  const curlCmd = `curl https://api.dartlang.org/stable/1.24.2/index.json -o ${localDartApiIndexJson}`;
+
+  gulp.task('_get-sdk-doc-index-json', ['_clean'], () => {
+    if (!plugins.fs.existsSync(localDartApiIndexJson)) plugins.child_process.execSync(curlCmd);
+  });
 
   function buildApiListJson() {
     _buildApiListJson();
@@ -40,8 +42,7 @@ module.exports = function (gulp, plugins, config) {
     });
 
     // Add selected SDK libraries
-    const srcPath = config.LOCAL_TMP;
-    const srcData = path.resolve(srcPath, 'index.json');
+    const srcData = localDartApiIndexJson;
     const dartDocData = require(srcData).filter(e => e.href.match(/^dart-(async|core|convert|html)/));
     // Don't add SDK libraries yet:
     // _addToApiListMap(dartDocData, apiListMap);

@@ -18,7 +18,6 @@ module.exports = function (gulp, plugins, config) {
   const Q = plugins.q;
   const copyFiles = plugins.copyFiles;
 
-  const DOCS_PATH = config.DOCS_PATH;
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
   const EXAMPLES_TESTING_PATH = path.join(EXAMPLES_PATH, 'testing/ts');
   const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');

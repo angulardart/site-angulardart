@@ -11,7 +11,6 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
 
   const frags = config.frags;
-  const DOCS_PATH = config.DOCS_PATH;
   const EXAMPLES_PATH = config.EXAMPLES_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 

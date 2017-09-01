@@ -14,9 +14,6 @@ branch: master
 dart4web: ""
 dartlang: "https://www.dartlang.org"
 dart_vm:  "https://www.dartlang.org/dart-vm"
-# Use the following when testing both websites locally
-# dartlang: "http://localhost:4000"
-# dart_vm:  "http://localhost:4000/dart-vm"
 flutter:  "https://flutter.io"
 dartino:  "https://dartino.org"
 dart_api: "https://api.dartlang.org/stable"
@@ -25,7 +22,6 @@ flutter_api: "http://docs.flutter.io"
 dartino_api: "https://dartino.github.io/api"
 api: "https://www.dartdocs.org/documentation"
 
-# ghNgEx should match value in gulpfile.js.
 ghNgEx: https://github.com/angular-examples
 # ghNgExBranch: --> use site.branch since branches should match across repos.
 
@@ -118,7 +114,7 @@ assets:
   # compress:
   #   css: true # default - development: false, production: true
   #   js: true # default - development: false, production: true
-  # cache: false # default: .asset-cache
+  cache: .asset-cache # cache: false # default: .asset-cache
   # cdn: https://cdn.example.com
   # skip_baseurl_with_cdn: false
   # skip_prefix_with_cdn: false
