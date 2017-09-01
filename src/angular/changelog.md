@@ -33,8 +33,6 @@ but you can see a preview at
 
 All pubspecs and imports changed, as well as API doc URLs,
 due to the `angular2` package changing its name to `angular`.
-We expect some imports (and API doc URLs) to change again before 4.0 is stable,
-because the forms implementation is moving into a new package (`angular_forms`).
 
 * Updated package versions in `pubspec.yaml`:
   * `angular`: `^3.1.0` &rarr; `^4.0.0`
