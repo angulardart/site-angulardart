@@ -124,9 +124,9 @@ function genDartdocForProjs() {
   config._dartdocProj.forEach(p => {
     if (!_dartdocForRepo(p)) {
       return true;
-    } else if (fs.existsSync(path2ApiDocFor(p)) && !argv.clean && argv.fast) {
+    } else if (fs.existsSync(path2ApiDocFor(p))) {
       if (!_warnedAboutSkipping[p])
-        plugins.gutil.log(`Skipping ${p} dartdoc: --fast flag enabled and API docs exists ${path2ApiDocFor(p)}`);
+        plugins.gutil.log(`Skipping ${p} dartdoc: API docs exists ${path2ApiDocFor(p)}`);
       _warnedAboutSkipping[p] = true;
     } else {
       projs.push(p);
