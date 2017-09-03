@@ -10,7 +10,9 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
 
   function getBaseDir() {
-    return argv.path || path.resolve(EXAMPLES_PATH, '..');
+    const p = path.resolve(argv.path) || path.resolve(EXAMPLES_PATH, '..');
+    if (!plugins.fs.existsSync(p)) throw `Path DNE: ${p}`;
+    return p;
   }
 
   // To update NG 3 code to NG 4 code use --ng-vers=4
@@ -37,9 +39,7 @@ module.exports = function (gulp, plugins, config) {
   console.log('Using package versions:');
   for (var pkg in ngPkgVers) { console.log(`  ${pkg}: ${ngPkgVers[pkg].vers}`); }
 
-  gulp.task('update-pkg-vers', ['update-sdk-vers',
-    ...(argv.ngVers >= '4' ? ['_remove_platform_entries_etc', '_update-dart'] : []),
-  ], (cb) => {
+  gulp.task('update-pkg-vers', ['update-sdk-vers', '_remove_platform_entries_etc', '_update-dart'], (cb) => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,

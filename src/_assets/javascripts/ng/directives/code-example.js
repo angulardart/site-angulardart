@@ -11,7 +11,8 @@ angularIO.directive('codeExample', function() {
 
     compile: function(tElement, attrs) {
       var html = (attrs.escape === "html") ? _.escape(tElement.html()) : tElement.html();
-      var classes = 'prettyprint ' + attrs.format + ' lang-' + attrs.language +
+      var classes = 'prettyprint ' + (attrs.format || '') +
+          (attrs.language ? ' lang-' + attrs.language : '') +
           (attrs.showcase === 'true' ? ' is-showcase' : '');
       var template =
         '<copy-container>' +
