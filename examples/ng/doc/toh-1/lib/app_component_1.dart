@@ -34,6 +34,6 @@ var t4 = bogus(
 
 // #docregion app-component-1
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   var hero = 'Windstorm';
 }

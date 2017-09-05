@@ -31,7 +31,11 @@ If not, go back to the previous pages.
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
+    - app_component.css
     - app_component.dart
+  - test
+    - app_test.dart
+    - ...
   - web
     - index.html
     - main.dart
@@ -267,16 +271,14 @@ does Angular.
 You've imported `HeroDetailComponent`, and you've used `<hero-detail>` in
 the template, but you haven't told Angular about it.
 
-Just as you've done for the common Angular directives, you tell Angular
+Just as you've done for the built-in Angular directives, tell Angular
 about the hero detail component by listing it in the metadata `directives`
-list:
+list. You don't need `formDirectives` anymore, so delete it and the
+`angular_forms` import at the top of the file:
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
 ```
-  directives: const [
-    CORE_DIRECTIVES, formDirectives,
-    HeroDetailComponent,
-  ],
+  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
 ```
 
 Refresh the browser. It works!
@@ -290,12 +292,9 @@ But now the `HeroDetailComponent` is presenting those details.
 Refactoring the original `AppComponent` into two components yields benefits, both now and in the future:
 
 1. You simplified the `AppComponent` by reducing its responsibilities.
-
 1. You can evolve the `HeroDetailComponent` into a rich hero editor
-without touching the parent `AppComponent`.
-
+   without touching the parent `AppComponent`.
 1. You can evolve the `AppComponent` without touching the hero detail view.
-
 1. You can re-use the `HeroDetailComponent` in the template of some future parent component.
 
 ### Review the app structure
@@ -305,10 +304,14 @@ Verify that you have the following structure:
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
+    - app_component.css
     - app_component.dart
     - src
       - hero.dart
       - hero_detail_component.dart
+  - test
+    - app_test.dart
+    - ...
   - web
     - index.html
     - main.dart

@@ -40,12 +40,16 @@ Before continuing with the Tour of Heroes, verify that you have the following st
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
+    - app_component.css
     - app_component.dart
     - src
       - hero.dart
       - hero_detail_component.dart
       - hero_service.dart
       - mock_heroes.dart
+  - test
+    - app_test.dart
+    - ...
   - web
     - index.html
     - main.dart
@@ -87,7 +91,8 @@ and create a separate `AppComponent` shell.
 
 Do the following:
 
-* Rename and move the `app_component.dart` file to `src/heroes_component.dart`.
+* Rename and move the `app_component.*` files to `src/heroes_component.css`
+  and `src/heroes_component.dart`, respectively.
 * Rename the `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file).
 * Rename the selector `my-app` to `my-heroes`.
 
@@ -174,7 +179,7 @@ by adding them to the `providers` list.  Update the `directives` and
 <?code-excerpt "lib/app_component.dart (excerpt)" region="directives-and-providers" title?>
 ```
   directives: const [ROUTER_DIRECTIVES],
-  providers: const [HeroService, ROUTER_PROVIDERS])
+  providers: const [HeroService, ROUTER_PROVIDERS],
 ```
 
 `AppComponent` no longer shows heroes, that will be the router's job,
@@ -389,7 +394,7 @@ To make the dashboard more interesting, you'll display the top four heroes at a 
 Replace the `template` metadata with a `templateUrl` property that points to a new
 template file, and add the directives shown below:
 
-<?code-excerpt "lib/src/dashboard_component.dart (metadata)" title?>
+<?code-excerpt "lib/src/dashboard_component.dart (metadata)" region="metadata-wo-styles" title?>
 ```
   @Component(
     selector: 'my-dashboard',
@@ -572,8 +577,17 @@ Here's what the `HeroDetailComponent` looks like now:
 The template won't change. Hero names will display the same way.
 The major changes are driven by how you get hero names.
 
-You will no longer receive the hero in a parent component property binding.
-The new `HeroDetailComponent` should take the `id` parameter from the router's
+You will no longer receive the hero in a parent component property binding, so
+you can remove the `@Input()` annotation from the `hero` field:
+
+<?code-excerpt "lib/src/hero_detail_component.dart (hero with @Input removed)" region="hero" title?>
+```
+  class HeroDetailComponent implements OnInit {
+    Hero hero;
+  }
+```
+
+The new `HeroDetailComponent` will take the `id` parameter from the router's
 `RouteParams` service and use the `HeroService` to fetch the hero with that `id`.
 
 Add the following imports:
@@ -679,7 +693,12 @@ Update the component metadata with a `templateUrl` pointing to the template file
 
 <?code-excerpt "lib/src/hero_detail_component.dart (metadata)" title?>
 ```
-  templateUrl: 'hero_detail_component.html',
+  @Component(
+    selector: 'hero-detail',
+    templateUrl: 'hero_detail_component.html',
+    styleUrls: const ['hero_detail_component.css'],
+    directives: const [CORE_DIRECTIVES, formDirectives],
+  )
 ```
 
 Refresh the browser and see the results.
@@ -726,7 +745,7 @@ In the `HeroesComponent`,
 the current template exhibits a "master/detail" style with the list of heroes
 at the top and details of the selected hero below.
 
-<?code-excerpt "../toh-4/lib/app_component.dart (template)" title="lib/app_component.dart (template)"?>
+<?code-excerpt "../toh-4/lib/app_component.dart (template)" title="lib/src/heroes_component.dart (template)"?>
 ```
   template: '''
       <h1>{!{title}!}</h1>
@@ -742,14 +761,16 @@ at the top and details of the selected hero below.
     ''',
 ```
 
-Delete the `<h1>` at the top.
-
-Delete the last line of the template with the `<hero-detail>` tags.
-
 You'll no longer show the full `HeroDetailComponent` here.
 Instead, you'll display the hero detail on its own page and route to it as you did in the dashboard.
+Make these changes:
 
-However, when users select a hero from the list, they won't go to the detail page.
+- Remove the `<hero-detail>` element from the last line of the template.
+- Remove `HeroDetailComponent` from list of `directives`.
+- Remove the (now) unused hero detail import.
+- Delete the `<h1>` at the top.
+
+When users select a hero from the list, they won't go to the detail page.
 Instead, they'll see a mini detail on *this* page and have to click a button to navigate to the *full detail* page.
 
 ### Add the *mini detail*
@@ -770,8 +791,6 @@ After clicking a hero, users should see something like this below the hero list:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/toh/mini-hero-detail.png' %}" alt="Mini Hero Detail" width="250">
 
-### Format with the uppercase pipe
-
 The hero's name is displayed in capital letters because of the `uppercase` pipe
 that's included in the interpolation binding, right after the pipe operator ( | ).
 
@@ -787,39 +806,32 @@ Angular ships with several pipes and you can write your own.
   Read more about pipes on the [Pipes](/angular/guide/pipes) page.
 </div>
 
-### Move content out of the component file
+### Move the template to its own file
 
-You still have to update the component class to support navigation to the
-`HeroDetailComponent` when users click the *View Details* button.
+Like you did for the hero detail component, move this component's template into
+its own file:
 
-The component file is big.
-It's difficult to find the component logic amidst the noise of HTML and CSS.
-
-Before making any more changes, migrate the template and styles to their own files.
-
-First, move the template contents from `heroes_component.dart`
-into a new `heroes_component.html` file.
-Don't copy the backticks. As for `heroes_component.dart`, you'll
-come back to it in a minute. Next, move the
-styles contents into a new `heroes_component.css` file.
-
-The two new files should look like this:
-
-<code-tabs>
-  <?code-pane "lib/src/heroes_component.html"?>
-  <?code-pane "lib/src/heroes_component.css"?>
-</code-tabs>
-
+<?code-excerpt "lib/src/heroes_component.html" title?>
+```
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+      <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
+    </li>
+  </ul>
+  <div *ngIf="selectedHero != null">
+    <h2>
+      {!{selectedHero.name | uppercase}!} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+```
 
 Now, back in the component metadata for `heroes_component.dart`,
-delete `template` and `styles`, replacing them with
-`templateUrl` and `styleUrls` respectively.
-Set their properties to refer to the new files.
-
-Because the template for `HeroesComponent` no longer uses `HeroDetailComponent`
-directly &mdash; instead using the router to _navigate_ to it &mdash; you can
-drop the `directives` argument from `@Component` and remove the unused hero detail
-import. The revised `@Component` looks like this:
+delete `template` and replace it with
+`templateUrl`. The revised `@Component` looks like this:
 
 <?code-excerpt "lib/src/heroes_component.dart (revised metadata)" region="metadata" title?>
 ```
@@ -831,11 +843,6 @@ import. The revised `@Component` looks like this:
     pipes: const [COMMON_PIPES],
   )
 ```
-
-<div class="l-sub-section" markdown="1">
-  The `styleUrls` property is a list of style file names (with paths).
-  You could list multiple style files from different locations if you needed them.
-</div>
 
 ### Update the _HeroesComponent_ class
 
@@ -909,70 +916,41 @@ You've received around 60 lines of CSS for this purpose, including some simple m
 
 As you now know, adding the CSS to the component `styles` metadata
 would obscure the component logic.
-Instead, edit the CSS in a separate `*.css` file.
+Instead, you'll add the CSS to a separate `.css` files.
 
-Add a `dashboard_component.css` file to the `lib/src` folder and reference
+### Dashboard styles
+
+Create a `dashboard_component.css` file in the `lib/src` folder and reference
 that file in the component metadata's `styleUrls` list property like this:
 
-<?code-excerpt "lib/src/dashboard_component.dart (styleUrls)" region="css" title?>
-```
-  styleUrls: const ['dashboard_component.css'],
-```
+<code-tabs>
+  <?code-pane "lib/src/dashboard_component.dart (styleUrls)" region="metadata"?>
+  <?code-pane "lib/src/dashboard_component.css"?>
+</code-tabs>
 
-### Add stylish hero details
+
+### Hero detail styles
 
 You've also been provided with CSS styles specifically for the `HeroDetailComponent`.
-
-Add a `hero_detail_component.css` to the `lib/src`
-folder and refer to that file inside
-the `styleUrls` list as you did for `DashboardComponent`.
-Also, in `hero_detail_component.dart`, remove the `hero` property `@Input` annotation.
-
-Here's the content for the component CSS files.
+Create a `hero_detail_component.css` file in the `lib/src`
+folder and reference that file in the component metadata’s `styleUrls` list:
 
 <code-tabs>
+  <?code-pane "lib/src/hero_detail_component.dart (styleUrls)" region="metadata"?>
   <?code-pane "lib/src/hero_detail_component.css"?>
-  <?code-pane "lib/src/dashboard_component.css"?>
 </code-tabs>
 
 ### Style the navigation links
 
 The provided CSS makes the navigation links in the `AppComponent` look more like selectable buttons.
 You'll surround those links in `<nav>` tags.
+Create an `app_component.css` file in the `lib` folder
+and reference that file in the component metadata’s `styleUrls` list:
 
-Add an `app_component.css` file to the `lib` folder with the following content.
-
-<?code-excerpt "lib/app_component.css (navigation styles)" region="" title?>
-```
-  h1 {
-    font-size: 1.2em;
-    color: #999;
-    margin-bottom: 0;
-  }
-  h2 {
-    font-size: 2em;
-    margin-top: 0;
-    padding-top: 0;
-  }
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-  }
-  nav a:visited, a:link {
-    color: #607D8B;
-  }
-  nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
-  }
-  nav a.router-link-active {
-    color: #039be5;
-  }
-```
+<code-tabs>
+  <?code-pane "lib/app_component.dart (styleUrls)"?>
+  <?code-pane "lib/app_component.css"?>
+</code-tabs>
 
 <div class="l-sub-section" markdown="1">
   **The *router-link-active* class**
@@ -980,13 +958,6 @@ Add an `app_component.css` file to the `lib` folder with the following content.
   The Angular router adds the `router-link-active` class to the HTML navigation element
   whose route matches the active route. All you have to do is define the style for it.
 </div>
-
-Add a `styleUrls` property that refers to this CSS file as follows:
-
-<?code-excerpt "lib/app_component.dart (styleUrls)" title?>
-```
-  styleUrls: const ['app_component.css'],
-```
 
 ### Global application styles
 
@@ -1066,6 +1037,9 @@ Verify that you have the following structure:
       - heroes_component.dart
       - heroes_component.html
       - mock_heroes.dart
+  - test
+    - app_test.dart
+    - ...
   - web
     - index.html
     - main.dart

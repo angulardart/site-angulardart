@@ -3,9 +3,8 @@
 <tr>
   <th>Forms</th>
   <th markdown="1">
-  `import 'package:angular/angular.dart';`
-  Available from [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant) or
-  [formDirectives](/api/angular_forms/angular_forms/formDirectives-constant)
+  `import 'package:angular_forms/angular_forms.dart';`<br>
+  Available [formDirectives](/api/angular_forms/angular_forms/formDirectives-constant)
   </th>
 </tr>
 

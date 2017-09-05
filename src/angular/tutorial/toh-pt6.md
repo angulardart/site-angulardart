@@ -841,6 +841,9 @@ Verify that you have the following structure:
       - heroes_component.css
       - heroes_component.dart
       - heroes_component.html
+  - test
+    - app_test.dart
+    - ...
   - web
     - main.dart
     - index.html

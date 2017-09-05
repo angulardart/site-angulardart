@@ -20,13 +20,15 @@ When you're done with this page, the app should look like this <live-example></l
 ## Where you left off
 
 Before you continue with this page of the Tour of Heroes,
-verify that you have the following structure after [The Hero Editor](./toh-pt1.html) page.
+verify that you have the following structure after [The Hero Editor](./toh-pt1) page.
 If your structure doesn't match, go back to that page to figure out what you missed.
 
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
     - app_component.dart
+  - test
+    - app_test.dart
   - web
     - index.html
     - main.dart
@@ -69,7 +71,7 @@ you can display mock heroes.
 Create a public property in `AppComponent` that exposes the heroes for binding.
 
 
-<?code-excerpt "lib/app_component_1.html (hero list property)" region="hero-array-1" title?>
+<?code-excerpt "lib/app_component.dart (heroes)" title?>
 ```
   final List<Hero> heroes = mockHeroes;
 ```
@@ -85,12 +87,12 @@ To display the hero names in an unordered list,
 insert the following chunk of HTML below the title and above the hero details.
 
 
-<?code-excerpt "lib/app_component_1.html (heroes template)" region="heroes-template-1" title?>
+<?code-excerpt "lib/app_component_1.dart (heroes template)" region="heroes-template-1" title?>
 ```
   <h2>My Heroes</h2>
   <ul class="heroes">
     <li>
-      <!-- each hero goes here -->
+      <!-- each hero goes here
     </li>
   </ul>
 ```
@@ -102,9 +104,9 @@ Now you can fill the template with hero names.
 The goal is to bind the list of heroes in the component to the template, iterate over them,
 and display them individually.
 
-Modify the `<li>` tag by adding the built-in directive `*ngFor`.
+Modify the `<li>` tag by adding the core directive `*ngFor`.
 
-<?code-excerpt "lib/app_component_1.html (ngFor)" region="heroes-ngfor-1" title?>
+<?code-excerpt "lib/app_component_1.dart (ngFor)" region="heroes-ngfor-1" title?>
 ```
   <li *ngFor="let hero of heroes">
 ```
@@ -123,21 +125,38 @@ Modify the `<li>` tag by adding the built-in directive `*ngFor`.
   You can reference this variable within the template to access the current hero's properties.
 
   Read more about `ngFor` and template input variables in the
-  [Showing a list property with *ngFor](../guide/displaying-data.html#ngFor) section of the
-  [Displaying Data](../guide/displaying-data.html) page and the
-  [ngFor](../guide/template-syntax.html#ngFor) section of the
-  [Template Syntax](../guide/template-syntax.html) page.
+  [Showing a list property with *ngFor](../guide/displaying-data#ngFor) section of the
+  [Displaying Data](../guide/displaying-data) page and the
+  [ngFor](../guide/template-syntax#ngFor) section of the
+  [Template Syntax](../guide/template-syntax) page.
 </div>
 
 Within the `<li>` tags, add content
 that uses the `hero` template variable to display the hero's properties.
 
 
-<?code-excerpt "lib/app_component_1.html (ngFor template)" region="ng-for" title?>
+<?code-excerpt "lib/app_component_1.dart (ngFor template)" region="ng-for" title?>
 ```
   <li *ngFor="let hero of heroes">
     <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
   </li>
+```
+
+To use an Angular directive in a
+template requires that it be listed in the `directives` argument of your
+component's `@Component` annotation. Similar to what you did in [part 1][],
+add all [CORE_DIRECTIVES][]:
+
+[part 1]: /angular/tutorial/toh-pt1#componentdirectives-
+[CORE_DIRECTIVES]: /api/angular/angular/CORE_DIRECTIVES-constant
+
+<?code-excerpt "lib/app_component.dart (directives)" title?>
+```
+  @Component(
+    selector: 'my-app',
+    /* . . . */
+    directives: const [CORE_DIRECTIVES, formDirectives],
+  )
 ```
 
 Refresh the browser, and a list of heroes appears.
@@ -146,62 +165,29 @@ Refresh the browser, and a list of heroes appears.
 
 Users should get a visual cue of which hero they are hovering over and which hero is selected.
 
-To add styles to your component, set the `styles` argument of the `@Component` annotation
-to the following CSS classes:
+To add styles to your component, you _could_ set the `styles` argument of the `@Component` annotation:
 
-<?code-excerpt "lib/app_component.dart (styles)" region="styles" title?>
+<?code-excerpt "lib/app_component.dart (styles)" title?>
 ```
+  // Not recommended when adding many CSS classes:
   styles: const [
     '''
-      .selected {
-        background-color: #CFD8DC !important;
-        color: white;
-      }
-      .heroes {
-        margin: 0 0 2em 0;
-        list-style-type: none;
-        padding: 0;
-        width: 15em;
-      }
-      .heroes li {
-        cursor: pointer;
-        position: relative;
-        left: 0;
-        background-color: #EEE;
-        margin: .5em;
-        padding: .3em 0em;
-        height: 1.6em;
-        border-radius: 4px;
-      }
-      .heroes li.selected:hover {
-        color: white;
-      }
-      .heroes li:hover {
-        color: #607D8B;
-        background-color: #EEE;
-        left: .1em;
-      }
-      .heroes .text {
-        position: relative;
-        top: -3px;
-      }
-      .heroes .badge {
-        display: inline-block;
-        font-size: small;
-        color: white;
-        padding: 0.8em 0.7em 0em 0.7em;
-        background-color: #607D8B;
-        line-height: 1em;
-        position: relative;
-        left: -1px;
-        top: -4px;
-        height: 1.8em;
-        margin-right: .8em;
-        border-radius: 4px 0px 0px 4px;
-      }
+      .selected { ... }
+      .heroes { ... }
+      ...
     '''
   ],
 ```
+
+But this makes the Dart file longer and less readable when adding many styles.
+Instead, place the styles a `.css` file and use the `@Component` `styleUrls` argument
+to access that style file. By convention, use the component's Dart file base
+name for your CSS file:
+
+<code-tabs>
+  <?code-pane "lib/app_component.dart (styleUrls)"?>
+  <?code-pane "lib/app_component.css"?>
+</code-tabs>
 
 Adding these styles makes the file much longer. In a later page you'll move the styles to a separate file.
 
@@ -211,7 +197,7 @@ These styles apply only to the `AppComponent` and don't affect the outer HTML.
 The template for displaying heroes should look like this:
 
 
-<?code-excerpt "lib/app_component_1.html (styled heroes)" region="heroes-styled" title?>
+<?code-excerpt "lib/app_component_1.dart (styled heroes)" region="heroes-styled" title?>
 ```
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -237,7 +223,7 @@ which is bound to a click event.
 Add a click event binding to the `<li>` like this:
 
 
-<?code-excerpt "lib/app_component_1.html (template excerpt)" region="selectedHero-click" title?>
+<?code-excerpt "lib/app_component_1.dart (template excerpt)" region="selectedHero-click" title?>
 ```
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
     <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
@@ -251,9 +237,9 @@ That's the same `hero` variable you defined previously in the `ngFor` directive.
 
 <div class="l-sub-section" markdown="1">
   Learn more about event binding at the
-  [User Input](../guide/user-input.html) page and the
-  [Event binding](../guide/template-syntax.html#event-binding) section of the
-  [Template Syntax](../guide/template-syntax.html) page.
+  [User Input](../guide/user-input) page and the
+  [Event binding](../guide/template-syntax#event-binding) section of the
+  [Template Syntax](../guide/template-syntax) page.
 </div>
 
 ### Add a click handler to expose the selected hero
@@ -283,7 +269,7 @@ The template still refers to the old `hero` property.
 Bind to the new `selectedHero` property instead as follows:
 
 
-<?code-excerpt "lib/app_component_1.html (template excerpt)" region="selectedHero-details" title?>
+<?code-excerpt "lib/app_component_1.dart (template excerpt)" region="selectedHero-details" title?>
 ```
   <h2>{!{selectedHero.name}!} details!</h2>
   <div><label>id: </label>{!{selectedHero.id}!}</div>
@@ -308,9 +294,9 @@ Although `selectedHero.name` is displayed in the template,
 you must keep the hero detail out of the DOM until there is a selected hero.
 
 Wrap the HTML hero detail content of the template with a `<div>`.
-Then add the `ngIf` built-in directive and set it to `selectedHero != null`.
+Then add the `ngIf` core directive and set it to `selectedHero != null`.
 
-<?code-excerpt "lib/app_component_1.html (ngIf)" region="ng-if" title?>
+<?code-excerpt "lib/app_component_1.dart (ngIf)" region="ng-if" title?>
 ```
   <div *ngIf="selectedHero != null">
     <h2>{!{selectedHero.name}!} details!</h2>
@@ -336,9 +322,9 @@ When the user picks a hero, `selectedHero` becomes non-null and
 
 <div class="l-sub-section" markdown="1">
   Read more about `ngIf` and `ngFor` in the
-  [Structural Directives](../guide/structural-directives.html) page and the
-  [Built-in directives](../guide/template-syntax.html#directives) section of the
-  [Template Syntax](../guide/template-syntax.html) page.
+  [Structural Directives](../guide/structural-directives) page and the
+  [Built-in directives](../guide/template-syntax#directives) section of the
+  [Template Syntax](../guide/template-syntax) page.
 </div>
 
 
@@ -355,7 +341,7 @@ like this:
 
 In the template, add the following `[class.selected]` binding to  the `<li>`:
 
-<?code-excerpt "lib/app_component_1.html (setting the CSS class)" region="class-selected-1" title?>
+<?code-excerpt "lib/app_component_1.dart (setting the CSS class)" region="class-selected-1" title?>
 ```
   [class.selected]="hero == selectedHero"
 ```
@@ -365,12 +351,12 @@ When the expression is `false`, Angular removes the `selected` class.
 
 
 <div class="l-sub-section" markdown="1">
-  Read more about the `[class]` binding in the [Template Syntax](../guide/template-syntax.html#ngClass "Template syntax: NgClass") guide.
+  Read more about the `[class]` binding in the [Template Syntax](../guide/template-syntax#ngClass "Template syntax: NgClass") guide.
 </div>
 
 The final version of the `<li>` looks like this:
 
-<?code-excerpt "lib/app_component_1.html (styling each hero)" region="class-selected-2" title?>
+<?code-excerpt "lib/app_component_1.dart (styling each hero)" region="class-selected-2" title?>
 ```
   <li *ngFor="let hero of heroes"
     [class.selected]="hero == selectedHero"
@@ -383,116 +369,12 @@ After clicking "Magneta", the list should look like this:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/toh/heroes-list-1.png' %}" alt="Output of heroes list app">
 
-Here's the complete `app_component.dart` as of now:
+Here's are the complete `app_component.*` files:
 
-<?code-excerpt "lib/app_component.dart" title linenums?>
-```
-  import 'package:angular/angular.dart';
-  import 'package:angular_forms/angular_forms.dart';
-
-  class Hero {
-    final int id;
-    String name;
-
-    Hero(this.id, this.name);
-  }
-
-  final mockHeroes = <Hero>[
-    new Hero(11, 'Mr. Nice'),
-    new Hero(12, 'Narco'),
-    new Hero(13, 'Bombasto'),
-    new Hero(14, 'Celeritas'),
-    new Hero(15, 'Magneta'),
-    new Hero(16, 'RubberMan'),
-    new Hero(17, 'Dynama'),
-    new Hero(18, 'Dr IQ'),
-    new Hero(19, 'Magma'),
-    new Hero(20, 'Tornado')
-  ];
-
-  @Component(
-    selector: 'my-app',
-    template: '''
-      <h1>{!{title}!}</h1>
-      <h2>My Heroes</h2>
-      <ul class="heroes">
-        <li *ngFor="let hero of heroes"
-          [class.selected]="hero == selectedHero"
-          (click)="onSelect(hero)">
-          <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
-        </li>
-      </ul>
-      <div *ngIf="selectedHero != null">
-        <h2>{!{selectedHero.name}!} details!</h2>
-        <div><label>id: </label>{!{selectedHero.id}!}</div>
-        <div>
-          <label>name: </label>
-          <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-        </div>
-      </div>
-    ''',
-    styles: const [
-      '''
-        .selected {
-          background-color: #CFD8DC !important;
-          color: white;
-        }
-        .heroes {
-          margin: 0 0 2em 0;
-          list-style-type: none;
-          padding: 0;
-          width: 15em;
-        }
-        .heroes li {
-          cursor: pointer;
-          position: relative;
-          left: 0;
-          background-color: #EEE;
-          margin: .5em;
-          padding: .3em 0em;
-          height: 1.6em;
-          border-radius: 4px;
-        }
-        .heroes li.selected:hover {
-          color: white;
-        }
-        .heroes li:hover {
-          color: #607D8B;
-          background-color: #EEE;
-          left: .1em;
-        }
-        .heroes .text {
-          position: relative;
-          top: -3px;
-        }
-        .heroes .badge {
-          display: inline-block;
-          font-size: small;
-          color: white;
-          padding: 0.8em 0.7em 0em 0.7em;
-          background-color: #607D8B;
-          line-height: 1em;
-          position: relative;
-          left: -1px;
-          top: -4px;
-          height: 1.8em;
-          margin-right: .8em;
-          border-radius: 4px 0px 0px 4px;
-        }
-      '''
-    ],
-    directives: const [CORE_DIRECTIVES, formDirectives],
-  )
-  class AppComponent {
-    final title = 'Tour of Heroes';
-    final List<Hero> heroes = mockHeroes;
-    Hero selectedHero;
-
-    void onSelect(Hero hero) {
-      selectedHero = hero;
-    }
-  }
-```
+<code-tabs>
+  <?code-pane "lib/app_component.dart"?>
+  <?code-pane "lib/app_component.css"?>
+</code-tabs>
 
 ## The road you've travelled
 
@@ -500,7 +382,8 @@ Here's what you achieved in this page:
 
 * The Tour of Heroes app displays a list of selectable heroes.
 * You added the ability to select a hero and show the hero's details.
-* You learned how to use the built-in directives `ngIf` and `ngFor` in a component's template.
+* You learned how to use the core directives `ngIf` and `ngFor` in a component's template.
+* You defined styles in a CSS file and made used them to style the app.
 
 Your app should look like this <live-example></live-example>.
 
@@ -508,4 +391,4 @@ Your app should look like this <live-example></live-example>.
 
 You've expanded the Tour of Heroes app, but it's far from complete.
 An app shouldn't be one monolithic component.
-In the [next page](toh-pt3.html), you'll split the app into subcomponents and make them work together.
+In the [next page](toh-pt3), you'll split the app into subcomponents and make them work together.

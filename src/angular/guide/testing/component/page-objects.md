@@ -29,7 +29,7 @@ having APIs written in terms of _application-specific concepts_, such as
 ## Imports
 
 The [angular_test][] package recognizes page objects implemented using annotations
-from the [pageloader][] package. Include these imports at the top of any page 
+from the [pageloader][] package. Include these imports at the top of any page
 object class:
 
 <?code-excerpt "toh-2/test/app_po.dart (imports)" title?>
@@ -92,7 +92,7 @@ an initial version of `AppPO` might look like this:
 ```
 
 Because of its **[@ByTagName()]({{page.pageloaderObjectsApi}}/ByTagName-class.html)**
-annotation, the `_h1` field will get bound to the app component 
+annotation, the `_h1` field will get bound to the app component
 [template's `<h1>` element](#toh-1libapp_componentdart-template).
 
 Other basic tags, which you'll soon see examples of, include:
@@ -136,7 +136,7 @@ generally initialized during setup:
 
 ## Using POs in tests
 
-When the [Hero Editor][toh-pt1] app loads, it displays 
+When the [Hero Editor][toh-pt1] app loads, it displays
 data for a hero named _Windstorm_ having id 1. Here's how you might test
 for this:
 
@@ -184,7 +184,7 @@ the first `<div>`, and the hero name from the `<h2>` text, dropping the
 
 The app from [part 2][toh-pt2] of the [tutorial][] displays a list of heros, generated using an `ngFor` applied to an `<li>` element:
 
-<?code-excerpt "toh-2/lib/app_component_1.html (styled heroes)" region="heroes-styled" title?>
+<?code-excerpt "toh-2/lib/app_component_1.dart (styled heroes)" region="heroes-styled" title?>
 ```
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -203,7 +203,7 @@ To define a PO field that collects all generated `<li>` elements, use the annota
 ```
 
 When bound, the `_heroes` list will contain an element for each `<li>` in the view. If the displayed heroes list is empty, then `_heroes` will be an empty list
-&mdash; `List<PageLoaderElement>` PO fields are never `null`. 
+&mdash; `List<PageLoaderElement>` PO fields are never `null`.
 
 You might render hero data (as a map) from the text of the `<li>` elements like this:
 
@@ -223,7 +223,7 @@ You might render hero data (as a map) from the text of the `<li>` elements like 
 
 Only once a hero is selected from the [Heroes List][toh-pt2], are the selected hero's details displayed using this template fragment:
 
-<?code-excerpt "toh-2/lib/app_component_1.html (optional hero details)" region="ng-if" title?>
+<?code-excerpt "toh-2/lib/app_component_1.dart (optional hero details)" region="ng-if" title?>
 ```
   <div *ngIf="selectedHero != null">
     <h2>{!{selectedHero.name}!} details!</h2>

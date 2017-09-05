@@ -11,18 +11,16 @@ import 'hero.dart';
 import 'hero_service.dart';
 // #enddocregion imports
 
-// #docregion metadata
+// #docregion metadata, metadata-wo-styles
 @Component(
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
-  // #enddocregion metadata
-  // #docregion css
+  // #enddocregion metadata-wo-styles
   styleUrls: const ['dashboard_component.css'],
-  // #enddocregion css
-  // #docregion metadata
+  // #docregion metadata-wo-styles
   directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 )
-// #enddocregion metadata
+// #enddocregion metadata, metadata-wo-styles
 // #docregion class
 class DashboardComponent implements OnInit {
   List<Hero> heroes;

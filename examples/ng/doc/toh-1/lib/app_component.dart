@@ -1,17 +1,8 @@
 // #docregion
 import 'package:angular/angular.dart';
+// #docregion directives
 import 'package:angular_forms/angular_forms.dart';
 
-// #docregion hero-class-1
-class Hero {
-  final int id;
-  String name;
-
-  Hero(this.id, this.name);
-}
-// #enddocregion hero-class-1
-
-// #docregion directives
 @Component(
   selector: 'my-app',
   // #enddocregion directives
@@ -26,12 +17,20 @@ class Hero {
     </div>''',
   // #enddocregion editing-Hero, template
   // #docregion directives
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [formDirectives],
 )
 // #enddocregion directives
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   // #docregion hero-property-1
   Hero hero = new Hero(1, 'Windstorm');
   // #enddocregion hero-property-1
+}
+
+// #docregion hero-class-1
+class Hero {
+  final int id;
+  String name;
+
+  Hero(this.id, this.name);
 }

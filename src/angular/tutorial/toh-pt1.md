@@ -24,6 +24,8 @@ on the previous page.
 - angular_tour_of_heroes
   - lib
     - app_component.dart
+  - test
+    - app_test.dart
   - web
     - index.html
     - main.dart
@@ -41,7 +43,7 @@ for a hero named "Windstorm."
 <?code-excerpt "lib/app_component_1.dart (AppComponent class)" region="app-component-1" title?>
 ```
   class AppComponent {
-    String title = 'Tour of Heroes';
+    final title = 'Tour of Heroes';
     var hero = 'Windstorm';
   }
 ```
@@ -160,21 +162,23 @@ compiler doesn't recognize `ngModel`, and issues a parse error for
   ^^^^^^^^^^^^^^^^^^^^^^^
 ```
 
-Although `NgModel` is a valid Angular directive, it isn't available by default.
+Although `NgModel` is a valid Angular directive defined in the [angular_forms][]
+library, it isn't available by default.
 
-Before you can use Angular directives (like `ngModel`) in a template,
+Before you can use any Angular directives in a template,
 you need to list them in the `directives` argument of your component's
 `@Component` annotation. Although you can list directives individually,
-it is more convenient to include all common directives in one go using
-the [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant)
-list:
+it is sometimes more convenient to include a group of related directives, like
+the [form directives][formDirectives], in one go (note the new import statement):
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
 ```
+  import 'package:angular_forms/angular_forms.dart';
+
   @Component(
     selector: 'my-app',
     /* . . . */
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [formDirectives],
   )
 ```
 
@@ -189,10 +193,10 @@ Take stock of what you've built.
   to display the app title and properties of a `Hero` object.
 * You wrote a multi-line template using Dart's template strings to make the template readable.
 * You added a two-way data binding to the `<input>` element
-  using the built-in `ngModel` directive. This binding both displays the hero's name and allows users to change it.
-* You added [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant)
-  to the `directives` argument of the app's `@Component` annotation so that Angular knows
-  where `ngModel` is defined.
+  using the built-in `ngModel` directive. This binding both displays the hero's
+  name and allows users to change it.
+* You added [formDirectives][] to the `directives` argument of the app's
+  `@Component` annotation so that Angular knows where `ngModel` is defined.
 
 Your app should look like this <live-example></live-example>.
 
@@ -202,13 +206,6 @@ Here's the complete `app_component.dart` as it stands now:
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_forms/angular_forms.dart';
-
-  class Hero {
-    final int id;
-    String name;
-
-    Hero(this.id, this.name);
-  }
 
   @Component(
     selector: 'my-app',
@@ -220,11 +217,18 @@ Here's the complete `app_component.dart` as it stands now:
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name">
       </div>''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [formDirectives],
   )
   class AppComponent {
-    String title = 'Tour of Heroes';
+    final title = 'Tour of Heroes';
     Hero hero = new Hero(1, 'Windstorm');
+  }
+
+  class Hero {
+    final int id;
+    String name;
+
+    Hero(this.id, this.name);
   }
 ```
 
@@ -233,3 +237,6 @@ Here's the complete `app_component.dart` as it stands now:
 In the [next tutorial page](./toh-pt2.html), you'll build on the Tour of Heroes app to display a list of heroes.
 You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
+
+[angular_forms]: /api/angular_forms
+[formDirectives]: /api/angular_forms/angular_forms/formDirectives-constant

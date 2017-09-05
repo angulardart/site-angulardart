@@ -45,12 +45,13 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>directives:</b> const [COMMON_DIRECTIVES, MyDirective, MyComponent]
+    <b>directives:</b> const [CORE_DIRECTIVES, MyDirective, MyComponent]
   </code></td>
   <td markdown="1">
   List of directives used in the component's template.
 
-  See: [Architecture Overview](/angular/guide/architecture), [CORE_DIRECTIVES](/api/angular/angular/CORE_DIRECTIVES-constant), [COMMON_DIRECTIVES](/api/angular/angular/COMMON_DIRECTIVES-constant)
+  See: [Architecture Overview](/angular/guide/architecture),
+  [CORE_DIRECTIVES](/api/angular/angular/CORE_DIRECTIVES-constant)
   </td>
 </tr>
 

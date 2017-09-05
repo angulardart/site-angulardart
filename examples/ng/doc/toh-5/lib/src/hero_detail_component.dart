@@ -15,19 +15,22 @@ import 'hero.dart';
 import 'hero_service.dart';
 // #enddocregion added-imports
 
+// #docregion metadata
 @Component(
   selector: 'hero-detail',
-  // #docregion metadata, templateUrl
+  // #docregion templateUrl
   templateUrl: 'hero_detail_component.html',
-  // #enddocregion metadata, templateUrl, v2
+  // #enddocregion templateUrl, v2
   styleUrls: const ['hero_detail_component.css'],
   directives: const [CORE_DIRECTIVES, formDirectives],
   // #docregion v2
 )
-// #docregion implement
+// #enddocregion metadata
+// #docregion implement, hero
 class HeroDetailComponent implements OnInit {
   // #enddocregion implement
   Hero hero;
+  // #enddocregion hero
   // #docregion ctor
   final HeroService _heroService;
   final RouteParams _routeParams;
@@ -47,4 +50,5 @@ class HeroDetailComponent implements OnInit {
   // #docregion goBack
   void goBack() => _location.back();
   // #enddocregion goBack
+  // #docregion hero
 }
