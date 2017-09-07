@@ -182,6 +182,23 @@ the [form directives][formDirectives], in one go (note the new import statement)
   )
 ```
 
+<?code-excerpt path-base="examples/ng/doc"?>
+
+The `angular_forms` library comes in its own package. Add the package to the pubspec dependencies:
+
+<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dependencies" to="angular_forms"?>
+```diff
+--- toh-0/pubspec.yaml
++++ toh-1/pubspec.yaml
+@@ -8,16 +8,14 @@
+
+ dependencies:
+   angular: ^4.0.0
++  angular_forms: ^1.0.0
+```
+
+<?code-excerpt path-base="toh-1"?>
+
 Refresh the browser and the app should work again.
 You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the textbox.
 
