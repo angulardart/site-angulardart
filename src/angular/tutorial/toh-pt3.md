@@ -295,7 +295,7 @@ Refactoring the original `AppComponent` into two components yields benefits, bot
 1. You can evolve the `HeroDetailComponent` into a rich hero editor
    without touching the parent `AppComponent`.
 1. You can evolve the `AppComponent` without touching the hero detail view.
-1. You can re-use the `HeroDetailComponent` in the template of some future parent component.
+1. You can reuse the `HeroDetailComponent` in the template of some future parent component.
 
 ### Review the app structure
 

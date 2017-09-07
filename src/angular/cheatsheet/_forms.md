@@ -4,7 +4,7 @@
   <th>Forms</th>
   <th markdown="1">
   `import 'package:angular_forms/angular_forms.dart';`<br>
-  Available [formDirectives](/api/angular_forms/angular_forms/formDirectives-constant)
+  Available from [formDirectives](/api/angular_forms/angular_forms/formDirectives-constant)
   </th>
 </tr>
 

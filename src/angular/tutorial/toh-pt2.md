@@ -180,16 +180,14 @@ To add styles to your component, you _could_ set the `styles` argument of the `@
 ```
 
 But this makes the Dart file longer and less readable when adding many styles.
-Instead, place the styles a `.css` file and use the `@Component` `styleUrls` argument
-to access that style file. By convention, use the component's Dart file base
-name for your CSS file:
+Instead, place the styles in a `.css` file, and refer to the file using the
+`styleUrls` argument to `@Component`. By convention, the names of the
+component's CSS and Dart files have the same base (`app_component`).
 
 <code-tabs>
   <?code-pane "lib/app_component.dart (styleUrls)"?>
   <?code-pane "lib/app_component.css"?>
 </code-tabs>
-
-Adding these styles makes the file much longer. In a later page you'll move the styles to a separate file.
 
 When you assign styles to a component, they are scoped to that specific component.
 These styles apply only to the `AppComponent` and don't affect the outer HTML.
@@ -369,7 +367,7 @@ After clicking "Magneta", the list should look like this:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/toh/heroes-list-1.png' %}" alt="Output of heroes list app">
 
-Here's are the complete `app_component.*` files:
+Here are the complete `app_component.*` files:
 
 <code-tabs>
   <?code-pane "lib/app_component.dart"?>

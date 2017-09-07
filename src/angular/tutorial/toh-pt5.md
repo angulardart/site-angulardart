@@ -92,7 +92,7 @@ and create a separate `AppComponent` shell.
 Do the following:
 
 * Rename and move the `app_component.*` files to `src/heroes_component.css`
-  and `src/heroes_component.dart`, respectively.
+  and `src/heroes_component.dart`.
 * Rename the `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file).
 * Rename the selector `my-app` to `my-heroes`.
 
@@ -430,7 +430,7 @@ The extra `<div>` elements will help with styling later.
 
 ### Sharing the *HeroService*
 
-To populate the component's `heroes` list, you can re-use the `HeroService`.
+To populate the component's `heroes` list, you can reuse the `HeroService`.
 
 Earlier, you removed the `HeroService` from the `providers` list of `HeroesComponent`
 and added it to the `providers` list of `AppComponent`.
@@ -916,7 +916,7 @@ You've received around 60 lines of CSS for this purpose, including some simple m
 
 As you now know, adding the CSS to the component `styles` metadata
 would obscure the component logic.
-Instead, you'll add the CSS to a separate `.css` files.
+Instead, you'll add the CSS to separate `.css` files.
 
 ### Dashboard styles
 
@@ -931,7 +931,6 @@ that file in the component metadata's `styleUrls` list property like this:
 
 ### Hero detail styles
 
-You've also been provided with CSS styles specifically for the `HeroDetailComponent`.
 Create a `hero_detail_component.css` file in the `lib/src`
 folder and reference that file in the component metadata’s `styleUrls` list:
 
@@ -942,8 +941,6 @@ folder and reference that file in the component metadata’s `styleUrls` list:
 
 ### Style the navigation links
 
-The provided CSS makes the navigation links in the `AppComponent` look more like selectable buttons.
-You'll surround those links in `<nav>` tags.
 Create an `app_component.css` file in the `lib` folder
 and reference that file in the component metadata’s `styleUrls` list:
 
@@ -951,6 +948,8 @@ and reference that file in the component metadata’s `styleUrls` list:
   <?code-pane "lib/app_component.dart (styleUrls)"?>
   <?code-pane "lib/app_component.css"?>
 </code-tabs>
+
+The provided CSS makes the navigation links in the `AppComponent` look more like selectable buttons. You'll surround those links in `<nav>` tags.
 
 <div class="l-sub-section" markdown="1">
   **The *router-link-active* class**
@@ -963,7 +962,7 @@ and reference that file in the component metadata’s `styleUrls` list:
 
 When you add styles to a component, you keep everything a component needs&mdash;HTML,
 the CSS, the code&mdash;together in one convenient place.
-It's easy to package it all up and re-use the component somewhere else.
+It's easy to package it all up and reuse the component somewhere else.
 
 You can also create styles at the *application level* outside of any component.
 
