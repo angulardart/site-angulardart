@@ -61,6 +61,10 @@ defaults:
     image: /codelabs/angular_components/images/cartoon.jpeg?3
     diff2html: true
 - scope:
+    path: angular
+  values:
+    diff2html: true
+- scope:
     path: angular/guide/testing
   values:
     # layout: angular

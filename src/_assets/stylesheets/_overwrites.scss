@@ -132,3 +132,11 @@ img.centered {
 pre code {
   white-space: pre;
 }
+
+/* diff2html */
+.d2h-diff-table {
+  margin-bottom: 0;
+  tr, td {
+    padding: 0;
+  }
+}
