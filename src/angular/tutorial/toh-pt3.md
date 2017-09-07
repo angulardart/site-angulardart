@@ -139,13 +139,12 @@ Move the `Hero` class from `app_component.dart` to its own `hero.dart` file.
   }
 ```
 
-Now that the `Hero` class is in its own file, the `AppComponent` and the `HeroDetailComponent` have to import it.
-Add the following `import` statement near the top of _both_ the `app_component.dart` and the `hero_detail_component.dart` files.
+Now that the `Hero` class is in its own file, the `AppComponent` and the `HeroDetailComponent` have to import it:
 
-<?code-excerpt "lib/src/hero_detail_component.dart (hero import)" title?>
-```
-  import 'hero.dart';
-```
+<code-tabs>
+  <?code-pane "lib/app_component.dart (hero import)"?>
+  <?code-pane "lib/src/hero_detail_component.dart (hero import)"?>
+</code-tabs>
 
 ### The *hero* property is an *input* property
 
