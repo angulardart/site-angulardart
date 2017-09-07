@@ -18,10 +18,9 @@ version, listed in the **Next** column.
 <table id="vers" >
   <tr>
     <th>Package</th>
-    <th>Current</th>{%
-    if site.dev-url %}
-    <th>Next</th>{%
-    endif %}
+    <th>Current</th>
+    {%- if site.prev-url -%} <th>Previous</th> {%- endif -%}
+    {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
   </tr>{%
   for pkgDataPair in site.data.ng-pkg-vers %}{%
   assign name = pkgDataPair[0] %}{%
@@ -34,8 +33,18 @@ version, listed in the **Next** column.
       {% if info.doc-path %}<a href="/{{info.doc-path}}"><i class="material-icons">info_outline</i></a>{% endif %}{%
       else %}-{%
       endif %}
-    </td>{%
-    if site.dev-url %}
+    </td>
+    {%- if site.prev-url -%}
+    <td>{% if info.prev-vers %}
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.prev-vers}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.prev-vers}}</a>
+      {% if info.doc-path%}<a href="{{site.prev-url}}/{{info.doc-path}}"
+        class="no-automatic-external"><i class="material-icons md-18">info_outline</i></a>{% endif %}{%
+      else %}-{%
+      endif %}
+    </td>
+    {%- endif -%}
+    {%- if site.dev-url -%}
     <td>{% if info.next-vers %}
       <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.next-vers}}#pub-pkg-tab-changelog"
         class="no-automatic-external">{{info.next-vers}}</a>
@@ -43,10 +52,10 @@ version, listed in the **Next** column.
         class="no-automatic-external"><i class="material-icons md-18">info_outline</i></a>{% endif %}{%
       else %}-{%
       endif %}
-    </td>{%
-    endif %}
-  </tr>{%
-  endfor %}
+    </td>
+    {%- endif -%}
+  </tr>
+{%- endfor -%}
 </table>
 
 <aside class="alert alert-info" markdown="1">
