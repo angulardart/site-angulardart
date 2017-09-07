@@ -34,25 +34,25 @@ module.exports = function (gulp, plugins, config) {
 
   const examplesToTest = allExamplesWithTests
     .filter(p => !p.match(skipRegEx))
-    .filter(p => p.match(chooseRegEx))
+    .filter(p => p.match(chooseRegEx));
 
-  gulp.task('test', ['_test'], (cb) => {
+  gulp.task('test', ['_test'], () => {
     plugins.gutil.log(`Passed:\n  ${testStatus.passed.join('\n  ')}\n`);
     plugins.gutil.log(`Skipped:\n  ${testStatus.skipped.join('\n  ')}\n`);
     plugins.gutil.log(`Failed:\n  ${testStatus.failed.join('\n  ')}\n`);
     process.exitCode = testStatus.failed.length;
   });
 
-  gulp.task('_test', cb => {
+  gulp.task('_test', ['_list-tests'], () => {
     var promise = Promise.resolve(true);
     examplesToTest.forEach(ex => promise = promise.then(() => {
       plugins.gutil.log(`Running tests for ${ex}`);
       return pubGetAndRunTest(path.join(EXAMPLES_PATH, ex));
-    }))
+    }));
     return promise;
   });
 
-  gulp.task('__list-tests', () => {
+  gulp.task('_list-tests', () => {
     plugins.gutil.log(`tests:\n  ${examplesToTest.join('\n  ')}`)
   });
 

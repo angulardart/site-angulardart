@@ -199,7 +199,7 @@ gulp.task('help', taskListing.withFilters((taskName) => {
   return shouldRemove;
 }));
 
-gulp.task('_test', () => {
+gulp.task('__test', () => {
   // Use to write experimental tasks.
 });
 
