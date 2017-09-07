@@ -80,7 +80,7 @@ By default `gulp build` generates API docs for sibling repos (including `angular
 Some `gulp build` options include:
 
 - `--clean` &nbsp;&nbsp;# deletes sibling repo API docs before regenerating them
-- `--fast` &nbsp;&nbsp;# will only regenerate API docs if none are present
+- `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead up repeated builds)
 - `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
 
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
@@ -116,9 +116,9 @@ through the installation instructions.
 ## Other useful Gulp tasks
 
 ```
-gulp clean && gulp build --clean  # really cleans up, then builds
-gulp clean && gulp build --fast   # clean up non-API files, then build
-gulp build-deploy                 # builds & deploys to active firebase project
+gulp clean && gulp build --clean  # cleans up local and sibling repos, then builds
+gulp clean && gulp build  # cleans up local files, but reuses generated API docs
+gulp build-deploy         # builds & deploys to active firebase project
 ```
 
 ## Prepping for Dart 2.0
