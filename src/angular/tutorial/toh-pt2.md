@@ -367,6 +367,33 @@ After clicking "Magneta", the list should look like this:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/toh/heroes-list-1.png' %}" alt="Output of heroes list app">
 
+## Review the app structure
+
+Your project should have the following files:
+
+<div class="ul-filetree" markdown="1">
+- angular_tour_of_heroes
+  - lib
+    - app_component.css
+    - app_component.dart
+  - test
+    - app_test.dart
+    - ...
+  - web
+    - index.html
+    - main.dart
+    - styles.css
+  - pubspec.yaml
+</div>
+
+<aside class="callout is-helpful" markdown="1">
+  <header> Tutorial component tests</header>
+
+  This tutorial doesn't cover testing, but if you look at the example code, it
+  has component tests for each new feature this tutorial adds. See the
+  [Component Testing](../guide/testing/component) page for details.
+</aside>
+
 Here are the complete `app_component.*` files:
 
 <code-tabs>
