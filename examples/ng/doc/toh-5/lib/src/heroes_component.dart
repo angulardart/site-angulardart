@@ -13,7 +13,9 @@ import 'hero_service.dart';
   selector: 'my-heroes',
   // #enddocregion renaming
   templateUrl: 'heroes_component.html',
+  // #docregion renaming
   styleUrls: const ['heroes_component.css'],
+  // #enddocregion renaming
   directives: const [CORE_DIRECTIVES],
   pipes: const [COMMON_PIPES],
   // #docregion renaming

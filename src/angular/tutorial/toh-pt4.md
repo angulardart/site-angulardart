@@ -65,7 +65,7 @@ share that service with all components that need the data.
 
 ### Create _HeroService_
 
-Create a file in the `lib` folder called `hero_service.dart`.
+Create a file called `hero_service.dart` under `lib/src`.
 
 <div class="l-sub-section" markdown="1">
   The naming convention for service files is the service name in lowercase followed by `_service`.

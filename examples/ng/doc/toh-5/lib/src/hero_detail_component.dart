@@ -15,17 +15,18 @@ import 'hero.dart';
 import 'hero_service.dart';
 // #enddocregion added-imports
 
-// #docregion metadata
+// #docregion metadata, metadata-wo-style
 @Component(
   selector: 'hero-detail',
   // #docregion templateUrl
   templateUrl: 'hero_detail_component.html',
-  // #enddocregion templateUrl, v2
+  // #enddocregion metadata-wo-style, templateUrl, v2
   styleUrls: const ['hero_detail_component.css'],
+  // #docregion metadata-wo-style
   directives: const [CORE_DIRECTIVES, formDirectives],
   // #docregion v2
 )
-// #enddocregion metadata
+// #enddocregion metadata, metadata-wo-style
 // #docregion implement, hero
 class HeroDetailComponent implements OnInit {
   // #enddocregion implement

@@ -93,13 +93,16 @@ Do the following:
 
 * Rename and move the `app_component.*` files to `src/heroes_component.css`
   and `src/heroes_component.dart`.
+* Drop the `src/` prefix from import paths.
 * Rename the `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file).
 * Rename the selector `my-app` to `my-heroes`.
+* Rename the style file to `heroes_component.css`.
 
 <?code-excerpt "lib/src/heroes_component.dart (showing renamings only)" region="renaming" title?>
 ```
   @Component(
     selector: 'my-heroes',
+    styleUrls: const ['heroes_component.css'],
   )
   class HeroesComponent implements OnInit {
     HeroesComponent(
@@ -155,11 +158,27 @@ The app still runs and displays heroes.
 Instead of displaying automatically, heroes should display after users click a button.
 In other words, users should be able to navigate to the list of heroes.
 
-Use the Angular router to enable navigation.
+<?code-excerpt path-base="examples/ng/doc"?>
+
+Use the Angular router ([angular_router][]) to enable navigation. Since the
+router is in its own package, first add the package to the app's pubspec:
+
+<?code-excerpt "toh-4/pubspec.yaml" diff-with="toh-5/pubspec.yaml" to="angular_router"?>
+```diff
+--- toh-4/pubspec.yaml
++++ toh-5/pubspec.yaml
+@@ -7,11 +7,13 @@
+ dependencies:
+   angular: ^4.0.0
+   angular_forms: ^1.0.0
++  angular_router: ^1.0.2
+```
+
+<?code-excerpt path-base="toh-5"?>
 
 The Angular router is a combination of multiple services
-(`ROUTER_PROVIDERS`), multiple directives (`ROUTER_DIRECTIVES`), and a
-configuration annotation (`RouteConfig`). You get them all by importing
+(`ROUTER_PROVIDERS`), directives (`ROUTER_DIRECTIVES`), and
+configuration classes. You get them all by importing
 the router library:
 
 <?code-excerpt "lib/app_component.dart (router imports)" region="import-router" title?>
@@ -691,12 +710,11 @@ Migrate the template to its own file called `hero_detail_component.html`:
 
 Update the component metadata with a `templateUrl` pointing to the template file that you just created.
 
-<?code-excerpt "lib/src/hero_detail_component.dart (metadata)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (metadata)" region="metadata-wo-style" title?>
 ```
   @Component(
     selector: 'hero-detail',
     templateUrl: 'hero_detail_component.html',
-    styleUrls: const ['hero_detail_component.css'],
     directives: const [CORE_DIRECTIVES, formDirectives],
   )
 ```
@@ -1069,4 +1087,5 @@ you’ll replace the mock data with data retrieved from a server using http.
 
 {%comment%}TODO: Add Recap and What's next sections{%endcomment%}
 
+[angular_router]: /api/angular_router
 [master styles]: https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css
