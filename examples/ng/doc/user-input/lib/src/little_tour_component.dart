@@ -1,6 +1,5 @@
 // #docregion
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 // #docregion little-tour
 @Component(
@@ -14,7 +13,7 @@ import 'package:angular_forms/angular_forms.dart';
 
     <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul>
   ''',
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: const [CORE_DIRECTIVES],
 )
 class LittleTourComponent {
   List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];

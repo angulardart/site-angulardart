@@ -298,7 +298,7 @@ We'll call out the highlights after we bask briefly in its minimalist glory.
 
       <ul><li *ngFor="let hero of heroes">{!{hero}!}</li></ul>
     ''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: const [CORE_DIRECTIVES],
   )
   class LittleTourComponent {
     List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
