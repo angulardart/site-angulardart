@@ -22,7 +22,7 @@ import 'src/hero.dart';
 )
 // #docregion class
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   // #docregion heroes
   List<Hero> heroes = [
     new Hero(1, 'Windstorm'),

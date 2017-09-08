@@ -36,5 +36,5 @@ class Bogus {}
 ])
 // #docregion ,
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
 }

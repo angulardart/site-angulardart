@@ -55,7 +55,7 @@ When you're done, it should look like this:
     ''',
   )
   class AppComponent {
-    String title = 'Tour of Heroes';
+    final title = 'Tour of Heroes';
     String myHero = 'Windstorm';
   }
 ```
@@ -125,8 +125,13 @@ To display a list of heroes, begin by adding a list of hero names to the compone
 <?code-excerpt "lib/app_component_2.dart (class)" title?>
 ```
   class AppComponent {
-    String title = 'Tour of Heroes';
-    List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+    final title = 'Tour of Heroes';
+    List<String> heroes = [
+      'Windstorm',
+      'Bombasto',
+      'Magneta',
+      'Tornado',
+    ];
     String get myHero => heroes.first;
   }
 ```

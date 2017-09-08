@@ -21,7 +21,7 @@ import 'src/hero.dart';
   directives: const [CORE_DIRECTIVES],
 )
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   List<Hero> heroes = [
     new Hero(1, 'Windstorm'),
     new Hero(13, 'Bombasto'),

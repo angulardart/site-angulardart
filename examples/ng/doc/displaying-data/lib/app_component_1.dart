@@ -11,6 +11,6 @@ import 'package:angular/angular.dart';
   // #enddocregion template
 )
 class AppComponent {
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   String myHero = 'Windstorm';
 }

@@ -147,7 +147,7 @@ The first draft looks like this:
       directives: const [HeroesComponent],
       providers: const [HeroService])
   class AppComponent {
-    String title = 'Tour of Heroes';
+    final title = 'Tour of Heroes';
   }
 ```
 
@@ -334,7 +334,7 @@ and the list of heroes displays.
     const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent)
   ])
   class AppComponent {
-    String title = 'Tour of Heroes';
+    final title = 'Tour of Heroes';
   }
 ```
 

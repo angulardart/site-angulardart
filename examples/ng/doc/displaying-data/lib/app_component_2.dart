@@ -1,8 +1,9 @@
-// #docregion
+// #docregion , directives
 import 'package:angular/angular.dart';
 
 @Component(
   selector: 'my-app',
+  // #enddocregion directives
   // #docregion template
   template: '''
     <h1>{{title}}</h1>
@@ -17,11 +18,18 @@ import 'package:angular/angular.dart';
     </ul>
   ''',
   // #enddocregion template
+  // #docregion directives
   directives: const [CORE_DIRECTIVES],
 )
+// #enddocregion directives
 // #docregion class
 class AppComponent {
-  String title = 'Tour of Heroes';
-  List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  final title = 'Tour of Heroes';
+  List<String> heroes = [
+    'Windstorm',
+    'Bombasto',
+    'Magneta',
+    'Tornado',
+  ];
   String get myHero => heroes.first;
 }

@@ -24,7 +24,7 @@ import 'src/hero_service_1.dart';
 // #docregion ngOnInit-stub
 class AppComponent implements OnInit {
   // #enddocregion ngOnInit-stub
-  String title = 'Tour of Heroes';
+  final title = 'Tour of Heroes';
   // #docregion heroes-prop
   List<Hero> heroes;
   // #enddocregion heroes-prop
