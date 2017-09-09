@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
   const replace = plugins.replace;
 
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
 
   // const qsProjName = config.qsProjName;
   const webSimpleProjPath = config.webSimpleProjPath;

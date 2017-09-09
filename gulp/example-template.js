@@ -5,7 +5,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const cp = plugins.child_process;
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const LOCAL_TMP = config.LOCAL_TMP;
   const fs = require("fs");
   const path = plugins.path;

@@ -4,7 +4,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const ngPkgVers = config.ngPkgVers;
   const path = plugins.path;
   const replace = plugins.replace;

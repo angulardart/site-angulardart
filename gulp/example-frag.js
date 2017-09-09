@@ -11,7 +11,7 @@ module.exports = function (gulp, plugins, config) {
   const path = plugins.path;
 
   const frags = config.frags;
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 
   const docShredder = require(path.resolve(TOOLS_PATH, 'doc-shredder/doc-shredder'));

@@ -1,10 +1,10 @@
-// Gulp tasks related to adding the built examples (deployable files)
+// Gulp tasks related to adding the built example apps (deployable files)
 // to the site folder
 'use strict';
 
 module.exports = function (gulp, plugins, config) {
 
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const LOCAL_TMP = config.LOCAL_TMP;
   const siteExPath = plugins.path.join(config.siteFolder, 'examples');
 
@@ -27,7 +27,7 @@ module.exports = function (gulp, plugins, config) {
     gutil.log(`examples: ${examples}`)
   });
 
-  gulp.task('add-examples-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
+  gulp.task('add-example-apps-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
 
   gulp.task('_examples-get-repos', ['_clean'], () => {
     const promises = [];

@@ -5,8 +5,7 @@ module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
   const path = plugins.path;
-  // TODO: change global EXAMPLES_PATH to refer to this too:
-  const EXAMPLES_PATH = path.join(config.EXAMPLES_PATH, '..', '..');
+  const EXAMPLES_PATH = config.EXAMPLES_ROOT;
 
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;

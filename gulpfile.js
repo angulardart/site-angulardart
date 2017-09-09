@@ -43,7 +43,8 @@ const _configYml = yamljs.load('_config.yml');
 const siteFolder = _configYml.destination || _throw();
 
 // angular.io constants
-const EXAMPLES_PATH = './examples/ng/doc';
+const EXAMPLES_ROOT = 'examples';
+const EXAMPLES_NG_DOC_PATH = './examples/ng/doc'; // used to be named EXAMPLES_PATH
 const TOOLS_PATH = './tools';
 const TMP_PATH = process.env.TMP; // shared temp folder (for larger downloads, etc)
 const LOCAL_TMP = 'tmp'; // temp folder local to this project
@@ -69,7 +70,8 @@ const config = {
   angulario: angulario,
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
-  EXAMPLES_PATH: EXAMPLES_PATH,
+  EXAMPLES_ROOT: EXAMPLES_ROOT,
+  EXAMPLES_NG_DOC_PATH: EXAMPLES_NG_DOC_PATH,
   frags: {
     apiDirName: '_api',
     dirName: path.basename(fragsPath),
@@ -146,7 +148,7 @@ function _dartdocForRepo(repo) {
 }
 
 const extraTasks = `
-  api api-list dartdoc e2e examples example-frag example-template
+  api api-list dartdoc e2e example-add-apps example-frag example-template
   get-stagehand-proj jade-to-md ngio-get ngio-put test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
@@ -162,7 +164,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 // tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
 // a problem. We can always fix the dependencies once gulp 4.x is out.
 gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
-  'build-api-list-json', 'finalize-api-docs', 'add-examples-to-site'], cb => {
+  'build-api-list-json', 'finalize-api-docs', 'add-example-apps-to-site'], cb => {
     // Make API lists available for the sitemap generation:
     child_process.execSync(`cp src/api/api-list.json src/_data/api-list.json`);
     return execp(`jekyll build`);

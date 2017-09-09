@@ -19,7 +19,7 @@ module.exports = function (gulp, plugins, config) {
 
   const angulario = config.angulario;
   const ngioExPath = path.join(angulario, 'public/docs/_examples');
-  const EXAMPLES_PATH = config.EXAMPLES_PATH;
+  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');
 
   // To force a refresh of Dart Jade file invoke with --dart.
