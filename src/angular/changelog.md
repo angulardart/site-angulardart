@@ -64,6 +64,8 @@ due to the `angular2` package changing its name to `angular`.
     ([RFC#374][]) to export enums to the component template
   * Switched from the use of `@Component` `inputs` and `outputs` parameters to appropriate
     `@Input()` and `@Output()` annotations.
+  * Switched from the use of `<glyph>` (GlyphComponent) to `<material-icon>`
+  ([MaterialIconComponent](/api/angular_components/angular_components/MaterialIconComponent-class))
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:

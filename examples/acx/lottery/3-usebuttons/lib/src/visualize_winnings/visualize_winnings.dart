@@ -20,7 +20,7 @@ class VisualizeWinningsComponent implements OnInit {
   static const int _pointMargin = 1;
 
   @ViewChild('canvas')
-  Element canvas;
+  ElementRef canvas;
 
   CanvasRenderingContext2D _ctx;
 

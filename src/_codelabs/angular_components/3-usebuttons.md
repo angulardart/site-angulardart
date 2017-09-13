@@ -7,6 +7,7 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/2-easystart
   title: "Step 2: Start Using AngularDart Components"
+css: [ styles.css ]
 ---
 <?code-excerpt path-base="examples/acx/lottery"?>
 
@@ -39,7 +40,7 @@ Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
            [disabled]="endOfDays || inProgress"
            id="play-button"
            aria-label="Play">
-         <glyph icon="play_arrow"></glyph>
+         <material-icon icon="play_arrow"></material-icon>
 -      </button>
 +      </material-fab>
 
@@ -47,7 +48,7 @@ Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
 +      <material-fab mini raised (trigger)="step()"
            [disabled]="endOfDays || inProgress"
            aria-label="Step">
-         <glyph icon="skip_next"></glyph>
+         <material-icon icon="skip_next"></material-icon>
 -      </button>
 +      </material-fab>
 
@@ -55,14 +56,14 @@ Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
 +      <material-fab mini raised (trigger)="pause()"
            [disabled]="!inProgress"
            aria-label="Pause">
-         <glyph icon="pause"></glyph>
+         <material-icon icon="pause"></material-icon>
 -      </button>
 +      </material-fab>
 
 -      <button (click)="reset()"
 +      <material-fab mini raised (trigger)="reset()"
            aria-label="Reset">
-         <glyph icon="replay"></glyph>
+         <material-icon icon="replay"></material-icon>
 -      </button>
 -    </div>
 -    <div class="controls__faster-button">
@@ -119,7 +120,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
            [disabled]="endOfDays || inProgress"
            id="play-button"
            aria-label="Play">
-         <glyph icon="play_arrow"></glyph>
+         <material-icon icon="play_arrow"></material-icon>
 -      </button>
 +      </material-fab>
 ```
@@ -141,7 +142,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
            [disabled]="endOfDays || inProgress"
            id="play-button"
            aria-label="Play">
-         <glyph icon="play_arrow"></glyph>
+         <material-icon icon="play_arrow"></material-icon>
 -      </button>
 +      </material-fab>
 
@@ -149,7 +150,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
 +      <material-fab mini raised (trigger)="step()"
            [disabled]="endOfDays || inProgress"
            aria-label="Step">
-         <glyph icon="skip_next"></glyph>
+         <material-icon icon="skip_next"></material-icon>
 -      </button>
 +      </material-fab>
 ```

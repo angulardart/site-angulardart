@@ -60,9 +60,9 @@ use AngularDart Components.
   * Depend on angular_components
   * Set up the root component’s Dart file
   * Use \<material-progress>
-  * Use \<glyph> in buttons
-    * <i class="fa fa-exclamation-circle"> </i> Common problem: Forgetting to import glyph fonts
-  * Use \<glyph> in other components
+  * Use \<material-icon> in buttons
+    * <i class="fa fa-exclamation-circle"> </i> Common problem: Forgetting to import material icon fonts
+  * Use \<material-icon> in other components
     * <i class="fa fa-exclamation-circle"> </i> Common problem: Forgetting to register a component
   * Use \<acx-scorecard>
     * <i class="fa fa-exclamation-circle"> </i> Common problem: Registering the wrong component

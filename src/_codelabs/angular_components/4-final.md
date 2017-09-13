@@ -7,6 +7,7 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/3-usebuttons
   title: "Step 3: Upgrade Buttons and Inputs"
+css: [ styles.css ]
 ---
 <?code-excerpt path-base="examples/acx/lottery"?>
 
@@ -23,7 +24,7 @@ so let’s use them in the custom \<settings-component>,
 implemented in lib/src/settings/settings_component.* files.
 
 
-<ol markdown="1">
+<ol>
 
 <li markdown="1"> Edit the Dart file
     (**lib/src/settings/settings_component.dart**),
@@ -57,19 +58,15 @@ implemented in lib/src/settings/settings_component.* files.
     **\<material-expansionpanel>**
     ([MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html)):
 
-<ol type="a" markdown="1">
-<li markdown="1"> Change the **\<div>** element to **\<material-expansionpanel>**.
-</li>
-
-<li markdown="1"> Move the title (**h2** content) and summary content
-    (**p** content) into the \<material-expansionpanel> **name** and
-    **secondaryText** attributes, respectively.
-</li>
-
-<li markdown="1"> Remove the buttons from the bottom of the panel,
-    putting their event handling code into **(save)** and
-    **(cancel)** bindings. Your code changes to the _beginning_ of
-    this file should look like this:
+{: type="a" }
+1. Change the **\<div>** element to **\<material-expansionpanel>**.
+2. Move the title (**h2** content) and summary content
+   (**p** content) into the \<material-expansionpanel> **name** and
+   **secondaryText** attributes, respectively.
+3. Remove the buttons from the bottom of the panel,
+   putting their event handling code into **(save)** and
+   **(cancel)** bindings. Your code changes to the _beginning_ of
+   this file should look like this:
 
 <?code-excerpt "3-usebuttons/lib/src/settings/settings_component.html" diff-with="4-final/lib/src/settings/settings_component.html" to="betting-panel"?>
 ```diff
@@ -98,8 +95,6 @@ implemented in lib/src/settings/settings_component.* files.
 -  </div>
 -  <div class="betting-panel">
 ```
-</li>
-</ol>
 
 </li>
 
@@ -230,24 +225,24 @@ The end of the file should look like this:
 -          [disabled]="endOfDays || inProgress"
 -          id="play-button"
 -          aria-label="Play">
--        <glyph icon="play_arrow"></glyph>
+-        <material-icon icon="play_arrow"></material-icon>
 -      </material-fab>
 -
 -      <material-fab mini raised (trigger)="step()"
 -          [disabled]="endOfDays || inProgress"
 -          aria-label="Step">
--        <glyph icon="skip_next"></glyph>
+-        <material-icon icon="skip_next"></material-icon>
 -      </material-fab>
 -
 -      <material-fab mini raised (trigger)="pause()"
 -          [disabled]="!inProgress"
 -          aria-label="Pause">
--        <glyph icon="pause"></glyph>
+-        <material-icon icon="pause"></material-icon>
 -      </material-fab>
 -
 -      <material-fab mini raised (trigger)="reset()"
 -          aria-label="Reset">
--        <glyph icon="replay"></glyph>
+-        <material-icon icon="replay"></material-icon>
 -      </material-fab>
 +<material-tab-panel>
 +  <material-tab label="Simulation">
@@ -276,24 +271,24 @@ The end of the file should look like this:
 +              [disabled]="endOfDays || inProgress"
 +              id="play-button"
 +              aria-label="Play">
-+            <glyph icon="play_arrow"></glyph>
++            <material-icon icon="play_arrow"></material-icon>
 +          </material-fab>
 +
 +          <material-fab mini raised (trigger)="step()"
 +              [disabled]="endOfDays || inProgress"
 +              aria-label="Step">
-+            <glyph icon="skip_next"></glyph>
++            <material-icon icon="skip_next"></material-icon>
 +          </material-fab>
 +
 +          <material-fab mini raised (trigger)="pause()"
 +              [disabled]="!inProgress"
 +              aria-label="Pause">
-+            <glyph icon="pause"></glyph>
++            <material-icon icon="pause"></material-icon>
 +          </material-fab>
 +
 +          <material-fab mini raised (trigger)="reset()"
 +              aria-label="Reset">
-+            <glyph icon="replay"></glyph>
++            <material-icon icon="replay"></material-icon>
 +          </material-fab>
 +        </div>
 +        <material-toggle class="controls__faster-button"

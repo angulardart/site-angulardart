@@ -7,6 +7,7 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components
   title: "Codelab: AngularDart Components"
+css: [ styles.css ]
 ---
 
 In this step, you’ll download the code for the app, and you’ll familiarize yourself with both the app and the components you’ll be adding to it.
@@ -117,7 +118,7 @@ We plan to release many more components over time.
 Think about how AngularDart Components might improve the app. The rest of this codelab leads you through making the following changes:
 
 *   Improving the progress bar by changing **\<progress>** to **\<material-progress>**.
-*   Adding small, pre-packaged images by changing text to **\<glyph>** components.
+*   Adding small, pre-packaged images by changing text to **\<material-icon>** components.
 *   Displaying small amounts of data in a more compelling way with **\<acx-scorecard>**.
 *   Changing **\<button>** and button-like **\<input>** elements to specialized components:
     *   **\<material-fab>**

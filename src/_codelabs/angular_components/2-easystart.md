@@ -7,13 +7,14 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
+css: [ styles.css ]
 ---
 <?code-excerpt path-base="examples/acx/lottery"?>
 
 In this step, you’ll change the app to use a few of the AngularDart Components:
 
+*   \<material-icon>
 *   \<material-progress>
-*   \<glyph>
 *   \<acx-scorecard>
 
 
@@ -128,12 +129,12 @@ As a reminder, here’s what the progress section looked like before:
 
 <img style="border:1px solid black" src="images/material-progress-before.png" alt="screenshot showing the HTML progress bar">
 
-That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<glyph> component.
+That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<material-icon> component.
 
-## <i class="fa fa-money"> </i> Use glyph in buttons
+## <i class="fa fa-money"> </i> Use material-icon in buttons
 
-Using \<glyph>
-([GlyphComponent]({{site.acx_api}}/angular_components/GlyphComponent-class.html))
+Using \<material-icon>
+([MaterialIconComponent]({{site.acx_api}}/angular_components/MaterialIconComponent-class.html))
 is similar to using \<material-progress>,
 except that you also need
 [material icon fonts](http://google.github.io/material-design-icons/).
@@ -153,26 +154,24 @@ Let’s use the following icons in the main simulator UI:
 
 <ol>
 
-<li>
-Find the icon font value for <b>play arrow</b>:
-<ol style="list-style-type: lower-alpha">
-  <li>
-  Go to <a href="https://design.google.com/icons">design.google.com/icons</a>. </li>
-  <li>
-  Enter <b>play</b> or <b>play arrow</b> in the site search box. </li>
-  <li>
-  In the results, click the <b>play arrow</b> icon
-  (<img src="images/ic_play_arrow_black_24px.svg">)
-  to get more information. </li>
-  <li>
-  Click <b>ICON FONT</b> to get the icon code to use: <b>play_arrow</b>. </li></ol></li>
-<li>
-Find the icon font values for <b>skip next</b>, <b>pause</b>, and <b>replay</b>. </li>
+<li markdown="1">
+Find the icon font value for **play arrow**:
 
-<li>
-  <p>
-  Edit the main HTML file (<b>web/index.html</b>) to add the following code to the &lt;head> section:
-  </p>
+{: type="a"}
+1. Go to [design.google.com/icons](https://design.google.com/icons)</a>.
+2. Enter **play** or **play arrow** in the site search box.
+3. In the results, click the **play arrow** icon
+   ![|>](images/ic_play_arrow_black_24px.svg)
+   to get more information.
+4. Click **ICON FONT** to get the icon code to use: **play_arrow**.
+</li>
+
+<li markdown="1">
+Find the icon font values for **skip next**, **pause**, and **replay**.
+</li>
+
+<li markdown="1">
+Edit the main HTML file (**web/index.html**) to add the following code to the &lt;head> section:
 
 <?code-excerpt "1-base/web/index.html" diff-with="2-starteasy/web/index.html"?>
 ```diff
@@ -192,21 +191,17 @@ Find the icon font values for <b>skip next</b>, <b>pause</b>, and <b>replay</b>.
 ```
 </li>
 
-<li><p>Edit <b>lib/lottery_simulator.html</b> to change the first button to use
-a glyph instead of text:</p>
+<li markdown="1">
+Edit **lib/lottery_simulator.html** to change the first button to use
+a \<material-icon> instead of text:
 
-<ol style="list-style-type: lower-alpha">
-  <li>
-  Add an <b>aria-label</b> attribute to the button,
-  giving it the value of the button's text (<b>Play</b>).
-  </li>
-  <li>
-  Replace the button's text (<b>Play</b>) with a <b>&lt;glyph></b> element.
-  </li>
-  <li><p>Set the glyph's <b>icon</b> attribute to the icon code (<b>play_arrow</b>).</p></li>
-</ol>
+{: type="a"}
+1. Add an **aria-label** attribute to the button, giving it the value of the
+  button's text (**Play**).
+2. Replace the button's text (**Play**) with a **\<material-icon>** element.
+3. Set the **icon** attribute to the icon code (**play_arrow**).
 
-<p>Here are the diffs:</p>
+Here are the diffs:
 
 <?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="play" to="<\/button"?>
 ```diff
@@ -229,35 +224,38 @@ a glyph instead of text:</p>
 -        Play
 +          id="play-button"
 +          aria-label="Play">
-+        <glyph icon="play_arrow"></glyph>
++        <material-icon icon="play_arrow"></material-icon>
        </button>
 ```
 
-<li><p>Use similar changes to convert the <b>Step</b>, <b>Pause</b>, and
-<b>Reset</b> buttons to use glyphs instead of text.</p></li></li></ol>
+<li markdown="1">
+Use similar changes to convert the **Step**, **Pause**, and **Reset** buttons
+to use material icons instead of text.
+</li>
+</li>
+</ol>
 
 These small changes make a big difference in the UI:
 
-<img style="border:1px solid black" src="images/glyph-buttons-after.png" alt='buttons have images now, instead of text'>
+<img style="border:1px solid black" src="images/material-icon-buttons-after.png" alt='buttons have images now, instead of text'>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to import glyph fonts**
+<i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to import material icon fonts**
 
-If you see words instead of glyphs, your app needs to
-import glyph fonts.
+If you see words instead of icons, your app needs to import material icon fonts.
 
 **The solution:** In the app entry point (for example, `web/index.html`),
 **import the Material+Icons font family.**
 </aside>
 
 
-## <i class="fa fa-money"> </i> Use glyph in other components
+## <i class="fa fa-money"> </i> Use material-icon in other components
 
 If you scroll down to the Tips section of the page, you’ll see blank spaces where there should be icons:
 
-<img style="border:1px solid black" src="images/glyph-help-before.png" alt='help text has no images'>
+<img style="border:1px solid black" src="images/material-icon-help-before.png" alt='help text has no images'>
 
-The HTML template (lib/src/help/help.html) uses \<glyph> already, so why isn’t it working?
+The HTML template (lib/src/help/help.html) uses \<material-icon> already, so why isn’t it working?
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to register a component**
@@ -306,9 +304,9 @@ You also don’t need to do anything to get the material icon fonts,
 since the app’s entry point (web/index.html) already imports the font file.
 </aside>
 
-Adding those two lines to lib/src/help/help.dart makes the glyphs display:
+Adding those two lines to lib/src/help/help.dart makes the material icons display:
 
-<img style="border:1px solid black" src="images/glyph-help-after.png" alt='help text now has images'>
+<img style="border:1px solid black" src="images/material-icon-help-after.png" alt='help text now has images'>
 
 
 ## <i class="fa fa-money"> </i> Use acx-scorecard

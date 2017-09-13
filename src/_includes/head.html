@@ -44,7 +44,7 @@
   {% if page.layout == "angular" %}{% stylesheet angular %}{% endif %}
   {% if page.layout == "components" %}{% stylesheet acx %}{% endif %}
   {% for css in page.css %}
-  <link href="{{ css.url }}" rel="stylesheet" type="text/css">
+  <link href="{{css}}" rel="stylesheet" type="text/css">
   {% endfor %}
 
   <!--
