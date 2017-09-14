@@ -4,11 +4,12 @@
 
 module.exports = function (gulp, plugins, config) {
 
-  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
+  const EXAMPLES_ROOT = config.EXAMPLES_ROOT;
   const LOCAL_TMP = config.LOCAL_TMP;
   const siteExPath = plugins.path.join(config.siteFolder, 'examples');
 
   const argv = plugins.argv;
+  const cp = plugins.child_process;
   const execp = plugins.execp;
   const filter = require('gulp-filter');
   const fs = plugins.fs;
@@ -20,27 +21,31 @@ module.exports = function (gulp, plugins, config) {
   const tmpReposPath = path.join(LOCAL_TMP, 'deploy-repos');
   const ngMajorVers = config.ngPkgVers.angular.vers[0]; // good enough until version 9!
 
-  let examples = plugins.fs.readdirSync(EXAMPLES_PATH)
-    .filter(name => !name.match(/^_|\.|node_modules/));
+  const findCmd = `find ${EXAMPLES_ROOT} -type f -name ".docsync.json"`;
+  const examplesFullPath = (cp.execSync(findCmd) + '').split(/\s+/).map(p => path.dirname(p));
+  const examples = examplesFullPath.map(p => path.basename(p));
 
   gulp.task('__list-examples', () => {
-    gutil.log(`examples: ${examples}`)
+    gutil.log(`examples:\n  ${examples.join('\n  ')}`);
+    gutil.log(`/${ngMajorVers}(/|$)`);
   });
 
   gulp.task('add-example-apps-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
 
   gulp.task('_examples-get-repos', ['_clean'], () => {
-    const promises = [];
+    // const promises = [];
     examples.forEach((name) => {
-      const exPath = path.join(tmpReposPath, EXAMPLES_PATH, name)
+      const exPath = path.join(tmpReposPath, EXAMPLES_ROOT, name)
       if (fs.existsSync(exPath)) {
       } else {
         const repo = `${config.ghNgEx}/${name}.git`;
         const clone = `git clone --depth 1 --branch gh-pages ${repo} ${exPath}`;
-        promises.push(execp(clone));
+        // promises.push(execp(clone));
+        cp.execSync(clone);
       }
     });
-    return plugins.q.all(promises);
+    // return plugins.q.all(promises);
+    // return promises.reduce(plugins.q.when, plugins.q(true)).then(() => done());
   });
 
   let c = 0;
@@ -53,19 +58,20 @@ module.exports = function (gulp, plugins, config) {
     }
     gutil.log(`  Copying version ${ngMajorVers} of examples to ${siteExPath}`);
     const baseDir = tmpReposPath;
-    const indexHtml = filter(`${baseDir}/examples/ng/doc/*/*/index.html`, { restore: true });
+    const indexHtml = filter(`${baseDir}/**/index.html`, { restore: true });
+    const re = new RegExp(`/${ngMajorVers}(/|$)`);
     return gulp.src([
-      `${baseDir}/examples/ng/doc/*/${ngMajorVers}/**`,
-      `!${baseDir}/examples/ng/doc/*/${ngMajorVers}`,
+      `${baseDir}/examples/*/${ngMajorVers}/**`,
+      `!${baseDir}/examples/*/${ngMajorVers}/`,
+      `${baseDir}/examples/*/*/${ngMajorVers}/**`,
+      `!${baseDir}/examples/*/*/${ngMajorVers}/`,
     ], { base: baseDir })
       // Adjust the <base href>:
       .pipe(indexHtml)
-      .pipe(replace(/(<base href=")([^"]+)\/\d+(\/">)/, '$1/examples/ng/doc$2$3'))
+      .pipe(replace(/(<base href=")([^"]+)\/\d+(\/">)/, '$1/examples$2$3'))
       .pipe(indexHtml.restore)
       // Strip out NG version number from the path:
-      .pipe(rename(p => {
-        p.dirname = p.dirname.replace(`/${ngMajorVers}/`, '/').replace(`/${ngMajorVers}`, '');
-      }))
+      .pipe(rename(p => p.dirname = p.dirname.replace(re, '$1')))
       .pipe(gulp.dest(config.siteFolder));
   });
 

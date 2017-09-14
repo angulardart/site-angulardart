@@ -2,7 +2,7 @@
 title: "Step 1: Get to Know the Software"
 description: "Get the base app for the codelab, and play with the AngularDart Component demo."
 nextpage:
-  url: /codelabs/angular_components/2-easystart
+  url: /codelabs/angular_components/2-starteasy
   title: "Step 2: Start Using AngularDart Components"
 prevpage:
   url: /codelabs/angular_components
@@ -12,40 +12,17 @@ css: [ styles.css ]
 
 In this step, you’ll download the code for the app, and you’ll familiarize yourself with both the app and the components you’ll be adding to it.
 
+{% include_relative _run_example.md %}
 
 ## <i class="fa fa-money"> </i> Get the app code
 
-Download the app’s code from the
-[dart-lang/one-hour-codelab](https://github.com/dart-lang/one-hour-codelab)
-GitHub repo
-{%- if site.branch != 'master' %}
-(`{{site.branch}}` branch)
-{%- endif %}.
-**Choose one:**
+All the code for this codelab is in the `angular-examples/lottery` GitHub repo.
 
-<ul markdown="1">
-
-<li markdown="1">
-  Download the ZIP file,
-  [one-hour-codelab-{{site.branch}}.zip](https://github.com/dart-lang/one-hour-codelab/archive/{{site.branch}}.zip).
-  Unzip the ZIP file, which creates a directory called
-  `one-hour-codelab-{{site.branch}}`.
-</li>
-
-<li>
-  <p> Clone the repo. For example, from the command line: </p>
-
-{% prettify none %}
-git clone https://github.com/dart-lang/one-hour-codelab.git
-{% endprettify %}
-
-<p> This creates a directory named <code>one-hour-codelab</code>. </p>
-</li>
-</ul>
-
-All the code for this codelab is under the **`angular_components`**
-directory of `one-hour-codelab` or `one-hour-codelab-{{site.branch}}`.
-
+1. Go to the [angular-examples/lottery repo page]({{site.ghNgEx}}/lottery/tree/{{site.branch}}).
+2. Click **Clone or download**.
+3. Get the code, either by cloning the repo
+   {%- if site.branch != 'master' %} (`{{site.branch}}` branch){% endif %}
+   or by clicking **Download ZIP**.
 
 ## <i class="fa fa-money"> </i> Get familiar with the base app
 
@@ -60,7 +37,7 @@ html prettifying is better than bash here:
 {% endcomment %}
 
 {% prettify html %}
-cd one-hour-codelab/angular_components/1-base
+cd 1-base
 pub get
 {% endprettify %}
 </li>
@@ -105,7 +82,7 @@ some of their vanilla HTML elements.
 
 ## <i class="fa fa-money"> </i> Get familiar with AngularDart Components
 
-Run the [AngularDart Components demo.](https://dart-lang.github.io/angular_components_example/)
+Run the [AngularDart Components demo.](/examples/lottery/4-final/)
 Optionally, look at its [source code](https://github.com/dart-lang/angular_components_example).
 
 <aside class="alert alert-info" markdown="1">

@@ -17,6 +17,8 @@ information until the user needs it. You’ll use these components:
 *   \<material-expansionpanel> and \<material-expansionpanel-set>
 *   \<material-tab> and \<material-tab-panel>
 
+{% include_relative _run_example.md %}
+
 ## <i class="fa fa-money"> </i> Use material-expansionpanel and material-expansionpanel-set
 
 Expansion panels are especially good for settings,

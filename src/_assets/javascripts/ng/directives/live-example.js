@@ -109,7 +109,7 @@ angularIO.directive('liveExample', ['$location', function ($location) {
         template = embeddedTemplate(href, img, zipHref);
       } else {
         var href = isForDart
-          ? '/examples/ng/doc/' + ex
+          ? '/examples/' + ex + '/'
           : '/resources/live-examples/' + ex + '/' + exLang + '/' + plnkr + '.html'
 
         // Link to live example.

@@ -17,13 +17,13 @@ In this step, you’ll change the app to use a few of the AngularDart Components
 *   \<material-progress>
 *   \<acx-scorecard>
 
+{% include_relative _run_example.md %}
 
 ## <i class="fa fa-money"> </i> Copy the source code
 
 Make a copy of the base app's source code:
 
 {% prettify none %}
-cd one-hour-codelab/angular_components
 cp -r 1-base myapp
 cd myapp
 pub get
@@ -445,4 +445,3 @@ component’s Dart file includes the right component.**
 
 Check your code against the solution
 in the `2-starteasy` directory.
-

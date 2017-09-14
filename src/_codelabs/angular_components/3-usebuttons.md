@@ -5,7 +5,7 @@ nextpage:
   url: /codelabs/angular_components/4-final
   title: "Step 4: Add Expansion Panels and Tabs"
 prevpage:
-  url: /codelabs/angular_components/2-easystart
+  url: /codelabs/angular_components/2-starteasy
   title: "Step 2: Start Using AngularDart Components"
 css: [ styles.css ]
 ---
@@ -21,6 +21,8 @@ using these components:
 
 These controls appear in two custom components: \<lottery-simulator>
 and \<settings-component>.
+
+{% include_relative _run_example.md %}
 
 ## <i class="fa fa-money"> </i> Use material-toggle
 

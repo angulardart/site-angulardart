@@ -35,7 +35,7 @@ In this codelab, you’ll take a basic AngularDart app, called Lottery Simulator
 and use AngularDart Components to simplify the code and beautify the UI.
 You can play with a
 {% assign ng-major-vers = site.data.ng-pkg-vers.angular.vers | regex_replace: '\.[^\.]+\.[^\.]+$' -%}
-[live copy of the final app](http://dart-lang.github.io/one-hour-codelab/{{ng-major-vers}}/angular_components/4-final/).
+[live copy of the final app](/examples/lottery/4-final/).
 
 Here are screenshots of the app’s UI, before and after conversion to
 use AngularDart Components.
@@ -55,7 +55,7 @@ use AngularDart Components.
   * Get the app code
   * Get familiar with the base app
   * Get familiar with AngularDart Components
-* [Step 2: Start Using AngularDart Components](/codelabs/angular_components/2-easystart)
+* [Step 2: Start Using AngularDart Components](/codelabs/angular_components/2-starteasy)
   * Copy the source code
   * Depend on angular_components
   * Set up the root component’s Dart file
