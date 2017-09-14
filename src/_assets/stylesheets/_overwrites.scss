@@ -133,6 +133,14 @@ pre code {
   white-space: pre;
 }
 
+.alert > p + div {
+  margin-top: 0.67em;
+}
+
+.alert > .code-example:last-child {
+  margin-bottom: 0;
+}
+
 /* diff2html */
 .d2h-diff-table {
   margin-bottom: 0;

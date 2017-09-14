@@ -167,9 +167,9 @@ library, it isn't available by default.
 
 Before you can use any Angular directives in a template,
 you need to list them in the `directives` argument of your component's
-`@Component` annotation. Although you can list directives individually,
-it is sometimes more convenient to include a group of related directives, like
-the [form directives][formDirectives], in one go (note the new import statement):
+`@Component` annotation. You can add directives individually, or for
+convenience you can add the [formDirectives][] list
+(note the new import statement):
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
 ```

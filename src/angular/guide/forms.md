@@ -86,10 +86,37 @@ We'll build this form in small steps:
 1. Handle form submission with **ngSubmit**.
 1. Disable the form’s submit button until the form is valid.
 
-## Setup
+## Add angular_forms
 
-Follow the [setup](setup.html) instructions for creating a new project
-named `angular_forms`.
+Follow the [setup](setup.html) instructions to create a new project named `forms`.
+
+<?code-excerpt path-base="examples/ng/doc"?>
+
+The Angular forms functionality is in the [angular_forms][] library,
+which comes in [its own package][angular_forms@pub].
+Add the package to the pubspec dependencies:
+
+<?code-excerpt "quickstart/pubspec.yaml" diff-with="forms/pubspec.yaml" from="dependencies" to="angular_forms"?>
+```diff
+--- quickstart/pubspec.yaml
++++ forms/pubspec.yaml
+@@ -1,6 +1,6 @@
+ # #docregion
+-name: angular_app
+-description: A web app that uses AngularDart
++name: forms
++description: Form example
+ version: 0.0.1
+
+ environment:
+@@ -8,22 +8,13 @@
+
+ dependencies:
+   angular: ^4.0.0
++  angular_forms: ^1.0.0
+```
+
+<?code-excerpt path-base="forms"?>
 
 ## Create the Hero model class
 
@@ -804,3 +831,6 @@ Here’s the code for the final version of the application:
   <?code-pane "web/index.html"?>
   <?code-pane "web/main.dart"?>
 </code-tabs>
+
+[angular_forms]: /api/angular_forms/angular_forms/angular_forms-library
+[angular_forms@pub]: https://pub.dartlang.org/packages/angular_forms

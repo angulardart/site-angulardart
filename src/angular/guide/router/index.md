@@ -87,6 +87,26 @@ You'll learn many router details in this guide which covers
 * Choosing the "HTML5" or "hash" [URL style](#browser-url-styles)
 {% endcomment %}
 
+## Adding angular_router
+
+Router functionality is in the [angular_router][] library,
+which comes in [its own package][angular_router@pub].
+Add the package to the pubspec dependencies:
+
+<?code-excerpt "pubspec.yaml (dependencies)" region="dependencies-wo-forms" title?>
+```
+  dependencies:
+    angular: ^4.0.0
+    angular_router: ^1.0.2
+```
+
+In any Dart file that makes use of router features, import the router library:
+
+<?code-excerpt "lib/app_component_1.dart (import)"?>
+```
+  import 'package:angular_router/angular_router.dart';
+```
+
 ## Basic feature overview
 
 This guide proceeds in phases, marked by milestones, starting from a simple two-pager
@@ -98,17 +118,6 @@ This overview of core router concepts will help orient you to the details that f
 Most routing applications have a `<base href="...">` element in the `index.html` `<head>`
 to tell the router how to compose navigation URLs.
 For details, see [Set the *base href*](router/1#base-href).
-
-### Router import
-
-The Angular router is not part of the Angular package.
-It is an optional service contained within its own package, `angular_router`.
-Import it like any other package.
-
-<?code-excerpt "lib/app_component_1.dart (import)"?>
-```
-  import 'package:angular_router/angular_router.dart';
-```
 
 ### Configuration
 
@@ -354,3 +363,7 @@ before navigating away from the current view.
 The `Admin` and `Login` buttons illustrate other router capabilities to be
 covered later in the guide.
 {% endcomment %}
+
+[angular_forms]: https://pub.dartlang.org/packages/angular_forms
+[angular_router]: /api/angular_router/angular_router/angular_router-library
+[angular_router@pub]: https://pub.dartlang.org/packages/angular_router

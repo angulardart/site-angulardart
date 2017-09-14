@@ -169,8 +169,8 @@ It marks that `<li>` element (and its children) as the "repeater template":
   For more information, see the [Template Syntax](./template-syntax.html#ngFor) page.
 </div>
 
-Notice the `hero` in the `ngFor` double-quoted instruction;
-it is an example of a template input variable. Read
+Notice the `hero` variable in the `ngFor` instruction;
+it is an example of a _template input variable_. Read
 more about template input variables in the [microsyntax](./template-syntax.html#microsyntax) section of
 the [Template Syntax](./template-syntax.html) page.
 
@@ -183,7 +183,30 @@ context for the interpolation in the double curly braces.
   repeat items for any [iterable](https://api.dartlang.org/stable/dart-core/Iterable-class.html) object.
 </div>
 
-Now the heroes appear in an unordered list.
+<div class="alert is-important" markdown="1">
+#### @Component(directives: ...)
+
+Before you can use any Angular directives in a template,
+you need to list them in the `directives` argument of your component's
+`@Component` annotation. You can list directives individually, or for
+convenience you can use groups like [CORE_DIRECTIVES][]
+{%- comment %}(note the new import statement){% endcomment -%}:
+
+[CORE_DIRECTIVES]: /api/angular/angular/CORE_DIRECTIVES-constant
+
+<?code-excerpt "lib/app_component_2.dart (directives)" title?>
+```
+  import 'package:angular/angular.dart';
+
+  @Component(
+    selector: 'my-app',
+    /* . . . */
+    directives: const [CORE_DIRECTIVES],
+  )
+```
+</div>
+
+Refresh the browser. Now the heroes appear in an unordered list.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/displaying-data/hero-names-list.png' %}" alt="After ngfor">
 
