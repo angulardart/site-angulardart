@@ -33,12 +33,19 @@ module.exports = function (gulp, plugins, config) {
     log.info(`Creating combined api-list.json:`);
 
     const apiListMap = Object.create(null);
-    config.dartdocProj.forEach(pkgNameAlias => {
+    config._dartdocProj.forEach(pkgNameAlias => {
       const pkgName = path.basename(config.repoPath[pkgNameAlias]);
       const srcPath = path.join(config.repoPath[pkgNameAlias], config.relDartDocApiDir);
       const srcData = path.resolve(srcPath, 'index.json');
-      const dartDocData = require(srcData);
-      _addToApiListMap(dartDocData, apiListMap, pkgName, pkgNameAlias);
+      if (plugins.fs.existsSync(srcData)) {
+        const dartDocData = require(srcData);
+        _addToApiListMap(dartDocData, apiListMap, pkgName, pkgNameAlias);
+      } else if (config.dartdocProj.indexOf(pkgNameAlias) > -1) {
+        throw `ERROR: can't build API index for ${pkgNameAlias}. File not found: ${srcData}`;
+      } else {
+        // Only warn if this isn't a pkg that the user asked dartdocs for.
+        plugins.gutil.log(`Warning: file not found: ${srcData}`);
+      }
     });
 
     // Add selected SDK libraries
