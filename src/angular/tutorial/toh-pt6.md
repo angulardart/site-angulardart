@@ -82,6 +82,11 @@ launch the application and its root `AppComponent`.
 
 Notice that you supply `BrowserClient` in a list, as the second parameter to the `bootstrap` method.  This has the same effect as the `providers` list in `@Component` annotation.
 
+<aside class="alert alert-warning" markdown="1">
+**Note:** Unless you have an appropriately configured backend server (or a mock server),
+this app doesn't work. The next section shows how to mock interaction with a backend server.
+</aside>
+
 ## Simulate the web API
 
 Until you have a web server that can handle requests for hero data,
