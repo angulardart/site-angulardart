@@ -26,9 +26,9 @@
 
     ],
     "rewrites": [
-      { "source": "/examples/ng/doc/router/**", "destination": "/examples/ng/doc/router/index.html" },
-      { "source": "/examples/ng/doc/toh-5/**", "destination": "/examples/ng/doc/toh-5/index.html" },
-      { "source": "/examples/ng/doc/toh-6/**", "destination": "/examples/ng/doc/toh-6/index.html" }
+      { "source": "/examples/router/**", "destination": "/examples/router/index.html" },
+      { "source": "/examples/toh-5/**", "destination": "/examples/toh-5/index.html" },
+      { "source": "/examples/toh-6/**", "destination": "/examples/toh-6/index.html" }
     ],
     "ignore": [
       "firebase.json",
