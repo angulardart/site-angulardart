@@ -4,13 +4,12 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
-  const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const ngPkgVers = config.ngPkgVers;
   const path = plugins.path;
   const replace = plugins.replace;
 
   function getBaseDir() {
-    const p = path.resolve(argv.path) || path.resolve(EXAMPLES_PATH, '..');
+    const p = argv.path ? path.resolve(argv.path) : path.resolve(config.EXAMPLES_ROOT);
     if (!plugins.fs.existsSync(p)) throw `Path DNE: ${p}`;
     return p;
   }
@@ -111,7 +110,8 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/*.dart`,
       `${baseDir}/**/*.html`,
       `${baseDir}/**/*.css`,
-      `!${baseDir}/**/.pub/**`,
+      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+      `!${baseDir}/**/ng/doc/*/web/styles.css`,
     ]) // , { base: baseDir }
       .pipe(replace(/angular2\/(angular2|common|platform\/browser|platform\/common).dart/g, 'angular/angular.dart'))
       .pipe(replace(/angular2\/router.dart/g, 'angular_router/angular_router.dart'))

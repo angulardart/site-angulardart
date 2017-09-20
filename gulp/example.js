@@ -11,10 +11,15 @@ module.exports = function (gulp, plugins, config) {
   const gutil = plugins.gutil;
   const path = plugins.path;
 
+  const chooseRegEx = argv.filter || '.';
+  const skipRegEx = argv.skip || null;
+
   const findCmd = `find ${EXAMPLES_ROOT} -type f -name "pubspec.yaml" ! -path "*/.*"`;
   const findOutput = (cp.execSync(findCmd) + '').split(/\s+/).filter(p => p); // drop empty paths
-  const examplesFullPath = findOutput.map(p => path.dirname(p));
-  const examples = examplesFullPath.map(p => path.basename(p));
+  const examplesFullPath = findOutput.map(p => path.dirname(p))
+    .filter(p => !p.match(skipRegEx))
+    .filter(p => p.match(chooseRegEx));
+  // const examples = examplesFullPath.map(p => path.basename(p));
 
   gulp.task('__list-example-paths', () => {
     gutil.log(`example paths:\n  ${examplesFullPath.join('\n  ')}`);

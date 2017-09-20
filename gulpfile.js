@@ -218,7 +218,7 @@ gulp.task('__test', () => {
 //
 
 function gitCheckDiff() {
-  return _exec('git status --short') && process.exit(1);
+  return execSyncAndLog('git status --short') && process.exit(1);
 }
 
 // Execute given command, and log and return command output
