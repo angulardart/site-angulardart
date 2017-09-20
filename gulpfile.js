@@ -104,6 +104,7 @@ const plugins = {
   copyFiles: copyFiles,
   del: del,
   execp: execp,
+  filter: require('gulp-filter'),
   fs: fs,
   genDartdocForProjs: genDartdocForProjs,
   globby: globby,
@@ -113,6 +114,7 @@ const plugins = {
   q: Q,
   rename: require('gulp-rename'),
   replace: require('gulp-replace'),
+  runSequence: require('run-sequence'),
   spawnExt: spawnExt,
   yamljs: yamljs,
 };
@@ -148,7 +150,7 @@ function _dartdocForRepo(repo) {
 }
 
 const extraTasks = `
-  api api-list dartdoc e2e example-add-apps example-frag example-template
+  api api-list dartdoc e2e example example-add-apps example-frag example-template
   get-stagehand-proj jade-to-md ngio-get ngio-put test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 

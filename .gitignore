@@ -38,9 +38,7 @@ npm-debug*.log*
 .pub
 build
 pubspec.lock
-a2docs.css
-# !/public/docs/_examples/
-# /public/docs/_examples/node_modules
-/examples/ng/doc/*/web/styles.css
-/examples/ng/doc/*/web/favicon.png
+!/examples/**/pubspec.lock
+/examples/**/web/styles.css
+/examples/**/web/favicon.png
 protractor-results.txt
