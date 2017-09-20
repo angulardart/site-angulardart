@@ -103,10 +103,12 @@ const plugins = {
   child_process: child_process,
   copyFiles: copyFiles,
   del: del,
+  execSyncAndLog: execSyncAndLog,
   execp: execp,
   filter: require('gulp-filter'),
   fs: fs,
   genDartdocForProjs: genDartdocForProjs,
+  gitCheckDiff: gitCheckDiff,
   globby: globby,
   gutil: gutil,
   path2ApiDocFor: path2ApiDocFor,
@@ -151,7 +153,7 @@ function _dartdocForRepo(repo) {
 
 const extraTasks = `
   api api-list dartdoc e2e example example-add-apps example-frag example-template
-  get-stagehand-proj jade-to-md ngio-get ngio-put test update-ng-vers`;
+  get-stagehand-proj jade-to-md ngio-get ngio-put pkg-vers test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
@@ -203,6 +205,10 @@ gulp.task('help', taskListing.withFilters((taskName) => {
   return shouldRemove;
 }));
 
+gulp.task('git-check-diff', () => {
+  execSyncAndLog('git status --short') && process.exit(1);
+});
+
 gulp.task('__test', () => {
   // Use to write experimental tasks.
 });
@@ -210,6 +216,18 @@ gulp.task('__test', () => {
 //=============================================================================
 // Helper functions
 //
+
+function gitCheckDiff() {
+  return _exec('git status --short') && process.exit(1);
+}
+
+// Execute given command, and log and return command output
+function execSyncAndLog(cmd, optional_options) {
+  gutil.log(`> ${cmd}`);
+  const output = child_process.execSync(cmd, optional_options) + '';
+  gutil.log(output);
+  return output;
+}
 
 function execp(cmdAndArgs, options) {
   const cmd_and_args_arr = cmdAndArgs.split(' ');

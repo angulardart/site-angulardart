@@ -1,0 +1,15 @@
+name: api_docs
+description: >
+  Pubspec used to fetch specific versions of packages for the purpose of generating API docs,
+  and for checking if new versions are available (see gulp/pkg-vers.js).
+version: 0.0.1
+
+environment:
+  sdk: '>=1.24.0 <2.0.0'
+
+dependencies:
+  angular: ^4.0.0
+  angular_components: ^0.6.0
+  angular_forms: ^1.0.0
+  angular_router: ^1.0.2
+  angular_test: ^1.0.0

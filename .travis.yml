@@ -21,7 +21,7 @@ env:
     - TEST_OPT=""
   matrix:
     - CI_TASK="build --dartdoc=acx,forms,ng,router" DART_CHANNEL=stable
-    - CI_TASK="examples-pub-upgrade-and-check"
+    - CI_TASK="pub-upgrade-and-check"
     - CI_TASK="test $TEST_OPT" DART_CHANNEL=stable
     - CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
     - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
@@ -36,7 +36,7 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: CI_TASK="examples-pub-upgrade-and-check"
+    - env: CI_TASK="pub-upgrade-and-check"
     - env: CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
     - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
     - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable

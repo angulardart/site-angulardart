@@ -6,6 +6,7 @@ module.exports = function (gulp, plugins, config) {
   const EXAMPLES_ROOT = config.EXAMPLES_ROOT;
   const argv = plugins.argv;
   const cp = plugins.child_process;
+  const _exec = plugins.execSyncAndLog;
   const filter = plugins.filter;
   const gutil = plugins.gutil;
   const path = plugins.path;
@@ -20,17 +21,10 @@ module.exports = function (gulp, plugins, config) {
     gutil.log(`find output:\n[${findOutput}]`);
   });
 
-  gulp.task('examples-pub-upgrade-and-check', (doneCb) =>
-    plugins.runSequence('examples-pub-upgrade', 'git-check-diff', doneCb));
+  gulp.task('pub-upgrade-and-check', ['examples-pub-upgrade', 'ng-pkg-pub-upgrade'],
+    () => plugins.gitCheckDiff());
 
   gulp.task('examples-pub-upgrade', () => examplesExec('pub upgrade'));
-
-  gulp.task('git-check-diff', () => {
-    _exec('git status --short') && process.exit(1);
-    // _exec('git add .');
-    // const diff = _exec('git diff-index --quiet HEAD');
-    // if (diff) ;
-  });
 
   // General exec task. Args: --exec='some-cmd with args'
   gulp.task('examples-exec', () => examplesExec(argv.exec));
@@ -39,15 +33,9 @@ module.exports = function (gulp, plugins, config) {
     if (!cmd) throw `Invalid command: ${cmd}`;
 
     examplesFullPath.forEach((exPath) => {
-      gutil.log(`\nExample: ${exPath}; cmd: ${cmd}`);
-      console.log(cp.execSync(cmd, { cwd: exPath }) + '');
+      gutil.log(`\nExample: ${exPath}`);
+      _exec(cmd, { cwd: exPath });
     });
   }
 
-  function _exec(cmd) {
-    gutil.log(`+ ${cmd}`);
-    const output = cp.execSync(cmd) + '';
-    gutil.log(output);
-    return output;
-  }
 };
