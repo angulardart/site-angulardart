@@ -22,7 +22,7 @@ module.exports = function (gulp, plugins, config) {
 
   const SDK_VERS = '>=1.24.0 <2.0.0';
 
-  gulp.task('update-sdk-vers', (cb) => {
+  gulp.task('update-sdk-vers', cb => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -38,7 +38,7 @@ module.exports = function (gulp, plugins, config) {
   console.log('Using package versions:');
   for (var pkg in ngPkgVers) { console.log(`  ${pkg}: ${ngPkgVers[pkg].vers}`); }
 
-  gulp.task('update-pkg-vers', ['update-sdk-vers', '_remove_platform_entries_etc', '_update-dart'], (cb) => {
+  gulp.task('update-pkg-vers', ['update-sdk-vers', '_remove_platform_entries_etc', '_update-dart'], cb => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -74,7 +74,7 @@ module.exports = function (gulp, plugins, config) {
   // const depOvr3 = 'dependency_overrides:\n' +
   //   `  some-pkg:\n    ${depOvr2}\n`;
 
-  // gulp.task('_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], (cb) => {
+  // gulp.task('_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], cb => {
   //   const baseDir = getBaseDir();
   //   return gulp.src([
   //     `${baseDir}/**/pubspec.yaml`,
@@ -91,7 +91,7 @@ module.exports = function (gulp, plugins, config) {
     - 'package:angular2?/common.dart#COMMON_PIPES'
 `;
 
-  gulp.task('_remove_platform_entries_etc', ['update-sdk-vers'], (cb) => {
+  gulp.task('_remove_platform_entries_etc', ['update-sdk-vers'], cb => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -104,7 +104,7 @@ module.exports = function (gulp, plugins, config) {
 
   const formsImport = "import 'package:angular_forms/angular_forms.dart';"
 
-  gulp.task('_update-dart', ['update-sdk-vers'], (cb) => {
+  gulp.task('_update-dart', ['update-sdk-vers'], cb => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/*.dart`,
@@ -124,4 +124,20 @@ module.exports = function (gulp, plugins, config) {
       .pipe(gulp.dest(baseDir));
   });
 
+  gulp.task('update-pubspec-lock', cb => {
+    if (!argv.package) plugins.logAndExit1(`Missing --package='pkg version' option`);
+    const parts = argv.package.split(' ');
+    if (parts.length !== 2) plugins.logAndExit1(`Invalid --package='pkg version' option: ${argv.package}`);
+    const pkg = parts[0], vers = parts[1];
+
+    const re = new RegExp(`(^  ${pkg}:[\\s\\S]+?version): \\S+$`, 'm');
+    const baseDir = argv.path ? getBaseDir() : '{examples,src/_data}';
+    // plugins.gutil.log('Will up')
+    return gulp.src([
+      `${baseDir}/**/pubspec.lock`,
+      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(re, `$1: "${vers}"`))
+      .pipe(gulp.dest('./'));
+  });
 };

@@ -6,7 +6,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.30.0+2"
+    version: "0.30.0+4"
   angular:
     description:
       name: angular
@@ -138,7 +138,7 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0"
+    version: "0.14.1"
   dart_style:
     description:
       name: dart_style
@@ -156,7 +156,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0-alpha.4"
+    version: "0.1.0-alpha.4.1"
   func:
     description:
       name: func
@@ -216,7 +216,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0-alpha.1"
+    version: "0.3.0-alpha.1.1"
   logging:
     description:
       name: logging
