@@ -17,7 +17,6 @@ module.exports = function (gulp, plugins, config) {
     test: 'angular_test',
   };
   const pkgsFilePath = path.join(config.srcData, '.packages');
-  const maybePubGet = fs.existsSync(pkgsFilePath) ? [] : ['ng-pkg-pub-get'];
 
   gulp.task('dartdoc-info', () => {
     const msg = 'Dartdoc for packages:';
@@ -38,7 +37,7 @@ module.exports = function (gulp, plugins, config) {
 
   config.dartdocProj.forEach(p => {
     if (_projs.includes(p)) {
-      gulp.task(`dartdoc-${p}`, maybePubGet, () => _dartdoc(p));
+      gulp.task(`dartdoc-${p}`, ['ng-pkg-pub-get'], () => _dartdoc(p));
     } else {
       gulp.task(`dartdoc-${p}`, () => true);
     }
@@ -60,12 +59,15 @@ module.exports = function (gulp, plugins, config) {
     // Sample entries:
     //   angular:../angular/lib/
     //   foo:file:///Users/chalin/.pub-cache/hosted/pub.dartlang.org/foo-1.0.0/lib/
-    const pathToPkgSrcPath = match[1].replace(/^\w+:\/\//, '').replace(/\/lib\/$/, '');
+    const pathToPkgSrcPath = match[1]
+      .replace(/^\w+:\/\//, '') // Drop leading protocol, if any. E.g. 'file://'
+      .replace(/^\.\.\//, '')   // Drop leading '../' for relative paths
+      .replace(/\/lib\/$/, ''); // Drop trailing '/lib'
     if (!fs.existsSync(pathToPkgSrcPath))
       _throw(proj, `package source directory not found: ${pathToPkgSrcPath}`);
     const pubPkgAndVersName = path.basename(pathToPkgSrcPath);
-    if (!pubPkgAndVersName.startsWith(`${pubPkgName}-`))
-      _throw(proj, `package source directory name should match ${pubPkgName}-*, but is ${pubPkgAndVersName}`);
+    if (!pubPkgAndVersName.match(new RegExp(`${pubPkgName}(\\b|-)`)))
+      _throw(proj, `package source directory name should match /${pubPkgName}(\b|-*)/, but is ${pubPkgAndVersName}`);
 
     const tmpPubPkgPath = path.join(tmpPubPkgsPath, pubPkgAndVersName);
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
