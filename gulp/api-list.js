@@ -5,6 +5,7 @@
 
 module.exports = function (gulp, plugins, config) {
 
+  const fs = plugins.fs;
   const path = plugins.path;
   const log = require('./_log-factory')();
   log.level = 'info'; // config._logLevel;
@@ -33,9 +34,11 @@ module.exports = function (gulp, plugins, config) {
     log.info(`Creating combined api-list.json:`);
 
     const apiListMap = Object.create(null);
+    const pkgsWithApiDocs = fs.readdirSync(config.tmpPubPkgsPath);
     config._dartdocProj.forEach(pkgNameAlias => {
-      const pkgName = path.basename(config.repoPath[pkgNameAlias]);
-      const srcPath = path.join(config.repoPath[pkgNameAlias], config.relDartDocApiDir);
+      const pkgName = plugins.pkgAliasToPkgName(pkgNameAlias);
+      const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
+      const srcPath = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
       const srcData = path.resolve(srcPath, 'index.json');
       if (plugins.fs.existsSync(srcData)) {
         const dartDocData = require(srcData);
@@ -62,29 +65,13 @@ module.exports = function (gulp, plugins, config) {
     preprocessor.preprocess(dartDocData);
     const _apiListMap = apiListService.createApiListMap(dartDocData);
     const pkgName = _pkgName || 'SDK';
-    const pkgAndAlias = pkgName + optAlias ? ` (${optAlias})` : '';
+    const pkgAndAlias = pkgName + (optAlias ? ` (${optAlias})` : '');
     log.info(`  ${pkgAndAlias} has ${dartDocData.length} entries in ${Object.keys(_apiListMap).length} libraries`);
     for (let libName in _apiListMap) {
       const fullLibName = _pkgName ? `${pkgName}/${libName}` : libName;
       log.info(`    ${fullLibName}:`, libName, 'has', _apiListMap[libName].length, 'top-level entries');
       apiListMap[fullLibName] = _apiListMap[libName];
     }
-  }
-
-  function _buildNgApiListJson() {
-    const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'angular', 'api');
-    const srcPath = path.join(config.repoPath['ng'], config.relDartDocApiDir);
-    const srcData = path.resolve(srcPath, 'index.json');
-    const dartDocData = require(srcData);
-    log.info('Number of Dart API entries loaded:', dartDocData.length);
-
-    plugins.fs.writeFileSync(path.join(destFolder, 'index.json'), stringify(dartDocData));
-    preprocessor.preprocess(dartDocData);
-    const apiListMap = apiListService.createApiListMap(dartDocData);
-    for (let libName in apiListMap) {
-      log.info('  ', libName, 'has', apiListMap[libName].length, 'top-level entries');
-    }
-    writeApiList(apiListMap, destFolder);
   }
 
   function writeApiList(apiListMap, destFolder) {

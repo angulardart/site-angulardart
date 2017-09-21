@@ -68,6 +68,7 @@ const config = {
   _dgeniLogLevel: _logLevel,
   _logLevel: _logLevel,
   angulario: angulario,
+  dartdoc: 'pub global run dartdoc',
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
   EXAMPLES_ROOT: EXAMPLES_ROOT,
@@ -92,7 +93,9 @@ const config = {
   },
   siteFolder: siteFolder,
   source: source,
+  srcData: path.join(source, '_data'),
   THIS_PROJECT_PATH: THIS_PROJECT_PATH,
+  tmpPubPkgsPath: path.join(LOCAL_TMP, 'pub-packages'),
   TOOLS_PATH: TOOLS_PATH,
   unifiedApiPath: path.join(siteFolder, 'api'),
   webSimpleProjPath: path.join(TMP_PATH, qsProjName),
@@ -111,8 +114,9 @@ const plugins = {
   gitCheckDiff: gitCheckDiff,
   globby: globby,
   gutil: gutil,
-  path2ApiDocFor: path2ApiDocFor,
+  logAndExit1: logAndExit1,
   path: path,
+  pkgAliasToPkgName: pkgAliasToPkgName,
   q: Q,
   rename: require('gulp-rename'),
   replace: require('gulp-replace'),
@@ -121,34 +125,45 @@ const plugins = {
   yamljs: yamljs,
 };
 
-const _warnedAboutSkipping = {};
 config.dartdocProj = genDartdocForProjs();
 assert.deepEqual(config._dartdocProj, Object.keys(config.repoPath));
 
+function pkgAliasToPkgName(alias) {
+  switch (alias) {
+    case 'ng':
+      return 'angular';
+    case 'acx':
+      alias = 'components';
+    // fall through
+    default:
+      return `angular_${alias}`;
+  }
+}
+
 function genDartdocForProjs() {
-  const projs = [];
-  config._dartdocProj.forEach(p => {
-    if (!_dartdocForRepo(p)) {
-      return true;
-    } else if (!argv.clean && fs.existsSync(path2ApiDocFor(p))) {
-      if (!_warnedAboutSkipping[p])
-        plugins.gutil.log(`Skipping ${p} dartdoc: API docs exists ${path2ApiDocFor(p)}`);
-      _warnedAboutSkipping[p] = true;
-    } else {
-      projs.push(p);
+  // Temporarily require a --[no]-dartdoc flag until we get used to the new build task behavior:
+  const args = process.argv.slice(2); // Skip nodejs and gulpjs
+  if (args.length
+    && !args[0].startsWith('-')
+    && args.some(arg => arg.startsWith('build'))
+    && argv.dartdoc === undefined) {
+    logAndExit1(`Flag missing: use --no-dartdoc, --dartdoc, or --dartdoc=project-aliases`);
+  }
+
+  if (argv.dartdoc === false) return [];
+  if (argv.dartdoc === undefined || argv.dartdoc === true) return [...config._dartdocProj];
+
+  const result = [];
+  argv.dartdoc.split(/\s*,\s*/).forEach(alias => {
+    if (alias === 'all') return [...config._dartdocProj];
+    if (config._dartdocProj.indexOf(alias) === -1) {
+      const msg = `Unrecognized dartdoc project alias: ${alias}.\n`
+        + `Choose one of: ${config._dartdocProj.join(', ')}.`;
+      logAndExit1(msg);
     }
+    result.push(alias);
   });
-  return projs;
-}
-
-function path2ApiDocFor(r) {
-  return path.resolve(config.repoPath[r], config.relDartDocApiDir);
-}
-
-function _dartdocForRepo(repo) {
-  if (argv.dartdoc === undefined || argv.dartdoc == 'all') return true;
-  const re = new RegExp('\\b' + repo + '\\b');
-  return (argv.dartdoc + '').match(re);
+  return result;
 }
 
 const extraTasks = `
@@ -193,7 +208,7 @@ function _delTmp(delTargets) {
 }
 gulp.task('clean', cb => _delTmp(_cleanTargets));
 gulp.task('_clean', cb => argv.clean ? _delTmp(_quickCleanTargets) : cb());
-gulp.task('clean-src', cb => execp(`git clean -xdf src`));
+gulp.task('git-clean-src', cb => execp(`git clean -xdf src`));
 
 gulp.task('default', ['help']);
 
@@ -288,6 +303,11 @@ function copyFiles(fileNames, destPaths, optional_destFileMode) {
     });
   });
   return Q.all(copyPromises);
+}
+
+function logAndExit1() {
+  console.log.apply(null, arguments);
+  process.exit(1);
 }
 
 // Used to ensure that values/properties that are looked up from external

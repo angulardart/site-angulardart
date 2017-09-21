@@ -20,7 +20,7 @@ env:
     - E2E_OPT2="--fast --filter=examples/ng/doc/[t-z]"
     - TEST_OPT=""
   matrix:
-    - CI_TASK="build --dartdoc=acx,forms,ng,router" DART_CHANNEL=stable
+    - CI_TASK="build --dartdoc" DART_CHANNEL=stable
     - CI_TASK="pub-upgrade-and-check"
     - CI_TASK="test $TEST_OPT" DART_CHANNEL=stable
     - CI_TASK="test $TEST_OPT" DART_CHANNEL=dev

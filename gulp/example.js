@@ -26,10 +26,9 @@ module.exports = function (gulp, plugins, config) {
     gutil.log(`find output:\n[${findOutput}]`);
   });
 
-  gulp.task('pub-upgrade-and-check', ['examples-pub-upgrade', 'ng-pkg-pub-upgrade'],
-    () => plugins.gitCheckDiff());
-
-  gulp.task('examples-pub-upgrade', () => examplesExec('pub upgrade'));
+  ['get', 'upgrade'].forEach(cmd => {
+    gulp.task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd}`));
+  });
 
   // General exec task. Args: --exec='some-cmd with args'
   gulp.task('examples-exec', () => examplesExec(argv.exec));

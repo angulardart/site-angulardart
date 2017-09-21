@@ -58,7 +58,7 @@ this repo, **repeat steps 1 and 2** above.
 
 Once everything is installed, you need to do a full site build at least once:
 
-- `gulp build` &nbsp;&nbsp;# generate sibling site API docs and this site
+- `gulp build --dartdoc` &nbsp;&nbsp;# full site build including API docs
 
 The generated site is placed in the `publish` folder. To serve this folder use:
 
@@ -72,14 +72,13 @@ You can build, serve, and have a watcher for changes by running the following co
 
 If you'd like to separately build and then serve, the commands are:
 
-- `gulp build` &nbsp;&nbsp;# generate sibling site API docs and this site
+- `gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating API docs
 - `superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
-
-By default `gulp build` generates API docs for sibling repos (including `angular`).
 
 Some `gulp build` options include:
 
-- `--clean` &nbsp;&nbsp;# deletes sibling repo API docs before regenerating them
+- `--clean` &nbsp;&nbsp;# deletes `publish` and file fragments (nothing else)
+- `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;# generates API docs for named packages (default `all`)
 - `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead up repeated builds)
 - `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
 
@@ -105,8 +104,8 @@ doing all of the following steps (in order):
 
 ```
 source ./scripts/env-set.sh --reset  # reinitializes environment vars
-gulp clean                           # cleans out temporary folders
-gulp build --clean                   # cleans out API files from sibling sites
+gulp clean                           # cleans out all temporary site folders
+gulp build --dartdoc                 # full site regeneration
 ./scripts/serve_local.sh
 ```
 
@@ -116,9 +115,10 @@ through the installation instructions.
 ## Other useful Gulp tasks
 
 ```
-gulp clean && gulp build --clean  # cleans up local and sibling repos, then builds
-gulp clean && gulp build  # cleans up local files, but reuses generated API docs
-gulp build-deploy         # builds & deploys to active firebase project
+gulp clean && gulp build --dartdoc  # do a full build from a clean slate
+gulp build-deploy                   # builds & deploys to active firebase project
+gulp git-clean-src                  # WARNING: runs `git clean -xdf src`,
+                                    # so you'll lose uncommitted work!
 ```
 
 ## Prepping for Dart 2.0
