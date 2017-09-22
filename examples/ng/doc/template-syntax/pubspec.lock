@@ -96,7 +96,7 @@ packages:
       name: build_barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.0+1"
   charcode:
     description:
       name: charcode
@@ -150,7 +150,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.7"
+    version: "1.0.8"
   dart_to_js_script_rewriter:
     description:
       name: dart_to_js_script_rewriter
@@ -336,7 +336,7 @@ packages:
       name: shelf_packages_handler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   shelf_static:
     description:
       name: shelf_static
@@ -438,7 +438,7 @@ packages:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.7+3"
+    version: "0.9.7+4"
   web_socket_channel:
     description:
       name: web_socket_channel
