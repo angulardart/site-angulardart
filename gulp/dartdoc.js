@@ -35,7 +35,7 @@ module.exports = function (gulp, plugins, config) {
     plugins.runSequence('dartdoc-info', ...dartdocTargets, doneCb)
   });
 
-  config.dartdocProj.forEach(p => {
+  config._dartdocProj.forEach(p => {
     if (_projs.includes(p)) {
       gulp.task(`dartdoc-${p}`, ['ng-pkg-pub-get'], () => _dartdoc(p));
     } else {
