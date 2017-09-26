@@ -238,7 +238,8 @@ function gitCheckDiff() {
 
 // Execute given command, and log and return command output
 function execSyncAndLog(cmd, optional_options) {
-  gutil.log(`> ${cmd}`);
+  const cwd = optional_options && optional_options.cwd ? ` # cwd: ${optional_options.cwd}` : '';
+  gutil.log(`> ${cmd}${cwd}`);
   const output = child_process.execSync(cmd, optional_options) + '';
   gutil.log(output);
   return output;

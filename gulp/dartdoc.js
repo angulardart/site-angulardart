@@ -61,13 +61,20 @@ module.exports = function (gulp, plugins, config) {
     //   foo:file:///Users/chalin/.pub-cache/hosted/pub.dartlang.org/foo-1.0.0/lib/
     const pathToPkgSrcPath = match[1]
       .replace(/^\w+:\/\//, '') // Drop leading protocol, if any. E.g. 'file://'
-      .replace(/^\.\.\//, '')   // Drop leading '../' for relative paths
+      .replace(/^\.\.\/\.\.\//, '')   // Drop leading '../../' for relative paths
       .replace(/\/lib\/$/, ''); // Drop trailing '/lib'
     if (!fs.existsSync(pathToPkgSrcPath))
-      _throw(proj, `package source directory not found: ${pathToPkgSrcPath}`);
+      _throw(proj, `package source directory not found: ${pathToPkgSrcPath} (${path.resolve(pathToPkgSrcPath)})`);
+    plugins.gutil.log(`${pubPkgName} found at ${path.resolve(pathToPkgSrcPath)}.`);
     const pubPkgAndVersName = path.basename(pathToPkgSrcPath);
     if (!pubPkgAndVersName.match(new RegExp(`${pubPkgName}(\\b|-)`)))
       _throw(proj, `package source directory name should match /${pubPkgName}(\b|-*)/, but is ${pubPkgAndVersName}`);
+
+    // For local angular_* repos, we also need to run pub get on the repos it depends on:
+    if (pathToPkgSrcPath.startsWith('../') && pathToPkgSrcPath.match(/angular_.*$/)) {
+      const pathToAngular = path.join(path.dirname(pathToPkgSrcPath), 'angular');
+      plugins.execSyncAndLog(`pub get`, { cwd: pathToAngular });
+    }
 
     const tmpPubPkgPath = path.join(tmpPubPkgsPath, pubPkgAndVersName);
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
@@ -76,9 +83,7 @@ module.exports = function (gulp, plugins, config) {
       // plugins.del.sync(apiDir);
     } else {
       plugins.execSyncAndLog(`cp -R ${pathToPkgSrcPath} ${tmpPubPkgPath}`);
-      // pub seems to hang when some dependencies are '>=x.y.z <2.0.0'. Patch the pubspec:
-      // plugins.execSyncAndLog(`perl -i -pe 's/>=\s*/^/g;s/\s*<2.0.0//g' ${tmpPubPkgPath}/pubspec.yaml`);
-      // Can't get this regex to work:
+      // pub hangs on the following dependency: "args: '>=x.y.z <2.0.0'". Patch the pubspec:
       plugins.execSyncAndLog(`perl -i -pe "s/^(\\s+args):\\s*'>=\\s*([\\d\\.]+)\\s+<2.0.0'/\\1: ^\\2/gm" ${tmpPubPkgPath}/pubspec.yaml`);
     }
     return tmpPubPkgPath;
