@@ -131,7 +131,7 @@ module.exports = function (gulp, plugins, config) {
     const pkg = parts[0], vers = parts[1];
 
     const re = new RegExp(`(^  ${pkg}:[\\s\\S]+?version): \\S+$`, 'm');
-    const baseDir = argv.path ? getBaseDir() : '{examples,src/_data}';
+    const baseDir = argv.path ? getBaseDir() : './{examples,src/_data}';
     // plugins.gutil.log('Will up')
     return gulp.src([
       `${baseDir}/**/pubspec.lock`,

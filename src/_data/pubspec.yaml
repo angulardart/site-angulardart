@@ -12,4 +12,4 @@ dependencies:
   angular_components: ^0.7.0
   angular_forms: ^1.0.0
   angular_router: ^1.0.2
-  angular_test: ^1.0.0
+  angular_test: ^1.0.1
