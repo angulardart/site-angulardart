@@ -4,9 +4,6 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
-  const _exec = plugins.execSyncAndLog;
-  const gutil = plugins.gutil;
-  const path = plugins.path;
   const srcData = config.srcData;
 
   const chooseRegEx = argv.filter || '.';
@@ -23,10 +20,18 @@ module.exports = function (gulp, plugins, config) {
   });
 
   function _pub(cmd) {
-    const output = _exec(`pub ${cmd}`, { cwd: srcData });
+    const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
     if (cmd !== 'upgrade') return;
-    const updatesAvailable = output.match(/^. angular\w* .*available\)$/gm);
-    if (updatesAvailable) {
+    const updatesAvailable = output.match(/^..(angular\w*) (\S+) \((\S+) available\)$/gm);
+    if (!updatesAvailable) return;
+    // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
+    const updatesAvailableToReport = [];
+    updatesAvailable.forEach(u => {
+      const m = u.match(/^..(angular\w*) (\S+) \((\S+) available\)$/);
+      if (!m[2].match(/alpha|beta/) && m[3].match(/alpha|beta/)) return true;
+      updatesAvailableToReport.push(u);
+    })
+    if (updatesAvailableToReport.length) {
       const msg = `Angular package updates available:\n${updatesAvailable.join('\n')}.\n`
       + 'Aborting. Update pubspec(s) before proceeding.\n';
       plugins.logAndExit1(msg);
