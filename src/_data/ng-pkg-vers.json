@@ -1,4 +1,8 @@
 {
+    "SDK": {
+      "channel": "stable",
+      "vers": "1.24.2"
+    },
     "angular": {
         "doc-path": "angular/guide",
         "prev-vers": "3.1.0",

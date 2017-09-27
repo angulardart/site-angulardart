@@ -20,13 +20,8 @@ angularIO.directive('apiList', function () {
     restrict: 'E',
     template:
       '<p>' +
-      '  This page lists API from libraries in the <span ng-bind-html="$ctrl.pkgList | trustAsHtml"></span> packages. ' +
-      '  Other libraries commonly used by Dart web apps include ' +
-      '  <a href="https://api.dartlang.org">Dart SDK libraries</a> such as ' +
-      '  <a href="https://api.dartlang.org/stable/dart-async">dart:async</a>, ' +
-      '  <a href="https://api.dartlang.org/stable/dart-core">dart:core</a>, and ' +
-      '  <a href="https://api.dartlang.org/stable/dart-html">dart:html</a>. ' +
-      '  <a href="/guides/web-programming">More information.</a>' +
+      '  This page lists API from libraries in the <span ng-bind-html="$ctrl.pkgList | trustAsHtml"></span> packages, ' +
+      '  as well as a few commonly used <a href="https://api.dartlang.org/"><b>Dart SDK</b></a> libraries.' +
       '</p>' +
       '<div ng-cloak="ng-cloak" class="l-flex-wrap banner is-plain api-filter">' +
       '  <div class="form-select-menu" ng-if="!$ctrl.isForDart">' +
@@ -68,11 +63,11 @@ angularIO.directive('apiList', function () {
       '<article class="l-content-small docs-content">' +
       '  <div ng-repeat="section in $ctrl.groupedSections" ng-if="$ctrl.filterSections(section)" ng-cloak="ng-cloak">' +
       '    <h2>' +
-      '      <a ng-href="{{section.href}}" target="_blank" rel="noopener">' +
-      '        {{section.title}}&nbsp;&nbsp' +
+      '      <a ng-href="{{section.href}}" ng-class="{external: section.isExternal}" target="_blank" rel="noopener">' +
+      '        {{section.title}}' +
       '      </a>' +
-      '      <span class="api-doc-code" ng-if="section.showImport">' +
-      '        import&nbsp;\'package:{{section.pkg}}/{{section.title}}.dart\';' +
+      '      <span class="api-doc-code" ng-if="section.importPath">' +
+      '        &nbsp;&nbsp;&nbsp;import&nbsp;\'{{section.importPath}}\';' +
       '      </span>' +
       '    </h2>' +
       '    <ul class="api-list">' +
@@ -137,21 +132,24 @@ angularIO.directive('apiList', function () {
           var href = isSdkLib
             ? 'https://api.dartlang.org/stable/' + libPage + '.html'
             : '/api/' + pkg + '/' + libPage;
+          var importPath = isSdkLib ? title : 'package:' + pkg + '/' + title + '.dart';
           var itemHrefBase = isSdkLib ? 'https://api.dartlang.org/stable' : '/api/' + pkg;
           return {
             pkg: pkg,
+            isExternal: !href.startsWith('/'),
             href: href,
             title: title,
             lib: lib,
-            showImport: !isSdkLib,
+            importPath: importPath,
             itemHrefBase: itemHrefBase,
             items: $ctrl.sections[pkgLib] };
         });
         var pkgs = Object.keys(pkgsMap);
-        $ctrl.packages = pkgs;
-        var and = pkgs.length > 2 ? ', and ' : ' and ';
-        var bPkgs = pkgs.map(function (p) { return '<b>' + p + '</b>'; });
-        $ctrl.pkgList = bPkgs.slice(0, pkgs.length - 1).join(', ') + and + bPkgs[pkgs.length - 1];
+        $ctrl.packages = pkgs; // list of packages + Dart SDK
+        // Don't include the Dart SDK in the `pkgList` since it isn't a package.
+        var bPkgs = pkgs.filter(function(p) { return p !== 'Dart SDK'; }).map(function(p) { return '<b>' + p + '</b>'; });
+        var and = bPkgs.length > 2 ? ', and ' : ' and ';
+        $ctrl.pkgList = bPkgs.slice(0, bPkgs.length - 1).join(', ') + and + bPkgs[bPkgs.length - 1];
         if ($ctrl.packages && $ctrl.packages.indexOf($ctrl.pkg) < 0) $ctrl.pkg = null
       });
 
@@ -233,7 +231,8 @@ angularIO.directive('apiList', function () {
         section.items.forEach(function(item) {
           item.show = false;
           if (!statusSelected(item) || !queryEntered(section, item)) return true;
-          if ($ctrl.pkg && (!item.href.startsWith($ctrl.pkg) || item.href.startsWith($ctrl.pkg + '_'))) return true;
+          var pkg = $ctrl.pkg && $ctrl.pkg.startsWith('Dart') ? 'dart' : $ctrl.pkg;
+          if ($ctrl.pkg && (!item.href.startsWith(pkg) || item.href.startsWith(pkg + '_'))) return true;
           if ($ctrl.type === null || $ctrl.type === item.docType || $ctrl.type === 'const' && isConst(item)) {
             showSection = item.show = true;
           }
