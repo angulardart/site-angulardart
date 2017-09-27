@@ -38,6 +38,12 @@ module.exports = function (gulp, plugins, config) {
     config._dartdocProj.forEach(pkgNameAlias => {
       const pkgName = plugins.pkgAliasToPkgName(pkgNameAlias);
       const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
+      if (!dirName) {
+        const msg = `WARNING: buildApiListJson found no folder for ${pkgNameAlias} under ${config.tmpPubPkgsPath}.`;
+        if (plugins.argv.dartdoc) plugins.logAndExit1(msg);
+        plugins.gutil.log(msg);
+        return true;
+      }
       const srcPath = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
       const srcData = path.resolve(srcPath, 'index.json');
       if (plugins.fs.existsSync(srcData)) {

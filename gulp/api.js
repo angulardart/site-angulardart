@@ -23,7 +23,12 @@ module.exports = function (gulp, plugins, config) {
     const pkgsWithApiDocs = plugins.fs.readdirSync(config.tmpPubPkgsPath);
     const pkgName = plugins.pkgAliasToPkgName(p);
     const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
-    if(!dirName) logAndExit1(`Could not find API doc directory for ${p} under ${config.tmpPubPkgsPath}.`);
+    if(!dirName) {
+      const msg = `WARNING: could not find API doc directory for ${p} under ${config.tmpPubPkgsPath}.`;
+      if (plugins.argv.dartdoc) plugins.logAndExit1(msg);
+      plugins.gutil.log(msg);
+      return true;
+  }
 
     const baseDir = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
     const dest = path.join(config.unifiedApiPath, pkgName);

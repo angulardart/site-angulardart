@@ -18,7 +18,7 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     if [[ ! -r $RVMRC ]] || ! grep -q $RVM_SILENCE_PATH $RVMRC;  then
         echo $RVM_SILENCE_PATH=1 >> $RVMRC
     fi
-    rvm use 2.3
+    rvm use 2.4.2
 
     export NGIO_REPO=../angular.io
     export NG_REPO=../angular

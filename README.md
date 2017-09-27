@@ -19,7 +19,7 @@ Install the following tools if you don't have them already.
 - **[nvm][]**, the Node Version Manager. Then install the required version of node:
   - `nvm install 6`
 - **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
-  - `rvm install 2.3`
+  - `rvm install 2.4.2`
 - **[Dart][]**, _including_ both browsers used for testing doc examples:
   - **Dartium**
   - **content shell**
