@@ -1,11 +1,9 @@
 /*
 * Apllication Module
-*
 */
 
 var angularIO = angular.module('angularIOApp', ['ngMaterial'])
 .config(['$mdThemingProvider', function($mdThemingProvider) {
-
   // THEMEING FOR ANGULAR MATERIAL
   $mdThemingProvider.theme('default')
     .primaryPalette('blue', {
@@ -22,5 +20,5 @@ var angularIO = angular.module('angularIOApp', ['ngMaterial'])
 }])
 
 .config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('!');
+  $locationProvider.html5Mode({enabled: true, requireBase: false, rewriteLinks: false});
 }]);
