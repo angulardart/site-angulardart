@@ -40,8 +40,7 @@ Before continuing with the Tour of Heroes, verify that you have the following st
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart,html}
     - src
       - hero.dart
       - hero_detail_component.dart
@@ -91,17 +90,17 @@ and create a separate `AppComponent` shell.
 
 Do the following:
 
-* Rename and move the `app_component.*` files to `src/heroes_component.css`
-  and `src/heroes_component.dart`.
+* Rename and move the `app_component.*` files to `src/heroes_component.*`.
 * Drop the `src/` prefix from import paths.
 * Rename the `AppComponent` class to `HeroesComponent` (rename locally, _only_ in this file).
 * Rename the selector `my-app` to `my-heroes`.
-* Rename the style file to `heroes_component.css`.
+* Change the template URL to `heroes_component.html` and style file to `heroes_component.css`.
 
 <?code-excerpt "lib/src/heroes_component.dart (showing renamings only)" region="renaming" title?>
 ```
   @Component(
     selector: 'my-heroes',
+    templateUrl: 'heroes_component.html',
     styleUrls: const ['heroes_component.css'],
   )
   class HeroesComponent implements OnInit {
@@ -121,7 +120,7 @@ Perform these steps:
 * Create the file `lib/app_component.dart`.
 * Define an `AppComponent` class.
 * Add an `@Component` annotation above the class with a `my-app` selector.
-* Move the following from `HeroesComponent` to `AppComponent`:
+* Move the following from the heroes component to `AppComponent`:
   * `title` class property.
   * `@Component` template `<h1>` element, which contains a binding to  `title`.
 * Add a `<my-heroes>` element to the app template just below the heading so you still see the heroes.
@@ -517,7 +516,7 @@ You didn't have to tell the `HeroesComponent` or the `DashboardComponent` anythi
 Currently, the parent `HeroesComponent` sets the component's `hero` property to a
 hero object with a binding like this:
 
-<?code-excerpt?>
+<?code-excerpt "../toh-3/lib/app_component.html (hero-detail)"?>
 ```html
   <hero-detail [hero]="selectedHero"></hero-detail>
 ```
@@ -763,20 +762,18 @@ In the `HeroesComponent`,
 the current template exhibits a "master/detail" style with the list of heroes
 at the top and details of the selected hero below.
 
-<?code-excerpt "../toh-4/lib/app_component.dart (template)" title="lib/src/heroes_component.dart (template)"?>
+<?code-excerpt "../toh-4/lib/app_component.html" title="lib/src/heroes_component.html"?>
 ```
-  template: '''
-      <h1>{!{title}!}</h1>
-      <h2>My Heroes</h2>
-      <ul class="heroes">
-        <li *ngFor="let hero of heroes"
-          [class.selected]="hero == selectedHero"
-          (click)="onSelect(hero)">
-          <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
-        </li>
-      </ul>
-      <hero-detail [hero]="selectedHero"></hero-detail>
-    ''',
+  <h1>{!{title}!}</h1>
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+        [class.selected]="hero == selectedHero"
+        (click)="onSelect(hero)">
+      <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
+    </li>
+  </ul>
+  <hero-detail [hero]="selectedHero"></hero-detail>
 ```
 
 You'll no longer show the full `HeroDetailComponent` here.
@@ -785,7 +782,7 @@ Make these changes:
 
 - Remove the `<hero-detail>` element from the last line of the template.
 - Remove `HeroDetailComponent` from list of `directives`.
-- Remove the (now) unused hero detail import.
+- Remove the hero detail import.
 - Delete the `<h1>` at the top.
 
 When users select a hero from the list, they won't go to the detail page.
@@ -823,44 +820,6 @@ Angular ships with several pipes and you can write your own.
 <div class="l-sub-section" markdown="1">
   Read more about pipes on the [Pipes](/angular/guide/pipes) page.
 </div>
-
-### Move the template to its own file
-
-Like you did for the hero detail component, move this component's template into
-its own file:
-
-<?code-excerpt "lib/src/heroes_component.html" title?>
-```
-  <h2>My Heroes</h2>
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-      <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
-    </li>
-  </ul>
-  <div *ngIf="selectedHero != null">
-    <h2>
-      {!{selectedHero.name | uppercase}!} is my hero
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
-  </div>
-```
-
-Now, back in the component metadata for `heroes_component.dart`,
-delete `template` and replace it with
-`templateUrl`. The revised `@Component` looks like this:
-
-<?code-excerpt "lib/src/heroes_component.dart (revised metadata)" region="metadata" title?>
-```
-  @Component(
-    selector: 'my-heroes',
-    templateUrl: 'heroes_component.html',
-    styleUrls: const ['heroes_component.css'],
-    directives: const [CORE_DIRECTIVES],
-    pipes: const [COMMON_PIPES],
-  )
-```
 
 ### Update the _HeroesComponent_ class
 
@@ -1039,20 +998,13 @@ Verify that you have the following structure:
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart}
     - src
-      - dashboard_component.css
-      - dashboard_component.dart
-      - dashboard_component.html
+      - dashboard_component.{css,dart,html}
       - hero.dart
-      - hero_detail_component.css
-      - hero_detail_component.dart
-      - hero_detail_component.html
+      - hero_detail_component.{css,dart,html}
       - hero_service.dart
-      - heroes_component.css
-      - heroes_component.dart
-      - heroes_component.html
+      - heroes_component.{css,dart,html}
       - mock_heroes.dart
   - test
     - app_test.dart
@@ -1072,7 +1024,6 @@ Here's what you achieved in this page:
 - You learned how to create router links to represent navigation menu items.
 - You used router link parameters to navigate to the details of the user-selected hero.
 - You shared the `HeroService` among multiple components.
-- You moved HTML and CSS out of the component file and into their own files.
 - You added the `uppercase` pipe to format data.
 
 Your app should look like this <live-example></live-example>.

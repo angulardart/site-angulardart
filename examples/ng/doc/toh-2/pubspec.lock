@@ -174,7 +174,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.3+14"
+    version: "0.11.3+15"
   http_multi_server:
     description:
       name: http_multi_server
@@ -318,7 +318,7 @@ packages:
       name: shelf_web_socket
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   source_gen:
     description:
       name: source_gen
@@ -372,7 +372,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.24+6"
+    version: "0.12.24+7"
   tuple:
     description:
       name: tuple
@@ -420,6 +420,6 @@ packages:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.12"
+    version: "2.1.13"
 sdks:
   dart: ">=1.24.0 <2.0.0-dev.infinity"

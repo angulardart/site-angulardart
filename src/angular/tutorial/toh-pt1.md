@@ -233,7 +233,8 @@ Here's the complete `app_component.dart` as it stands now:
       <div>
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name">
-      </div>''',
+      </div>
+    ''',
     directives: const [formDirectives],
   )
   class AppComponent {

@@ -57,7 +57,8 @@ and take note of the app component template:
     <div>
       <label>name: </label>
       <input [(ngModel)]="hero.name" placeholder="name">
-    </div>''',
+    </div>
+  ''',
 ```
 
 You can use a single page object for an entire app when it is as simple
@@ -184,7 +185,7 @@ the first `<div>`, and the hero name from the `<h2>` text, dropping the
 
 The app from [part 2][toh-pt2] of the [tutorial][] displays a list of heros, generated using an `ngFor` applied to an `<li>` element:
 
-<?code-excerpt "toh-2/lib/app_component_1.dart (styled heroes)" region="heroes-styled" title?>
+<?code-excerpt "toh-2/lib/app_component_0.html (styled heroes)" title?>
 ```
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -223,7 +224,7 @@ You might render hero data (as a map) from the text of the `<li>` elements like 
 
 Only once a hero is selected from the [Heroes List][toh-pt2], are the selected hero's details displayed using this template fragment:
 
-<?code-excerpt "toh-2/lib/app_component_1.dart (optional hero details)" region="ng-if" title?>
+<?code-excerpt "toh-2/lib/app_component_0.html (optional hero details)" region="ngIf" title?>
 ```
   <div *ngIf="selectedHero != null">
     <h2>{!{selectedHero.name}!} details!</h2>

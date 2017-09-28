@@ -33,8 +33,7 @@ If not, go back to the previous pages.
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart,html}
     - src
       - hero.dart
       - hero_detail_component.dart
@@ -424,8 +423,7 @@ Verify that you have the following structure after all of your refactoring:
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart,html}
     - src
       - hero.dart
       - hero_detail_component.dart

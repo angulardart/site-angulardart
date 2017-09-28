@@ -827,25 +827,16 @@ Verify that you have the following structure:
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart}
     - in_memory_data_service.dart (new)
     - src
-      - dashboard_component.css
-      - dashboard_component.dart
-      - dashboard_component.html
+      - dashboard_component.{css,dart,html}
       - hero.dart
-      - hero_detail_component.css
-      - hero_detail_component.dart
-      - hero_detail_component.html
-      - hero_search_component.css (new)
-      - hero_search_component.dart (new)
-      - hero_search_component.html (new)
+      - hero_detail_component.{css,dart,html}
+      - hero_search_component.{css,dart,html} (new)
       - hero_search_service.dart (new)
       - hero_service.dart
-      - heroes_component.css
-      - heroes_component.dart
-      - heroes_component.html
+      - heroes_component.{css,dart,html}
   - test
     - app_test.dart
     - ...

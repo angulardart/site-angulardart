@@ -9,7 +9,7 @@ class Hero {
   Hero(this.id, this.name);
 }
 
-// #docregion hero-array
+// #docregion hero-list
 final mockHeroes = <Hero>[
   new Hero(11, 'Mr. Nice'),
   new Hero(12, 'Narco'),
@@ -22,43 +22,13 @@ final mockHeroes = <Hero>[
   new Hero(19, 'Magma'),
   new Hero(20, 'Tornado')
 ];
-// #enddocregion hero-array
+// #enddocregion hero-list
 
 // #docregion directives, styleUrls
 @Component(
   selector: 'my-app',
   // #enddocregion directives, styleUrls
-  template: '''
-    <h1>{{title}}</h1>
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes"
-        [class.selected]="hero == selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </li>
-    </ul>
-    <div *ngIf="selectedHero != null">
-      <h2>{{selectedHero.name}} details!</h2>
-      <div><label>id: </label>{{selectedHero.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-      </div>
-    </div>
-  ''',
-  /*
-  // #docregion styles
-  // Not recommended when adding many CSS classes:
-  styles: const [
-    '''
-      .selected { ... }
-      .heroes { ... }
-      ...
-    '''
-  ],
-  // #enddocregion styles
-  */
+  templateUrl: 'app_component.html',
   // #docregion styleUrls
   styleUrls: const ['app_component.css'],
   // #docregion directives
@@ -70,13 +40,13 @@ class AppComponent {
   // #docregion heroes
   final List<Hero> heroes = mockHeroes;
   // #enddocregion heroes
-  // #docregion selected-hero
+  // #docregion selectedHero
   Hero selectedHero;
-  // #enddocregion selected-hero
+  // #enddocregion selectedHero
 
-  // #docregion on-select
+  // #docregion onSelect
   void onSelect(Hero hero) {
     selectedHero = hero;
   }
-  // #enddocregion on-select
+  // #enddocregion onSelect
 }

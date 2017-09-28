@@ -87,21 +87,9 @@ Here is the [page object][] for this component:
 The app component template contains a `<hero-detail>` element that binds the
 `hero` property to the app component's `selectedHero`:
 
-{%comment%}Highlight <hero-detail...{%endcomment%}
-<?code-excerpt "toh-3/lib/app_component.dart (template)" title?>
+<?code-excerpt "toh-3/lib/app_component.html (hero-detail)" title?>
 ```
-  template: '''
-    <h1>{!{title}!}</h1>
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes"
-        [class.selected]="hero == selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
-      </li>
-    </ul>
-    <hero-detail [hero]="selectedHero"></hero-detail>
-  ''',
+  <hero-detail [hero]="selectedHero"></hero-detail>
 ```
 
 The tests shown below use the following target hero data:
@@ -115,7 +103,7 @@ The tests shown below use the following target hero data:
 
 This case occurs when either of the following is true:
 
-- The input is bound to an initial null value, 
+- The input is bound to an initial null value,
   such as when app component's `selectedHero` is null above.
 - A component uses a `<hero-detail>` element without a `hero` property:
   ```html

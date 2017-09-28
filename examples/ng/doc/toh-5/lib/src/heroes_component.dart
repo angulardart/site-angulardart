@@ -11,9 +11,7 @@ import 'hero_service.dart';
 // #docregion metadata, renaming
 @Component(
   selector: 'my-heroes',
-  // #enddocregion renaming
   templateUrl: 'heroes_component.html',
-  // #docregion renaming
   styleUrls: const ['heroes_component.css'],
   // #enddocregion renaming
   directives: const [CORE_DIRECTIVES],

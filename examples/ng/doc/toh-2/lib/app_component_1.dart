@@ -1,67 +1,33 @@
-const bogusVarOfHtml = '''
-// #docregion ng-for
-<li *ngFor="let hero of heroes">
-  <span class="badge">{{hero.id}}</span> {{hero.name}}
-</li>
-// #enddocregion ng-for
+/// This file is used to hold snippets
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart' as fd;
 
-// #docregion heroes-styled
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
-// #enddocregion heroes-styled
+// A bit of hacking to make the template compiler happy:
+const formDirectives = const [CORE_DIRECTIVES, fd.formDirectives];
 
-// #docregion selectedHero-click
-<li *ngFor="let hero of heroes" (click)="onSelect(hero)">
-  <span class="badge">{{hero.id}}</span> {{hero.name}}
-</li>
-// #enddocregion selectedHero-click
+// #docregion metadata
+@Component(
+  selector: 'my-app',
+  templateUrl: 'app_component.html',
+  directives: const [formDirectives],
+)
+// #enddocregion metadata
+class bogusClass1 {}
 
-// #docregion selectedHero-details
-<h2>{{selectedHero.name}} details!</h2>
-<div><label>id: </label>{{selectedHero.id}}</div>
-<div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-</div>
-// #enddocregion selectedHero-details
-
-// #docregion ng-if
-<div *ngIf="selectedHero != null">
-  <h2>{{selectedHero.name}} details!</h2>
-  <div><label>id: </label>{{selectedHero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-</div>
-// #enddocregion ng-if
-
-// #docregion heroes-template-1
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li>
-    <!-- each hero goes here
-  </li>
-</ul>
-// #enddocregion heroes-template-1
-
-// #docregion heroes-ngfor-1
-<li *ngFor="let hero of heroes">
-// #enddocregion heroes-ngfor-1
-
-// #docregion class-selected-1
-[class.selected]="hero == selectedHero"
-// #enddocregion class-selected-1
-
-// #docregion class-selected-2
-<li *ngFor="let hero of heroes"
-  [class.selected]="hero == selectedHero"
-  (click)="onSelect(hero)">
-  <span class="badge">{{hero.id}}</span> {{hero.name}}
-</li>
-// #enddocregion class-selected-2
-''';
+@Component(
+  selector: 'my-app',
+  template: '',
+  /*
+  // #docregion styles
+  // Not recommended when adding many CSS classes:
+  styles: const [
+    '''
+      .selected { ... }
+      .heroes { ... }
+      ...
+    '''
+  ],
+  // #enddocregion styles
+  */
+)
+class bogusClass2 {}

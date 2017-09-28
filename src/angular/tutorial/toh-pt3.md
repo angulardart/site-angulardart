@@ -9,7 +9,6 @@ nextpage:
   title: Services
   url: /angular/tutorial/toh-pt4
 ---
-<!-- FilePath: src/angular/tutorial/toh-pt3.md -->
 <?code-excerpt path-base="toh-3"?>
 The `AppComponent` is doing _everything_ at the moment.
 In the beginning, it showed details of a single hero.
@@ -31,8 +30,7 @@ If not, go back to the previous pages.
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart,html}
   - test
     - app_test.dart
     - ...
@@ -153,8 +151,8 @@ the parent `AppComponent` will tell the child `HeroDetailComponent` which hero t
 by binding its `selectedHero` to the `hero` property of the `HeroDetailComponent`.
 The binding will look like this:
 
-<?code-excerpt?>
-```html
+<?code-excerpt "lib/app_component.html (hero-detail)"?>
+```
   <hero-detail [hero]="selectedHero"></hero-detail>
 ```
 
@@ -231,7 +229,8 @@ Coordinate the master `AppComponent` with the `HeroDetailComponent`
 by binding the `selectedHero` property of the `AppComponent`
 to the `hero` property of the `HeroDetailComponent`.
 
-```html
+<?code-excerpt "lib/app_component.html (hero-detail)"?>
+```
   <hero-detail [hero]="selectedHero"></hero-detail>
 ```
 
@@ -239,20 +238,18 @@ Now every time the `selectedHero` changes, the `HeroDetailComponent` gets a new 
 
 The revised `AppComponent` template should look like this:
 
-<?code-excerpt "lib/app_component.dart (template)" region="hero-detail-template" title?>
+<?code-excerpt "lib/app_component.html" title linenums?>
 ```
-  template: '''
-    <h1>{!{title}!}</h1>
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes"
+  <h1>{!{title}!}</h1>
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
         [class.selected]="hero == selectedHero"
         (click)="onSelect(hero)">
-        <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
-      </li>
-    </ul>
-    <hero-detail [hero]="selectedHero"></hero-detail>
-  ''',
+      <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
+    </li>
+  </ul>
+  <hero-detail [hero]="selectedHero"></hero-detail>
 ```
 
 The detail _should_ update every time the user picks a new hero.  It's not
@@ -303,8 +300,7 @@ Verify that you have the following structure:
 <div class="ul-filetree" markdown="1">
 - angular_tour_of_heroes
   - lib
-    - app_component.css
-    - app_component.dart
+    - app_component.{css,dart,html}
     - src
       - hero.dart
       - hero_detail_component.dart
@@ -323,6 +319,7 @@ Here are the code files discussed in this page.
 <code-tabs>
   <?code-pane "lib/src/hero_detail_component.dart"?>
   <?code-pane "lib/app_component.dart"?>
+  <?code-pane "lib/app_component.html"?>
   <?code-pane "lib/src/hero.dart"?>
 </code-tabs>
 

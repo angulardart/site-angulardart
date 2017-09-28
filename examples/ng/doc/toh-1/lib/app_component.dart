@@ -14,7 +14,8 @@ import 'package:angular_forms/angular_forms.dart';
     <div>
       <label>name: </label>
       <input [(ngModel)]="hero.name" placeholder="name">
-    </div>''',
+    </div>
+  ''',
   // #enddocregion editing-Hero, template
   // #docregion directives
   directives: const [formDirectives],
