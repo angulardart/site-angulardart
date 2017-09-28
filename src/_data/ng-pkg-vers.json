@@ -5,8 +5,9 @@
     },
     "angular": {
         "doc-path": "angular/guide",
+        "vers": "4.0.0",
         "prev-vers": "3.1.0",
-        "vers": "4.0.0"
+        "prev-name": "angular2"
     },
     "angular_components": {
         "doc-path": "components",

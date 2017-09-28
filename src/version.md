@@ -1,34 +1,32 @@
 ---
-layout: angular
 title: AngularDart Versions
 description: The AngularDart versions that this documentation and its examples use.
 ---
 {% assign pubPkgUrl = 'https://pub.dartlang.org/packages' %}
 This site's documentation and examples reflect the package versions in the
-**Current** column of the following table. Some packages also have a development
-version, listed in the **Next** column.
+**Current** column of the following table.
 
 <style>
-.material-icons { font-size: 16px; }
+/*
 #vers { table-layout: fixed; width: 100%; }
-#vers td, #vers th { text-align: center; }
 #vers td:first-child { overflow: hidden; text-overflow: ellipsis;  direction: rtl; }
-@media (max-width: 550px) { #vers td { padding: 1px 4px !important; transition: padding 0.5s; }}
+*/
+#vers .material-icons { font-size: 16px; }
 </style>
-<table id="vers" >
+<table id="vers" class="table table-striped table-condensed">
   <tr>
-    <th>Package</th>
-    <th>Current</th>
-    {%- if site.prev-url -%} <th>Previous</th> {%- endif -%}
-    {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
+    <th class="text-center">Package</th>
+    <th class="text-center">Current</th>
+    {%- if site.prev-url -%} <th class="text-center">Previous</th> {%- endif -%}
+    {%- if site.dev-url -%} <th class="text-center">Next</th> {%- endif -%}
   </tr>{%
   for pkgDataPair in site.data.ng-pkg-vers %}{%
   assign name = pkgDataPair[0] %}{%
   assign info = pkgDataPair[1] %}
-  <tr>
+  <tr class="text-center">
     <td>{{info.tmp-name | default: name}}</td>
     <td>{% if info.vers %}
-      <a href="{{pubPkgUrl}}/{{info.tmp-name | default: name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
         class="no-automatic-external">{{info.vers}}</a>
       {% if info.doc-path %}<a href="/{{info.doc-path}}"><i class="material-icons">info_outline</i></a>{% endif %}{%
       else %}-{%
@@ -36,7 +34,7 @@ version, listed in the **Next** column.
     </td>
     {%- if site.prev-url -%}
     <td>{% if info.prev-vers %}
-      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.prev-vers}}#pub-pkg-tab-changelog"
+      <a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#pub-pkg-tab-changelog"
         class="no-automatic-external">{{info.prev-vers}}</a>
       {% if info.doc-path%}<a href="{{site.prev-url}}/{{info.doc-path}}"
         class="no-automatic-external"><i class="material-icons md-18">info_outline</i></a>{% endif %}{%
@@ -61,7 +59,7 @@ version, listed in the **Next** column.
 <aside class="alert alert-info" markdown="1">
 **Migration tip:**
 To see how the AngularDart documentation and examples have changed
-in response to each release, read the [changelog](/angular/changelog).
+in response to each release, read the [changelog](/changelog).
 </aside>
 
 

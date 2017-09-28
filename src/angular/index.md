@@ -16,7 +16,7 @@ mission-critical apps that bring in much of Google’s revenue.
     <a href="/angular/guide" class="btn btn-lg">Documentation</a>
   </div>
   <em>
-    <a href="/angular/version">Current version:</a>
+    <a href="/version">Current version:</a>
     <b>{{site.data.ng-pkg-vers.angular.vers}}</b>
   </em>
 </div> <!--a:visited, button:visited-->

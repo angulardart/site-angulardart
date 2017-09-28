@@ -1,10 +1,8 @@
 ---
-layout: angular
-title: AngularDart Changelog
-description: A summary of changes to the AngularDart documentation and examples.
+title: Changelog
+description: A summary of changes to the site documentation and examples.
 ---
-
-This page summarizes changes to the AngularDart documentation and examples.
+This page summarizes changes to this site's documentation and examples.
 Many of these changes are due to new releases of
 AngularDart, AngularDart Components, or the Dart SDK.
 Others are the result of new recommendations or documentation.
