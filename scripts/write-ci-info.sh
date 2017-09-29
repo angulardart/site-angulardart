@@ -16,6 +16,10 @@ echo "job-id: $TRAVIS_JOB_ID" >> $FILE
 echo "repo-slug: $TRAVIS_REPO_SLUG" >> $FILE
 echo >> $FILE
 
+echo "$FILE:"
+cat $FILE
+echo
+
 # Sample values from a master build:
 #
 # TRAVIS_BUILD_ID=280419528
