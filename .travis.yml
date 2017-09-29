@@ -19,6 +19,7 @@ env:
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-s] --skip=dependency-injection"
     - E2E_OPT2="--fast --filter=examples/ng/doc/[t-z]"
     - TEST_OPT=""
+    - TZ=US/Pacific # normalize build timestamp
   matrix:
     - CI_TASK="build --dartdoc" DART_CHANNEL=stable
     - CI_TASK="ng-pkg-pub-upgrade" # fails when new ng pkg vers is avail.
@@ -56,6 +57,7 @@ before_install:
 
 install:
   - ./scripts/install.sh
+  - ./scripts/write-ci-info.sh
 
 before_script:
   - ./scripts/browser.sh
