@@ -3,17 +3,26 @@
     <div class="content">
       <div class="text-center" martdown="1">
         <style>.menu .material-icons { font-size: 14px; }</style>
+        {%- assign dateFormat = '%Y/%m/%d %R %Z' -%}
         <ul class="menu">
           <li><a href="/terms">Terms</a></li>
           <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
           <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
           <li>
-            <a href="{{site.repo}}" class="no-automatic-external"><i class="fa fa-github"></i></a>
+            <a href="{{site.repo}}"
+               title="This site's source is on GitHub."
+               class="no-automatic-external"><i class="fa fa-github"></i></a>
             &nbsp;
-            <a href="{{site.repo}}/issues" class="no-automatic-external"><i class="fa fa-bug"></i></a>
+            <a href="{{site.repo}}/issues"
+               title="File an issue about this site."
+               class="no-automatic-external"><i class="fa fa-bug"></i></a>
             &nbsp;
-            <a href="{{site.repo | regex_replace: 'github.com','travis-ci.org'}}/jobs/{{site.data.ci.job-id}}"
-               title="Site build {{site.data.ci.build-number}}, {{site.data.ci.build-time}}"
+            <a {% if site.data.ci.job-id %}
+               href="{{site.repo | regex_replace: 'github.com','travis-ci.org'}}/jobs/{{site.data.ci.job-id}}"
+               title="Site build #{{site.data.ci.build-number}} ({{site.data.ci.build-time | date: dateFormat}})"
+               {% else %}
+               title="Site built on {{site.time | date: dateFormat}}"
+               {% endif %}
                class="no-automatic-external"><i class="material-icons">build</i></a>
           </li>
         </ul>

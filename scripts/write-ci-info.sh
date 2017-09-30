@@ -3,23 +3,19 @@
 if [[ $CI_TASK != build* ]]; then exit; fi
 
 FILE=src/_data/ci.yaml
-if [[ -n "$1" ]]; then FILE="$1"; fi
 
-echo "# Generated on " `date` > $FILE
-echo >> $FILE
-echo "build-id: $TRAVIS_BUILD_ID" >> $FILE
-echo "build-number: $TRAVIS_BUILD_NUMBER" >> $FILE
-echo "build-time: $(date)" >> $FILE
-echo "commit-message: >" >> $FILE
-echo "  " ${TRAVIS_COMMIT_MESSAGE//\"/\'} >> $FILE
-echo "commit-sha: $TRAVIS_COMMIT" >> $FILE
-echo "job-id: $TRAVIS_JOB_ID" >> $FILE
-echo "repo-slug: $TRAVIS_REPO_SLUG" >> $FILE
-echo >> $FILE
+echo "# WARNING: the sample values in this file get regenerated at build time.
+build-id: $TRAVIS_BUILD_ID
+build-number: $TRAVIS_BUILD_NUMBER
+build-time: $(date)
+commit-sha: $TRAVIS_COMMIT
+job-id: $TRAVIS_JOB_ID
+repo-slug: $TRAVIS_REPO_SLUG" > $FILE
 
-echo "$FILE:"
-cat $FILE
-echo
+if [[ "$1" == '-v' ]]; then
+  echo "$FILE:"
+  cat $FILE
+fi
 
 # Sample values from a master build:
 #

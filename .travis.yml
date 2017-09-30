@@ -57,7 +57,7 @@ before_install:
 
 install:
   - ./scripts/install.sh
-  - ./scripts/write-ci-info.sh
+  - ./scripts/write-ci-info.sh -v
 
 before_script:
   - ./scripts/browser.sh

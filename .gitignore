@@ -34,6 +34,7 @@ npm-debug*.log*
 
 # Examples
 
+/src/_data/ci.yaml
 .packages
 .pub
 build
