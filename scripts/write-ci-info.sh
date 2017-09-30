@@ -9,6 +9,7 @@ echo "# Generated on " `date` > $FILE
 echo >> $FILE
 echo "build-id: $TRAVIS_BUILD_ID" >> $FILE
 echo "build-number: $TRAVIS_BUILD_NUMBER" >> $FILE
+echo "build-time: $(date)" >> $FILE
 echo "commit-message: >" >> $FILE
 echo "  " ${TRAVIS_COMMIT_MESSAGE//\"/\'} >> $FILE
 echo "commit-sha: $TRAVIS_COMMIT" >> $FILE

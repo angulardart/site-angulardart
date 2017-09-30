@@ -13,7 +13,7 @@
             <a href="{{site.repo}}/issues" class="no-automatic-external"><i class="fa fa-bug"></i></a>
             &nbsp;
             <a href="{{site.repo | regex_replace: 'github.com','travis-ci.org'}}/jobs/{{site.data.ci.job-id}}"
-               title="Build {{site.data.ci.build-number}}, {{site.data.ci.build-time}}"
+               title="Site build {{site.data.ci.build-number}}, {{site.data.ci.build-time}}"
                class="no-automatic-external"><i class="material-icons">build</i></a>
           </li>
         </ul>
