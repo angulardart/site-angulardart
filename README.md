@@ -19,7 +19,9 @@ Install the following tools if you don't have them already.
 - **[nvm][]**, the Node Version Manager. Then install the required version of node:
   - `nvm install 6`
 - **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
-  - `rvm install 2.4.2`
+  - `rvm install 2.4.2`\
+  **Can't install ruby?** If installation fails because `curl` is reported as missing—even
+  though it exists—use the workaround from https://github.com/ilios/frontend/pull/1963/.
 - **[Dart][]**, _including_ both browsers used for testing doc examples:
   - **Dartium**
   - **content shell**
