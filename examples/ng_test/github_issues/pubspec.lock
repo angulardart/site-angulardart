@@ -60,7 +60,7 @@ packages:
       name: barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.2+12"
+    version: "0.15.2+13"
   boolean_selector:
     description:
       name: boolean_selector
@@ -72,7 +72,7 @@ packages:
       name: bootstrap_sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0-alpha.6"
+    version: "4.0.0-beta"
   browser:
     description:
       name: browser
@@ -84,7 +84,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2"
+    version: "0.10.2+1"
   build_barback:
     description:
       name: build_barback
@@ -192,7 +192,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.3+14"
+    version: "0.11.3+15"
   http_multi_server:
     description:
       name: http_multi_server
@@ -252,7 +252,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   mime:
     description:
       name: mime
@@ -270,7 +270,7 @@ packages:
       name: ng_bootstrap
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5"
+    version: "0.8.6"
   node_preamble:
     description:
       name: node_preamble
@@ -312,7 +312,7 @@ packages:
       name: plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0+1"
+    version: "0.2.0+2"
   pool:
     description:
       name: pool
@@ -366,7 +366,7 @@ packages:
       name: shelf_web_socket
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   source_gen:
     description:
       name: source_gen
@@ -426,7 +426,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.24+6"
+    version: "0.12.24+8"
   tuple:
     description:
       name: tuple
@@ -438,7 +438,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.4"
+    version: "1.1.5"
   unittest:
     description:
       name: unittest
@@ -474,6 +474,6 @@ packages:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.12"
+    version: "2.1.13"
 sdks:
   dart: ">=1.24.0 <2.0.0-dev.infinity"

@@ -60,7 +60,7 @@ packages:
       name: barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.2+12"
+    version: "0.15.2+13"
   boolean_selector:
     description:
       name: boolean_selector
@@ -78,7 +78,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2"
+    version: "0.10.2+1"
   build_barback:
     description:
       name: build_barback
@@ -228,7 +228,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   mime:
     description:
       name: mime
@@ -270,7 +270,7 @@ packages:
       name: plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0+1"
+    version: "0.2.0+2"
   pool:
     description:
       name: pool
@@ -372,7 +372,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.24+7"
+    version: "0.12.24+8"
   tuple:
     description:
       name: tuple
@@ -384,7 +384,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.4"
+    version: "1.1.5"
   unittest:
     description:
       name: unittest

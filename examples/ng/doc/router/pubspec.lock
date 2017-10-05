@@ -36,7 +36,7 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   async:
     description:
       name: async
@@ -48,7 +48,7 @@ packages:
       name: barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.2+12"
+    version: "0.15.2+13"
   browser:
     description:
       name: browser
@@ -60,7 +60,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2"
+    version: "0.10.2+1"
   build_barback:
     description:
       name: build_barback
@@ -192,7 +192,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   package_config:
     description:
       name: package_config
@@ -210,7 +210,7 @@ packages:
       name: plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0+1"
+    version: "0.2.0+2"
   pool:
     description:
       name: pool
@@ -270,7 +270,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.4"
+    version: "1.1.5"
   utf:
     description:
       name: utf
@@ -288,6 +288,6 @@ packages:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.12"
+    version: "2.1.13"
 sdks:
-  dart: ">=1.24.0 <2.0.0-dev.infinity"
+  dart: ">=1.24.0 <2.0.0"
