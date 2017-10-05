@@ -39,7 +39,7 @@ If your structure doesn't match, go back to that page to figure out what you mis
 
 ## Move the template to its own file
 
-You'll be making serveral updates to the app component's template.
+You'll be making several updates to the app component's template.
 First, move the template to its own file:
 
 <?code-excerpt "lib/app_component_1.html" title?>
@@ -113,12 +113,12 @@ Create a public property in `AppComponent` that exposes the heroes for binding.
 
 ### Display hero names in a template
 
-To display the hero names in an unordered list,
-insert the following HTML below the title and above the hero details.
-
+To display the hero names in an unordered list, replace the current
+template with the following HTML:
 
 <?code-excerpt "lib/app_component_0.html (heroes template)" title?>
 ```
+  <h1>{!{title}!}</h1>
   <h2>My Heroes</h2>
   <ul class="heroes">
     <li>
