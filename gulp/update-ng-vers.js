@@ -140,4 +140,29 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(re, `$1: "${vers}"`))
       .pipe(gulp.dest('./'));
   });
+
+  function baseHref(match, indent, oldScript) {
+    return scriptBaseHref.map(s => indent + s).join('\n');
+  }
+
+  gulp.task('_update-base-href', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/index.html`,
+      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/( +)(<script>[\s\S]*?base href[\s\S]*?\s+<\/script>)/, baseHref))
+      .pipe(gulp.dest(baseDir));
+  });
+
 };
+
+const scriptBaseHref =
+`<script>
+  // WARNING: DO NOT set the <base href> like this in production!
+  // Details: https://webdev.dartlang.org/angular/guide/router
+  (function () {
+    var m = document.location.pathname.match(/^(\\/[-\\w]+)+\\/web($|\\/)/);
+    document.write('<base href="' + (m ? m[0] : '/') + '" />');
+  }());
+</script>`.split('\n');
