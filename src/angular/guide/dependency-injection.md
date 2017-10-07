@@ -251,12 +251,12 @@ It governs all the child components of this area.
 Our stripped down version has only one child, `HeroListComponent`,
 which displays a list of heroes.
 
-Right now `HeroListComponent` gets heroes from `HEROES`, an in-memory collection
+Right now `HeroListComponent` gets heroes from `mockHeroes`, an in-memory collection
 defined in another file.
 That may suffice in the early stages of development, but it's far from ideal.
 As soon as we try to test this component or want to get our heroes data from a remote server,
 we'll have to change the implementation of `heroes` and
-fix every other use of the `HEROES` mock data.
+fix every other use of the `mockHeroes` data.
 
 Let's make a service that hides how we get hero data.
 
@@ -276,7 +276,7 @@ Let's make a service that hides how we get hero data.
 
   @Injectable()
   class HeroService {
-    List<Hero> getHeroes() => HEROES;
+    List<Hero> getHeroes() => mockHeroes;
   }
 ```
 
@@ -790,7 +790,7 @@ Instead the `HeroService` constructor takes a boolean flag to control display of
   List<Hero> getHeroes() {
     var auth = _isAuthorized ? 'authorized' : 'unauthorized';
     _logger.log('Getting heroes for $auth user.');
-    return HEROES
+    return mockHeroes
         .where((hero) => _isAuthorized || !hero.isSecret)
         .toList();
   }
@@ -918,7 +918,7 @@ The definition looks like this:
 ```
   import 'package:angular/angular.dart';
 
-  const APP_CONFIG = const OpaqueToken('app.config');
+  const appConfigToken = const OpaqueToken('app.config');
 ```
 
 We register the dependency provider using the `OpaqueToken` object:
@@ -926,7 +926,7 @@ We register the dependency provider using the `OpaqueToken` object:
 <?code-excerpt "lib/src/providers_component.dart (providers-9)"?>
 ```
   providers: const [
-    const Provider(APP_CONFIG, useValue: heroDiConfig)]
+    const Provider(appConfigToken, useValue: heroDiConfig)]
 ```
 
 Now we can inject the configuration object into any constructor that needs it, with
@@ -934,7 +934,7 @@ the help of an `@Inject` annotation:
 
 <?code-excerpt "lib/app_component_2.dart (ctor)"?>
 ```
-  AppComponent(@Inject(APP_CONFIG) Map config) : title = config['title'];
+  AppComponent(@Inject(appConfigToken) Map config) : title = config['title'];
 ```
 
 <div class="l-sub-section" markdown="1">
@@ -976,12 +976,12 @@ configuration object in our top-level `AppComponent`:
   providers: const [
     Logger,
     UserService,
-    const Provider(APP_CONFIG, useFactory: heroDiConfigFactory),
+    const Provider(appConfigToken, useFactory: heroDiConfigFactory),
   ],
 ```
 <?code-excerpt "lib/app_component.dart (ctor)" title?>
 ```
-  AppComponent(@Inject(APP_CONFIG) AppConfig config, this._userService)
+  AppComponent(@Inject(appConfigToken) AppConfig config, this._userService)
       : title = config.title;
 ```
 

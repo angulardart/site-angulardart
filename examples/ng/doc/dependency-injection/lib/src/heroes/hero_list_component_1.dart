@@ -13,5 +13,5 @@ import 'mock_heroes.dart';
   directives: const [CORE_DIRECTIVES],
 )
 class HeroListComponent {
-  final List<Hero> heroes = HEROES;
+  final List<Hero> heroes = mockHeroes;
 }

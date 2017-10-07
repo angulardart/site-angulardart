@@ -37,7 +37,7 @@ import 'src/providers_component.dart';
   providers: const [
     Logger,
     UserService,
-    const Provider(APP_CONFIG, useFactory: heroDiConfigFactory),
+    const Provider(appConfigToken, useFactory: heroDiConfigFactory),
   ],
   // #enddocregion providers
 )
@@ -46,7 +46,7 @@ class AppComponent {
   final String title;
 
   // #docregion ctor
-  AppComponent(@Inject(APP_CONFIG) AppConfig config, this._userService)
+  AppComponent(@Inject(appConfigToken) AppConfig config, this._userService)
       : title = config.title;
   // #enddocregion ctor
 

@@ -205,7 +205,7 @@ class Provider8Component {
   template: '{{log}}',
   // #docregion providers-9
   providers: const [
-    const Provider(APP_CONFIG, useValue: heroDiConfig)]
+    const Provider(appConfigToken, useValue: heroDiConfig)]
   // #enddocregion providers-9
 )
 class Provider9Component implements OnInit {
@@ -213,12 +213,12 @@ class Provider9Component implements OnInit {
   String log;
 
   // #docregion provider-9-ctor
-  Provider9Component(@Inject(APP_CONFIG) this._config);
+  Provider9Component(@Inject(appConfigToken) this._config);
   // #enddocregion provider-9-ctor
 
   @override
   void ngOnInit() {
-    log = 'APP_CONFIG Application title is ${_config['title']}';
+    log = 'AppConfig Application title is ${_config['title']}';
   }
 }
 

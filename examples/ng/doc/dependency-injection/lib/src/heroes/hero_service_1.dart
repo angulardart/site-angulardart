@@ -6,5 +6,5 @@ import 'mock_heroes.dart';
 
 @Injectable()
 class HeroService {
-  List<Hero> getHeroes() => HEROES;
+  List<Hero> getHeroes() => mockHeroes;
 }

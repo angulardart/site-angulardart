@@ -19,7 +19,7 @@ import 'src/logger_service.dart';
   providers: const [
     Logger,
     // #docregion providers
-    const Provider(APP_CONFIG, useValue: heroDiConfig),
+    const Provider(appConfigToken, useValue: heroDiConfig),
     // #enddocregion providers
   ],
 )
@@ -27,6 +27,6 @@ class AppComponent {
   final String title;
 
   // #docregion ctor
-  AppComponent(@Inject(APP_CONFIG) Map config) : title = config['title'];
+  AppComponent(@Inject(appConfigToken) Map config) : title = config['title'];
   // #enddocregion ctor
 }

@@ -1,7 +1,7 @@
 // #docregion token
 import 'package:angular/angular.dart';
 
-const APP_CONFIG = const OpaqueToken('app.config');
+const appConfigToken = const OpaqueToken('app.config');
 // #enddocregion token
 
 // #docregion config
@@ -22,6 +22,6 @@ AppConfig heroDiConfigFactory() => new AppConfig()
   ..title = 'Dependency Injection';
 // #enddocregion config-alt
 
-const appConfigProvider = const Provider<AppConfig>(APP_CONFIG,
+const appConfigProvider = const Provider<AppConfig>(appConfigToken,
   useFactory: heroDiConfigFactory,
   deps: const []);

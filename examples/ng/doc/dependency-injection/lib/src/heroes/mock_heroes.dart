@@ -1,7 +1,7 @@
 // #docregion
 import 'hero.dart';
 
-List<Hero> HEROES = <Map>[
+List<Hero> mockHeroes = <Map>[
   {'id': 11, 'isSecret': false, 'name': 'Mr. Nice'},
   {'id': 12, 'isSecret': false, 'name': 'Narco'},
   {'id': 13, 'isSecret': false, 'name': 'Bombasto'},
