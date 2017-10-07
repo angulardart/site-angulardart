@@ -150,7 +150,7 @@ and from the textbox back to the property.
 
 ### @Component(directives: ...)
 
-Unfortunately, immediately after this change, the **application breaks**!
+Unfortunately, immediately after this change, the **app breaks**!
 If you open the browser console and refresh the page, you'll see Angular
 complaining.  To know why, look at the `pub serve` output. The template
 compiler doesn't recognize `ngModel`, and issues a parse error for

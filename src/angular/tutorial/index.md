@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: "Tutorial: Tour of Heroes"
-description: The Tour of Heroes tutorial takes you through the steps of creating an Angular application in Dart.
+description: The Tour of Heroes tutorial takes you through the steps of creating an Angular app in Dart.
 prevpage:
   title: Documentation Overview
   url: /angular/guide
@@ -70,6 +70,6 @@ Here's the app in action:
 
 You'll build the Tour of Heroes app, step by step.
 Each step is motivated with a requirement that you've likely
-met in many applications. Everything has a reason.
+met in many apps. Everything has a reason.
 
 Along the way, you'll become familiar with many of the core fundamentals of Angular.

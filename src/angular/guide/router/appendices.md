@@ -18,7 +18,7 @@ elaborate some of the points covered quickly above.
 
 The appendix material isn't essential. Continued reading is for the curious.
 
-<div id="link-parameters-list"></div>
+<a id="link-parameters-list"></a>
 ## Appendix: Link parameters list
 
 A link parameters list holds the ingredients for router navigation:
@@ -80,7 +80,7 @@ Parse it out:
 * The resulting path is `/crisis-center/`.
 
 Take it a step further. Consider the following router link that
-navigates from the root of the application down to the *Dragon Crisis*:
+navigates from the root of the app down to the *Dragon Crisis*:
 
 <?code-excerpt "lib/app_component_4.dart (dragon-crisis)"?>
 ```
@@ -95,7 +95,7 @@ navigates from the root of the application down to the *Dragon Crisis*:
 * The third and final item provides the `id` of the *Dragon Crisis* (`{'id': '1'}`).
 * The resulting path is `/crisis-center/1`.
 
-In summary, you can write applications with one, two or more levels of routing.
+In summary, you can write apps with one, two or more levels of routing.
 The link parameters list affords the flexibility to represent any routing depth and
 any legal sequence of route names and route parameter values.
 
@@ -106,8 +106,8 @@ any legal sequence of route names and route parameter values.
 //- ## Appendix: Why use an *ngOnInit* method
 {% endcomment %}
 
-<div id="browser-url-styles"></div>
-<div id="location-strategy"></div>
+<a id="browser-url-styles"></a>
+<a id="location-strategy"></a>
 ## Appendix: *LocationStrategy* and browser URL styles
 
 When the router navigates to a new component view, it updates the browser's location and history
@@ -130,7 +130,7 @@ Here's the *Crisis Center* URL in this "HTML 5 pushState" style:
 
 Older browsers send page requests to the server when the location URL changes ...
 unless the change occurs after a "#" (called the "hash").
-Routers can take advantage of this exception by composing in-application route
+Routers can take advantage of this exception by composing in-app route
 URLs with hashes.  Here's a "hash URL" that routes to the *Crisis Center*
 
 <?code-excerpt?>
@@ -155,8 +155,8 @@ You can switch to the `HashLocationStrategy` with an override during the bootstr
 ### Which strategy is best?
 
 You must choose a strategy and you need to make the right call early in the project.
-It won't be easy to change later once the application is in production
-and there are lots of application URL references in the wild.
+It won't be easy to change later once the app is in production
+and there are lots of app URL references in the wild.
 
 Almost all Angular projects should use the default HTML 5 style.
 It produces URLs that are easier for users to understand.
@@ -168,7 +168,7 @@ An app that would otherwise take ten or more seconds to start
 could be rendered on the server and delivered to the user's device
 in less than a second.
 
-This option is only available if application URLs look like normal web URLs
+This option is only available if app URLs look like normal web URLs
 without hashes (#) in the middle.
 
 Stick with the default unless you have a compelling reason to
@@ -198,7 +198,7 @@ in the `<head>` of the `index.html`.
 
 Without that tag, the browser may not be able to load resources
 (images, css, scripts) when "deep linking" into the app.
-Bad things could happen when someone pastes an application link into the
+Bad things could happen when someone pastes an app link into the
 browser's address bar or clicks such a link in an email link.
 
 Some developers may not be able to add the `<base>` element, perhaps because they don't have

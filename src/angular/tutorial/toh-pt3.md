@@ -329,7 +329,7 @@ Here's what you achieved in this page:
 
 * You created a reusable component.
 * You learned how to make a component accept input.
-* You learned to declare the application directives in a `directives` list.
+* You learned to declare the app directives in a `directives` list.
 * You learned to bind a parent component to a child component.
 
 Your app should look like this <live-example></live-example>.

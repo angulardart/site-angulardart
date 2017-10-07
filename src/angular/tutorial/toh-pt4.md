@@ -242,7 +242,7 @@ add the following `providers` list as the last parameter of the `@Component` ann
 The `providers` parameter tells Angular to create a fresh instance of the `HeroService` when it creates an `AppComponent`.
 The `AppComponent`, as well as its child components, can use that service to get hero data.
 
-<div id="child-component"></div>
+<a id="child-component"></a>
 ### The *AppComponent.getHeroes()* method
 
 The service is in a `heroService` private variable.
@@ -263,7 +263,7 @@ You don't really need a dedicated method to wrap one line.  Write it anyway:
   }
 ```
 
-<div id="oninit"></div>
+<a id="oninit"></a>
 ### The *ngOnInit* lifecycle hook
 
 `AppComponent` should fetch and display hero data with no issues.

@@ -68,7 +68,6 @@ defaults:
 - scope:
     path: angular/guide/testing
   values:
-    # layout: angular
     status: '(DRAFT)'
 
 custom:

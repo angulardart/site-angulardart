@@ -42,7 +42,7 @@ serves the new app.
 
 ## Angular app basics
 
-Angular applications are made up of _components_.
+Angular apps are made up of _components_.
 A _component_ is the combination of an HTML template and a component class that controls a portion of the screen. The starter app has a component that displays a simple string:
 
 <?code-excerpt "lib/app_component.dart" title linenums?>
@@ -105,14 +105,14 @@ These files are organized as follows:
 </div>
 
 All the examples in this documentation have _at least these core files_.
-Each file has a distinct purpose and evolves independently as the application grows.
+Each file has a distinct purpose and evolves independently as the app grows.
 
 <style>td, th {vertical-align: top}</style>
 <table width="100%"><col width="20%"><col width="80%">
 <tr><th>File</th> <th>Purpose</th></tr>
 <tr>
   <td><code>lib/app_component.dart</code></td>
-  <td markdown="1">Defines `<my-app>`, the **root** component of what will become a tree of nested components as the application evolves.
+  <td markdown="1">Defines `<my-app>`, the **root** component of what will become a tree of nested components as the app evolves.
   </td>
 </tr><tr>
   <td><code>test/app_test.dart</code></td>
@@ -120,7 +120,7 @@ Each file has a distinct purpose and evolves independently as the application gr
   </td>
 </tr><tr>
   <td><code>web/main.dart</code></td>
-  <td markdown="1">Bootstraps the application to run in the browser.
+  <td markdown="1">Bootstraps the app to run in the browser.
   </td>
 </tr><tr>
   <td><code>web/index.html</code></td>

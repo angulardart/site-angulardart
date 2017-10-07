@@ -88,7 +88,7 @@ In the following test excerpt:
   with the "HeroDetail" route as destination and the target hero's id
   as a parameter.
 
-<div id="heroes-go-to-detail-test"></div>
+<a id="heroes-go-to-detail-test"></a>
 <code-tabs>
   <?code-pane "toh-5/test/heroes.dart (go-to detail)"?>
   <?code-pane "toh-5/test/heroes_po.dart"?>
@@ -104,9 +104,13 @@ How might you write the same test using a real router? That's covered next.
 The app [dashboard][], from [part 5][] of the [tutorial][], supports direct
 navigation to hero details using router links:
 
-<?code-excerpt "toh-5/lib/src/dashboard_component.html (template excerpt)" region="click" title?>
+<?code-excerpt "toh-5/lib/src/dashboard_component.html (excerpt)" region="click" title?>
 ```
   <a *ngFor="let hero of heroes" [routerLink]="['HeroDetail', {id: hero.id.toString()}]" class="col-1-4">
+    <div class="module hero">
+      <h4>{!{hero.name}!}</h4>
+    </div>
+  </a>
 ```
 
 One way to test using a real router is to mock the low-level [PlatformLocation][] class.
@@ -205,5 +209,5 @@ which will be the most useful test subjects.
 [dashboard]: /angular/tutorial/toh-pt5#add-heroes-to-the-dashboard
 [link parameter list]: /angular/guide/router/appendices#link-parameters-list
 [part 5]: /angular/tutorial/toh-pt5
-[route configurations]: /angular/tutorial/toh-pt5#configure-routes-and-add-the-router
+[route configurations]: /angular/tutorial/toh-pt5#configure-routes
 [tutorial]: /angular/tutorial

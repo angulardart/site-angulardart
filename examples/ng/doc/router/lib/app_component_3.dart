@@ -23,11 +23,10 @@ import 'src/not_found_component.dart';
   ''',
   styles: const ['.router-link-active {color: #039be5;}'],
   directives: const [ROUTER_DIRECTIVES],
-  providers: const [HeroService, ROUTER_PROVIDERS],
+  providers: const [HeroService],
 )
 @RouteConfig(const [
   const Redirect(path: '/', redirectTo: const ['Heroes']),
-  const Redirect(path: '/index.html', redirectTo: const ['Heroes']),
   const Route(
       path: '/crisis-center',
       name: 'CrisisCenter',

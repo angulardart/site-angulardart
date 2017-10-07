@@ -23,58 +23,88 @@ When you're done with this page, the app should look like this <live-example></l
 
 In the [previous page](toh-pt5), you learned to navigate between the dashboard and the fixed heroes list, editing a selected hero along the way. That's the starting point for this page.
 
+Before continuing with the Tour of Heroes, verify that you have the following structure.
+
+<div class="ul-filetree" markdown="1">
+- angular_tour_of_heroes
+  - lib
+    - app_component.{css,dart}
+    - src
+      - dashboard_component.{css,dart,html}
+      - hero.dart
+      - hero_detail_component.{css,dart,html}
+      - hero_service.dart
+      - heroes_component.{css,dart,html}
+      - mock_heroes.dart
+  - test
+    - app_test.dart
+    - ...
+  - web
+    - index.html
+    - main.dart
+    - styles.css
+  - pubspec.yaml
+</div>
+
 {% include_relative _keep-app-running.md %}
 
-<div id="http-providers"></div>
+<a id="http-providers"></a>
 ## Providing HTTP services
 
-You'll be using the Dart [http][] package's `BrowserClient` class to communicate with a server.
+You'll be using the Dart [http][] package's client classes to communicate with a server.
 
 ### Pubspec updates
 
-Update package dependencies by adding the [stream_transform][] and Dart [http][] packages:
+Update package dependencies by adding the Dart [http][] and
+[stream_transform][] packages:
 
-[guide-http]: /angular/guide/server-communication#http-providers
-[http]: https://pub.dartlang.org/packages/http
-[ng2x]: https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer
-[stream_transform]: https://pub.dartlang.org/packages/stream_transform
+<?code-excerpt path-base="examples/ng/doc"?>
 
-<!--stylePattern = { pnk: /(http.*|stream.*)/gm };-->
-<?code-excerpt "pubspec.yaml (additions)" title?>
+<?code-excerpt "toh-5/pubspec.yaml" diff-with="toh-6/pubspec.yaml" from="dependencies" to="stream_transform"?>
+```diff
+--- toh-5/pubspec.yaml
++++ toh-6/pubspec.yaml
+@@ -1,14 +1,18 @@
+-# #docregion
++# #docregion , additions
+ name: angular_tour_of_heroes
++# #enddocregion additions
+ description: Tour of Heroes
+ version: 0.0.1
+ environment:
+   sdk: '>=1.24.0 <2.0.0'
+-
++  # #docregion additions
+ dependencies:
+   angular: ^4.0.0
+   angular_forms: ^1.0.0
+   angular_router: ^1.0.2
++  http: ^0.11.0
++  stream_transform: ^0.0.6
 ```
-  name: angular_tour_of_heroes
-  # . . .
-  dependencies:
-    angular: ^4.0.0
-    angular_forms: ^1.0.0
-    angular_router: ^1.0.2
-    http: ^0.11.0
-    stream_transform: ^0.0.6
-    # . . .
 
-  transformers:
-  - angular:
-      entry_points:
-      - web/main.dart
-      - test/**_test.dart
-```
+<?code-excerpt path-base="toh-6"?>
 
 ## Register for HTTP services
 
 Before the app can use `BrowserClient`, you have to register it as a service provider.
 
-You should be able to access `BrowserClient` services from anywhere in the application.
+You should be able to access `BrowserClient` services from anywhere in the app.
 So register it in the `bootstrap` call where you
-launch the application and its root `AppComponent`.
+launch the app and its root `AppComponent`.
 
 <?code-excerpt "web/main.dart (v1)" title linenums?>
 ```
   import 'package:angular/angular.dart';
+  import 'package:angular_router/angular_router.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
   import 'package:http/browser_client.dart';
 
   void main() {
     bootstrap(AppComponent, [
+      ROUTER_PROVIDERS,
+      // Remove next line in production
+      provide(LocationStrategy, useClass: HashLocationStrategy),
       provide(BrowserClient, useFactory: () => new BrowserClient(), deps: [])
     ]);
   }
@@ -98,16 +128,21 @@ Update `web/main.dart` with this version, which uses the mock service:
 <?code-excerpt "web/main.dart (v2)" title linenums?>
 ```
   import 'package:angular/angular.dart';
+  import 'package:angular_router/angular_router.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
   import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
   import 'package:http/http.dart';
 
   void main() {
-    bootstrap(AppComponent, [provide(Client, useClass: InMemoryDataService)]
-        // Using a real back end?
-        // Import browser_client.dart and change the above to:
-        // [provide(Client, useFactory: () => new BrowserClient(), deps: [])]
-        );
+    bootstrap(AppComponent, [
+      ROUTER_PROVIDERS,
+      // Remove next line in production
+      provide(LocationStrategy, useClass: HashLocationStrategy),
+      provide(Client, useClass: InMemoryDataService),
+      // Using a real back end?
+      // Import browser_client.dart and change the above to:
+      // [provide(Client, useFactory: () => new BrowserClient(), deps: [])]
+    ]);
   }
 ```
 
@@ -554,8 +589,6 @@ Add the hero service's `delete()` method, which uses the `delete()` HTTP method 
 
 Refresh the browser and try the new delete functionality.
 
-<div id="observables"></div>
-
 ## Streams
 
 Recall that `HeroService.getHeroes()` awaits for an `http.get()`
@@ -781,7 +814,7 @@ You'll make fewer calls to the `HeroSearchService` and still get timely results.
   It cancels and discards previous searches, returning only the
   latest search service stream element.
 * `handleError()` handles errors. The simple example prints the error
-  to the console; a real life application should do better.
+  to the console; a real life app should do better.
 
 ### Add the search component to the dashboard
 
@@ -888,3 +921,6 @@ Here are the files you added or changed in this page.
 
 Return to the [learning path](/angular/guide/learning-angular), where
 you can read more about the concepts and practices found in this tutorial.
+
+[http]: https://pub.dartlang.org/packages/http
+[stream_transform]: https://pub.dartlang.org/packages/stream_transform

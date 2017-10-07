@@ -20,14 +20,14 @@ nextpage:
 </div>
 
 The Angular **router** enables navigation from one [view](/angular/glossary.html#view) to the next
-as users perform application tasks.
+as users perform app tasks.
 
 This guide covers the router's primary features, illustrating them through the evolution
-of a small application that you can <live-example>run live</live-example>.
+of a small app that you can <live-example>run live</live-example>.
 
 ## Overview
 
-The browser is a familiar model of application navigation:
+The browser is a familiar model of app navigation:
 
 - Enter a URL in the address bar and the browser navigates to a corresponding page.
 - Click links on the page and the browser navigates to a new page.
@@ -38,7 +38,7 @@ The Angular router borrows from this model.
 It can interpret a browser URL as an instruction to navigate to a client-generated view.
 It can pass optional parameters along to the supporting view component that help it decide what specific content to present.
 You can bind the router to links on a page and it will navigate to
-the appropriate application view when the user clicks a link.
+the appropriate app view when the user clicks a link.
 You can navigate imperatively when the user clicks a button, selects from a drop box,
 or in response to some other stimulus from any source. And the router logs activity
 in the browser's history journal so the back and forward buttons work as well.
@@ -52,7 +52,7 @@ You'll learn many router details in this guide which covers
 * [Configuring the router](#route-config)
 * Handling unmatched URLs with a [wildcard route](#wildcard-route)
 * The [link parameters list](#link-parameters-list) that propels router navigation
-* Setting the [default route](#default-route) where the application navigates at launch
+* Setting the [default route](#default-route) where the app navigates at launch
 * [Redirecting](#redirect) from one route to another
 * Navigating when the user clicks a data-bound [RouterLink](#router-link)
 * Navigating under [program control](#navigate)
@@ -115,7 +115,7 @@ This overview of core router concepts will help orient you to the details that f
 
 ### *&lt;base href>*
 
-Most routing applications have a `<base href="...">` element in the `index.html` `<head>`
+Most routing apps have a `<base href="...">` element in the `index.html` `<head>`
 to tell the router how to compose navigation URLs.
 For details, see [Set the *base href*](router/1#base-href).
 
@@ -151,7 +151,7 @@ The most common, illustrated above, is a named **`Route`** which maps a URL path
 
 ### Router outlet
 
-When the browser URL for this application becomes `/heroes`,
+When the browser URL for this app becomes `/#/heroes`,
 the router matches that URL to the `RouteDefinition` named `Heroes` and displays the `HeroesComponent`
 _after_ a `RouterOutlet` that you've placed in the host view's HTML.
 
@@ -201,7 +201,7 @@ of the `AppComponent`.
 
 ### Summary
 
-The application has a configured router.
+The app has a configured router.
 The shell component has a `RouterOutlet` where it can display views produced by the router.
 It has `RouterLink`s that users can click to navigate via the router.
 
@@ -216,7 +216,7 @@ Here are the key router terms and their meanings:
 <tr>
   <td><code>Router</code></td>
   <td>
-    Displays the application component for the active URL.
+    Displays the app component for the active URL.
     Manages navigation from one component to the next.
   </td>
 </tr>
@@ -271,16 +271,16 @@ Here are the key router terms and their meanings:
 </tr>
 </table>
 
-## The sample application
+## The sample app
 
-This guide describes the development of a multi-page routed sample application.
+This guide describes the development of a multi-page routed sample app.
 Along the way, it highlights design decisions and describes key features of the router.
 
 {% comment %}
 //- TODO: review and/or drop the list:
 such as:
 
-* organizing the application features into modules
+* organizing the app features into modules
 * navigating to a component (*Heroes* link to "Heroes List")
 * including a route parameter (passing the Hero `id` while routing to the "Hero Detail")
 * child routes (the *Crisis Center* has its own routes)
@@ -293,17 +293,17 @@ such as:
 {% endcomment %}
 
 The guide proceeds as a sequence of milestones as if you were building the app step-by-step.
-But, it is not a tutorial and it glosses over details of Angular application construction
+But, it is not a tutorial and it glosses over details of Angular app construction
 that are more thoroughly covered elsewhere in the documentation.
 
 The full source for the final version of the app can be seen and downloaded from the <live-example></live-example>.
 
-### The sample application in action
+### The sample app in action
 
-Imagine an application that helps the _Hero Employment Agency_ run its business.
+Imagine an app that helps the _Hero Employment Agency_ run its business.
 Heroes need work and the agency finds crises for them to solve.
 
-The application has these main features:
+The app has these main features:
 
 1. A *Crisis Center* for maintaining the list of crises for assignment to heroes.
 1. A *Heroes* area for maintaining the list of heroes employed by the agency.
@@ -333,7 +333,7 @@ Now click the *Crisis Center* link for a list of ongoing crises.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/router/crisis-center-list-2-tab.png' %}" alt="Crisis Center List" width="282">
 
-Select a crisis and the application takes you to a crisis editing screen.
+Select a crisis and the app takes you to a crisis editing screen.
 The _Crisis Detail_ appears in a child view on the same page, beneath the list.
 
 Alter the name of a crisis.
