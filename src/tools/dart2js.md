@@ -163,7 +163,7 @@ but they have possible downsides.
 For more information, see the `--minify` option
 (one of the dart2js [basic options](#basic-options)) and the
 [Angular deployment guide](/angular/guide/deployment).
-  
+
 `--fast-startup`
 : Produce JavaScript that can be parsed more quickly by VMs.
   This option usually results in **larger** JavaScript files
@@ -272,7 +272,7 @@ To debug in Chrome:
    as described in
    [How to set breakpoints](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints).
 
-4. Reload your application.
+4. Reload your app.
 
 ### Internet Explorer {#dart2js-debugging-ie}
 
@@ -284,7 +284,7 @@ To debug in Internet Explorer:
 2. Load **Developer Tools** (**F12**). For more information, see
    [Using the F12 developer tools](http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
 
-3. Reload the application. The **debugger** tab shows source-mapped files.
+3. Reload the app. The **debugger** tab shows source-mapped files.
 
 4. Exception behavior can be controlled through **Ctrl+Shift+E**;
    the default is **Break on unhandled exceptions**.
@@ -305,7 +305,7 @@ To debug in Firefox:
 
 <img src="{% asset_path 'ff-debug.png' %}" alt="Firefox Toolbar"><br /><br />
 
-<li>Reload your application.</li>
+<li>Reload your app.</li>
 </ol>
 
 ### Safari {#dart2js-debugging-safari}
@@ -316,4 +316,4 @@ To debug in Safari:
 
 2. Enable breaks, either on all exceptions or only on uncaught exceptions. See Figure 4-2 on the Safari [Debugging](https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Debugger/Debugger.html#//apple_ref/doc/uid/TP40007874-CH5-SW1) page.
 
-3. Reload your application.
+3. Reload your app.

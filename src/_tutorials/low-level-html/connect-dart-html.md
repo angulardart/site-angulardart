@@ -51,7 +51,7 @@ so we begin with a simple HTML file,
 which introduces the DOM tree and nodes.
 From there,
 you build a bare bones, stripped-down
-Dart application
+Dart app
 that contains just enough code to
 dynamically put text on the page from the Dart side.
 

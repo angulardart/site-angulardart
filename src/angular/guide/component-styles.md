@@ -51,18 +51,18 @@ Usually you give it one string, as in the following example:
 The selectors you put into a component's styles apply only within the template
 of that component. The `h1` selector in the preceding example applies only to the `<h1>` tag
 in the template of `HeroAppComponent`. Any `<h1>` elements elsewhere in
-the application are unaffected.
+the app are unaffected.
 
 This is a big improvement in modularity compared to how CSS traditionally works.
 
 * You can use the CSS class names and selectors that make the most sense in the context of each component.
 * Class names and selectors are local to the component and don't collide with
-  classes and selectors used elsewhere in the application.
-* Changes to styles elsewhere in the application don't affect the component's styles.
+  classes and selectors used elsewhere in the app.
+* Changes to styles elsewhere in the app don't affect the component's styles.
 * You can co-locate the CSS code of each component with the Dart and HTML code of the component,
   which leads to a neat and tidy project structure.
 * You can change or remove component CSS code without searching through the
-  whole application to find where else the code is used.
+  whole app to find where else the code is used.
 
 ## Special selectors
 
@@ -232,7 +232,7 @@ inside `<style>` tags.
 You can also embed `<link>` tags into the component's HTML template.
 
 The link tag's `href` URL is relative to the
-application root, not the component file.
+app root, not the component file.
 
 <?code-excerpt "lib/src/hero_team_component.dart (stylesheet link)" title?>
 ```
@@ -271,7 +271,7 @@ In *this* case the URL is relative to the CSS file into which we are importing.
 ## Controlling view encapsulation: native, emulated, and none
 
 As discussed earlier, component CSS styles are encapsulated into the component's view and don't
-affect the rest of the application.
+affect the rest of the app.
 
 To control how this encapsulation happens on a *per
 component* basis, you can set the *view encapsulation mode* in the component metadata.
@@ -310,7 +310,7 @@ in most cases.
 When using emulated view encapsulation, Angular preprocesses
 all component styles so that they approximate the standard shadow CSS scoping rules.
 
-In the DOM of a running Angular application with emulated view
+In the DOM of a running Angular app with emulated view
 encapsulation enabled, each DOM element has some extra classes
 attached to it:
 
@@ -331,7 +331,7 @@ There are two kinds of generated classes:
 that identifies to which host's emulated shadow DOM this element belongs.
 
 The exact values of these classes aren't important. They are automatically
-generated and you never refer to them in application code. But they are targeted
+generated and you never refer to them in app code. But they are targeted
 by the generated component styles, which are in the `<head>` section of the DOM:
 
 <?code-excerpt?>
@@ -362,7 +362,7 @@ It's common practice to split a component's code, HTML, and CSS into three separ
 
 You include the template and CSS files by setting the `templateUrl` and `styleUrls` metadata properties respectively.
 Because these files are co-located with the component,
-it would be nice to refer to them by name without also having to specify a path back to the root of the application.
+it would be nice to refer to them by name without also having to specify a path back to the root of the app.
 
 Thankfully, this is the default interpretation of relative URLs in AngularDart:
 

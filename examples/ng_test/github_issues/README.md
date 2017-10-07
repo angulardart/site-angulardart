@@ -2,7 +2,7 @@ An example of using the new `NgTestBed` API with AoT-enabled!
 
 ![demo3](https://cloud.githubusercontent.com/assets/168174/19536743/156845e4-9602-11e6-9f39-b682176b370b.gif)
 
-To run the demo application locally, simply use `pub`:
+To run the demo app locally, simply use `pub`:
 
 ```bash
 $ pub serve
@@ -39,5 +39,5 @@ safely be used alongside other (non-Angular) tests - just exclude your `aot`
 tests from normal runs:
 
 ```bash
-$ pub run test -x aot 
+$ pub run test -x aot
 ```

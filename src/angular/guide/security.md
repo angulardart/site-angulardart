@@ -13,8 +13,8 @@ nextpage:
 <?code-excerpt path-base="security"?>
 
 This page describes Angular's built-in
-protections against common web-application vulnerabilities and attacks such as cross-site
-scripting attacks. It doesn't cover application-level security, such as authentication (_Who is
+protections against common web-app vulnerabilities and attacks such as cross-site
+scripting attacks. It doesn't cover app-level security, such as authentication (_Who is
 this user?_) and authorization (_What can this user do?_).
 
 For more information about the attacks and mitigations described below, see [OWASP Guide Project](https://www.owasp.org/index.php/Category:OWASP_Guide_Project).
@@ -138,15 +138,15 @@ on the HTML5Rocks website.
 ### Use the offline template compiler
 
 The offline template compiler prevents a whole class of vulnerabilities called template injection,
-and greatly improves application performance. Use the offline template compiler in production
+and greatly improves app performance. Use the offline template compiler in production
 deployments; don't dynamically generate templates. Angular trusts template code, so generating
 templates, in particular templates containing user data, circumvents Angular's built-in protections.
 
 ### Server-side XSS protection
 
 HTML constructed on the server is vulnerable to injection attacks. Injecting template code into an
-Angular application is the same as injecting executable code into the
-application: it gives the attacker full control over the application. To prevent this,
+Angular app is the same as injecting executable code into the
+app: it gives the attacker full control over the app. To prevent this,
 use a templating language that automatically escapes values to prevent XSS vulnerabilities on
 the server. Don't generate Angular templates on the server side using a templating language; doing this
 carries a high risk of introducing template-injection vulnerabilities.
@@ -157,7 +157,7 @@ Sometimes applications genuinely need to include executable code, display an `<i
 URL, or construct potentially dangerous URLs. To prevent automatic sanitization in any of these
 situations, you can tell Angular that you inspected a value, checked how it was generated, and made
 sure it will always be secure. But *be careful*. If you trust a value that might be malicious, you
-are introducing a security vulnerability into your application. If in doubt, find a professional
+are introducing a security vulnerability into your app. If in doubt, find a professional
 security reviewer.
 
 To mark a value as trusted, inject `DomSanitizationService` and call one of the
@@ -237,9 +237,9 @@ h2#http HTTP-level vulnerabilities
 h3#xsrf Cross-site request forgery
   In a cross-site request forgery (CSRF or XSRF), an attacker tricks the user into visiting
   a different web page (such as `evil.com`) with malignant code that secretly sends a malicious request
-  to the application's web server (such as `example-bank.com`).
+  to the app's web server (such as `example-bank.com`).
 
-  Assume the user is logged into the application at `example-bank.com`.
+  Assume the user is logged into the app at `example-bank.com`.
   The user opens an email and clicks a link to `evil.com`, which opens in a new tab.
 
   The `evil.com` page immediately sends a malicious request to `example-bank.com`.
@@ -247,20 +247,20 @@ h3#xsrf Cross-site request forgery
   The browser automatically sends the `example-bank.com` cookies (including the authentication cookie) with this request.
 
   If the `example-bank.com` server lacks XSRF protection, it can't tell the difference between a legitimate
-  request from the application and the forged request from `evil.com`.
+  request from the app and the forged request from `evil.com`.
 
-  To prevent this, the application must ensure that a user request originates from the real
-  application, not from a different site.
+  To prevent this, the app must ensure that a user request originates from the real
+  app, not from a different site.
   The server and client must cooperate to thwart this attack.
 
-  In a common anti-XSRF technique, the application server sends a randomly
+  In a common anti-XSRF technique, the app server sends a randomly
   generated authentication token in a cookie.
   The client code reads the cookie and adds a custom request header with the token in all subsequent requests.
   The server compares the received cookie value to the request header value and rejects the request if the values are missing or don't match.
 
   This technique is effective because all browsers implement the _same origin policy_. Only code from the website
   on which cookies are set can read the cookies from that site and set custom headers on requests to that site.
-  That means only your application can read this cookie token and set the custom header. The malicious code on `evil.com` can't.
+  That means only your app can read this cookie token and set the custom header. The malicious code on `evil.com` can't.
 
   Angular's `http` has built-in support for the client-side half of this technique in its `XSRFStrategy`.
   The default `CookieXSRFStrategy` is turned on automatically.
@@ -275,7 +275,7 @@ h3#xsrf Cross-site request forgery
   cryptographically secure random number generator, and expire in a day or two.
 
   Your server may use a different cookie or header name for this purpose.
-  An Angular application can customize cookie and header names by providing its own `CookieXSRFStrategy` values.
+  An Angular app can customize cookie and header names by providing its own `CookieXSRFStrategy` values.
 
 <?code-excerpt?>
 ```typescript

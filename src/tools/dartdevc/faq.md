@@ -41,7 +41,7 @@ Here are some of the advantages of dartdevc over dart2js:
   containing fewer runtime checks.
 * Integration with Chrome dev tools for easier debugging.
 
-Keep using **dart2js** to build your deployed, production application.
+Keep using **dart2js** to build your deployed, production app.
 With dart2js you get advanced optimizations such as
 tree shaking to minimize downloaded code size.
 
@@ -138,7 +138,7 @@ When you edit your Dart files,
 The result is a much quicker edit-refresh cycle.
 
 By contrast, when you use dart2js with or without pub,
-dart2js creates one JavaScript file for the entire application.
+dart2js creates one JavaScript file for the entire app.
 
 If you'd like to know more about JavaScript modules,
 see Preethi Kasireddy's

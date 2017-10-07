@@ -25,7 +25,7 @@ Modern browsers support two HTTP-based APIs:
 [JSONP](https://en.wikipedia.org/wiki/JSONP). A few browsers also support
 [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-The Dart [http][] library simplifies application programming with the **XHR** and **JSONP** APIs.
+The Dart [http][] library simplifies app programming with the **XHR** and **JSONP** APIs.
 
 A <live-example>live example</live-example> illustrates these topics.
 
@@ -64,7 +64,7 @@ The root `AppComponent` orchestrates these demos:
 <div class="l-main-section"></div>
 # Providing HTTP services  {#http-providers}
 
-First, configure the application to use server communication facilities.
+First, configure the app to use server communication facilities.
 
 The Dart `BrowserClient` client communicates with the server using a familiar HTTP request/response protocol.
 The `BrowserClient` client is one of a family of services in the Dart [http][] library.
@@ -92,7 +92,7 @@ Register providers using the `bootstrap()` method:
 <div id="http-client"></div>
 ## The Tour of Heroes HTTP client demo
 
-The first demo is a mini-version of the [tutorial](/angular/tutorial)'s "Tour of Heroes" (ToH) application.
+The first demo is a mini-version of the [tutorial](/angular/tutorial)'s "Tour of Heroes" (ToH) app.
 This version gets some heroes from the server, displays them in a list, lets the user add new heroes, and saves them to the server.
 The app uses the Dart `BrowserClient` client to communicate via **XMLHttpRequest (XHR)**.
 
@@ -596,7 +596,7 @@ Here's how it will work after refactoring:
 ### 2. Search when the search term changes
 
 Suppose a user enters the word *angular* in the search box and pauses for a while.
-The application issues a search request for *angular*.
+The app issues a search request for *angular*.
 
 Then the user backspaces over the last three letters, *lar*, and immediately re-types *lar* before pausing once more.
 The search term is still _angular_. The app shouldn't make another request.
@@ -604,7 +604,7 @@ The search term is still _angular_. The app shouldn't make another request.
 ### 3. Cope with out-of-order responses
 
 The user enters *angular*, pauses, clears the search box, and enters *http*.
-The application issues two search requests, one for *angular* and one for *http*.
+The app issues two search requests, one for *angular* and one for *http*.
 
 Which response arrives first? It's unpredictable.
 When there are multiple requests in-flight, the app should present the responses

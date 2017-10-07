@@ -35,7 +35,7 @@ writing *component* classes to manage those templates, adding application logic 
 and boxing components and services in *modules*.
 
 Then you launch the app by *bootstrapping* the _root module_.
-Angular takes over, presenting your application content in a browser and
+Angular takes over, presenting your app content in a browser and
 responding to user interactions according to the instructions you've provided.
 
 Of course, there is more to it than this.
@@ -43,7 +43,7 @@ You'll learn the details in the pages that follow. For now, focus on the big pic
 
 <img class="image-display" src="{% asset_path 'ng/devguide/architecture/overview2.png' %}" alt="overview" width="700">
 
-The architecture diagram identifies the eight main building blocks of an Angular application:
+The architecture diagram identifies the eight main building blocks of an Angular app:
 
 * [Modules](#modules)
 * [Components](#components)
@@ -75,7 +75,7 @@ the chapter on "Libraries and Scripts" in the
 <br class="l-clear-both">
 
 Every Angular app has at least one module, the _root module_.
-While the _root module_ may be the only module in a small application,
+While the _root module_ may be the only module in a small app,
 most apps have many more _feature modules_,
 each a cohesive block of code dedicated to an application domain,
 a workflow, or a closely related set of capabilities.
@@ -96,7 +96,7 @@ By convention, the name of the root component is `AppComponent`.
 
 Angular ships as a collection of libraries within the
 [**angular**](https://pub.dartlang.org/packages/angular) package.
-The main Angular library is [angular](/api/#!?package=angular), which most application modules import as follows:
+The main Angular library is [angular](/api/#!?package=angular), which most app modules import as follows:
 
 <?code-excerpt "lib/app_component.dart (import)" class="guide-architecture-fix-overflow"?>
 ```
@@ -149,7 +149,7 @@ that it acquires from a service.
   }
 ```
 
-Angular creates, updates, and destroys components as the user moves through the application.
+Angular creates, updates, and destroys components as the user moves through the app.
 Your app can take action at each moment in this lifecycle through optional [lifecycle hooks](lifecycle-hooks.html), like `ngOnInit()` declared above.
 
 <div class="l-hr"></div>
@@ -240,7 +240,7 @@ Angular inserts an instance of the `HeroListComponent` view between those tags.
 - `templateUrl`: module-relative address of this component's HTML template, shown [above](#templates).
 
 - `directives`: list of the components or directives that *this* template requires.
-For Angular to process application tags, like `<hero-detail>`, that appear in a
+For Angular to process app tags, like `<hero-detail>`, that appear in a
 template, the component corresponding to the tag must be declared in the
 `directives` list.
 
@@ -309,7 +309,7 @@ The user's changes also flow back to the component, resetting the property to th
 as with event binding.
 
 Angular processes *all* data bindings once per JavaScript event cycle,
-from the root of the application component tree through all child components.
+from the root of the app component tree through all child components.
 
 <img class="image-left" src="{% asset_path 'ng/devguide/architecture/component-databinding.png' %}" alt="Data Binding" width="300px">
 
@@ -396,7 +396,7 @@ Of course, you can also write your own directives. Components such as
 
 <img class="image-left" src="{% asset_path 'ng/devguide/architecture/service.png' %}" alt="Service" width="150px">
 
-_Service_ is a broad category encompassing any value, function, or feature that your application needs.
+_Service_ is a broad category encompassing any value, function, or feature that your app needs.
 
 Almost anything can be a service.
 A service is typically a class with a narrow, well-defined purpose. It should do something specific and do it well.
@@ -407,12 +407,12 @@ Examples include:
 * data service
 * message bus
 * tax calculator
-* application configuration
+* app configuration
 
 There is nothing specifically _Angular_ about services. Angular has no definition of a service.
 There is no service base class, and no place to register a service.
 
-Yet services are fundamental to any Angular application. Components are big consumers of services.
+Yet services are fundamental to any Angular app. Components are big consumers of services.
 
 Here's an example of a service class that logs to the browser console:
 
@@ -505,7 +505,7 @@ In brief, you must have previously registered a **provider** of the `HeroService
 A provider is something that can create or return a service, typically the service class itself.
 
 You can register providers during bootstrapping or with a component,
-regardless of its level in the application component tree.
+regardless of its level in the app component tree.
 
 The most common way to register providers is at the component level using the `providers` argument
 of the `@Component` annotation:
@@ -547,7 +547,7 @@ Points to remember about dependency injection:
 
 ## Wrap up
 
-You've learned the basics about the eight main building blocks of an Angular application:
+You've learned the basics about the eight main building blocks of an Angular app:
 
 * [Modules](#modules)
 * [Components](#components)
@@ -558,7 +558,7 @@ You've learned the basics about the eight main building blocks of an Angular app
 * [Services](#services)
 * [Dependency injection](#dependency-injection)
 
-That's a foundation for everything else in an Angular application,
+That's a foundation for everything else in an Angular app,
 and it's more than enough to get going.
 But it doesn't include everything you need to know.
 
@@ -573,6 +573,6 @@ by implementing the lifecycle hook interfaces.
 
 - [**Pipes**](pipes): Improve the user experience by transforming values for display.
 
-- [**Router**](router): Navigate from page to page within the client application and never leave the browser.
+- [**Router**](router): Navigate from page to page within the client app and never leave the browser.
 
 - [**Testing**](testing): Write component tests and end-to-end tests for your app.

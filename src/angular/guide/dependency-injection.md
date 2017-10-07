@@ -12,9 +12,9 @@ nextpage:
 ---
 <?code-excerpt path-base="dependency-injection"?>
 
-**Dependency injection** is an important application design pattern.
+**Dependency injection** is an important design pattern.
 Angular has its own dependency injection framework, and
-we really can't build an Angular application without it.
+we really can't build an Angular app without it.
 It's used so widely that almost everyone just calls it _DI_.
 
 In this chapter we'll learn what DI is and why we want it.
@@ -199,7 +199,7 @@ We could write a giant class to do that:
 ```
 
 It's not so bad now with only three creation methods.
-But maintaining it will be hairy as the application grows.
+But maintaining it will be hairy as the app grows.
 This factory is going to become a huge spiderweb of
 interdependent factory methods!
 
@@ -303,7 +303,7 @@ It remains nothing more than a class until we register it with an Angular inject
 ### Configuring the injector
 
 We don't have to create an Angular injector.
-Angular creates an application-wide injector for us during the bootstrap process.
+Angular creates an app-wide injector for us during the bootstrap process.
 
 <?code-excerpt "web/main.dart (bootstrap)" title?>
 ```
@@ -311,7 +311,7 @@ Angular creates an application-wide injector for us during the bootstrap process
 ```
 
 We do have to configure the injector by registering the **providers**
-that create the services our application requires.
+that create the services our app requires.
 We'll explain what [providers](#providers) are later in this chapter.
 
 Before we do, let's see an example of provider registration during bootstrapping:
@@ -323,14 +323,14 @@ Before we do, let's see an example of provider registration during bootstrapping
 ```
 
 The injector now knows about our `HeroService`.
-An instance of our `HeroService` will be available for injection across our entire application.
+An instance of our `HeroService` will be available for injection across our entire app.
 
 Of course we can't help wondering about that comment telling us not to do it this way.
 It *will* work. It's just not a best practice.
 The bootstrap provider option is intended for configuring and overriding Angular's own
 preregistered services, such as its routing support.
 
-The preferred approach is to register application providers in application components.
+The preferred approach is to register app providers in app components.
 Because the `HeroService` is used within the *Heroes* feature area &mdash;
 and nowhere else &mdash; the ideal place to register it is in the top-level `HeroesComponent`.
 
@@ -429,7 +429,7 @@ Learn more about that in the [Hierarchical Injectors](./hierarchical-dependency-
 ### Testing the component
 
 We emphasized earlier that designing a class for dependency injection makes the class easier to test.
-Listing dependencies as constructor parameters may be all we need to test application parts effectively.
+Listing dependencies as constructor parameters may be all we need to test app parts effectively.
 
 For example, we can create a new `HeroListComponent` with a mock service that we can manipulate
 under test:
@@ -511,7 +511,7 @@ identify a class as a target for instantiation by an injector.
 
 We're injecting a logger into our `HeroService` in two steps:
 1. Create the logger service.
-1. Register it with the application.
+1. Register it with the app.
 
 Our logger service is quite simple:
 
@@ -536,9 +536,9 @@ Our logger service is quite simple:
   [logging package](https://pub.dartlang.org/packages/logging).
 </div>
 
-We're likely to need the same logger service everywhere in our application,
+We're likely to need the same logger service everywhere in our app,
 so we put it in the project's `lib/src` folder, and
-we register it in the `providers` list of our application component, `AppComponent`.
+we register it in the `providers` list of our app component, `AppComponent`.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-logger)" title="lib/app_component.dart (excerpt)"?>
 ```
@@ -642,7 +642,7 @@ to return a `BetterLogger` when something asks for the `Logger`.
 
 Maybe an `EvenBetterLogger` could display the user name in the log message.
 This logger gets the user from the injected `UserService`,
-which happens also to be injected at the application level.
+which happens also to be injected at the app level.
 
 <?code-excerpt "lib/src/providers_component.dart (EvenBetterLogger)"?>
 ```
@@ -767,7 +767,7 @@ Only authorized users should see secret heroes.
 
 Like the `EvenBetterLogger`, the `HeroService` needs a fact about the user.
 It needs to know if the user is authorized to see secret heroes.
-That authorization can change during the course of a single application session,
+That authorization can change during the course of a single app session,
 as when we log in a different user.
 
 Unlike `EvenBetterLogger`, we can't inject the `UserService` into the `HeroService`.
@@ -876,7 +876,7 @@ What if the dependency value isn't a class? Sometimes the thing we want to injec
 string, list, map, or maybe a function.
 
 Applications often define configuration objects with lots of small facts
-(like the title of the application or the address of a web API endpoint).
+(like the title of the app or the address of a web API endpoint).
 They can be **[Map][]** literals such as this one:
 
 <?code-excerpt "lib/src/app_config.dart (excerpt)" region="config" title?>

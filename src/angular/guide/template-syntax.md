@@ -17,7 +17,7 @@ toc: false
 
 _{{page.description}}_
 
-The Angular application manages what the user sees and can do, achieving this through the interaction of a
+The Angular app manages what the user sees and can do, achieving this through the interaction of a
 component class instance (the *component*) and its user-facing template.
 
 You may be familiar with the component/template duality from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
@@ -100,7 +100,7 @@ You use interpolation to weave calculated strings into the text between HTML ele
 
 The text between the braces is often the name of a component property. Angular replaces that name with the
 string value of the corresponding component property. In the example above, Angular evaluates the `title` and `heroImageUrl` properties
-and "fills in the blanks", first displaying a bold application title and then a heroic image.
+and "fills in the blanks", first displaying a bold app title and then a heroic image.
 
 More generally, the text between the braces is a **template expression** that Angular first **evaluates**
 and then **converts to a string**. The following interpolation illustrates the point by adding the two numbers:
@@ -208,7 +208,7 @@ the expression context.
 <div id="no-side-effects"></div>
 ### Expression guidelines
 
-Template expressions can make or break an application.
+Template expressions can make or break an app.
 Please follow these guidelines:
 
 * [No visible side effects](#no-visible-side-effects)
@@ -220,7 +220,7 @@ The only exceptions to these guidelines should be in specific circumstances that
 
 #### No visible side effects
 
-A template expression should not change any application state other than the value of the
+A template expression should not change any app state other than the value of the
 target property.
 
 This rule is essential to Angular's "unidirectional data flow" policy.
@@ -275,7 +275,7 @@ appearing in quotes to the right of the `=`&nbsp;symbol as in `(event)="statemen
 
 A template statement *has a side effect*.
 That's the whole point of an event.
-It's how you update application state from user action.
+It's how you update app state from user action.
 
 Responding to events is the other side of Angular's "unidirectional data flow".
 You're free to change anything, anywhere, during this turn of the event loop.
@@ -341,9 +341,9 @@ you're ready to learn about the varieties of data binding syntax beyond interpol
 
 ## Binding syntax: An overview  {#binding-syntax}
 
-Data binding is a mechanism for coordinating what users see, with application data values.
+Data binding is a mechanism for coordinating what users see, with app data values.
 While you could push values to and pull values from HTML,
-the application is easier to write, read, and maintain if you turn these chores over to a binding framework.
+the app is easier to write, read, and maintain if you turn these chores over to a binding framework.
 You simply declare bindings between binding sources and target HTML elements and let the framework do the work.
 
 Angular provides many kinds of data binding.
@@ -897,7 +897,7 @@ Class binding syntax resembles property binding.
 Instead of an element property between brackets, start with the prefix `class`,
 optionally followed by a dot (`.`) and the name of a CSS class: `[class.class-name]`.
 
-The following examples show how to add and remove the application's "special" class
+The following examples show how to add and remove the app's "special" class
 with class bindings.  Here's how to set the attribute without binding:
 
 <?code-excerpt "lib/app_component.html (class-binding-1)"?>

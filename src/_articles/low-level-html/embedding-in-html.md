@@ -131,7 +131,7 @@ To get a copy of the dart.js file,
 you can use the [pub package manager](/tools/pub).
 Here's how:
 
-1. Add the following to your application's pubspec.yaml,
+1. Add the following to your app's pubspec.yaml,
    replacing the version range with the appropriate version:
 
        dependencies:
@@ -163,8 +163,8 @@ Web components and HTML imports are an important caveat to the one
 script per document rule.
 For example, the [Polymer Dart](https://github.com/dart-lang/polymer-dart/wiki)
 framework uses HTML imports to allow developers to include HTML components into a
-Dart application.  Dart scripts in imported HTML documents are
-injected into the main application.  See the [Polymer Dart
+Dart app.  Dart scripts in imported HTML documents are
+injected into the main app.  See the [Polymer Dart
 documentation](https://github.com/dart-lang/polymer-dart/wiki) for more details.
 
 ### Execution timing
@@ -172,7 +172,7 @@ documentation](https://github.com/dart-lang/polymer-dart/wiki) for more details.
 Unlike in JavaScript,
 top-level Dart constructs (such as interfaces, classes, and functions)
 are declarative.
-Each Dart application (defined via a script tag)
+Each Dart app (defined via a script tag)
 provides an explicit `main()` entry point
 that is invoked by the browser when it is ready to run.
 

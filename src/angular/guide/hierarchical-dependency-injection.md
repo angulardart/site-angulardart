@@ -17,7 +17,7 @@ You learned the basics of Angular Dependency injection in the
 [Dependency Injection](./dependency-injection.html) guide.
 
 Angular has a _Hierarchical Dependency Injection_ system.
-There is actually a tree of injectors that parallel an application's component tree.
+There is actually a tree of injectors that parallel an app's component tree.
 You can reconfigure the injectors at any level of that component tree.
 
 This guide explores this system and how to use it to your advantage.
@@ -30,8 +30,8 @@ In the [Dependency Injection](./dependency-injection.html) guide,
 you learned how to configure a dependency injector and how to retrieve dependencies where you need them.
 
 In fact, there is no such thing as ***the*** injector.
-An application may have multiple injectors.
-An Angular application is a tree of components. Each component instance has its own injector.
+An app may have multiple injectors.
+An Angular app is a tree of components. Each component instance has its own injector.
 The tree of components parallels the tree of injectors.
 
 <div class="l-sub-section" markdown="1">
@@ -41,7 +41,7 @@ The tree of components parallels the tree of injectors.
   your mental model should be that every component has its own injector.
 </div>
 
-Consider this guide's variation on the Tour of Heroes application.
+Consider this guide's variation on the Tour of Heroes app.
 At the top is the `AppComponent` which has some sub-components.
 One of them is the `HeroesListComponent`.
 The `HeroesListComponent` holds and manages multiple instances of the `HeroTaxReturnComponent`.
@@ -123,7 +123,7 @@ Now you know that a hero component can't access it. You've reduced your exposure
 ### Scenario: multiple edit sessions
 
 Many applications allow users to work on several open tasks at the same time.
-For example, in a tax preparation application, the preparer could be working on several tax returns,
+For example, in a tax preparation app, the preparer could be working on several tax returns,
 switching from one to the other throughout the day.
 
 This guide demonstrates that scenario with an example in the Tour of Heroes theme.
@@ -147,7 +147,7 @@ You might delegate that management to a helper service, as this example does.
 
 Here is the `HeroTaxReturnService`.
 It caches a single `HeroTaxReturn`, tracks changes to that return, and can save or restore it.
-It also delegates to the application-wide singleton `HeroService`, which it gets by injection.
+It also delegates to the app-wide singleton `HeroService`, which it gets by injection.
 
 <?code-excerpt "lib/src/hero_tax_return_service.dart" title linenums?>
 ```
@@ -264,7 +264,7 @@ The setter initializes the component's own instance of the `HeroTaxReturnService
 The getter always returns what that service says is the current state of the hero.
 The component also asks the service to save and restore this tax return.
 
-There'd be big trouble if _this_ service were an application-wide singleton.
+There'd be big trouble if _this_ service were an app-wide singleton.
 Every component would share the same service instance.
 Each component would overwrite the tax return that belonged to another hero.
 What a mess!

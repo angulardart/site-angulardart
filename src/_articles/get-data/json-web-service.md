@@ -136,7 +136,7 @@ For details and workarounds, see the section
 
 Now that you have seen how HttpRequest GETs data from the server back to the
 client, and POSTs data from the client to the server, the next step is to make
-use of the JSON data in the client application.
+use of the JSON data in the client app.
 
 The [dart:convert]({{site.dart_api}}/dart-convert/JsonCodec-class.html)
 library provides a JsonCodec class,
@@ -419,7 +419,7 @@ the [js package docs](https://pub.dartlang.org/packages/js).
 
 ## Summary
 
-This article showed how a client-side Dart application communicates with a
+This article showed how a client-side Dart app communicates with a
 JSON-based web service via HTTP GET and POST.  JSON data is parsed using the
 dart:convert library, which converts JSON strings into maps and lists.  Using
 JsonObject with the JSON data allows you to extend the functionality of the

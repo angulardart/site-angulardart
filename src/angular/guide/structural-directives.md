@@ -225,7 +225,7 @@ The [`NgFor`](#ngFor) and [`NgSwitch...`](#ngSwitch) directives follow the same 
 Angular transforms the `*ngFor` in similar fashion from asterisk (*) syntax through
 template _attribute_ to template _element_.
 
-Here's a full-featured application of `NgFor`, written all three ways:
+Here's a full-featured app of `NgFor`, written all three ways:
 
 <?code-excerpt "lib/app_component.html (inside-ngfor)"?>
 ```

@@ -2,7 +2,7 @@
 layout: default
 title: "pub build"
 permalink: /tools/pub/pub-build
-description: "Use pub build to deploy your Dart application."
+description: "Use pub build to deploy your Dart app."
 ---
 
 _Build_ is one of the commands of the _pub_ tool.
@@ -35,7 +35,7 @@ To generate assets, `pub build` uses
 Any source assets that aren't transformed are copied,
 as is, into the build directory or one of its subdirectories.
 Pub also automatically compiles your
-Dart application to JavaScript using dart2js
+Dart app to JavaScript using dart2js
 (or the specified compiler).
 See [Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer)
 for information on how to configure the dart2js options in your pubspec.

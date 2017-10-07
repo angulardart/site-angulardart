@@ -22,7 +22,7 @@ but here's a possible learning path if you're new to Angular:
 1. Take the [*Tour of Heroes* tutorial](../tutorial "Tour of Heroes").
 
    The *Tour of Heroes* takes you step-by-step from setup
-   to a full-featured example that demonstrates the essential characteristics of a professional application:
+   to a full-featured example that demonstrates the essential characteristics of a professional app:
    a sensible project structure, data binding, master/detail, services, dependency injection, navigation, and remote data access.
 
 1. <a id="architecture"></a>Read the [Architecture](architecture) overview for the big picture.

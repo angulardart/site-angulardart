@@ -383,11 +383,11 @@ That's where the heavy initialization logic belongs.
 
 Put cleanup logic in `ngOnDestroy`, the logic that *must* run before Angular destroys the directive.
 
-This is the time to notify another part of the application that the component is going away.
+This is the time to notify another part of the app that the component is going away.
 
 This is the place to free resources that won't be garbage collected automatically.
 Unsubscribe from observables and DOM events. Stop interval timers.
-Unregister all callbacks that this directive registered with global or application services.
+Unregister all callbacks that this directive registered with global or app services.
 You risk memory leaks if you neglect to do so.
 
 ## OnChanges

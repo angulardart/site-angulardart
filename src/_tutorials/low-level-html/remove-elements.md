@@ -252,7 +252,7 @@ it returns no value and takes an Event object as a parameter.
 Rather than implement your web app using low-level APIs, you can leverage
 existing toolkits.
 
-* We recommend [AngularDart](/angular), an application framework designed for building
+* We recommend [AngularDart](/angular), an app framework designed for building
   scalable web apps.
 
 * Another package is Polymer Dart, which makes manipulating the DOM easier

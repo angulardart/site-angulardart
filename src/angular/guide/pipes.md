@@ -13,7 +13,7 @@ nextpage:
 <!-- FilePath: src/angular/guide/pipes.md -->
 <?code-excerpt path-base="pipes"?>
 
-Every application starts out with what seems like a simple task: get data, transform them, and show them to users.
+Every app starts out with what seems like a simple task: get data, transform them, and show them to users.
 Getting data could be as simple as creating a local variable or as complex as streaming data over a WebSocket.
 
 Once data arrive, you could push their raw `toString` values directly to the view,
@@ -384,7 +384,7 @@ It executes the pipe and updates the display with the new list, which includes t
 
 If you *mutate* the list, no pipe is invoked and the display isn't updated;
 if you *replace* the list, the pipe executes and the display is updated.
-The Flying Heroes application extends the
+The Flying Heroes app extends the
 code with checkbox switches and additional displays to help you experience these effects.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/pipes/flying-heroes-anim.gif' %}" alt="Flying Heroes">
@@ -396,8 +396,8 @@ where the only way to change the data is by adding a hero.
 
 More often, you don't know when the data have changed,
 especially in applications that mutate data in many ways,
-perhaps in application locations far away.
-A component in such an application usually can't know about those changes.
+perhaps in app locations far away.
+A component in such an app usually can't know about those changes.
 Moreover, it's unwise to distort the component design to accommodate a pipe.
 Strive to keep the component class independent of the HTML.
 The component should be unaware of pipes.

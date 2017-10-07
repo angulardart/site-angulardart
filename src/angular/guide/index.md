@@ -31,7 +31,7 @@ a collection of pages devoted to that theme.
   [displaying data](./guide/displaying-data) and
   accepting [user input](./guide/user-input),
   building simple [forms](./guide/forms),
-  [injecting application services](./guide/dependency-injection) into components,
+  [injecting app services](./guide/dependency-injection) into components,
   and using Angular's [template syntax](./guide/template-syntax).
   </td>
 </tr>
@@ -39,7 +39,7 @@ a collection of pages devoted to that theme.
   <td><b><a href="./tutorial">Tutorial</a></b></td>
   <td markdown="1">
   A step-by-step, immersive approach to learning Angular that
-  introduces the major features of Angular in an application context.
+  introduces the major features of Angular in an app context.
   </td>
 </tr>
 <tr>
@@ -65,7 +65,7 @@ You can always get the full source through the [sample repos]({{site.ghNgEx}})
 
 ## Code samples
 
-Each page includes code snippets from a sample application that accompanies the page.
+Each page includes code snippets from a sample app that accompanies the page.
 You can reuse these snippets in your applications.
 
 Look for a link to a running version of that sample, often near the top of the page,

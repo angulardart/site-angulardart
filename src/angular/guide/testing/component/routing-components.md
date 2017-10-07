@@ -187,15 +187,15 @@ TODO: include code-tabs and show the PO?
 
 ## Which routing components can I test?
 
-You can test _any_ routing component, **except the application root** (usually `AppComponent`).
+You can test _any_ routing component, **except the app root** (usually `AppComponent`).
 This is because there is a circular dependency between the router
-associated with the application root, and the application root instance itself.
+associated with the app root, and the app root instance itself.
 
-In the context of a real application, the
+In the context of a real app, the
 cyclic dependency is resolved by [bootstrapping][], but such
 a capability isn't provided by `angular_test`, nor is it generally needed
 in the context of component testing.
-When the app root is a routing component, it is often only an [application shell][],
+When the app root is a routing component, it is often only an [app shell][],
 delegating most of the work to other components. In such a case, it is these other components
 which will be the most useful test subjects.
 
@@ -204,7 +204,7 @@ which will be the most useful test subjects.
 [PlatformLocation]: /api/angular_router/angular_router/PlatformLocation-class
 [ROUTER_PRIMARY_COMPONENT]: /api/angular_router/angular_router/ROUTER_PRIMARY_COMPONENT-constant
 [ROUTER_PROVIDERS]: /api/angular_router/angular_router/ROUTER_PROVIDERS-constant
-[application shell]: /angular/tutorial/toh-pt5#create-appcomponent
+[app shell]: /angular/tutorial/toh-pt5#create-appcomponent
 [bootstrapping]: /angular/guide/architecture#dependency-injection
 [dashboard]: /angular/tutorial/toh-pt5#add-heroes-to-the-dashboard
 [link parameter list]: /angular/guide/router/appendices#link-parameters-list

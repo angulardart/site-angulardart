@@ -21,7 +21,7 @@ unexpected definitions.
 ## Ahead-of-time (AOT) compilation
 <div class="l-sub-section" markdown="1">
   You can compile Angular applications at build time.
-  By compiling your application, you can bootstrap directly
+  By compiling your app, you can bootstrap directly
   to a factory, meaning you don't need to include the Angular compiler in your JavaScript bundle.
   Ahead-of-time compiled applications also benefit from decreased load time and increased performance.
 </div>
@@ -65,9 +65,9 @@ unexpected definitions.
 
 ## Bootstrap
 <div class="l-sub-section" markdown="1">
-  You launch an Angular application by "bootstrapping" it using the [bootstrap][] method.
-  Bootstrapping identifies an application's top level "root" [component](#component),
-  which is the first component that is loaded for the application.
+  You launch an Angular app by "bootstrapping" it using the [bootstrap][] method.
+  Bootstrapping identifies an app's top level "root" [component](#component),
+  which is the first component that is loaded for the app.
   Bootstrapping optionally registers service [providers](#provider) with the
   [dependency injection system](#dependency-injection).
   For more information, see the [Setup](/angular/guide/setup) page.
@@ -124,9 +124,9 @@ unexpected definitions.
 
   In data binding, you declare the relationship between an HTML widget and data source
   and let the framework handle the details.
-  Data binding is an alternative to manually pushing application data values into HTML, attaching
+  Data binding is an alternative to manually pushing app data values into HTML, attaching
   event listeners, pulling changed values from the screen, and
-  updating application data values.
+  updating app data values.
 
   Angular has a rich data-binding framework with a variety of data-binding
   operations and supporting declaration syntax.
@@ -152,8 +152,8 @@ unexpected definitions.
 ## Dependency injection
 <div class="l-sub-section" markdown="1">
   A design pattern and mechanism
-  for creating and delivering parts of an application to other
-  parts of an application that request them.
+  for creating and delivering parts of an app to other
+  parts of an app that request them.
 
   Angular developers prefer to build applications by defining many simple parts
   that each do one thing well and then wiring them together at runtime.
@@ -170,8 +170,8 @@ unexpected definitions.
 
   Angular provides and relies upon its own sophisticated
   dependency-injection system
-  to assemble and run applications by "injecting" application parts
-  into other application parts where and when needed.
+  to assemble and run applications by "injecting" app parts
+  into other app parts where and when needed.
 
   At the core, an [`injector`](#injector) returns dependency values on request.
   The expression `injector.get(token)` returns the value associated with the given token.
@@ -220,8 +220,8 @@ unexpected definitions.
   Directives fall into one of the following categories:
 
   * [Components](#component) combine application logic with an HTML template to
-  render application [views](#view). Components are usually represented as HTML elements.
-  They are the building blocks of an Angular application.
+  render app [views](#view). Components are usually represented as HTML elements.
+  They are the building blocks of an Angular app.
 
   * [Attribute directives](#attribute-directive) can listen to and modify the behavior of
   other HTML elements, attributes, properties, and components. They are usually represented
@@ -299,7 +299,7 @@ unexpected definitions.
 ## Just-in-time (JIT) compilation
 <div class="l-sub-section" markdown="1">
   A bootstrapping method of compiling components in the browser
-  and launching the application dynamically. Just-in-time mode is a good choice during development.
+  and launching the app dynamically. Just-in-time mode is a good choice during development.
   Consider using the [ahead-of-time](#aot) mode for production apps.
 </div>
 
@@ -405,7 +405,7 @@ unexpected definitions.
 <div class="l-sub-section" markdown="1">
   Most applications consist of many screens or [views](#view).
   The user navigates among them by clicking links and buttons,
-  and performing other similar actions that cause the application to
+  and performing other similar actions that cause the app to
   replace one view with another.
 
   The Angular component router is a richly featured mechanism for configuring and managing the entire view navigation process, including the creation and destruction
@@ -507,7 +507,7 @@ unexpected definitions.
   convenient to refer to a component as a view.
 
   Views often contain other views. Any view might be loaded and unloaded
-  dynamically as the user navigates through the application, typically
+  dynamically as the user navigates through the app, typically
   under the control of a [router](#router).
 </div>
 
@@ -521,7 +521,7 @@ unexpected definitions.
 ## Zone
 <div class="l-sub-section" markdown="1">
   Zones are a mechanism for encapsulating and intercepting
-  a Dart application's asynchronous activity.
+  a Dart app's asynchronous activity.
 
   Read more about zones in [this article][zones].
 

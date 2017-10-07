@@ -123,7 +123,7 @@ Add the package to the pubspec dependencies:
 As users enter form data, we'll capture their changes and update an instance of a model.
 We can't lay out the form until we know what the model looks like.
 
-A model can be as simple as a "property bag" that holds facts about a thing of application importance.
+A model can be as simple as a "property bag" that holds facts about a thing of importance for the app.
 That describes well our `Hero` class with its three required fields (`id`, `name`, `power`)
 and one optional field (`alterEgo`).
 
@@ -214,7 +214,7 @@ It'll help us see what we're doing during our development; we've left ourselves 
 
 ## Revise *app_component.dart*
 
-`AppComponent` is the application's root component. It will host our new `HeroFormComponent`.
+`AppComponent` is the app's root component. It will host our new `HeroFormComponent`.
 
 Replace the contents of the starter app version with the following:
 
@@ -627,7 +627,7 @@ power to valid values.
   //-  'new-hero',
   //-  'app/hero-form.component.ts (New Hero method)')(format=".")
 
-  Run the application again, click the *New Hero* button, and the form clears.
+  Run the app again, click the *New Hero* button, and the form clears.
   The *required* bars to the left of the input box are red, indicating invalid `name` and `power` properties.
   That's understandable as these are required fields.
   The error messages are hidden because the form is pristine; we haven't changed anything yet.
@@ -695,7 +695,7 @@ using an event binding. Here's the code:
           [disabled]="!heroForm.form.valid">Submit</button>
 ```
 
-If we run the application now, we find that the button is enabled
+If we run the app now, we find that the button is enabled
 &mdash; although it doesn't do anything useful yet.
 
 Now if we delete the Name, we violate the "required" rule, which
@@ -820,7 +820,7 @@ Our final project folder structure should look like this:
   - pubspec.yaml
 </div>
 
-Here’s the code for the final version of the application:
+Here’s the code for the final version of the app:
 
 <code-tabs>
   <?code-pane "lib/app_component.dart"?>

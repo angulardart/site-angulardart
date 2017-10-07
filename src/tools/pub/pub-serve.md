@@ -2,7 +2,7 @@
 layout: default
 title: "pub serve"
 permalink: /tools/pub/pub-serve
-description: "Use pub serve to start up a development server for your Dart application."
+description: "Use pub serve to start up a development server for your Dart app."
 ---
 
 _Serve_ is one of the commands of the _pub_ tool.
