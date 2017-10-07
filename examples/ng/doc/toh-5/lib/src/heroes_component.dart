@@ -24,8 +24,8 @@ import 'hero_service.dart';
 // #docregion class
 class HeroesComponent implements OnInit {
   // #enddocregion renaming
-  final Router _router;
   final HeroService _heroService;
+  final Router _router;
   List<Hero> heroes;
   Hero selectedHero;
 
@@ -42,13 +42,9 @@ class HeroesComponent implements OnInit {
     heroes = await _heroService.getHeroes();
   }
 
-  void ngOnInit() {
-    getHeroes();
-  }
+  void ngOnInit() => getHeroes();
 
-  void onSelect(Hero hero) {
-    selectedHero = hero;
-  }
+  void onSelect(Hero hero) => selectedHero = hero;
 
   // #docregion gotoDetail
   Future<Null> gotoDetail() => _router.navigate([

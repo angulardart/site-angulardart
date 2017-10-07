@@ -37,6 +37,7 @@ If not, go back to the previous pages.
     - src
       - hero.dart
       - hero_detail_component.dart
+      - mock_heroes.dart
   - test
     - app_test.dart
     - ...
@@ -57,14 +58,14 @@ Soon you'll add a dashboard with the top performing heroes and create a separate
 All three views need hero data.
 
 At the moment, the `AppComponent` defines mock heroes for display.
-However, defining heroes is not the component's job,
+However, _defining_ heroes is not the component's job,
 and you can't easily share the list of heroes with other components and views.
 In this page, you'll move the hero data acquisition business to a single service that provides the data and
 share that service with all components that need the data.
 
-### Create _HeroService_
+### Create an injectable _HeroService_
 
-Create a file called `hero_service.dart` under `lib/src`.
+Create the file `hero_service.dart` under `lib/src`.
 
 <div class="l-sub-section" markdown="1">
   The naming convention for service files is the service name in lowercase followed by `_service`.
@@ -74,81 +75,26 @@ Create a file called `hero_service.dart` under `lib/src`.
 
 Name the class `HeroService`.
 
-<?code-excerpt "lib/src/hero_service_1.dart (starting point)" region="empty-class" title?>
+<?code-excerpt "lib/src/hero_service_1.dart (empty class)" title?>
 ```
   import 'package:angular/angular.dart';
 
-  import 'hero.dart';
-  import 'mock_heroes.dart';
-
   @Injectable()
   class HeroService {
   }
 ```
 
-### Injectable services
-
-Notice that you used an `@Injectable()` annotation.
-
-<div class="callout is-helpful" markdown="1">
-  Don't forget the parentheses. Omitting them leads to an error that's difficult to diagnose.
-</div>
+Notice that you used an [@Injectable()][Injectable] annotation.
+This informs the Angular compiler that `HeroService` will be a candidate for injection
+(more about this soon).
 
 ### Getting hero data
 
-Add a `getHeroes()` method stub.
-
-<?code-excerpt "lib/src/hero_service_1.dart (getHeroes stub)" title?>
-```
-  @Injectable()
-  class HeroService {
-    List<Hero> getHeroes() {}
-  }
-```
-
-The `HeroService` could get `Hero` data from anywhere&mdash;a
+The `HeroService` could get hero data from anywhere&mdash;a
 web service, local storage, or a mock data source.
-Removing data access from the component means
-you can change your mind about the implementation anytime,
-without touching the components that need hero data.
+For now, import `Hero` and `mockHeroes`, and return the mock heroes from a `getHeroes()` method:
 
-### Move the mock hero data
-
-Cut the `mockHeroes` list from `app_component.dart` and paste it to a new file in the `lib` folder named `mock_heroes.dart`.
-Additionally, copy the `import 'hero.dart'` statement because the heroes list uses the `Hero` class.
-
-<?code-excerpt "lib/src/mock_heroes.dart" title?>
-```
-  import 'hero.dart';
-
-  final List<Hero> mockHeroes = [
-    new Hero(11, 'Mr. Nice'),
-    new Hero(12, 'Narco'),
-    new Hero(13, 'Bombasto'),
-    new Hero(14, 'Celeritas'),
-    new Hero(15, 'Magneta'),
-    new Hero(16, 'RubberMan'),
-    new Hero(17, 'Dynama'),
-    new Hero(18, 'Dr IQ'),
-    new Hero(19, 'Magma'),
-    new Hero(20, 'Tornado')
-  ];
-```
-
-In `app_component.dart`, where you cut away the `mockHeroes` list,
-add an uninitialized `heroes` property:
-
-<?code-excerpt "lib/app_component_1.dart (excerpt)" region="heroes-prop" title?>
-```
-  List<Hero> heroes;
-```
-
-### Return mocked hero data
-
-Back in the `HeroService`, import the mock `mockHeroes` and return it from the `getHeroes()` method.
-The `HeroService` looks like this:
-
-<?code-excerpt "lib/src/hero_service_1.dart (final)" title?>
+<?code-excerpt "lib/src/hero_service_1.dart" title?>
 ```
   import 'package:angular/angular.dart';
 
@@ -180,7 +126,7 @@ You could create a new instance of the `HeroService` with `new` like this:
 
 <?code-excerpt "lib/app_component_1.dart (excerpt)" region="new-service" title?>
 ```
-  HeroService heroService = new HeroService(); // don't do this
+  HeroService heroService = new HeroService(); // DON'T do this
 ```
 
 However, this option isn't ideal for the following reasons:
@@ -245,19 +191,13 @@ The `AppComponent`, as well as its child components, can use that service to get
 <a id="child-component"></a>
 ### The *AppComponent.getHeroes()* method
 
-The service is in a `heroService` private variable.
+Add a `getHeroes()` method to the app component,
+and **remove** the `heroes` initializer:
 
-You could call the service and get the data in one line.
-
-<?code-excerpt "lib/app_component_1.dart (get-heroes)"?>
+<?code-excerpt "lib/app_component_1.dart (heroes and getHeroes)" title?>
 ```
-  heroes = _heroService.getHeroes();
-```
+  List<Hero> heroes;
 
-You don't really need a dedicated method to wrap one line.  Write it anyway:
-
-<?code-excerpt "lib/app_component_1.dart (getHeroes)" title?>
-```
   void getHeroes() {
     heroes = _heroService.getHeroes();
   }
@@ -283,29 +223,19 @@ Each interface has a single method. When the component implements that method, A
   Read more about lifecycle hooks in the [Lifecycle Hooks](../guide/lifecycle-hooks.html) page.
 </div>
 
-Add `OnInit` to the list of interfaces implemented by `AppComponent`:
-
-<?code-excerpt "lib/app_component_1.dart (ngOnInit stub)" title?>
-```
-  import 'package:angular/angular.dart';
-
-  class AppComponent implements OnInit {
-    void ngOnInit() {
-    }
-  }
-```
-
-Write an `ngOnInit()` method with the initialization logic inside. Angular will call it
+Add [OnInit][] to the list of interfaces implemented by `AppComponent`, and
+write an `ngOnInit()` method with the initialization logic inside. Angular will call it
 at the right time. In this case, initialize by calling `getHeroes()`.
 
-<?code-excerpt "lib/app_component_1.dart (ngOnInit)"?>
+<?code-excerpt "lib/app_component_1.dart (OnInit and ngOnInit)"?>
 ```
-  void ngOnInit() {
-    getHeroes();
+  class AppComponent implements OnInit {
+    void ngOnInit() => getHeroes();
   }
 ```
 
-The app should run as expected, showing a list of heroes and a hero detail view
+<i class="material-icons">open_in_browser</i>
+ **Refresh the browser.** The app should show a list of heroes and a hero detail view
 when you click on a hero name.
 
 ## Async hero services {#async}
@@ -313,9 +243,9 @@ when you click on a hero name.
 The `HeroService` returns a list of mock heroes immediately;
 its `getHeroes()` signature is synchronous.
 
-<?code-excerpt "lib/app_component_1.dart (get-heroes)" title?>
+<?code-excerpt "lib/src/hero_service_1.dart (getHeroes)" title?>
 ```
-  heroes = _heroService.getHeroes();
+  List<Hero> getHeroes() => mockHeroes;
 ```
 
 Eventually, the hero data will come from a remote server.
@@ -333,8 +263,6 @@ can register callback functions that will be invoked when the computation
 completes (and results are ready), or when a computational error needs to be
 reported.
 
-[Future]: https://api.dartlang.org/stable/dart-async/Future-class.html
-
 <div class="l-sub-section" markdown="1">
   This is a simplified explanation. Read more about Futures in the
   Dart language tutorial on [Asynchronous Programming: Futures][].
@@ -342,7 +270,7 @@ reported.
   [Asynchronous Programming: Futures]: {{site.dartlang}}/tutorials/language/futures
 </div>
 
-Add an import of `'dart:async'` because it defines `Future`, and
+Add an import of [dart:async][] because it defines `Future`, and
 update the `HeroService` with this `Future`-returning `getHeroes()` method:
 
 <?code-excerpt "lib/src/hero_service.dart (excerpt)" region="get-heroes" title?>
@@ -386,7 +314,8 @@ Pass the callback function as an argument to the `Future.then()` method:
 
 The callback sets the component's `heroes` property to the list of heroes returned by the service.
 
-The app still runs, showing a list of heroes, and
+<i class="material-icons">open_in_browser</i>
+ **Refresh the browser.** The app still runs, showing a list of heroes, and
 responding to a name selection with a detail view.
 
 ## Use _async_/_await_
@@ -444,7 +373,6 @@ Here are the code files discussed in this page.
 <code-tabs>
   <?code-pane "lib/src/hero_service.dart"?>
   <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/src/mock_heroes.dart"?>
 </code-tabs>
 
 ## The road you've travelled
@@ -454,7 +382,6 @@ Here's what you achieved in this page:
 * You created a service class that can be shared by many components.
 * You used the `ngOnInit` lifecycle hook to get the hero data when the `AppComponent` activates.
 * You defined the `HeroService` as a provider for the `AppComponent`.
-* You created mock hero data and imported them into the service.
 * You designed the service to return a `Future` and the component to get the data from the `Future`.
 
 Your app should look like this <live-example></live-example>.
@@ -484,3 +411,8 @@ seconds before completing.
 
 Back in the `AppComponent`, replace `getHeroes()` with `getHeroesSlowly()`
 and see how the app behaves.
+
+[dart:async]: {{site.dart_api}}/dart-async/dart-async-library.html
+[Future]: https://api.dartlang.org/stable/dart-async/Future-class.html
+[Injectable]: /api/angular/angular/Injectable-class
+[OnInit]: /api/angular/angular/OnInit-class

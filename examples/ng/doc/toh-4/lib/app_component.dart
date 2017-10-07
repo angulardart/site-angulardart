@@ -21,10 +21,9 @@ import 'src/hero_service.dart';
 )
 class AppComponent implements OnInit {
   final title = 'Tour of Heroes';
+  final HeroService _heroService;
   List<Hero> heroes;
   Hero selectedHero;
-
-  final HeroService _heroService;
 
   AppComponent(this._heroService);
 
@@ -34,11 +33,7 @@ class AppComponent implements OnInit {
   }
   // #enddocregion getHeroes
 
-  void ngOnInit() {
-    getHeroes();
-  }
+  void ngOnInit() => getHeroes();
 
-  void onSelect(Hero hero) {
-    selectedHero = hero;
-  }
+  void onSelect(Hero hero) => selectedHero = hero;
 }

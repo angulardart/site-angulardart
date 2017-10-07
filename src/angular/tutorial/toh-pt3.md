@@ -31,6 +31,9 @@ If not, go back to the previous pages.
 - angular_tour_of_heroes
   - lib
     - app_component.{css,dart,html}
+    - src
+      - hero.dart
+      - mock_heroes.dart
   - test
     - app_test.dart
     - ...
@@ -45,7 +48,7 @@ If not, go back to the previous pages.
 
 ## Make a hero detail component
 
-Create the `lib/src` folder and add a file named `hero_detail_component.dart` to it.
+Create a file named `hero_detail_component.dart`.
 This file will hold the new `HeroDetailComponent`.
 
 <div class="l-sub-section" markdown="1">
@@ -114,35 +117,17 @@ When you're done, the new template should look like this:
 ### Add the *hero* property
 
 The `HeroDetailComponent` template binds to the component's `hero` property.
-Add that property to the `HeroDetailComponent` class like this:
+Add that property, along with the requisite import,
+to the `HeroDetailComponent` class.
 
 <?code-excerpt "lib/src/hero_detail_component.dart (hero)" title?>
 ```
-  Hero hero;
-```
+  import 'hero.dart';
 
-The `hero` property is typed as an instance of `Hero`.
-The `Hero` class is still in the `app_component.dart` file.
-Now there are two components that need to reference the `Hero` class.
-
-Move the `Hero` class from `app_component.dart` to its own `hero.dart` file.
-
-<?code-excerpt "lib/src/hero.dart" title linenums?>
-```
-  class Hero {
-    final int id;
-    String name;
-
-    Hero(this.id, this.name);
+  class HeroDetailComponent {
+    Hero hero;
   }
 ```
-
-Now that the `Hero` class is in its own file, the `AppComponent` and the `HeroDetailComponent` have to import it:
-
-<code-tabs>
-  <?code-pane "lib/app_component.dart (hero import)"?>
-  <?code-pane "lib/src/hero_detail_component.dart (hero import)"?>
-</code-tabs>
 
 ### The *hero* property is an *input* property
 
@@ -163,7 +148,7 @@ Otherwise, Angular rejects the binding and throws an error.
 
 Declare that `hero` is an *input* property by annotating it with `@Input()`:
 
-<?code-excerpt "lib/src/hero_detail_component.dart (inputs)" title?>
+<?code-excerpt "lib/src/hero_detail_component.dart (Input annotation)" title?>
 ```
   @Input()
   Hero hero;
@@ -244,7 +229,7 @@ The revised `AppComponent` template should look like this:
   <h2>My Heroes</h2>
   <ul class="heroes">
     <li *ngFor="let hero of heroes"
-        [class.selected]="hero == selectedHero"
+        [class.selected]="hero === selectedHero"
         (click)="onSelect(hero)">
       <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
     </li>
@@ -277,7 +262,8 @@ list. You don't need `formDirectives` anymore, so delete it and the
   directives: const [CORE_DIRECTIVES, HeroDetailComponent],
 ```
 
-Refresh the browser. It works!
+<i class="material-icons">open_in_browser</i>
+ **Refresh the browser.** The app works!
 
 ## App design changes
 
@@ -304,6 +290,7 @@ Verify that you have the following structure:
     - src
       - hero.dart
       - hero_detail_component.dart
+      - mock_heroes.dart
   - test
     - app_test.dart
     - ...
@@ -320,7 +307,6 @@ Here are the code files discussed in this page.
   <?code-pane "lib/src/hero_detail_component.dart"?>
   <?code-pane "lib/app_component.dart"?>
   <?code-pane "lib/app_component.html"?>
-  <?code-pane "lib/src/hero.dart"?>
 </code-tabs>
 
 ## The road you’ve travelled

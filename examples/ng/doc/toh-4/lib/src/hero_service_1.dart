@@ -1,22 +1,17 @@
 // #docplaster
-// #docregion final
-// #docregion empty-class
+// #docregion empty-class,
 import 'package:angular/angular.dart';
 
 // #enddocregion empty-class
 import 'hero.dart';
 import 'mock_heroes.dart';
 
-// #docregion getHeroes-stub
+// #docregion empty-class
 @Injectable()
 class HeroService {
-  // #enddocregion getHeroes-stub, empty-class, final
-  /*
-  // #docregion getHeroes-stub
-  List<Hero> getHeroes() {}
-  // #enddocregion getHeroes-stub
-  */
-  // #docregion final
+  // #enddocregion empty-class
+  // #docregion getHeroes
   List<Hero> getHeroes() => mockHeroes;
+  // #enddocregion getHeroes
   // #docregion empty-class, getHeroes-stub
 }

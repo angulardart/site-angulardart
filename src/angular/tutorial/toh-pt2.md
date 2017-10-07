@@ -37,7 +37,11 @@ If your structure doesn't match, go back to that page to figure out what you mis
 
 {% include_relative _keep-app-running.md %}
 
-## Move the template to its own file
+## App refactoring
+
+Before adding new features, you'll benefit from refactoring the app a little.
+
+### App template file
 
 You'll be making several updates to the app component's template.
 First, move the template to its own file:
@@ -66,18 +70,47 @@ to the new template file:
 ```
 
 <i class="material-icons">open_in_browser</i>
- **Refresh the browser.** The app still runs and displays heroes.
+ **Refresh the browser.** The app still runs.
+
+### Hero class
+
+Separate concerns and move the `Hero` class from `app_component.dart`
+into its own file.
+
+Create the `lib/src` folder containing the `Hero` source:
+
+<?code-excerpt "lib/src/hero.dart" title?>
+```
+  class Hero {
+    final int id;
+    String name;
+
+    Hero(this.id, this.name);
+  }
+```
+
+Back in the app component, add an import using a relative path to the newly created file:
+
+<?code-excerpt "lib/app_component.dart (hero import)" title?>
+```
+  import 'src/hero.dart';
+```
+
+<i class="material-icons">open_in_browser</i>
+ **Refresh the browser.** The app still runs, and you are now ready to add new features.
 
 ## Displaying heroes
 
 To display a list of heroes, you'll add heroes to the view's template.
 
-### Create heroes
+### Mock heroes
 
-Create a list of ten heroes.
+Create a list of ten heroes in the following file under `lib/src`:
 
-<?code-excerpt "lib/app_component.dart (hero list)" title?>
+<?code-excerpt "lib/src/mock_heroes.dart" title?>
 ```
+  import 'hero.dart';
+
   final mockHeroes = <Hero>[
     new Hero(11, 'Mr. Nice'),
     new Hero(12, 'Narco'),
@@ -92,18 +125,23 @@ Create a list of ten heroes.
   ];
 ```
 
-The `mockHeroes` list is of type `Hero`, the class defined in the previous page.
 Eventually this app will fetch the list of heroes from a web service, but for now
 you can display mock heroes.
 
-### Expose heroes
+### App _heroes_ field
 
-Create a public property in `AppComponent` that exposes the heroes for binding.
-
+Create a public `heroes` field in `AppComponent`, and initialize it with mock heroes (don't forget the import):
 
 <?code-excerpt "lib/app_component.dart (heroes)" title?>
 ```
-  final List<Hero> heroes = mockHeroes;
+  import 'src/mock_heroes.dart';
+
+  /* . . . */
+  class AppComponent {
+    final title = 'Tour of Heroes';
+    List<Hero> heroes = mockHeroes;
+    /* . . . */
+  }
 ```
 
 <div class="l-sub-section" markdown="1">
@@ -113,7 +151,7 @@ Create a public property in `AppComponent` that exposes the heroes for binding.
 
 ### Display hero names in a template
 
-To display the hero names in an unordered list, replace the current
+To display the hero names in an unordered list, **replace** _all_ of the current
 template with the following HTML:
 
 <?code-excerpt "lib/app_component_0.html (heroes template)" title?>
@@ -129,7 +167,7 @@ template with the following HTML:
 
 Next you'll add hero names.
 
-### List heroes with ngFor
+### List heroes with _ngFor_
 
 The goal is to bind the list of heroes in the component to the template, iterate over them,
 and display them individually.
@@ -285,9 +323,7 @@ Add an `onSelect()` method that sets the `selectedHero` property to the `hero` t
 
 <?code-excerpt "lib/app_component.dart (onSelect)" title?>
 ```
-  void onSelect(Hero hero) {
-    selectedHero = hero;
-  }
+  void onSelect(Hero hero) => selectedHero = hero;
 ```
 
 The template still refers to the old `hero` property.
@@ -369,14 +405,16 @@ In the template, add the following binding to  the `<li>` tag:
 
 <?code-excerpt "lib/app_component_0.html (class.selected)"?>
 ```
-  [class.selected]="hero == selectedHero"
+  [class.selected]="hero === selectedHero"
 ```
 
-When the expression (`hero == selectedHero`) is `true`, Angular adds the `selected` CSS class.
+When the expression (`hero === selectedHero`) is `true`, Angular adds the `selected` CSS class.
 When the expression is `false`, Angular removes the `selected` class.
 
 
 <div class="l-sub-section" markdown="1">
+  The `===` operator tests whether the given objects are [identical][].
+
   Read more about the `[class]` binding in the [Template Syntax](../guide/template-syntax#ngClass "Template syntax: NgClass") guide.
 </div>
 
@@ -385,7 +423,7 @@ The final version of the `<li>` looks like this:
 <?code-excerpt "lib/app_component_0.html (ngFor with class.selected)" title?>
 ```
   <li *ngFor="let hero of heroes"
-      [class.selected]="hero == selectedHero"
+      [class.selected]="hero === selectedHero"
       (click)="onSelect(hero)">
     <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
   </li>
@@ -403,6 +441,9 @@ Your project should have the following files:
 - angular_tour_of_heroes
   - lib
     - app_component.{css,dart,html}
+    - src
+      - hero.dart
+      - mock_heroes.dart
   - test
     - app_test.dart
     - ...
@@ -421,12 +462,14 @@ Your project should have the following files:
   [Component Testing](../guide/testing/component) page for details.
 </aside>
 
-Here are the complete `app_component.*` files:
+Here are the files discussed in this page:
 
 <code-tabs>
   <?code-pane "lib/app_component.dart"?>
   <?code-pane "lib/app_component.html"?>
   <?code-pane "lib/app_component.css"?>
+  <?code-pane "lib/src/hero.dart"?>
+  <?code-pane "lib/src/mock_heroes.dart"?>
 </code-tabs>
 
 ## The road you've travelled
@@ -435,6 +478,7 @@ Here's what you achieved in this page:
 
 * The Tour of Heroes app displays a list of selectable heroes.
 * You moved the app template into its own file.
+* You moved the `Hero` class into its own file under `lib/src`.
 * You added the ability to select a hero and show the hero's details.
 * You learned how to use the core directives `ngIf` and `ngFor` in a component's template.
 * You defined styles in a CSS file and made used them to style the app.
@@ -446,3 +490,5 @@ Your app should look like this <live-example></live-example>.
 You've expanded the Tour of Heroes app, but it's far from complete.
 An app shouldn't be one monolithic component.
 In the [next page](toh-pt3), you'll split the app into subcomponents and make them work together.
+
+[identical]: {{site.dart_api}}/dart-core/identical.html

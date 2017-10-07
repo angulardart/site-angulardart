@@ -1,8 +1,7 @@
 // #docplaster
-// #docregion ngOnInit-stub
+// #docregion
 import 'package:angular/angular.dart';
 
-// #enddocregion ngOnInit-stub
 import 'src/hero.dart';
 import 'src/hero_detail_component.dart';
 import 'src/hero_service_1.dart';
@@ -21,22 +20,23 @@ import 'src/hero_service_1.dart';
   providers: const [HeroService],
 // #enddocregion providers
 )
-// #docregion ngOnInit-stub
+// #docregion OnInit-and-ngOnInit
 class AppComponent implements OnInit {
-  // #enddocregion ngOnInit-stub
+  // #enddocregion OnInit-and-ngOnInit
   final title = 'Tour of Heroes';
-  // #docregion heroes-prop
+  // #docregion heroes, heroes-and-getHeroes
   List<Hero> heroes;
-  // #enddocregion heroes-prop
+  // #enddocregion heroes, heroes-and-getHeroes
   Hero selectedHero;
 
   // #docregion new-service
-  HeroService heroService = new HeroService(); // don't do this
+  HeroService heroService = new HeroService(); // DON'T do this
   // #enddocregion new-service
   // #docregion ctor
   final HeroService _heroService;
   AppComponent(this._heroService);
   // #enddocregion ctor
+  // #docregion heroes-and-getHeroes
 
   // #docregion getHeroes
   void getHeroes() {
@@ -44,18 +44,12 @@ class AppComponent implements OnInit {
     heroes = _heroService.getHeroes();
     // #enddocregion get-heroes
   }
-  // #enddocregion getHeroes
+  // #enddocregion getHeroes, heroes-and-getHeroes
 
-  // #docregion ngOnInit, ngOnInit-stub
-  void ngOnInit() {
-    // #enddocregion ngOnInit-stub
-    getHeroes();
-    // #docregion ngOnInit-stub
-  }
-  // #enddocregion ngOnInit, ngOnInit-stub
+  // #docregion ngOnInit, OnInit-and-ngOnInit
+  void ngOnInit() => getHeroes();
+  // #enddocregion ngOnInit, OnInit-and-ngOnInit
 
-  void onSelect(Hero hero) {
-    selectedHero = hero;
-  }
-  // #docregion ngOnInit-stub
+  void onSelect(Hero hero) => selectedHero = hero;
+  // #docregion OnInit-and-ngOnInit
 }

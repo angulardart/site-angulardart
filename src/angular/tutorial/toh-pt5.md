@@ -822,7 +822,7 @@ at the top and details of the selected hero below.
   <h2>My Heroes</h2>
   <ul class="heroes">
     <li *ngFor="let hero of heroes"
-        [class.selected]="hero == selectedHero"
+        [class.selected]="hero === selectedHero"
         (click)="onSelect(hero)">
       <span class="badge">{!{hero.id}!}</span> {!{hero.name}!}
     </li>
@@ -908,8 +908,8 @@ Here's the revised `HeroesComponent` class:
 <?code-excerpt "lib/src/heroes_component.dart (class)" title?>
 ```
   class HeroesComponent implements OnInit {
-    final Router _router;
     final HeroService _heroService;
+    final Router _router;
     List<Hero> heroes;
     Hero selectedHero;
 
@@ -922,13 +922,9 @@ Here's the revised `HeroesComponent` class:
       heroes = await _heroService.getHeroes();
     }
 
-    void ngOnInit() {
-      getHeroes();
-    }
+    void ngOnInit() => getHeroes();
 
-    void onSelect(Hero hero) {
-      selectedHero = hero;
-    }
+    void onSelect(Hero hero) => selectedHero = hero;
 
     Future<Null> gotoDetail() => _router.navigate([
           'HeroDetail',

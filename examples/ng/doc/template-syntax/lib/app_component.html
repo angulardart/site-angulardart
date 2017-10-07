@@ -656,7 +656,7 @@ bindon-ngModel
 
 <material-radio-group [(ngModel)]="currentHero">
   <!--  https://github.com/dart-lang/angular_components/issues/61 - set checked "manually" -->
-  <material-radio *ngFor="let h of heroes" [value]="h" [checked]="h == currentHero">
+  <material-radio *ngFor="let h of heroes" [value]="h" [checked]="h === currentHero">
     {{h.name}} ({{h.id}})
   </material-radio>
 </material-radio-group>

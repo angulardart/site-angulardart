@@ -5,10 +5,10 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 
 // #enddocregion v1
-// #docregion hero-import
+// #docregion hero
 import 'hero.dart';
-// #enddocregion hero-import
 
+// #enddocregion hero
 // #docregion v1
 @Component(
   selector: 'hero-detail',
@@ -27,12 +27,13 @@ import 'hero.dart';
   // #docregion v1
   directives: const [CORE_DIRECTIVES, formDirectives],
 )
+// #docregion hero
 class HeroDetailComponent {
-  // #enddocregion v1
-  // #docregion inputs
+  // #enddocregion hero, v1
+  // #docregion Input-annotation
   @Input()
   // #docregion hero
   Hero hero;
-  // #enddocregion hero, inputs
+  // #enddocregion Input-annotation
   // #docregion v1
 }

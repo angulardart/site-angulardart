@@ -53,12 +53,12 @@
 <!-- #enddocregion ngIf -->
 
 <!-- #docregion class-selected -->
-[class.selected]="hero == selectedHero"
+[class.selected]="hero === selectedHero"
 <!-- #enddocregion class-selected -->
 
 <!-- #docregion ngFor-with-class-selected -->
 <li *ngFor="let hero of heroes"
-    [class.selected]="hero == selectedHero"
+    [class.selected]="hero === selectedHero"
     (click)="onSelect(hero)">
   <span class="badge">{{hero.id}}</span> {{hero.name}}
 </li>
