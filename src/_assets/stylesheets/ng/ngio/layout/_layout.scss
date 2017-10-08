@@ -140,16 +140,11 @@
     padding: ($unit * 3) ($unit * 1);
   }
 
-  code {
-    background: rgba($blue-grey-100, .56);
-    color: $cyan-700;
-  }
-
   p:last-child {
     margin: 0;
   }
 
-  h3:first-child {
+  h3:first-child, h4:first-child {
     margin-top: 0;
   }
 
