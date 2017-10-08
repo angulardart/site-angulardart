@@ -4,6 +4,8 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
+  const ngPkgVers = config.ngPkgVers;
+  const path = plugins.path;
   const srcData = config.srcData;
 
   const chooseRegEx = argv.filter || '.';
@@ -16,8 +18,23 @@ module.exports = function (gulp, plugins, config) {
     gulp.task(`ng-pkg-pub-${cmd}`, () => {
       if (srcData.match(skipRegEx) || !srcData.match(chooseRegEx)) return;
       _pub(cmd);
+      updateNgPkgVers();
     });
   });
+
+  gulp.task('_ng-pkg-vers-update', updateNgPkgVers);
+
+  function updateNgPkgVers() {
+    const dataDir = path.dirname(config.ngPkgVersPath);
+    const pubspecLock = plugins.yamljs.load(path.join(dataDir, 'pubspec.lock'));
+
+    for (var pkg in ngPkgVers) {
+      if (pkg === 'SDK') continue;
+      const newPkgInfo = pubspecLock.packages[pkg];
+      if (newPkgInfo) ngPkgVers[pkg].vers = newPkgInfo.version;
+    }
+    plugins.fs.writeFileSync(config.ngPkgVersPath, plugins.stringify(ngPkgVers) + '\n');
+  }
 
   function _pub(cmd) {
     const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });

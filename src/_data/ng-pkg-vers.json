@@ -1,30 +1,30 @@
 {
-    "SDK": {
-      "channel": "stable",
-      "vers": "1.24.2"
-    },
-    "angular": {
-        "doc-path": "angular/guide",
-        "vers": "4.0.0",
-        "prev-vers": "3.1.0",
-        "prev-name": "angular2"
-    },
-    "angular_components": {
-        "doc-path": "components",
-        "prev-vers": "0.5.3+1",
-        "vers": "0.7.0"
-    },
-    "angular_forms": {
-      "doc-path": "angular/guide/forms",
-      "vers": "1.0.0"
-    },
-    "angular_router": {
-      "doc-path": "angular/guide/router",
-      "vers": "1.0.2"
-    },
-    "angular_test": {
-        "doc-path": "angular/guide/testing/component",
-        "prev-vers": "1.0.0-beta+2",
-        "vers": "1.0.1"
-    }
+  "SDK": {
+    "channel": "stable",
+    "vers": "1.24.2"
+  },
+  "angular": {
+    "doc-path": "angular/guide",
+    "vers": "4.0.0",
+    "prev-vers": "3.1.0",
+    "prev-name": "angular2"
+  },
+  "angular_components": {
+    "doc-path": "components",
+    "prev-vers": "0.5.3+1",
+    "vers": "0.7.1"
+  },
+  "angular_forms": {
+    "doc-path": "angular/guide/forms",
+    "vers": "1.0.0"
+  },
+  "angular_router": {
+    "doc-path": "angular/guide/router",
+    "vers": "1.0.2"
+  },
+  "angular_test": {
+    "doc-path": "angular/guide/testing/component",
+    "prev-vers": "1.0.0-beta+2",
+    "vers": "1.0.1"
+  }
 }

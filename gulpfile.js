@@ -60,7 +60,8 @@ const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 const source = _configYml.source || _throw();
 
 const ngDocSrc = path.join(source, 'angular');
-const ngPkgVers = require(`./${source}/_data/ng-pkg-vers.json`);
+const ngPkgVersPath = `./${source}/_data/ng-pkg-vers.json`;
+const ngPkgVers = require(ngPkgVersPath);
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_app';
 
@@ -82,6 +83,7 @@ const config = {
   LOCAL_TMP: LOCAL_TMP,
   ngDocSrc: ngDocSrc,
   ngPkgVers: ngPkgVers,
+  ngPkgVersPath: ngPkgVersPath,
   qsProjName: qsProjName,
   relDartDocApiDir: path.join('doc', 'api'),
   repoPath: {
@@ -122,6 +124,7 @@ const plugins = {
   replace: require('gulp-replace'),
   runSequence: require('run-sequence'),
   spawnExt: spawnExt,
+  stringify: stringify,
   yamljs: yamljs,
 };
 
@@ -315,3 +318,9 @@ function logAndExit1() {
 // sources are actually defined (when expecting a truthy value).
 // Idiom: const foo = lookup('bar') || _throw()
 function _throw(opt) { throw 'Unexpected value' + opt ? `:${opt}` : ''; }
+
+function stringify(o, indentation_level) {
+  return process.env.JEKYLL_ENV === 'production'
+    ? JSON.stringify(o)
+    : JSON.stringify(o, null, indentation_level === undefined ? 2 : indentation_level);
+}

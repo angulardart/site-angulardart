@@ -83,13 +83,7 @@ module.exports = function (gulp, plugins, config) {
 
   function writeApiList(apiListMap, destFolder) {
     const apiListFilePath = path.join(destFolder, 'api-list.json');
-    plugins.fs.writeFileSync(apiListFilePath, stringify(apiListMap));
+    plugins.fs.writeFileSync(apiListFilePath, plugins.stringify(apiListMap));
     log.info('Wrote', Object.keys(apiListMap).length, 'library entries to', apiListFilePath);
-  }
-
-  function stringify(o) {
-    return process.env.JEKYLL_ENV === 'production'
-      ? JSON.stringify(o)
-      : JSON.stringify(o, null, 2);
   }
 };
