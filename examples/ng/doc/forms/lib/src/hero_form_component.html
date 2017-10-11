@@ -40,6 +40,16 @@
       <button type="submit" class="btn btn-default"
               [disabled]="!heroForm.form.valid">Submit</button>
       <!-- #enddocregion submit-button -->
+      <!-- #docregion new-hero-button -->
+      <button type="button" class="btn btn-default"
+              (click)="newHero()">
+        <!-- Should be:
+               (click)="newHero(); heroForm.reset()"
+             Awaiting fix to https://github.com/dart-lang/angular/issues/216 -->
+        New Hero
+      </button>
+      <!-- #enddocregion new-hero-button -->
+      <button type="reset">Reset</button>
       <!-- #docregion edit-div -->
     </form>
   </div>

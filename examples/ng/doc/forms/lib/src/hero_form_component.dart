@@ -45,6 +45,10 @@ class HeroFormComponent {
       };
   // TODO: does this map need to be cached?
   // #enddocregion controlStateClasses
+
+  // #docregion newHero
+  void newHero([NgForm form]) => model = new Hero(42, '', ''); // use mock id
+  // #enddocregion newHero
   // #docregion v1
 }
 // #enddocregion , v1, final

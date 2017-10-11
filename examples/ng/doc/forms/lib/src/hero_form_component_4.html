@@ -1,6 +1,5 @@
-<!-- Set CSS classes for form controls; drop {{diagnostic}}, add {{spy.className}} -->
+<!-- Set CSS classes for form controls; drop {{diagnostic}}, add {{spy.className}}; add new-hero button  -->
 <!-- #docplaster -->
-<!-- #docregion -->
 <div class="container">
   <h1>Hero Form</h1>
   <form>
@@ -34,5 +33,11 @@
     </div>
     <!-- #enddocregion controls -->
     <button type="submit" class="btn btn-default">Submit</button>
+    <!-- #docregion new-hero-button -->
+    <button type="button" class="btn btn-default"
+            (click)="newHero()">
+      New Hero
+    </button>
+    <!-- #enddocregion new-hero-button -->
   </form>
 </div>
