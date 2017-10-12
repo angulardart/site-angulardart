@@ -422,7 +422,7 @@ Dependencies are singletons within the scope of an injector.
 In our example, a single `HeroService` instance is shared among the
 `HeroesComponent` and its `HeroListComponent` children.
 
-However, Angular DI is an hierarchical injection
+However, Angular DI is a hierarchical injection
 system, which means that nested injectors can create their own service instances.
 Learn more about that in the [Hierarchical Injectors](./hierarchical-dependency-injection.html) chapter.
 
