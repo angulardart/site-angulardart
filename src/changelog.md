@@ -27,6 +27,23 @@ but you can see a preview at
 </aside>
 {% endcomment %}
 
+## Router _HashLocationStrategy_ (October 2017)
+
+Switched to using [HashLocationStrategy][] in the
+[Router][] example and the [Tutorial][].
+
+In this way, features like deep linking into the example apps work as expected
+when no server-side support is available (such as with [GitHub Pages][]
+and with `pub serve`, which is often used during app development).
+See the [Router][] section on [Declaring router providers and directives][]
+for details.
+
+[Declaring router providers and directives]: /angular/guide/router/1#declaring-router-providers-and-directives
+[GitHub Pages]: https://pages.github.com/
+[HashLocationStrategy]: /api/angular_router/angular_router/HashLocationStrategy-class
+[Router]: /angular/guide/router
+[Tutorial]: /angular/tutorial
+
 ## AngularDart 4.0.0 (August 2017)
 
 All pubspecs and imports changed, as well as API doc URLs,
