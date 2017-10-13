@@ -24,7 +24,7 @@ Resources for using AngularDart Components:
 * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/){: .no-automatic-external}
 * [Dart Summit 2016 codelab](/codelabs/angular_components)
 * [AngularDart Components example](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
-* [API reference](/api/#!?package=angular_components)
+* [API reference](/api?package=angular_components)
 </div>
 <div class="col-md-6" markdown="1">
 Other resources:

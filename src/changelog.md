@@ -133,7 +133,7 @@ and added import information for each library.
 
 * `angular2.common` &rarr; `angular2` <br>
   Example: .../angular2.common/NgFor-class &rarr; .../angular2/NgFor-class
-* [The AngularDart API doc homepage](/api/#!?package=angular2)
+* [The API doc homepage](/api)
   now shows an `import` statement next to each library's heading.
 
 

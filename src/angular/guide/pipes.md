@@ -78,7 +78,7 @@ Angular comes with a stock of pipes such as
 They are all available for use in any template.
 
 <div class="l-sub-section" markdown="1">
-  Read more about these and many other built-in pipes in the [pipes topics](/api/?query=pipe) of the
+  Read more about these and many other built-in pipes in the [pipes topics](/api?query=pipe) of the
   [API Reference](/api); filter for entries that include the word "pipe".
 
   Angular doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in the [Appendix](#no-filter-pipe) of this page.
@@ -650,7 +650,7 @@ transformations. Use them like styles, dropping them
 into your template's expressions to enrich the appeal and usability
 of your views.
 
-Explore Angular's inventory of built-in pipes in the [API Reference](/api/#!?query=pipe).
+Explore Angular's inventory of built-in pipes in the [API Reference](/api?query=pipe).
 Try writing a custom pipe and perhaps contributing it to the community.
 
 <div id="no-filter-pipe"></div>

@@ -1,22 +1,9 @@
 # ANGULAR
 # =======
 
-# LINKS KNOWN TO BE VALID
-# -----------------------
-
-# API search parameter links
-/api/#!\?query=
-/api/#!\?package=
-
-# KNOWN ISSUES (to be investigated and/or resolved soon)
-# ------------
-
-# Temporary as we transition to AngularDart 4 and docs under the doc repo folder:
-.*/go/angular-dart-docs/
-
 # angular.io is now an Angular app; the link checker has difficulty seeing anchors
 # (probably because the page hasn't been fully generated yet), so skip such links:
-https://angular.io/[^#]*#
+https://angular.io/.*?#
 
 # Ignore warnings about missing anchors into the live example apps:
 http://angular-examples.github.io/[^/]+/?#

@@ -96,7 +96,7 @@ By convention, the name of the root component is `AppComponent`.
 
 Angular ships as a collection of libraries within the
 [**angular**](https://pub.dartlang.org/packages/angular) package.
-The main Angular library is [angular](/api/#!?package=angular), which most app modules import as follows:
+The main Angular library is [angular](/api?package=angular), which most app modules import as follows:
 
 <?code-excerpt "lib/app_component.dart (import)" class="guide-architecture-fix-overflow"?>
 ```
