@@ -78,7 +78,7 @@ Angular comes with a stock of pipes such as
 They are all available for use in any template.
 
 <div class="l-sub-section" markdown="1">
-  Read more about these and many other built-in pipes in the [pipes topics](/api/#!?query=pipe) of the
+  Read more about these and many other built-in pipes in the [pipes topics](/api/?query=pipe) of the
   [API Reference](/api); filter for entries that include the word "pipe".
 
   Angular doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in the [Appendix](#no-filter-pipe) of this page.
