@@ -18,6 +18,7 @@
       { "source": "/angular/api/**", "destination": "/api?package=angular", "type": 301 },
       { "source": "/api/angular2", "destination": "/api?package=angular", "type": 301 },
       { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
+      { "source": "/api/**", "destination": "/api", "type": 301 },
       { "source": "/components/api", "destination": "/api?package=angular_components", "type": 301 },
       { "source": "/components/api/**", "destination": "/api?package=angular_components", "type": 301 },
 
