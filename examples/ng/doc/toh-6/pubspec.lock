@@ -48,7 +48,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.31"
+    version: "1.0.32"
   args:
     description:
       name: args
@@ -180,7 +180,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.3+15"
+    version: "0.11.3+16"
   http_multi_server:
     description:
       name: http_multi_server
@@ -336,7 +336,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.1"
+    version: "0.7.2"
   source_map_stack_trace:
     description:
       name: source_map_stack_trace

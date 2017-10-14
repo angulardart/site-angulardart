@@ -11,21 +11,22 @@ import 'package:angular_tour_of_heroes/src/hero_detail_component.dart';
 // #enddocregion hero-detail-import
 
 @Component(
-    selector: 'my-app',
-    // #docregion template
-    template: '''
+  selector: 'my-app',
+  // #docregion template
+  template: '''
       <h1>{{title}}</h1>
       <nav>
         <a [routerLink]="['Dashboard']">Dashboard</a>
         <a [routerLink]="['Heroes']">Heroes</a>
       </nav>
       <router-outlet></router-outlet>''',
-    // #enddocregion template
-    // #docregion style-urls
-    styleUrls: const ['app_component.css'],
-    // #enddocregion style-urls
-    directives: const [ROUTER_DIRECTIVES],
-    providers: const [HeroService, ROUTER_PROVIDERS])
+  // #enddocregion template
+  // #docregion style-urls
+  styleUrls: const ['app_component.css'],
+  // #enddocregion style-urls
+  directives: const [ROUTER_DIRECTIVES],
+  providers: const [HeroService],
+)
 @RouteConfig(const [
   // #docregion dashboard-route
   const Route(
