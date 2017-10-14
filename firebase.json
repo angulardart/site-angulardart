@@ -14,12 +14,12 @@
       { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
       { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
 
-      { "source": "/angular/api", "destination": "/api#!?package=angular", "type": 301 },
-      { "source": "/angular/api/**", "destination": "/api#!?package=angular", "type": 301 },
-      { "source": "/api/angular2", "destination": "/api#!?package=angular", "type": 301 },
+      { "source": "/angular/api", "destination": "/api?package=angular", "type": 301 },
+      { "source": "/angular/api/**", "destination": "/api?package=angular", "type": 301 },
+      { "source": "/api/angular2", "destination": "/api?package=angular", "type": 301 },
       { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
-      { "source": "/components/api", "destination": "/api#!?package=angular_components", "type": 301 },
-      { "source": "/components/api/**", "destination": "/api#!?package=angular_components", "type": 301 },
+      { "source": "/components/api", "destination": "/api?package=angular_components", "type": 301 },
+      { "source": "/components/api/**", "destination": "/api?package=angular_components", "type": 301 },
 
       { "source": "/codelabs/darrrt", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
