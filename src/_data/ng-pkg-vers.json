@@ -1,8 +1,4 @@
 {
-  "SDK": {
-    "channel": "stable",
-    "vers": "1.24.2"
-  },
   "angular": {
     "doc-path": "angular/guide",
     "vers": "4.0.0",
@@ -26,5 +22,10 @@
     "doc-path": "angular/guide/testing/component",
     "prev-vers": "1.0.0-beta+2",
     "vers": "1.0.1"
+  },
+  "SDK": {
+    "doc-path": "guides/get-started#2-install-dart",
+    "channel": "stable",
+    "vers": "1.24.2"
   }
 }
