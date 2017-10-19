@@ -24,7 +24,7 @@ packages:
       name: angular_components
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.1"
+    version: "0.8.0"
   angular_forms:
     description:
       name: angular_forms
@@ -36,7 +36,7 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "0.13.7"
   async:
     description:
       name: async
@@ -67,6 +67,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.0+1"
+  build_runner:
+    description:
+      name: build_runner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.0"
   charcode:
     description:
       name: charcode
@@ -157,6 +163,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.2"
+  http:
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.11.3+16"
+  http_parser:
+    description:
+      name: http_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.1"
   intl:
     description:
       name: intl
@@ -199,6 +217,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
+  mime:
+    description:
+      name: mime
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.3"
   observable:
     description:
       name: observable
@@ -211,6 +235,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  package_resolver:
+    description:
+      name: package_resolver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   path:
     description:
       name: path
@@ -247,12 +277,36 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  sass:
+    description:
+      name: sass
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0-beta.2"
+  sass_builder:
+    description:
+      name: sass_builder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  scratch_space:
+    description:
+      name: scratch_space
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+1"
+  shelf:
+    description:
+      name: shelf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0"
   source_gen:
     description:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.1"
+    version: "0.7.2"
   source_maps:
     description:
       name: source_maps
@@ -271,6 +325,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  stream_channel:
+    description:
+      name: stream_channel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.6.2"
+  stream_transform:
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.9"
   string_scanner:
     description:
       name: string_scanner

@@ -8,7 +8,7 @@
   "angular_components": {
     "doc-path": "components",
     "prev-vers": "0.5.3+1",
-    "vers": "0.7.1"
+    "vers": "0.8.0"
   },
   "angular_forms": {
     "doc-path": "angular/guide/forms",

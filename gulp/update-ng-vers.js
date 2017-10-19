@@ -119,7 +119,7 @@ module.exports = function (gulp, plugins, config) {
       .pipe(replace(/FORM_DIRECTIVES/g, 'formDirectives'))
       .pipe(replace(/(import 'package:angular\/angular.dart';)([\s\S]*)COMMON_DIRECTIVES/, `$1\n${formsImport}$2CORE_DIRECTIVES, formDirectives`))
       .pipe(replace(/COMMON_DIRECTIVES/g, 'CORE_DIRECTIVES, formDirectives'))
-      .pipe(replace(/\bElementRef\b/g, 'Element'))
+      // .pipe(replace(/\bElementRef\b/g, 'Element'))
       .pipe(replace(/\/deep\//g, ':ng-deep'))
       .pipe(gulp.dest(baseDir));
   });
