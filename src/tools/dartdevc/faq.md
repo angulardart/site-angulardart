@@ -1,8 +1,7 @@
 ---
-layout: default
-permalink: /tools/dartdevc/faq
 title: "dartdevc: FAQ"
-description: "FAQ and other tips for using dartdevc."
+description: FAQ and other tips for using dartdevc.
+permalink: /tools/dartdevc/faq
 ---
 
 This page answers common questions about the Dart dev compiler (dartdevc).

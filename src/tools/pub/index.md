@@ -1,7 +1,7 @@
 ---
-layout: default
-title: "Pub for the Web"
-description: "Pub supports two commands specifically for web development."
+title: Pub for the Web
+short-title: Pub
+description: Pub supports two commands specifically for web development.
 permalink: /tools/pub
 ---
 

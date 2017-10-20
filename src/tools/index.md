@@ -1,8 +1,9 @@
 ---
-layout: default
 title: Dart Tools for the Web
-description: "The tools that support web development using Dart."
+short-title: Tools
+description: The tools that support web development using Dart.
 permalink: /tools
+show_breadcrumbs: false
 ---
 
 This page lists specialized tools for developing web apps.

@@ -1,8 +1,7 @@
 ---
-layout: default
-title: "Installing and Using WebStorm"
-short-title: "WebStorm"
-description: "We recommend WebStorm for developing Dart web apps."
+title: Installing and Using WebStorm
+short-title: WebStorm
+description: We recommend WebStorm for developing Dart web apps.
 permalink: /tools/webstorm
 ---
 

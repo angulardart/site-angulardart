@@ -1,9 +1,8 @@
 ---
-layout: default
 title: "Dartium: Chromium with the Dart VM"
+short-title: Dartium
 permalink: /tools/dartium
-description: "Install and use Dartium, a build of Chromium with an embedded Dart VM."
-short-title: "Dartium"
+description: Install and use Dartium, a build of Chromium with an embedded Dart VM.
 ---
 
 Dartium is a special build of Chromium that includes the Dart VM.

@@ -1,8 +1,8 @@
 ---
-layout: default
-permalink: /tools/dartdevc
 title: "dartdevc: The Dart Dev Compiler"
-description: "Fast, modular compilation of Dart code to JavaScript."
+short-title: dartdevc
+description: Fast, modular compilation of Dart code to JavaScript.
+permalink: /tools/dartdevc
 ---
 
 The Dart development compiler _(dartdevc_, also known as _DDC)_

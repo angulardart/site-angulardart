@@ -1,8 +1,7 @@
 ---
-layout: default
-title: "pub build"
+title: pub build
 permalink: /tools/pub/pub-build
-description: "Use pub build to deploy your Dart app."
+description: Use pub build to deploy your Dart app.
 ---
 
 _Build_ is one of the commands of the _pub_ tool.
