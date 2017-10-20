@@ -18,37 +18,32 @@ const List<String> _powers = const [
   directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class HeroFormComponent {
-  List<String> get powers => _powers;
   Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
   // #docregion submitted
   bool submitted = false;
 
-  void onSubmit() {
-    submitted = true;
-  }
   // #enddocregion submitted
+  List<String> get powers => _powers;
 
-  // #enddocregion final
-  // TODO: Remove this when we're done
-  String get diagnostic => 'DIAGNOSTIC: $model';
-  // #enddocregion v1
+  // #docregion submitted
+  void onSubmit() => submitted = true;
+  // #enddocregion submitted, v1
 
-  // #docregion final, controlStateClasses
   /// Returns a map of CSS class names representing the state of [control].
-  Map<String, bool> controlStateClasses(NgControl control) => {
-        'ng-dirty': control.dirty ?? false,
-        'ng-pristine': control.pristine ?? false,
-        'ng-touched': control.touched ?? false,
-        'ng-untouched': control.untouched ?? false,
-        'ng-valid': control.valid ?? false,
-        'ng-invalid': control.valid == false
-      };
-  // TODO: does this map need to be cached?
-  // #enddocregion controlStateClasses
+  // #docregion setCssValidityClass
+  Map<String, bool> setCssValidityClass(NgControl control) {
+    final validityClass = control.valid == true ? 'is-valid' : 'is-invalid';
+    return {validityClass: true};
+  }
+  // #enddocregion setCssValidityClass
 
-  // #docregion newHero
-  void newHero([NgForm form]) => model = new Hero(42, '', ''); // use mock id
-  // #enddocregion newHero
+  // #docregion clear
+  void clear() {
+    model.name = '';
+    model.power = _powers[0];
+    model.alterEgo = '';
+  }
+  // #enddocregion clear
   // #docregion v1
 }
 // #enddocregion , v1, final

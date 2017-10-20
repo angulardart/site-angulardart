@@ -27,6 +27,11 @@ but you can see a preview at
 </aside>
 {% endcomment %}
 
+## Forms (October 2017)
+
+Updated the [forms][] page and its example app to use custom CSS classes instead of the
+`ng-*` classes associated with the deprecated `NgControlStatus`.
+
 ## Router _HashLocationStrategy_ (October 2017)
 
 Switched to using [HashLocationStrategy][] in the
@@ -221,3 +226,4 @@ More information:
 
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.ng-pkg-vers.angular.vers | url_escapse}}#pub-pkg-tab-changelog
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog
+[forms]: /angular/guide/forms

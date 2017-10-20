@@ -1,3 +1,4 @@
+<!-- Uses the possible future NgForm.reset() method. Not currently used. -->
 <!-- #docplaster -->
 <!-- #docregion , final -->
 <div class="container">
@@ -48,7 +49,8 @@
           </button>
           <!-- #enddocregion Submit-button -->
           <!-- #docregion Clear-button -->
-          <button (click)="clear()" type="button" class="btn">
+          <!-- NgForm reset isn't supported yet: https://github.com/dart-lang/angular/issues/216. -->
+          <button (click)="heroForm.reset()" type="button" class="btn">
             Clear
           </button>
           <!-- #enddocregion Clear-button -->

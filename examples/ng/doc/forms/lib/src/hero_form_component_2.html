@@ -4,16 +4,16 @@
 <div class="container">
   <h1>Hero Form</h1>
   <form>
-    <!-- #docregion controls -->
+    <!-- #docregion controls, name -->
+    <!-- TODO: remove the next diagnostic line -->
+    <mark>{{model.name}}</mark><hr>
     <div class="form-group">
-      <label for="name">Name</label>
-      <!-- #docregion name -->
+      <label for="name">Name&nbsp;*</label>
       <input type="text" class="form-control" id="name" required
              [(ngModel)]="model.name"
              ngControl="name">
-      TODO: remove this: {{model.name}}
-      <!-- #enddocregion name -->
     </div>
+    <!-- #enddocregion name -->
     <div class="form-group">
       <label for="alterEgo">Alter Ego</label>
       <input type="text" class="form-control" id="alterEgo"
@@ -21,7 +21,7 @@
              ngControl="alterEgo">
     </div>
     <div class="form-group">
-      <label for="power">Hero Power</label>
+      <label for="power">Hero Power&nbsp;*</label>
       <select class="form-control" id="power" required
               [(ngModel)]="model.power"
               ngControl="power">
@@ -29,6 +29,11 @@
       </select>
     </div>
     <!-- #enddocregion controls -->
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="row">
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <small class="col text-right">*&nbsp;Required</small>
+    </div>
   </form>
 </div>
