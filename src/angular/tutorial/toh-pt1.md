@@ -65,7 +65,7 @@ as strings, inside the HTML header tags.
   Read more about interpolation in the [Displaying Data](../guide/displaying-data.html) page.
 </div>
 
-### Hero object
+### Create a _Hero_ class
 
 The hero needs more properties.
 Convert the `hero` from a literal string to a class.
@@ -101,7 +101,7 @@ update the binding in the template to refer to the hero's `name` property.
 
 Refresh the browser, and the page continues to display the hero's name.
 
-### Adding HTML with multi-line template strings
+### Add multi-line template HTML
 
 To show all of the hero's properties,
 add a `<div>` for the hero's `id` property and another `<div>` for the hero's `name`.
@@ -117,7 +117,7 @@ To keep the template readable, place each `<div>` on its own line.
   ''',
 ```
 
-## Edit the hero name
+## Enable editing the hero name
 
 Users should be able to edit the hero name in an `<input>` textbox.
 The textbox should both _display_ the hero's `name` property
@@ -125,7 +125,7 @@ and _update_ that property as the user types.
 
 You need a two-way binding between the `<input>` form element and the `hero.name` property.
 
-### Two-way binding
+### Use a two-way binding
 
 Refactor the hero name in the template so it looks like this:
 
@@ -148,19 +148,47 @@ and from the textbox back to the property.
   [Template Syntax](../guide/template-syntax.html#ngModel) pages.
 </div>
 
-### @Component(directives: ...)
+## Declare non-core directives
 
 Unfortunately, immediately after this change, the **app breaks**!
-If you open the browser console and refresh the page, you'll see Angular
-complaining.  To know why, look at the `pub serve` output. The template
+
+### Template parse error
+
+<i class="material-icons">open_in_browser</i>
+If you **refresh the browser,** the app won't load.
+To know why, look at the `pub serve` output. The template
 compiler doesn't recognize `ngModel`, and issues a parse error for
 `AppComponent`:
 
-```
+```nocode
+  Error running TemplateGenerator for forms|lib/src/hero_form_component.dart.
+  Error: Template parse errors:
   Can't bind to 'ngModel' since it isn't a known native property or known directive. Please fix typo or add to directives list.
   [(ngModel)]="hero.name"
   ^^^^^^^^^^^^^^^^^^^^^^^
 ```
+
+### Update the pubspec
+
+<?code-excerpt path-base="examples/ng/doc"?>
+
+The `angular_forms` library comes in its own package. Add the package to the pubspec dependencies:
+
+<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dependencies" to="angular_forms"?>
+```diff
+--- toh-0/pubspec.yaml
++++ toh-1/pubspec.yaml
+@@ -8,16 +8,14 @@
+
+ dependencies:
+   angular: ^4.0.0
++  angular_forms: ^1.0.0
+```
+
+<?code-excerpt path-base="toh-1"?>
+
+<a id="component-directives"></a>
+### Update _@Component(directives: ...)_
 
 Although `NgModel` is a valid Angular directive defined in the [angular_forms][]
 library, it isn't available by default.
@@ -182,24 +210,8 @@ convenience you can add the [formDirectives][] list
   )
 ```
 
-<?code-excerpt path-base="examples/ng/doc"?>
-
-The `angular_forms` library comes in its own package. Add the package to the pubspec dependencies:
-
-<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dependencies" to="angular_forms"?>
-```diff
---- toh-0/pubspec.yaml
-+++ toh-1/pubspec.yaml
-@@ -8,16 +8,14 @@
-
- dependencies:
-   angular: ^4.0.0
-+  angular_forms: ^1.0.0
-```
-
-<?code-excerpt path-base="toh-1"?>
-
-Refresh the browser and the app should work again.
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser** and the app should work again.
 You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the textbox.
 
 ## The road you've travelled

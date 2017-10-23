@@ -213,7 +213,7 @@ template requires that it be listed in the `directives` argument of your
 component's `@Component` annotation. Similar to what you did in [part 1][],
 add all [CORE_DIRECTIVES][]:
 
-[part 1]: /angular/tutorial/toh-pt1#componentdirectives-
+[part 1]: /angular/tutorial/toh-pt1#component-directives
 [CORE_DIRECTIVES]: /api/angular/angular/CORE_DIRECTIVES-constant
 
 <?code-excerpt "lib/app_component.dart (directives)" title?>
