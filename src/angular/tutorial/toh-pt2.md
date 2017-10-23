@@ -130,7 +130,8 @@ you can display mock heroes.
 
 ### App _heroes_ field
 
-Create a public `heroes` field in `AppComponent`, and initialize it with mock heroes (don't forget the import):
+Replace the `hero` field with a public `heroes` field in `AppComponent`,
+and initialize it with mock heroes (don't forget the import):
 
 <?code-excerpt "lib/app_component.dart (heroes)" title?>
 ```
