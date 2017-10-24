@@ -30,9 +30,9 @@ module.exports = function (gulp, plugins, config) {
 
   // Task: dartdoc
   // --[no-]dartdoc='all|none|acx|ng|...', default is 'all'.
-  gulp.task('dartdoc', (doneCb) => {
+  gulp.task('dartdoc', done => {
     const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
-    plugins.runSequence('dartdoc-info', ...dartdocTargets, doneCb)
+    plugins.runSequence('dartdoc-info', ...dartdocTargets, done)
   });
 
   config._dartdocProj.forEach(p => {

@@ -39,7 +39,7 @@ npm-debug*.log*
 .pub
 build
 pubspec.lock
-!/examples/**/pubspec.lock
+/examples/**/pubspec.lock
 !/src/_data/pubspec.lock
 /examples/**/web/styles.css
 /examples/**/web/favicon.png

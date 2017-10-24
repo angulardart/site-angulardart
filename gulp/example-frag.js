@@ -28,6 +28,10 @@ module.exports = function (gulp, plugins, config) {
     logLevel: config._logLevel
   };
 
+  // TODO:
+  // - Consider using plugins.runSequence to ensure that _clean-frags is run first
+  // - Does this really depend on add-example-boilerplate?
+  // - Drop the _shred-clean-* since we now always clean out the entire frags folder.
   gulp.task('create-example-fragments',
     ['_clean-frags', 'add-example-boilerplate', '_shred-api-examples',
      '_shred-devguide-examples', '_shred-generated-examples']);
