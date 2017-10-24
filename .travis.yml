@@ -10,6 +10,7 @@ node_js: 6
 
 env:
   global:
+    - DART_CHANNEL=stable
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
@@ -21,34 +22,22 @@ env:
     - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp
   matrix:
-    - CI_TASK="build --dartdoc" DART_CHANNEL=stable
+    - CI_TASK="build --dartdoc"
     - CI_TASK="ng-pkg-pub-upgrade" # fails when new ng pkg vers is available
-    # - CI_TASK="pub-upgrade-and-check" # suspended while we have a dev branch
-    - CI_TASK="test $TEST_OPT" DART_CHANNEL=stable
-    - CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
-    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
-    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable
-    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev
-    - CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev
+    - CI_TASK="test $TEST_OPT"
+    - CI_TASK="e2e $E2E_OPT1"
+    - CI_TASK="e2e $E2E_OPT2"
+    - CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: CI_TASK="ng-pkg-pub-upgrade"
-    # - env: CI_TASK="pub-upgrade-and-check"
-    - env: CI_TASK="test $TEST_OPT" DART_CHANNEL=dev
-    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable
-    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable
-    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=stable WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT1" DART_CHANNEL=dev
-    - env: CI_TASK="e2e $E2E_OPT2" DART_CHANNEL=dev
+    - env: CI_TASK="test $TEST_OPT"
+    - env: CI_TASK="e2e $E2E_OPT1"
+    - env: CI_TASK="e2e $E2E_OPT2"
+    - env: CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
 
 before_install:
   - source ./scripts/get-ruby.sh
