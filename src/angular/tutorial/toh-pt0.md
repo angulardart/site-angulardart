@@ -85,7 +85,7 @@ The app contains the following core files:
   <?code-pane "test/app_test.dart"?>
   <?code-pane "web/main.dart"?>
   <?code-pane "web/index.html"?>
-  <?code-pane "web/styles.css (excerpt)" region="quickstart"?>
+  <?code-pane "../_boilerplate/styles.css (quickstart)" title="web/styles.css (excerpt)"?>
   <?code-pane "pubspec.yaml"?>
 </code-tabs>
 

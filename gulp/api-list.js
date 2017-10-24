@@ -24,6 +24,11 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('_get-sdk-doc-index-json', ['_clean'], () => {
     if (!plugins.fs.existsSync(localDartApiIndexJson)) plugins.child_process.execSync(curlCmd);
+    if (plugins.fs.statSync(localDartApiIndexJson).size > 0) return;
+    const msg = `ERROR: unexpected empty file: ${localDartApiIndexJson}
+       because the fetched ${url} is empty.
+       If this isn't a server error, then there is probably no SDK for the given channel and version.`;
+    plugins.logAndExit1(msg);
   });
 
   function buildApiListJson() {

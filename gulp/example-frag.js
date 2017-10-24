@@ -28,25 +28,24 @@ module.exports = function (gulp, plugins, config) {
     logLevel: config._logLevel
   };
 
-  // TODO:
-  // - Consider using plugins.runSequence to ensure that _clean-frags is run first
-  // - Does this really depend on add-example-boilerplate?
-  // - Drop the _shred-clean-* since we now always clean out the entire frags folder.
-  gulp.task('create-example-fragments',
-    ['_clean-frags', 'add-example-boilerplate', '_shred-api-examples',
-     '_shred-devguide-examples', '_shred-generated-examples']);
+  gulp.task('create-example-fragments', done =>
+    plugins.runSequence(
+      '_clean-frags', // Used to need: ['_clean-frags', 'add-example-boilerplate']
+      ['_shred-api-examples', '_shred-devguide-examples', '_shred-generated-examples'],
+      done
+    ));
 
   gulp.task('_clean-frags', () => plugins.delFv(config.frags.path));
 
-  gulp.task('_shred-devguide-examples', ['_shred-clean-devguide'], done => shred(_devguideShredOptions, done));
+  gulp.task('_shred-devguide-examples', done => shred(_devguideShredOptions, done));
 
-  gulp.task('_shred-generated-examples', ['_shred-clean-devguide'], done => {
+  gulp.task('_shred-generated-examples', done => {
     const options = Object.assign({}, _devguideShredOptions);
     options.examplesDir = path.join(config.LOCAL_TMP, EXAMPLES_PATH);
     return shred(options, done);
   });
 
-  gulp.task('_shred-api-examples', ['_shred-clean-api'], () => shred(_apiShredOptions).then(() => {
+  gulp.task('_shred-api-examples', () => shred(_apiShredOptions).then(() => {
     // Setup path aliases for API doc fragments
     const frags = _apiShredOptions.fragmentsDir;
     if (!fs.existsSync(path.join(frags, 'doc'))) cp.execSync(`ln -s .. doc`, { cwd: frags });
@@ -56,7 +55,7 @@ module.exports = function (gulp, plugins, config) {
   function shred(options) {
     // Split big shredding task into partials 2016-06-14
     const exPath = path.join(options.examplesDir, (argv.filter || '') + '*');
-    var examplePaths = plugins.globby.sync(exPath, { ignore: ['**/node_modules', '**/_boilerplate'] });
+    var examplePaths = plugins.globby.sync(exPath, { ignore: ['**/node_modules'] });
     var promise = Promise.resolve(true);
     examplePaths.forEach(function (examplePath) {
       promise = promise.then(() => docShredder.shredSingleExampleDir(options, examplePath));
@@ -64,19 +63,4 @@ module.exports = function (gulp, plugins, config) {
     return promise;
   }
 
-  gulp.task('_shred-clean-devguide', ['_clean-frags'], () => {
-    const globPattern = `${argv.filter || '*'}*/*.*`;
-    const cleanPath = path.join(_devguideShredOptions.fragmentsDir, globPattern);
-    const args = [cleanPath, '!**/*.ovr.*', '!**/_api/**'];
-    gutil.log(`_shred-clean-devguide (excluding _api): ${args}`);
-    return del(args);
-  });
-
-  gulp.task('_shred-clean-api', ['_clean-frags'], () => {
-    const globPattern = `${argv.filter || '*'}*/*.*`;
-    const cleanPath = path.join(_apiShredOptions.fragmentsDir, globPattern);
-    const args = [cleanPath, '!**/*.ovr.*'];
-    gutil.log(`_shred-clean-api: ${args}`);
-    return del(args);
-  });
 };

@@ -1008,7 +1008,7 @@ The designers provided some basic styles to apply to elements across the entire 
 These correspond to the full set of master styles that you installed earlier during [setup](/angular/guide/setup).
 Here's an excerpt:
 
-<?code-excerpt "web/styles.css (excerpt)" region="toh" title?>
+<?code-excerpt "../_boilerplate/styles.css (toh)" title="web/styles.css (excerpt)"?>
 ```
   @import url(https://fonts.googleapis.com/css?family=Roboto);
   @import url(https://fonts.googleapis.com/css?family=Material+Icons);
