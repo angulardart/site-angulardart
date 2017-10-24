@@ -108,6 +108,7 @@ const plugins = {
   child_process: child_process,
   copyFiles: copyFiles,
   del: del,
+  delFv: delFv,
   execSyncAndLog: execSyncAndLog,
   execp: execp,
   filter: require('gulp-filter'),
@@ -205,13 +206,14 @@ const _cleanTargets = [
   LOCAL_TMP,
   path.join(source, _configYml.assets.cache || _throw()),
 ];
-function _delTmp(delTargets) {
-  gutil.log(`  Deleting ${delTargets}`);
+function delFv(delTargets) { // verbose, forced delete
+  gutil.log(`  Deleting: ${delTargets}.`);
   return del(delTargets, { force: true });
 }
-gulp.task('clean', cb => _delTmp(_cleanTargets));
-gulp.task('_clean', cb => argv.clean ? _delTmp(_quickCleanTargets) : cb());
-gulp.task('git-clean-src', cb => execp(`git clean -xdf src`));
+gulp.task('clean', () => delFv(_cleanTargets));
+gulp.task('_clean', done => !argv.clean ? done() :
+  delFv(_quickCleanTargets.filter(p => argv.clean === true || p.includes(argv.clean))));
+gulp.task('git-clean-src', () => execp(`git clean -xdf src`));
 
 gulp.task('default', ['help']);
 

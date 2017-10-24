@@ -47,16 +47,13 @@ module.exports = function (gulp, plugins, config) {
   const _styleLessName = 'a2docs.less';
 
 
-  // requires admin access because it adds symlinks
-  gulp.task('add-example-boilerplate', ['_clean'], function(done) {
-    var realPath = path.join(EXAMPLES_PATH, '/node_modules');
+  gulp.task('add-example-boilerplate', function(done) {
+    // var realPath = path.join(EXAMPLES_PATH, '/node_modules');
     // var nodeModulesPaths = excludeDartPaths(getNodeModulesPaths(EXAMPLES_PATH));
-
     // nodeModulesPaths.forEach(function(linkPath) {
     //   gutil.log("symlinking " + linkPath + ' -> ' + realPath)
     //   fsUtils.addSymlink(realPath, linkPath);
     // });
-
     return argv.fast ? done() : buildStyles(copyExampleBoilerplate, done);
   });
 
