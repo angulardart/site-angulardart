@@ -10,6 +10,7 @@ module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
   const cp = plugins.child_process;
+  const _exec = plugins.execSyncAndLog;
   const execp = plugins.execp;
   const filter = plugins.filter;
   const fs = plugins.fs;
@@ -18,30 +19,39 @@ module.exports = function (gulp, plugins, config) {
   const rename = plugins.rename;
   const replace = plugins.replace;
 
+  const chooseRegEx = argv.filter || '.';
+  const skipRegEx = argv.skip || null;
+
   const tmpReposPath = path.join(LOCAL_TMP, 'deploy-repos');
   const ngMajorVers = config.ngPkgVers.angular.vers[0]; // good enough until version 9!
 
   const findCmd = `find ${EXAMPLES_ROOT} -type f -name ".docsync.json"`;
-  const examplesFullPath = (cp.execSync(findCmd) + '').split(/\s+/).map(p => path.dirname(p));
-  const examples = examplesFullPath.map(p => path.basename(p));
+  const examplesFullPath = (cp.execSync(findCmd) + '').split(/\s+/).filter(p => p).map(p => path.dirname(p));
+  const examples = examplesFullPath.map(p => path.basename(p))
+    .filter(p => !p.match(skipRegEx))
+    .filter(p => p.match(chooseRegEx))
+    .sort();
 
   gulp.task('__list-examples', () => {
+    gutil.log(`Angular major version: ${ngMajorVers}`);
     gutil.log(`examples:\n  ${examples.join('\n  ')}`);
-    gutil.log(`/${ngMajorVers}(/|$)`);
   });
 
   gulp.task('add-example-apps-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
 
   gulp.task('_examples-get-repos', ['_clean'], () => {
     // const promises = [];
-    examples.forEach((name) => {
+    examples.forEach(name => {
       const exPath = path.join(tmpReposPath, EXAMPLES_ROOT, name)
       if (fs.existsSync(exPath)) {
       } else {
         const repo = `${config.ghNgEx}/${name}.git`;
-        const clone = `git clone --depth 1 --branch gh-pages ${repo} ${exPath}`;
-        // promises.push(execp(clone));
-        cp.execSync(clone);
+        // To checkout gh-pages only use: --depth 1 --branch gh-pages.
+        _exec(`git clone ${repo} ${exPath}`);
+        _exec('git fetch', { cwd: exPath });
+        // _exec('git remote show origin', {cwd: exPath});
+        _exec('git checkout gh-pages', { cwd: exPath });
+        // promises.push(execp(...));
       }
     });
     // return plugins.q.all(promises);
@@ -74,5 +84,17 @@ module.exports = function (gulp, plugins, config) {
       .pipe(rename(p => p.dirname = p.dirname.replace(re, '$1')))
       .pipe(gulp.dest(config.siteFolder));
   });
+
+  // General exec task. Args: --cmd='some-cmd with args'
+  // This task is useful to, e.g., create repo dev branches.
+  gulp.task('examples-repo-exec', () => examplesRepoExec(argv.cmd));
+
+  function examplesRepoExec(cmd) {
+    if (!cmd) throw `Invalid command: ${cmd}`;
+    const dir = argv.path || path.join(tmpReposPath, EXAMPLES_ROOT);
+    examples.map(name => path.join(dir, name)).forEach((exPath) => {
+      _exec(cmd, { cwd: exPath });
+    });
+  }
 
 };

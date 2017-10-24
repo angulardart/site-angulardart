@@ -18,7 +18,8 @@ module.exports = function (gulp, plugins, config) {
   const findOutput = (cp.execSync(findCmd) + '').split(/\s+/).filter(p => p); // drop empty paths
   const examplesFullPath = findOutput.map(p => path.dirname(p))
     .filter(p => !p.match(skipRegEx))
-    .filter(p => p.match(chooseRegEx));
+    .filter(p => p.match(chooseRegEx))
+    .sort();
   // const examples = examplesFullPath.map(p => path.basename(p));
 
   gulp.task('__list-example-paths', () => {
@@ -30,14 +31,12 @@ module.exports = function (gulp, plugins, config) {
     gulp.task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd}`));
   });
 
-  // General exec task. Args: --exec='some-cmd with args'
-  gulp.task('examples-exec', () => examplesExec(argv.exec));
+  // General exec task. Args: --cmd='some-cmd with args'
+  gulp.task('examples-exec', () => examplesExec(argv.cmd));
 
   function examplesExec(cmd) {
     if (!cmd) throw `Invalid command: ${cmd}`;
-
     examplesFullPath.forEach((exPath) => {
-      gutil.log(`\nExample: ${exPath}`);
       _exec(cmd, { cwd: exPath });
     });
   }
