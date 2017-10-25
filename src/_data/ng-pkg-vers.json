@@ -3,29 +3,35 @@
     "doc-path": "angular/guide",
     "vers": "4.0.0",
     "prev-vers": "3.1.0",
-    "prev-name": "angular2"
+    "prev-name": "angular2",
+    "next-vers": "5.0.0-alpha"
   },
   "angular_components": {
     "doc-path": "components",
     "prev-vers": "0.5.3+1",
-    "vers": "0.8.0"
+    "vers": "0.8.0",
+    "next-vers": "0.9.0-alpha"
   },
   "angular_forms": {
     "doc-path": "angular/guide/forms",
-    "vers": "1.0.0"
+    "vers": "1.0.0",
+    "next-vers": "1.0.1-alpha"
   },
   "angular_router": {
     "doc-path": "angular/guide/router",
-    "vers": "1.0.2"
+    "vers": "1.0.2",
+    "next-vers": "2.0.0-alpha"
   },
   "angular_test": {
     "doc-path": "angular/guide/testing/component",
     "prev-vers": "1.0.0-beta+2",
-    "vers": "1.0.1"
+    "vers": "1.0.1",
+    "next-vers": "1.0.2-alpha"
   },
   "SDK": {
     "doc-path": "guides/get-started#2-install-dart",
     "channel": "stable",
-    "vers": "1.24.2"
+    "vers": "1.24.2",
+    "next-vers": "2.0.0-dev.4.0"
   }
 }

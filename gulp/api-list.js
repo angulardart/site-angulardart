@@ -23,8 +23,8 @@ module.exports = function (gulp, plugins, config) {
   const curlCmd = `curl ${url} -o ${localDartApiIndexJson}`;
 
   gulp.task('_get-sdk-doc-index-json', ['_clean'], () => {
-    if (!plugins.fs.existsSync(localDartApiIndexJson)) plugins.child_process.execSync(curlCmd);
-    if (plugins.fs.statSync(localDartApiIndexJson).size > 0) return;
+    if (!fs.existsSync(localDartApiIndexJson)) plugins.execSyncAndLog(curlCmd);
+    if (fs.existsSync(localDartApiIndexJson) && fs.statSync(localDartApiIndexJson).size > 0) return;
     const msg = `ERROR: unexpected empty file: ${localDartApiIndexJson}
        because the fetched ${url} is empty.
        If this isn't a server error, then there is probably no SDK for the given channel and version.`;
@@ -53,7 +53,7 @@ module.exports = function (gulp, plugins, config) {
       }
       const srcPath = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
       const srcData = path.resolve(srcPath, 'index.json');
-      if (plugins.fs.existsSync(srcData)) {
+      if (fs.existsSync(srcData)) {
         const dartDocData = require(srcData);
         _addToApiListMap(dartDocData, apiListMap, pkgName, pkgNameAlias);
       } else if (config.dartdocProj.indexOf(pkgNameAlias) > -1) {
@@ -88,7 +88,7 @@ module.exports = function (gulp, plugins, config) {
 
   function writeApiList(apiListMap, destFolder) {
     const apiListFilePath = path.join(destFolder, 'api-list.json');
-    plugins.fs.writeFileSync(apiListFilePath, plugins.stringify(apiListMap));
+    fs.writeFileSync(apiListFilePath, plugins.stringify(apiListMap));
     log.info('Wrote', Object.keys(apiListMap).length, 'library entries to', apiListFilePath);
   }
 };

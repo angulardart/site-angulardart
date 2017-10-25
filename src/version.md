@@ -7,17 +7,15 @@ This site's documentation and examples reflect the software versions in the
 **Current** column of the following table.
 
 <style>
-/*
-#vers { table-layout: fixed; width: 100%; }
-#vers td:first-child { overflow: hidden; text-overflow: ellipsis;  direction: rtl; }
-*/
-#vers .material-icons { font-size: 16px; }
+#vers { width: max-content; }
+#vers th, #vers td { padding: 8px 16px 8px 16px; }
+#vers .material-icons { font-size: 17px; padding-left: 3pt; vertical-align: text-bottom; }
 </style>
-<table id="vers" class="table table-striped table-condensed" style="width: fit-content">
+<table id="vers" class="table table-striped">
   <tr>
     <th>Package/SDK</th>
-    <th>Current</th>
     {%- if site.prev-url -%} <th>Previous</th> {%- endif -%}
+    <th>Current</th>
     {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
   </tr>{%
   for pkgDataPair in site.data.ng-pkg-vers %}{%
@@ -25,17 +23,6 @@ This site's documentation and examples reflect the software versions in the
   assign info = pkgDataPair[1] %}
   <tr>
     <td>{{info.tmp-name | default: name}}</td>
-    <td>
-      {%- if info.vers -%}
-      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
-        class="no-automatic-external">{{info.vers}}</a>{%
-      else %}-{%
-      endif %}
-      {% if info.doc-path %}<a href="/{{info.doc-path}}"
-      title="Documentation"><i class="material-icons">description</i></a>{%
-      else %}-{%
-      endif %}
-    </td>
 
     {%- if site.prev-url -%}
     <td>{% if info.prev-vers %}
@@ -49,11 +36,23 @@ This site's documentation and examples reflect the software versions in the
     </td>
     {%- endif -%}
 
-    {%- if site.next-url -%}
+    <td>
+      {%- if info.vers -%}
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
+        class="no-automatic-external">{{info.vers}}</a>{%
+      else %}-{%
+      endif %}
+      {% if info.doc-path %}<a href="/{{info.doc-path}}"
+      title="Documentation"><i class="material-icons">description</i></a>{%
+      else %}-{%
+      endif %}
+    </td>
+
+    {%- if site.dev-url -%}
     <td>{% if info.next-vers %}
       <a href="{{pubPkgUrl}}/{{info.next-name | default: name}}/versions/{{info.next-vers}}#pub-pkg-tab-changelog"
         class="no-automatic-external">{{info.next-vers}}</a>{%
-        if info.doc-path%}<a href="{{site.next-url}}/{{info.doc-path}}"
+        if info.doc-path%}<a href="{{site.dev-url}}/{{info.doc-path}}"
           class="no-automatic-external" title="documentation"><i class="material-icons md-18">description</i></a>{%
         endif %}{%
         else %}-{%
