@@ -1031,7 +1031,7 @@ Here's an excerpt:
     color: #888;
     font-family: Cambria, Georgia;
   }
-  /* . . . */
+  /* ··· */
   /* everywhere else */
   * {
     font-family: Arial, Helvetica, sans-serif;

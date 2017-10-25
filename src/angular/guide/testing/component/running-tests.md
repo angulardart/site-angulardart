@@ -28,7 +28,7 @@ includes a few basic tests for its `AppComponent` in the following test file:
   @Tags(const ['aot'])
   @TestOn('browser')
 
-  /* . . . */
+  /* ··· */
   @AngularEntrypoint()
   void main() {
     final testBed = new NgTestBed<AppComponent>();
@@ -43,7 +43,7 @@ includes a few basic tests for its `AppComponent` in the following test file:
     test('Default greeting', () {
       expect(fixture.text, 'Hello Angular');
     });
-    /* . . . */
+    /* ··· */
   }
 ```
 

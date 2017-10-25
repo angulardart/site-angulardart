@@ -88,7 +88,7 @@ before it moves on to the next test group, if any. Here is an example:
   @Tags(const ['aot'])
   @TestOn('browser')
 
-  /* . . . */
+  /* ··· */
   @AngularEntrypoint()
   void main() {
     final testBed = new NgTestBed<AppComponent>();
@@ -103,7 +103,7 @@ before it moves on to the next test group, if any. Here is an example:
     test('Default greeting', () {
       expect(fixture.text, 'Hello Angular');
     });
-    /* . . . */
+    /* ··· */
   }
 ```
 

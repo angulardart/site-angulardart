@@ -6,8 +6,8 @@
  */
 var _ = require('lodash');
 
-var nullLine = '###';
-var nullLinePattern = new RegExp(nullLine + '\n', 'g');
+var nullLine = '#\001#';
+var nullLinePattern = new RegExp('[^\n]*' + nullLine + '(\n|$)', 'g');
 
 module.exports = {
   buildRegionDocs: buildRegionDocs,
@@ -35,13 +35,13 @@ function buildRegionDocs(content, extn) {
 
   var docStack = []; // items will be both popped and removed from the middle
   var docMap = {};
-  var docPlaster = '. . .';
+  var docPlaster = '···';
   var doc;
   var regionNames;
   lines.forEach(function(line, ix) {
     if (isCommentLine(line, commentInfo.prefix)) {
       if (hasRegionTag(line)) {
-        lines[ix] = nullLine;
+        lines[ix] += nullLine;
         regionNames = getRegionNames(line);
         regionNames.forEach(function(rn) {
           doc = docMap[rn];
@@ -60,7 +60,7 @@ function buildRegionDocs(content, extn) {
         });
 
       } else if (hasEndRegionTag(line)) {
-        lines[ix] = nullLine;
+        lines[ix] += nullLine;
         regionNames = getEndRegionNames(line);
         regionNames.forEach(function(rn) {
           // handle endregions with no name specially.
@@ -84,7 +84,7 @@ function buildRegionDocs(content, extn) {
           }
         });
       } else if (hasDocPlasterTag(line)) {
-        line[ix] = nullLine;
+        line[ix] += nullLine;
         docPlaster =  getDocPlaster(line);
       }
     }
@@ -114,7 +114,7 @@ function removeDocTags(content, extn) {
   lines.forEach(function(line, ix) {
     if (isCommentLine(line, commentInfo.prefix)) {
       if (hasDocTag(line)) {
-        lines[ix] = nullLine;
+        lines[ix] += nullLine;
       }
     }
   });
@@ -135,8 +135,7 @@ function reattachDocs(docs, lines, plasterComment) {
         subLines = lines.slice(range.startIx + 1);
       }
       if (plasterComment && fragLines.length) {
-        // pad is the padding on the previous line
-        var pad = fragLines[fragLines.length - 1].match(/(\s*)/)[0];
+        var pad = lines[range.startIx].match(/(\s*)/)[0];
         fragLines.push(pad + plasterComment);
       }
       fragLines = fragLines.concat(subLines);

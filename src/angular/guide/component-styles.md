@@ -44,7 +44,7 @@ Usually you give it one string, as in the following example:
       styles: const ['h1 { font-weight: normal; }'],
       directives: const [HeroAppMainComponent])
   class AppComponent {
-  /* . . . */
+  /* ··· */
   }
 ```
 
@@ -169,7 +169,7 @@ Each string in the list (usually just one string) defines the CSS.
       styles: const ['h1 { font-weight: normal; }'],
       directives: const [HeroAppMainComponent])
   class AppComponent {
-  /* . . . */
+  /* ··· */
   }
 ```
 
@@ -189,7 +189,7 @@ into a component's `@Component` annotation:
       styleUrls: const ['hero_details_component.css'],
       directives: const [HeroTeamComponent])
   class HeroDetailsComponent {
-  /* . . . */
+    /* ··· */
   }
 ```
 

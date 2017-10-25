@@ -205,7 +205,7 @@ convenience you can add the [formDirectives][] list
 
   @Component(
     selector: 'my-app',
-    /* . . . */
+    /* ··· */
     directives: const [formDirectives],
   )
 ```

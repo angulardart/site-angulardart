@@ -219,7 +219,7 @@ Here's some metadata for `HeroListComponent`:
     providers: const [HeroService],
   )
   class HeroListComponent implements OnInit {
-  /* . . . */
+    /* ··· */
   }
 ```
 
@@ -513,7 +513,7 @@ of the `@Component` annotation:
 <?code-excerpt "lib/app_component.dart (providers)" title?>
 ```
   @Component(
-  /* . . . */
+    /* ··· */
     providers: const [BackendService, HeroService, Logger],
   )
   class AppComponent {}

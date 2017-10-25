@@ -5,7 +5,7 @@ var buildRegionDocs = regionExtractor.buildRegionDocs;
  * @dgService
  * @description
  */
-module.exports = function regionFileReader(log ) {
+module.exports = function regionFileReader(log) {
   return {
     name: 'regionFileReader',
 

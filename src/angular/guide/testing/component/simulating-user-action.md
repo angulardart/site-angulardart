@@ -22,7 +22,7 @@ click on a given PO element. Here is an example for a _back_ button:
 ```
   @ByTagName('button')
   PageLoaderElement _button;
-  /* . . . */
+  /* ··· */
   Future back() => _button.click();
 ```
 
@@ -33,7 +33,7 @@ a list as follows:
 ```
   @ByTagName('li')
   List<PageLoaderElement> _heroes;
-  /* . . . */
+  /* ··· */
   Future selectHero(int index) => _heroes[index].click();
 ```
 
@@ -49,10 +49,10 @@ simulate adding text to the input element:
 <?code-excerpt "toh-1/test/app_test.dart (AppPO input)" title?>
 ```
   class AppPO {
-  /* . . . */
+    /* ··· */
     @ByTagName('input')
     PageLoaderElement _input;
-    /* . . . */
+    /* ··· */
     Future type(String s) => _input.type(s);
   }
 ```

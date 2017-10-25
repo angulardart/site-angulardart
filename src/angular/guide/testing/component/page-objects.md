@@ -86,9 +86,9 @@ an initial version of `AppPO` might look like this:
   class AppPO {
     @ByTagName('h1')
     PageLoaderElement _title;
-    /* . . . */
+    /* ··· */
     Future<String> get title => _title.visibleText;
-    /* . . . */
+    /* ··· */
   }
 ```
 
@@ -157,13 +157,13 @@ you might define the PO `heroId` and `heroName` fields like this:
 <?code-excerpt "toh-1/test/app_test.dart (AppPO hero)" title?>
 ```
   class AppPO {
-  /* . . . */
+    /* ··· */
     @FirstByCss('div')
     PageLoaderElement _id; // e.g. 'id: 1'
 
     @ByTagName('h2')
     PageLoaderElement _heroName; // e.g. 'Mr Freeze details!'
-    /* . . . */
+    /* ··· */
     Future<int> get heroId async {
       final idAsString = (await _id.visibleText).split(' ')[1];
       return int.parse(idAsString, onError: (_) => -1);
@@ -173,7 +173,7 @@ you might define the PO `heroId` and `heroName` fields like this:
       final text = await _heroName.visibleText;
       return text.substring(0, text.lastIndexOf(' '));
     }
-    /* . . . */
+    /* ··· */
   }
 ```
 
@@ -208,12 +208,12 @@ When bound, the `_heroes` list will contain an element for each `<li>` in the vi
 
 You might render hero data (as a map) from the text of the `<li>` elements like this:
 
-<?code-excerpt "toh-2/test/app_po.dart (heroes)" indent-by="0" title?>
+<?code-excerpt "toh-2/test/app_po.dart (heroes)" title?>
 ```
   Iterable<Future<Map>> get heroes =>
       _heroes.map((el) async => _heroDataFromLi(await el.visibleText));
 
-/* . . . */
+  /* ··· */
   Map<String, dynamic> _heroDataFromLi(String liText) {
     final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
     return _heroData(matches[1], matches[2]);
@@ -259,7 +259,7 @@ You'll need to fetch a new PO (since the old PO has null optional fields):
 ```
   await appPO.selectHero(5);
   appPO = await fixture.resolvePageObject(AppPO);
-  /* . . . */
+  /* ··· */
   expect(await appPO.selectedHero, targetHero);
 ```
 

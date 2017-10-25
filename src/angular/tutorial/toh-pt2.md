@@ -137,11 +137,11 @@ and initialize it with mock heroes (don't forget the import):
 ```
   import 'src/mock_heroes.dart';
 
-  /* . . . */
+  /* ··· */
   class AppComponent {
     final title = 'Tour of Heroes';
     List<Hero> heroes = mockHeroes;
-    /* . . . */
+    /* ··· */
   }
 ```
 
@@ -221,7 +221,7 @@ add all [CORE_DIRECTIVES][]:
 ```
   @Component(
     selector: 'my-app',
-    /* . . . */
+    /* ··· */
     directives: const [CORE_DIRECTIVES, formDirectives],
   )
 ```
