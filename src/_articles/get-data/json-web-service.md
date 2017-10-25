@@ -84,7 +84,7 @@ void onDataLoaded(String responseText) {
   print(jsonString);
 }
 
-main() {
+void main() {
   loadData();
 }
 {% endprettify %}
@@ -159,7 +159,7 @@ content of the JSON:
 {% prettify dart %}
 import 'dart:convert';
 
-main() {
+void main() {
   String listAsJson = '["Dart",1.0]'; // input List of data
   List parsedList = JSON.decode(listAsJson);
   print(parsedList[0]); // Dart

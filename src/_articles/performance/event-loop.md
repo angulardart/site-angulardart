@@ -400,7 +400,7 @@ What does this sample print out?
 
 {% prettify dart %}
 import 'dart:async';
-main() {
+void main() {
   print('main #1 of 2');
   scheduleMicrotask(() => print('microtask #1 of 2'));
 
@@ -458,7 +458,7 @@ you get a gold star.
 
 {% prettify dart %}
 import 'dart:async';
-main() {
+void main() {
   print('main #1 of 2');
   scheduleMicrotask(() => print('microtask #1 of 3'));
 
