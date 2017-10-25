@@ -27,8 +27,8 @@ env:
     - CI_TASK="test $TEST_OPT"
     - CI_TASK="e2e $E2E_OPT1"
     - CI_TASK="e2e $E2E_OPT2"
-    - CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
-    - CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
+    #- CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
+    #- CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
 
 matrix:
   fast_finish: true
