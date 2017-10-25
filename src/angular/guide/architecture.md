@@ -424,7 +424,7 @@ Here's an example of a service class that logs to the browser console:
   }
 ```
 
-Here's a `HeroService` that uses a <a href="https://api.dartlang.org/dart_async/Future.html">Future</a> to fetch heroes.
+Here's a `HeroService` that uses a [Future][] to fetch heroes.
 The `HeroService` depends on the `Logger` service and another `BackendService` that handles the server communication grunt work.
 
 <?code-excerpt "lib/src/hero_service.dart (class)" title?>
@@ -575,3 +575,5 @@ by implementing the lifecycle hook interfaces.
 - [**Router**](router): Navigate from page to page within the client app and never leave the browser.
 
 - [**Testing**](testing): Write component tests and end-to-end tests for your app.
+
+[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html

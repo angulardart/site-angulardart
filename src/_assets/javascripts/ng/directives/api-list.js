@@ -1,6 +1,6 @@
 /*eslint no-unused-vars: "angularIO" */
 
-/* {% raw %}
+/*
 * API List & Filter Directive
 *
 * A page displaying all of the angular API methods available
@@ -15,13 +15,18 @@ angularIO.directive('apiList', function () {
   var QUERY_KEY = 'query';
   var TYPE_KEY = 'type';
   var STATUS_KEY = 'status';
+  // Liquid interpolation expressions:
+  var DART_API = '{{site.dart_api}}';
+  var DART_CHANNEL = '{{site.data.ng-pkg-vers.SDK.channel}}';
+  var DART_CHANNEL_API = DART_API + '/' + DART_CHANNEL;
+  // {% raw %} // Don't do Liquid interpolation beyond this point.
 
   return {
     restrict: 'E',
     template:
       '<p>' +
       '  This page lists API from libraries in the <span ng-bind-html="$ctrl.pkgList | trustAsHtml"></span> packages, ' +
-      '  as well as from the frequently used <a href="https://api.dartlang.org/"><b>Dart SDK libraries</b></a> ' +
+      '  as well as from the frequently used <a href="' + DART_API + '"><b>Dart SDK libraries</b></a> ' +
       '  <span ng-bind-html="$ctrl.sdkLibList | trustAsHtml"></span>.' +
       '</p>' +
       '<div ng-cloak="ng-cloak" class="l-flex-wrap banner is-plain api-filter">' +
@@ -131,10 +136,10 @@ angularIO.directive('apiList', function () {
           pkgsMap[isSdkLib ? 'Dart SDK' : pkg] = 1;
           var libPage = lib + '/' + lib + '-library';
           var href = isSdkLib
-            ? 'https://api.dartlang.org/stable/' + libPage + '.html'
+            ? DART_CHANNEL_API + '/' + libPage + '.html'
             : '/api/' + pkg + '/' + libPage;
           var importPath = isSdkLib ? title : 'package:' + pkg + '/' + title + '.dart';
-          var itemHrefBase = isSdkLib ? 'https://api.dartlang.org/stable' : '/api/' + pkg;
+          var itemHrefBase = isSdkLib ? DART_CHANNEL_API : '/api/' + pkg;
           return {
             pkg: pkg,
             isExternal: !href.startsWith('/'),

@@ -180,7 +180,7 @@ context for the interpolation in the double curly braces.
 
 <div class="l-sub-section" markdown="1">
   In this case, `ngFor` is displaying a list, but `ngFor` can
-  repeat items for any [iterable](https://api.dartlang.org/stable/dart-core/Iterable-class.html) object.
+  repeat items for any [Iterable][] object.
 </div>
 
 <div class="alert is-important" markdown="1">
@@ -330,3 +330,5 @@ Here's the final code:
   <?code-pane "web/index.html"?>
   <?code-pane "pubspec.yaml"?>
 </code-tabs>
+
+[Iterable]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Iterable-class.html

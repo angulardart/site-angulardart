@@ -291,7 +291,7 @@ the same mock data as before, but none of its consumers need to know that.
 <div class="l-sub-section" markdown="1">
   We aren't even pretending this is a real service.
   If we were actually getting data from a remote server, the API would have to be
-  asynchronous, returning a [Future]({{site.dart_api}}/dart-async/Future-class.html).
+  asynchronous, returning a [Future]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html).
   We'd also have to rewrite the way components consume our service.
   This is important in general, but not to our current story.
 </div>
@@ -895,7 +895,7 @@ While we _could_ use **[Map][]**, we _should not_ because (like
 `String`) `Map` is too general. Our app might depend on several maps, each
 for a different purpose.
 
-[Map]: https://api.dartlang.org/stable/dart-core/Map-class.html
+[Map]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Map-class.html
 
 <div class="callout is-helpful" markdown="1">
   <header> Dart difference: Interfaces are valid tokens</header>

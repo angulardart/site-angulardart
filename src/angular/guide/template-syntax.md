@@ -978,7 +978,7 @@ The following example conditionally sets the font size in  “em” and “%” 
   and `setProperty()`.
   So using dash-case for style property names is generally preferred.
 
-  [CssSD]: {{site.dart_api}}/dart-html/CssStyleDeclaration-class.html
+  [CssSD]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/CssStyleDeclaration-class.html
 </div>
 
 <a href="#contents">back to top</a>
@@ -1079,7 +1079,7 @@ If the event belongs to a directive (recall that components are directives),
 <div id="custom-event"></div>
 ### Custom events
 
-Directives typically raise custom events using a [StreamController]({{site.dart_api}}/dart-async/StreamController-class.html).
+Directives typically raise custom events using a [StreamController]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/StreamController-class.html).
 The directive creates a `StreamController` and exposes its underlying `stream` as a property.
 The directive calls `StreamController.add(payload)` to fire an event, passing in a message payload, which can be anything.
 Parent directives listen for the event by binding to this property and accessing the payload through the `$event` object.
@@ -2003,7 +2003,7 @@ In the `HeroDetailComponent`, such properties are marked as input or output prop
 
 *Input* properties usually receive data values.
 *Output* properties expose event producers, such as
-[Stream]({{site.dart_api}}/dart-async/Stream-class.html) objects.
+[Stream]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Stream-class.html) objects.
 
 The terms _input_ and _output_ reflect the perspective of the target directive.
 
@@ -2197,4 +2197,4 @@ It works perfectly with long property paths such as `a?.b?.c?.d`.
 You've completed this survey of template syntax.
 Now it's time to put that knowledge to work on your own components and directives.
 
-[Map]: {{site.dart_api}}/dart-core/Map-class.html
+[Map]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Map-class.html

@@ -163,7 +163,7 @@ Here's the component class:
   }
 ```
 
-Angular [injects](dependency-injection.html) a `HeroService` into the constructor
+Angular [injects](dependency-injection) a `HeroService` into the constructor
 and the component calls that service to fetch and save data.
 
 The component **does not talk directly to the Dart `BrowserClient` client**.
@@ -174,7 +174,7 @@ This is a golden rule: **always delegate data access to a supporting service cla
 
 Although _at runtime_ the component requests heroes immediately after creation,
 you **don't** call the service's `get` method in the component's constructor.
-Instead, call it inside the `ngOnInit` [lifecycle hook](lifecycle-hooks.html)
+Instead, call it inside the `ngOnInit` [lifecycle hook](lifecycle-hooks)
 and rely on Angular to call `ngOnInit` when it instantiates this component.
 
 <div class="l-sub-section" markdown="1">
@@ -183,8 +183,7 @@ and rely on Angular to call `ngOnInit` when it instantiates this component.
   (especially calling a remote server) is handled in a separate method.
 </div>
 
-The hero service `getHeroes()` and `create()` asynchronous methods return the
-[`Future`](https://api.dartlang.org/stable/dart-async/Future-class.html)
+The hero service `getHeroes()` and `create()` asynchronous methods return the [Future][]
 values of the current hero list and the newly added hero,
 respectively. The hero list component `getHeroes()` and `addHero()` methods specify
 the actions to be taken when the asynchronous method calls succeed or fail.
@@ -261,7 +260,7 @@ You can revise that `HeroService` to get the heroes from the server using the Da
 ```
 
 Notice that the Dart `BrowserClient` client service is
-[injected](dependency-injection.html) into the `HeroService` constructor.
+[injected](dependency-injection) into the `HeroService` constructor.
 
 <?code-excerpt "lib/src/toh/hero_service.dart (ctor)"?>
 ```
@@ -680,4 +679,5 @@ and delivers to subscribers only the most recent search results.
 
 See the full source code in the <live-example></live-example>.
 
+[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html
 [http]: https://pub.dartlang.org/packages/http

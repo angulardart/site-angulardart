@@ -108,7 +108,7 @@ Access to page elements is **asynchronous**, which is why `title` is of type
 [Future][], and the "title" test shown [earlier](#toh-1testapp_testdart-title)
 is marked as `async`.
 
-[Future]: {{site.dart_api}}/dart-async/Future-class.html
+[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html
 
 ## PO instantiation
 

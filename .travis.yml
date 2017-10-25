@@ -10,7 +10,6 @@ node_js: 6
 
 env:
   global:
-    - DART_CHANNEL=stable
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser

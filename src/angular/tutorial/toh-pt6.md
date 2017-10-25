@@ -771,9 +771,6 @@ In the sample, the underlying stream of strings (`_searchTerms.stream`) represen
 name search patterns entered by the user. Each call to `search()` puts a new string into
 the stream by calling `add()` over the controller.
 
-[Stream]: https://api.dartlang.org/stable/dart-async/Stream-class.html
-[StreamController]: https://api.dartlang.org/stable/dart-async/StreamController-class.html
-
 #### Initialize the *heroes* property (*ngOnInit*)  {#ngoninit}
 
 You can turn the stream of search terms into a stream of `Hero` lists and assign the result to the `heroes` property.
@@ -920,3 +917,5 @@ you can read more about the concepts and practices found in this tutorial.
 
 [http]: https://pub.dartlang.org/packages/http
 [stream_transform]: https://pub.dartlang.org/packages/stream_transform
+[Stream]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Stream-class.html
+[StreamController]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/StreamController-class.html

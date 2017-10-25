@@ -172,7 +172,7 @@ function genDartdocForProjs() {
 
 const extraTasks = `
   api api-list dartdoc e2e example example-add-apps example-frag example-template
-  get-stagehand-proj jade-to-md ngio-get ngio-put pkg-vers test update-ng-vers`;
+  get-stagehand-proj ngio-get ngio-put pkg-vers test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
