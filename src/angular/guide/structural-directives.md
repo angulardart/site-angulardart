@@ -9,7 +9,7 @@ prevpage:
 ng_container: template
 ---
 <!-- FilePath: src/angular/guide/structural-directives.md -->
-<?code-excerpt path-base="structural-directives"?>
+<?code-excerpt path-base="examples/ng/doc/structural-directives"?>
 {{page.description}}
 
 {% comment %}

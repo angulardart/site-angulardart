@@ -10,7 +10,7 @@ nextpage:
   title: Dependency Injection
   url: /angular/guide/dependency-injection
 ---
-<?code-excerpt path-base="forms"?>
+<?code-excerpt path-base="examples/ng/doc/forms"?>
 Forms are the mainstay of business applications.
 You use forms to log in, submit a help request, place an order, book a flight,
 schedule a meeting, and perform countless other data-entry tasks.
@@ -96,8 +96,7 @@ dependencies:
 ```diff
 --- quickstart/pubspec.yaml
 +++ forms/pubspec.yaml
-@@ -1,6 +1,6 @@
- # #docregion
+@@ -1,6 +1,5 @@
 -name: angular_app
 -description: A web app that uses AngularDart
 +name: forms
@@ -105,14 +104,14 @@ dependencies:
  version: 0.0.1
 
  environment:
-@@ -8,22 +8,13 @@
+@@ -8,22 +7,13 @@
 
  dependencies:
    angular: ^4.0.0
 +  angular_forms: ^1.0.0
 ```
 
-<?code-excerpt path-base="forms"?>
+<?code-excerpt path-base="examples/ng/doc/forms"?>
 
 ## Create a model
 

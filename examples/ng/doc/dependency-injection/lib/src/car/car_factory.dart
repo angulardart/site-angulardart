@@ -1,4 +1,3 @@
-// #docregion
 import 'car.dart';
 
 // BAD pattern!

@@ -10,7 +10,7 @@ nextpage:
   url: /angular/tutorial/toh-pt6
 ---
 <!-- FilePath: src/angular/tutorial/toh-pt5.md -->
-<?code-excerpt path-base="toh-5"?>
+<?code-excerpt path-base="examples/ng/doc/toh-5"?>
 
 There are new requirements for the Tour of Heroes app:
 
@@ -170,7 +170,7 @@ router is in its own package, first add the package to the app's pubspec:
 ```diff
 --- toh-4/pubspec.yaml
 +++ toh-5/pubspec.yaml
-@@ -8,11 +8,13 @@
+@@ -7,11 +7,13 @@
  dependencies:
    angular: ^4.0.0
    angular_forms: ^1.0.0
@@ -180,7 +180,7 @@ router is in its own package, first add the package to the app's pubspec:
 Not all apps need routing, which is why the Angular router is
 in a separate, optional package.
 
-<?code-excerpt path-base="toh-5"?>
+<?code-excerpt path-base="examples/ng/doc/toh-5"?>
 
 ### Import the library
 

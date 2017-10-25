@@ -12,7 +12,7 @@ nextpage:
 toc: false
 ---
 <!-- FilePath: src/angular/guide/template-syntax.md -->
-<?code-excerpt path-base="template-syntax"?>
+<?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 <style>td, th {vertical-align: top}</style>
 
 _{{page.description}}_

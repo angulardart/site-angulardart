@@ -1,5 +1,3 @@
-// #docplaster
-// #docregion
 import 'package:angular/angular.dart';
 
 import 'src/toh/hero_list_component.dart';

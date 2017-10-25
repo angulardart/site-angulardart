@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 
 import 'hero_list_component.dart';

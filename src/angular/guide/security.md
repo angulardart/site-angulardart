@@ -10,7 +10,7 @@ nextpage:
   title: Structural Directives
   url: /angular/guide/structural-directives
 ---
-<?code-excerpt path-base="security"?>
+<?code-excerpt path-base="examples/ng/doc/security"?>
 
 This page describes Angular's built-in
 protections against common web-app vulnerabilities and attacks such as cross-site

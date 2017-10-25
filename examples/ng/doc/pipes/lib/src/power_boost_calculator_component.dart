@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'exponential_strength_pipe.dart';

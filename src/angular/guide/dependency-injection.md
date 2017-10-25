@@ -10,7 +10,7 @@ nextpage:
   title: Template Syntax
   url: /angular/guide/template-syntax
 ---
-<?code-excerpt path-base="dependency-injection"?>
+<?code-excerpt path-base="examples/ng/doc/dependency-injection"?>
 
 **Dependency injection** is an important design pattern.
 Angular has its own dependency injection framework, and

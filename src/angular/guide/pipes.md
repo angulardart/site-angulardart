@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/router
 ---
 <!-- FilePath: src/angular/guide/pipes.md -->
-<?code-excerpt path-base="pipes"?>
+<?code-excerpt path-base="examples/ng/doc/pipes"?>
 
 Every app starts out with what seems like a simple task: get data, transform them, and show them to users.
 Getting data could be as simple as creating a local variable or as complex as streaming data over a WebSocket.

@@ -1,4 +1,3 @@
-// #docregion
 class Hero {
   static int _nextId = 0;
 

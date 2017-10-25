@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/server-communication
 ---
 <!-- FilePath: src/angular/guide/hierarchical-dependency-injection.md -->
-<?code-excerpt path-base="hierarchical-dependency-injection"?>
+<?code-excerpt path-base="examples/ng/doc/hierarchical-dependency-injection"?>
 
 You learned the basics of Angular Dependency injection in the
 [Dependency Injection](./dependency-injection.html) guide.

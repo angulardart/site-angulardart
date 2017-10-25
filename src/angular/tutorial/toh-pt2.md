@@ -9,7 +9,7 @@ nextpage:
   title: Multiple Components
   url: /angular/tutorial/toh-pt3
 ---
-<?code-excerpt path-base="toh-2"?>
+<?code-excerpt path-base="examples/ng/doc/toh-2"?>
 
 In this page, you'll expand the Tour of Heroes app to display a list of heroes, and
 allow users to select a hero and display the hero's details.

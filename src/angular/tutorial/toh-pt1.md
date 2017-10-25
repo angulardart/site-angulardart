@@ -9,7 +9,7 @@ nextpage:
   title: Master/Detail
   url: /angular/tutorial/toh-pt2
 ---
-<?code-excerpt path-base="toh-1"?>
+<?code-excerpt path-base="examples/ng/doc/toh-1"?>
 In this part of the tutorial, you'll modify the starter app to display
 information about a hero. Then you'll add the ability to edit the hero's data.
 When you're done, the app should look like this <live-example></live-example>.
@@ -178,14 +178,18 @@ The `angular_forms` library comes in its own package. Add the package to the pub
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -8,16 +8,14 @@
+@@ -1,4 +1,3 @@
+ name: angular_tour_of_heroes
+ description: Tour of Heroes
+ version: 0.0.1
+@@ -8,16 +7,14 @@
 
  dependencies:
    angular: ^4.0.0
 +  angular_forms: ^1.0.0
 ```
 
-<?code-excerpt path-base="toh-1"?>
+<?code-excerpt path-base="examples/ng/doc/toh-1"?>
 
 <a id="component-directives"></a>
 ### Update _@Component(directives: ...)_

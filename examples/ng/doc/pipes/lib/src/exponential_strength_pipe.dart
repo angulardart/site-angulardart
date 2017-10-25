@@ -1,4 +1,3 @@
-// #docregion
 import 'dart:math' as math;
 import 'package:angular/angular.dart';
 

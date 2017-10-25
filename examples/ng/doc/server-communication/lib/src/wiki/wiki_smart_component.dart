@@ -1,4 +1,3 @@
-// #docregion
 import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:stream_transform/stream_transform.dart';

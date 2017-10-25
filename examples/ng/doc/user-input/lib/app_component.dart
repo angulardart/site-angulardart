@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 
 import 'src/click_me_component.dart';

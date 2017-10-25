@@ -1,4 +1,3 @@
-// #docregion
 import 'dart:html';
 
 import 'package:angular/angular.dart';

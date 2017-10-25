@@ -10,7 +10,7 @@ nextpage:
   url: /angular/guide/security
 ---
 <!-- FilePath: src/angular/guide/router/appendices.md -->
-<?code-excerpt path-base="router"?>
+<?code-excerpt path-base="examples/ng/doc/router"?>
 {% include_relative _milestone-nav.md selectedOption="appendices" %}
 
 The balance of this guide is a set of appendices that

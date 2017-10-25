@@ -1,4 +1,3 @@
-# #docregion
 name: dependency_injection
 description: Dependency injection sample
 version: 0.0.1

@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/lifecycle-hooks
 ---
 <!-- FilePath: src/angular/guide/server-communication.md -->
-<?code-excerpt path-base="server-communication"?>
+<?code-excerpt path-base="examples/ng/doc/server-communication"?>
 
 [HTTP](https://tools.ietf.org/html/rfc2616) is the primary protocol for browser/server communication.
 

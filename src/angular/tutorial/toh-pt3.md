@@ -9,7 +9,7 @@ nextpage:
   title: Services
   url: /angular/tutorial/toh-pt4
 ---
-<?code-excerpt path-base="toh-3"?>
+<?code-excerpt path-base="examples/ng/doc/toh-3"?>
 The `AppComponent` is doing _everything_ at the moment.
 In the beginning, it showed details of a single hero.
 Then it became a master/detail form with both a list of heroes and the hero detail.

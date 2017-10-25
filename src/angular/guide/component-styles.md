@@ -10,7 +10,7 @@ nextpage:
   title: Deployment
   url: /angular/guide/deployment
 ---
-<?code-excerpt path-base="component-styles"?>
+<?code-excerpt path-base="examples/ng/doc/component-styles"?>
 {%comment%}TODO: consider adding material equivalent to TS Appendices 1 & 2 if relevant.{%endcomment%}
 
 Angular applications are styled with standard CSS. That means you can apply

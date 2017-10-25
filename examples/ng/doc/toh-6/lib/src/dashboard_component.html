@@ -1,4 +1,3 @@
-<!-- #docregion -->
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
   <a *ngFor="let hero of heroes"  [routerLink]="['HeroDetail', {id: hero.id.toString()}]"  class="col-1-4">

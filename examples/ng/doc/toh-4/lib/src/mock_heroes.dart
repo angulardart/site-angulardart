@@ -1,4 +1,3 @@
-// #docregion
 import 'hero.dart';
 
 final List<Hero> mockHeroes = [

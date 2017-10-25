@@ -1,4 +1,3 @@
-# #docregion
 name: 'hierarchical_di'
 description: Hierarchical dependency injection example
 version: 0.0.1

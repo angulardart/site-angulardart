@@ -1,4 +1,3 @@
-// #docregion
 class Hero {
   int id;
   String name, power, alterEgo;

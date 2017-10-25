@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 
 import 'fetch_json_pipe.dart';

@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 
 import 'src/bypass_security_component.dart';

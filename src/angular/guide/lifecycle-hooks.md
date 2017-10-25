@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/pipes
 ---
 <!-- FilePath: src/angular/guide/lifecycle-hooks.md -->
-<?code-excerpt path-base="lifecycle-hooks"?>
+<?code-excerpt path-base="examples/ng/doc/lifecycle-hooks"?>
 
 <img src="{% asset_path 'ng/devguide/lifecycle-hooks/hooks-in-sequence.png' %}" alt="Us" align="right" style="width:200px; margin-right:30px">
 

@@ -1,4 +1,3 @@
-// #docregion
 @Tags(const ['aot'])
 @TestOn('browser')
 library heroes_test;

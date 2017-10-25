@@ -9,7 +9,7 @@ nextpage:
   title: The Hero Editor
   url: /angular/tutorial/toh-pt1
 ---
-<?code-excerpt path-base="toh-0"?>
+<?code-excerpt path-base="examples/ng/doc/toh-0"?>
 This tutorial starts with a bare-bones Angular app.
 Run the <live-example></live-example> to see the app.
 

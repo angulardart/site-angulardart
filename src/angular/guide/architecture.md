@@ -10,8 +10,7 @@ nextpage:
   title: Displaying Data
   url: /angular/guide/displaying-data
 ---
-<!-- FilePath: src/angular/guide/architecture.md -->
-<?code-excerpt path-base="architecture"?>
+<?code-excerpt path-base="examples/ng/doc/architecture"?>
 <style>img.image-display {
   box-shadow: none;
   padding: 0;

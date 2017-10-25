@@ -6,6 +6,7 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const del = plugins.del;
+  const _exec = plugins.execSyncAndLog;
   const fs = plugins.fs;
   const gutil = plugins.gutil;
   const path = plugins.path;
@@ -30,14 +31,24 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('create-example-fragments', done =>
     plugins.runSequence(
-      '_clean-frags', // Used to need: ['_clean-frags', 'add-example-boilerplate']
+      '_clean-frags',
       ['_shred-api-examples', '_shred-devguide-examples', '_shred-generated-examples'],
+      '_setup-ng-doc-links',
       done
     ));
 
   gulp.task('_clean-frags', () => plugins.delFv(config.frags.path));
 
   gulp.task('_shred-devguide-examples', done => shred(_devguideShredOptions, done));
+
+  gulp.task('_setup-ng-doc-links', () => {
+    if (!fs.existsSync(path.join(frags.path, config.EXAMPLES_NG_DOC_PATH))) {
+      const base = path.basename(config.EXAMPLES_NG_DOC_PATH);
+      const dir = path.dirname(config.EXAMPLES_NG_DOC_PATH);
+      _exec(`mkdir -p ${dir}`, { cwd: frags.path });
+      _exec(`ln -s ../.. ${base}`, { cwd: path.join(frags.path, dir) });
+    }
+  });
 
   gulp.task('_shred-generated-examples', done => {
     const options = Object.assign({}, _devguideShredOptions);
@@ -48,8 +59,8 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_shred-api-examples', () => shred(_apiShredOptions).then(() => {
     // Setup path aliases for API doc fragments
     const frags = _apiShredOptions.fragmentsDir;
-    if (!fs.existsSync(path.join(frags, 'doc'))) cp.execSync(`ln -s .. doc`, { cwd: frags });
-    if (!fs.existsSync(path.join(frags, 'docs'))) cp.execSync(`ln -s doc docs`, { cwd: frags });
+    if (!fs.existsSync(path.join(frags, 'doc'))) _exec(`ln -s .. doc`, { cwd: frags });
+    if (!fs.existsSync(path.join(frags, 'docs'))) _exec(`ln -s doc docs`, { cwd: frags });
   }));
 
   function shred(options) {

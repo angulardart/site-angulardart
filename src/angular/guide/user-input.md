@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/forms
 ---
 <!-- FilePath: src/angular/guide/user-input.md -->
-<?code-excerpt path-base="user-input"?>
+<?code-excerpt path-base="examples/ng/doc/user-input"?>
 
 When the user clicks a link, pushes a button, or enters text
 we want to know about it. These user actions all raise DOM events.

@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/router/1
 ---
 <!-- FilePath: src/angular/guide/router/index.md -->
-<?code-excerpt path-base="router"?>
+<?code-excerpt path-base="examples/ng/doc/router"?>
 
 <div class="alert alert-success" markdown="1">
   This is a **DRAFT** of the router pages, which are still being actively updated.

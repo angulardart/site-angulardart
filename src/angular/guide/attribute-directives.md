@@ -10,7 +10,7 @@ nextpage:
   title: Component Styles
   url: /angular/guide/component-styles
 ---
-<?code-excerpt path-base="attribute-directives"?>
+<?code-excerpt path-base="examples/ng/doc/attribute-directives"?>
 
 An **attribute** directive changes the appearance or behavior of a DOM element.
 

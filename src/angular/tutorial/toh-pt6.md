@@ -7,7 +7,7 @@ prevpage:
   url: /angular/tutorial/toh-pt5
 ---
 <!-- FilePath: src/angular/tutorial/toh-pt6.md -->
-<?code-excerpt path-base="toh-6"?>
+<?code-excerpt path-base="examples/ng/doc/toh-6"?>
 
 In this page, you'll make the following improvements.
 
@@ -64,17 +64,13 @@ Update package dependencies by adding the Dart [http][] and
 ```diff
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
-@@ -1,14 +1,18 @@
--# #docregion
-+# #docregion , additions
+@@ -1,13 +1,18 @@
  name: angular_tour_of_heroes
-+# #enddocregion additions
  description: Tour of Heroes
  version: 0.0.1
  environment:
    sdk: '>=1.24.0 <2.0.0'
 -
-+  # #docregion additions
  dependencies:
    angular: ^4.0.0
    angular_forms: ^1.0.0
@@ -83,7 +79,7 @@ Update package dependencies by adding the Dart [http][] and
 +  stream_transform: ^0.0.6
 ```
 
-<?code-excerpt path-base="toh-6"?>
+<?code-excerpt path-base="examples/ng/doc/toh-6"?>
 
 ## Register for HTTP services
 

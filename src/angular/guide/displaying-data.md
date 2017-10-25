@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/user-input
 ---
 <!-- FilePath: src/angular/guide/displaying-data.md -->
-<?code-excerpt path-base="displaying-data"?>
+<?code-excerpt path-base="examples/ng/doc/displaying-data"?>
 
 You can display data by binding controls in an HTML template to properties of an Angular component.
 

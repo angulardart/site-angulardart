@@ -27,14 +27,14 @@ class MockHeroService implements HeroService {
 
 /////////////////////////////////////
 dynamic runTests() {
-  //#docregion spec
+  // #docregion spec
   var expectedHeroes = [new Hero(0, 'A'), new Hero(1, 'B')];
   var mockService = new MockHeroService(expectedHeroes);
   it('should have heroes when HeroListComponent created', () {
     var hlc = new HeroListComponent(mockService);
     expect(hlc.heroes.length).toEqual(expectedHeroes.length);
   });
-  //#enddocregion spec
+  // #enddocregion spec
   return testResults;
 }
 //////////////////////////////////

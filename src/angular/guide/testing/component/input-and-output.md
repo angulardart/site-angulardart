@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: Routing Components"
   url: /angular/guide/testing/component/routing-components
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 This section describes how to test components with [@Input(), and @Output()
@@ -216,7 +218,7 @@ and the output test awaits for the updated font size to appear on the
 
 Here is the full test file along with other relevant files and excerpts:
 
-<?code-excerpt path-base="template-syntax"?>
+<?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 
 <code-tabs>
   <?code-pane "test/sizer_test.dart (full)" region=""?>
