@@ -7,7 +7,7 @@ import 'spy_directive.dart';
   selector: 'my-counter',
   template: '''
     <div class="counter">
-      Counter = {{counter}}
+      Counter={{counter}}
 
       <h5>-- Counter Change Log --</h5>
       <div *ngFor="let chg of changeLog" mySpy>{{chg}}</div>

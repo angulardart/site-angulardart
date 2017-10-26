@@ -1,4 +1,4 @@
-'use strict'; // necessary for es6 output in node 
+'use strict'; // necessary for es6 output in node
 
 import { protractor, browser, element, by, ElementFinder } from 'protractor';
 
@@ -88,13 +88,11 @@ function getPageElts() {
 
 async function heroFromDetail(detail: ElementFinder): Promise<Hero> {
   // Get hero id from the first <div>
-  // let _id = await detail.all(by.css('div')).first().getText();
   let _id = await detail.all(by.css('div')).first().getText();
   // Get name from the h2
-  // let _name = await detail.element(by.css('h4')).getText();
   let _name = await detail.element(by.css('h4')).getText();
   return {
-    id: +_id.substr(_id.indexOf(' ') + 1),
+    id: +_id.substr(_id.indexOf(':') + 1),
     name: _name.substr(0, _name.lastIndexOf(' '))
   };
 }

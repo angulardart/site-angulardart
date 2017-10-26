@@ -11,7 +11,7 @@ import 'peek_a_boo_component.dart';
       <h2>Peek-A-Boo</h2>
 
       <button (click)="toggleChild()">
-        {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent
+        {{hasChild ? 'Destroy ' : 'Create '}}PeekABooComponent
       </button>
       <button (click)="updateHero()" [hidden]="!hasChild">Update Hero</button>
 

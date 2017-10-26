@@ -164,14 +164,14 @@ describe('Lifecycle hooks', function () {
     let resetCounterButtonEle = element(by.cssContainingText('counter-parent button', 'Reset'));
     let textEle = element(by.css('counter-parent my-counter > div'));
     let logEles = element.all(by.css('counter-parent h4 ~ div'));
-    expect(textEle.getText()).toContain('Counter = 0');
+    expect(textEle.getText()).toContain('Counter=0');
     expect(logEles.count()).toBe(2, 'should start with two log entries');
     updateCounterButtonEle.click().then(function() {
-      expect(textEle.getText()).toContain('Counter = 1');
+      expect(textEle.getText()).toContain('Counter=1');
       expect(logEles.count()).toBe(3, 'should now have 3 log entries');
       return resetCounterButtonEle.click();
     }).then(function() {
-      expect(textEle.getText()).toContain('Counter = 0');
+      expect(textEle.getText()).toContain('Counter=0');
       expect(logEles.count()).toBe(7, 'should now have 7 log entries - 3 prev + 1 reset + 2 destroy + 1 init');
     });
   });

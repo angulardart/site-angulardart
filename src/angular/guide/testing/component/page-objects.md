@@ -167,7 +167,7 @@ you might define the PO `heroId` and `heroName` fields like this:
     PageLoaderElement _heroName; // e.g. 'Mr Freeze details!'
     /* ··· */
     Future<int> get heroId async {
-      final idAsString = (await _id.visibleText).split(' ')[1];
+      final idAsString = (await _id.visibleText).split(':')[1];
       return int.parse(idAsString, onError: (_) => -1);
     }
 
