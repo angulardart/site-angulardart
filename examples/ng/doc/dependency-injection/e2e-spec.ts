@@ -118,7 +118,7 @@ describe('Dependency Injection Tests', function () {
     });
 
     it('P9 (OpaqueToken) displays as expected', function () {
-      expectedMsg = 'APP_CONFIG Application title is Dependency Injection';
+      expectedMsg = 'AppConfig Application title is Dependency Injection';
       expect(element(by.css('#p9')).getText()).toEqual(expectedMsg);
     });
 
