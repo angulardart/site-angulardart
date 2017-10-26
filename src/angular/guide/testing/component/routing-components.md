@@ -10,6 +10,8 @@ nextpage:
   title: End-to-end Testing
   url: /angular/guide/testing/e2e
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 This page describes how to test routing components using real or mock routers.

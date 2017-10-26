@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: @Input() and @Output()"
   url: /angular/guide/testing/component/input-and-output
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 Components make use of services to accomplish tasks such as accessing and

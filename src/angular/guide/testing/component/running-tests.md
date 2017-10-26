@@ -11,12 +11,14 @@ nextpage:
   url: /angular/guide/testing/component/basics
 toc: false
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 Whether you've just started the [tutorial](/angular/tutorial), or
 finished the [Get Started](/guides/get-started) page,
 you are ready to run your first tests!
-If you haven't worked through these projects recently, don't worry. 
+If you haven't worked through these projects recently, don't worry.
 You can follow along by first setting up the
 tutorial's [Starter App](/angular/tutorial/toh-pt0).
 

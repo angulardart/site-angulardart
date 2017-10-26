@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: Page Objects"
   url: /angular/guide/testing/component/page-objects
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 Ready to write tests for your own project? This page explains how to setup your

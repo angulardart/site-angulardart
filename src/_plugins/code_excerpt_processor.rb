@@ -159,7 +159,7 @@ module NgCodeExcerpt
         args[''] = match[1]
         path = args['path'] = match[2]
         args['ext'] = File.extname(path)&.sub(/^\./,'')
-        args['region'] = match[4]&.gsub(/[^\w]+/, '-')
+        args['region'] = match[4]&.gsub(/[^\w]+/, '-') || ''
       end
 
       # Process remaining args
@@ -173,7 +173,10 @@ module NgCodeExcerpt
 
     def processCodePane(pi, attrs, args)
       title = args['title'] || trimFileVers(args[''])
-      escapedCode = getCodeFrag(fullFragPath(args['path'], args['region']))
+      escapedCode = getCodeFrag(
+        fullFragPath(args['path'], args['region']),
+        srcPath(args['path'], args['region']),
+        args['region'])
       result =
       "#{pi}\n" +
       "<code-pane name=\"#{title}\" #{attrs}>" +
@@ -193,12 +196,16 @@ module NgCodeExcerpt
       # puts ">> path base set to #{@pathBase}"
     end
 
-    def getCodeFrag(path)
-      if File.exists? path
-        lines = File.readlines path
+    def getCodeFrag(fragPath, srcPath, region)
+      if File.exists? fragPath
+        lines = File.readlines fragPath
+        result = escapeAndTrimCode(lines)
+      elsif srcPath && (File.exists? srcPath)
+        lines = File.readlines srcPath
         result = escapeAndTrimCode(lines)
       else
-        result = "BAD FILENAME: #{path}"
+        result = "BAD FILENAME: #{fragPath}"
+        result += " (#{srcPath})" if region == ''
         logPuts result
       end
       return result
@@ -214,6 +221,10 @@ module NgCodeExcerpt
       end
       fragExtension = '.txt'
       fullPath = File.join(Dir.pwd, 'tmp', '_fragments', fragRelPath + fragExtension)
+    end
+
+    def srcPath(projRelPath, region)
+      region == '' ? File.join(@pathBase, projRelPath) : nil
     end
 
     def escapeAndTrimCode(lines)

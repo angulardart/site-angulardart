@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: Services"
   url: /angular/guide/testing/component/services
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 ## Click

@@ -11,6 +11,8 @@ nextpage:
   url: /angular/guide/testing/component/simulating-user-action
 pageloaderObjectsApi: https://www.dartdocs.org/documentation/pageloader/latest/pageloader.objects
 ---
+<?code-excerpt path-base="examples/ng/doc"?>
+
 {% include_relative _page-top-toc.md %}
 
 As components and their templates become more complex, you'll want to
