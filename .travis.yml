@@ -3,10 +3,12 @@ sudo: required
 language: node_js
 node_js: 6
 
-# cache:
-#   bundler: true
-#   directories:
-#   - $HOME/[path]
+cache:
+  bundler: true
+  directories:
+  - $HOME/.pub-cache
+  - $HOME/.nvm
+  - node_modules
 
 env:
   global:
