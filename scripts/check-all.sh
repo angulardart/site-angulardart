@@ -22,3 +22,7 @@ if [[ -e code-excerpt-log.txt ]]; then
   (set -x; grep 'BAD FILENAME' code-excerpt-log.txt && exit 1)
 fi
 travis_fold end check_for_bad_filenames
+
+travis_fold start check_for_numbered_files_in_html
+(set -x; ./scripts/check-for-numbered-files-in-html.sh)
+travis_fold end check_for_numbered_files_in_html

@@ -10,8 +10,11 @@ module NgCodeExcerpt
 
   class MarkdownProcessor
 
+    @@logFileName = 'code-excerpt-log.txt'
     @@logDiffs = false
-    @@logEntryCount = 0;
+    @@logEntryCount = 0
+
+    File.delete(@@logFileName) if File.exists?(@@logFileName)
 
     def codeExcerptRE
       /^(\s*(<\?(code-\w+)[^>]*>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
@@ -177,12 +180,18 @@ module NgCodeExcerpt
         fullFragPath(args['path'], args['region']),
         srcPath(args['path'], args['region']),
         args['region'])
+      # args['replace'] syntax: /regex/replacement/g
+      # Replacement and 'g' are currently mandatory (but not checked)
+      if args['replace']
+        _, re, replacement, g = args['replace'].split '/'
+        escapedCode.gsub!(Regexp.new(re), replacement)
+      end
       result =
       "#{pi}\n" +
       "<code-pane name=\"#{title}\" #{attrs}>" +
         escapedCode +
       "</code-pane>\n"
-      # puts ">> code-pane:\n#{result}\n"
+      # logPuts ">> code-pane:\n#{result}\n"
       return result
     end
 
@@ -236,7 +245,7 @@ module NgCodeExcerpt
     def logPuts(s)
       puts(s)
       fileMode = (@@logEntryCount += 1) <= 1 ? 'w' : 'a'
-      File.open('code-excerpt-log.txt', fileMode) do |logFile| logFile.puts(s) end
+      File.open(@@logFileName, fileMode) do |logFile| logFile.puts(s) end
     end
 
     def trimFileVers(s)
