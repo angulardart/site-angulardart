@@ -74,4 +74,14 @@ module.exports = function (gulp, plugins, config) {
     return promise;
   }
 
+  const wwwwRepoPath = '../site-www';
+  const _wwwShredOptions = {
+    examplesDir: path.join(wwwwRepoPath, 'examples'),
+    fragmentsDir: path.join(wwwwRepoPath, config.frags.path),
+    logLevel: config._logLevel
+  };
+
+  gulp.task('_clean-www-frags', () => plugins.delFv(_wwwShredOptions.fragmentsDir));
+  gulp.task('create-www-fragments', ['_clean-www-frags'], () => shred(_wwwShredOptions));
+
 };
