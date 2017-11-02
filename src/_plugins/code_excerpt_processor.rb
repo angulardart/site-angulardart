@@ -57,11 +57,7 @@ module NgCodeExcerpt
       # because we're rendering the code block as HTML.
       escapedCode = CGI::escapeHTML(code)
 
-      # Handle highlighting
-      escapedCode.gsub!(/\[!/, '<span class="highlight">')
-      escapedCode.gsub!(/!\]/, '</span>')
-
-      return codeExcerpt(title, classes, attrs, escapedCode, indent)
+      return codeExcerpt(title, classes, attrs, _processHighlightMarkers(escapedCode), indent)
     end
 
     def codeExcerpt(title, classes, attrs, escapedCode, indent)
@@ -77,9 +73,8 @@ module NgCodeExcerpt
         o, e, s = Open3.capture3("diff2html --su hidden -i stdin -o stdout", :stdin_data => unifiedDiffText)
         logPuts e if e.length > 0
       rescue Errno::ENOENT => e
-        puts "** ERROR: diff2html isn't installed or could not be found."
-        puts "** ERROR: To install with NPM run: npm install -g diff2html-cli"
-        return nil
+        raise "** ERROR: diff2html isn't installed or could not be found. " +
+              "To install with NPM run: npm install -g diff2html-cli"
       end
       doc = Nokogiri::HTML(o)
       doc.css('div.d2h-file-header span.d2h-tag').remove
@@ -87,6 +82,11 @@ module NgCodeExcerpt
       _trimDiff(diffHtml, args) if args['from'] || args['to']
       logPuts "Diff output:\n#{diffHtml.to_s[0, [diffHtml.to_s.length, 100].min]}...\n" if @@logDiffs
       return diffHtml.to_s
+    end
+
+    def _processHighlightMarkers(s)
+      s.gsub(/\[!/, '<span class="highlight">')
+       .gsub(/!\]/, '</span>')
     end
 
     def _trimDiff(diffHtml, args)
@@ -145,9 +145,9 @@ module NgCodeExcerpt
 
     def processPiArgs(pi)
       # match = /<\?code-\w+\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\??>/.match(pi)
-      match = /<\?code-\w+\s*([^\?>]*)\s*\??>/.match(pi)
+      match = /<\?code-\w+\s*(.*?)\s*\??>/.match(pi)
       if !match
-          puts "ERROR: improperly formatted instruction: #{pi}"
+          logPuts "ERROR: improperly formatted instruction: #{pi}"
           return nil
       end
 
@@ -184,12 +184,23 @@ module NgCodeExcerpt
       # Replacement and 'g' are currently mandatory (but not checked)
       if args['replace']
         _, re, replacement, g = args['replace'].split '/'
-        escapedCode.gsub!(Regexp.new(re), replacement)
+        escapedCode.gsub!(Regexp.new(re)) {
+          match = Regexp.last_match
+          # TODO: add support for $1, $2, ..., and $$ (escaped $).
+          if /\$(\$|\d)/ =~ replacement
+            raise "plugin support for $$, $1, $2, ... has not been implemented yet"
+          end
+          if replacement.include? '$&'
+            replacement.gsub('$&', match[0])
+          else
+            replacement
+          end
+        }
       end
       result =
       "#{pi}\n" +
       "<code-pane name=\"#{title}\" #{attrs}>" +
-        escapedCode +
+        _processHighlightMarkers(escapedCode) +
       "</code-pane>\n"
       # logPuts ">> code-pane:\n#{result}\n"
       return result

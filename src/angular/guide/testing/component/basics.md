@@ -38,20 +38,15 @@ The `pubspec.yaml` file should also include the `pub_serve` transformer,
 and list test files as Angular `entry_points`.
 Without these changes, `angular_test`-based tests won't run.
 
-{% comment %}
-TODO: add highlights of the key region once highlighting works again:
-https://github.com/dart-lang/site-webdev/issues/374
-{% endcomment %}
-
-<?code-excerpt "toh-0/pubspec.yaml (transformers)" title?>
+<?code-excerpt "toh-0/pubspec.yaml (transformers)" replace="/\S+.*?test.*/[!$&!]/g" title?>
 ```
   transformers:
   - angular:
       entry_points:
       - web/main.dart
-      - test/**_test.dart
-  - test/pub_serve:
-      $include: test/**_test.dart
+      [!- test/**_test.dart!]
+  [!- test/pub_serve:!]
+      [!$include: test/**_test.dart!]
   - dart_to_js_script_rewriter
 ```
 

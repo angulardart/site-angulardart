@@ -28,7 +28,7 @@ Then we'll learn [how to use it](#angular-di) in an Angular app.
 
 Run the <live-example></live-example>.
 
-<div id="why-di"></div>
+<a id="why-di"></a>
 ## Why dependency injection?
 
 Let's start with the following code.
@@ -130,9 +130,7 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
   The _consumer_ of `Car` has the problem. The consumer must update the car creation code to
   something like this:
 
-  {%comment%}var stylePattern = { otl: /(new Car.*$)/gm };{%endcomment%}
-
-  <?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-param)"?>
+  <?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-param)" replace="/new Car.*/[!$&!]/g"?>
   ```
     class Engine2 extends Engine {
       Engine2(cylinders) : super.withCylinders(cylinders);
@@ -140,7 +138,7 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
 
     Car superCar() =>
       // Super car with 12 cylinders and Flintstone tires.
-      new Car(new Engine2(12), new Tires())
+      [!new Car(new Engine2(12), new Tires())!]
       ..description = 'Super';
   ```
 
@@ -153,8 +151,7 @@ of its dependencies.
 We can pass mocks to the constructor that do exactly what we want them to do
 during each test:
 
-{%comment%}- var stylePattern = { otl: /(new Car.*$)/gm };{%endcomment%}
-<?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-mocks)"?>
+<?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-mocks)" replace="/new Car.*/[!$&!]/g"?>
 ```
   class MockEngine extends Engine {
     MockEngine() : super.withCylinders(8);
@@ -166,7 +163,7 @@ during each test:
 
   Car testCar() =>
     // Test car with 8 cylinders and YokoGoodStone tires.
-    new Car(new MockEngine(), new MockTires())
+    [!new Car(new MockEngine(), new MockTires())!]
     ..description = 'Test';
 ```
 
@@ -227,7 +224,7 @@ This is what a **dependency injection framework** is all about.
 Now that we know what dependency injection is and appreciate its benefits,
 let's see how it is implemented in Angular.
 
-<div id="angular-di"></div>
+<a id="angular-di"></a>
 ## Angular dependency injection
 
 Angular ships with its own dependency injection framework. This framework can also be used
@@ -299,7 +296,7 @@ the same mock data as before, but none of its consumers need to know that.
 A service is nothing more than a class in Angular.
 It remains nothing more than a class until we register it with an Angular injector.
 
-<div id="bootstrap"></div>
+<a id="bootstrap"></a>
 ### Configuring the injector
 
 We don't have to create an Angular injector.
@@ -338,8 +335,7 @@ and nowhere else &mdash; the ideal place to register it is in the top-level `Her
 
 Here's a revised `HeroesComponent` that registers the `HeroService`.
 
-{%comment%}var stylePattern = { otl: /(providers:[^,]+),/ };{%endcomment%}
-<?code-excerpt "lib/src/heroes/heroes_component_1.dart (revised)" region="full" title?>
+<?code-excerpt "lib/src/heroes/heroes_component_1.dart (revised)" region="full" replace="/providers:.*/[!$&!]/g" title?>
 ```
   import 'package:angular/angular.dart';
 
@@ -351,7 +347,7 @@ Here's a revised `HeroesComponent` that registers the `HeroService`.
       template: '''
         <h2>Heroes</h2>
         <hero-list></hero-list>''',
-      providers: const [HeroService],
+      [!providers: const [HeroService],!]
       directives: const [HeroListComponent])
   class HeroesComponent {}
 ```
@@ -396,7 +392,7 @@ It's a small change:
   `HeroService` whenever it creates a new `HeroListComponent`.
 </div>
 
-<div id="di-metadata"></div>
+<a id="di-metadata"></a>
 ### Implicit injector creation
 
 When we introduced the idea of an injector above, we showed how to
@@ -506,7 +502,7 @@ identify a class as a target for instantiation by an injector.
   "expression must be a compile-time constant".
 </div>
 
-<div id="logger-service"></div>
+<a id="logger-service"></a>
 ## Creating and registering a logger service
 
 We're injecting a logger into our `HeroService` in two steps:
@@ -559,7 +555,7 @@ create and inject into a new `HeroListComponent`.
 
 The chain of creations started with the `Logger` provider. *Providers* are the subject of our next section.
 
-<div id="providers"></div>
+<a id="providers"></a>
 ## Injector providers
 
 A provider *provides* the concrete, runtime version of a dependency value.
@@ -586,7 +582,7 @@ Any of these approaches might be a good choice under the right circumstances.
 
 What matters is that the injector has a provider to go to when it needs a `Logger`.
 
-<div id="provide"></div>
+<a id="provide"></a>
 ### The *Provider* class
 
 We wrote the `providers` list like this:
@@ -614,7 +610,7 @@ The second is a named parameter, such as `useClass`,
 which we can think of as a *recipe* for creating the dependency value.
 There are many ways to create dependency values ... and many ways to write a recipe.
 
-<div id="class-provider"></div>
+<a id="class-provider"></a>
 ### Alternative class providers
 
 Occasionally we'll ask a different class to provide the service.
@@ -691,15 +687,14 @@ Unfortunately, that's what we get if we try to alias `OldLogger` to `NewLogger` 
 
 The solution: alias with the `useExisting` option.
 
-{%comment%}var stylePattern = { otl: /(useExisting: \w*)/gm };{%endcomment%}
-<?code-excerpt "lib/src/providers_component.dart (providers-6b)"?>
+<?code-excerpt "lib/src/providers_component.dart (providers-6b)" replace="/useExisting: \w+/[!$&!]/g"?>
 ```
   const [NewLogger,
     // Alias OldLogger with reference to NewLogger
-    const Provider(OldLogger, useExisting: NewLogger)]
+    const Provider(OldLogger, [!useExisting: NewLogger!])]
 ```
 
-<div id="value-provider"></div>
+<a id="value-provider"></a>
 ### Value providers
 
 Sometimes it's easier to provide a ready-made object rather than ask the injector to create it from a class.
@@ -716,11 +711,6 @@ Sometimes it's easier to provide a ready-made object rather than ask the injecto
 
   Create a constant instance of the class by using `const` instead of `new`.
 </div>
-
-{%comment%}
-- var stylePattern = { otl: /(useValue.*\))/gm };
-+makeExample('dependency-injection/dart/lib/providers_component.dart','providers-9','', stylePattern)(format='.')
-{%endcomment%}
 
 <?code-excerpt "lib/src/providers_component.dart (silent-logger)"?>
 ```
@@ -740,17 +730,16 @@ Sometimes it's easier to provide a ready-made object rather than ask the injecto
 Then we register a provider with the `useValue` option,
 which makes this object play the logger role.
 
-{%comment%}- var stylePattern = { otl: /(useValue: \w*)/gm };{%endcomment%}
-<?code-excerpt "lib/src/providers_component.dart (providers-7)"?>
+<?code-excerpt "lib/src/providers_component.dart (providers-7)" replace="/useValue: \w+/[!$&!]/g"?>
 ```
-  const [const Provider(Logger, useValue: silentLogger)]
+  const [const Provider(Logger, [!useValue: silentLogger!])]
 ```
 
 See more `useValue` examples in the
 [Non-class dependencies](#non-class-dependencies) and
 [OpaqueToken](#opaquetoken) sections.
 
-<div id="factory-provider"></div>
+<a id="factory-provider"></a>
 ### Factory providers
 
 Sometimes we need to create the dependent value dynamically,
@@ -835,13 +824,12 @@ In our sample, we need it only in the `HeroesComponent`,
 where it replaces the previous `HeroService` registration in the metadata `providers` list.
 Here we see the new and the old implementation side-by-side:
 
-{%comment%}var stylePattern = { otl: /(providers.*),$/gm };{%endcomment%}
 <code-tabs>
-  <?code-pane "lib/src/heroes/heroes_component.dart (v3)" region=""?>
-  <?code-pane "lib/src/heroes/heroes_component_1.dart (v2)" region="full"?>
+  <?code-pane "lib/src/heroes/heroes_component.dart (v3)" region="" replace="/providers.*/[!$&!]/g"?>
+  <?code-pane "lib/src/heroes/heroes_component_1.dart (v2)" region="full" replace="/providers.*/[!$&!]/g"?>
 </code-tabs>
 
-<div id="token"></div>
+<a id="token"></a>
 ## Dependency injection tokens
 
 When we register a provider with an injector, we associate that provider with a dependency injection token.
@@ -985,7 +973,7 @@ configuration object in our top-level `AppComponent`:
       : title = config.title;
 ```
 
-<div id="optional"></div>
+<a id="optional"></a>
 ## Optional dependencies
 
 Our `HeroService` *requires* a `Logger`, but what if it could get by without
@@ -1016,7 +1004,7 @@ We can learn more about its advanced features, beginning with its support for
 nested injectors, in the
 [Hierarchical Dependency Injection](hierarchical-dependency-injection.html) chapter.
 
-<div id="explicit-injector"></div>
+<a id="explicit-injector"></a>
 ## Appendix: Working with injectors directly
 
 We rarely work directly with an injector, but
