@@ -127,7 +127,7 @@ basic [page object][] setup is sufficient to test for this case:
       expect(fixture.rootElement.text.trim(), '');
       expect(await po.heroFromDetails, isNull);
     });
-    /* ··· */
+    // ···
   });
 ```
 
@@ -140,7 +140,7 @@ named parameter `beforeChangeDetection` of the `NgTestBed.create()` method:
 <?code-excerpt "toh-3/test/hero_detail_test.dart (initial hero)" title?>
 ```
   group('${targetHero['name']} initial @Input() hero:', () {
-    /* ··· */
+    // ···
     setUp(() async {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
@@ -151,7 +151,7 @@ named parameter `beforeChangeDetection` of the `NgTestBed.create()` method:
     test('show hero details', () async {
       expect(await po.heroFromDetails, targetHero);
     });
-    /* ··· */
+    // ···
   });
 ```
 
@@ -168,7 +168,7 @@ property was [explicitly initialized](#input-initialized):
       fixture = await testBed.create();
       po = await fixture.resolvePageObject(HeroDetailPO);
     });
-    /* ··· */
+    // ···
 
     test('transition to ${targetHero['name']} hero', () async {
       fixture.update((comp) {
@@ -201,7 +201,7 @@ For example, you might test the font [sizer component][], from the
     setUp(() => po.inc());
 
     test('font size is $expectedSize', () async {
-      /* ··· */
+      // ···
     });
 
     test('@Output $expectedSize size event', () async {

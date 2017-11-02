@@ -134,7 +134,7 @@ applied to the router's host component:
 ```
   @Component(
     selector: 'my-app',
-    /* ··· */
+    // ···
   )
   @RouteConfig(const [
     const Route(

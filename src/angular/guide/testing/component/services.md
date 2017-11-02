@@ -28,7 +28,7 @@ The `AppComponent` from [part 4][] of the [tutorial][] declares its need for a
 ```
   @Component(
     selector: 'my-app',
-    /* ··· */
+    // ···
     providers: const [HeroService],
   )
   class AppComponent implements OnInit {
@@ -36,7 +36,7 @@ The `AppComponent` from [part 4][] of the [tutorial][] declares its need for a
     final HeroService _heroService;
 
     AppComponent(this._heroService);
-    /* ··· */
+    // ···
   }
 ```
 
@@ -86,7 +86,7 @@ mock `Router`:
     });
 
     tearDown(disposeAnyRunningTest);
-    /* ··· */
+    // ···
   }
 ```
 

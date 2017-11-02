@@ -157,7 +157,7 @@ function getCommentInfo(extension) {
     case 'dart':
       commentInfo = {
         prefix: '//',
-        plasterPattern: '/* {tag} */'
+        plasterPattern: '// {tag}'
       };
       break;
     case 'html':
@@ -177,13 +177,13 @@ function getCommentInfo(extension) {
     case 'yaml':
       commentInfo = {
         prefix: '#',
-        plasterPattern: '# {tag} '
+        plasterPattern: '# {tag}'
       };
       break;
     case 'jade':
       commentInfo = {
         prefix: '//',
-        plasterPattern: '// {tag} '
+        plasterPattern: '// {tag}'
       };
       break;
     default:

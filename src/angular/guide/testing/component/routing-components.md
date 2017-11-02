@@ -59,7 +59,7 @@ you must add the mock router to the providers list of the `NgTestBed`:
     });
 
     tearDown(disposeAnyRunningTest);
-    /* ··· */
+    // ···
   }
 ```
 
@@ -146,7 +146,7 @@ the real router expects the injector to supply values for:
         HeroService,
       ]);
     final testBed = new NgTestBed<DashboardComponent>().addProviders(providers);
-    /* ··· */
+    // ···
   }
 ```
 
