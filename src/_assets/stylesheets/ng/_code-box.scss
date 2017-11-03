@@ -19,6 +19,16 @@ $codebox-selected: $gray-light;
 * Class
 */
 
+code-example[data-webdev-raw] {
+  @extend pre;
+
+  display: block;
+  line-height: $unit * 3;
+  padding: ($unit * 2) ($unit * 4);
+  margin-bottom: 11px;
+  white-space: pre;
+}
+
 .code-box,
 .code-example {
   background: $codebox-selected;

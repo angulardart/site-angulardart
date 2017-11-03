@@ -114,7 +114,7 @@ module NgCodeExcerpt
     def _unindentedTemplate(title, classes, attrs, escapedCode)
       "<div class=\"code-example #{classes || ''}\">\n" +
         (title ? "<header><h4>#{title}</h4></header>\n" : '') +
-        "<code-example #{attrs}>" +
+        "<code-example data-webdev-raw #{attrs}>" +
           escapedCode +
         "</code-example>\n" +
       "</div>\n"

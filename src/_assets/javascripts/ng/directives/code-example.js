@@ -23,6 +23,7 @@ angularIO.directive('codeExample', function() {
 
       // UPDATE ELEMENT WITH NEW TEMPLATE
       tElement.html(template);
+      tElement.removeAttr('data-webdev-raw');
 
       // RETURN ELEMENT
       return function(scope, element, attrs) {};
