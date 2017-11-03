@@ -92,8 +92,8 @@ In the following test excerpt:
 
 <a id="heroes-go-to-detail-test"></a>
 <code-tabs>
-  <?code-pane "toh-5/test/heroes.dart (go-to detail)"?>
-  <?code-pane "toh-5/test/heroes_po.dart"?>
+  <?code-pane "toh-5/test/heroes.dart (go-to detail)" linenums?>
+  <?code-pane "toh-5/test/heroes_po.dart" linenums?>
 </code-tabs>
 
 Tests written using a mock router, embody significant detail concerning the

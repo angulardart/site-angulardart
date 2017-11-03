@@ -81,12 +81,12 @@ Interpolation binding is one of many Angular features you'll discover in this do
 The app contains the following core files:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "test/app_test.dart"?>
-  <?code-pane "web/main.dart"?>
-  <?code-pane "web/index.html"?>
-  <?code-pane "../_boilerplate/styles.css (quickstart)" title="web/styles.css (excerpt)"?>
-  <?code-pane "pubspec.yaml"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "test/app_test.dart" linenums?>
+  <?code-pane "web/main.dart" linenums?>
+  <?code-pane "web/index.html" linenums?>
+  <?code-pane "../_boilerplate/styles.css (quickstart)" title="web/styles.css (excerpt)" linenums?>
+  <?code-pane "pubspec.yaml" linenums?>
 </code-tabs>
 
 These files are organized as follows:

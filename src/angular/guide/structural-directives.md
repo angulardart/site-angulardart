@@ -722,12 +722,12 @@ You can both try and download the source code for this guide in the <live-exampl
 Here is the source under the `lib` folder.
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/app_component.html"?>
-  <?code-pane "lib/app_component.css"?>
-  <?code-pane "lib/src/hero.dart"?>
-  <?code-pane "lib/src/hero_switch_components.dart"?>
-  <?code-pane "lib/src/unless_directive.dart"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/app_component.html" linenums?>
+  <?code-pane "lib/app_component.css" linenums?>
+  <?code-pane "lib/src/hero.dart" linenums?>
+  <?code-pane "lib/src/hero_switch_components.dart" linenums?>
+  <?code-pane "lib/src/unless_directive.dart" linenums?>
 </code-tabs>
 
 You learned

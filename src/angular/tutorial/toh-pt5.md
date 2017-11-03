@@ -961,8 +961,8 @@ Create a `dashboard_component.css` file in the `lib/src` folder and reference
 that file in the component metadata's `styleUrls` list property like this:
 
 <code-tabs>
-  <?code-pane "lib/src/dashboard_component.dart (styleUrls)" region="metadata"?>
-  <?code-pane "lib/src/dashboard_component.css"?>
+  <?code-pane "lib/src/dashboard_component.dart (styleUrls)" region="metadata" linenums?>
+  <?code-pane "lib/src/dashboard_component.css" linenums?>
 </code-tabs>
 
 
@@ -972,8 +972,8 @@ Create a `hero_detail_component.css` file in the `lib/src`
 folder and reference that file in the component metadata’s `styleUrls` list:
 
 <code-tabs>
-  <?code-pane "lib/src/hero_detail_component.dart (styleUrls)" region="metadata"?>
-  <?code-pane "lib/src/hero_detail_component.css"?>
+  <?code-pane "lib/src/hero_detail_component.dart (styleUrls)" region="metadata" linenums?>
+  <?code-pane "lib/src/hero_detail_component.css" linenums?>
 </code-tabs>
 
 ### Style the navigation links
@@ -982,8 +982,8 @@ Create an `app_component.css` file in the `lib` folder
 and reference that file in the component metadata’s `styleUrls` list:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart (styleUrls)"?>
-  <?code-pane "lib/app_component.css"?>
+  <?code-pane "lib/app_component.dart (styleUrls)" linenums?>
+  <?code-pane "lib/app_component.css" linenums?>
 </code-tabs>
 
 The provided CSS makes the navigation links in the `AppComponent` look more like selectable buttons.

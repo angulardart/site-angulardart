@@ -304,9 +304,9 @@ Verify that you have the following structure:
 Here are the code files discussed in this page.
 
 <code-tabs>
-  <?code-pane "lib/src/hero_detail_component.dart"?>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/app_component.html"?>
+  <?code-pane "lib/src/hero_detail_component.dart" linenums?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/app_component.html" linenums?>
 </code-tabs>
 
 ## The road you’ve travelled

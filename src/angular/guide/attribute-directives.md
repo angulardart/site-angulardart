@@ -466,11 +466,11 @@ This page covered how to:
 The final source code follows:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/app_component.html"?>
-  <?code-pane "lib/src/highlight_directive.dart"?>
-  <?code-pane "web/main.dart"?>
-  <?code-pane "web/index.html"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/app_component.html" linenums?>
+  <?code-pane "lib/src/highlight_directive.dart" linenums?>
+  <?code-pane "web/main.dart" linenums?>
+  <?code-pane "web/index.html" linenums?>
 </code-tabs>
 
 You can also experience and download the <live-example title="Attribute Directive example"></live-example>.

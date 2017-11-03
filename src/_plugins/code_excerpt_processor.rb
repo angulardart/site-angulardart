@@ -32,7 +32,7 @@ module NgCodeExcerpt
       optionalCodeBlock = match[4]
       indent = match[5]
       lang = !match[6] || match[6].empty? ? (args['ext'] || 'nocode') : match[6]
-      attrs = mkCodeExampleDirectiveAttributes(lang, args['linenums'] || piName == 'code-pane')
+      attrs = mkCodeExampleDirectiveAttributes(lang, args['linenums'])
 
       if piName == 'code-pane'
         return processCodePane(pi, attrs, args)

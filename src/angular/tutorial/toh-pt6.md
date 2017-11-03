@@ -887,27 +887,27 @@ You're at the end of your journey, and you've accomplished a lot.
 Here are the files you added or changed in this page.
 
 <code-tabs>
-  <?code-pane "lib/src/dashboard_component.dart"?>
-  <?code-pane "lib/src/dashboard_component.html"?>
-  <?code-pane "lib/src/hero.dart"?>
-  <?code-pane "lib/src/hero_detail_component.dart"?>
-  <?code-pane "lib/src/hero_detail_component.html"?>
-  <?code-pane "lib/src/hero_service.dart"?>
-  <?code-pane "lib/src/heroes_component.css"?>
-  <?code-pane "lib/src/heroes_component.dart"?>
-  <?code-pane "lib/in_memory_data_service.dart"?>
+  <?code-pane "lib/src/dashboard_component.dart" linenums?>
+  <?code-pane "lib/src/dashboard_component.html" linenums?>
+  <?code-pane "lib/src/hero.dart" linenums?>
+  <?code-pane "lib/src/hero_detail_component.dart" linenums?>
+  <?code-pane "lib/src/hero_detail_component.html" linenums?>
+  <?code-pane "lib/src/hero_service.dart" linenums?>
+  <?code-pane "lib/src/heroes_component.css" linenums?>
+  <?code-pane "lib/src/heroes_component.dart" linenums?>
+  <?code-pane "lib/in_memory_data_service.dart" linenums?>
 </code-tabs>
 
 <code-tabs>
-  <?code-pane "lib/src/hero_search_component.css"?>
-  <?code-pane "lib/src/hero_search_component.dart"?>
-  <?code-pane "lib/src/hero_search_component.html"?>
-  <?code-pane "lib/src/hero_search_service.dart"?>
+  <?code-pane "lib/src/hero_search_component.css" linenums?>
+  <?code-pane "lib/src/hero_search_component.dart" linenums?>
+  <?code-pane "lib/src/hero_search_component.html" linenums?>
+  <?code-pane "lib/src/hero_search_service.dart" linenums?>
 </code-tabs>
 
 <code-tabs>
-  <?code-pane "pubspec.yaml"?>
-  <?code-pane "web/main.dart"?>
+  <?code-pane "pubspec.yaml" linenums?>
+  <?code-pane "web/main.dart" linenums?>
 </code-tabs>
 
 ## Next step

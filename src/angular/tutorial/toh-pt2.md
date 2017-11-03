@@ -253,8 +253,8 @@ Instead, place the styles in a `.css` file, and refer to the file using the
 component's CSS and Dart files have the same base (`app_component`).
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart (styleUrls)"?>
-  <?code-pane "lib/app_component.css"?>
+  <?code-pane "lib/app_component.dart (styleUrls)" linenums?>
+  <?code-pane "lib/app_component.css" linenums?>
 </code-tabs>
 
 When you assign styles to a component, they are scoped to that specific component.
@@ -466,11 +466,11 @@ Your project should have the following files:
 Here are the files discussed in this page:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/app_component.html"?>
-  <?code-pane "lib/app_component.css"?>
-  <?code-pane "lib/src/hero.dart"?>
-  <?code-pane "lib/src/mock_heroes.dart"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/app_component.html" linenums?>
+  <?code-pane "lib/app_component.css" linenums?>
+  <?code-pane "lib/src/hero.dart" linenums?>
+  <?code-pane "lib/src/mock_heroes.dart" linenums?>
 </code-tabs>
 
 ## The road you've travelled

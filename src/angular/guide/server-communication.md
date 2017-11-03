@@ -621,8 +621,8 @@ with the help of some nifty Observable operators.
 Here's the `WikiSmartComponent`, shown next to the original `WikiComponent`:
 
 <code-tabs>
-  <?code-pane "lib/src/wiki/wiki_smart_component.dart"?>
-  <?code-pane "lib/src/wiki_component.dart"?>
+  <?code-pane "lib/src/wiki/wiki_smart_component.dart" linenums?>
+  <?code-pane "lib/src/wiki_component.dart" linenums?>
 </code-tabs>
 
 While the templates are virtually identical,

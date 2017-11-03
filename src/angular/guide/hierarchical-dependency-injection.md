@@ -315,8 +315,8 @@ its injector produces an instance of `Car` resolved by injector (C) with an `Eng
 Here is the code for this _cars_ scenario:
 
 <code-tabs>
-  <?code-pane "lib/src/car_components.dart"?>
-  <?code-pane "lib/src/car_services.dart"?>
+  <?code-pane "lib/src/car_components.dart" linenums?>
+  <?code-pane "lib/src/car_services.dart" linenums?>
 </code-tabs>
 
 {% comment %}

@@ -97,8 +97,8 @@ How can we make `Car` more robust, flexible, and testable?
 That's super easy. We change our `Car` constructor to a version with DI:
 
 <code-tabs>
-  <?code-pane "lib/src/car/car.dart (excerpt with DI)" region="car-ctor"?>
-  <?code-pane "lib/src/car/car_no_di.dart (excerpt without DI)" region="car-ctor"?>
+  <?code-pane "lib/src/car/car.dart (excerpt with DI)" region="car-ctor" linenums?>
+  <?code-pane "lib/src/car/car_no_di.dart (excerpt without DI)" region="car-ctor" linenums?>
 </code-tabs>
 
 See what happened? We moved the definition of the dependencies to the constructor.
@@ -237,10 +237,10 @@ We'll begin with a simplified version of the `HeroesComponent`
 that we built in the [The Tour of Heroes](../tutorial/).
 
 <code-tabs>
-  <?code-pane "lib/src/heroes/heroes_component_1.dart" region="v1"?>
-  <?code-pane "lib/src/heroes/hero_list_component_1.dart"?>
-  <?code-pane "lib/src/heroes/hero.dart"?>
-  <?code-pane "lib/src/heroes/mock_heroes.dart"?>
+  <?code-pane "lib/src/heroes/heroes_component_1.dart" region="v1" linenums?>
+  <?code-pane "lib/src/heroes/hero_list_component_1.dart" linenums?>
+  <?code-pane "lib/src/heroes/hero.dart" linenums?>
+  <?code-pane "lib/src/heroes/mock_heroes.dart" linenums?>
 </code-tabs>
 
 The `HeroesComponent` is the root component of the *Heroes* feature area.
@@ -367,8 +367,8 @@ constructor, [as we explained earlier](#ctor-injection).
 It's a small change:
 
 <code-tabs>
-  <?code-pane "lib/src/heroes/hero_list_component_2.dart (with DI)" region=""?>
-  <?code-pane "lib/src/heroes/hero_list_component_1.dart (without DI)" region=""?>
+  <?code-pane "lib/src/heroes/hero_list_component_2.dart (with DI)" region="" linenums?>
+  <?code-pane "lib/src/heroes/hero_list_component_1.dart (without DI)" region="" linenums?>
 </code-tabs>
 
 <div class="l-sub-section" markdown="1">
@@ -455,8 +455,8 @@ adding a constructor that takes a `Logger` parameter.
 Here is the revision compared to the original.
 
 <code-tabs>
-  <?code-pane "lib/src/heroes/hero_service_2.dart (v2)" region=""?>
-  <?code-pane "lib/src/heroes/hero_service_1.dart (v1)" region=""?>
+  <?code-pane "lib/src/heroes/hero_service_2.dart (v2)" region="" linenums?>
+  <?code-pane "lib/src/heroes/hero_service_1.dart (v1)" region="" linenums?>
 </code-tabs>
 
 The constructor now asks for an injected instance of a `Logger` and stores it in a private property called `_logger`.
@@ -825,8 +825,8 @@ where it replaces the previous `HeroService` registration in the metadata `provi
 Here we see the new and the old implementation side-by-side:
 
 <code-tabs>
-  <?code-pane "lib/src/heroes/heroes_component.dart (v3)" region="" replace="/providers.*/[!$&!]/g"?>
-  <?code-pane "lib/src/heroes/heroes_component_1.dart (v2)" region="full" replace="/providers.*/[!$&!]/g"?>
+  <?code-pane "lib/src/heroes/heroes_component.dart (v3)" region="" replace="/providers.*/[!$&!]/g" linenums?>
+  <?code-pane "lib/src/heroes/heroes_component_1.dart (v2)" region="full" replace="/providers.*/[!$&!]/g" linenums?>
 </code-tabs>
 
 <a id="token"></a>

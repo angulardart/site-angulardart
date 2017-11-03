@@ -456,8 +456,8 @@ A flip of the switch turns the `FlyingHeroesPipe` into a `FlyingHeroesImpurePipe
 The complete implementation is as follows:
 
 <code-tabs>
-  <?code-pane "lib/src/flying_heroes_pipe.dart (impure)"?>
-  <?code-pane "lib/src/flying_heroes_pipe.dart (pure)"?>
+  <?code-pane "lib/src/flying_heroes_pipe.dart (impure)" linenums?>
+  <?code-pane "lib/src/flying_heroes_pipe.dart (pure)" linenums?>
 </code-tabs>
 
 You inherit from `FlyingHeroesPipe` to prove the point that nothing changed internally.

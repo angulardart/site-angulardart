@@ -371,8 +371,8 @@ Verify that you have the following structure after all of your refactoring:
 Here are the code files discussed in this page.
 
 <code-tabs>
-  <?code-pane "lib/src/hero_service.dart"?>
-  <?code-pane "lib/app_component.dart"?>
+  <?code-pane "lib/src/hero_service.dart" linenums?>
+  <?code-pane "lib/app_component.dart" linenums?>
 </code-tabs>
 
 ## The road you've travelled

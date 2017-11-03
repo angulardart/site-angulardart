@@ -221,10 +221,10 @@ Here is the full test file along with other relevant files and excerpts:
 <?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 
 <code-tabs>
-  <?code-pane "test/sizer_test.dart (full)" region=""?>
-  <?code-pane "test/sizer_po.dart"?>
-  <?code-pane "lib/src/sizer_component.dart"?>
-  <?code-pane "lib/app_component.html (template excerpt)" region="two-way-1"?>
+  <?code-pane "test/sizer_test.dart (full)" region="" linenums?>
+  <?code-pane "test/sizer_po.dart" linenums?>
+  <?code-pane "lib/src/sizer_component.dart" linenums?>
+  <?code-pane "lib/app_component.html (template excerpt)" region="two-way-1" linenums?>
 </code-tabs>
 
 [custom events]: /angular/guide/template-syntax#custom-events

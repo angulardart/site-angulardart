@@ -841,12 +841,12 @@ The final project folder structure should look like this:
 Here’s the code for the final version of the app:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/src/hero.dart"?>
-  <?code-pane "lib/src/hero_form_component.dart" region="final"?>
-  <?code-pane "lib/src/hero_form_component.html"?>
-  <?code-pane "web/index.html"?>
-  <?code-pane "web/main.dart"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/src/hero.dart" linenums?>
+  <?code-pane "lib/src/hero_form_component.dart" region="final" linenums?>
+  <?code-pane "lib/src/hero_form_component.html" linenums?>
+  <?code-pane "web/index.html" linenums?>
+  <?code-pane "web/main.dart" linenums?>
 </code-tabs>
 
 [angular_forms]: /api/angular_forms/angular_forms/angular_forms-library

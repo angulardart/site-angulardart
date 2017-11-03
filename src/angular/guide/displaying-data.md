@@ -324,11 +324,11 @@ Now you know how to use:
 Here's the final code:
 
 <code-tabs>
-  <?code-pane "lib/app_component.dart"?>
-  <?code-pane "lib/src/hero.dart"?>
-  <?code-pane "web/main.dart" region="final"?>
-  <?code-pane "web/index.html"?>
-  <?code-pane "pubspec.yaml"?>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/src/hero.dart" linenums?>
+  <?code-pane "web/main.dart" region="final" linenums?>
+  <?code-pane "web/index.html" linenums?>
+  <?code-pane "pubspec.yaml" linenums?>
 </code-tabs>
 
 [Iterable]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Iterable-class.html

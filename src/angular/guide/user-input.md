@@ -356,10 +356,10 @@ There should be a better third way. And there is, as we'll see when we learn abo
 Here is all the code we talked about in this chapter.
 
 <code-tabs>
-  <?code-pane "lib/src/click_me_component.dart"?>
-  <?code-pane "lib/src/keyup_components.dart"?>
-  <?code-pane "lib/src/loop_back_component.dart"?>
-  <?code-pane "lib/src/little_tour_component.dart"?>
+  <?code-pane "lib/src/click_me_component.dart" linenums?>
+  <?code-pane "lib/src/keyup_components.dart" linenums?>
+  <?code-pane "lib/src/loop_back_component.dart" linenums?>
+  <?code-pane "lib/src/little_tour_component.dart" linenums?>
 </code-tabs>
 
 ## Summary
