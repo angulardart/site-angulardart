@@ -2,6 +2,8 @@
   "projects": {
     "default": "webdev-dartlang-org",
     "dev": "webdev-dartlang-org-dev",
+    "auto-staging-0": "webdev-dartlang-org-staging-0",
+    "auto-staging-1": "webdev-dartlang-org-staging-1",
     "staging": "angulardart-org-dev",
     "staging2": "angulardart-org-dev2",
     "staging3": "angulardart-org-dev3",

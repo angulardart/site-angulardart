@@ -58,6 +58,7 @@ script:
 
 after_script:
   - ./scripts/check-all.sh || travis_terminate 1
+  - ./scripts/deploy/pr.sh || travis_terminate 1
 
 # branch whitelist
 # branches:
