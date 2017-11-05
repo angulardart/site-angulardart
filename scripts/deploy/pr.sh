@@ -8,7 +8,7 @@ fi
 
 AUTO_STAGING_FB_PROJ_ID="$(($TRAVIS_JOB_ID % 2))"
 
-if [[ $TRAVIS_REPO_SLUG == dart-lang** && \
+if [[ $TRAVIS_REPO_SLUG == dart-lang* && \
       $CI_TASK == build* && \
       $TRAVIS_PULL_REQUEST != false ]];
 then

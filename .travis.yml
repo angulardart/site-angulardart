@@ -68,14 +68,14 @@ after_script:
 
 deploy:
   - provider: script
-    script: ./scripts/deploy/firebase.sh
+    script: ./scripts/deploy/firebase.sh --robots-ok
     skip_cleanup: true
     on:
       repo: dart-lang/site-webdev
       branch: master
       condition: $CI_TASK == build*
   - provider: script
-    script: ./scripts/deploy/firebase.sh dev
+    script: ./scripts/deploy/firebase.sh --robots-ok dev
     skip_cleanup: true
     on:
       repo: dart-lang/site-webdev
