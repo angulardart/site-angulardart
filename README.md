@@ -8,7 +8,8 @@ www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https:
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
-For very simple changes, you probably don't need to build this site. But if you want/need to build, here's how.
+For simple changes (such as to CSS and text), you probably don't need to build this site.
+But if you want/need to build, here's how.
 
 ## Before you build this site
 
