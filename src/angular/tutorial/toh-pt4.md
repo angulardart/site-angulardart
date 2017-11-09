@@ -412,7 +412,7 @@ seconds before completing.
 Back in the `AppComponent`, replace `getHeroes()` with `getHeroesSlowly()`
 and see how the app behaves.
 
-[dart:async]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
-[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html
+[dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
+[Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
 [Injectable]: /api/angular/angular/Injectable-class
 [OnInit]: /api/angular/angular/OnInit-class

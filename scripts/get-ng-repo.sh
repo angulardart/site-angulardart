@@ -4,7 +4,7 @@ set -e -o pipefail
 
 [[ -z "$NGIO_ENV_DEFS" ]] && . ./scripts/env-set.sh
 
-# NG_RELEASE=$(node -p 'require("./src/_data/ng-pkg-vers.json").angular.vers')
+# NG_RELEASE=$(node -p 'require("./src/_data/pkg-vers.json").angular.vers')
 
 if [[ -e "$NG_REPO" ]]; then
   echo Angular repo is already present at: $NG_REPO

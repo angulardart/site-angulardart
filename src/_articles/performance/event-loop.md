@@ -242,13 +242,13 @@ ending an IndexedDB transaction or event handler.
 To schedule a task on the event queue,
 use `new Future()` or `new Future.delayed()`.
 These are two of the
-[Future]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html)
+[Future]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html)
 constructors defined in the dart:async library.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
 You can also use
-[Timer]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Timer-class.html) to schedule tasks,
+[Timer]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Timer-class.html) to schedule tasks,
 but if any uncaught exceptions occur in the task,
 your app will exit.
 Instead, we recommend Future,
@@ -300,7 +300,7 @@ In that case, the delay might be much more than one second.
 If you’re drawing frames for animation in a web app,
 don’t use a Future (or Timer or Stream).
 Instead, use
-[animationFrame]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Window/animationFrame.html),
+[animationFrame]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Window/animationFrame.html),
 which is the Dart interface to
 [requestAnimationFrame](http://www.html5rocks.com/en/tutorials/speed/animations/).
 </aside>
@@ -367,7 +367,7 @@ Isolates might run in a separate process or thread,
 depending on the Dart implementation.
 In 1.0 we don’t expect web apps to support isolates or Dart-language workers.
 However, you can use the
-[dart:html Worker class]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Worker-class.html)
+[dart:html Worker class]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Worker-class.html)
 to add a JavaScript worker to a Dart web app.
 
 How many isolates should you use? For compute-intensive tasks,
@@ -543,7 +543,7 @@ is how you get then() (which itself returns a new Future)
 to _chain_ those two Futures together,
 so that the Future returned by then() completes
 when the Future returned by the callback completes.
-See the [then() reference]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future/then.html)
+See the [then() reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future/then.html)
 for more information.
 
 
@@ -596,7 +596,7 @@ As you write asynchronous code, you might find these resources helpful:
 * [Futures and Error Handling]({{site.dartlang}}/articles/libraries/futures-and-error-handling)
 * [dart:async - Asynchronous Programming]({{site.dartlang}}/guides/language/language-tour#asynchrony-support)
   section of the library tour
-* [dart:async API reference]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/dart-async-library.html)
+* [dart:async API reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html)
 
 {% comment %}
 The tests for this article are at /src/tests/site/articles/event-loop.

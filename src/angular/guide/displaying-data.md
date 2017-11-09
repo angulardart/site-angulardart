@@ -331,4 +331,4 @@ Here's the final code:
   <?code-pane "pubspec.yaml" linenums?>
 </code-tabs>
 
-[Iterable]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Iterable-class.html
+[Iterable]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Iterable-class.html

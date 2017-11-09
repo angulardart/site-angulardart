@@ -20,7 +20,6 @@ dartino:  "https://dartino.org"
 dart_api: "https://api.dartlang.org"
 acx_api: "/api/angular_components"
 flutter_api: "https://docs.flutter.io"
-dartino_api: "https://dartino.github.io/api"
 api: "https://www.dartdocs.org/documentation"
 
 ghNgEx: https://github.com/angular-examples

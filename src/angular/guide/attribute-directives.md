@@ -98,7 +98,7 @@ After the `@Directive` metadata comes the directive's controller class,
 called `HighlightDirective`, which contains the logic for the directive.
 
 Angular creates a new instance of the directive's controller class for
-each matching element, injecting an HTML [Element]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Element-class.html)
+each matching element, injecting an HTML [Element]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Element-class.html)
 into the constructor.
 
 <div id="apply-directive"></div>

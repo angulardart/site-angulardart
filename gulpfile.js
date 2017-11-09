@@ -60,7 +60,7 @@ const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 const source = _configYml.source || _throw();
 
 const ngDocSrc = path.join(source, 'angular');
-const ngPkgVersPath = `./${source}/_data/ng-pkg-vers.json`;
+const ngPkgVersPath = `./${source}/_data/pkg-vers.json`;
 const ngPkgVers = require(ngPkgVersPath);
 const fragsPath = path.join(LOCAL_TMP, '_fragments');
 const qsProjName = 'angular_app';

@@ -679,5 +679,5 @@ and delivers to subscribers only the most recent search results.
 
 See the full source code in the <live-example></live-example>.
 
-[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html
+[Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
 [http]: https://pub.dartlang.org/packages/http

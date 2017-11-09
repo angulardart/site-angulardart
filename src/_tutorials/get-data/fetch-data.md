@@ -29,7 +29,7 @@ Data can be _serialized_ into a JSON string,
 which is then passed between a client and server,
 and revived as an object at its destination.
 This tutorial shows you how to use functions in the
-<a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html"
+<a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html"
    target="_blank" rel="noopener">dart:convert</a>
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
@@ -192,8 +192,8 @@ for working with JSON strings:
 
 | dart:convert function | Description |
 |---|---|
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/JsonCodec/decode.html" target="_blank" rel="noopener">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/JsonCodec/encode.html" target="_blank" rel="noopener">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/decode.html" target="_blank" rel="noopener">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/encode.html" target="_blank" rel="noopener">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
 {: .table}
 
 To use these functions,
@@ -387,9 +387,9 @@ formulating URIs and making HTTP requests:
 
 | Dart code | Library | Description |
 |---|---|
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/Uri-class.html" target="_blank" rel="noopener">Uri</a> | (core library) | An object representing a URI. |
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-io/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Uri-class.html" target="_blank" rel="noopener">Uri</a> | (core library) | An object representing a URI. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-io/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
 {: .table}
 
 ## Using the getString() function to load a file {#using-getString-function}

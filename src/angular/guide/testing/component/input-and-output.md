@@ -230,7 +230,7 @@ Here is the full test file along with other relevant files and excerpts:
 [custom events]: /angular/guide/template-syntax#custom-events
 [page object]: page-objects
 [part 3]: /angular/tutorial/toh-pt3
-[Stream]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Stream-class.html
+[Stream]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Stream-class.html
 [sizer component]: /angular/guide/template-syntax#two-way
 [Two-way binding]: /angular/guide/template-syntax#two-way
 [Template Syntax]: /angular/guide/template-syntax

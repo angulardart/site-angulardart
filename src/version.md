@@ -18,7 +18,7 @@ This site's documentation and examples reflect the software versions in the
     <th>Current</th>
     {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
   </tr>{%
-  for pkgDataPair in site.data.ng-pkg-vers %}{%
+  for pkgDataPair in site.data.pkg-vers %}{%
   assign name = pkgDataPair[0] %}{%
   assign info = pkgDataPair[1] %}
   <tr>

@@ -34,7 +34,7 @@ this codelab doesn't explain
 In this codelab, you’ll take a basic AngularDart app, called Lottery Simulator,
 and use AngularDart Components to simplify the code and beautify the UI.
 You can play with a
-{% assign ng-major-vers = site.data.ng-pkg-vers.angular.vers | regex_replace: '\.[^\.]+\.[^\.]+$' -%}
+{% assign ng-major-vers = site.data.pkg-vers.angular.vers | regex_replace: '\.[^\.]+\.[^\.]+$' -%}
 [live copy of the final app](/examples/lottery/4-final/).
 
 Here are screenshots of the app’s UI, before and after conversion to

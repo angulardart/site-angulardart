@@ -122,7 +122,7 @@ element but keeps safe content such as text and the `<b>` element.
 ### Avoid direct use of the DOM APIs
 
 The built-in browser DOM APIs don't automatically protect you from security vulnerabilities.
-For example, [document]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/document.html), and many third-party APIs
+For example, [document]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/document.html), and many third-party APIs
 contain unsafe methods. Avoid directly interacting with the DOM and instead use Angular
 templates where possible.
 

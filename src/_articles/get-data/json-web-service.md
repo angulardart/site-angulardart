@@ -13,10 +13,10 @@ Most client-side Dart apps need a way to communicate with a server, and sending
 JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is
 the preferred way to do this. This article discusses communicating with a
 server using the
-[HttpRequest API]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html)
-from the [dart:html]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/dart-html-library.html) library and
+[HttpRequest API]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html)
+from the [dart:html]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html) library and
 parsing JSON data using the
-[dart:convert]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html)
+[dart:convert]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html)
 library. It then goes on to show how to provide dot-notation access to JSON
 data through the use of JsonObject.
 
@@ -138,7 +138,7 @@ Now that you have seen how HttpRequest GETs data from the server back to the
 client, and POSTs data from the client to the server, the next step is to make
 use of the JSON data in the client app.
 
-The [dart:convert]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/JsonCodec-class.html)
+The [dart:convert]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec-class.html)
 library provides a JsonCodec class,
 which you can use to convert simple types (map, list, int, num, string) automatically
 from a and to a JSON string.
@@ -428,8 +428,8 @@ dart:convert library by letting you use dot notation to access data fields.
 ## Resources
 
 * [Source code examples from this article](https://github.com/chrisbu/dartlang_json_webservice_article_code)
-* [dart:convert]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html)
-* [HttpRequest]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html)
+* [dart:convert]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html)
+* [HttpRequest]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
 * [Using JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html)
 * [Dart JS Interop Library](https://pub.dartlang.org/packages/js)

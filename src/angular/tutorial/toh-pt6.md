@@ -917,5 +917,5 @@ you can read more about the concepts and practices found in this tutorial.
 
 [http]: https://pub.dartlang.org/packages/http
 [stream_transform]: https://pub.dartlang.org/packages/stream_transform
-[Stream]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Stream-class.html
-[StreamController]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/StreamController-class.html
+[Stream]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Stream-class.html
+[StreamController]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/StreamController-class.html

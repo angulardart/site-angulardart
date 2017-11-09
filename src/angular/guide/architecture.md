@@ -576,4 +576,4 @@ by implementing the lifecycle hook interfaces.
 
 - [**Testing**](testing): Write component tests and end-to-end tests for your app.
 
-[Future]: {{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-async/Future-class.html
+[Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html

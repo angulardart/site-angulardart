@@ -281,13 +281,13 @@ Key classes include:
 
 | Dart class | Description |
 |---|---|
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a> | Implements a DOM node. |
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a> | A subclass of Node; implements a web page element. |
-| <a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html/Document-class.html" target="_blank" rel="noopener">Document</a> | Another subclass of Node; implements the document object. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a> | Implements a DOM node. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a> | A subclass of Node; implements a web page element. |
+| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Document-class.html" target="_blank" rel="noopener">Document</a> | Another subclass of Node; implements the document object. |
 {: .table}
 
 The Dart core library contains another useful class:
-<a href="{{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>,
+<a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>,
 a parameterized class that can specify the type of its members.
 An instance of Element keeps its list of child Elements
 in a List\<Element>.

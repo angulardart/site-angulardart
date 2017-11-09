@@ -17,7 +17,7 @@ angularIO.directive('apiList', function () {
   var STATUS_KEY = 'status';
   // Liquid interpolation expressions:
   var DART_API = '{{site.dart_api}}';
-  var DART_CHANNEL = '{{site.data.ng-pkg-vers.SDK.channel}}';
+  var DART_CHANNEL = '{{site.data.pkg-vers.SDK.channel}}';
   var DART_CHANNEL_API = DART_API + '/' + DART_CHANNEL;
   // {% raw %} // Don't do Liquid interpolation beyond this point.
 

@@ -170,7 +170,7 @@ For more information, see the `--minify` option
 
   <aside class="alert alert-info" markdown="1">
   **Note:** The `--fast-startup` option doesn't support the
-  [dart:mirrors library.]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-mirrors)
+  [dart:mirrors library.]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-mirrors)
   </aside>
 
 `--trust-primitives`

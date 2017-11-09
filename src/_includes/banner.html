@@ -1,4 +1,4 @@
-{% if site.data.ng-pkg-vers.angular.vers contains "alpha" or site.data.ng-pkg-vers.angular.vers contains "beta" %}
+{% if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" %}
 <div class="banner">
   <p class="banner__text">
     <div class="alert alert-warning">
@@ -8,7 +8,7 @@
           {{site.url | regex_replace: '^https?://'}}
         </a>
         based on
-        <a href="/version">Angular {{site.data.ng-pkg-vers.angular.vers}}</a>.
+        <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a>.
       </strong>
     </div>
   </p>

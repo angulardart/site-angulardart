@@ -97,7 +97,7 @@ update-for-dart-2.0
 
 * User-defined operator methods.  We like the lightweight, readable code
   these give for our DOM interface. For more information, see the
-  [dart:html]({{site.dart_api}}/{{site.data.ng-pkg-vers.SDK.channel}}/dart-html) library.
+  [dart:html]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html) library.
 
 * Lightweight syntax for anonymous functions.  You use them a lot in
   web programming; now they look great.  And they come with correct
