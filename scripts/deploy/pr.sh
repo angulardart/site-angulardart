@@ -2,16 +2,15 @@
 
 set -e -o pipefail
 
-if [[ -z $TRAVIS ]]; then
-  exit 0;
-fi
-
-AUTO_STAGING_FB_PROJ_ID="$(($TRAVIS_JOB_ID % 2))"
-
-if [[ $TRAVIS_REPO_SLUG == dart-lang* && \
+if [[ -z $TRAVIS_JOB_ID ]]; then
+  echo "Not on Travis. Skipping PR auto-deploy."
+elif [[ -z $FIREBASE_TOKEN ]]; then
+  echo "No FIREBASE_TOKEN. Skipping PR auto-deploy."
+elif [[ $TRAVIS_REPO_SLUG == dart-lang* && \
       $CI_TASK == build* && \
       $TRAVIS_PULL_REQUEST != false ]];
 then
+  AUTO_STAGING_FB_PROJ_ID="$(($TRAVIS_JOB_ID % 2))"
   ./scripts/deploy/firebase.sh auto-staging-$AUTO_STAGING_FB_PROJ_ID
 elif [[ $TRAVIS_PULL_REQUEST == false ]]; then
   echo "Travis event type: $TRAVIS_EVENT_TYPE"
