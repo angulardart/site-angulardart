@@ -117,7 +117,7 @@ img.centered {
 
 /* Don't display navigation aids when printing */
 @media print {
-  #page-header, #sidenav, #subnav, #page-footer, .banner, #toc {
+  #page-header, #sidenav, #subnav, #page-footer, .banner, #toc, .codesample__open-in-dartpad {
     display:none !important;
   }
   #page-content {
