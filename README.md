@@ -17,8 +17,9 @@ But if you want/need to build, here's how.
 
 Install the following tools if you don't have them already.
 
-- **[nvm][]**, the Node Version Manager. Then install the required version of node:
-  - `nvm install 6`
+- **[nvm][]**, the Node Version Manager. Then install the required version of node
+  (6 or later LTS release):
+  - `nvm install 8`
 - **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
   - `rvm install 2.4.2`\
   **Can't install ruby?** If installation fails because `curl` is reported as missing—even
