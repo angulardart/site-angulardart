@@ -231,6 +231,10 @@ Open `index.html` and ensure there is a `<base href="...">` element
 (or a script that dynamically sets this element)
 at the top of the `<head>` section.
 
+As explained in the [Set the base href](/angular/guide/router/1#base-href)
+section of the [Routing and Navigation](/angular/guide/router) page,
+the example apps use the following script:
+
 <?code-excerpt "web/index.html (base-href)" title?>
 ```
   <head>
@@ -243,12 +247,6 @@ at the top of the `<head>` section.
       }());
     </script>
 ```
-
-<div class="callout is-important" markdown="1">
-  <header>base href is essential</header>
-  For more information, see the [Set the base href](/angular/guide/router#base-href)
-  section of the [Routing and Navigation](/angular/guide/router) page.
-</div>
 
 ### Configure routes
 
