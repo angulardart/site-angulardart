@@ -180,6 +180,11 @@ img.centered {
     text-transform: none;
     page-break-after: avoid;
   }
+
+  /* Save space and avoid page breaks after file paths. */
+  pre {
+    page-break-inside: auto;
+  }
 }
 
 /* Overwrite bootstrap */
