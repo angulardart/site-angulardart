@@ -120,11 +120,65 @@ img.centered {
   #page-header, #sidenav, #subnav, #page-footer, .banner, #toc, .codesample__open-in-dartpad {
     display:none !important;
   }
+
   #page-content {
     > article {
       width: auto;
       margin: 0;
     }
+  }
+
+  a {
+    /* Display underlines under links */
+    text-decoration: underline;
+  }
+
+  /* Remove external link icon and link path */
+  a:after {
+    content: none !important;
+  }
+
+  /* Get rid of the space for the icon */
+  a.external {
+    padding-right: 0;
+  }
+
+  /* Hide back to top links */
+  a[href^="#contents"] {
+    display: none;
+  }
+
+  /* Show borders around notes and code blocks */
+  .alert, .l-sub-section, .callout, pre {
+    border: none !important; /* Remove other existing borders */
+    border: 1px solid black !important;
+  }
+
+  .code-example, .code-box {
+    border: none !important;
+  }
+
+  .code-box-header {
+    display: none;
+  }
+  
+  /* Show all panes in the code box */
+  code-pane > .ng-hide:not(.ng-hide-animate) {
+    display: block !important;
+  }
+
+  /* Add the file path for the code panes mimicking the style of the code-example header text */
+  code-pane:before {
+    content: attr(name);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 8px * 3;
+    margin: 0;
+    outline: none;
+    opacity: 1;
+    padding: 0 0 8px 8px;
+    text-transform: none;
+    page-break-after: avoid;
   }
 }
 
