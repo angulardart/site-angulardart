@@ -23,17 +23,6 @@ other ways such as email and [Gitter](https://gitter.im/dart-lang/home).
 
 <!-- Put link to dart-lang/site-www and other receptive repos here?-->
 
-## Tips
-
-* To find the file corresponding to a page, search this repo for a section title
-  (or any other phrase) that seems unique. For example, to find the source file for
-  https://webdev.dartlang.org/guides/get-started, you can
-  [search for "play with dartpad"](https://github.com/dart-lang/site-webdev/search?utf8=%E2%9C%93&q=%22play+with+dartpad%22&type=). The single result is
-  `src/_guides/get-started.md`.
-* Unless you love a challenge, avoid issues labeled
-  [Infrastructure](https://github.com/dart-lang/site-webdev/issues?q=is%3Aissue+is%3Aopen+label%3AInfrastructure).
-  They tend to be complicated. 
-
 ## Resources
 
 For more information on contributing to Dart, see the
