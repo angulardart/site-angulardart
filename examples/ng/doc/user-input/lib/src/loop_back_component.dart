@@ -1,7 +1,7 @@
 // #docregion
 import 'package:angular/angular.dart';
 
-// #docregion loop-back-component
+// #docregion component
 @Component(
   selector: 'loop-back',
   template: '''

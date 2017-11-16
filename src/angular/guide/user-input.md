@@ -10,42 +10,43 @@ nextpage:
   title: Forms
   url: /angular/guide/forms
 ---
-<!-- FilePath: src/angular/guide/user-input.md -->
+
 <?code-excerpt path-base="examples/ng/doc/user-input"?>
 
-When the user clicks a link, pushes a button, or enters text
-we want to know about it. These user actions all raise DOM events.
-In this chapter we learn to bind to those events using the Angular
-event binding syntax.
+User actions such as clicking a link, pushing a button, and entering text raise
+DOM events. This page explains how to bind those events to component event
+handlers using the Angular event binding syntax.
 
 Run the <live-example></live-example>.
 
 ## Binding to user input events
 
-We can use [Angular event bindings](./template-syntax.html#event-binding)
-to respond to [any DOM event](https://developer.mozilla.org/en-US/docs/Web/Events).
+You can use [Angular event bindings](template-syntax#event-binding) to respond
+to any [DOM event][]. Many DOM events are triggered by user input. Binding to
+these events provides a way to get input from the user.
 
-The syntax is simple. We surround the DOM event name with
-parentheses and assign a quoted template statement to it.
-As an example, here's an event binding that implements a click handler:
+To bind to a DOM event, surround the DOM event name in parentheses and assign a
+quoted [template statement](template-syntax#template-statements) to it.
 
-<?code-excerpt "lib/src/click_me_component.dart (click-me button)"?>
+The following example shows an event binding that implements a click handler:
+
+<?code-excerpt "lib/src/click_me_component.dart (template)" replace="/[\s\S]*(.button.*button.)[\s\S]*/$1/g"?>
 ```html
   <button (click)="onClickMe()">Click me!</button>
 ```
 
 <a id="click"></a>
-The `(click)` to the left of the equal sign identifies the button's click event as the **target of the binding**.
-The text within quotes on the right is the **template statement** in which we
-respond to the click event by calling the component's `onClickMe` method. A [template statement](./template-syntax.html#template-statements) is a subset
-of Dart with restrictions and a few added tricks.
+The `(click)` to the left of the equal sign identifies the button's click event
+as the **target of the binding**. The text in quotes to the right of the equals
+sign is the **template statement**, which responds to the click event by calling
+the component's `onClickMe()` method.
 
-When writing a binding we must be aware of a template statement's **execution context**.
-The identifiers appearing within a statement belong to a specific context object.
-That object is usually the Angular component that controls the template  ... which it definitely is
-in this case because that snippet of HTML belongs to the following component:
+When writing a binding, be aware of a template statement's **execution
+context**. The identifiers in a template statement belong to a specific context
+object, usually the Angular component controlling the template. The example
+above shows a single line of HTML, but that HTML belongs to a larger component:
 
-<?code-excerpt "lib/src/click_me_component.dart (click-me component)" title?>
+<?code-excerpt "lib/src/click_me_component.dart (component)" title?>
 ```
   @Component(
     selector: 'click-me',
@@ -61,16 +62,19 @@ in this case because that snippet of HTML belongs to the following component:
   }
 ```
 
-When the user clicks the button, Angular calls the component's `onClickMe` method.
+When the user clicks the button, Angular calls the `onClickMe()` method from
+`ClickMeComponent`.
 
 ## Get user input from the $event object
 
-We can bind to all kinds of events. Let's bind to the keyup event of an input box and replay
-what the user types back onto the screen.
+DOM events carry a payload of information that may be useful to the component.
+This section shows how to bind to the `keyup` events of an input box to get the
+user's input after each keystroke.
 
-This time we'll (1) listen to an event and (2) grab the user's input.
+The following code listens for a `keyup` event, and passes the entire event
+payload (`$event`) to the component event handler.
 
-<?code-excerpt "lib/src/keyup_components.dart (template v1)" region="key-up-component-1-template" title?>
+<?code-excerpt "lib/src/keyup_components.dart (v1 template)" title?>
 ```
   template: '''
     <input (keyup)="onKey(\$event)">
@@ -78,40 +82,44 @@ This time we'll (1) listen to an event and (2) grab the user's input.
   ''',
 ```
 
-Angular makes an event object available in the **`$event`** variable,
-which we pass to the component's `onKey()` method.
-The user data we want is in that variable somewhere.
-
 <div class="callout is-important" markdown="1">
   <header> $event vs. \$event</header>
-  Templates in Dart files need a `\` in front of the `$`.
-  If the template is in an HTML file, use `$event` instead of `\$event`.
+  Non-[raw strings]({{site.dartlang}}/guides/language/language-tour#strings) in
+  Dart files need a `\` in front of the `$`. If the template is in an HTML
+  file, use `$event` instead of `\$event`.
 </div>
 
-<?code-excerpt "lib/src/keyup_components.dart (class v1)" region="key-up-component-1-class-no-type" title?>
+When a user presses and releases a key, a `keyup` event occurs, and Angular
+provides a corresponding DOM event object in the `$event` variable, which this
+code passes as a parameter to the component's `onKey()` method.
+
+<?code-excerpt "lib/src/keyup_components.dart (v1 class, untyped)" replace="/_untyped//g" title?>
 ```
-  class KeyUpComponentV1 {
+  class KeyUp1Component {
     String values = '';
 
-    onKey(dynamic event) {
+    void onKey(dynamic event) {
       values += event.target.value + ' | ';
     }
   }
 ```
 
-The shape of the `$event` object is determined by whatever raises the event.
-The `keyup` event comes from the DOM, so `$event` must be a [standard DOM event object](https://developer.mozilla.org/en-US/docs/Web/API/Event).
-The `$event.target` gives us an
-[`HTMLInputElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement), which
-has a `value` property that contains our user input data.
+The properties of an `$event` object vary depending on the type of DOM
+event. For example, a mouse event includes different information than a input
+box editing event.
 
-The `onKey()` component method is where we extract the user's input
-from the event object, adding that input to the list of user data that we're accumulating in the component's `values` property.
-We then use [interpolation](./template-syntax.html#interpolation)
-to display the accumulating `values` property back on screen.
+All standard DOM [Event][] objects have a `target` property, a reference to
+the element that raised the event. In this case, `target` refers to the
+[`<input>` element][HTMLInputElement] and `event.target.value` returns the
+current contents of that element.
 
-Enter the letters "abc", and then backspace to remove them.
-Here's what the UI displays:
+After each call, the `onKey()` method appends the input box value to the
+component's `values` property, followed by a separator character (`|`). The
+template uses Angular [interpolation](template-syntax#interpolation)
+(`{!{...}!}`) to display the `values` property.
+
+Suppose the user enters the letters "abc", and then backspaces to remove them
+one by one. Here's what the UI displays:
 
 ```nocode
   a | ab | abc | ab | a | |
@@ -119,43 +127,65 @@ Here's what the UI displays:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup1-anim.gif' %}" alt="key up 1">
 
-<a id="keyup1"></a>
 <div class="l-sub-section" markdown="1">
-  We declare the `$event` as a `dynamic` type, which means we've abandoned strong typing
-  to simplify our code. We generally prefer the strong typing that Dart affords.
-  We can rewrite the method, casting to HTML DOM objects like this.
+  Alternatively, you could accumulate the individual keys themselves by
+  substituting `event.key` for `event.target.value` in which case the same user
+  input would produce:
 
-<?code-excerpt "lib/src/keyup_components.dart (class v1 - strongly typed )" region="key-up-component-1-class" title?>
+  ```nocode
+    a | b | c | Backspace | Backspace | Backspace |
+  ```
+</div>
+
+<a id="keyup1"></a>
+### Type _event_
+
+The example above declares the `onKey()` `event` parameter to be `dynamic`.
+That simplifies the code at a cost. There is no static type information that
+could reveal properties of the event object and prevent silly mistakes.
+
+The following example rewrites the method with types:
+
+<?code-excerpt "lib/src/keyup_components.dart (v1 class)" title?>
 ```
-  class KeyUpComponentV1 {
+  class KeyUp1Component {
     String values = '';
 
-    onKey(KeyboardEvent event) {
+    void onKey(KeyboardEvent event) {
       InputElement el = event.target;
       values += '${el.value}  | ';
     }
   }
 ```
 
-  Strong typing reveals a serious problem with passing a DOM event into the method:
-  too much awareness of template details, too little separation of concerns.
+Now, `event` is declared as a `KeyboardEvent`, and `event.target` as an
+`InputElement` &mdash; not all elements have a `value` property. The `onKey()`
+method more clearly expresses what it expects from the template and how it
+interprets the event.
 
-  We'll address this problem in our next try at processing user keystrokes.
-</div>
+### Passing _$event_ is a dubious practice
 
+Typing the event object reveals a significant issue with passing the entire
+DOM event into the method: the component has too much awareness of the
+template details. The component can't extract data without using web APIs.
+That breaks the separation of concerns
+between the template (_what the user sees_) and the component (_how the
+application processes user data_).
+
+The next section shows how to use template reference variables to address this
+problem.
 
 ## Get user input from a template reference variable
 
-There's another way to get the user data without the `$event` variable.
+There's another way to get the user data: use Angular [**template reference
+variables**](template-syntax#ref-vars). These variables provide direct access
+to an element from within the template. To declare a template reference
+variable, precede an identifier with a hash character (`#`).
 
-Angular has a syntax feature called [**template reference variables**](./template-syntax.html#ref-vars).
-These variables grant us direct access to an element.
-We declare a template reference variable by preceding an identifier with a hash/pound character (#).
+The following example uses a template reference variable to implement a
+keystroke loopback in a simple template.
 
-Here's an example of using a template reference variable
-to implement a clever keystroke loopback in an ultra-simple template.
-
-<?code-excerpt "lib/src/loop_back_component.dart" region="loop-back-component" title?>
+<?code-excerpt "lib/src/loop_back_component.dart" region="component" title?>
 ```
   @Component(
     selector: 'loop-back',
@@ -167,34 +197,34 @@ to implement a clever keystroke loopback in an ultra-simple template.
   class LoopBackComponent {}
 ```
 
-We've declared a template reference variable named `box` on the `<input>` element.
-The `box` variable is a reference to the `<input>` element itself, which means we can
-grab the input element's `value` and display it
-with interpolation between `<p>` tags.
+The template reference variable named `box`, declared on the `<input>`
+element, refers to the `<input>` element itself. The code uses the `box`
+variable to get the input element's `value` and display it with interpolation
+between `<p>` tags.
 
 The template is completely self contained. It doesn't bind to the component,
 and the component does nothing.
 
-Type in the input box, and watch the display update with each keystroke. *Voila!*
+Type something in the input box, and watch the display update with each
+keystroke.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup-loop-back-anim.gif' %}" alt="loop back">
 
-<div class="l-sub-section" markdown="1">
-  **This won't work at all unless we bind to an event**.
+<div class="alert alert-warning" markdown="1">
+  **This won't work at all unless you bind to an event**.
 
-  Angular only updates the bindings (and therefore the screen)
-  if we do something in response to asynchronous events such as keystrokes.
-
-  That's why we bind the `keyup` event to a statement that does ... well, nothing.
-  We're binding to the number 0, the shortest statement we can think of.
-  That is all it takes to keep Angular happy. We said it would be clever!
+  Angular updates the bindings (and therefore the screen) only if the app does
+  something in response to asynchronous events, such as keystrokes. This
+  example binds `keyup` events to the number 0, the shortest template
+  statement possible. While the statement does nothing useful, it satisfies
+  Angular's requirement so that Angular will update the screen.
 </div>
 
-That template reference variable is intriguing. It's clearly easier to get to the textbox with that
-variable than to go through the `$event` object. Maybe we can rewrite our previous
-keyup example so that it uses the variable to get the user's input. Let's give it a try.
+It's easier to get to the input box with the template reference variable than
+to go through the `$event` object. Here's a rewrite of the previous `keyup`
+example that uses a template reference variable to get the user's input.
 
-<?code-excerpt "lib/src/keyup_components.dart (v2)" region="key-up-component-2" title?>
+<?code-excerpt "lib/src/keyup_components.dart (v2)" title?>
 ```
   @Component(
     selector: 'key-up2',
@@ -203,32 +233,28 @@ keyup example so that it uses the variable to get the user's input. Let's give i
       <p>{!{values}!}</p>
     ''',
   )
-  class KeyUpComponentV2 {
+  class KeyUp2Component {
     String values = '';
-    onKey(value) => values += '$value | ';
+    void onKey(value) => values += '$value | ';
   }
 ```
 
-That sure seems easier.
-An especially nice aspect of this approach is that our component code gets clean data values from the view.
-It no longer requires knowledge of the `$event` and its structure.
+A nice aspect of this approach is that the component gets clean data values
+from the view. It no longer requires knowledge of the `$event` and its
+structure.
 
 <a id="key-event"></a>
 ## Key event filtering (with `key.enter`)
 
-Perhaps we don't care about every keystroke.
-Maybe we're only interested in the input box value when the user presses Enter, and we'd like to ignore all other keys.
-When we bind to the `(keyup)` event, our event handling statement hears *every keystroke*.
-We could filter the keys first, examining every `$event.keyCode`, and update the `values` property only if the key is Enter.
+The `(keyup)` event handler hears *every keystroke*. Sometimes only the
+_Enter_ key matters, because it signals that the user has finished typing.
+One way to reduce the noise would be to examine every `$event.keyCode` and
+take action only when the key is _Enter_.
 
-Angular can filter the key events for us. Angular has a special syntax for keyboard events.
-We can listen for just the Enter key by binding to Angular's `keyup.enter` pseudo-event.
+There's an easier way: bind to Angular's `keyup.enter` pseudo-event. Then
+Angular calls the event handler only when the user presses _Enter_.
 
-Only then do we update the component's `values` property. (In this example,
-the update happens inside the event binding statement. A better practice
-would be to put the update code in the component.)
-
-<?code-excerpt "lib/src/keyup_components.dart (v3)" region="key-up-component-3" title?>
+<?code-excerpt "lib/src/keyup_components.dart (v3)" title?>
 ```
   @Component(
     selector: 'key-up3',
@@ -237,7 +263,7 @@ would be to put the update code in the component.)
       <p>{!{values}!}</p>
     ''',
   )
-  class KeyUpComponentV3 {
+  class KeyUp3Component {
     String values = '';
   }
 ```
@@ -248,13 +274,13 @@ Here's how it works.
 
 ## On blur
 
-Our previous example won't transfer the current state of the input box if the user mouses away and clicks
-elsewhere on the page. We update the component's `values` property only when the user presses Enter
-while the focus is inside the input box.
+In the previous example, the current state of the input box is lost if the
+user clicks elsewhere on the page without first pressing _Enter_. The
+component's `value` property is updated only when the user presses _Enter_.
 
-Let's fix that by listening to the input box's blur event as well.
+To fix this issue, listen to both the _Enter_ key and the _blur_ event.
 
-<?code-excerpt "lib/src/keyup_components.dart (v4)" region="key-up-component-4" title?>
+<?code-excerpt "lib/src/keyup_components.dart (v4)" title?>
 ```
   @Component(
     selector: 'key-up4',
@@ -265,25 +291,23 @@ Let's fix that by listening to the input box's blur event as well.
       <p>{!{values}!}</p>
     ''',
   )
-  class KeyUpComponentV4 {
+  class KeyUp4Component {
     String values = '';
   }
 ```
 
 ## Put it all together
 
-We learned how to [display data](./displaying-data.html) in the previous chapter.
-We've acquired a small arsenal of event binding techniques in this chapter.
+The previous page showed how to [display data](displaying-data). This page
+demonstrated event binding techniques.
 
-Let's put it all together in a micro-app
-that can display a list of heroes and add new heroes to that list.
-The user can add a hero by first typing in the input box and then
-pressing Enter, clicking the Add button, or clicking elsewhere on the page.
+Now, put it all together in a micro-app that can display a list of heroes and
+add new heroes to the list. The user can add a hero by typing the hero's name
+in the input box and clicking **Add**.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/user-input/little-tour-anim.gif' %}" alt="Little Tour of Heroes">
 
 Below is the "Little Tour of Heroes"  component.
-We'll call out the highlights after we bask briefly in its minimalist glory.
 
 <?code-excerpt "lib/src/little_tour_component.dart (little-tour)" title?>
 ```
@@ -311,49 +335,24 @@ We'll call out the highlights after we bask briefly in its minimalist glory.
   }
 ```
 
-We've seen almost everything here before. A few things are new or bear repeating.
+### Observations
 
-### Use template variables to refer to elements
+- **Use template variables to refer to elements** &mdash; The `newHero`
+  template variable refers to the `<input>` element. You can reference
+  `newHero` from any sibling or child of the `<input>` element.
 
-The `newHero` template variable refers to the `<input>` element.
-We can use `newHero` from any sibling or child of the `<input>` element.
+- **Pass values, not elements** &mdash; Instead of passing the `newHero` into
+  the component's `addHero()` method, get the input box value and pass *that* to
+  `addHero()`.
 
-Getting the element from a template variable makes the button click handler
-simpler. Without the variable, we'd have to use a fancy CSS selector
-to find the input element.
-
-### Pass values, not elements
-
-We could have passed the `newHero` into the component's `addHero` method.
-
-But that would require `addHero` to pick its way through the `<input>` DOM element,
-something we learned to dislike in our first try at a [keyup component](#keyup1).
-
-Instead, we grab the input box *value* and pass *that* to `addHero`.
-The component knows nothing about HTML or the DOM, which is the way we like it.
-
-### Keep template statements simple
-
-We bound `(blur)` to *two* Dart statements.
-
-We like the first one, which calls `addHero`.
-We do not like the second one, which assigns an empty string to the input box value.
-
-The second statement exists for a good reason. We have to clear the input box after adding the new hero to the list.
-The component has no way to do that itself because it has no access to the
-input box (our design choice).
-
-Although the example *works*, we are rightly wary of Dart in HTML.
-Template statements are powerful. We're supposed to use them responsibly.
-Complex Dart in HTML is irresponsible.
-
-Should we reconsider our reluctance to pass the input box into the component?
-
-There should be a better third way. And there is, as we'll see when we learn about `NgModel` in the [Forms](forms.html) chapter.
+- **Keep template statements simple** &mdash; The `(blur)` event is bound to
+  two statements. The first statement calls `addHero()`. The second
+  statement, `newHero.value=''`, clears the input box after a new hero is
+  added to the list.
 
 ## Source code
 
-Here is all the code we talked about in this chapter.
+Here is all the code discussed in this page.
 
 <code-tabs>
   <?code-pane "lib/src/click_me_component.dart" linenums?>
@@ -364,10 +363,14 @@ Here is all the code we talked about in this chapter.
 
 ## Summary
 
-We've mastered the basic primitives for responding to user input and gestures.
-As powerful as these primitives are, they are a bit clumsy for handling
-large amounts of user input. We're operating down at the low level of events when
-we should be writing two-way bindings between data entry fields and model properties.
+You have seen the basic primitives for responding to user input and gestures.
 
-Angular has a two-way binding called `NgModel`, which we'll learn about
-in the `Forms` chapter.
+These techniques are useful for small-scale demos, but they quickly become
+verbose and clumsy when handling large amounts of user input. Two-way data
+binding is a more elegant and compact way to move values between data entry
+fields and model properties. The next page, `Forms`, explains how to write
+two-way bindings with `NgModel`.
+
+[DOM event]: https://developer.mozilla.org/en-US/docs/Web/Events
+[Event]: https://developer.mozilla.org/en-US/docs/Web/API/Event
+[HTMLInputElement]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement

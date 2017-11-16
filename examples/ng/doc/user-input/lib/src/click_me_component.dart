@@ -1,19 +1,15 @@
-/* FOR DOCS ... MUST MATCH ClickMeComponent template
-// #docregion click-me-button
-  <button (click)="onClickMe()">Click me!</button>
-// #enddocregion click-me-button
-*/
-
 // #docregion
 import 'package:angular/angular.dart';
 
-// #docregion click-me-component
+// #docregion component
 @Component(
   selector: 'click-me',
+  // #docregion template
   template: '''
     <button (click)="onClickMe()">Click me!</button>
     {{clickMessage}}
   ''',
+  // #enddocregion template
 )
 class ClickMeComponent {
   String clickMessage = '';

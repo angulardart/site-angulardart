@@ -1,43 +1,47 @@
-// #docplaster
 // #docregion
 import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-// #docregion key-up-component-1
 @Component(
-  selector: 'key-up1',
-  // #docregion key-up-component-1-template
+  selector: 'key-up1-untyped',
   template: '''
     <input (keyup)="onKey(\$event)">
     <p>{{values}}</p>
   ''',
-  // #enddocregion key-up-component-1-template
 )
-// #docregion key-up-component-1-class, key-up-component-1-class-no-type
-class KeyUpComponentV1 {
+// #docregion v1-class-untyped
+class KeyUp1Component_untyped {
   String values = '';
 
-  // #enddocregion key-up-component-1-class, key-up-component-1-class-no-type
-  /*
-  // #docregion key-up-component-1-class-no-type
-  onKey(dynamic event) {
+  void onKey(dynamic event) {
     values += event.target.value + ' | ';
   }
-  // #enddocregion key-up-component-1-class-no-type
-  */
-  // #docregion key-up-component-1-class
-  onKey(KeyboardEvent event) {
+}
+// #enddocregion v1-class-untyped
+
+@Component(
+  selector: 'key-up1',
+  // #docregion v1-template
+  template: '''
+    <input (keyup)="onKey(\$event)">
+    <p>{{values}}</p>
+  ''',
+  // #enddocregion v1-template
+)
+// #docregion v1-class
+class KeyUp1Component {
+  String values = '';
+
+  void onKey(KeyboardEvent event) {
     InputElement el = event.target;
     values += '${el.value}  | ';
   }
-// #docregion key-up-component-1-class-no-type
 }
-// #enddocregion key-up-component-1,key-up-component-1-class, key-up-component-1-class-no-type
+// #enddocregion v1-class
 
-//////////////////////////////////////////
 
-// #docregion key-up-component-2
+// #docregion v2
 @Component(
   selector: 'key-up2',
   template: '''
@@ -45,15 +49,14 @@ class KeyUpComponentV1 {
     <p>{{values}}</p>
   ''',
 )
-class KeyUpComponentV2 {
+class KeyUp2Component {
   String values = '';
-  onKey(value) => values += '$value | ';
+  void onKey(value) => values += '$value | ';
 }
-// #enddocregion key-up-component-2
+// #enddocregion v2
 
-//////////////////////////////////////////
 
-// #docregion key-up-component-3
+// #docregion v3
 @Component(
   selector: 'key-up3',
   template: '''
@@ -61,14 +64,13 @@ class KeyUpComponentV2 {
     <p>{{values}}</p>
   ''',
 )
-class KeyUpComponentV3 {
+class KeyUp3Component {
   String values = '';
 }
-// #enddocregion key-up-component-3
+// #enddocregion v3
 
-//////////////////////////////////////////
 
-// #docregion key-up-component-4
+// #docregion v4
 @Component(
   selector: 'key-up4',
   template: '''
@@ -78,6 +80,6 @@ class KeyUpComponentV3 {
     <p>{{values}}</p>
   ''',
 )
-class KeyUpComponentV4 {
+class KeyUp4Component {
   String values = '';
 }
