@@ -11,8 +11,10 @@
           {% include banner.html %}
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
-          <h1>{{ page.title }}</h1>
-          <a href="https://github.com/dart-lang/site-webdev/issues" target="_blank" rel="noopener" class="hide">Send feedback</a>
+          <h1>
+            {% include page-github-links.html %}
+            {{ page.title }}
+          </h1>
           <hr>
           {{ content | inject_anchors }}
           {% include navigation-sub.html %}

@@ -35,12 +35,17 @@ $shield-22-at-2x:  "{% asset_path 'ng/logos/inverse/shield/22@2x.png' %}";
 // Give Angular pages a unique look-and-feel
 
 .ng-page-title {
+  $ng-logo-margin-right: $unit / 2;
+  $ng-logo-width: $unit * 5;
   img {
     float: left;
-    margin-right: $unit * .5;
-    width: $unit * 5;
+    margin-right: $ng-logo-margin-right;
+    width: $ng-logo-width;
   }
-  a {
+  h1 {
+    padding-left: $ng-logo-width + $ng-logo-margin-right;
+  }
+  a { // Package version
     font-size: $font-size-base;
   }
 }

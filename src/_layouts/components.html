@@ -12,10 +12,10 @@
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
           <h1 class="ng-page-title">
+            {% include page-github-links.html %}
             {{ page.title }}
             <a href="/version">{{site.data.pkg-vers.angular_components.vers | regex_replace: '\.[^\.]+$'}}</a>
           </h1>
-          <a href="https://github.com/dart-lang/site-webdev/issues" target="_blank" rel="noopener" class="hide">Send feedback</a>
           <hr>
           {{ content | inject_anchors }}
           {% include navigation-sub.html %}
