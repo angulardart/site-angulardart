@@ -36,7 +36,7 @@ The built-in [NgStyle](template-syntax.html#ngStyle) directive in the
 [Template Syntax](template-syntax.html) page, for example,
 can change several element styles at the same time.
 
-<div id="write-directive"></div>
+<a id="write-directive"></a>
 ## Build a simple attribute directive
 
 An attribute directive minimally requires building a controller class annotated with
@@ -101,7 +101,7 @@ Angular creates a new instance of the directive's controller class for
 each matching element, injecting an HTML [Element]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/Element-class.html)
 into the constructor.
 
-<div id="apply-directive"></div>
+<a id="apply-directive"></a>
 ## Apply the attribute directive
 
 To use the new `HighlightDirective`, create a template that
@@ -128,9 +128,10 @@ recognizes the directive when it encounters `myHighlight` in the template.
   import 'src/highlight_directive.dart';
 
   @Component(
-      selector: 'my-app',
-      templateUrl: 'app_component.html',
-      directives: const [HighlightDirective])
+    selector: 'my-app',
+    templateUrl: 'app_component.html',
+    directives: const [HighlightDirective],
+  )
   class AppComponent {
     String color;
   }
@@ -160,7 +161,7 @@ It created an instance of the `HighlightDirective` class and
 injected a reference to the `<p>` element into the directive's constructor
 which sets the `<p>` element's background style to yellow.
 
-<div id="respond-to-user"></div>
+<a id="respond-to-user"></a>
 ## Respond to user-initiated events
 
 Currently, `myHighlight` simply sets an element color.
@@ -245,7 +246,7 @@ the mouse hovers over the `p` and disappears as it moves out.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-anim.gif' %}" alt="Second Highlight">
 
-<div id="bindings"></div>
+<a id="bindings"></a>
 ## Pass values into the directive with an _@Input_ data binding
 
 Currently the highlight color is hard-coded _within_ the directive. That's inflexible.
@@ -259,7 +260,7 @@ Start by adding a `highlightColor` property to the directive class like this:
   String highlightColor;
 ```
 
-<div id="input"></div>
+<a id="input"></a>
 ### Binding to an _@Input_ property
 
 Notice the `@Input` annotation. It adds metadata to the class that makes the directive's `highlightColor` property available for binding.
@@ -313,7 +314,7 @@ You'll have to rename the directive's `highlightColor` property to `myHighlight`
 
 This is disagreeable. The word, `myHighlight`, is a terrible property name and it doesn't convey the property's intent.
 
-<div id="input-alias"></div>
+<a id="input-alias"></a>
 ### Bind to an _@Input_ alias
 
 Fortunately you can name the directive property whatever you want _and_ **_alias it_** for binding purposes.
@@ -408,7 +409,7 @@ Here are the harness and directive in action.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-v2-anim.gif' %}" alt="Highlight v.2">
 
-<div id="second-property"></div>
+<a id="second-property"></a>
 ## Bind to a second property
 
 This highlight directive has a single customizable property. In a real app, it may need more.
@@ -475,7 +476,7 @@ The final source code follows:
 
 You can also experience and download the <live-example title="Attribute Directive example"></live-example>.
 
-<div id="why-input"></div>
+<a id="why-input"></a>
 ### Appendix: Why add _@Input_?
 
 In this demo, the `hightlightColor` property is an ***input*** property of
