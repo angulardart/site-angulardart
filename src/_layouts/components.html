@@ -11,11 +11,13 @@
           {% include banner.html %}
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
-          <h1 class="ng-page-title">
+          <div class="ng-page-title">
             {% include page-github-links.html %}
-            {{ page.title }}
-            <a href="/version">{{site.data.pkg-vers.angular_components.vers | regex_replace: '\.[^\.]+$'}}</a>
-          </h1>
+            <h1>
+              {{ page.title }}
+              <a href="/version">{{site.data.pkg-vers.angular_components.vers | regex_replace: '\.[^\.]+$'}}</a>
+            </h1>
+          </div>
           <hr>
           {{ content | inject_anchors }}
           {% include navigation-sub.html %}
