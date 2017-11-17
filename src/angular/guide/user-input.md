@@ -27,7 +27,6 @@ these events provides a way to get input from the user.
 
 To bind to a DOM event, surround the DOM event name in parentheses and assign a
 quoted [template statement](template-syntax#template-statements) to it.
-
 The following example shows an event binding that implements a click handler:
 
 <?code-excerpt "lib/src/click_me_component.dart (template)" replace="/[\s\S]*(.button.*button.)[\s\S]*/$1/g"?>
@@ -108,9 +107,9 @@ The properties of an `$event` object vary depending on the type of DOM
 event. For example, a mouse event includes different information than a input
 box editing event.
 
-All standard DOM [Event][] objects have a `target` property, a reference to
-the element that raised the event. In this case, `target` refers to the
-[`<input>` element][HTMLInputElement] and `event.target.value` returns the
+All standard DOM [Event][] objects have a `target` property, which is a
+reference to the element that raised the event. In this case, `target` refers to
+the [`<input>` element][HTMLInputElement], and `event.target.value` returns the
 current contents of that element.
 
 After each call, the `onKey()` method appends the input box value to the
@@ -128,9 +127,9 @@ one by one. Here's what the UI displays:
 <img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup1-anim.gif' %}" alt="key up 1">
 
 <div class="l-sub-section" markdown="1">
-  Alternatively, you could accumulate the individual keys themselves by
-  substituting `event.key` for `event.target.value` in which case the same user
-  input would produce:
+  Alternatively, you can accumulate the individual keys themselves by
+  substituting `event.key` for `event.target.value`. In that case, the same user
+  input produces the following:
 
   ```nocode
     a | b | c | Backspace | Backspace | Backspace |
@@ -141,8 +140,8 @@ one by one. Here's what the UI displays:
 ### Type _event_
 
 The example above declares the `onKey()` `event` parameter to be `dynamic`.
-That simplifies the code at a cost. There is no static type information that
-could reveal properties of the event object and prevent silly mistakes.
+Although that simplifies the code a bit, using a more specific type can
+reveal properties of the event object and prevent silly mistakes.
 
 The following example rewrites the method with types:
 
@@ -158,29 +157,28 @@ The following example rewrites the method with types:
   }
 ```
 
-Now, `event` is declared as a `KeyboardEvent`, and `event.target` as an
-`InputElement` &mdash; not all elements have a `value` property. The `onKey()`
-method more clearly expresses what it expects from the template and how it
-interprets the event.
+Now `event` is declared as a `KeyboardEvent`, and `event.target` as an
+`InputElement` &mdash; one of the element types that has a `value` property.
+With these types, the `onKey()` method more clearly expresses what it expects
+from the template and how it interprets the event.
 
 ### Passing _$event_ is a dubious practice
 
 Typing the event object reveals a significant issue with passing the entire
-DOM event into the method: the component has too much awareness of the
-template details. The component can't extract data without using web APIs.
-That breaks the separation of concerns
-between the template (_what the user sees_) and the component (_how the
-application processes user data_).
+DOM event into the method: the component is closely tied to the template
+details. The component can't extract data without using web APIs. That breaks
+the separation of concerns between the template (_what the user sees_) and the
+component (_how the application processes user data_).
 
 The next section shows how to use template reference variables to address this
 problem.
 
 ## Get user input from a template reference variable
 
-There's another way to get the user data: use Angular [**template reference
-variables**](template-syntax#ref-vars). These variables provide direct access
-to an element from within the template. To declare a template reference
-variable, precede an identifier with a hash character (`#`).
+There's another way to get the user data: Angular [**template reference
+variables**](template-syntax#ref-vars) provide direct access to an element from
+within the template. To declare a template reference variable, precede an
+identifier with a hash character (`#`).
 
 The following example uses a template reference variable to implement a
 keystroke loopback in a simple template.
@@ -337,15 +335,15 @@ Below is the "Little Tour of Heroes"  component.
 
 ### Observations
 
-- **Use template variables to refer to elements** &mdash; The `newHero`
+- **Use template variables to refer to elements**. The `newHero`
   template variable refers to the `<input>` element. You can reference
   `newHero` from any sibling or child of the `<input>` element.
 
-- **Pass values, not elements** &mdash; Instead of passing the `newHero` into
+- **Pass values, not elements**. Instead of passing the `newHero` into
   the component's `addHero()` method, get the input box value and pass *that* to
   `addHero()`.
 
-- **Keep template statements simple** &mdash; The `(blur)` event is bound to
+- **Keep template statements simple**. The `(blur)` event is bound to
   two statements. The first statement calls `addHero()`. The second
   statement, `newHero.value=''`, clears the input box after a new hero is
   added to the list.
@@ -363,7 +361,7 @@ Here is all the code discussed in this page.
 
 ## Summary
 
-You have seen the basic primitives for responding to user input and gestures.
+You've seen the basic primitives for responding to user input and gestures.
 
 These techniques are useful for small-scale demos, but they quickly become
 verbose and clumsy when handling large amounts of user input. Two-way data
