@@ -18,7 +18,7 @@ Learn from the [Angular docs](/angular). You can also follow the
 To leverage one of the many existing libraries written in JavaScript,
 use [package:js](https://pub.dartlang.org/packages/js)
 to implement Dart-JavaScript interoperability.
-If a a TypeScript types definition file exists for a JavaScript library
+If a TypeScript type definition file exists for a JavaScript library
 (see [DefinitelyTyped](http://definitelytyped.org/) for more info),
 you can use the [js_facade_gen](https://github.com/dart-lang/js_facade_gen)
 tool to generate Dart code for that library.
