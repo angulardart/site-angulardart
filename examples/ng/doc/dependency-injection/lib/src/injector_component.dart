@@ -1,5 +1,4 @@
 // #docplaster
-
 // #docregion
 import 'package:angular/angular.dart';
 
@@ -11,21 +10,30 @@ import 'logger_service.dart';
 
 // #docregion injector
 @Component(
-    selector: 'my-injectors',
-    template: '''
+  selector: 'my-injectors',
+  template: '''
       <h2>Other Injections</h2>
       <div id="car">{{car.drive()}}</div>
       <div id="hero">{{hero.name}}</div>
       <div id="rodent">{{rodent}}</div>''',
-    providers: const [
-      Car, Engine, Tires, heroServiceProvider, Logger])
-class InjectorComponent {
+  providers: const [
+    Car,
+    Engine,
+    Tires,
+    heroServiceProvider,
+    Logger,
+  ],
+)
+class InjectorComponent implements OnInit {
   final Injector _injector;
   Car car;
   HeroService heroService;
   Hero hero;
 
-  InjectorComponent(this._injector) {
+  InjectorComponent(this._injector);
+
+  @override
+  void ngOnInit() {
     car = _injector.get(Car);
     // #docregion get-hero-service
     heroService = _injector.get(HeroService);
@@ -34,7 +42,7 @@ class InjectorComponent {
   }
 
   String get rodent =>
-    _injector.get(ROUS, "R.O.U.S.'s? I don't think they exist!");
+      _injector.get(ROUS, "R.O.U.S.'s? I don't think they exist!");
 }
 // #enddocregion injector
 

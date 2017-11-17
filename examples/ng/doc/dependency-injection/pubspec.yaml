@@ -1,14 +1,18 @@
 name: dependency_injection
 description: Dependency injection sample
 version: 0.0.1
+
 environment:
   sdk: '>=1.24.0 <2.0.0'
+
 dependencies:
   angular: ^4.0.0
+
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   test: ^0.12.21
+
 transformers:
 - angular:
     entry_points: web/main.dart

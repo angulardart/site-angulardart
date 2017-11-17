@@ -527,7 +527,7 @@ Registering providers when bootstrapping is much less common.
 See the [Configuring the injector][] section of the
 [Dependency Injection][] page for details.
 
-[Configuring the injector]: /angular/guide/dependency-injection#configuring-the-injector
+[Configuring the injector]: /angular/guide/dependency-injection#injector-config
 [Dependency Injection]: /angular/guide/dependency-injection
 
 Points to remember about dependency injection:
