@@ -15,9 +15,20 @@
 <p [myHighlight]="color" defaultColor="violet">
   Highlight me too!
 </p>
-<!-- #enddocregion defaultColor, -->
+<!-- #enddocregion defaultColor -->
 
 <hr>
+
+<!-- #docregion autoId -->
+<h4 #h1 autoId>Auto-ID at work</h4>
+<p>The previous heading has ID {{h1.id}}</p>
+
+<h4 #h2 autoId>Auto-ID at work, again</h4>
+<p>The previous heading has ID {{h2.id}}</p>
+<!-- #enddocregion autoId, -->
+
+<hr>
+
 <p><i>Mouse over the following lines to see fixed highlights</i></p>
 
 <p [myHighlight]="'yellow'">Highlighted in yellow</p>

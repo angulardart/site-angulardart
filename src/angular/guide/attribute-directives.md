@@ -36,11 +36,18 @@ The built-in [NgStyle](template-syntax.html#ngStyle) directive in the
 [Template Syntax](template-syntax.html) page, for example,
 can change several element styles at the same time.
 
-<a id="write-directive"></a>
-## Build a simple attribute directive
+There are two kinds of attribute directive:
 
-An attribute directive minimally requires building a controller class annotated with
-`@Directive`, which specifies the selector that identifies
+- [Class-based](#create-a-directive): A full-featured attribute directive,
+  implemented using a class.
+- [Functional](#functional): A stateless attribute directive, implemented using
+  a top-level function.
+
+<a id="create-a-directive"></a>
+## Create a class-based attribute directive
+
+Creating a class-based attribute directive requires writing a controller class
+annotated with [@Directive()][], which specifies the selector that identifies
 the attribute.
 The controller class implements the desired directive behavior.
 
@@ -74,7 +81,7 @@ Create the following source file in the indicated folder:
   }
 ```
 
-`@Directive` requires a CSS selector to identify
+`@Directive()` requires a CSS selector to identify
 the HTML in the template that is associated with the directive.
 The [CSS selector for an attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 is the attribute name in square brackets.
@@ -94,7 +101,7 @@ Angular locates all elements in the template that have an attribute named `myHig
   For a simple demo, the short prefix, `my`, helps distinguish your custom directive.
 </div>
 
-After the `@Directive` metadata comes the directive's controller class,
+After the `@Directive()` metadata comes the directive's controller class,
 called `HighlightDirective`, which contains the logic for the directive.
 
 Angular creates a new instance of the directive's controller class for
@@ -125,19 +132,22 @@ recognizes the directive when it encounters `myHighlight` in the template.
 ```
   import 'package:angular/angular.dart';
 
+  import 'src/auto_id_directive.dart';
   import 'src/highlight_directive.dart';
 
   @Component(
     selector: 'my-app',
     templateUrl: 'app_component.html',
-    directives: const [HighlightDirective],
+    directives: const [autoIdDirective, HighlightDirective],
   )
   class AppComponent {
     String color;
   }
 ```
 
-Now when the app runs, the `myHighlight` directive highlights the paragraph text.
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.**
+The app runs, and the `myHighlight` directive highlights the paragraph text.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/first-highlight.png' %}" alt="First Highlight">
 
@@ -148,8 +158,8 @@ Now when the app runs, the `myHighlight` directive highlights the paragraph text
   It is easy to forget!
   Open the console in the browser tools and look for an error like this:
 
-  <code-example format="nocode">EXCEPTION: Template parse errors:
-  Can't bind to 'myHighlight' since it isn't a known property of 'p'.</code-example>
+    EXCEPTION: Template parse errors:
+    Can't bind to 'myHighlight' since it isn't a known property of 'p'.
 
   Angular detects that you're trying to bind to *something*
   but it can't find this directive.
@@ -241,7 +251,8 @@ Here's the updated directive in full:
   }
 ```
 
-Run the app and confirm that the background color appears when
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.** Confirm that the background color appears when
 the mouse hovers over the `p` and disappears as it moves out.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-anim.gif' %}" alt="Second Highlight">
@@ -405,6 +416,8 @@ Revise the `AppComponent.color` so that it has no initial value.
   }
 ```
 
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.**
 Here are the harness and directive in action.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-v2-anim.gif' %}" alt="Highlight v.2">
@@ -451,24 +464,75 @@ and fall back to "violet" as the default color.
 Angular knows that the `defaultColor` binding belongs to the `HighlightDirective`
 because you made it _public_ with the `@Input` annotation.
 
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.**
 Here's how the harness should work when you're done coding.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-final-anim.gif' %}" alt="Final Highlight">
+
+<a id="functional"></a>
+## Write a functional directive
+
+A functional directive is a stateless directive that is rendered once.
+You create a functional directive by annotating a public, top-level function with [@Directive()][].
+
+Create the following functional attribute directive:
+
+<?code-excerpt "lib/src/auto_id_directive.dart" title?>
+```
+  import 'dart:html';
+  import 'package:angular/angular.dart';
+
+  int _idCounter = 0;
+
+  @Directive(selector: '[autoId]')
+  void autoIdDirective(Element el) {
+    el.id = 'heading-${_idCounter++}';
+  }
+```
+
+Like constructor parameters in class-based directives,
+function parameters define the functional directive's dependencies.
+
+When you write a functional directive, follow these rules:
+
+- Make the function return type `void`.
+- In the [@Directive()][] annotation,
+  use only the `selector` parameter and, if necessary, `providers`.
+
+While functional directives are stateless, they can be impure
+(making use of global state), as the `autoId` directive shows.
+
+Add the following lines at the end of the app component template:
+<?code-excerpt "lib/app_component.html (autoId)" title?>
+```
+  <h4 #h1 autoId>Auto-ID at work</h4>
+  <p>The previous heading has ID {!{h1.id}!}</p>
+
+  <h4 #h2 autoId>Auto-ID at work, again</h4>
+  <p>The previous heading has ID {!{h2.id}!}</p>
+```
+
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.** The app reports headings ID `heading-0` and `heading-1`.
 
 ## Summary
 
 This page covered how to:
 
-- [Build an **attribute directive**](#write-directive) that modifies the behavior of an element.
-- [Apply the directive](#apply-directive) to an element in a template.
-- [Respond to **events**](#respond-to-user) that change the directive's behavior.
-- [**Bind** values to the directive](#bindings).
+- [Create a **class-based attribute directive**](#create-a-directive) that
+  modifies the behavior of an element.
+- [Apply an attribute directive](#apply-directive) to an element in a template.
+- [Respond to **events**](#respond-to-user) that change a class-based directive's behavior.
+- [**Bind** values](#bindings) to a class-based directive.
+- [Write a **functional** attribute directive](#functional).
 
 The final source code follows:
 
 <code-tabs>
   <?code-pane "lib/app_component.dart" linenums?>
   <?code-pane "lib/app_component.html" linenums?>
+  <?code-pane "lib/src/auto_id_directive.dart" linenums?>
   <?code-pane "lib/src/highlight_directive.dart" linenums?>
   <?code-pane "web/main.dart" linenums?>
   <?code-pane "web/index.html" linenums?>
@@ -538,3 +602,5 @@ Now apply that reasoning to the following example:
 * The `myHighlight` property on the left refers to an _aliased_ property of the `HighlightDirective`,
   not a property of the template's component. There are trust issues.
   Therefore, the directive property must carry the `@Input` annotation.
+
+[@Directive()]: /api/angular/angular/Directive-class
