@@ -486,8 +486,11 @@ Create the following functional attribute directive:
   int _idCounter = 0;
 
   @Directive(selector: '[autoId]')
-  void autoIdDirective(Element el) {
-    el.id = 'heading-${_idCounter++}';
+  void autoIdDirective(
+    Element el,
+    @Attribute('autoId') String prefix,
+  ) {
+    el.id = '$prefix${_idCounter++}';
   }
 ```
 
@@ -506,10 +509,10 @@ While functional directives are stateless, they can be impure
 Add the following lines at the end of the app component template:
 <?code-excerpt "lib/app_component.html (autoId)" title?>
 ```
-  <h4 #h1 autoId>Auto-ID at work</h4>
+  <h4 #h1 autoId="heading-">Auto-ID at work</h4>
   <p>The previous heading has ID {!{h1.id}!}</p>
 
-  <h4 #h2 autoId>Auto-ID at work, again</h4>
+  <h4 #h2 autoId="heading-">Auto-ID at work, again</h4>
   <p>The previous heading has ID {!{h2.id}!}</p>
 ```
 

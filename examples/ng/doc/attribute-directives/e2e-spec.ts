@@ -1,31 +1,31 @@
-'use strict'; // necessary for es6 output in node 
+'use strict'; // necessary for es6 output in node
 
 import { browser, element, by } from 'protractor';
 
-describe('Attribute directives', function () {
+describe('Attribute directives', () => {
 
-  let _title = 'My First Attribute Directive';
+  const _title = 'My First Attribute Directive';
 
-  beforeAll(function () {
-    browser.get('');
-  });
+  beforeAll(() => browser.get(''));
 
-  it(`should display correct title: ${_title}`, function () {
+  it(`has title: ${_title}`, () => {
     expect(element(by.css('h1')).getText()).toEqual(_title);
   });
 
-  it('should be able to select green highlight', function () {
-    let highlightedEle = element(by.cssContainingText('p', 'Highlight me!'));
+  it('selects green highlight', async () => {
+    let highlightedEl = element(by.cssContainingText('p', 'Highlight me!'));
     let lightGreen = 'rgba(144, 238, 144, 1)';
 
-    expect(highlightedEle.getCssValue('background-color')).not.toEqual(lightGreen);
+    expect(highlightedEl.getCssValue('background-color')).not.toEqual(lightGreen);
     // let greenRb = element(by.cssContainingText('input', 'Green'));
     let greenRb = element.all(by.css('input')).get(0);
-    greenRb.click().then(function() {
-      // TypeScript Todo: find the right type for highlightedEle
-      browser.actions().mouseMove(highlightedEle as any).perform();
-      expect(highlightedEle.getCssValue('background-color')).toEqual(lightGreen);
-    });
+    await greenRb.click();
+    await browser.actions().mouseMove(highlightedEl as any).perform();
+    expect(highlightedEl.getCssValue('background-color')).toEqual(lightGreen);
+  });
 
+  it('headings have auto-generated id', async () => {
+    expect(element(by.css('#heading-0')).getText()).toEqual('Auto-ID at work');
+    expect(element(by.css('#heading-1')).getText()).toEqual('Auto-ID at work, again');
   });
 });
