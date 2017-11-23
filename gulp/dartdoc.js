@@ -70,12 +70,6 @@ module.exports = function (gulp, plugins, config) {
     if (!pubPkgAndVersName.match(new RegExp(`${pubPkgName}(\\b|-)`)))
       _throw(proj, `package source directory name should match /${pubPkgName}(\b|-*)/, but is ${pubPkgAndVersName}`);
 
-    // For local angular_* repos, we also need to run pub get on the repos it depends on:
-    if (pathToPkgSrcPath.startsWith('../') && pathToPkgSrcPath.match(/angular_.*$/)) {
-      const pathToAngular = path.join(path.dirname(pathToPkgSrcPath), 'angular');
-      plugins.execSyncAndLog(`pub get`, { cwd: pathToAngular });
-    }
-
     const tmpPubPkgPath = path.join(tmpPubPkgsPath, pubPkgAndVersName);
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
     if (fs.existsSync(tmpPubPkgPath)) {
@@ -83,8 +77,9 @@ module.exports = function (gulp, plugins, config) {
       // plugins.del.sync(apiDir);
     } else {
       plugins.execSyncAndLog(`cp -R ${pathToPkgSrcPath} ${tmpPubPkgPath}`);
+      const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
       // pub hangs on the following dependency: "args: '>=x.y.z <2.0.0'". Patch the pubspec:
-      plugins.execSyncAndLog(`perl -i -pe "s/^(\\s+args):\\s*'>=\\s*([\\d\\.]+)\\s+<2.0.0'/\\1: ^\\2/gm" ${tmpPubPkgPath}/pubspec.yaml`);
+      plugins.execSyncAndLog(`perl -i -pe "s/^(\\s+args):\\s*'>=\\s*([\\d\\.]+)\\s+<2.0.0'/\\1: ^\\2/gm" ${pubspecFile}`);
     }
     return tmpPubPkgPath;
   }
