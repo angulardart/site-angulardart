@@ -14,8 +14,6 @@ dependencies:
   # #docregion dependencies-wo-forms
   angular_router: ^1.0.2
 # #enddocregion dependencies, dependencies-wo-forms
-
-dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
 
