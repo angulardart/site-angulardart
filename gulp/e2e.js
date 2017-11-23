@@ -424,9 +424,9 @@ module.exports = function (gulp, plugins, config) {
     }
     if (argv.pub === false) {
       var prepPromise = Promise.resolve(true);
-      gutil.log('Skipping pub get and pub build (--no-pub flag present)');
+      gutil.log('Skipping pub upgrade and pub build (--no-pub flag present)');
     } else {
-      var pubGetSpawnInfo = spawnExt('pub', ['get'], { cwd: appDir });
+      var pubGetSpawnInfo = spawnExt('pub', ['upgrade'], { cwd: appDir });
       var prepPromise = pubGetSpawnInfo.promise.then(function (data) {
         const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
         return spawnExt('pub', ['build', `--web-compiler=${wc}`], { cwd: appDir }).promise;
