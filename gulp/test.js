@@ -56,7 +56,7 @@ module.exports = function (gulp, plugins, config) {
   });
 
   function pubGetAndRunTest(exPath) {
-    return plugins.execp('pub get', { cwd: exPath })
+    return plugins.execp(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: exPath })
       .then(() => plugins.execp(runAngularTest, { cwd: exPath }))
       .then(() => testStatus.passed.push(exPath))
       .catch(function (err) {

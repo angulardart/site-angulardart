@@ -72,6 +72,7 @@ const config = {
   dartdoc: 'pub global run dartdoc',
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
+  exAppPubGetOrUpgradeCmd: 'upgrade', // or 'get', see https://github.com/dart-lang/site-webdev/issues/1195
   EXAMPLES_ROOT: EXAMPLES_ROOT,
   EXAMPLES_NG_DOC_PATH: EXAMPLES_NG_DOC_PATH,
   frags: {
