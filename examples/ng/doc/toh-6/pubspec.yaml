@@ -3,9 +3,11 @@ name: angular_tour_of_heroes
 # #enddocregion additions
 description: Tour of Heroes
 version: 0.0.1
+
 environment:
   sdk: '>=1.24.0 <2.0.0'
-  # #docregion additions
+
+# #docregion additions
 dependencies:
   angular: ^4.0.0
   angular_forms: ^1.0.0

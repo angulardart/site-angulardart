@@ -170,7 +170,7 @@ router is in its own package, first add the package to the app's pubspec:
 ```diff
 --- toh-4/pubspec.yaml
 +++ toh-5/pubspec.yaml
-@@ -7,11 +7,13 @@
+@@ -8,11 +8,13 @@
  dependencies:
    angular: ^4.0.0
    angular_forms: ^1.0.0

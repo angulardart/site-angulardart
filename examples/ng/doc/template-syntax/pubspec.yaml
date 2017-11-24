@@ -1,6 +1,7 @@
 name: template_syntax
 description: Template Syntax
 version: 0.0.1
+
 environment:
   sdk: '>=1.24.0 <2.0.0'
 

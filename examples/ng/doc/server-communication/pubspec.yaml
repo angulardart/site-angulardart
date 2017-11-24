@@ -2,17 +2,21 @@
 name: server_communication
 description: Server Communication
 version: 0.0.1
+
 environment:
   sdk: '>=1.24.0 <2.0.0'
+
 dependencies:
   angular: ^4.0.0
   http: ^0.11.0
   jsonpadding: ^0.1.0
   stream_transform: ^0.0.5
+
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
 # #docregion transformers
+
 transformers:
 - angular:
     entry_points: web/main.dart
