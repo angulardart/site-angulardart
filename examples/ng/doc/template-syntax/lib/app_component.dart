@@ -99,7 +99,7 @@ class AppComponent implements AfterViewInit, OnInit {
       'Template <script>alert("evil never sleeps")</script>Syntax';
   // #enddocregion evil-title
 
-  var /*String|int*/ fontSizePx = '16';
+  dynamic /*String|int*/ fontSizePx = '16';
 
   String title = 'Template Syntax';
 
