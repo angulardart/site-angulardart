@@ -299,6 +299,8 @@ four forms of data binding syntax:
   <li (click)="selectHero(hero)"></li>
 ```
 
+Here are the three ways that the example uses data binding syntax:
+
 * The `{!{hero.name}}` [*interpolation*](displaying-data.html#interpolation)
   displays the component's `hero.name` property value within the `<li>`
   element.
@@ -310,19 +312,20 @@ four forms of data binding syntax:
 * The `(click)` [*event binding*](user-input.html#click) calls the component's
   `selectHero` method when the user clicks a hero's name.
 
-* The fourth form of data binding is **two-way data binding** (not included in
-  the example). Two-way binding combines property and event binding in a single
-  notation, using the `ngModel` directive.
-  Here's an example from the `HeroDetailComponent` template:
+The fourth form of data binding is
+[*two-way data binding*](template-syntax#two-way).
+Two-way binding combines property and event binding in a single
+notation, using the `ngModel` directive.
+In two-way binding, a data property value flows to the input box from the
+component as with property binding. The user's changes also flow back to the
+component, resetting the property to the latest value, as with event binding.
 
-  <?code-excerpt "lib/src/hero_detail_component.html (ngModel)" title?>
-  ```
-    <input [(ngModel)]="hero.name">
-  ```
+Here's an example of two-way binding from the `HeroDetailComponent` template:
 
-  In two-way binding, a data property value flows to the input box from the
-  component as with property binding. The user's changes also flow back to the
-  component, resetting the property to the latest value, as with event binding.
+<?code-excerpt "lib/src/hero_detail_component.html (ngModel)" title?>
+```
+<input [(ngModel)]="hero.name">
+```
 
 Angular processes all data bindings once per JavaScript event cycle,
 from the root of the app component tree through all child components.
@@ -410,8 +413,9 @@ or modify aspects of DOM elements and components
 [ngClass](template-syntax.html#ngClass)).
 
 You can also write your own directives. Components such as
-`HeroListComponent` are one kind of custom directive. Learn about writing a
-[custom structural directive](/angular/guide/structural-directives#unless).
+`HeroListComponent` are one kind of custom directive.
+[Custom structural directives](structural-directives#unless)
+are another.
 
 
 <div class="l-hr"></div>
@@ -560,7 +564,7 @@ For details, see the section on
 [registering a service provider][config-injector] in the guide to dependency
 injection.
 
-[config-injector]: /angular/guide/dependency-injection#injector-config
+[config-injector]: dependency-injection#injector-config
 
 Points to remember about dependency injection:
 
