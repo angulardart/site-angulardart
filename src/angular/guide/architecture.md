@@ -324,7 +324,7 @@ Here's an example of two-way binding from the `HeroDetailComponent` template:
 
 <?code-excerpt "lib/src/hero_detail_component.html (ngModel)" title?>
 ```
-<input [(ngModel)]="hero.name">
+  <input [(ngModel)]="hero.name">
 ```
 
 Angular processes all data bindings once per JavaScript event cycle,
