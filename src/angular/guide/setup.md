@@ -11,43 +11,46 @@ nextpage:
   url: /angular/guide/learning-angular
 ---
 <a id="develop-locally"></a>
-Setting up a new Angular project is quick and easy,
-using everyday Dart tools.
+Setting up a new Angular project is straightforward using common Dart tools.
 This page leads you through getting and running the starter app
 that's featured in this guide and tutorial.
 
 ## Get prerequisites: Dart SDK, Dartium, and WebStorm  {#sdk}
 
-If you don't already have the **Dart SDK** (**1.24** or a compatible version) and **Dartium**, get them.
-We recommend that you also get **WebStorm**.
+You need the following tools:
+* **Dart SDK** (**1.24** or a compatible version)
+* **Dartium**
 
-[Get Started](/guides/get-started) tells you how to get the tools.
+We also recommend that you get **WebStorm**.
+
+For more information on how to get the tools, see [Get Started](/guides/get-started).
 
 ## Create a starter project  {#create}
 
 The examples in this guide and tutorial are based on the
 [angular-examples/quickstart]({{site.ghNgEx}}/quickstart/tree/{{site.branch}})
 GitHub project.
-You can get the project's files by
-[downloading them]({{site.ghNgEx}}/quickstart/archive/{{site.branch}}.zip)
-or cloning the repo.
+You can get the project's files by the following methods:
+* [Downloading them.]({{site.ghNgEx}}/quickstart/archive/{{site.branch}}.zip)
+* Cloning the repo.
+* Using Webstorms's Git support.
 
-Or use WebStorm's Git support:
+### Use WebStorm's Git support ###
 
 1. Launch WebStorm.
 1. If you haven't already done so,
    [configure Dart support in WebStorm](/tools/webstorm#configuring-dart-support).
 1. From the welcome screen, choose **Check out from Version Control > Git**.<br>
-   Alternatively, choose **VCS > Git > Clone...** from the menu.<br>
+   Alternatively, from the menu, choose **VCS > Git > Clone...**<br>
    A **Clone Repository** dialog appears.
-1. Fill out the fields:<a id="directory-name"></a>
+1. Fill out the following fields:<a id="directory-name"></a>
    * **Git Repository URL:** `{{site.ghNgEx}}/quickstart`
    * **Parent Directory:** _(wherever you like to keep your practice code)_
    * **Directory Name:** `angular_tour_of_heroes` _(or any other
    [valid package name]({{site.dartlang}}/tools/pub/pubspec#name))_
 1. Click **Clone**.
 {%- if site.branch != 'master' %}
-1. After the project opens, choose **VCS > Git > Branches...** from the menu.<br>
+1. After the project opens, from the menu, choose **VCS > Git > Branches...**<br>
    A **Git Branches** popup appears.
 1. From the popup, under **Remote Branches** choose<br>
    **origin/{{site.branch}} > Checkout as new local branch**.
@@ -93,6 +96,7 @@ Using WebStorm, or your favorite editor:
    `test/app_test.dart`.
 
 <div><a id="running-the-app"></a></div>
+
 ## Run the app
 
 In WebStorm:
@@ -100,10 +104,9 @@ In WebStorm:
 1. In the project view, right-click `web/index.html`.
 1. Choose **Run ‘index.html’.**
 
-If a dialog says that Chromium wants to use your confidential information,
-click **Deny**.
-(You shouldn’t use Dartium for general-purpose browsing,
-and Dartium doesn’t need your information to run this app.)
+**Note:** If a dialog says that Chromium wants to use your confidential information,
+click **Deny**. Dartium is not for general-purpose browsing,
+and Dartium doesn’t need your information to run this app.
 
 You should see the following app in a [Dartium](/tools/dartium) browser window:
 
