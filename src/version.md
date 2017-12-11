@@ -2,9 +2,11 @@
 title: Versions
 description: The versions that this documentation and its examples use.
 ---
-{% assign pubPkgUrl = 'https://pub.dartlang.org/packages' %}
-This site's documentation and examples reflect the software versions in the
-**Current** column of the following table.
+{% assign pubPkgUrl = 'https://pub.dartlang.org/packages' -%}
+This site's documentation and examples use the
+[{{site.data.pkg-vers.SDK.vers}}]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/{{site.data.pkg-vers.SDK.vers}}){:.no-automatic-external}
+release of the [Dart SDK]({{site.dartlang}}/tools/sdk){:.no-automatic-external},
+with the package versions in the **Current** column of the following table.
 
 <style>
 #vers { width: max-content; }
@@ -13,7 +15,7 @@ This site's documentation and examples reflect the software versions in the
 </style>
 <table id="vers" class="table table-striped">
   <tr>
-    <th>Package/SDK</th>
+    <th>Package</th>
     {%- if site.prev-url -%} <th>Previous</th> {%- endif -%}
     <th>Current</th>
     {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
@@ -21,6 +23,7 @@ This site's documentation and examples reflect the software versions in the
   for pkgDataPair in site.data.pkg-vers %}{%
   assign name = pkgDataPair[0] %}{%
   assign info = pkgDataPair[1] %}
+  {%- if name != 'SDK' -%}
   <tr>
     <td>{{info.tmp-name | default: name}}</td>
 
@@ -59,8 +62,8 @@ This site's documentation and examples reflect the software versions in the
       endif %}
     </td>
     {%- endif -%}
-
   </tr>
+  {%- endif -%}
   {%- endfor -%}
 </table>
 

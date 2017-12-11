@@ -29,9 +29,7 @@
     "next-vers": "1.0.2-alpha"
   },
   "SDK": {
-    "doc-path": "guides/get-started#2-install-dart",
     "channel": "stable",
-    "vers": "1.24.2",
-    "next-vers": "2.0.0-dev.4.0"
+    "vers": "1.24.2"
   }
 }
