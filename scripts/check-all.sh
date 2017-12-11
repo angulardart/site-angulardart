@@ -13,8 +13,13 @@ travis_fold start check_links
 (set -x; ./scripts/check-links.sh)
 travis_fold end check_links
 
+errorMessage="
+Error: some code excerpts need to be refreshed.
+Rerun './scripts/refresh-code-excerpts.sh' locally.
+"
+
 travis_fold start refresh_code_excerpts
-(set -x; ./scripts/refresh-code-excerpts.sh)
+(set -x; ./scripts/refresh-code-excerpts.sh) || (printf "$errorMessage" && exit 1)
 travis_fold end refresh_code_excerpts
 
 travis_fold start check_for_bad_filenames
