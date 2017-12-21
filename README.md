@@ -1,10 +1,9 @@
-# The webdev site
+# Site for _Dart for the web_ ([webdev.dartlang.org][])
 
-[![Build Status](https://travis-ci.org/dart-lang/site-webdev.svg?branch=master)](https://travis-ci.org/dart-lang/site-webdev)
-[![first-timers-only](http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](http://www.firsttimersonly.com/)
+[![Build Status SVG][]][@travis]
+[![first-timers-only SVG][]][first-timers-only]
 
-This repo implements the [webdev.dartlang.org](http://webdev.dartlang.org) website. It uses the tools and infrastructure of
-www.dartlang.org (which is implemented in [github.com/dart-lang/site-www](https://github.com/dart-lang/site-www)).
+The [webdev.dartlang.org][] site, built with [Jekyll][] and hosted on [Firebase][].
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
@@ -21,9 +20,7 @@ Install the following tools if you don't have them already.
   (6 or later LTS release):
   - `nvm install 8`
 - **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
-  - `rvm install 2.4.2`\
-  **Can't install ruby?** If installation fails because `curl` is reported as missing—even
-  though it exists—use the workaround from https://github.com/ilios/frontend/pull/1963/.
+  - `rvm install 2.4.2`
 - **[Dart][]**, _including_ both browsers used for testing doc examples:
   - **Dartium**
   - **content shell**
@@ -86,20 +83,6 @@ Some `gulp build` options include:
 - `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead up repeated builds)
 - `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
 
-[Cloning a repository]: https://help.github.com/articles/cloning-a-repository
-[Dart]: https://www.dartlang.org/install
-[Dart install]: https://www.dartlang.org/install
-[nvm]: https://github.com/creationix/nvm#installation
-[rvm]: https://rvm.io/rvm/install#installation
-[site-webdev]: https://github.com/dart-lang/site-webdev
-[./scripts/env-set.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/env-set.sh
-
-[./scripts/before-install.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/before-install.sh
-[./scripts/get-ng-repo.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/get-ng-repo.sh
-[./scripts/install.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/install.sh
-[./scripts/serve_local.sh]: https://github.com/dart-lang/site-webdev/blob/master/scripts/serve_local.sh
-
-
 ## Rebuilding this site from scratch
 
 If you encounter build problems, or if you haven't build this site in a while,
@@ -136,3 +119,19 @@ are not yet ready.
 update-for-dart-2
 {% endcomment %}
 </pre>
+
+
+[Build Status SVG]: https://travis-ci.org/dart-lang/site-webdev.svg?branch=master
+[Cloning a repository]: https://help.github.com/articles/cloning-a-repository
+[Dart]: https://www.dartlang.org/install
+[Dart install]: https://www.dartlang.org/install
+[Firebase]: https://firebase.google.com/
+[first-timers-only SVG]: http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
+[first-timers-only]: http://www.firsttimersonly.com/
+[Jekyll]: https://jekyllrb.com/
+[nvm]: https://github.com/creationix/nvm#installation
+[rvm]: https://rvm.io/rvm/install#installation
+[@travis]: https://travis-ci.org/dart-lang/site-webdev
+[site-webdev]: https://github.com/dart-lang/site-webdev
+[site-www]: https://github.com/dart-lang/site-www
+[webdev.dartlang.org]: https://webdev.dartlang.org
