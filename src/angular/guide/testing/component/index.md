@@ -18,9 +18,11 @@ TODO(chalin):
 {% endcomment %}
 
 This part of the [Testing](/angular/guide/testing) how-to guide covers
-**[component testing][]** of AngularDart apps using these packages:
+[component testing][] of AngularDart apps using the following packages:
 
-- [package:test][], Dart's standard [testing][] package, which is similar to most
+<dl>
+<dt>[package:test][]
+<dd>Dart's standard [testing][] package, which is similar to most
   [unit testing][] frameworks, including [Jasmine][] for
   JavaScript. If you've used a modern testing framework before,
   then writing tests using `package:test` will have a familiar feel.
@@ -28,31 +30,34 @@ This part of the [Testing](/angular/guide/testing) how-to guide covers
   in-depth coverage of the package capabilities, see the `package:test`
   [documentation][package:test].
 
-- **[package:angular_test][]**, which complements the standard test package by
-  providing a means of interacting with Angular components created as test fixtures.
+<dt>[package:angular_test][]
+<dd>A complementary package that provides a means of interactiing with Angular components created as test fixtures.
 
-- [package:mockito][], a library for creating
+<dt>[package:mockito][]
+<dd>A library for creating
   [mock objects](https://en.wikipedia.org/wiki/Mock_object).
   Not all component tests require mock objects, but in later sections, you'll learn
-  the fundamentals of using `package:mockito` as needed &mdash; for complete details
-  consult the package [documentation][package:mockito].
+  the fundamentals of using `package:mockito` as needed. For further details,
+  see the package [documentation][package:mockito].
+  </dl>
 
 ## Scope
 
 The [angular_test][] package is suitable for testing either a
-**single component**, or a _small_ group of **related components**.
-It is not meant to test an entire app. For that, you'll write
+single component, or a _small_ group of related components.
+This package is not meant to test an entire app. For that, you need to write
 [end-to-end tests](/angular/guide/testing/e2e).
 
 <div class="alert is-important" markdown="1">
+
 [angular_test][] will report errors if you attempt to test an
-app root component with an associated [router](/angular/guide/router). See
-[Which routing components can I test?](component/routing-components#which-routing-components-can-i-test) for details.
+app root component with an associated [router](/angular/guide/router). For more information, see
+[Which routing components can I test?](component/routing-components#which-routing-components-can-i-test).
 </div>
 
 ## Topics
 
-These are the component testing topics covered in this guide:
+This guide covers the following component testing topics:
 
 {% include_relative _toc.md %}
 {% comment %}
