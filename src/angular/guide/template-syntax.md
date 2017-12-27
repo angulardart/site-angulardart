@@ -20,12 +20,12 @@ _{{page.description}}_
 The Angular app manages what the user sees and can do, achieving this through the interaction of a
 component class instance (the *component*) and its user-facing template.
 
-You may be familiar with the combination of component and template from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
+You might be familiar with the combination of component and template from experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
 In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
 
 ### Contents
 
-This guide covers the basic elements of the Angular template syntax that you'll need to construct the view:
+This page covers the basic elements of the Angular template syntax for constructing views:
 
 * [HTML in templates](#html)
 * [Interpolation ( <span class="syntax">{&#xfeff;{...}}</span> )](#interpolation)
@@ -70,7 +70,7 @@ Some legal HTML doesn't make much sense in a template.
 The `<html>`, `<body>`, and `<base>` elements have no useful role.
 Pretty much everything else can be used.
 
-You can extend the HTML vocabulary of your templates with components and directives that appear as new elements and attributes.
+You can extend the HTML vocabulary of templates with components and directives that appear as new elements and attributes.
 In the following sections, you'll learn how to get and set DOM (Document Object Model) values dynamically through data binding.
 
 Begin with the first form of data binding&mdash;interpolation&mdash;to see how much richer template HTML can be.
@@ -178,7 +178,7 @@ In the following snippets, the `title`  within double curly braces and the
   <span [hidden]="isUnchanged">changed</span>
 ```
 
-An expression may also refer to properties of the _template's_ context,
+An expression can also refer to properties of the _template's_ context,
 such as a [template input variable](#template-input-variable) (`let hero`)
 or a [template reference variable](#ref-vars) (`#heroInput`).
 
@@ -236,7 +236,7 @@ Angular executes template expressions after every change detection cycle.
 Change detection cycles are triggered by many asynchronous activities such as
 promise resolutions, http results, timer events, keypresses and mouse moves.
 
-Expressions need to finish quickly or the user experience may drag, especially on slower devices.
+Expressions need to finish quickly or the user experience might drag, especially on slower devices.
 Consider caching values when their computation is expensive.
 
 #### Simplicity
@@ -309,7 +309,7 @@ The *deleteHero* in `(click)="deleteHero()"` is a method of the data-bound compo
   <button (click)="deleteHero()">Delete hero</button>
 ```
 
-The statement context may also refer to properties of the template's own context.
+The statement context can also refer to properties of the template's own context.
 In the following examples, the template `$event` object,
 a [template input variable](#template-input-variable) (`let hero`),
 and a [template reference variable](#ref-vars) (`#heroForm`)
@@ -380,7 +380,7 @@ _view-to-source-to-view_.
 Binding types other than interpolation have a **target name** to the left of the equal sign,
 either surrounded by punctuation (`[]`, `()`) or preceded by a prefix (`bind-`, `on-`, `bindon-`).
 
-The target name is the name of a _property_. It may look like the name of an _attribute_ but it never is.
+The target name is the name of a _property_. It might look like the name of an _attribute_ but it never is.
 To appreciate the difference, you must develop a new way to think about template HTML.
 
 ### A new mental model
@@ -389,7 +389,7 @@ With all the power of data binding and the ability to extend the HTML vocabulary
 with custom markup, it's tempting to think of template HTML as *HTML Plus*.
 
 It really *is* HTML Plus.
-But it's also significantly different to the HTML you're used to.
+But it's also significantly different from the HTML you're used to.
 It requires a new mental model.
 
 In the normal course of HTML development, you create a visual structure with HTML elements, and
@@ -425,11 +425,10 @@ Then you learn about data binding. The first binding you meet might look like th
   <button [disabled]="isUnchanged">Save</button>
 ```
 
-You'll get to that peculiar bracket notation in a moment. Looking beyond it,
-your intuition suggests that you're binding to the button's `disabled` attribute and setting
-it to the current value of the component's `isUnchanged` property. Your intuition is incorrect! 
+Your intuition might suggest that you're binding to the button's `disabled` attribute and setting
+it to the current value of the component's `isUnchanged` property. That intuition would be incorrect!
 
-Your everyday HTML mental model is misleading. In fact, once you start data
+The everyday HTML mental model is misleading. Once you start data
 binding, you're no longer working with HTML *attributes*. You aren't setting
 attributes; you're setting the *properties* of DOM elements, components, and
 directives.
@@ -449,7 +448,7 @@ directives.
 
   * Many HTML attributes appear to map to properties ... but not in the way you might think!
 
-  That last category is confusing until you grasp the following general rule:
+  That last category is confusing unless you know this general rule:
 
   **Attributes *initialize* DOM properties and then they're done.
   Property values can change; attribute values can't.**
@@ -487,7 +486,7 @@ This fact bears repeating:
   HTML attributes effectively disappear.
 </div>
 
-With this model firmly in mind, read on to learn about binding targets.
+With this model in mind, read on to learn about binding targets.
 
 ### Binding targets
 
@@ -644,9 +643,9 @@ Some people prefer the `bind-` prefix alternative, known as the *canonical form*
 ```
 
 The target name is always the name of a property, even when it appears to be the name of something else.
-You may see `src` and think it's the name of an attribute. It's not; it's the name of an image element property.
+You might see `src` and think it's the name of an attribute. It's not; it's the name of an image element property.
 
-Element properties may be the more common targets,
+Element properties might be the more common targets,
 but Angular looks first to see if the name is a property of a known directive,
 as it is in the following example:
 
@@ -741,8 +740,8 @@ Omit the brackets when all of the following are true:
 * The string is a fixed value that you can bake into the template.
 * This initial value never changes.
 
-You routinely initialize attributes this way in standard HTML, and it works
-just as well for directive and component property initialization.
+One-time string initialization is routine in standard HTML, and 
+it works just as well for directive and component properties.
 The following example initializes the `prefix` property of the `HeroDetailComponent` to a fixed string,
 not a template expression. Angular sets it and forgets about it.
 
@@ -769,9 +768,9 @@ The following binding pairs do the same thing:
 
 _Interpolation_ is a convenient alternative to _property binding_ in many cases.
 
-When rendering data values as strings, there is no technical reason to prefer one form to the other.
-You lean toward readability, which tends to favor interpolation.
-You suggest establishing coding style rules and choosing the form that
+When rendering data values as strings, there is no technical reason to prefer one form to the other,
+but interpolation can be more readable.
+We suggest establishing coding style rules and choosing the form that
 both conforms to the rules and feels most natural for the task at hand.
 
 When setting an element property to a non-string data value, you must use _property binding_.
@@ -833,14 +832,14 @@ table span attributes. They are pure attributes.
 They do not correspond to element properties, and they do not set element properties.
 There are no property targets to bind to.
 
-This fact becomes painfully obvious when you write something like this.
+This fact becomes painfully obvious when writing something like this:
 
 <?code-excerpt?>
 ```html
   <tr><td colspan="{!{1 + 1}!}">Three-Four</td></tr>
 ```
 
-And you get this error:
+The result is this error:
 
 <?code-excerpt?>
 ```
@@ -995,7 +994,7 @@ The following example conditionally sets the font size in  “em” and “%” 
 The bindings directives you've met so far flow data in one direction: **from a component to an element**.
 
 Users don't just stare at the screen. They enter text into input boxes. They pick items from lists.
-They click buttons. Such user actions may result in a flow of data in the opposite direction:
+They click buttons. Such user actions can result in a flow of data in the opposite direction:
 **from an element to a component**.
 
 The only way to know about a user action is to listen for certain events such as
@@ -1030,7 +1029,7 @@ Some people prefer the `on-` prefix alternative, known as the **canonical form**
   <button on-click="onSave()">On Save</button>
 ```
 
-Element events may be the more common targets, but Angular looks first to see if the name matches an event property
+Element events might be the more common targets, but Angular looks first to see if the name matches an event property
 of a known directive, as it does in the following example:
 
 <?code-excerpt "lib/app_component.html (event-binding-3)"?>
@@ -1239,7 +1238,7 @@ It has a `size` value property and a companion `sizeChange` event:
     int _size = _minSize * 2;
     int get size => _size;
     @Input()
-    void set size(/*int | String */ val) {
+    void set size(/*String|int*/ val) {
       int z = val is int ? val : int.parse(val, onError: (_) => null);
       if (z != null) _size = min(maxSize, max(minSize, z));
     }
@@ -1332,11 +1331,10 @@ Many Angular packages such as the [`Router`](router.html "Routing and Navigation
 and [`Forms`](forms.html "Forms") packages define their own attribute directives.
 This section is an introduction to the most commonly used attribute directives:
 
-* [`NgClass`](#ngClass) - add and remove a set of CSS classes
-* [`NgStyle`](#ngStyle) - add and remove a set of HTML styles
-* [`NgModel`](#ngModel) - two-way data binding to an HTML form element
+* [`NgClass`](#ngClass): Add and remove a set of CSS classes.
+* [`NgStyle`](#ngStyle): Add and remove a set of HTML styles.
+* [`NgModel`](#ngModel): Two-way data binding to an HTML form element.
 
-<a href="#contents">back to top</a>
 <div class="l-hr"></div>
 
 <div id="ngClass"></div>
@@ -1354,7 +1352,7 @@ A [class binding](#class-binding) is a good way to add or remove a *single* clas
   <div [class.special]="isSpecial">The class binding is special</div>
 ```
 
-To add or remove *many* CSS classes at the same time, the `NgClass` directive may be the better choice.
+To add or remove *many* CSS classes at the same time, the `NgClass` directive might be the better choice.
 
 Try binding `ngClass` to a key:value control [Map][].
 Each key of the object is a CSS class name; its value is `true` if the class should be added,
@@ -1405,7 +1403,7 @@ A [style binding](#style-binding) is an easy way to set a *single* style value.
   </div>
 ```
 
-To set *many* inline styles at the same time, the `NgStyle` directive may be the better choice.
+To set *many* inline styles at the same time, the `NgStyle` directive might be the better choice.
 
 Try binding `ngStyle` to a key:value control [Map][].
 Each key of the object is a style name; its value is whatever is appropriate for that style.
@@ -1457,7 +1455,7 @@ Two-way data binding with the `NgModel` directive makes that easy. Here's an exa
 #### Inside <span class="syntax">[(ngModel)]</span>
 
 Looking back at the `name` binding, note that
-you could have achieved the same result with separate bindings to
+you could achieve the same result with separate bindings to
 the `<input>` element's  `value` property and `input` event.
 
 <?code-excerpt "lib/app_component.html (without-NgModel)"?>
@@ -1540,21 +1538,21 @@ They shape or reshape the DOM's _structure_, typically by adding, removing, and 
 the host elements to which they are attached.
 
 The deep details of structural directives are covered in the
-[_Structural Directives_](structural-directives.html) guide
-where you'll learn:
+[_Structural Directives_](structural-directives.html) guide,
+where you'll learn the following:
 
-* why you
+* Why you must
 [_prefix the directive name with an asterisk_ (\*)](structural-directives.html#asterisk "The * in *ngIf").
-* how to [group elements](structural-directives#group-sibling-elements)
+* How to [group elements](structural-directives#group-sibling-elements)
 when there is no suitable host element for the directive.
-* how to write your own structural directive.
-* that you can only apply [one structural directive](structural-directives.html#one-per-element "one per host element") to an element.
+* How to write your own structural directive.
+* Why you can apply only [one structural directive](structural-directives.html#one-per-element "one per host element") to an element.
 
 _This_ section is an introduction to the common structural directives:
 
-* [`NgIf`](#ngIf) - conditionally add or remove an element from the DOM
-* [`NgFor`](#ngFor) - repeat a template for each item in a list
-* [`NgSwitch`](#ngSwitch) - a set of directives that switch among alternative views
+* [`NgIf`](#ngIf): Conditionally add or remove an element from the DOM.
+* [`NgFor`](#ngFor): Repeat a template for each item in a list.
+* [`NgSwitch`](#ngSwitch): Show only one of multiple possible elements.
 
 <div class="l-hr"></div>
 <div id="ngIf"></div>
@@ -1625,9 +1623,9 @@ You can control the visibility of an element with a
 Hiding an element is quite different from removing an element with `NgIf`.
 
 When you hide an element, that element and all of its descendents remain in the DOM.
-All components for those elements stay in memory and
-Angular may continue to check for changes.
-You could be holding onto considerable computing resources and degrading performance,
+All components for those elements stay in memory, and
+Angular might continue to check for changes.
+Your app might hold onto considerable computing resources, degrading performance
 for something the user can't see.
 
 When `NgIf` is `false`, Angular removes the element and its descendents from the DOM.
@@ -1635,7 +1633,7 @@ It destroys their components, potentially freeing up substantial resources,
 resulting in a more responsive user experience.
 
 The show/hide technique is fine for a few elements with few children.
-You should be wary when hiding large component trees; `NgIf` may be the safer choice.
+Be wary of hiding large component trees; `NgIf` might be the safer choice.
 
 #### Guard against null
 
@@ -1644,8 +1642,8 @@ Show/hide is useless as a guard.
 Angular will throw an error if a nested expression tries to access a property of `null`.
 
 Here we see `NgIf` guarding two `<div>`s.
-The `currentHero` name will appear only when there is a `currentHero`.
-The `nullHero` will never be displayed.
+The `currentHero` name appears only when there is a `currentHero`.
+The `nullHero` is never displayed.
 
 <?code-excerpt "lib/app_component.html (NgIf-2)"?>
 ```
@@ -1713,9 +1711,10 @@ The `let` keyword before `hero` creates a _template input variable_ called `hero
 The `ngFor` directive iterates over the `heroes` list returned by the parent component's `heroes` property
 and sets `hero` to the current item from the list during each iteration.
 
-You reference the `hero` input variable within the `ngFor` host element
-(and within its descendents) to access the hero's properties.
-Here it is referenced first in an interpolation
+To access the hero's properties,
+reference the `hero` input variable within the `ngFor` host element
+(or within its descendents).
+Here `hero` is referenced first in an interpolation
 and then passed in a binding to the `hero` property of the `<hero-detail>` component.
 
 <?code-excerpt "lib/app_component.html (NgFor-1-2)"?>
@@ -1747,10 +1746,10 @@ The next example captures the `index` in a variable named `i` and displays it wi
 <div id="trackBy"></div>
 #### *ngFor with _trackBy_
 
-The `NgFor` directive may perform poorly, especially with large lists.
+The `NgFor` directive can perform poorly, especially with large lists.
 A small change to one item, an item removed, or an item added can trigger a cascade of DOM manipulations.
 
-For example, re-querying the server could reset the list with all new hero objects.
+For example, re-querying the server might reset the list with all new hero objects.
 
 Most, if not all, are previously displayed heroes.
 *You* know this because the `id` of each hero hasn't changed.
@@ -1834,7 +1833,7 @@ Each component has a `hero` [input property](#inputs-outputs "Input property")
 which is bound to the `currentHero` of the parent component.
 
 Switch directives work as well with native elements and web components too.
-For example, you could replace the `<confused-hero>` switch case with the following.
+For example, you can replace the `<confused-hero>` switch case with the following.
 
 <?code-excerpt "lib/app_component.html (NgSwitch-div)"?>
 ```
@@ -1937,7 +1936,7 @@ This example declares the `fax` variable as `ref-fax` instead of `#fax`.
 
 ## Input and output properties ( <span class="syntax">@Input</span> and <span class="syntax">@Output</span> )  {#inputs-outputs}
 
-So far, you've focused mainly on binding to component members within template expressions and statements
+So far, this page has focused mainly on binding to component members within template expressions and statements
 that appear on the *right side of the binding declaration*.
 A member in that position is a data binding **source**.
 
@@ -2039,12 +2038,12 @@ However, the directive name is often a poor choice for the name of a property wi
 The directive name rarely describes what the property does.
 The `myClick` directive name is not a good name for a property that emits click messages.
 
-Fortunately, you can have a public name for the property that meets conventional expectations,
+Fortunately, you can create a public name for the property that meets conventional expectations,
 while using a different name internally.
-In the example immediately above, you are actually binding *through the* `myClick` *alias* to
+In the example immediately above, the code binds *through the* `myClick` *alias* to
 the directive's own `clicks` property.
 
-You can specify the alias for the property name by passing it into the input/output decorator like this:
+To specify the alias for the property name, pass the alias into the input/output decorator like this:
 
 <?code-excerpt "lib/src/click_directive.dart (output-myClick)"?>
 ```
@@ -2066,7 +2065,7 @@ for specific scenarios. The next sections cover two of these operators: _pipe_ a
 <div id="pipe"></div>
 ### The pipe operator ( <span class="syntax">|</span> )
 
-The result of an expression might require some transformation before you're ready to use it in a binding.
+The result of an expression might require some transformation before it's ready to use in a binding.
 For example, you might display a number as a currency, force text to uppercase, or filter a list and sort it.
 
 Angular [pipes](./pipes.html) are a good choice for small transformations such as these.
@@ -2091,7 +2090,7 @@ You can chain expressions through multiple pipes:
   </div>
 ```
 
-And you can also [apply parameters](./pipes.html#parameterizing-a-pipe) to a pipe:
+You can also [apply parameters](./pipes.html#parameterizing-a-pipe) to a pipe:
 
 <?code-excerpt "lib/app_component.html (pipes-3)"?>
 ```
@@ -2106,7 +2105,7 @@ The `json` pipe can be helpful for debugging bindings:
   <div>{!{currentHero | json}!}</div>
 ```
 
-The generated output would look something like this
+The generated output looks something like this:
 
 <?code-excerpt?>
 ```json
@@ -2164,7 +2163,7 @@ If it must never be null and yet it is null,
 that's a programming error that should be caught and fixed.
 Throwing an exception is the right thing to do.
 
-On the other hand, null values in the property path may be OK from time to time,
+On the other hand, null values in the property path might be OK from time to time,
 especially when the data are null now and will arrive eventually.
 
 While waiting for data, the view should render without complaint, and
