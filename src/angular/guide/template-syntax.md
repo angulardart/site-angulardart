@@ -20,12 +20,12 @@ _{{page.description}}_
 The Angular app manages what the user sees and can do, achieving this through the interaction of a
 component class instance (the *component*) and its user-facing template.
 
-You may be familiar with the component/template duality from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
+You may be familiar with the combination of component and template from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
 In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
 
 ### Contents
 
-This guide covers the basic elements of the Angular template syntax, elements you'll need to construct the view:
+This guide covers the basic elements of the Angular template syntax that you'll need to construct the view:
 
 * [HTML in templates](#html)
 * [Interpolation ( <span class="syntax">{&#xfeff;{...}}</span> )](#interpolation)
@@ -62,13 +62,13 @@ demonstrates all of the syntax and code snippets described in this guide.
 HTML is the language of the Angular template.
 Almost all HTML syntax is valid template syntax.
 The `<script>` element is a notable exception;
-it is forbidden, eliminating the risk of script injection attacks.
+it's forbidden, eliminating the risk of script injection attacks.
 In practice, `<script>` is ignored and a warning appears in the browser console.
 See the [Security](security.html) page for details.
 
 Some legal HTML doesn't make much sense in a template.
 The `<html>`, `<body>`, and `<base>` elements have no useful role.
-Pretty much everything else is fair game.
+Pretty much everything else can be used.
 
 You can extend the HTML vocabulary of your templates with components and directives that appear as new elements and attributes.
 In the following sections, you'll learn how to get and set DOM (Document Object Model) values dynamically through data binding.
@@ -123,10 +123,12 @@ Angular evaluates all expressions in double curly braces,
 converts the expression results to strings, and links them with neighboring literal strings. Finally,
 it assigns this composite interpolated result to an **element or directive property**.
 
-You appear to be inserting the result between element tags and assigning it to attributes.
-It's convenient to think so, and you rarely suffer for this mistake.
-Though this is not exactly true. Interpolation is a special syntax that Angular converts into a
-[property binding](#property-binding), as is explained [below](#property-binding-or-interpolation).
+From a quick glance at the syntax, it looks as if you're inserting the result
+between element tags and assigning it to attributes. That's a convenient way to
+think of what's happening, but it's not exactly true. Interpolation is a special
+syntax that Angular converts into a
+[property binding](#property-binding). See the details
+[below](#property-binding-or-interpolation).
 
 But first, let's take a closer look at template expressions and statements.
 
@@ -141,33 +143,33 @@ the target might be an HTML element, a component, or a directive.
 
 The interpolation braces in `{!{1 + 1}!}` surround the template expression `1 + 1`.
 In the [property binding](#property-binding) section below,
-a template expression appears in quotes to the right of the&nbsp;`=` symbol as in `[property]="expression"`.
+a template expression appears in quotes to the right of the&nbsp;`=` symbol, as in `[property]="expression"`.
 
 You write these template expressions in a language that looks like Dart.
-Many Dart expressions are legal template expressions, but not all.
+Many Dart expressions are legal template expressions, but not all are.
 
 Dart expressions that have or promote side effects are prohibited,
-including:
+including the following:
 
-* assignments (`=`, `+=`, `-=`, ...)
+* Assignments (`=`, `+=`, `-=`, ...)
 * `new` or `const`
-* chaining expressions with `;`
-* increment and decrement operators (`++` and `--`)
+* Chaining expressions with `;`
+* Increment and decrement operators (`++` and `--`)
 
-Other notable differences from Dart syntax include:
+Other notable differences from Dart syntax include the following:
 
-* no support for Dart string interpolation; for example,
+* No support for Dart string interpolation; for example,
   instead of `"'The title is $title'"`, you must write
   `"'The title is ' + title"`
-* no support for the bitwise operators `|` and `&`
-* new [template expression operators](#expression-operators), such as `|`
+* No support for the bitwise operators `|` and `&`
+* New [template expression operators](#expression-operators), such as `|`
 
 <a href="#contents">back to top</a>
 
 ### Expression context
 
 The *expression context* is typically the _component_ instance.
-In the following snippets, the `title`  within double-curly braces and the
+In the following snippets, the `title`  within double curly braces and the
 `isUnchanged` in quotes refer to properties of the `AppComponent`.
 
 <?code-excerpt "lib/app_component.html (context-component-expression)"?>
@@ -176,7 +178,7 @@ In the following snippets, the `title`  within double-curly braces and the
   <span [hidden]="isUnchanged">changed</span>
 ```
 
-An expression may also refer to properties of the _template's_ context
+An expression may also refer to properties of the _template's_ context,
 such as a [template input variable](#template-input-variable) (`let hero`)
 or a [template reference variable](#ref-vars) (`#heroInput`).
 
@@ -197,7 +199,7 @@ property and the `*ngFor` defines a `hero` template variable.
 The `hero` in `{% raw %}{{hero.name}}{% endraw %}`
 refers to the template input variable, not the component's property.
 
-Template expressions cannot refer to static
+Template expressions can't refer to static
 properties, nor to top-level variables or functions, such as `window` or
 `document` from `dart:html`. They can’t directly call `print` or functions
 imported from `dart:math`. They are restricted to referencing members of
@@ -209,23 +211,24 @@ the expression context.
 ### Expression guidelines
 
 Template expressions can make or break an app.
-Please follow these guidelines:
+Follow these guidelines:
 
 * [No visible side effects](#no-visible-side-effects)
 * [Quick execution](#quick-execution)
 * [Simplicity](#simplicity)
 * [Idempotence](#idempotence)
 
-The only exceptions to these guidelines should be in specific circumstances that you thoroughly understand.
+If you make an exception to the above guidelines, make sure you thoroughly
+understand the circumstances.
 
 #### No visible side effects
 
-A template expression should not change any app state other than the value of the
+A template expression must not change any app state other than the value of the
 target property.
 
 This rule is essential to Angular's "unidirectional data flow" policy.
-You should never worry that reading a component value might change some other displayed value.
-The view should be stable throughout a single rendering pass.
+It ensures that reading a component value doesn't change some other displayed
+value. The view must be stable throughout a single rendering pass.
 
 #### Quick execution
 
@@ -233,22 +236,22 @@ Angular executes template expressions after every change detection cycle.
 Change detection cycles are triggered by many asynchronous activities such as
 promise resolutions, http results, timer events, keypresses and mouse moves.
 
-Expressions should finish quickly or the user experience may drag, especially on slower devices.
+Expressions need to finish quickly or the user experience may drag, especially on slower devices.
 Consider caching values when their computation is expensive.
 
 #### Simplicity
 
-Although it's possible to write quite complex template expressions, you should avoid them.
+Although it's possible to write quite complex template expressions, it's best to avoid them.
 
-A property name or method call should be the norm.
+In most situations, use a property name or method call.
 An occasional Boolean negation (`!`) is OK.
 Otherwise, confine application and business logic to the component itself,
-where it will be easier to develop and test.
+where it's easier to develop and test.
 
 #### Idempotence
 
 An [idempotent](https://en.wikipedia.org/wiki/Idempotence) expression is ideal because
-it is free of side effects and improves Angular's change detection performance.
+it's free of side effects and improves Angular's change detection performance.
 
 In Angular terms, an idempotent expression always returns *exactly the same thing* until
 one of its dependent values changes.
@@ -265,7 +268,7 @@ it returns the same object *reference* when called twice in a row.
 
 A template **statement** responds to an **event** raised by a binding target
 such as an element, component, or directive.
-You'll see template statements in the [event binding](#event-binding) section,
+You'll see template statements in the [event binding](#event-binding) section
 appearing in quotes to the right of the `=`&nbsp;symbol as in `(event)="statement"`.
 
 <?code-excerpt "lib/app_component.html (context-component-statement)"?>
@@ -285,13 +288,13 @@ The template statement parser differs from the template expression parser and
 specifically supports both basic assignment (`=`) and chaining expressions
 (with `;`).
 
-However, certain Dart syntax is not allowed:
+However, the following Dart syntax is not allowed:
 
 * `new` or `const`
-* increment and decrement operators, `++` and `--`
-* operator assignment, such as `+=` and `-=`
-* the bitwise operators `|` and `&`
-* the [template expression operators](#expression-operators)
+* Increment and decrement operators, `++` and `--`
+* Operator assignment, such as `+=` and `-=`
+* The bitwise operators `|` and `&`
+* The [template expression operators](#expression-operators)
 
 ### Statement context
 
@@ -331,7 +334,7 @@ top-level variables or functions, such as `window` or `document` from
 ### Statement guidelines
 
 As with expressions, avoid writing complex template statements.
-A method call or simple property assignment should be the norm.
+Method calls or simple property assignments are best.
 
 Now that you have a feel for template expressions and statements,
 you're ready to learn about the varieties of data binding syntax beyond interpolation.
@@ -342,15 +345,17 @@ you're ready to learn about the varieties of data binding syntax beyond interpol
 ## Binding syntax: An overview  {#binding-syntax}
 
 Data binding is a mechanism for coordinating what users see, with app data values.
-While you could push values to and pull values from HTML,
-the app is easier to write, read, and maintain if you turn these chores over to a binding framework.
-You simply declare bindings between binding sources and target HTML elements and let the framework do the work.
+While you can push values to and pull values from HTML,
+the app is easier to write, read, and maintain if you use a binding framework.
+You declare bindings between binding sources and target HTML elements and then let the framework do the work.
 
-Angular provides many kinds of data binding.
-This guide covers most of them, after a high-level view of Angular data binding and its syntax.
+Below is a high-level summary of Angular data binding and its syntax. It's
+followed by more detailed information about most of the data binding types that
+Angular provides.
 
-Binding types can be grouped into three categories distinguished by the direction of data flow:
-from the _source-to-view_, from _view-to-source_, and in the two-way sequence: _view-to-source-to-view_:
+Binding types can be grouped into three categories based on the direction of
+data flow: _source-to-view_, _view-to-source_, and two-way sequence
+_view-to-source-to-view_.
 
 <table width="100%">
   <col width="30%"> <col width="50%"> <col width="20%">
@@ -381,10 +386,10 @@ To appreciate the difference, you must develop a new way to think about template
 ### A new mental model
 
 With all the power of data binding and the ability to extend the HTML vocabulary
-with custom markup, it is tempting to think of template HTML as *HTML Plus*.
+with custom markup, it's tempting to think of template HTML as *HTML Plus*.
 
 It really *is* HTML Plus.
-But it's also significantly different than the HTML you're used to.
+But it's also significantly different to the HTML you're used to.
 It requires a new mental model.
 
 In the normal course of HTML development, you create a visual structure with HTML elements, and
@@ -422,11 +427,12 @@ Then you learn about data binding. The first binding you meet might look like th
 
 You'll get to that peculiar bracket notation in a moment. Looking beyond it,
 your intuition suggests that you're binding to the button's `disabled` attribute and setting
-it to the current value of the component's `isUnchanged` property.
+it to the current value of the component's `isUnchanged` property. Your intuition is incorrect! 
 
-Your intuition is incorrect! Your everyday HTML mental model is misleading.
-In fact, once you start data binding, you are no longer working with HTML *attributes*. You aren't setting attributes.
-You are setting the *properties* of DOM elements, components, and directives.
+Your everyday HTML mental model is misleading. In fact, once you start data
+binding, you're no longer working with HTML *attributes*. You aren't setting
+attributes; you're setting the *properties* of DOM elements, components, and
+directives.
 
 <div class="l-sub-section" markdown="1">
 ### HTML attribute vs. DOM property
@@ -443,16 +449,16 @@ You are setting the *properties* of DOM elements, components, and directives.
 
   * Many HTML attributes appear to map to properties ... but not in the way you might think!
 
-  That last category is confusing until you grasp this general rule:
+  That last category is confusing until you grasp the following general rule:
 
-  **Attributes *initialize* DOM properties and then they are done.
+  **Attributes *initialize* DOM properties and then they're done.
   Property values can change; attribute values can't.**
 
   For example, when the browser renders `<input type="text" value="Bob">`, it creates a
   corresponding DOM node with a `value` property *initialized* to "Bob".
 
-  When the user enters "Sally" into the input box, the DOM element `value` *property* becomes "Sally".
-  But the HTML `value` *attribute* remains unchanged as you discover if you ask the input element
+  When the user enters "Sally" in the input box, the DOM element `value` *property* becomes "Sally".
+  But the HTML `value` *attribute* remains unchanged, as you discover if you ask the input element
   about that attribute: `input.getAttribute('value')` returns "Bob".
 
   The HTML attribute `value` specifies the *initial* value; the DOM `value` property is the *current* value.
@@ -463,7 +469,7 @@ You are setting the *properties* of DOM elements, components, and directives.
   so the button is disabled.
 
   Adding and removing the `disabled` *attribute* disables and enables the button. The value of the *attribute* is irrelevant,
-  which is why you cannot enable a button by writing `<button disabled="false">Still Disabled</button>`.
+  which is why you can't enable a button by writing `<button disabled="false">Still Disabled</button>`.
 
   Setting the button's `disabled` *property*  (say, with an Angular binding) disables or enables the button.
   The value of the *property* matters.
@@ -489,7 +495,7 @@ The **target of a data binding** is something in the DOM.
 Depending on the binding type, the target can be an
 (element | component | directive) property, an
 (element | component | directive) event, or (rarely) an attribute name.
-The following table summarizes:
+The following table summarizes the scenarios:
 
 <table>
 <col width="10%"> <col width="15%"> <col width="75%">
@@ -560,7 +566,7 @@ The following table summarizes:
 </tr>
 </table>
 
-With this broad view in mind, you're ready to look at binding types in detail.
+You're now ready to look at binding types in detail.
 
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>
@@ -605,16 +611,16 @@ for parent and child components to communicate):
 People often describe property binding as *one-way data binding* because it flows a value in one direction,
 from a component's data property into a target element property.
 
-You cannot use property binding to pull values *out* of the target element.
-You can't bind to a property of the target element to _read_ it. You can only _set_ it.
+You can't use property binding to pull values *out* of the target element.
+You can't bind to a property of the target element to _read_ it.; you can only _set_ it.
 
 <div class="l-sub-section" markdown="1">
-  Similarly, you cannot use property binding to *call* a method on the target element.
+  Similarly, you can't use property binding to *call* a method on the target element.
 
   If the element raises events, you can listen to them with an [event binding](#event-binding).
 
   If you must read a target element property or call one of its methods,
-  you'll need a different technique.
+  you need a different technique.
   See the API reference for
   [ViewChild](/api/angular/angular/ViewChild-class.html) and
   [ContentChild](/api/angular/angular/ContentChild-class.html).
@@ -638,7 +644,7 @@ Some people prefer the `bind-` prefix alternative, known as the *canonical form*
 ```
 
 The target name is always the name of a property, even when it appears to be the name of something else.
-You see `src` and may think it's the name of an attribute. No. It's the name of an image element property.
+You may see `src` and think it's the name of an attribute. It's not; it's the name of an image element property.
 
 Element properties may be the more common targets,
 but Angular looks first to see if the name is a property of a known directive,
@@ -658,7 +664,7 @@ If the name fails to match a property of a known directive or element, Angular r
 
 ### Avoid side effects
 
-As mentioned previously, evaluation of a template expression should have no visible side effects.
+As mentioned previously, the evaluation of a template expression must have no visible side effects.
 The expression language itself does its part to keep you safe.
 You can't assign a value to anything in a property binding expression nor use the increment and decrement operators.
 
@@ -672,10 +678,10 @@ In general, stick to data properties and to methods that return values and do no
 
 ### Return the proper type
 
-The template expression should evaluate to the type of value expected by the target property.
-Return a string if the target property expects a string.
-Return a number if the target property expects a number.
-Return an object if the target property expects an object.
+The template expression should evaluate to the type of value expected by the target property:
+* Return a string if the target property expects a string.
+* Return a number if the target property expects a number.
+* Return an object if the target property expects an object.
 
 The `hero` property of the `HeroDetail` component expects a `Hero` object, which is exactly what you're sending in the property binding:
 
@@ -730,7 +736,7 @@ update-for-dart-2
 
 ### One-time string initialization {#one-time-initialization}
 
-You *should* omit the brackets when all of the following are true:
+Omit the brackets when all of the following are true:
 * The target property accepts a string value.
 * The string is a fixed value that you can bake into the template.
 * This initial value never changes.
@@ -782,7 +788,7 @@ Imagine the following *malicious content*.
 
 Fortunately, Angular data binding is on alert for dangerous HTML.
 It [*sanitizes*](security#sanitization-and-security-contexts) the values before displaying them.
-It **will not** allow HTML with script tags to leak into the browser, neither with interpolation
+It **does not** allow HTML with script tags to leak into the browser, neither with interpolation
 nor property binding.
 
 <?code-excerpt "lib/app_component.html (property-binding-vs-interpolation-sanitization)"?>
@@ -1233,7 +1239,7 @@ It has a `size` value property and a companion `sizeChange` event:
     int _size = _minSize * 2;
     int get size => _size;
     @Input()
-    void set size(/*String|int*/ val) {
+    void set size(/*int | String */ val) {
       int z = val is int ? val : int.parse(val, onError: (_) => null);
       if (z != null) _size = min(maxSize, max(minSize, z));
     }
