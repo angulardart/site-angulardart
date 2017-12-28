@@ -32,7 +32,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('create-example-fragments', done =>
     plugins.runSequence(
       '_clean-frags',
-      ['_shred-api-examples', '_shred-devguide-examples', '_shred-generated-examples'],
+      ['_shred-api-examples', '_shred-devguide-examples', '_shred-generated-examples', '_shred-other-examples'],
       '_setup-ng-doc-links',
       done
     ));
@@ -53,6 +53,13 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_shred-generated-examples', done => {
     const options = Object.assign({}, _devguideShredOptions);
     options.examplesDir = path.join(config.LOCAL_TMP, EXAMPLES_PATH);
+    return shred(options, done);
+  });
+
+  gulp.task('_shred-other-examples', done => {
+    const options = Object.assign({}, _devguideShredOptions);
+    options.examplesDir = path.join(config.EXAMPLES_ROOT, 'html');
+    options.fragmentsDir = path.join(options.fragmentsDir, 'html');
     return shred(options, done);
   });
 
