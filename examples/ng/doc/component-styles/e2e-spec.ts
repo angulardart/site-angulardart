@@ -2,20 +2,23 @@
 
 import { browser, element, by } from 'protractor';
 
-describe('Component Style Tests', function () {
+// Font weight of 'normal' is defined as 400. See https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+// Browsers differ in which value they return so expect either value.
+const normalFontWeight = ['normal', '400'];
 
-  beforeAll(function () {
-    browser.get('');
+describe('Component Style Tests', () => {
+
+  beforeAll(() =>  browser.get(''));
+
+  it('applies component styles to component view', () => {
+    let h1 = element(by.css('hero-app > h1'));
+    expect(normalFontWeight).toContain(h1.getCssValue('fontWeight'));
   });
 
-  it('scopes component styles to component view', function() {
-    let componentH1 = element(by.css('hero-app > h1'));
-    let externalH1 = element(by.css('body > h1'));
-
-    expect(componentH1.getCssValue('fontWeight')).toEqual('normal');
-    expect(externalH1.getCssValue('fontWeight')).not.toEqual('normal');
+  it('does not apply component styles outside component', () => {
+    let h1 = element(by.css('body > h1'));
+    expect(normalFontWeight).not.toContain(h1.getCssValue('fontWeight'));
   });
-
 
   it('allows styling :host element', function() {
     let host = element(by.css('hero-details'));
