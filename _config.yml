@@ -16,7 +16,6 @@ dart4web: ''
 dartlang: "https://www.dartlang.org"
 dart_vm:  "https://www.dartlang.org/dart-vm"
 flutter:  "https://flutter.io"
-dartino:  "https://dartino.org"
 dart_api: "https://api.dartlang.org"
 acx_api: "/api/angular_components"
 flutter_api: "https://docs.flutter.io"

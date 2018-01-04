@@ -1,28 +1,32 @@
 // #docplaster
-// #docregion v1, final
+// #docregion v1
 import 'package:angular/angular.dart';
+// #enddocregion v1
+/*
+// #docregion v1
+import 'package:http/browser_client.dart';
+// #enddocregion v1
+*/
+// #docregion v1
+import 'package:http/http.dart';
 import 'package:server_communication/app_component.dart';
 // #enddocregion v1
-// #docregion in-mem-web-api-imports
 import 'package:server_communication/in_memory_data_service.dart';
-import 'package:http/http.dart';
 
-// #enddocregion in-mem-web-api-imports
-// #docregion in-mem-web-api-providers
 void main() {
-  bootstrap(AppComponent, [
-    // in-memory web api provider
-    provide(Client, useClass: InMemoryDataService)
-  ]);
+ bootstrap(AppComponent, [
+   // in-memory web api provider
+   provide(Client, useClass: InMemoryDataService)
+ ]);
 }
-// #enddocregion final, in-mem-web-api-providers
 /*
 // #docregion v1
 
 void main() {
   bootstrap(AppComponent, [
-    provide(BrowserClient, useFactory: () => new BrowserClient(), deps: [])
+    provide(Client, useFactory: () => new BrowserClient(), deps: [])
   ]);
 }
 // #enddocregion v1
 */
+
