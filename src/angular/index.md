@@ -32,6 +32,7 @@ mission-critical apps that bring in much of Google’s revenue.
 Angular news from
 [news.dartlang.org](http://news.dartlang.org/){: .no-automatic-external}:
 
+* [AngularDart 4: Drop the "2" (and more)](https://news.dartlang.org/2017/09/angulardart-4.html){: .no-automatic-external}
 * [AngularDart 3.0: Easy upgrade, better performance](http://news.dartlang.org/2017/05/angulardart-3.0-easy-upgrade-better-performance.html){: .no-automatic-external}
 * [Making a Dart web app offline-capable: 3 lines of code](http://news.dartlang.org/2017/03/making-dart-web-app-offline-capable-3.html){: .no-automatic-external}
 * [From GWT to AngularDart: a case study](http://news.dartlang.org/2017/03/from-gwt-to-angulardart-case-study-with.html){: .no-automatic-external}
