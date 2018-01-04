@@ -27,6 +27,13 @@ but you can see a preview at
 </aside>
 {% endcomment %}
 
+## HTML library tour (December 2017)
+
+We've moved the dart:html section from the
+[Dart library tour]({{site.dartlang}}/guides/libraries/library-tour)
+to a new home on this site:
+[A Tour of the dart:html Library](/guides/html-library-tour).
+
 ## Forms (October 2017)
 
 Updated the [forms][] page and its example app to use custom CSS classes instead of the

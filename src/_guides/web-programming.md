@@ -50,18 +50,24 @@ https://medium.com/@thebosz/creating-a-dart-to-javascript-interop-library-c97da2
 
 ## Low-level HTML
 
-The GUI for a web app is programmed in HTML and is represented in the
-browser by a tree structure called the Document Object Model (DOM).
-Understanding how the DOM works is important for developing
-a deeper understanding of HTML concepts.
-Use the dart:html library
-([tour](/guides/html-library-tour),
-[API reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html))
-to modify the DOM programmatically.
+If you can't or don't want to use a framework,
+you can use Dart's low-level HTML APIs.
+Here's some documentation to help you get started:
 
-The [low-level HTML tutorials](/tutorials/low-level-html) have
-further information on how to include a Dart script in an HTML page,
-and how to add and remove elements from a web page.
+[Low-level HTML tutorials](/tutorials/low-level-html)
+: An overview of DOM, CSS, and HTML concepts, with information on
+  how to include a Dart script in an HTML page and
+  how to add and remove elements from a web page.
+  These tutorials feature interactive examples in
+  [DartPad.]({{site.custom.dartpad.direct-link}})
+
+[Tour of the dart:html library](/guides/html-library-tour)
+: An example-driven tour of using the dart:html library.
+  Topics include manipulating the DOM programmatically,
+  making HTTP requests, and using WebSockets.
+
+[dart:html API reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html)
+: Complete reference documentation for the dart:html library.
 
 Once you're ready to develop complex applications that support
 features such as event handling and dependency injection,
