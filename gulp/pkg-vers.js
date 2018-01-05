@@ -39,13 +39,18 @@ module.exports = function (gulp, plugins, config) {
   function _pub(cmd) {
     const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
     if (cmd !== 'upgrade') return;
-    const updatesAvailable = output.match(/^..(angular\w*) (\S+) \((\S+) available\)$/gm);
-    if (!updatesAvailable) return;
+    const updatesAvailable = output.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
+    if (!updatesAvailable) {
+      plugins.gutil.log(`All Angular packages are up-to-date. `);
+      return;
+    }
     // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
     const updatesAvailableToReport = [];
     updatesAvailable.forEach(u => {
-      const m = u.match(/^..(angular\w*) (\S+) \((\S+) available\)$/);
-      if (!m[2].match(/alpha|beta/) && m[3].match(/alpha|beta/)) return true;
+      const m = u.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/);
+      const pkg = m[1], vers = m[2], was = m[3], wasVers = m[4], avail = m[5], availVers = m[6];
+      // plugins.gutil.log(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
+      if (!wasVers && !vers.match(/alpha|beta/) && availVers.match(/alpha|beta/)) return true;
       updatesAvailableToReport.push(u);
     })
     if (updatesAvailableToReport.length) {
