@@ -29,7 +29,7 @@ with the package versions in the **Current** column of the following table.
 
     {%- if site.prev-url -%}
     <td>{% if info.prev-vers %}
-      <a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#pub-pkg-tab-changelog"
+      <a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#-changelog-tab-"
         class="no-automatic-external">{{info.prev-vers}}</a>{%
         if info.doc-path%}<a href="{{site.prev-url}}/{{info.doc-path}}"
           class="no-automatic-external" title="documentation"><i class="material-icons md-18">description</i></a>{%
@@ -41,7 +41,7 @@ with the package versions in the **Current** column of the following table.
 
     <td>
       {%- if info.vers -%}
-      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#pub-pkg-tab-changelog"
+      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#-changelog-tab-"
         class="no-automatic-external">{{info.vers}}</a>{%
       else %}-{%
       endif %}
@@ -53,7 +53,7 @@ with the package versions in the **Current** column of the following table.
 
     {%- if site.dev-url -%}
     <td>{% if info.next-vers %}
-      <a href="{{pubPkgUrl}}/{{info.next-name | default: name}}/versions/{{info.next-vers}}#pub-pkg-tab-changelog"
+      <a href="{{pubPkgUrl}}/{{info.next-name | default: name}}/versions/{{info.next-vers}}#-changelog-tab-"
         class="no-automatic-external">{{info.next-vers}}</a>{%
         if info.doc-path%}<a href="{{site.dev-url}}/{{info.doc-path}}"
           class="no-automatic-external" title="documentation"><i class="material-icons md-18">description</i></a>{%
