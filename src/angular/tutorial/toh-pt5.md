@@ -758,7 +758,7 @@ Update the component metadata with a `templateUrl` pointing to the template file
 
 <i class="material-icons">open_in_browser</i>
 **Refresh the browser** and visit
-[localhost:8080/#details/11](http://localhost:8080/#details/11){:.no-automatic-external}.
+[localhost:8080/#detail/11](http://localhost:8080/#detail/11){:.no-automatic-external}.
 Details for hero 11 should be displayed. Selecting a hero
 in either the dashboard or the heroes list doesn't work yet.
 You'll deal with that next.
