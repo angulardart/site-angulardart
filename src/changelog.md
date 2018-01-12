@@ -13,7 +13,7 @@ Also see:
 * [History of commits to AngularDart examples](https://github.com/dart-lang/site-webdev/commits/master/examples/ng/doc)
 * Package changelogs:
   * [`angular` changelog][]
-  * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#pub-pkg-tab-changelog)
+  * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
 {% comment %}
@@ -231,6 +231,6 @@ More information:
 * [PR #478](https://github.com/dart-lang/site-webdev/pull/478/files) (initial text and toh-0 tests)
 * [PR #567](https://github.com/dart-lang/site-webdev/pull/567/files?w=1) (toh-6 tests)
 
-[`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#pub-pkg-tab-changelog
-[`angular2` changelog]: https://pub.dartlang.org/packages/angular2#pub-pkg-tab-changelog
+[`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
+[`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
 [forms]: /angular/guide/forms
