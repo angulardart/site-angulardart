@@ -15,20 +15,20 @@
 
 <pre>
 <!-- #enddocregion slice -->
-  <!--
-    Some cases are in a <div> to avoid getting (the limit is per element):
-    ParseErrorLevel.FATAL: Only support at most 9 interpolation values!
-  -->
-  <div>
-  <!-- #docregion slice -->
-  {{str}}[0:4]:   '{{str | slice:0:4}}' --> 'abcd'
-  {{str}}[4:0]:   '{{str | slice:4:0}}' --> ''
-  <!-- #enddocregion slice -->
-  </div>
-  <!-- #docregion slice -->
-  {{str}}[-4]:    '{{str | slice:-4}}' --> 'ghij'
-  {{str}}[-4:-2]: '{{str | slice:-4:-2}}' --> 'gh'
-  {{str}}[-100]:  '{{str | slice:-100}}' --> 'abcdefghij'
-  {{str}}[100]:   '{{str | slice:100}}' --> ''
+<!--
+  Some cases are in a <div> to avoid getting (the limit is per element):
+  ParseErrorLevel.FATAL: Only support at most 9 interpolation values!
+-->
+<div>
+<!-- #docregion slice -->
+{{str}}[0:4]:   '{{str | slice:0:4}}' --> 'abcd'
+{{str}}[4:0]:   '{{str | slice:4:0}}' --> ''
+<!-- #enddocregion slice -->
+</div>
+<!-- #docregion slice -->
+{{str}}[-4]:    '{{str | slice:-4}}' --> 'ghij'
+{{str}}[-4:-2]: '{{str | slice:-4:-2}}' --> 'gh'
+{{str}}[-100]:  '{{str | slice:-100}}' --> 'abcdefghij'
+{{str}}[100]:   '{{str | slice:100}}' --> ''
 </pre>
 <!-- #enddocregion slice -->
