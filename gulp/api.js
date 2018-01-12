@@ -24,10 +24,10 @@ module.exports = function (gulp, plugins, config) {
     const pkgName = plugins.pkgAliasToPkgName(p);
     const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
     if(!dirName) {
-      const msg = `WARNING: could not find API doc directory for ${p} under ${config.tmpPubPkgsPath}.`;
-      if (plugins.argv.dartdoc) plugins.logAndExit1(msg);
-      plugins.gutil.log(msg);
-      return true;
+      const msg = `could not find API doc directory for ${p} under ${config.tmpPubPkgsPath}.`;
+      if (config.dartdocProj.includes(p)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
+      plugins.gutil.log(`WARNING: ${msg}`);
+      return;
   }
 
     const baseDir = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);

@@ -46,9 +46,9 @@ module.exports = function (gulp, plugins, config) {
       const pkgName = plugins.pkgAliasToPkgName(pkgNameAlias);
       const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
       if (!dirName) {
-        const msg = `WARNING: buildApiListJson found no folder for ${pkgNameAlias} under ${config.tmpPubPkgsPath}.`;
-        if (plugins.argv.dartdoc) plugins.logAndExit1(msg);
-        plugins.gutil.log(msg);
+        const msg = `buildApiListJson found no folder for ${pkgNameAlias} under ${config.tmpPubPkgsPath}.`;
+        if (config.dartdocProj.includes(pkgNameAlias)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
+        plugins.gutil.log(`WARNING: ${msg}`);
         return true;
       }
       const srcPath = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);

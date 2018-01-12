@@ -51,6 +51,7 @@ module.exports = function (gulp, plugins, config) {
       const pkg = m[1], vers = m[2], was = m[3], wasVers = m[4], avail = m[5], availVers = m[6];
       // plugins.gutil.log(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
       if (!wasVers && !vers.match(/alpha|beta/) && availVers.match(/alpha|beta/)) return true;
+      if (u.match(skipRegEx)) return true;
       updatesAvailableToReport.push(u);
     })
     if (updatesAvailableToReport.length) {
