@@ -6,66 +6,54 @@ description: The versions that this documentation and its examples use.
 This site's documentation and examples use the
 [{{site.data.pkg-vers.SDK.vers}}]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/{{site.data.pkg-vers.SDK.vers}}){:.no-automatic-external}
 release of the [Dart SDK]({{site.dartlang}}/tools/sdk){:.no-automatic-external},
-with the package versions in the **Current** column of the following table.
+with the **current** package versions listed in **bold** below.
+Previous and next versions of packages are also shown when they exist.
 
-<style>
-#vers { width: max-content; }
-#vers th, #vers td { padding: 8px 16px 8px 16px; }
-#vers .material-icons { font-size: 17px; padding-left: 3pt; vertical-align: text-bottom; }
-</style>
-<table id="vers" class="table table-striped">
-  <tr>
-    <th>Package</th>
-    {%- if site.prev-url -%} <th>Previous</th> {%- endif -%}
-    <th>Current</th>
-    {%- if site.dev-url -%} <th>Next</th> {%- endif -%}
-  </tr>{%
-  for pkgDataPair in site.data.pkg-vers %}{%
-  assign name = pkgDataPair[0] %}{%
-  assign info = pkgDataPair[1] %}
-  {%- if name != 'SDK' -%}
-  <tr>
-    <td>{{info.tmp-name | default: name}}</td>
+<style>#pkgs span.pad { padding-right: 0.2em }</style>
+{:#pkgs}
+{% for pkgDataPair in site.data.pkg-vers -%}
+{%- assign name = pkgDataPair[0] -%}
+{%- assign info = pkgDataPair[1] -%}
+{%- if name != 'SDK' %}
 
-    {%- if site.prev-url -%}
-    <td>{% if info.prev-vers %}
-      <a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#-changelog-tab-"
-        class="no-automatic-external">{{info.prev-vers}}</a>{%
-        if info.doc-path%}<a href="{{site.prev-url}}/{{info.doc-path}}"
-          class="no-automatic-external" title="documentation"><i class="material-icons md-18">description</i></a>{%
-        endif %}{%
-        else %}-{%
-      endif %}
-    </td>
+{% comment %}
+  We need the <div> below to wrap the entire dd content.
+{% endcomment -%}
+{{name}}
+  : <div markdown="1">
+  {%- if site.prev-url and info.prev-vers %}
+  - <span class="pad">{{info.prev-vers}}</span>
+    (<a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#-changelog-tab-"
+        class="no-automatic-external">package</a>
+    {%- if info.doc-path -%}
+      ,&nbsp;<a href="{{site.prev-url}}/{{info.doc-path}}" class="no-automatic-external">docs</a>
     {%- endif -%}
-
-    <td>
-      {%- if info.vers -%}
-      <a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#-changelog-tab-"
-        class="no-automatic-external">{{info.vers}}</a>{%
-      else %}-{%
-      endif %}
-      {% if info.doc-path %}<a href="/{{info.doc-path}}"
-      title="Documentation"><i class="material-icons">description</i></a>{%
-      else %}-{%
-      endif %}
-    </td>
-
-    {%- if site.dev-url -%}
-    <td>{% if info.next-vers %}
-      <a href="{{pubPkgUrl}}/{{info.next-name | default: name}}/versions/{{info.next-vers}}#-changelog-tab-"
-        class="no-automatic-external">{{info.next-vers}}</a>{%
-        if info.doc-path%}<a href="{{site.dev-url}}/{{info.doc-path}}"
-          class="no-automatic-external" title="documentation"><i class="material-icons md-18">description</i></a>{%
-        endif %}{%
-        else %}-{%
-      endif %}
-    </td>
-    {%- endif -%}
-  </tr>
+    )
   {%- endif -%}
-  {%- endfor -%}
-</table>
+  {%- if info.vers %}
+  - <span class="pad">**{{info.vers}}**</span>
+    (<a href="{{pubPkgUrl}}/{{name}}/versions/{{info.vers}}#-changelog-tab-"
+        class="no-automatic-external">package</a>
+    {%- if info.doc-path -%}
+      ,&nbsp;<a href="/{{info.doc-path}}">docs</a>
+    {%- endif -%}
+    )
+  {%- endif -%}
+  {%- if site.dev-url and info.next-vers %}
+  - <span class="pad">{{info.next-vers}}</span>
+    (<a href="{{pubPkgUrl}}/{{info.next-name | default: name}}/versions/{{info.next-vers}}#-changelog-tab-"
+        class="no-automatic-external">package</a>
+    {%- if info.doc-path -%}
+      ,&nbsp;<a href="{{site.dev-url}}/{{info.doc-path}}" class="no-automatic-external">docs</a>
+    {%- endif -%}
+    )
+  {%- endif -%}
+  {%- comment %}
+    Because of the way element-inlined markdown is processed, we can't explicitly close the div.
+    But the markdown processor closes the div for us.
+  {% endcomment -%}
+{%- endif -%}
+{%- endfor %}
 
 <aside class="alert alert-info" markdown="1">
 **Migration tip:**
