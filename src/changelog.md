@@ -9,7 +9,9 @@ Others are the result of new recommendations or documentation.
 
 Also see:
 
-* [Changelog for the 5.0 (dev) version of this site]({{site.dev-url}}/changelog)
+{% if site.branch == 'master' and site.dev-url -%}
+* [Changelog for the {{site.data.pkg-vers.angular.next-vers}} (dev) version of this site]({{site.dev-url}}/changelog)
+{%- endif %}
 * [History of commits to AngularDart documentation](https://github.com/dart-lang/site-webdev/commits/master/src/angular)
 * [History of commits to AngularDart examples](https://github.com/dart-lang/site-webdev/commits/master/examples/ng/doc)
 * Package changelogs:
