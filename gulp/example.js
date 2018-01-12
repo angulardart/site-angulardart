@@ -28,7 +28,7 @@ module.exports = function (gulp, plugins, config) {
   });
 
   ['get', 'upgrade'].forEach(cmd => {
-    gulp.task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd}`));
+    gulp.task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd} --no-precompile`));
   });
 
   // General exec task. Args: --cmd='some-cmd with args'

@@ -12,13 +12,13 @@ packages:
       name: angular
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0+1"
+    version: "4.0.0+2"
   angular_compiler:
     description:
       name: angular_compiler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.0+1"
   angular_components:
     description:
       name: angular_components
@@ -72,7 +72,7 @@ packages:
       name: barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.2+13"
+    version: "0.15.2+14"
   boolean_selector:
     description:
       name: boolean_selector
@@ -180,7 +180,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.2+1"
+    version: "0.13.2+2"
   http:
     description:
       name: http
@@ -270,7 +270,7 @@ packages:
       name: observable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.20.4+2"
+    version: "0.20.4+3"
   package_config:
     description:
       name: package_config

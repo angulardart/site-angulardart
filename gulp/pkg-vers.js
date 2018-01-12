@@ -37,7 +37,7 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function _pub(cmd) {
-    const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
+    const output = plugins.execSyncAndLog(`pub ${cmd} --no-precompile`, { cwd: srcData });
     if (cmd !== 'upgrade') return;
     const updatesAvailable = output.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
     if (!updatesAvailable) {

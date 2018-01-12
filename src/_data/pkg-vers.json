@@ -1,7 +1,7 @@
 {
   "angular": {
     "doc-path": "angular/guide",
-    "vers": "4.0.0+1",
+    "vers": "4.0.0+2",
     "prev-vers": "3.1.0",
     "prev-name": "angular2",
     "next-vers": "5.0.0-alpha+2"
