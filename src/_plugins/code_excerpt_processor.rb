@@ -144,8 +144,8 @@ module NgCodeExcerpt
     end
 
     def processPiArgs(pi)
-      # match = /<\?code-\w+\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\??>/.match(pi)
-      match = /<\?code-\w+\s*(.*?)\s*\??>/.match(pi)
+      # match = /<\?code-\w+\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\?>/.match(pi)
+      match = /<\?code-\w+\s*(.*?)\s*\?>/.match(pi)
       if !match
           logPuts "ERROR: improperly formatted instruction: #{pi}"
           return nil
@@ -207,11 +207,9 @@ module NgCodeExcerpt
     end
 
     def processSetCommand(pi, args)
-      pathBase = nil
-      if !args || !(pathBase = args['path-base'])
-        puts "ERROR: code block expected immediately after #{pi}"
-        return;
-      end
+      # Ignore all commands other than path-base.
+      pathBase = args['path-base'];
+      return unless pathBase;
       @pathBase = pathBase.sub(/\/$/, '');
       # puts ">> path base set to #{@pathBase}"
     end
