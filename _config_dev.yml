@@ -1,11 +1,5 @@
 # Site settings for development mode
 url: https://angulardart-org-dev.firebaseapp.com
+# url: http://localhost:4001
 
-# Increment this site-global image URL version number query parameter when you
-# need to test og:image updates on a development server (in the absense of
-# file fingerprinting).
-og_image_vers_dev_only: "?1"
-
-# Use the following when testing both this and site-www locally
 # dartlang: "http://localhost:4000"
-# dart_vm:  "http://localhost:4000/dart-vm"

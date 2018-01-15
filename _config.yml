@@ -55,9 +55,7 @@ defaults:
     path: _codelabs/angular_components
     type: codelabs
   values:
-    # The `image` query parameter is a version number. Change the number after the file has been updated,
-    # otherwise the old cached version will be used by Facebook, etc.
-    image: /codelabs/angular_components/images/cartoon.jpeg?3
+    og_image: /codelabs/angular_components/images/cartoon.jpeg
     diff2html: true
 - scope:
     path: angular
@@ -115,6 +113,10 @@ keep_files:
 plugins:
 - jekyll-assets
 - jekyll-toc
+
+# Increment this global og:image URL version number query parameter when you update any og:image file.
+# (Also increment the corresponding number in the `firebase.json` redirect rule.)
+og_image_vers: '?4'
 
 assets:
   # compress:

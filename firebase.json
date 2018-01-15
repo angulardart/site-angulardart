@@ -4,12 +4,16 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-      { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming", "type": 301 },
       { "source": "/angular/changelog", "destination": "/changelog", "type": 301 },
       { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0", "type": 301 },
       { "source": "/angular/version", "destination": "/version", "type": 301 },
       { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet", "type": 301 },
       { "source": "/angular/guide/glossary", "destination": "/angular/glossary", "type": 301 },
+
+      { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming", "type": 301 },
+
+      { "source": "/assets/angulardart-*.png", "destination": "/assets/angulardart.png?4", "type": 301 },
+      { "source": "/assets/dart-webdev-logo-*.png", "destination": "/assets/dart-webdev-logo.png?4", "type": 301 },
 
       { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
       { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
