@@ -853,6 +853,13 @@ Add the following HTML fragment at the bottom of the template where the `<hero-d
   </div>
 ```
 
+Add the following method stub to `HeroesComponent`:
+
+<?code-excerpt "lib/src/heroes_component.dart (gotoDetail stub)" title replace="/(=\x3E) .*/$1 null;/g"?>
+```
+  Future<Null> gotoDetail() => null;
+```
+
 After clicking a hero (but don't try now since it won't work yet), users should see something like this below the hero list:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/toh/mini-hero-detail.png' %}" alt="Mini Hero Detail" width="250">

@@ -46,8 +46,9 @@ class HeroesComponent implements OnInit {
 
   void onSelect(Hero hero) => selectedHero = hero;
 
-  // #docregion gotoDetail
+  // #docregion gotoDetail, gotoDetail-stub
   Future<Null> gotoDetail() => _router.navigate([
+    // #enddocregion gotoDetail-stub
         'HeroDetail',
         {'id': selectedHero.id.toString()}
       ]);
