@@ -18,8 +18,9 @@ env:
     - JEKYLL_ENV=production
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
     # https://github.com/dart-lang/angular/issues/612
-    - E2E_OPT1="--fast --filter=examples/ng/doc/[a-s] --skip=dependency-injection"
-    - E2E_OPT2="--fast --filter=examples/ng/doc/[t-z]"
+    - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=/dependency-injection"
+    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
+    - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
     - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp
   matrix:
@@ -28,8 +29,8 @@ env:
     - CI_TASK="test $TEST_OPT"
     - CI_TASK="e2e $E2E_OPT1"
     - CI_TASK="e2e $E2E_OPT2"
-    #- CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
-    #- CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
+    - CI_TASK="e2e $E2E_OPT3"
+    #- CI_TASK="e2e $E2E_OPTx --web-compiler=dartdevc"
 
 matrix:
   fast_finish: true
@@ -37,8 +38,7 @@ matrix:
     - env: CI_TASK="test $TEST_OPT"
     - env: CI_TASK="e2e $E2E_OPT1"
     - env: CI_TASK="e2e $E2E_OPT2"
-    - env: CI_TASK="e2e $E2E_OPT1" WEB_COMPILER=dartdevc
-    - env: CI_TASK="e2e $E2E_OPT2" WEB_COMPILER=dartdevc
+    - env: CI_TASK="e2e $E2E_OPT3"
 
 before_install:
   - source ./scripts/get-ruby.sh

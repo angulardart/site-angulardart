@@ -7,16 +7,16 @@ module.exports = function (gulp, plugins, config) {
   const _ = require('lodash');
 
   const argv = plugins.argv;
-  const cp = plugins.child_process;
-  const execp = plugins.execp;
+  const copyFiles = plugins.copyFiles;
   const fs = plugins.fs;
   const fsExtra = fs;
   const gutil = plugins.gutil;
   const path = plugins.path;
+  const pexec = plugins.pexec;
+  const Q = plugins.q;
   const replace = plugins.replace;
   const spawnExt = plugins.spawnExt;
-  const Q = plugins.q;
-  const copyFiles = plugins.copyFiles;
+  const treeKill = require('tree-kill');
 
   const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const EXAMPLES_TESTING_PATH = path.join(EXAMPLES_PATH, 'testing/ts');
@@ -196,84 +196,36 @@ module.exports = function (gulp, plugins, config) {
   // Tasks and helper functions for running e2e
   // TODO: move this to a separate task file.
 
-  var treeKill = require("tree-kill");
-
-  /**
-   * Run Protractor End-to-End Specs for Doc Samples
-   * Alias for 'run-e2e-tests'
-   */
-  gulp.task('e2e', (cb) => runE2e());
-
-  gulp.task('run-e2e-tests', (cb) => runE2e());
+  // Run protractor end-to-end specs
+  gulp.task('e2e', runE2e);
 
   /**
    * Run Protractor End-to-End Tests for Doc Samples
    *
    * Flags
-   *   --filter to filter/select _example app subdir names
-   *    e.g. gulp e2e --filter=foo  // all example apps with 'foo' in their folder names.
-   *
-   *    --fast by-passes the npm install and webdriver update
-   *    Use it for repeated test runs (but not the FIRST run)
-   *    e.g. gulp e2e --fast
-   *
-   *   --lang to filter by code language (see above for details)
-   *     e.g. gulp e2e --lang=ts  // only TypeScript apps
+   *   --filter regex, will only run E2E on example paths matching regex
+   *   --skip regex, will not run E2E on matching example paths
+   *   --fast by-passes the npm install and webdriver update
+   *     Use it for repeated test runs, but not the FIRST run.
    */
-  function runE2e() {
-    // const skipList = skipRegEx ? [skipRegEx] : [];
-    // // https://github.com/dart-lang/site-webdev/issues/703
-    // if (process.env.WEB_COMPILER === 'dartdevc') {
-    //   skipList.push('toh-[56]|lifecycle-hooks');
-    // }
-    // skipRegEx = skipList.join('|');
-
-    var promise;
-    if (argv.fast) {
-      // fast; skip all setup
-      promise = Promise.resolve(true);
-    } else  {
-      /*
-        // Not 'fast'; do full setup
-      var spawnInfo = spawnExt('npm', ['install'], { cwd: EXAMPLES_PATH});
-      promise = spawnInfo.promise.then(function() {
-        copyExampleBoilerplate();
-        spawnInfo = spawnExt('npm', ['run', 'webdriver:update'], {cwd: EXAMPLES_PATH});
-        return spawnInfo.promise;
-      });
-      */
-      // Not 'fast'; do full setup
-      gutil.log('runE2e: install _examples stuff');
-      var spawnInfo = spawnExt('npm', ['install'], { cwd: EXAMPLES_PATH});
-      promise = spawnInfo.promise
-        .then(function() {
-          buildStyles(copyExampleBoilerplate, _.noop);
-          gutil.log('runE2e: update webdriver');
-          spawnInfo = spawnExt('npm', ['run', 'webdriver:update'], {cwd: EXAMPLES_PATH});
-          return spawnInfo.promise;
-        });
+  async function runE2e() {
+    if (!argv.fast) {
+      // Do full setup
+      await pexec('npm install', { cwd: EXAMPLES_PATH });
+      buildStyles(copyExampleBoilerplate, _.noop);
+      gutil.log('runE2e: update webdriver');
+      await pexec('npm run webdriver:update', { cwd: EXAMPLES_PATH });
     };
-
-    var outputFile = path.join(process.cwd(), 'protractor-results.txt');
-
-    promise.then(function() {
-      return findAndRunE2eTests(argv.filter, outputFile);
-    }).then(function(status) {
-      reportStatus(status, outputFile);
-      if (status.failed.length > 0){
-        return Promise.reject('Some test suites failed');
-      }
-    }).catch(function(e) {
-      gutil.log(e);
-      process.exitCode = 1;
-    });
-    return promise;
+    const outputFile = path.join(process.cwd(), 'protractor-results.txt');
+    const status = await findAndRunE2eTests(argv.filter, outputFile);
+    reportStatus(status, outputFile);
+    if (status.failed.length > 0) throw 'Some test suites failed';
   }
 
   // finds all of the *e2e-spec.tests under the _examples folder along
   // with the corresponding apps that they should run under. Then run
   // each app/spec collection sequentially.
-  function findAndRunE2eTests(filter, outputFile) {
+  async function findAndRunE2eTests(filter, outputFile) {
     // create an output file with header.
     var startTime = new Date().getTime();
     var header = `Doc Sample Protractor Results for ${lang} on ${new Date().toLocaleString()}\n`;
@@ -305,134 +257,57 @@ module.exports = function (gulp, plugins, config) {
     gutil.log(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
     gutil.log(`\nE2E skipping:\n  ${skippedExPaths.join('\n  ')}`);
 
-    // run the tests sequentially
     var status = { passed: [], failed: [] };
-    return examplePaths.reduce(function (promise, examplePath) {
-      return promise.then(function () {
-        var runTests = isDartPath(examplePath) ? runE2eDartTests : runE2eTsTests;
-        return runTests(examplePath, outputFile).then(function(ok) {
-          var arr = ok ? status.passed : status.failed;
-          arr.push(examplePath);
-        })
-      });
-    }, Q.resolve()).then(function() {
-      var stopTime = new Date().getTime();
-      status.elapsedTime = (stopTime - startTime)/1000;
-      return status;
-    });
+    for (var examplePath of examplePaths) {
+      const passed = await runExampleE2E(examplePath, outputFile);
+      const list = passed ? status.passed : status.failed;
+      list.push(examplePath);
+    }
+    var stopTime = new Date().getTime();
+    status.elapsedTime = (stopTime - startTime)/1000;
+    return status;
   }
-
-  // start the example in appDir; then run protractor with the specified
-  // fileName; then shut down the example.  All protractor output is appended
-  // to the outputFile.
-  function runE2eTsTests(appDir, outputFile) {
-    // throw 'TS tests should not be run';
-    // // Grab protractor configuration or defaults to systemjs config.
-    // try {
-    //   var exampleConfig = fs.readJsonSync(`${appDir}/${_exampleConfigFilename}`);
-    // } catch (e) {
-    //   exampleConfig = {};
-    // }
-
-    // var config = {
-    //   build: exampleConfig.build || 'tsc',
-    //   run: exampleConfig.run || 'http-server:e2e'
-    // };
-
-    // var appBuildSpawnInfo = spawnExt('npm', ['run', config.build], { cwd: appDir });
-    // var appRunSpawnInfo = spawnExt('npm', ['run', config.run, '--', '-s'], { cwd: appDir });
-
-    // var run = runProtractor(appBuildSpawnInfo.promise, appDir, appRunSpawnInfo, outputFile);
-
-    // if (fs.existsSync(appDir + '/aot/index.html')) {
-    //   run = run.then(() => runProtractorAoT(appDir, outputFile));
-    // }
-    // return run;
-  }
-
-  function runProtractor(prepPromise, appDir, appRunSpawnInfo, outputFile) {
-    var specFilename = path.resolve(`${appDir}/e2e-spec.ts`);
-    return prepPromise
-      .catch(function(){
-        var emsg = `Application at ${appDir} failed to transpile.\n\n`;
-        gutil.log(emsg);
-        fs.appendFileSync(outputFile, emsg);
-        return Promise.reject(emsg);
-      })
-      .then(function (data) {
-        var transpileError = false;
-
-        // start protractor
-
-        var spawnInfo = spawnExt('npm', [ 'run', 'protractor', '--', 'protractor.config.js',
-          `--specs=${specFilename}`, '--params.appDir=' + appDir, '--params.outputFile=' + outputFile], { cwd: EXAMPLES_PATH });
-
-        spawnInfo.proc.stderr.on('data', function (data) {
-          transpileError = transpileError || /npm ERR! Exit status 100/.test(data.toString());
-        });
-        return spawnInfo.promise.catch(function(err) {
-          if (transpileError) {
-          var emsg = `${specFilename} failed to transpile.\n\n`;
-          gutil.log(emsg);
-          fs.appendFileSync(outputFile, emsg);
-          }
-          return Promise.reject(emsg);
-        });
-      })
-      .then(
-        function() { return finish(true);},
-        function() { return finish(false);}
-      )
-
-      function finish(ok){
-        // Ugh... proc.kill does not work properly on windows with child processes.
-        // appRun.proc.kill();
-        treeKill(appRunSpawnInfo.proc.pid);
-        return ok;
-      }
-  }
-
-  // function runProtractorAoT(appDir, outputFile) {
-  //   fs.appendFileSync(outputFile, '++ AoT version ++\n');
-  //   var aotBuildSpawnInfo = spawnExt('npm', ['run', 'build:aot'], { cwd: appDir });
-  //   var promise = aotBuildSpawnInfo.promise;
-
-  //   var copyFileCmd = 'copy-dist-files.js';
-  //   if (fs.existsSync(appDir + '/' + copyFileCmd)) {
-  //     promise = promise.then(() =>
-  //     spawnExt('node', [copyFileCmd], { cwd: appDir }).promise );
-  //   }
-  //   var aotRunSpawnInfo = spawnExt('npm', ['run', 'http-server:e2e', 'aot', '--', '-s'], { cwd: appDir });
-  //   return runProtractor(promise, appDir, aotRunSpawnInfo, outputFile);
-  // }
 
   // start the server in appDir/build/web; then run protractor with the specified
   // fileName; then shut down the example.  All protractor output is appended
   // to the outputFile.
-  function runE2eDartTests(appDir, outputFile) {
-    // was: // Launch http server out of ts directory because all the config files are there.
-    // was: ar httpLaunchDir = path.resolve(appDir, '../ts');
-    var httpLaunchDir = appDir;
-    var deployDir = path.resolve(appDir, 'build/web');
-    gutil.log('AppDir for Dart e2e: ' + appDir);
-    gutil.log('Deploying from: ' + deployDir);
+  async function runExampleE2E(appDir, outputFile) {
+    gutil.log(`E2E for ${appDir}`);
 
-    var appRunSpawnInfo = spawnExt('npm', ['run', 'http-server', '--', deployDir, '-s'], { cwd: httpLaunchDir });
+    const deployDir = path.resolve(appDir, 'build/web');
+    const appRunSpawnInfo = spawnExt('npm', ['run', 'http-server', '--', deployDir, '-s'], { cwd: appDir });
     if (!appRunSpawnInfo.proc.pid) {
-      gutil.log('http-server failed to launch over ' + deployDir);
-      return false;
+      const msg = `http-server failed to launch over ${deployDir}`;
+      gutil.log(msg);
+      throw new Error(msg);
     }
-    if (argv.pub === false) {
-      var prepPromise = Promise.resolve(true);
-      gutil.log(`Skipping pub ${config.exAppPubGetOrUpgradeCmd} and pub build (--no-pub flag present)`);
-    } else {
-      var pubGetSpawnInfo = spawnExt('pub', [config.exAppPubGetOrUpgradeCmd], { cwd: appDir });
-      var prepPromise = pubGetSpawnInfo.promise.then(function (data) {
-        const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
-        return spawnExt('pub', ['build', `--web-compiler=${wc}`], { cwd: appDir }).promise;
-      });
+
+    try {
+      // Build app
+      if (argv.pub === false) {
+        gutil.log(`Skipping pub ${config.exAppPubGetOrUpgradeCmd} and pub build (--no-pub flag present)`);
+      } else {
+        await pexec(`pub ${config.exAppPubGetOrUpgradeCmd} --no-precompile`, { cwd: appDir });
+        await pexec(`pub build --web-compiler=${argv.webCompiler || 'dart2js'}`, {
+          cwd: appDir,
+          log: gutil.log,
+        });
+      }
+      await pexec(
+        `npm run protractor -- protractor.config.js` +
+        ` --specs=${path.resolve(appDir, 'e2e-spec.ts')} --params.appDir=${appDir}` +
+        ` --params.outputFile=${outputFile}`,
+        { cwd: EXAMPLES_PATH, log: gutil.log, },
+      );
+      return true;
+    } catch (e) {
+      gutil.log(`runExampleE2E over ${appDir} failed.`);
+      throw e;
+    } finally {
+      // appRun.proc.kill(); // does not work properly on windows with child processes.
+      treeKill(appRunSpawnInfo.proc.pid);
     }
-    return runProtractor(prepPromise, appDir, appRunSpawnInfo, outputFile);
+    return false;
   }
 
   function reportStatus(status, outputFile) {

@@ -20,6 +20,8 @@ const fsExtra = require('fs-extra');
 const fs = fsExtra;
 const globby = require("globby");
 const path = require('canonical-path');
+const {promisify} = require('util');
+// const promisifiedExec = promisify(cp.exec); // use pexec
 const Q = require("q");
 const spawn = require('child_process').spawn;
 const taskListing = require('gulp-task-listing');
@@ -120,6 +122,7 @@ const plugins = {
   gutil: gutil,
   logAndExit1: logAndExit1,
   path: path,
+  pexec: pexec,
   pkgAliasToPkgName: pkgAliasToPkgName,
   q: Q,
   rename: require('gulp-rename'),
@@ -242,6 +245,47 @@ function gitCheckDiff() {
   return execSyncAndLog('git status --short') && process.exit(1);
 }
 
+// In addition to child_process.exec() options, pexec supports:
+//
+// - options.log = function(data) { ... } will be
+//   called when there is data sent to stdout or stderr.
+//
+// - options.okOnExitRE if provided, stdout is tested for
+//   a line matching the given regex. On command exit,
+//   the promise is rejected if no match was found.
+function pexec(cmd, options) {
+  gutil.log(`EXEC start: ${cmd} ${options ? JSON.stringify(options) : ''}`);
+
+  // Inspired by https://stackoverflow.com/a/30883005/3046255
+  const proc = child_process.exec(cmd, options);
+  let okOnExit = !options || !options.okOnExitRE;
+  if (options && options.log) {
+    proc.stdout.on('data', data => {
+      if (options && options.okOnExitRE && !okOnExit) {
+        okOnExit = data.match(options.okOnExitRE);
+      }
+      options.log(data);
+    });
+    proc.stderr.on('data', options.log);
+  }
+
+  const promise = new Promise((resolve, reject) => {
+    function _onExit(exitCode) {
+      const exitOk = exitCode === 0 && okOnExit;
+      let msg = exitOk ? 'successfully exited from'
+        : okOnExit ? `nonzero exit code ${exitCode} for`
+        : `no match for ${options.okOnExitRE} found in stdout of`;
+      msg += ` ${cmd}`;
+      if (options && options.cwd) msg += ` # ${options.cwd}`;
+      gutil.log(`EXEC DONE: ${msg}`);
+      exitOk ? resolve(0) : reject(msg);
+    }
+    proc.addListener('error', reject);
+    proc.addListener('exit', _onExit);
+  });
+  return promise;
+}
+
 // Execute given command, and log and return command output
 function execSyncAndLog(cmd, optional_options) {
   const cwd = optional_options && optional_options.cwd ? ` # cwd: ${optional_options.cwd}` : '';
@@ -264,8 +308,8 @@ function spawnExt(command, _args, options) {
   const deferred = Q.defer();
   let descr = command + " " + args.join(' ');
   if (options) descr += ' ' + JSON.stringify(options);
-  let proc;
-  gutil.log('async exec: ' + descr);
+  let proc, okOnExit = !options || !options.okOnExitRE;
+  gutil.log('EXEC start: ' + descr);
   try {
     proc = xSpawn.spawn(command, args, options);
   } catch (e) {
@@ -273,16 +317,26 @@ function spawnExt(command, _args, options) {
     deferred.reject(e);
     return { proc: null, promise: deferred.promise };
   }
-  proc.stdout.on('data', data => gutil.log(data.toString()));
+  proc.stdout.on('data', data => {
+    const out = data.toString();
+    if (options && options.okOnExitRE && !okOnExit) {
+      okOnExit = out.match(options.okOnExitRE);
+    }
+    gutil.log(out);
+  });
   proc.stderr.on('data', data => gutil.log(data.toString()));
   proc.on('close', function (returnCode) {
-    gutil.log('completed: ' + descr);
+    const exitOk = returnCode === 0 && okOnExit;
+    const msg = exitOk ? 'successfully'
+      : okOnExit ? `command return code is nonzero value ${returnCode}`
+      : `okOnExit regex test ${options.okOnExitRE} failed over command output`;
+    gutil.log(`EXEC DONE: ${msg} - ${descr}`);
     // Many tasks (e.g., tsc) complete but are actually errors;
     // Confirm return code is zero.
-    returnCode === 0 ? deferred.resolve(0) : deferred.reject(returnCode);
+    exitOk ? deferred.resolve(0) : deferred.reject(returnCode);
   });
   proc.on('error', function (data) {
-    gutil.log('completed with error:' + descr);
+    gutil.log('EXEC DONE: ERROR: ' + descr);
     gutil.log(data.toString());
     deferred.reject(data);
   });
