@@ -12,12 +12,11 @@ if  [[ -z "$(type -t dart)" ]]; then
     # https://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-linux-x64-release.zip
     # https://storage.googleapis.com/dart-archive/channels/stable/release/latest/dartium/dartium-macos-x64-release.zip
 
-    : ${DART_CHANNEL:=$(node -p 'require("./src/_data/pkg-vers.json").SDK.channel')} # dev or stable
+    : ${DART_SDK_CHANNEL:=$(node -p 'require("./src/_data/pkg-vers.json").SDK.channel')} # dev or stable
+    : ${DART_SDK_VERS:=$(node -p 'require("./src/_data/pkg-vers.json").SDK.vers')} # dev or stable
 
-    CHANNEL=$DART_CHANNEL
     DART_ARCHIVE=https://storage.googleapis.com/dart-archive/channels
-    VERS=$CHANNEL/release/latest
-    # VERS=$CHANNEL/release/1.24.0 # If necessary, pin a specific version like this
+    VERS=$DART_SDK_CHANNEL/release/$DART_SDK_VERS
 
     mkUrl() {
         local dir=$1
