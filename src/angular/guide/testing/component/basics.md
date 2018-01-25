@@ -31,7 +31,7 @@ are under **`dev_dependencies`**, for example:
     angular_test: ^1.0.0
     browser: ^0.10.0
     dart_to_js_script_rewriter: ^1.0.1
-    test: ^0.12.21
+    test: ^0.12.30
 ```
 
 The `pubspec.yaml` file should also include the `pub_serve` transformer,

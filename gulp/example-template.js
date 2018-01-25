@@ -18,7 +18,7 @@ module.exports = function (gulp, plugins, config) {
 
   const exRootDir = path.resolve(EXAMPLES_PATH, '..');
   const webSimpleProjPath = config.webSimpleProjPath;
-  const findCmd = `find ${exRootDir} -type f ! -path "**/node_modules/**" ! -path "**/.*" ! -path "**/build/**" -name pubspec.yaml`;
+  const findCmd = `find ${exRootDir} -type f ! -path "*/node_modules/*" ! -path "*/.*" ! -path "*/build/*" -name pubspec.yaml`;
   let exDirs = (cp.execSync(findCmd) + '').split(/\s+/);
   exDirs = exDirs.map(p => p.replace('/pubspec.yaml', ''));
 

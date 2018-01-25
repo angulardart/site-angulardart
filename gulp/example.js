@@ -14,7 +14,7 @@ module.exports = function (gulp, plugins, config) {
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;
 
-  const findCmd = `find ${EXAMPLES_ROOT} -type f -name "pubspec.yaml" ! -path "*/.*"`;
+  const findCmd = `find ${EXAMPLES_ROOT} -type f -name "pubspec.yaml" ! -path "*/.*" ! -path "*/build/*" `;
   const findOutput = (cp.execSync(findCmd) + '').split(/\s+/).filter(p => p); // drop empty paths
   const examplesFullPath = findOutput.map(p => path.dirname(p))
     .filter(p => !p.match(skipRegEx))
