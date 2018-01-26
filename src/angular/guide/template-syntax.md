@@ -740,7 +740,7 @@ Omit the brackets when all of the following are true:
 * The string is a fixed value that you can bake into the template.
 * This initial value never changes.
 
-One-time string initialization is routine in standard HTML, and 
+One-time string initialization is routine in standard HTML, and
 it works just as well for directive and component properties.
 The following example initializes the `prefix` property of the `HeroDetailComponent` to a fixed string,
 not a template expression. Angular sets it and forgets about it.
@@ -1767,7 +1767,7 @@ In this case, that value is the hero's `id`.
 
 In the microsyntax expression, set `trackBy` to this method.
 
-<?code-excerpt "lib/app_component.html (trackBy)"?>
+<?code-excerpt "lib/app_component.html (trackBy)" replace="/\s+#withTrackBy//g"?>
 ```
   <div *ngFor="let hero of heroes; trackBy: trackByHeroes">
     ({!{hero.id}!}) {!{hero.name}!}

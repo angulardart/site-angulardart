@@ -583,17 +583,11 @@ bindon-ngModel
 <a class="to-toc" href="#toc">top</a>
 
 <h4 id="ngFor-index">*ngFor with index</h4>
-<p>with <i>semi-colon</i> separator</p>
+
 <div class="box">
   <!-- #docregion NgFor-3 -->
   <div *ngFor="let hero of heroes; let i=index">{{i + 1}} - {{hero.name}}</div>
   <!-- #enddocregion NgFor-3 -->
-</div>
-
-<p>with <i>comma</i> separator</p>
-<div class="box">
-  <!-- Ex: "1 - Hercules" -->
-  <div *ngFor="let hero of heroes, let i=index">{{i + 1}} - {{hero.name}}</div>
 </div>
 
 <a class="to-toc" href="#toc">top</a>
@@ -612,39 +606,23 @@ bindon-ngModel
   </div>
 </div>
 
-<p>with trackBy</p>
-<div class="box">
-  <div #withTrackBy *ngFor="let hero of heroes; trackBy: trackByHeroes">({{hero.id}}) {{hero.name}}</div>
-
-  <div id="withTrackByCnt" *ngIf="heroesWithTrackByCount > 0">
-    Hero DOM elements change #{{heroesWithTrackByCount}} with trackBy
-  </div>
-</div>
-
-<br><br><br>
-
-<p>with trackBy and <i>semi-colon</i> separator</p>
+<p>with <code>trackBy: trackByHeroes(int, Hero)</code></p>
 <div class="box">
   <!-- #docregion trackBy -->
-  <div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+  <div *ngFor="let hero of heroes; trackBy: trackByHeroes"  #withTrackBy>
     ({{hero.id}}) {{hero.name}}
   </div>
   <!-- #enddocregion trackBy -->
+  <div id="withTrackByCnt" *ngIf="heroesWithTrackByCount > 0">
+    Hero DOM elements change #{{heroesWithTrackByCount}} with <code>trackBy: trackByHeroes</code>
+  </div>
 </div>
 
-<p>with trackBy and <i>comma</i> separator</p>
+<p>with <code>trackById: trackById(int, dynamic)</code></p>
 <div class="box">
-  <div *ngFor="let hero of heroes, trackBy: trackByHeroes">({{hero.id}}) {{hero.name}}</div>
-</div>
-
-<p>with trackBy and <i>space</i> separator</p>
-<div class="box">
-  <div *ngFor="let hero of heroes trackBy: trackByHeroes">({{hero.id}}) {{hero.name}}</div>
-</div>
-
-<p>with <i>generic</i> trackById function</p>
-<div class="box">
-  <div *ngFor="let hero of heroes, trackBy: trackById">({{hero.id}}) {{hero.name}}</div>
+  <div *ngFor="let hero of heroes; trackBy: trackById">
+    ({{hero.id}}) {{hero.name}}
+  </div>
 </div>
 
 <a class="to-toc" href="#toc">top</a>
