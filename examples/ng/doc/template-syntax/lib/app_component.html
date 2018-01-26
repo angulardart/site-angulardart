@@ -95,7 +95,7 @@
 
 <hr><h2 id="statement-context">Statement context</h2>
 
-<p>Component statement context ( (click)="onSave() )
+<p>Component statement context ( (click)="onSave() )</p>
 <div class="context">
   <!-- #docregion context-component-statement -->
   <button (click)="deleteHero()">Delete hero</button>
@@ -218,7 +218,7 @@ button</button>
 
 <button>Enabled (but does nothing)</button>
 <button disabled>Disabled</button>
-<button disabled=false>Still disabled</button>
+<button disabled="false">Still disabled</button>
 <br><br>
 <button disabled>disabled by attribute</button>
 <button [disabled]="isUnchanged">disabled by property binding</button>
@@ -281,7 +281,7 @@ button</button>
 
 <!--  create and set a colspan attribute -->
 <!-- #docregion attrib-binding-colspan -->
-<table border=1>
+<table border="1">
   <!--  expression calculates colspan=2 -->
   <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
 

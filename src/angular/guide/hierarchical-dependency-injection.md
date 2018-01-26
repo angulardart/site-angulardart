@@ -201,8 +201,8 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
         <div class="tax-return">
           <div class="msg" [class.canceled]="message==='Canceled'">{!{message}!}</div>
           <fieldset>
-            <span  id=name>{!{taxReturn.name}!}</span>
-            <label id=tid>TID: {!{taxReturn.taxId}!}</label>
+            <span id="name">{!{taxReturn.name}!}</span>
+            <label id="tid">TID: {!{taxReturn.taxId}!}</label>
           </fieldset>
           <fieldset>
             <label>

@@ -862,7 +862,7 @@ Bind `[attr.colspan]` to a calculated value:
 
 <?code-excerpt "lib/app_component.html (attrib-binding-colspan)"?>
 ```
-  <table border=1>
+  <table border="1">
     <!--  expression calculates colspan=2 -->
     <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
 

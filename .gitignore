@@ -44,6 +44,7 @@ build
 pubspec.lock
 /examples/**/pubspec.lock
 !/src/_data/pubspec.lock
+/examples/**/build.yaml
 /examples/**/web/styles.css
 /examples/**/web/favicon.png
 protractor-results.txt

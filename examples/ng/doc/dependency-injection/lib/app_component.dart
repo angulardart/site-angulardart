@@ -20,7 +20,7 @@ import 'src/providers_component.dart';
     <p id="user">
       {{userInfo}}
       <button (click)="nextUser()">Next User</button>
-    <p>
+    </p>
     <my-heroes id="authorized" *ngIf="isAuthorized"></my-heroes>
     <my-heroes id="unauthorized" *ngIf="!isAuthorized"></my-heroes>
     <my-providers></my-providers>
