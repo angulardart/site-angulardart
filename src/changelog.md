@@ -19,17 +19,6 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
-{% comment %}
-## AngularDart 5.0-dev (??? 2017)
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-These changes aren't yet visible on webdev.dartlang.org,
-but you can see a preview at
-[webdev-dartlang-org-dev.firebaseapp.com/angular.](https://webdev-dartlang-org-dev.firebaseapp.com/angular)
-</aside>
-{% endcomment %}
-
 ## HTML library tour (December 2017)
 
 We've moved the dart:html section from the

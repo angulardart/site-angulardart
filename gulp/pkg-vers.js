@@ -47,16 +47,17 @@ module.exports = function (gulp, plugins, config) {
     // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
     const updatesAvailableToReport = [];
     updatesAvailable.forEach(u => {
+      if (u.match(skipRegEx)) return true;
       const m = u.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/);
       const pkg = m[1], vers = m[2], was = m[3], wasVers = m[4], avail = m[5], availVers = m[6];
       // plugins.gutil.log(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
-      if (!wasVers && !vers.match(/alpha|beta/) && availVers.match(/alpha|beta/)) return true;
-      if (u.match(skipRegEx)) return true;
-      updatesAvailableToReport.push(u);
+      if (wasVers || availVers && (vers.match(/alpha|beta/) || !availVers.match(/alpha|beta/))) {
+        updatesAvailableToReport.push(u);
+      }
     })
     if (updatesAvailableToReport.length) {
-      const msg = `Angular package updates available:\n${updatesAvailable.join('\n')}.\n`
-      + 'Aborting. Update pubspec(s) before proceeding.\n';
+      const msg = `Angular package updates available:\n${updatesAvailableToReport.join('\n')}.\n`
+        + 'Aborting. Update pubspec(s) before proceeding.\n';
       plugins.logAndExit1(msg);
     }
   }

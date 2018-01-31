@@ -20,7 +20,7 @@ module.exports = function (gulp, plugins, config) {
   //---------------------------------------------------------------------------
   // Updating SDK version
 
-  const SDK_VERS = '>=1.24.0 <2.0.0';
+  const SDK_VERS = plugins.yamljs.load(path.join(config.srcData, 'pubspec.yaml')).environment.sdk;
 
   gulp.task('update-sdk-vers', cb => {
     const baseDir = getBaseDir();

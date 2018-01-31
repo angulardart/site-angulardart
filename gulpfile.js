@@ -20,7 +20,7 @@ const fsExtra = require('fs-extra');
 const fs = fsExtra;
 const globby = require("globby");
 const path = require('canonical-path');
-const {promisify} = require('util');
+const { promisify } = require('util');
 // const promisifiedExec = promisify(cp.exec); // use pexec
 const Q = require("q");
 const spawn = require('child_process').spawn;
@@ -250,35 +250,51 @@ function gitCheckDiff() {
 // - options.log = function(data) { ... } will be
 //   called when there is data sent to stdout or stderr.
 //
-// - options.okOnExitRE if provided, stdout is tested for
+// - options.okOnExitRE <regex>, if provided, stdout is tested for
 //   a line matching the given regex. On command exit,
 //   the promise is rejected if no match was found.
+//
+// - options.errorOnExitRE <regex>, if provided, stdout and stderr are tested for
+//   a line matching the given regex. On command exit,
+//   the promise is rejected if a match was found.
 function pexec(cmd, options) {
+  // Inspired in part by https://stackoverflow.com/a/30883005/3046255
   gutil.log(`EXEC start: ${cmd} ${options ? JSON.stringify(options) : ''}`);
 
-  // Inspired by https://stackoverflow.com/a/30883005/3046255
+  let errorOnExit = false, okOnExit = !options || !options.okOnExitRE;
+
+  function checkForOkOnExit(data) {
+    if (options && options.okOnExitRE &&
+      !okOnExit && data.match(options.okOnExitRE)) okOnExit = true;
+  }
+  function checkForErrorOnExit(data) {
+    if (options && options.errorOnExitRE &&
+      !errorOnExit && data.match(options.errorOnExitRE)) errorOnExit = true;
+  }
+
   const proc = child_process.exec(cmd, options);
-  let okOnExit = !options || !options.okOnExitRE;
   if (options && options.log) {
     proc.stdout.on('data', data => {
-      if (options && options.okOnExitRE && !okOnExit) {
-        okOnExit = data.match(options.okOnExitRE);
-      }
+      checkForOkOnExit(data);
+      checkForErrorOnExit(data);
       options.log(data);
     });
-    proc.stderr.on('data', options.log);
+    proc.stderr.on('data', data => {
+      checkForErrorOnExit(data);
+      options.log(data);
+    });
   }
 
   const promise = new Promise((resolve, reject) => {
     function _onExit(exitCode) {
-      const exitOk = exitCode === 0 && okOnExit;
-      let msg = exitOk ? 'successfully exited from'
-        : okOnExit ? `nonzero exit code ${exitCode} for`
-        : `no match for ${options.okOnExitRE} found in stdout of`;
+      let msg = errorOnExit ? `match for ${options.errorOnExitRE} found in stdout or stderr of`
+        : !okOnExit ? `no match for ${options.okOnExitRE} found in stdout of`
+          : exitCode ? `nonzero exit code ${exitCode} for`
+            : 'successfully exited from';
       msg += ` ${cmd}`;
       if (options && options.cwd) msg += ` # ${options.cwd}`;
       gutil.log(`EXEC DONE: ${msg}`);
-      exitOk ? resolve(0) : reject(msg);
+      msg.startsWith('success') ? resolve(0) : reject(msg);
     }
     proc.addListener('error', reject);
     proc.addListener('exit', _onExit);
@@ -329,7 +345,7 @@ function spawnExt(command, _args, options) {
     const exitOk = returnCode === 0 && okOnExit;
     const msg = exitOk ? 'successfully'
       : okOnExit ? `command return code is nonzero value ${returnCode}`
-      : `okOnExit regex test ${options.okOnExitRE} failed over command output`;
+        : `okOnExit regex test ${options.okOnExitRE} failed over command output`;
     gutil.log(`EXEC DONE: ${msg} - ${descr}`);
     // Many tasks (e.g., tsc) complete but are actually errors;
     // Confirm return code is zero.
