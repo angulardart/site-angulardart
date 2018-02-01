@@ -15,15 +15,15 @@ Setting up a new Angular project is straightforward using common Dart tools.
 This page leads you through getting and running the starter app
 that's featured in this guide and tutorial.
 
-## Get prerequisites: Dart SDK, Dartium, and WebStorm  {#sdk}
+<a id="sdk"></a>
+## Get prerequisites
 
-You need the following tools:
-* **Dart SDK** (**1.24** or a compatible version)
-* **Dartium**
+For information on how to get these prerequisite tools,
+see [Get Started](/guides/get-started):
 
-We also recommend that you get **WebStorm**.
-
-For more information on how to get the tools, see [Get Started](/guides/get-started).
+- **Dart SDK** {{site.data.pkg-vers.SDK.vers}} or a compatible version
+- **Dartium**
+- **WebStorm** or your favorite IDE (recommended)
 
 ## Create a starter project  {#create}
 
@@ -72,8 +72,11 @@ After that, you'll be able to use WebStorm for the usual IDE tasks,
 including running the app.
 
 If you aren't using WebStorm,
-you can use the command line to download dependencies:
-in a terminal window, go to the project root and run `pub get`.
+you can use the following command in a terminal window:
+
+```terminal
+$ pub get
+```
 
 ## Customize the project
 
@@ -112,10 +115,13 @@ You should see the following app in a [Dartium](/tools/dartium) browser window:
 
 ![A web page with the header: Hello Angular](/angular/guide/images/starter-app.png)
 
-To run the app from the command line, use the `pub serve` command
-to start the Dart compiler and an HTTP server.
-Then, to view your app, use a browser to navigate to
-the URL that `pub serve` displays.
+To run the app from the command line, use `pub` to build and serve the app:
+
+```terminal
+$ pub serve
+```
+
+Then, to view your app, visit [localhost:8080](localhost:8080).
 
 ## Reload the app  {#reload}
 
