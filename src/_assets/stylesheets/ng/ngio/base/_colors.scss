@@ -6,20 +6,8 @@
 *
 */
 
-
-/*
-* Black & White
-*
-*/
-
 $white: #FFFFFF;
 $black: #000000;
-
-
-/*
-* Amber
-*
-*/
 
 $amber-50: #FFF8E1;
 $amber-100: #FFECB3;
@@ -36,29 +24,6 @@ $amber-A200: #FFD740;
 $amber-A400: #FFC400;
 $amber-A700: #FFAB00;
 
-
-/*
-* Blue Grey
-*
-*/
-
-$blue-grey-50: #ECEFF1;
-$blue-grey-100: #CFD8DC;
-$blue-grey-200: #B0BEC5;
-$blue-grey-300: #90A4AE;
-$blue-grey-400: #78909C;
-$blue-grey-500: #607D8B;
-$blue-grey-600: #546E7A;
-$blue-grey-700: #455A64;
-$blue-grey-800: #37474F;
-$blue-grey-900: #263238;
-
-
-/*
-* Blue
-*
-*/
-
 $blue-50: #E3F2FD;
 $blue-100: #BBDEFB;
 $blue-200: #90CAF9;
@@ -74,11 +39,16 @@ $blue-A200: #448AFF;
 $blue-A400: #2979FF;
 $blue-A700: #2962FF;
 
-
-/*
-* Cyan
-*
-*/
+$blue-grey-50: #ECEFF1;
+$blue-grey-100: #CFD8DC;
+$blue-grey-200: #B0BEC5;
+$blue-grey-300: #90A4AE;
+$blue-grey-400: #78909C;
+$blue-grey-500: #607D8B;
+$blue-grey-600: #546E7A;
+$blue-grey-700: #455A64;
+$blue-grey-800: #37474F;
+$blue-grey-900: #263238;
 
 $cyan-50: #E0F7FA;
 $cyan-100: #B2EBF2;
@@ -95,11 +65,9 @@ $cyan-A200: #18FFFF;
 $cyan-A400: #00E5FF;
 $cyan-A700: #00B8D4;
 
-
-/*
-* Green
-*
-*/
+$grey-400: #BDBDBD;
+$grey-500: #9E9E9E;
+$grey-900: #212121;
 
 $green-50: #E8F5E9;
 $green-100: #C8E6C9;
@@ -116,12 +84,6 @@ $green-A200: #69F0AE;
 $green-A400: #00E676;
 $green-A700: #00C853;
 
-
-/*
-* Light Green
-*
-*/
-
 $light-green-50: #F1F8E9;
 $light-green-100: #DCEDC8;
 $light-green-200: #C5E1A5;
@@ -136,33 +98,6 @@ $light-green-A100: #CCFF90;
 $light-green-A200: #B2FF59;
 $light-green-A400: #76FF03;
 $light-green-A700: #64DD17;
-
-
-/*
-* Red
-*
-*/
-
-$red-50: #FFEBEE;
-$red-100: #FFCDD2;
-$red-200: #EF9A9A;
-$red-300: #E57373;
-$red-400: #EF5350;
-$red-500: #F44336;
-$red-600: #E53935;
-$red-700: #D32F2F;
-$red-800: #C62828;
-$red-900: #B71C1C;
-$red-A100: #FF8A80;
-$red-A200: #FF5252;
-$red-A400: #FF1744;
-$red-A700: #D50000;
-
-
-/*
-* Pink
-*
-*/
 
 $pink-50: #FCE4EC;
 $pink-100: #F8BBD0;
@@ -179,12 +114,6 @@ $pink-A200: #FF4081;
 $pink-A400: #F50057;
 $pink-A700: #C51162;
 
-
-/*
-* Purple
-*
-*/
-
 $purple-50: #F3E5F5;
 $purple-100: #E1BEE7;
 $purple-200: #CE93D8;
@@ -200,11 +129,20 @@ $purple-A200: #E040FB;
 $purple-A400: #D500F9;
 $purple-A700: #AA00FF;
 
-
-/*
-* Teal
-*
-*/
+$red-50: #FFEBEE;
+$red-100: #FFCDD2;
+$red-200: #EF9A9A;
+$red-300: #E57373;
+$red-400: #EF5350;
+$red-500: #F44336;
+$red-600: #E53935;
+$red-700: #D32F2F;
+$red-800: #C62828;
+$red-900: #B71C1C;
+$red-A100: #FF8A80;
+$red-A200: #FF5252;
+$red-A400: #FF1744;
+$red-A700: #D50000;
 
 $teal-50: #E0F2F1;
 $teal-100: #B2DFDB;
