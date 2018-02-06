@@ -60,11 +60,9 @@ after_script:
   - ./scripts/check-all.sh || travis_terminate 1
   - ./scripts/deploy/pr.sh || travis_terminate 1
 
-# branch whitelist
-# branches:
-#   only:
-#   - master        # test the master branch
-#   - /stage-(.*)/  # test every branch which starts with "stage-"
+# Only run Travis jobs for named branches (to avoid double builds for each PR)
+branches:
+  only: [master, /^\d-dev$/, /travis-build/]
 
 deploy:
   - provider: script
