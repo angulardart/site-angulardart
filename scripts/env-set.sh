@@ -43,14 +43,19 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
     export TMP
     export PKG
 
-    if [[ -z "$(type -t dart)" && ! $PATH =~ \/dart-sdk ]]; then
-        export DART_SDK="$PKG/dart-sdk"
-        # Updating PATH to include access to Dart bin.
-        export PATH="$PATH:$DART_SDK/bin"
-        export PATH="$PATH:$HOME/.pub-cache/bin"
-    fi
+    if [[ -n "$TRAVIS" ]]; then
+      [[ ! -d "$TMP" ]] && mkdir "$TMP"
+      [[ ! -d "$PKG" ]] && mkdir "$PKG"
+    else
+      if [[ -z "$(type -t dart)" && ! $PATH =~ \/dart-sdk ]]; then
+          export DART_SDK="$PKG/dart-sdk"
+          # Updating PATH to include access to Dart bin.
+          export PATH="$PATH:$DART_SDK/bin"
+          export PATH="$PATH:$HOME/.pub-cache/bin"
+      fi
 
-    if [[ -z "$(type -t content_shell)" && ! $PATH =~ \/content_shell ]]; then
-        export PATH="$PATH:$PKG/content_shell"
+      if [[ -z "$(type -t content_shell)" && ! $PATH =~ \/content_shell ]]; then
+          export PATH="$PATH:$PKG/content_shell"
+      fi
     fi
 fi

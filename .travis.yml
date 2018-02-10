@@ -1,7 +1,8 @@
 dist: trusty
 sudo: required # required because we need to install fonts for content-shell
-language: node_js
-node_js: 8
+language: dart
+dart: stable
+with_content_shell: true
 
 cache:
   bundler: true
@@ -42,6 +43,7 @@ matrix:
     - env: CI_TASK="e2e $E2E_OPT3"
 
 before_install:
+  - nvm install 8
   - source ./scripts/get-ruby.sh
   - source ./scripts/env-set.sh
   - ./scripts/before-install.sh
