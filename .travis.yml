@@ -11,6 +11,7 @@ cache:
   - $HOME/.nvm
   - $HOME/.rvm
   - node_modules
+  - $HOME/tmp
 
 env:
   global:
@@ -26,7 +27,7 @@ env:
     - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp
   matrix:
-    - CI_TASK="build --dartdoc"
+    - CI_TASK="build --dartdoc --use-cached-api-doc"
     - CI_TASK="ng-pkg-pub-upgrade" # fails when new ng pkg vers is available
     - CI_TASK="test $TEST_OPT"
     - CI_TASK="e2e $E2E_OPT1"

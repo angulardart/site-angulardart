@@ -158,12 +158,14 @@ function genDartdocForProjs() {
     logAndExit1(`Flag missing: use --no-dartdoc, --dartdoc, or --dartdoc=project-aliases`);
   }
 
-  if (argv.dartdoc === false) return [];
-  if (argv.dartdoc === undefined || argv.dartdoc === true) return [...config._dartdocProj];
+  if (argv.dartdoc === false
+    || argv.dartdoc === 'none') return [];
+  if (argv.dartdoc === undefined
+    || argv.dartdoc === true
+    || argv.dartdoc === 'all') return [...config._dartdocProj];
 
   const result = [];
   argv.dartdoc.split(/\s*,\s*/).forEach(alias => {
-    if (alias === 'all') return [...config._dartdocProj];
     if (config._dartdocProj.indexOf(alias) === -1) {
       const msg = `Unrecognized dartdoc project alias: ${alias}.\n`
         + `Choose one of: ${config._dartdocProj.join(', ')}.`;

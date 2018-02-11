@@ -32,12 +32,13 @@ module.exports = function (gulp, plugins, config) {
   // --[no-]dartdoc='all|none|acx|ng|...', default is 'all'.
   gulp.task('dartdoc', done => {
     const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
+    if (dartdocTargets.length) dartdocTargets.unshift('ng-pkg-pub-get');
     plugins.runSequence('dartdoc-info', ...dartdocTargets, done)
   });
 
   config._dartdocProj.forEach(p => {
     if (_projs.includes(p)) {
-      gulp.task(`dartdoc-${p}`, ['ng-pkg-pub-get'], () => _dartdoc(p));
+      gulp.task(`dartdoc-${p}`, () => _dartdoc(p));
     } else {
       gulp.task(`dartdoc-${p}`, () => true);
     }
@@ -72,23 +73,42 @@ module.exports = function (gulp, plugins, config) {
 
     const tmpPubPkgPath = path.join(tmpPubPkgsPath, pubPkgAndVersName);
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
-    if (fs.existsSync(tmpPubPkgPath)) {
-      if (fs.existsSync(apiDir)) plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
-      // plugins.del.sync(apiDir);
-    } else {
+    if (!fs.existsSync(tmpPubPkgPath)) {
       plugins.execSyncAndLog(`cp -R ${pathToPkgSrcPath} ${tmpPubPkgPath}`);
       const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
       // pub hangs on the following dependency: "args: '>=x.y.z <2.0.0'". Patch the pubspec:
       plugins.execSyncAndLog(`perl -i -pe "s/^(\\s+args):\\s*'>=\\s*([\\d\\.]+)\\s+<2.0.0'/\\1: ^\\2/gm" ${pubspecFile}`);
+    } else if (fs.existsSync(apiDir)) {
+      if (plugins.argv.useCachedApiDoc) {
+        plugins.gutil.log(`Keeping previously generated API docs for ${pubPkgName} found at ${apiDir}.`);
+      } else {
+        plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
+      }
     }
     return tmpPubPkgPath;
   }
 
-  function _dartdoc1(proj, libs, projPath) {
+  async function _dartdoc1(proj, libs, projPath) {
     const args = [];
     if (libs || libs === '') args.push(`--include=${libs}`);
     if (config.relDartDocApiDir !== 'doc/api') args.push(`--output ${config.relDartDocApiDir}`);
-    return plugins.execp(`${config.dartdoc} ${args.join(' ')}`, { cwd: projPath });
+
+    const apiDir = path.resolve(projPath, config.relDartDocApiDir);
+    if (plugins.argv.useCachedApiDoc && fs.existsSync(apiDir)) {
+      plugins.gutil.log(`Using previously generated API docs for ${proj} found at ${apiDir}.`);
+      return;
+    }
+
+    try {
+      await plugins.execp(`${config.dartdoc} ${args.join(' ')}`, { cwd: projPath });
+    } catch (e) {
+      if (plugins.argv.useCachedApiDoc && fs.existsSync(apiDir)) {
+        plugins.gutil.log(`Dartdoc failed for ${proj}; deleting ${apiDir}.\nCaught error: ${e}`);
+        plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
+      }
+      throw e;
+    }
+    return;
   }
 
   function _throw(proj, msg) {
