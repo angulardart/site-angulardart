@@ -1,6 +1,6 @@
 # This bash file is meant to be source'd, not executed.
 
-: ${SITE_WEBDEV_RUBY_VERS:=2.4.2}
+SITE_WEBDEV_RUBY_VERS=2.4.3
 
 if ! rvm version | grep -q '(latest)'; then
   rvm get stable
