@@ -188,21 +188,40 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 // Task: build
 // Options:
 //   --fast  skips generation of dartdocs if they already exist
-//
-// Ideally, we'd want to ensure that get-stagehand-proj completes before the other
-// tasks but it is too much work to do that in gulp 3.x. Generally it shouldn't be
-// a problem. We can always fix the dependencies once gulp 4.x is out.
-gulp.task('build', ['get-stagehand-proj', 'create-example-fragments', 'dartdoc',
-  'build-api-list-json', 'finalize-api-docs', 'add-example-apps-to-site'], cb => {
-    // Make API lists available for the sitemap generation:
-    child_process.execSync(`cp src/api/api-list.json src/_data/api-list.json`);
-    return execp(`jekyll build`);
-  });
 
-gulp.task('build-deploy', ['build'], () => {
-  // Note: .firebaserc will be used.
-  return execp(`firebase deploy`);
-});
+gulp.task('build', done => plugins.runSequence(
+  '_build-prep',
+  '_api-doc-prep',
+  '_jekyll-build',
+  done));
+
+gulp.task('_build-prep', done => plugins.runSequence(
+  '_clean',
+  // TODO: is stagehand proj still used?
+  ['get-stagehand-proj', 'add-example-apps-to-site'],
+  'create-example-fragments',
+  done)
+);
+
+gulp.task('_api-doc-prep', done => plugins.runSequence(
+  'dartdoc',
+  'build-api-list-json',
+  'finalize-api-docs',
+  // Make API lists available for the sitemap generation:
+  () => {
+    execSyncAndLog('cp src/api/api-list.json src/_data/api-list.json');
+    done();
+  }));
+
+gulp.task('_jekyll-build', () => execp(`jekyll build`));
+
+gulp.task('build-deploy', done => plugins.runSequence(
+  'build',
+  '_firebase-deploy',
+  done)
+);
+
+gulp.task('_firebase-deploy', () => execp(`firebase deploy`));
 
 gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
 

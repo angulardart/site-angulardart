@@ -17,9 +17,11 @@ travis_fold start install.npm_install
 (set -x; npm install --no-optional)
 travis_fold end install.npm_install
 
-travis_fold start install.bundle
-(set -x; bundle install)
-travis_fold end install.bundle
+if [[ "$CI_TASK" == build* ]]; then
+  travis_fold start install.bundle
+  (set -x; bundle install)
+  travis_fold end install.bundle
+fi
 
 if [[ "$CI_TASK" == e2e* ]]; then
   ./scripts/examples-install.sh

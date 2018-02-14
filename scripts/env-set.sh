@@ -1,24 +1,31 @@
 # This bash file is meant to be source'd, not executed.
 
+SITE_WEBDEV_ENV_SET_INSTALL_OPT="--no-install"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --reset)    unset NGIO_ENV_DEFS; shift;;
+    --install)  SITE_WEBDEV_ENV_SET_INSTALL_OPT="--install"; shift;;
+    *)          echo "WARNING: Unrecognized option for env-set.sh: $1"; shift;;
+  esac
+done
+
 if [[ -z "$(type -t rvm)" ]]; then
     echo "ERROR: rvm not installed. See site-webdev README. Skipping setup."
 elif [[ -z "$(type -t nvm)" ]]; then
     echo "ERROR: nvm not installed. See site-webdev README. Skipping setup."
-elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
+elif [[ -z "$NGIO_ENV_DEFS" ]]; then
     export NGIO_ENV_DEFS=1
     export ANSI_YELLOW="\033[33;1m"
     export ANSI_RESET="\033[0m"
     echo -e "${ANSI_YELLOW}Setting environment variables from scripts/env-set.sh${ANSI_RESET}"
 
+    if [[ "$SITE_WEBDEV_ENV_SET_INSTALL_OPT" == "--install" ]]; then
+      nvm install 8
+    else
     nvm use 8
-
-    # Configure RVM so it doesn't complain if it isn't first in your PATH:
-    RVMRC=~/.rvmrc
-    RVM_SILENCE_PATH=rvm_silence_path_mismatch_check_flag
-    if [[ ! -r $RVMRC ]] || ! grep -q $RVM_SILENCE_PATH $RVMRC;  then
-        echo $RVM_SILENCE_PATH=1 >> $RVMRC
     fi
-    rvm use 2.4.2
+    source scripts/get-ruby.sh "$SITE_WEBDEV_ENV_SET_INSTALL_OPT"
 
     export NGIO_REPO=../angular.io
     export NG_REPO=../angular
@@ -59,3 +66,5 @@ elif [[ -z "$NGIO_ENV_DEFS" || "$1" == "--reset" ]]; then
       fi
     fi
 fi
+
+return 0

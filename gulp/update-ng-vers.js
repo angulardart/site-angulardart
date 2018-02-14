@@ -65,24 +65,69 @@ module.exports = function (gulp, plugins, config) {
     return `^${vers}`;
   }
 
-  // const depOvr = 'dependency_overrides:\n' +
-  //   '  some-pkg:\n' +
-  //   '    git: https://github.com/dart-lang/some-pkg.git\n';
-  // const depOvr2 = 'git:\n' +
-  //   '      url: https://github.com/dart-lang/some-pkg.git\n' +
-  //   '      ref: 1.2.3\n';
-  // const depOvr3 = 'dependency_overrides:\n' +
-  //   `  some-pkg:\n    ${depOvr2}\n`;
+  const depOvrSample = `
+dependency_overrides:
+  angular:
+    git:
+      url: https://github.com/dart-lang/angular.git
+      path: angular
+  angular_compiler:
+    git:
+      url: https://github.com/dart-lang/angular.git
+      path: angular_compiler
+  angular_forms:
+    git:
+      url: https://github.com/dart-lang/angular.git
+      path: angular_forms
+  angular_router:
+    git:
+      url: https://github.com/dart-lang/angular.git
+      path: angular_router
+  angular_test:
+    git:
+      url: https://github.com/dart-lang/angular.git
+      path: angular_test
+  build: ^0.10.0
+  build_barback: ^0.4.0
 
-  // gulp.task('_dep_overrides', ['_update-acx-vers', '_update-ng-vers'], cb => {
-  //   const baseDir = getBaseDir();
-  //   return gulp.src([
-  //     `${baseDir}/**/pubspec.yaml`,
-  //     `!${baseDir}/**/.pub/**`,
-  //   ]) // , { base: baseDir }
-  //     .pipe(replace(/\btransformers:/, `${depOvr}$&`))
-  //     .pipe(gulp.dest(baseDir));
-  // });
+`;
+
+  const depOvrACX = `
+  angular_components:
+    git:
+      url: https://github.com/dart-lang/angular_components.git
+      ref: github-sync
+    sass_builder:
+    git: https://github.com/dart-league/sass_builder.git
+`;
+
+  const depOvr = `
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1\n`;
+
+  const depOvr2 = `
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1\n`;
+
+  gulp.task('_dep_overrides', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/pubspec.yaml`,
+      `!${baseDir}/**/.pub/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/(\n#.*)?\ntransformers:/, `${depOvr}$&`))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  gulp.task('_remove_overrides', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/pubspec.yaml`,
+      `!${baseDir}/**/.pub/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/(\n?)\ndependency_overrides:\n(\s+[\s\S]*?\n)+\n/, '$1\n'))
+      .pipe(gulp.dest(baseDir));
+  });
 
   const platform_star =
     `    platform_directives:
@@ -110,7 +155,7 @@ module.exports = function (gulp, plugins, config) {
       `${baseDir}/**/*.dart`,
       `${baseDir}/**/*.html`,
       `${baseDir}/**/*.css`,
-      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
       `!${baseDir}/**/ng/doc/*/web/styles.css`,
     ]) // , { base: baseDir }
       .pipe(replace(/angular2\/(angular2|common|platform\/browser|platform\/common).dart/g, 'angular/angular.dart'))
@@ -135,7 +180,7 @@ module.exports = function (gulp, plugins, config) {
     // plugins.gutil.log('Will up')
     return gulp.src([
       `${baseDir}/**/pubspec.lock`,
-      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
     ]) // , { base: baseDir }
       .pipe(replace(re, `$1: "${vers}"`))
       .pipe(gulp.dest('./'));
@@ -149,16 +194,73 @@ module.exports = function (gulp, plugins, config) {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/index.html`,
-      `!${baseDir}/**/{.pub,build,node_modules}/**`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
     ]) // , { base: baseDir }
       .pipe(replace(/( +)(<script>[\s\S]*?base href[\s\S]*?\s+<\/script>)/, baseHref))
       .pipe(gulp.dest(baseDir));
   });
 
+  gulp.task('update-analysis-options', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/analysis_options.yaml`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/#\s+exclude:\n#\s+- path\/to\/exclude.*/, _ignore_uri_has_not_been_generated))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  gulp.task('update-main', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/web/main.dart`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/(void main)/, "import 'main.template.dart' as ng;\n\n$1"))
+      .pipe(replace(/bootstrap\((\w+)\)/, 'bootstrapStatic($1, [], ng.initReflector)'))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  gulp.task('update-tests', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/test/*_test.dart`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/import 'package:angular\/angular.dart';\n/, ''))
+      .pipe(replace(/@AngularEntrypoint\(\)\n(void main\(\) {)(\s+)/,
+        "import 'app_test.template.dart' as ng;\n" + // 'app_test' is the most common; adjust as necessary in each file
+        '$1$2ng.initReflector();$2'))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  gulp.task('update-pubspec', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/pubspec.yaml`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/\s+browser: \S+/, ''))
+      .pipe(gulp.dest(baseDir));
+  });
+
+  gulp.task('update-web-index', cb => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/web/index.html`,
+      `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/(\s+<script defer src="main.dart)".*?(><\/script>)/, '$1.js"$2'))
+      .pipe(replace(/\s+<script defer src="packages\/browser\/dart.js"><\/script>/, ''))
+      .pipe(gulp.dest(baseDir));
+  });
 };
 
+const _ignore_uri_has_not_been_generated =
+  `  errors:
+    uri_has_not_been_generated: ignore`;
+
 const scriptBaseHref =
-`<script>
+  `<script>
   // WARNING: DO NOT set the <base href> like this in production!
   // Details: https://webdev.dartlang.org/angular/guide/router
   (function () {

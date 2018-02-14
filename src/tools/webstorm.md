@@ -87,16 +87,9 @@ and then open its `pubspec.yaml` file or any of its Dart files.
 
 
 {% comment %}
-
-NOTE TO EDITORS OF THIS FILE:
-To reset to the initial WebStorm experience,
-delete the IDE settings
-by removing the directories specified in
+NOTE TO EDITORS OF THIS FILE: To reset to the initial WebStorm experience,
+delete the IDE settings by removing the directories specified in
 https://www.jetbrains.com/webstorm/help/project-and-ide-settings.html.
-On Mac, this worked for me:
-
-rm -rf ~/Library/*/WebStorm10
-
 {% endcomment %}
 
 
@@ -116,20 +109,6 @@ after the app is compiled to JavaScript,
 displays the app.
 
 {% include pub-get-workaround.html %}
-
-
-{% comment %}
-
-## Creating an app from a template
-
-## Debugging a web app
-
-  PENDING: What other common tasks do we want to cover? Some guesses:
-  * updating the Dart SDK
-  * auto-completion?
-  * updating the IDE?
-  * updating the plugin?
-{% endcomment %}
 
 
 ## Reporting issues
