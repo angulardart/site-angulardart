@@ -105,10 +105,6 @@ dependency_overrides:
 dependency_overrides:
   analyzer: ^0.31.0-alpha.1\n`;
 
-  const depOvr2 = `
-dependency_overrides:
-  analyzer: ^0.31.0-alpha.1\n`;
-
   gulp.task('_dep_overrides', cb => {
     const baseDir = getBaseDir();
     return gulp.src([

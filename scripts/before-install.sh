@@ -26,7 +26,7 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   travis_fold start before_install.npm_install_shared
     (set -x; npm install --global diff2html-cli firebase-tools superstatic --no-optional)
   travis_fold end before_install.npm_install_shared
-  
+
   travis_fold start before_install.ceu
     (set -x; pub global activate --source git https://github.com/chalin/code_excerpt_updater.git)
   travis_fold end before_install.ceu

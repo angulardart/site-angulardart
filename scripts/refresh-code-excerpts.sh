@@ -2,7 +2,8 @@
 
 set -e -o pipefail
 
-readonly webdevRepoDir="$(cd "$(dirname "$0")/.." && pwd)"
+readonly rootDir="$(cd "$(dirname "$0")/.." && pwd)"
+
 
 function usage() {
   echo $1; echo
@@ -12,26 +13,37 @@ function usage() {
 
 if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . $webdevRepoDir/scripts/env-set.sh
+[[ -z "$NGIO_ENV_DEFS" ]] && . $rootDir/scripts/env-set.sh
 
-ARGS='--escape-ng-interpolation --indentation 2'
+gulp create-example-fragments;
+
+ARGS='--no-escape-ng-interpolation '
 
 if [[ $1 == '--api' ]]; then
   API='/_api'
   shift
-  ARGS='--no-escape-ng-interpolation'
+else
+  ARGS='--escape-ng-interpolation '
 fi
 
+ARGS+='--indentation 2 '
+ARGS+='--replace='
+ARGS+='/\/\/!<br>//g;' # Use //!<br> to force a line break (against dartfmt)
+ARGS+='/ellipsis;?/.../g;' # ellipses; --> ...
+ARGS+='/\/\*(\s*\.\.\.\s*)\*\//$1/g;' # /*...*/ --> ...
+ARGS+='/\{\/\*-(\s*\.\.\.\s*)-\*\/\}/$1/g;' # {/*-...-*/} --> ... (removed brackets too)
+
 SRC="$1"
-: ${SRC:="$webdevRepoDir/src"}
+: ${SRC:="$rootDir/src"}
 [[ -e $SRC ]] || usage "ERROR: source file/folder does not exist: '$SRC'"
 
-FRAG="$webdevRepoDir/tmp/_fragments$API"
+FRAG="$rootDir/tmp/_fragments$API"
 [[ -e $FRAG ]] || usage "ERROR: fragments folder does not exist: '$FRAG'"
 
 echo "Source:     $SRC"
 echo "Fragments:  $FRAG"
 echo "Other args: $ARGS"
+echo
 LOG_FILE=$TMP/refresh-code-excerpts-log.txt
 pub global run code_excerpt_updater \
   --fragment-dir-path "$FRAG" \
