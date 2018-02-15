@@ -24,7 +24,7 @@ and \<settings-component>.
 
 {% include_relative _run_example.md %}
 
-## <i class="fa fa-money"> </i> Use material-toggle
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-toggle
 
 Edit **lib/lottery_simulator.html** to convert the “Go faster” \<div>
 (and its children) into a \<material-toggle>, as the following diff shows:
@@ -94,7 +94,7 @@ which the app previously specified in the \<label> element.
 A two-way binding to the **checked** property simplifies setting the
 toggle’s state.
 
-## <i class="fa fa-money"> </i> Use material-fab
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-fab
 
 Now convert the buttons that have icons into floating action buttons (FABs).
 
@@ -166,7 +166,7 @@ They look good, and they have a nice ripple animation when you click them.
 
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-exclamation-circle"> </i> **Common pattern: (trigger)** <br>
+<i class="fas fa-exclamation-circle"> </i> **Common pattern: (trigger)** <br>
 
 Many of the AngularDart Components support trigger events. As a rule,
 your app should **handle trigger events instead of click events**,
@@ -175,7 +175,7 @@ trigger events fire on both click and keypress,
 and trigger events don’t fire when the element is disabled.
 </aside>
 
-## <i class="fa fa-money"> </i> Use material-checkbox
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-checkbox
 
 The primary UI is looking good!
 Now let’s start improving the settings section of the UI,
@@ -340,7 +340,7 @@ Look how much simpler that code is!
 MaterialCheckboxComponent supports a **label** attribute and
 two-way binding to **checked**, enabling much cleaner HTML.
 
-## <i class="fa fa-money"> </i> Use material-radio and material-radio-group
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-radio and material-radio-group
 
 Still working on the settings, let’s convert radio buttons
 into \<material-radio> components. Each group of radio buttons

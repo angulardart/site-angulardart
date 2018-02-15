@@ -19,7 +19,7 @@ In this step, you’ll change the app to use a few of the AngularDart Components
 
 {% include_relative _run_example.md %}
 
-## <i class="fa fa-money"> </i> Copy the source code
+## <i class="far fa-money-bill-alt fa-sm"> </i> Copy the source code
 
 Make a copy of the base app's source code:
 
@@ -33,7 +33,7 @@ From now on, you'll work in this copy of the source code,
 using whatever [Dart web development tools](/tools) you prefer.
 
 
-## <i class="fa fa-money"> </i> Depend on angular_components
+## <i class="far fa-money-bill-alt fa-sm"> </i> Depend on angular_components
 
 <ol markdown="1">
 
@@ -62,7 +62,7 @@ pub get
 </li>
 </ol>
 
-## <i class="fa fa-money"> </i> Set up the root component’s Dart file
+## <i class="far fa-money-bill-alt fa-sm"> </i> Set up the root component’s Dart file
 
 Edit **lib/lottery_simulator.dart**,
 importing the Angular components and informing Angular about
@@ -100,7 +100,7 @@ importing the Angular components and informing Angular about
 
 Now you’re ready to use the components.
 
-## <i class="fa fa-money"> </i> Use material-progress
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-progress
 
 Edit the template file **lib/lottery_simulator.html** to use the
 **\<material-progress>** tag
@@ -131,7 +131,7 @@ As a reminder, here’s what the progress section looked like before:
 
 That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<material-icon> component.
 
-## <i class="fa fa-money"> </i> Use material-icon in buttons
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-icon in buttons
 
 Using \<material-icon>
 ([MaterialIconComponent]({{site.acx_api}}/angular_components/MaterialIconComponent-class.html))
@@ -240,7 +240,7 @@ These small changes make a big difference in the UI:
 <img style="border:1px solid black" src="images/material-icon-buttons-after.png" alt='buttons have images now, instead of text'>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to import material icon fonts**
+<i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to import material icon fonts**
 
 If you see words instead of icons, your app needs to import material icon fonts.
 
@@ -249,7 +249,7 @@ If you see words instead of icons, your app needs to import material icon fonts.
 </aside>
 
 
-## <i class="fa fa-money"> </i> Use material-icon in other components
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-icon in other components
 
 If you scroll down to the Tips section of the page, you’ll see blank spaces where there should be icons:
 
@@ -258,7 +258,7 @@ If you scroll down to the Tips section of the page, you’ll see blank spaces wh
 The HTML template (lib/src/help/help.html) uses \<material-icon> already, so why isn’t it working?
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-exclamation-circle"> </i> **Common problem: Forgetting to register a component**
+<i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to register a component**
 
 If an Angular component’s template uses a second Angular component
 without declaring it, that **second component doesn’t appear in the
@@ -309,7 +309,7 @@ Adding those two lines to lib/src/help/help.dart makes the material icons displa
 <img style="border:1px solid black" src="images/material-icon-help-after.png" alt='help text now has images'>
 
 
-## <i class="fa fa-money"> </i> Use acx-scorecard
+## <i class="far fa-money-bill-alt fa-sm"> </i> Use acx-scorecard
 
 Let’s make one more change: using scorecards (\<acx-scorecard>)
 to display the betting and investing results.
@@ -431,7 +431,7 @@ Remember, it used to look like this:
 </ol>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-exclamation-circle"> </i> **Common problem: Registering the wrong component**<br>
+<i class="fas fa-exclamation-circle"> </i> **Common problem: Registering the wrong component**<br>
 
 It’s easy to accidentally register the wrong component.
 For example, you might register ScoresComponent instead of

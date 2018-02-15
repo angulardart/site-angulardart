@@ -61,15 +61,15 @@ use AngularDart Components.
   * Set up the root component’s Dart file
   * Use \<material-progress>
   * Use \<material-icon> in buttons
-    * <i class="fa fa-exclamation-circle"> </i> Common problem: Forgetting to import material icon fonts
+    * <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to import material icon fonts
   * Use \<material-icon> in other components
-    * <i class="fa fa-exclamation-circle"> </i> Common problem: Forgetting to register a component
+    * <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to register a component
   * Use \<acx-scorecard>
-    * <i class="fa fa-exclamation-circle"> </i> Common problem: Registering the wrong component
+    * <i class="fas fa-exclamation-circle"> </i> Common problem: Registering the wrong component
 * [Step 3: Upgrade Buttons and Inputs](/codelabs/angular_components/3-usebuttons)
   * Use \<material-toggle>
   * Use \<material-fab>
-    * <i class="fa fa-exclamation-circle"> </i> Common pattern: (trigger)
+    * <i class="fas fa-exclamation-circle"> </i> Common pattern: (trigger)
   * Use \<material-checkbox>
   * Use \<material-radio> and \<material-radio-group>
 * [Step 4: Add Expansion Panels and Tabs](/codelabs/angular_components/4-final)

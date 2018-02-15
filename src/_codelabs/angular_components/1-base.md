@@ -14,7 +14,7 @@ In this step, you’ll download the code for the app, and you’ll familiarize y
 
 {% include_relative _run_example.md %}
 
-## <i class="fa fa-money"> </i> Get the app code
+## <i class="far fa-money-bill-alt fa-sm"> </i> Get the app code
 
 All the code for this codelab is in the `angular-examples/lottery` GitHub repo.
 
@@ -24,7 +24,7 @@ All the code for this codelab is in the `angular-examples/lottery` GitHub repo.
    {%- if site.branch != 'master' %} (`{{site.branch}}` branch){% endif %}
    or by clicking **Download ZIP**.
 
-## <i class="fa fa-money"> </i> Get familiar with the base app
+## <i class="far fa-money-bill-alt fa-sm"> </i> Get familiar with the base app
 
 The base app—the app you’ll be starting from—is in the **1-base** directory.
 
@@ -80,7 +80,7 @@ some of their vanilla HTML elements.
 {:.table .table-striped}
 
 
-## <i class="fa fa-money"> </i> Get familiar with AngularDart Components
+## <i class="far fa-money-bill-alt fa-sm"> </i> Get familiar with AngularDart Components
 
 Run the [AngularDart Components demo.](/examples/lottery/4-final/)
 Optionally, look at its [source code](https://github.com/dart-lang/angular_components_example).
