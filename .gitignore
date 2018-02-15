@@ -4,7 +4,7 @@
 
 # Cache files
 .sass-cache
-src/.asset-cache
+.asset-cache
 .jekyll-metadata
 
 # Deployment Files
