@@ -13,7 +13,6 @@ cache:
   - $HOME/.rvm
   - node_modules
   # - publish # takes too long to cache and check for freshness
-  - src/.asset-cache
   - tmp # TODO: rename to cache or .cache
   # Examples:
   - examples/ng/doc/node_modules
