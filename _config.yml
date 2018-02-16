@@ -102,7 +102,10 @@ source: src
 destination: publish
 bundler_args: --without production
 
-# exclude: ['.asset-cache']
+exclude: # '.asset-cache'
+  - _data/.pub
+  - _data/.packages
+  - _data/pubspec.lock
 
 keep_files:
   - examples
