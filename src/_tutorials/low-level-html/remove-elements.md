@@ -237,26 +237,13 @@ the function must be an EventListener.
 That is,
 it returns no value and takes an Event object as a parameter.
 
-## Other resources
-
-<ul>
-  <li>
-    You can find more information about the DOM and CSS in the
-    <a href="{{site.dartlang}}/guides/language/language-tour">language tour</a>,
-    which also provides thorough coverage of the Dart language.
-  </li>
-</ul>
 
 ## What next?
 
 Rather than implement your web app using low-level APIs, you can leverage
 existing toolkits.
+We recommend AngularDart, an app framework designed for building
+scalable web apps. It's featured in the Dart web development codelabs.
 
-* We recommend [AngularDart](/angular), an app framework designed for building
-  scalable web apps.
-
-* Another package is Polymer Dart, which makes manipulating the DOM easier
-  with data binding, templates, and declarative event handlers.
-  Check out the
-  [Polymer Dart wiki](https://github.com/dart-lang/polymer-dart/wiki)
-  for more information.
+* [AngularDart](/angular)
+* [Codelabs](/codelabs)

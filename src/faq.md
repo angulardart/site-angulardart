@@ -52,14 +52,17 @@ has some tips for specific browsers.
 
 Yes! [AngularDart][] is a port of Angular to Dart.
 
+{% comment %}
 #### Q. Can I use web components with Dart?
 
-Yes! [Polymer Dart] is a port of polymer to Dart. Polymer is a set of
-polyfills and usability enhancements for web components.
+**[PENDING: UPDATE]**
+{% endcomment %}
 
 #### Q. Should I use Angular or Polymer?
 
-Both. Or either. It's really up to you.
+Use [AngularDart][].
+[Polymer Dart][Polymer Dart] is no longer supported and is likely to break in
+[Dart 2.]({{site.dartlang}}/dart-2)
 
 #### Q. Can I build a Chrome App with Dart?
 
@@ -378,7 +381,7 @@ achievement.
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [jsinterop]: https://pub.dartlang.org/packages/js
 [AngularDart]: /angular
-[Polymer Dart]: https://github.com/dart-lang/polymer-dart/wiki
+[Polymer Dart]: https://github.com/dart-archive/polymer-dart/wiki
 [dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html

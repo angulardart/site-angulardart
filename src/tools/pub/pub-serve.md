@@ -28,7 +28,7 @@ Serving helloworld on http://localhost:8080
 The dev server doesn't just serve up assets, it produces them by running
 [transformers]({{site.dartlang}}/tools/pub/glossary#transformer).
 A transformer converts input assets (such as Dart files or
-Polymer-formatted HTML) into output assets
+specially formatted HTML) into output assets
 (such as JavaScript and HTML).
 
 These output assets aren't in the file system; they exist only in the dev

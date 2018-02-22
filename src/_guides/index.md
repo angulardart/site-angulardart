@@ -14,7 +14,7 @@ Guides on this site:
 * [Get Started](/guides/get-started)
 * [Overview: Web Libraries](/guides/web-programming)
 * [Angular](/angular/guide)
-* [Polymer](/guides/polymer)
+* [Polymer](/guides/polymer) _(unsupported)_
 * [Get Data](/guides/get-data)
 
 Also see:
