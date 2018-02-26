@@ -302,12 +302,14 @@ img {
     margin-right: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-end;
+    &:not(.dropdown-menu) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-end;
+    }
     li {
-      margin: auto 15px;
+      padding: 0 15px;
       a {
         display: inline-block;
         padding: 0;

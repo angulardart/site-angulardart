@@ -32,6 +32,17 @@ a code {
       }
     }
   }
+  .dropdown-menu {
+    background-color: $gray-base;
+    a:hover, a:focus { background-color: $gray-base; }
+    a.active:after {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f00c'; // fas fa-check
+      font-weight: 900;
+      padding-left: .5em;
+      color: $brand-secondary;
+    }
+  }
   .brand {
     width: 250px;
     line-height: 40px;
@@ -161,7 +172,7 @@ img.centered {
   .code-box-header {
     display: none;
   }
-  
+
   /* Show all panes in the code box */
   code-pane > .ng-hide:not(.ng-hide-animate) {
     display: block !important;

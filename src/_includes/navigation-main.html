@@ -5,7 +5,24 @@
   </a>
   <ul>
     <li><a href="/guides/get-started">Get Started</a></li>
-    <li><a href="/angular">AngularDart</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AngularDart <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        {% if site.branch == 'master' -%}
+          <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(stable)</a></li>
+          {% if site.dev-url and site.data.pkg-vers.angular.next-vers -%}
+            <li><a href="{{site.dev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.next-vers}}&nbsp;&nbsp;(preview)</a></li>
+          {%- endif -%}
+        {% else -%}
+          {% if site.prev-url and site.data.pkg-vers.angular.prev-vers -%}
+            <li><a href="{{site.prev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(stable)</a></li>
+          {%- endif -%}
+          <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(preview)</a></li>
+        {%- endif %}
+        <li role="separator" class="divider"></li>
+        <li><a href="/version">Package versions</a></li>
+      </ul>
+    </li>
     <li><a href="/tools">Tools</a></li>
     <li class="searchfield">
       <form class="navbar-search" action="/search" id="cse-search-box">
