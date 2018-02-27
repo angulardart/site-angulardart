@@ -9,13 +9,18 @@
       <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AngularDart <span class="caret"></span></a>
       <ul class="dropdown-menu">
         {% if site.branch == 'master' -%}
+          {% comment -%}
+          {% if site.prev-url and site.data.pkg-vers.angular.prev-vers -%}
+            <li><a href="{{site.prev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(archive)</a></li>
+          {%- endif %}
+          {%- endcomment %}
           <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(stable)</a></li>
           {% if site.dev-url and site.data.pkg-vers.angular.next-vers -%}
             <li><a href="{{site.dev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.next-vers}}&nbsp;&nbsp;(preview)</a></li>
           {%- endif -%}
         {% else -%}
-          {% if site.prev-url and site.data.pkg-vers.angular.prev-vers -%}
-            <li><a href="{{site.prev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(stable)</a></li>
+          {% if site.url and site.data.pkg-vers.angular.prev-vers -%}
+            <li><a href="{{site.url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(stable)</a></li>
           {%- endif -%}
           <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(preview)</a></li>
         {%- endif %}
