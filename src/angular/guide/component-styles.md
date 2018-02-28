@@ -138,7 +138,7 @@ through this component to all of its child elements in the DOM.
   }
 ```
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Use the `::ng-deep` selector only with *emulated* view encapsulation.
   Emulated is the default and most commonly used view encapsulation. For more information, see the
   [Controlling view encapsulation](#view-encapsulation) section.

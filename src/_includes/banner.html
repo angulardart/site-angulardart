@@ -1,16 +1,12 @@
 {% if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" %}
-<div class="banner">
+{% comment %}Drop the div .alert classes to revert to the default banner styling.{% endcomment -%}
+<div class="banner alert alert-warning">
   <p class="banner__text">
-    <div class="alert alert-warning">
-      <strong>
-        WARNING: This is a PREVIEW release of
-        <a href="{{site.url}}" class="no-automatic-external" target="_blank" rel="noopener">
-          {{site.url | regex_replace: '^https?://'}}
-        </a>
-        based on
-        <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a>.
-      </strong>
-    </div>
+    WARNING: This is an
+    <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a> PREVIEW of
+    <a href="{{site.url}}" class="no-automatic-external" target="_blank" rel="noopener">
+      {{site.url | regex_replace: '^https?://'}}
+    </a>
   </p>
 </div>
 {% endif %}

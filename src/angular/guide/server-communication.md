@@ -132,7 +132,7 @@ and the component calls that service to fetch and save data.
 The component doesn't interact directly with the `Client`.
 Instead, it delegates data access to the `HeroService`.
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
 **Always delegate data access to a supporting service class.**
 </div>
 
@@ -162,7 +162,7 @@ and the resources at the end of that tutorial.
 ## Fetching data {#fetch-data}
 
 In the previous samples, the app faked interaction with the server by
-returning mock heroes in a service: 
+returning mock heroes in a service:
 
 <?code-excerpt "../toh-4/lib/src/hero_service.dart"?>
 ```
@@ -257,7 +257,7 @@ that returns heroes.
 
 
 <div id="mock-server"></div>
-### Mock the server 
+### Mock the server
 
 When no server exists yet or you want to
 avoid network reliability issues during testing,
@@ -301,11 +301,11 @@ For examples of decoding and encoding JSON, see the
 <div class="l-sub-section" markdown="1">
   The decoded JSON doesn't list the heroes.
   Instead, the server wraps JSON results in an object with a `data` property.
-  This is conventional web API behavior, driven by 
+  This is conventional web API behavior, driven by
   [security concerns.](https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside)
 </div>
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   **Assume nothing about the server API.**
   Not all servers return an object with a `data` property.
 </div>
@@ -377,7 +377,7 @@ the `errorMessage` variable is assigned a value as follows:
 <div class="l-sub-section" markdown="1">
   To create a failure scenario,
   reset the API endpoint to a bad value in `HeroService`.
-  Afterward, remember to restore its original value. 
+  Afterward, remember to restore its original value.
 
 </div>
 
@@ -440,7 +440,7 @@ the body represents JSON.
 As in `getHeroes()`, the `_extractData()` helper
 [extracts the data](#extract-data) from the response.
 
-Back in `HeroListComponent`, the `addHero()` method 
+Back in `HeroListComponent`, the `addHero()` method
 waits for the service's asynchronous `create()` method to create a hero.
 When `create()` is finished,
 `addHero()` puts the new hero in the `heroes` list:
@@ -478,7 +478,7 @@ This is called the [same-origin policy.](https://en.wikipedia.org/wiki/Same-orig
 Some servers do not support CORS but do support an older, read-only alternative called [JSONP.](https://en.wikipedia.org/wiki/JSONP)
 
 <div class="l-sub-section" markdown="1">
-  
+
 For more information about JSONP, see
 [this Stack Overflow answer.](http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about/2067584#2067584)
 </div>
@@ -492,7 +492,7 @@ types in a text box:
 
 Wikipedia offers a modern **CORS** API and a legacy **JSONP** search API.
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   This page is under construction.
   For now, see the
   [demo source code]({{site.ghNgEx}}/server-communication/tree/{{site.branch}})
@@ -585,7 +585,7 @@ Here's how it will work after refactoring:
 If a user enters the word *angular* in the search box and pauses for a while, the app issues a search request for *angular*.
 
 If the user deletes the last three letters, *lar*, and re-types *lar* before pausing again.
-The search term is still _angular_. Therefore, the app should not make another request. 
+The search term is still _angular_. Therefore, the app should not make another request.
 
 #### 3. Cope with out-of-order responses
 

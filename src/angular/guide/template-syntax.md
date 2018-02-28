@@ -479,8 +479,8 @@ directives.
 This fact bears repeating:
 **Template binding works with *properties* and *events*, not *attributes*.**
 
-<div class="callout is-helpful" markdown="1">
-  <header> A world without attributes</header>
+<div class="alert alert-info" markdown="1">
+  <h4>A world without attributes</h4>
   In the world of Angular, the only role of attributes is to initialize element and directive state.
   When you write a data binding, you're dealing exclusively with properties and events of the target object.
   HTML attributes effectively disappear.
@@ -689,8 +689,9 @@ The `hero` property of the `HeroDetail` component expects a `Hero` object, which
   <hero-detail [hero]="currentHero"></hero-detail>
 ```
 
-<div class="callout is-helpful" markdown="1">
-  <header> Checked mode type exceptions</header>
+<div class="alert alert-info" markdown="1">
+  <h4>Checked mode type exceptions</h4>
+
   In checked mode, if the template expression result type and the target
   property type are not assignment compatible, then a type exception will
   be thrown. For information on checked mode, see [Important
@@ -720,8 +721,9 @@ Don't make the following mistake:
   -->
 ```
 
-<div class="callout is-helpful" markdown="1">
-  <header> Checked mode type exception example</header>
+<div class="alert alert-info" markdown="1">
+  <h4>Checked mode type exception example</h4>
+
   In checked mode, the code above will result in a type exception:
   `String` isn't a subtype of `Hero`.
 </div>
@@ -974,8 +976,9 @@ The following example conditionally sets the font size in  “em” and “%” 
   [camelCase](glossary.html#camelcase), such as `fontSize`.
 </div>
 
-<div class="callout is-helpful" markdown="1">
-  <header> Style property names</header>
+<div class="alert alert-info" markdown="1">
+  <h4>Style property names</h4>
+
   While [camelCase](glossary.html#camelcase) and
   [dash-case](glossary.html#dash-case) style property naming schemes are
   equivalent in AngularDart, only dash-case names are recognized by the
@@ -1203,8 +1206,9 @@ Angular offers a special _two-way data binding_ syntax for this purpose, **`[(x)
 The `[(x)]` syntax combines the brackets
 of _property binding_, `[x]`, with the parentheses of _event binding_, `(x)`.
 
-<div class="callout is-important" markdown="1">
-  <header> [( )] = banana in a box</header>
+<div class="alert alert-warning" markdown="1">
+  <h4>[( )] = banana in a box</h4>
+
   Visualize a *banana in a box* to remember that the parentheses go _inside_ the brackets.
 </div>
 
@@ -1567,7 +1571,7 @@ Bind the directive to a condition expression like `isActive` in this example.
   <hero-detail *ngIf="isActive"></hero-detail>
 ```
 
-<div class="alert is-critical" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Don't forget the asterisk (`*`) in front of `ngIf`.
 </div>
 
@@ -1575,8 +1579,9 @@ When the `isActive` expression returns a true value, `NgIf` adds the `HeroDetail
 When the expression is false, `NgIf` removes the `HeroDetailComponent`
 from the DOM, destroying that component and all of its sub-components.
 
-<div class="callout is-helpful" markdown="1">
-  <header> No truthy/falsy values</header>
+<div class="alert alert-info" markdown="1">
+  <h4>No truthy/falsy values</h4>
+
   In checked mode, Dart expects Boolean values
   (those with type `bool`) to be either `true` or `false`.
   Even in production mode, the only value Dart treats as `true` is
@@ -1681,7 +1686,7 @@ You can also apply an `NgFor` to a component element, as in this example:
   <hero-detail *ngFor="let hero of heroes" [hero]="hero"></hero-detail>
 ```
 
-<div class="alert is-critical" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Don't forget the asterisk (`*`) in front of `ngFor`.
 </div>
 
@@ -1944,7 +1949,7 @@ This section concentrates on binding to **targets**, which are directive
 properties on the *left side of the binding declaration*.
 These directive properties must be declared as **inputs** or **outputs**.
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Remember: All **components** are **directives**.
 </div>
 

@@ -652,7 +652,7 @@ You have to clear all of the control values and flags imperatively,
 which you can do by calling the `NgForm.reset()` method.
 Replace the component `clear()` method call by a form reset:
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   `NgForm.reset()` isn't supported yet: https://github.com/dart-lang/angular/issues/216.
 </div>
 

@@ -74,18 +74,19 @@ Here's an example of them in a template:
 This guide won't repeat how to _use_ them. But it does explain _how they work_
 and how to [write your own](#unless) structural directive.
 
-<div class="callout is-helpful" markdown="1">
-  <header> Directive spelling</header>
-   Throughout this guide, you'll see a directive spelled in both _UpperCamelCase_ and _lowerCamelCase_.
-   Already you've seen `NgIf` and `ngIf`.
-   There's a reason. `NgIf` refers to the directive _class_;
-   `ngIf` refers to the directive's _attribute name_.
+<div class="alert alert-info" markdown="1">
+  <h4>Directive spelling</h4>
 
-   A directive _class_ is spelled in _UpperCamelCase_ (`NgIf`).
-   A directive's _attribute name_ is spelled in _lowerCamelCase_ (`ngIf`).
-   The guide refers to the directive _class_ when talking about its properties and what the directive does.
-   The guide refers to the _attribute name_ when describing how
-   you apply the directive to an element in the HTML template.
+  Throughout this guide, you'll see a directive spelled in both _UpperCamelCase_ and _lowerCamelCase_.
+  Already you've seen `NgIf` and `ngIf`.
+  There's a reason. `NgIf` refers to the directive _class_;
+  `ngIf` refers to the directive's _attribute name_.
+
+  A directive _class_ is spelled in _UpperCamelCase_ (`NgIf`).
+  A directive's _attribute name_ is spelled in _lowerCamelCase_ (`ngIf`).
+  The guide refers to the directive _class_ when talking about its properties and what the directive does.
+  The guide refers to the _attribute name_ when describing how
+  you apply the directive to an element in the HTML template.
 </div>
 
 <div class="l-sub-section" markdown="1">

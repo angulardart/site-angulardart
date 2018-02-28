@@ -322,7 +322,7 @@ The response JSON has a single `data` property, which
 holds the list of heroes that the caller wants.
 So you grab that list and return it as the resolved Future value.
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-info" markdown="1">
   Note the shape of the data that the server returns.
   This particular in-memory web API example returns an object with a `data` property.
   Your API might return something else. Adjust the code to match your web API.

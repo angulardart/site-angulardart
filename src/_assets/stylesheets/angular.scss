@@ -20,9 +20,8 @@ $shield-22-at-2x:  "{% asset_path 'ng/logos/inverse/shield/22@2x.png' %}";
 @import 'ng/ngio/layout/_layout';
 @import 'ng/ngio/module/_alert';
 @import 'ng/ngio/module/_api';
-@import 'ng/ngio/module/_banner';
+// @import 'ng/ngio/module/_banner';
 @import 'ng/ngio/module/_buttons';
-@import 'ng/_callout';
 @import 'ng/_code';
 @import 'ng/_code-box';
 @import 'ng/ngio/module/_code-shell';
@@ -92,14 +91,6 @@ blockquote {
 
 .l-content-small {
   padding: 0;
-}
-
-// ANGULAR.IO CSS COLLISIONS WITH WEBDEV
-.banner {
-  border-bottom: 0;
-  padding: 5px 0;
-  margin-bottom: 40px;
-  min-height: 0;
 }
 
 #mainnav {

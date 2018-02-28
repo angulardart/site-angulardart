@@ -370,7 +370,7 @@ Then add the `ngIf` core directive and set it to `selectedHero != null`.
   </div>
 ```
 
-<div class="alert is-critical" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Don't forget the asterisk (`*`) in front of `ngIf`.
 </div>
 
@@ -455,8 +455,8 @@ Your project should have the following files:
   - pubspec.yaml
 </div>
 
-<aside class="callout is-helpful" markdown="1">
-  <header> Tutorial component tests</header>
+<aside class="alert alert-info" markdown="1">
+  <h4>Tutorial component tests</h4>
 
   This tutorial doesn't cover testing, but if you look at the example code, it
   has component tests for each new feature this tutorial adds. See the

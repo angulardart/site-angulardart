@@ -238,8 +238,9 @@ Note the following:
 - You use your custom pipe the same way you use built-in pipes.
 - You must include your pipe in the `pipes` list of the `@Component`.
 
-<div class="callout is-helpful" markdown="1">
-  <header>Remember the pipes list</header>
+<div class="alert alert-info" markdown="1">
+  <h4>Remember the pipes list</h4>
+
   You must manually register custom pipes.
   If you don't, Angular reports an error.
   In the previous example, you didn't list the `DatePipe` because all
@@ -621,8 +622,8 @@ A breakpoint on the pipe's request for data shows the following:
 In the previous code sample, the second `fetch` pipe binding demonstrates more pipe chaining.
 It displays the same hero data in JSON format by chaining through to the built-in `JsonPipe`.
 
-<div class="callout is-helpful" markdown="1">
-  <header> Debugging with the json pipe</header>
+<div class="alert alert-info" markdown="1">
+  **Debugging with JsonPipe:**
   The [JsonPipe](/api/angular/angular/JsonPipe-class.html)
   provides an easy way to diagnosis a mysteriously failing data binding or
   inspect an object for future binding.

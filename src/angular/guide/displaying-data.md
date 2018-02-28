@@ -164,7 +164,7 @@ It marks that `<li>` element (and its children) as the "repeater template":
   </li>
 ```
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Don't forget the leading asterisk (\*) in `*ngFor`. It is an essential part of the syntax.
   For more information, see the [Template Syntax](./template-syntax.html#ngFor) page.
 </div>
@@ -183,7 +183,7 @@ context for the interpolation in the double curly braces.
   repeat items for any [Iterable][] object.
 </div>
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
 #### @Component(directives: ...)
 
 Before you can use any Angular directives in a template,
@@ -290,7 +290,7 @@ To see it in action, add the following paragraph at the bottom of the template:
   <p *ngIf="heroes.length > 3">There are many heroes!</p>
 ```
 
-<div class="alert is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   Don't forget the leading asterisk (\*) in `*ngIf`. It is an essential part of the syntax.
   Read more about `ngIf` and `*` in the [ngIf section](./template-syntax.html#ngIf) of the [Template Syntax](./template-syntax.html) page.
 </div>

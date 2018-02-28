@@ -130,8 +130,9 @@ generally initialized during setup:
   });
 ```
 
-<div class="callout is-important" markdown="1">
-  <header> PO field binds are final</header>
+<div class="alert alert-warning" markdown="1">
+  <h4>PO field bindings are final</h4>
+
   PO fields are bound at the time the PO instance is created, based on
   the state of the fixture's component's view. Once bound, they do not
   change.

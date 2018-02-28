@@ -1,5 +1,6 @@
-<div class="callout is-important" markdown="1">
-  <header>Which location strategy to use</header>
+<div class="alert alert-warning" markdown="1">
+  <h4>Which location strategy to use</h4>
+
   The default [LocationStrategy][] is [PathLocationStrategy][] so, in
   production, you can use [ROUTER_PROVIDERS][] without the [LocationStrategy][]
   provider override.

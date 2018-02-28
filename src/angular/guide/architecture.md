@@ -384,7 +384,7 @@ The [example template](#templates) uses two built-in structural directives:
 * [`*ngIf`](displaying-data.html#ngIf) includes the `HeroDetail` component only
   if a selected hero exists.
 
-<div class="callout is-important" markdown="1">
+<div class="alert alert-warning" markdown="1">
   In Dart, **the only value that is true is the boolean value `true`**; all
   other values are false. JavaScript and TypeScript, by contrast, treat values
   such as 1 and most non-null objects as true. For this reason, the JavaScript

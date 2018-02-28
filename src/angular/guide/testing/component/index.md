@@ -46,11 +46,10 @@ single component, or a _small_ group of related components.
 This package is not meant to test an entire app. For that, you need to write
 [end-to-end tests](/angular/guide/testing/e2e).
 
-<div class="alert is-important" markdown="1">
-
-[angular_test][] will report errors if you attempt to test an
-app root component with an associated [router](/angular/guide/router). For more information, see
-[Which routing components can I test?](component/routing-components#which-routing-components-can-i-test).
+<div class="alert alert-warning" markdown="1">
+  [angular_test][] will report errors if you attempt to test an
+  app root component with an associated [router](/angular/guide/router). For more information, see
+  [Which routing components can I test?](component/routing-components#which-routing-components-can-i-test).
 </div>
 
 ## Topics

@@ -597,8 +597,9 @@ is a subtype of [Injectable][].  It is in
 fact `Injectable` annotations that
 identify a class as a target for instantiation by an injector.
 
-<div class="callout is-critical" markdown="1">
-  <header> Always include the parentheses</header>
+<div class="alert alert-warning" markdown="1">
+  <h4>Always include the parentheses</h4>
+
   Always write `@Injectable()`, not just `@Injectable`.
   A metadata annotation must be either a reference to a
   compile-time constant variable or a call to a constant
