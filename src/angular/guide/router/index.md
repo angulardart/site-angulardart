@@ -87,7 +87,9 @@ You'll learn many router details in this guide which covers
 * Choosing the "HTML5" or "hash" [URL style](#browser-url-styles)
 {% endcomment %}
 
-## Adding angular_router
+## Setup overview
+
+### Add angular_router
 
 Router functionality is in the [angular_router][] library,
 which comes in [its own package][angular_router@pub].
@@ -106,6 +108,19 @@ In any Dart file that makes use of router features, import the router library:
 ```
   import 'package:angular_router/angular_router.dart';
 ```
+
+### Register providers and list directives
+
+If you're already familiar with Angular routing,
+here's a reminder of what you need to do:
+
+- Choose a [location strategy](router/1#which-location-strategy-to-use).
+- Register appropriate router providers when bootstrapping your app.
+- Ensure that each routing component has metadata listing the router
+  directives used by the component.
+
+For details, see
+[Declaring router providers and directives](router/1#declaring-router-providers-and-directives).
 
 ## Basic feature overview
 
