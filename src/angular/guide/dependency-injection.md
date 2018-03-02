@@ -384,7 +384,7 @@ Because the `HeroService` is used within the *Heroes* feature set, and nowhere e
 the ideal place to register it is in `HeroesComponent`.
 
 Here's a more realistic example of bootstrap providers, taken from the
-[tutorial, part 5](../tutorial/toh-pt5). It also illustrates gives
+[tutorial, part 5](../tutorial/toh-pt5). It also gives
 you a taste of more advanced concepts that will be presented later in this page.
 
 <?code-excerpt "../toh-5/web/main.dart" title?>

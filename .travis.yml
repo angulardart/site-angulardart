@@ -17,6 +17,9 @@ cache:
   # Examples:
   - examples/ng/doc/node_modules
 
+addons:
+  chrome: stable
+
 env:
   global:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null

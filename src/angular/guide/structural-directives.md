@@ -252,7 +252,7 @@ At minimum `NgFor` needs a looping variable (`let hero`) and a list (`heroes`).
 
 You enable these features in the string assigned to `ngFor`, which you write in Angular's [microsyntax](#microsyntax).
 
-<div class="alert is-helpful" markdown="1">
+<div class="alert alert-info" markdown="1">
   Everything _outside_ the `ngFor` string stays with the host element
   (the `<div>`) as it moves inside the `<template>`.
   In this example, the `[ngClass]="odd"` stays on the `<div>`.

@@ -303,7 +303,7 @@ paragraph, so no message appears. For more information,
 see the [template expressions](./template-syntax.html#template-expressions) section of the
 [Template Syntax](./template-syntax.html) page.
 
-<div class="alert is-helpful" markdown="1">
+<div class="alert alert-info" markdown="1">
   Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in larger projects when conditionally including or excluding
   big chunks of HTML with many data bindings.
 </div>

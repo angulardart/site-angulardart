@@ -140,7 +140,7 @@ Although _at runtime_ the component requests heroes immediately after creation,
 this request is **not** in the component's constructor.
 Instead, the request is in the `ngOnInit` [lifecycle hook](lifecycle-hooks).
 
-<div class="alert is-helpful" markdown="1">
+<div class="alert alert-info" markdown="1">
   **Keep constructors simple.**
   Components are easier to test and debug when
   their constructors are simple, with all real work (such as
