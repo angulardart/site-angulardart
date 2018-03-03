@@ -16,11 +16,8 @@ But if you want/need to build, here's how.
 
 Install the following tools if you don't have them already.
 
-- **[nvm][]**, the Node Version Manager. Then install the required version of node
-  (6 or later LTS release):
-  - `nvm install 8`
-- **[rvm][]**, the Ruby Version Manager. Then install the required version of ruby:
-  - `rvm install 2.4.2`
+- **[nvm][]**, the Node Version Manager.
+- **[rvm][]**, the Ruby Version Manager.
 - **[Dart][]**, _including_ both browsers used for testing doc examples:
   - **Dartium**
   - **content shell**
@@ -47,13 +44,16 @@ if you already have the required packages installed.
 1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
    **root of this repo**, e.g.: `~/git/site-webdev`
 1. `source ./scripts/env-set.sh` &nbsp;&nbsp;#
-   initialize environment variables, set node & ruby version
+   initialize environment variables; install/use required Node & Ruby version
 1. `./scripts/before-install.sh` &nbsp;&nbsp;#
-   install required tools
-1. `./scripts/install.sh`
+   install core set of required tools
+1. `./scripts/install.sh` &nbsp;&nbsp;#
+   install everything else needed to build this site
 
-> IMPORTANT: Any time you create a **new terminal/command window** to work on
-this repo, **repeat steps 1 and 2** above.
+> IMPORTANT:
+> - Any time you create a **new terminal/command window** to work on
+>   this repo, **repeat steps 1 and 2** above.
+> - If you upgrade Dart then rerun all of the steps above.
 
 ## Building this site
 
@@ -71,6 +71,13 @@ You can build, serve, and have a watcher for changes by running the following co
 
 - `./scripts/serve_local.sh`
 
+> NOTE: Getting `jekyll | Error:  Too many open files` under MacOS or Linux?
+>   One way to resolve this is to add the following to your `.bashrc`:
+>
+>      ulimit -n 8192
+>
+>   and then reboot your machine.
+
 If you'd like to separately build and then serve, the commands are:
 
 - `gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating API docs
@@ -79,7 +86,10 @@ If you'd like to separately build and then serve, the commands are:
 Some `gulp build` options include:
 
 - `--clean` &nbsp;&nbsp;# deletes `publish` and file fragments (nothing else)
-- `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;# generates API docs for named packages (default `all`)
+- `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;#
+  generates API docs for named packages (default `all`)
+- `--use-cached-api-doc` &nbsp;&nbsp;# will use cached API docs rather than regenerate them;
+  without this option API docs are regenerated afresh each time
 - `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead up repeated builds)
 - `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
 
@@ -90,9 +100,9 @@ you might want to rebuild it from scratch,
 doing all of the following steps (in order):
 
 ```
-source ./scripts/env-set.sh --reset  # reinitializes environment vars
-gulp clean                           # cleans out all temporary site folders
-gulp build --dartdoc                 # full site regeneration
+source ./scripts/env-set.sh  # reset environment vars and (re-)install Node & Ruby
+gulp clean                   # clean out all temporary site folders
+gulp build --dartdoc         # full site regeneration
 ./scripts/serve_local.sh
 ```
 
@@ -103,9 +113,9 @@ through the installation instructions.
 
 ```
 gulp clean && gulp build --dartdoc  # do a full build from a clean slate
-gulp build-deploy                   # builds & deploys to active firebase project
-gulp git-clean-src                  # WARNING: runs `git clean -xdf src`,
-                                    # so you'll lose uncommitted work!
+gulp build-deploy                   # build & deploy to active firebase project
+gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
+                    # so you'll lose uncommitted work under `src`!
 ```
 
 ## Prepping for Dart 2.0

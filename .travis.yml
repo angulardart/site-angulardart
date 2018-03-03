@@ -51,7 +51,7 @@ matrix:
     - env: CI_TASK="e2e $E2E_OPT3"
 
 before_install:
-  - source ./scripts/env-set.sh --reset --install
+  - source ./scripts/env-set.sh
   - ./scripts/before-install.sh
 
 install:
