@@ -130,9 +130,9 @@ templates where possible.
 
 Content Security Policy (CSP) is a defense-in-depth
 technique to prevent XSS. To enable CSP, configure your web server to return an appropriate
-`Content-Security-Policy` HTTP header. Read more about content security policy at
-[An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)
-on the HTML5Rocks website.
+`Content-Security-Policy` HTTP header. Read more at
+[Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)
+on the Web Fundamentals site.
 
 <div><a id="offline-template-compiler"></a></div>
 ### Use the offline template compiler

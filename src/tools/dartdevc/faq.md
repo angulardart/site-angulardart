@@ -141,7 +141,7 @@ dart2js creates one JavaScript file for the entire app.
 
 If you'd like to know more about JavaScript modules,
 see Preethi Kasireddy's
-[beginner's guide](https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc) or
+[beginner's guide](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc) or
 Addy Osmani’s
 [article on writing modular JavaScript.](https://addyosmani.com/writing-modular-js/)
 

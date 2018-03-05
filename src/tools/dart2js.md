@@ -311,8 +311,9 @@ To debug in Firefox:
 
 To debug in Safari:
 
-1. Turn on the Develop menu, as described in the [Safari Web Inspector Guide](https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html#//apple_ref/doc/uid/TP40007874-CH2-SW1).
+1. Turn on the Develop menu, as described in the [Safari Web Inspector Tutorial.](https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/EnableWebInspector/EnableWebInspector.html)
 
-2. Enable breaks, either on all exceptions or only on uncaught exceptions. See Figure 4-2 on the Safari [Debugging](https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Debugger/Debugger.html#//apple_ref/doc/uid/TP40007874-CH5-SW1) page.
+2. Enable breaks, either on all exceptions or only on uncaught exceptions.
+   See [Add a JavaScript breakpoint](https://support.apple.com/en-ca/guide/safari-developer/add-a-javascript-breakpoint-dev5e4caf347/mac) under [Safari Developer Help.](https://support.apple.com/en-ca/guide/safari-developer/welcome/mac)
 
 3. Reload your app.
