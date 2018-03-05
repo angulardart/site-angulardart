@@ -85,7 +85,7 @@ from your IDE, or at the command line as described in
 If another version of Chromium is open,
 then you could have a profile conflict. To avoid this, you can open
 Dartium or Chromium from the command line with the [--user-data-dir
-flag.](http://www.chromium.org/user-experience/user-data-directory)
+flag.](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md)
 </aside>
 
 ## Linking to Dart source
