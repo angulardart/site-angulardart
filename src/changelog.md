@@ -179,23 +179,23 @@ The examples changed to update the release and reflect new recommendations.
 
 Here's an example of moving the directive and pipe lists:
 
-<?code-excerpt title="OLD: pubspec.yaml"?>
-```
+{% prettify yaml %}
+# OLD: pubspec.yaml
 transformers:
 - angular2:
     platform_directives:
     - 'package:angular2/common.dart#CORE_DIRECTIVES'
     platform_pipes:
     - 'package:angular2/common.dart#COMMON_PIPES'
-```
+{% endprettify %}
 
-<?code-excerpt title="NEW: component file (Dart)"?>
-```
+{% prettify dart %}
+// NEW: Dart component file
 @Component(
   ...
   directives: const [CORE_DIRECTIVES],
   pipes: const [COMMON_PIPES])
-```
+{% endprettify %}
 
 Common directive constants include `COMMON_DIRECTIVES`, `CORE_DIRECTIVES`,
 `FORM_DIRECTIVES`, and `ROUTER_DIRECTIVES`.
