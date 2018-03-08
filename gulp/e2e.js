@@ -34,17 +34,9 @@ module.exports = function (gulp, plugins, config) {
     // but they are handled via _exampleDartWebBoilerPlateFiles.
   ];
 
-  var _exampleDartWebBoilerPlateFiles = [/*'a2docs.css',*/'favicon.png', 'styles.css'];
-
-  var _exampleUnitTestingBoilerplateFiles = [
-    'browser-test-shim.js',
-    'karma-test-shim.js',
-    'karma.conf.js'
-  ];
-
-  var _exampleConfigFilename = 'example-config.json';
-
-  const _styleLessName = 'a2docs.less';
+  const _exampleDartWebBoilerPlateFiles = ['favicon.png', 'styles.css'];
+  const _exampleUnitTestingBoilerplateFiles = [];
+  const _e2eTestFileName = 'e2e-spec.ts';
 
 
   gulp.task('add-example-boilerplate', function(done) {
@@ -123,7 +115,7 @@ module.exports = function (gulp, plugins, config) {
 
   function getExamplePaths(basePath, includeBase) {
     // includeBase defaults to false
-    return getPaths(basePath, _exampleConfigFilename, includeBase);
+    return getPaths(basePath, _e2eTestFileName, includeBase);
   }
 
   function getDartExampleWebPaths(basePath) {
@@ -131,9 +123,9 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function getUnitTestingPaths(basePath) {
-    var examples = getPaths(basePath, _exampleConfigFilename, true);
+    var examples = getPaths(basePath, _e2eTestFileName, true);
     return examples.filter((example) => {
-      var exampleConfig = fs.readJsonSync(`${example}/${_exampleConfigFilename}`, {throws: false});
+      var exampleConfig = fs.readJsonSync(`${example}/${_e2eTestFileName}`, {throws: false});
       return exampleConfig && !!exampleConfig.unittesting;
     });
   }
