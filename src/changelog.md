@@ -93,6 +93,7 @@ due to the `angular2` package changing its name to `angular`.
     [.../angular/NgFor-class](/api/angular/angular/NgFor-class)
   * `angular2` &rarr; `angular_forms` for forms API elements, such as `formDirectives`
   * `angular2` &rarr; `angular_router` for router API elements, such as `Route`
+* Removed documentation for native view encapsulation since it is no longer supported.
 
 More information:
 

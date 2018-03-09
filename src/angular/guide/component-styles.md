@@ -66,14 +66,18 @@ This is a big improvement in modularity compared to how CSS traditionally works.
 
 ## Special selectors
 
-Component styles have a few special *selectors* from the world of shadow DOM style scoping
-(described in the [CSS Scoping Module Level 1](https://www.w3.org/TR/css-scoping-1) page on the
-[W3C](https://www.w3.org) site).
+Angular supports a few special selectors from the world of shadow DOM style scoping
+(described in [CSS Scoping Module Level 1][] on the [W3C][] site).
 The following sections describe these selectors.
 
-### :host
+<div class="alert alert-warning" markdown="1">
+  **Note:** These special selectors have no effect when view encapsulation is disabled.
+  For details, see [Controlling view encapsulation](#view-encapsulation).
+</div>
 
-Use the `:host` pseudo-class selector to target styles in the element that *hosts* the component (as opposed to
+### :host and :host()
+
+Use the [:host][] pseudo-class selector to target styles in the element that *hosts* the component (as opposed to
 targeting elements *inside* the component's template).
 
 <?code-excerpt "lib/src/hero_details_component.css (host)" title?>
@@ -88,7 +92,7 @@ The `:host` selector is the only way to target the host element. You can't reach
 the host element from inside the component with other selectors because it's not part of the
 component's own template. The host element is in a parent component's template.
 
-Use the *function form* to apply host styles conditionally by
+Use the *function form* [:host()][] to apply host styles conditionally by
 including another selector inside parentheses after `:host`.
 
 The next example targets the host element again, but only when it also has the `active` CSS class.
@@ -100,13 +104,13 @@ The next example targets the host element again, but only when it also has the `
   }
 ```
 
-### :host-context
+### :host-context()
 
 Sometimes it's useful to apply styles based on some condition *outside* of a component's view.
 For example, a CSS theme class could be applied to the document `<body>` element, and
 you want to change how your component looks based on that.
 
-Use the `:host-context()` pseudo-class selector, which works just like the function
+Use the [:host-context()][] pseudo-class selector, which works just like the function
 form of `:host()`. The `:host-context()` selector looks for a CSS class in any ancestor of the component host element,
 up to the document root. The `:host-context()` selector is useful when combined with another selector.
 
@@ -138,16 +142,11 @@ through this component to all of its child elements in the DOM.
   }
 ```
 
-<div class="alert alert-warning" markdown="1">
-  Use the `::ng-deep` selector only with *emulated* view encapsulation.
-  Emulated is the default and most commonly used view encapsulation. For more information, see the
-  [Controlling view encapsulation](#view-encapsulation) section.
-</div>
-
-<div id="loading-styles"></div>
+<a id="loading-styles"></a>
 ## Loading styles into components
 
 There are several ways to add styles to a component:
+
 * By setting `styles` or `styleUrls` metadata.
 * Inline in the template HTML.
 * With CSS imports.
@@ -267,45 +266,37 @@ In *this* case the URL is relative to the CSS file into which we are importing.
   @import 'hero_details_box.css';
 ```
 
-<div id="view-encapsulation"></div>
-## Controlling view encapsulation: native, emulated, and none
+<a id="view-encapsulation"></a>
+## Controlling view encapsulation
 
-As discussed earlier, component CSS styles are encapsulated into the component's view and don't
-affect the rest of the app.
+By default, component styles are _encapsulated_, affecting only the HTML in the
+component's template. You can use the [special selectors](#special-selectors)
+to reach outside of the component's view, or you can disable view encapsulation
+completely for the component.
 
-To control how this encapsulation happens on a *per
-component* basis, you can set the *view encapsulation mode* in the component metadata.
-Choose from the following modes:
+Disabling view encapsulation makes the component's styles global.
+To do this, set the component's metadata [encapsulation][] parameter to
+`ViewEncapsulation.None`:
 
-* `Native` view encapsulation uses the browser's native shadow DOM implementation (see
-  [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM)
-  on the [MDN](https://developer.mozilla.org) site)
-  to attach a shadow DOM to the component's host element, and then puts the component
-  view inside that shadow DOM. The component's styles are included within the shadow DOM.
-* `Emulated` view encapsulation (the default) emulates the behavior of shadow DOM by preprocessing
-  (and renaming) the CSS code to effectively scope the CSS to the component's view.
+<?code-excerpt "lib/src/quest_summary_component.dart (ViewEncapsulation)" replace="/Emulated/None/g"?>
+```
+  @Component(
+    // ···
+    encapsulation: ViewEncapsulation.None,
+  )
+```
+
+The [ViewEncapsulation][] enum can have two values:
+
+* `Emulated` (the default): Angular emulates the behavior of shadow DOM by preprocessing
+  (and renaming) the CSS to effectively scope the CSS to the component's view.
   For details, see [Appendix 1](#inspect-generated-css).
-* `None` means that Angular does no view encapsulation.
-  Angular adds the CSS to the global styles.
+* `None`: Angular does no view encapsulation. Instead it makes the component's styles global.
   The scoping rules, isolations, and protections discussed earlier don't apply.
   This is essentially the same as pasting the component's styles into the HTML.
 
-To set the components encapsulation mode, use the `encapsulation` property in the component metadata:
-
-<?code-excerpt "lib/src/quest_summary_component.dart (native encapsulation)" title?>
-```
-  // warning: few browsers support shadow DOM encapsulation at this time
-  encapsulation: ViewEncapsulation.Native
-```
-
-`Native` view encapsulation only works on browsers that have native support
-for shadow DOM (see [Shadow DOM v0](http://caniuse.com/#feat=shadowdom) on the
-[Can I use](http://caniuse.com) site). The support is still limited,
-which is why `Emulated` view encapsulation is the default mode and recommended
-in most cases.
-
-<div id="inspect-generated-css"></div>
-## Appendix 1: Inspecting the CSS generated in emulated view encapsulation
+<a id="inspect-generated-css"></a>
+## Appendix 1: Inspecting view encapsulated styles
 
 When using emulated view encapsulation, Angular preprocesses
 all component styles so that they approximate the standard shadow CSS scoping rules.
@@ -314,38 +305,37 @@ In the DOM of a running Angular app with emulated view
 encapsulation enabled, each DOM element has some extra classes
 attached to it:
 
-<?code-excerpt?>
-```html
-  <hero-details class="_nghost-pmm-5">
-    <h2 class="_ngcontent-pmm-5">Mister Fantastic</h2>
-    <hero-team class="_ngcontent-pmm-5 _nghost-pmm-6">
-      <h3 class="_ngcontent-pmm-6">Team</h3>
-    </hero-team>
-  </hero-detail>
-```
+{% prettify %}
+<hero-details class="_nghost-pmm-5">
+  <h2 class="_ngcontent-pmm-5">Mister Fantastic</h2>
+  <hero-team class="_ngcontent-pmm-5 _nghost-pmm-6">
+    <h3 class="_ngcontent-pmm-6">Team</h3>
+  </hero-team>
+</hero-detail>
+{% endprettify %}
 
 There are two kinds of generated classes:
-* An element that would be a shadow DOM host in native encapsulation has a
+
+* An element that would be a shadow DOM host has a
   generated `_nghost` class. This is typically the case for component host elements.
 * An element within a component's view has a `_ngcontent` class
-that identifies to which host's emulated shadow DOM this element belongs.
+  that identifies to which host's emulated shadow DOM this element belongs.
 
 The exact values of these classes aren't important. They are automatically
 generated and you never refer to them in app code. But they are targeted
 by the generated component styles, which are in the `<head>` section of the DOM:
 
-<?code-excerpt?>
-```css
-  ._nghost-pmm-5 {
-    display: block;
-    border: 1px solid black;
-  }
+{% prettify %}
+._nghost-pmm-5 {
+  display: block;
+  border: 1px solid black;
+}
 
-  h3._ngcontent-pmm-6 {
-    background-color: white;
-    border: 1px solid #777;
-  }
-  ```
+h3._ngcontent-pmm-6 {
+  background-color: white;
+  border: 1px solid #777;
+}
+{% endprettify %}
 
 These styles are post-processed so that each selector is augmented
 with `_nghost` or `_ngcontent` class selectors.
@@ -369,5 +359,13 @@ Thankfully, this is the default interpretation of relative URLs in AngularDart:
 <?code-excerpt "lib/src/quest_summary_component.dart (urls)"?>
 ```
   templateUrl: 'quest_summary_component.html',
-  styleUrls: const ['quest_summary_component.css'])
+  styleUrls: const ['quest_summary_component.css'],
 ```
+
+[CSS Scoping Module Level 1]: https://www.w3.org/TR/css-scoping-1
+[encapsulation]: /api/angular/angular/Component/encapsulation
+[ViewEncapsulation]: /api/angular/angular/ViewEncapsulation-class
+[W3C]: https://www.w3.org
+[:host]: https://developer.mozilla.org/en-US/docs/Web/CSS/:host
+[:host()]: https://developer.mozilla.org/en-US/docs/Web/CSS/:host()
+[:host-context()]: https://developer.mozilla.org/en-US/docs/Web/CSS/:host-context()

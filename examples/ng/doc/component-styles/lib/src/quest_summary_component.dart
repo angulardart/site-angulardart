@@ -1,18 +1,15 @@
-// #docplaster
 import 'package:angular/angular.dart';
 
-// #docregion
+// #docregion , ViewEncapsulation
 @Component(
-    selector: 'quest-summary',
-// #docregion urls
-    templateUrl: 'quest_summary_component.html',
-    styleUrls: const ['quest_summary_component.css'])
-// #enddocregion urls
+  // #enddocregion ViewEncapsulation
+  selector: 'quest-summary',
+  // #docregion urls
+  templateUrl: 'quest_summary_component.html',
+  styleUrls: const ['quest_summary_component.css'],
+  // #enddocregion urls
+  // #docregion ViewEncapsulation
+  encapsulation: ViewEncapsulation.Emulated,
+)
+// #enddocregion ViewEncapsulation
 class QuestSummaryComponent {}
-// #enddocregion
-/*
-// #docregion native-encapsulation
-  // warning: few browsers support shadow DOM encapsulation at this time
-  encapsulation: ViewEncapsulation.Native
-  // #enddocregion native-encapsulation
-*/
