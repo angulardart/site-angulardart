@@ -25,9 +25,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_ng-pkg-vers-update', updateNgPkgVers);
 
   function updateNgPkgVers() {
-    const dataDir = path.dirname(config.ngPkgVersPath);
-    const pubspecLock = plugins.yamljs.load(path.join(dataDir, 'pubspec.lock'));
-
+    const pubspecLock = plugins.yamljs.load(path.join(config.srcData, 'pubspec.lock'));
     for (var pkg in ngPkgVers) {
       if (pkg === 'SDK') continue;
       const newPkgInfo = pubspecLock.packages[pkg];

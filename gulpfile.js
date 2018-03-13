@@ -117,6 +117,7 @@ const plugins = {
   filter: require('gulp-filter'),
   fs: fs,
   genDartdocForProjs: genDartdocForProjs,
+  getPathToApiDir: getPathToApiDir,
   gitCheckDiff: gitCheckDiff,
   globby: globby,
   gutil: gutil,
@@ -264,6 +265,26 @@ gulp.task('__test', () => {
 
 function gitCheckDiff() {
   return execSyncAndLog('git status --short') && process.exit(1);
+}
+
+function getPathToApiDir(pkgName) {
+  // const pkgsWithApiDocs = plugins.fs.readdirSync(config.tmpPubPkgsPath);
+  const pubspecLockPath = path.join(config.srcData, 'pubspec.lock');
+
+  if (!plugins.fs.existsSync(pubspecLockPath)) {
+    const msg = `File not found: ${pubspecLockPath}. Run 'pub get' or 'pub upgrade' under ${config.srcData}`;
+    if (config.dartdocProj.includes(p)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
+    plugins.gutil.log(`WARNING: ${msg}`);
+    return;
+  }
+
+  const pubspecLock = plugins.yamljs.load(pubspecLockPath);
+  // const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
+  // if(!dirName) { ... }
+
+  const dirName = `${pkgName}-${pubspecLock.packages[pkgName].version}`;
+  const pathToApi = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
+  return pathToApi;
 }
 
 // In addition to child_process.exec() options, pexec supports:

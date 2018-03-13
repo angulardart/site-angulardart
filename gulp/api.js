@@ -22,17 +22,18 @@ module.exports = function (gulp, plugins, config) {
   function copyToUnifiedApi(p) {
     const pkgsWithApiDocs = plugins.fs.readdirSync(config.tmpPubPkgsPath);
     const pkgName = plugins.pkgAliasToPkgName(p);
-    const dirName = pkgsWithApiDocs.find(d => d.match(new RegExp(`^${pkgName}($|-)`)));
-    if(!dirName) {
-      const msg = `could not find API doc directory for ${p} under ${config.tmpPubPkgsPath}.`;
+    const baseDir = plugins.getPathToApiDir(pkgName);
+    if (!plugins.fs.existsSync(baseDir)) {
+      const msg = `could not find API doc directory for ${p} under ${baseDir}`;
       if (config.dartdocProj.includes(p)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
       plugins.gutil.log(`WARNING: ${msg}`);
       return;
-  }
-
-    const baseDir = path.join(config.tmpPubPkgsPath, dirName, config.relDartDocApiDir);
+    }
     const dest = path.join(config.unifiedApiPath, pkgName);
-
+    // Clean out any old API pages
+    if (plugins.fs.existsSync(dest)) {
+      plugins.execSyncAndLog(`rm -Rf ${dest}`);
+    }
     plugins.gutil.log(` Copying ${baseDir} to ${dest}`);
     const indexHtml = filter(`${baseDir}/index.html`, { restore: true });
     // const ngContentAstIndex = filter(`${baseDir}/angular.compiler/NgContentAst/index.html`, { restore: true });
