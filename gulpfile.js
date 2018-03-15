@@ -109,6 +109,7 @@ const config = {
 const plugins = {
   argv: argv,
   child_process: child_process,
+  codeExcerpter: require('code-excerpter'),
   copyFiles: copyFiles,
   del: del,
   delFv: delFv,

@@ -15,7 +15,9 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
 [[ -z "$NGIO_ENV_DEFS" ]] && . $rootDir/scripts/env-set.sh
 
-gulp create-example-fragments;
+if [[ $1 == --log-at* ]]; then LOG_AT="$1"; shift; fi
+
+gulp create-example-fragments $LOG_AT
 
 ARGS='--no-escape-ng-interpolation '
 

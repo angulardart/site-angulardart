@@ -15,8 +15,6 @@ module.exports = function (gulp, plugins, config) {
   const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const TOOLS_PATH = config.TOOLS_PATH;
 
-  const docShredder = require(path.resolve(TOOLS_PATH, 'doc-shredder/doc-shredder'));
-
   var _devguideShredOptions = {
     examplesDir: EXAMPLES_PATH,
     fragmentsDir: frags.path,
@@ -76,19 +74,9 @@ module.exports = function (gulp, plugins, config) {
     var examplePaths = plugins.globby.sync(exPath, { ignore: ['**/node_modules'] });
     var promise = Promise.resolve(true);
     examplePaths.forEach(function (examplePath) {
-      promise = promise.then(() => docShredder.shredSingleExampleDir(options, examplePath));
+      promise = promise.then(() => plugins.codeExcerpter.excerpt(options, examplePath));
     });
     return promise;
   }
-
-  const wwwwRepoPath = '../site-www';
-  const _wwwShredOptions = {
-    examplesDir: path.join(wwwwRepoPath, 'examples'),
-    fragmentsDir: path.join(wwwwRepoPath, config.frags.path),
-    logLevel: config._logLevel
-  };
-
-  gulp.task('_clean-www-frags', () => plugins.delFv(_wwwShredOptions.fragmentsDir));
-  gulp.task('create-www-fragments', ['_clean-www-frags'], () => shred(_wwwShredOptions));
 
 };
