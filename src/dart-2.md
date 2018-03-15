@@ -26,10 +26,10 @@ In the meantime, see these resources:
 * [Getting started with build_runner:][Getting started with build_runner]
   Describes how to use the new build system. For example, it shows how to use
   `build_runner` (instead of `pub serve`) as a development server.
-* [Documentation changelog][]:
+* [Changelog for the dev version of this site:][Documentation changelog]
   Lists changes made to this site's documentation and examples.
 
 [dart-2]: {{site.dartlang}}/dart-2
 [dartdevc]: /tools/dartdevc
-[Documentation changelog]: /changelog
+[Documentation changelog]: {{site.dev-url}}/changelog
 [Getting started with build_runner]: https://github.com/dart-lang/build/blob/master/docs/getting_started.md#getting-started-with-build_runner
