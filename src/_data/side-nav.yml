@@ -89,6 +89,8 @@
     permalink: /changelog
   - title: Cheat Sheet
     permalink: /angular/cheatsheet
+  - title: Migration
+    permalink: /dart-2
   - title: Glossary
     permalink: /angular/glossary
 
