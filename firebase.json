@@ -30,7 +30,8 @@
       { "source": "/codelabs/darrrt", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/ng2", "destination": "/codelabs", "type": 301 },
-      { "source": "/codelabs/ng2/**", "destination": "/codelabs", "type": 301 }
+      { "source": "/codelabs/ng2/**", "destination": "/codelabs", "type": 301 },
+      { "source": "/tools/build_runner", "destination": "https://webdev-dartlang-org-dev.firebaseapp.com/tools/build_runner", "type": 302 }
 
     ],
     "rewrites": [
