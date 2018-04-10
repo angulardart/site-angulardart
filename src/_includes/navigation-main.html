@@ -19,8 +19,8 @@
             <li><a href="{{site.dev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.next-vers}}&nbsp;&nbsp;(preview)</a></li>
           {%- endif -%}
         {% else -%}
-          {% if site.url and site.data.pkg-vers.angular.prev-vers -%}
-            <li><a href="{{site.url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(stable)</a></li>
+          {% if site.prev-url and site.data.pkg-vers.angular.prev-vers -%}
+            <li><a href="{{site.prev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.prev-vers}}&nbsp;&nbsp;(stable)</a></li>
           {%- endif -%}
           <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(preview)</a></li>
         {%- endif %}
