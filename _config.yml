@@ -6,7 +6,7 @@ dev-url: https://webdev-dartlang-org-dev.firebaseapp.com
 prev-url: https://webdev-angular3-dartlang-org.firebaseapp.com
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
-branch: master
+branch: 4.x
 
 # Global variables
 # use case:

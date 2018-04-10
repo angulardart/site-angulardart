@@ -71,7 +71,7 @@ after_script:
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:
-  only: [master, /^\d-dev$/, /travis-build/]
+  only: [4.x, /travis-build/]
 
 deploy:
   - provider: script
@@ -79,12 +79,5 @@ deploy:
     skip_cleanup: true
     on:
       repo: dart-lang/site-webdev
-      branch: master
-      condition: $CI_TASK == build*
-  - provider: script
-    script: ./scripts/deploy/firebase.sh --robots-ok dev
-    skip_cleanup: true
-    on:
-      repo: dart-lang/site-webdev
-      branch: 5-dev
+      branch: 4.x
       condition: $CI_TASK == build*
