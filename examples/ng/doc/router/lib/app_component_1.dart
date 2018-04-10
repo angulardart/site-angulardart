@@ -1,40 +1,38 @@
 // #docregion
 import 'package:angular/angular.dart';
-// #docregion import
+// #docregion import, angular_router
 import 'package:angular_router/angular_router.dart';
+// #enddocregion angular_router
+
+// #docregion routes
+import 'src/routes_1.dart';
 // #enddocregion import
 
-import 'src/crisis_center_component_1.dart';
-import 'src/heroes_component_1.dart';
-
-// #docregion app-component-routes
 @Component(
   selector: 'my-app',
-  // #enddocregion app-component-routes
-  // #docregion template
+  // #enddocregion routes
+  // #docregion template, template-and-directives
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      // #docregion CrisisCenter-link
-      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-      // #enddocregion CrisisCenter-link
-      // #docregion Heroes-link
-      <a [routerLink]="['Heroes']">Heroes</a>
-      // #enddocregion Heroes-link
+      <a [routerLink]="routes.crises.path"
+         routerLinkActive="active-route">Crisis Center</a>
+      <a [routerLink]="routes.heroes.path"
+         routerLinkActive="active-route">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: const ['.router-link-active {color: #039be5;}'],
+  // #enddocregion template-and-directives
+  styles: ['.active-route {color: #039be5;}'],
   // #enddocregion template
-  directives: const [ROUTER_DIRECTIVES],
-  // #docregion app-component-routes
+  // #docregion template-and-directives
+  directives: [routerDirectives],
+  // #enddocregion template-and-directives
+  providers: [Routes],
+  // #docregion routes
 )
-// #docregion routes
-@RouteConfig(const [
-  const Route(
-      path: '/crisis-center',
-      name: 'CrisisCenter',
-      component: CrisisCenterComponent),
-  const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent)
-])
-class AppComponent {}
+class AppComponent {
+  final Routes routes;
+
+  AppComponent(this.routes);
+}

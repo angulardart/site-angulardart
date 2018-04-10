@@ -19,6 +19,75 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
+## AngularDart 5.0 alpha / Dart 2.0 preview (March 2018)
+
+- Updated **Angular package versions** in `pubspec.yaml`
+  - `angular: {{site.data.pubspec.dependencies.angular}}`
+  - `angular_components: {{site.data.pubspec.dependencies.angular_components}}`
+  - `angular_forms: {{site.data.pubspec.dependencies.angular_forms}}`
+  - `angular_router: {{site.data.pubspec.dependencies.angular_router}}`
+  - `angular_test: {{site.data.pubspec.dependencies.angular_test}}`
+- Switched to **new build system**:
+  - Added new `dev_dependencies`:
+    - `build_runner: {{site.data.pubspec.dev_dependencies.build_runner}}`
+    - `build_test: {{site.data.pubspec.dev_dependencies.build_test}}`
+    - `build_web_compilers: {{site.data.pubspec.dev_dependencies.build_web_compilers}}`
+  - Dropped `dev_dependencies`:
+    - <del>`browser`</del>
+    - <del>`dart_to_js_script_rewriter`</del>
+  - Dropped all old pub `transformers`:
+    - <del>`angular`</del>
+    - <del>`dart_to_js_script_rewriter`</del>
+    - <del>`test/pub_serve`</del>
+- Adjusted `web/index.html` files because Dartium is no longer supported:
+    - Dropped <del>`<script defer src="packages/browser/dart.js"></script>`</del>
+    - Replaced `<script defer src="main.dart" type="application/dart"></script>` by<br>
+      `<script defer src="main.dart.js"></script>`
+  - Note: `test` version 0.12.30 or later runs chrome tests headless by default.
+    We were already using version 0.12.30 along with the Angular 4 examples.
+- Added error option to `analysis_options.yaml`:
+  - `uri_has_not_been_generated: ignore`
+- Switched to new approach to **bootstrapping** in `web/main.dart` files:
+  - Added `import 'main.template.dart' as ng;`
+  - Renamed `bootstrap()` to `bootstrapStatic()`
+  - Added an empty list of providers (`[]`), if call to `bootstrap()` originally
+    had only one argument
+  - Added `ng.initReflector()` as the third argument to `bootstrapStatic()`
+- Updated all `test/*_test.dart` files and their **Angular entry points**:
+  - Dropped <del>`@Tags(const ['aot'])`</del>
+  - Dropped <del>`import 'package:angular/angular.dart'`<del>
+  - Added `import 'foo_test.template.dart' as ng;` in `foo_test.dart`
+  - For every function `bar()` annotated with `@AngularEntrypoint()`:
+    - Dropped <del>`@AngularEntrypoint()`</del>
+    - Added a call to `ng.initReflector();` at the start of `bar()`
+- Adjusted to new **template syntax**:
+  - _Binding syntax_:
+    - <code>bindon-<i>target</i></code> for [two-way bindings][]
+      is no longer supported. Use <code>[(<i>target</i>)]</code> instead.
+    - <code>ref-<i>var</i></code> for [template reference variables][]
+      is no longer supported. Use <code>#<i>var</i></code> instead.
+  - [ngFor][] _microsyntax_ statements must be separated using semicolon (`;`).<br>
+      Using a space or comma to separate statements is no longer supported.
+- Switched to use of new **Angular router** API:
+  There are many Dart file changes (too many to list all here) including:
+  - `APP_BASE_HREF` &rarr; `appBaseHref`
+  - `ROUTER_DIRECTIVES` &rarr; `routerDirectives`
+  - `ROUTER_PROVIDERS` &rarr; `routerProviders`,
+    and provide through [bootstrap][] (recommended)
+- Other Dart file changes:
+  -  `CORE_DIRECTIVES` &rarr; `coreDirectives`
+  - `COMMON_PIPES` &rarr; `commonPipes`
+  - Template-syntax example changes due to the [deprecation of `QueryList`](https://github.com/dart-lang/angular/blob/master/doc/deprecated_query_list.md)
+    - Replaced `QueryList<T>` by `List<T>`
+    - Switched to using setter to detect changes to view children (`@ViewChildren()`)
+
+Dart 2 specific changes:
+
+- Pubspec changes:
+  - Updated `environment.sdk` entry to be `'{{site.data.pubspec.environment.sdk}}'`
+- Dart file changes:
+  - Replaced `Future<Null>` by `Future<void>`
+
 ## HTML library tour (December 2017)
 
 We've moved the dart:html section from the
@@ -33,16 +102,15 @@ Updated the [forms][] page and its example app to use custom CSS classes instead
 
 ## Router _HashLocationStrategy_ (October 2017)
 
-Switched to using [HashLocationStrategy][] in the
-[Router][] example and the [Tutorial][].
+Switched to using [HashLocationStrategy][] in the [Router][] example and the
+[Tutorial][].
 
 In this way, features like deep linking into the example apps work as expected
-when no server-side support is available (such as with [GitHub Pages][]
-and with `pub serve`, which is often used during app development).
-See the [Router][] section on [Declaring router providers and directives][]
-for details.
+when no server-side support is available (such as with [GitHub Pages][] and with
+`pub serve`, which is often used during app development). For details, see
+[Which location strategy to use][].
 
-[Declaring router providers and directives]: /angular/guide/router/1#declaring-router-providers-and-directives
+[Which location strategy to use]: /angular/guide/router/1#which-location-strategy-to-use
 [GitHub Pages]: https://pages.github.com/
 [HashLocationStrategy]: /api/angular_router/angular_router/HashLocationStrategy-class
 [Router]: /angular/guide/router
@@ -77,7 +145,7 @@ due to the `angular2` package changing its name to `angular`.
   * `COMMON_DIRECTIVES` &rarr; `CORE_DIRECTIVES, formDirectives`
   * `const Provider(x,y)` &rarr; `const Provider<T>(x,y)` for a provider of `T` instances;
      this is a first step towards [strongly-typed providers](https://github.com/dart-lang/angular/issues/407)
-  * Changed injected `ElementRef` to `Element`, which requires an import of `dart:html`
+  * Changed `ElementRef` to `Element`, which requires an import of `dart:html`
   * Changed the CSS pseudo selector `/deep/` to `::ng-deep`
   * Changed a component ([PR#950][]) to use the new `exports` parameter of `@Component`
     ([RFC#374][]) to export enums to the component template
@@ -127,7 +195,7 @@ All of these pages are drafts, and we'd appreciate your feedback.
     - [Simulating user action](/angular/guide/testing/component/simulating-user-action): click, type, clear
     - [Services](/angular/guide/testing/component/services): local, external, mock or real
     - [`@Input()` and `@Output()`](/angular/guide/testing/component/input-and-output)
-    - [Routing components](/angular/guide/testing/component/routing-components): mocking the router or platform location
+    - [Routing components](/angular/guide/testing/component/routing-components)
 - [End-to-end (E2E) testing](/angular/guide/testing/e2e) _(placeholder)_
 
 ## API doc changes (July 2017)
@@ -152,8 +220,7 @@ the Dart development compiler (dartdevc):
   instead of `lib/*`, to improve dartdevc performance.
 
 More information:
-* [Preparing your code](/tools/dartdevc#preparing-your-code) in the
-[dartdevc documentation](/tools/dartdevc)
+* [dartdevc documentation](/tools/dartdevc)
 * [Dart 1.24 announcement](http://news.dartlang.org/2017/06/dart-124-faster-edit-refresh-cycle-on.html)
 * [PR #744](https://github.com/dart-lang/site-webdev/pull/744/files) and other
   ["src reorg" PRs](https://github.com/dart-lang/site-webdev/pulls?utf8=%E2%9C%93&q=is%3Apr%20%22src%20reorg%22)
@@ -226,4 +293,8 @@ More information:
 
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
+[bootstrap]: /api/angular/angular/bootstrap
 [forms]: /angular/guide/forms
+[ngFor]: /angular/guide/template-syntax#ngFor
+[template reference variables]: /angular/guide/template-syntax#ref-vars
+[two-way bindings]: /angular/guide/template-syntax#two-way

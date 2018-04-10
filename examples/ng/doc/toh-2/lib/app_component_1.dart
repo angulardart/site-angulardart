@@ -1,33 +1,15 @@
-/// This file is used to hold snippets
+// Based on toh-1 file. USED ONLY TO VALIDATE the .html template
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart' as fd;
+import 'package:angular_forms/angular_forms.dart';
 
-// A bit of hacking to make the template compiler happy:
-const formDirectives = const [CORE_DIRECTIVES, fd.formDirectives];
-
-// #docregion metadata
-@Component(
-  selector: 'my-app',
-  templateUrl: 'app_component.html',
-  directives: const [formDirectives],
-)
-// #enddocregion metadata
-class bogusClass1 {}
+import 'src/hero.dart';
 
 @Component(
   selector: 'my-app',
-  template: '',
-  /*
-  // #docregion styles
-  // Not recommended when adding many CSS classes:
-  styles: const [
-    '''
-      .selected { ... }
-      .heroes { ... }
-      ...
-    '''
-  ],
-  // #enddocregion styles
-  */
+  templateUrl: 'app_component_1.html',
+  directives: [formDirectives],
 )
-class bogusClass2 {}
+class AppComponent {
+  final title = 'Tour of Heroes';
+  Hero hero = new Hero(1, 'Windstorm');
+}

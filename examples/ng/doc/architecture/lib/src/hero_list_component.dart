@@ -9,9 +9,9 @@ import 'hero_service.dart';
 @Component(
   selector: 'hero-list',
   templateUrl: 'hero_list_component.html',
-  directives: const [CORE_DIRECTIVES, formDirectives, HeroDetailComponent],
+  directives: [coreDirectives, formDirectives, HeroDetailComponent],
   // #docregion providers
-  providers: const [HeroService],
+  providers: [HeroService],
   // #enddocregion providers
 )
 // #docregion class
@@ -25,8 +25,8 @@ class HeroListComponent implements OnInit {
   HeroListComponent(this._heroService);
   // #enddocregion ctor
 
-  void ngOnInit() {
-    heroes = _heroService.getHeroes();
+  void ngOnInit() async {
+    heroes = await _heroService.getAll();
   }
 
   void selectHero(Hero hero) {

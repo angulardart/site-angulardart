@@ -12,8 +12,8 @@ import 'exponential_strength_pipe.dart';
       Super Hero Power: {{power | exponentialStrength: factor}}
     </p>
   ''',
-  directives: const [CORE_DIRECTIVES, formDirectives],
-  pipes: const [ExponentialStrengthPipe],
+  directives: [coreDirectives, formDirectives],
+  pipes: [ExponentialStrengthPipe],
 )
 class PowerBoostCalculatorComponent {
   num power = 5;

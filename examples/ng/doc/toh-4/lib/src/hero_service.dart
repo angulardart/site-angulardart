@@ -9,15 +9,14 @@ import 'mock_heroes.dart';
 
 @Injectable()
 class HeroService {
-  // #docregion getHeroes, get-heroes
-  Future<List<Hero>> getHeroes() async => mockHeroes;
-  // #enddocregion getHeroes, get-heroes
-  // #enddocregion
+  // #docregion getAll
+  Future<List<Hero>> getAll() async => mockHeroes;
+  // #enddocregion , getAll
   // See the "Take it slow" appendix
-  // #docregion getHeroesSlowly
-  Future<List<Hero>> getHeroesSlowly() {
-    return new Future.delayed(const Duration(seconds: 2), getHeroes);
+  // #docregion getAllSlowly
+  Future<List<Hero>> getAllSlowly() {
+    return new Future.delayed(const Duration(seconds: 2), getAll);
   }
-  // #enddocregion getHeroesSlowly
+  // #enddocregion getAllSlowly
   // #docregion
 }

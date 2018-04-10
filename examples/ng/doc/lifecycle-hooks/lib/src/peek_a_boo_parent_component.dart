@@ -22,9 +22,9 @@ import 'peek_a_boo_component.dart';
       <div *ngFor="let msg of logs">{{msg}}</div>
     </div>
     ''',
-  styles: const ['.parent {background: moccasin}'],
-  directives: const [CORE_DIRECTIVES, formDirectives, PeekABooComponent],
-  providers: const [LoggerService],
+  styles: ['.parent {background: moccasin}'],
+  directives: [coreDirectives, formDirectives, PeekABooComponent],
+  providers: [LoggerService],
 )
 class PeekABooParentComponent {
   final LoggerService _logger;

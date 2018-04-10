@@ -41,8 +41,8 @@ Usually you give it one string, as in the following example:
       template: '''
         <h1>Tour of Heroes</h1>
         <hero-app-main [hero]="hero"></hero-app-main>''',
-      styles: const ['h1 { font-weight: normal; }'],
-      directives: const [HeroAppMainComponent])
+      styles: ['h1 { font-weight: normal; }'],
+      directives: [HeroAppMainComponent])
   class AppComponent {
   // ···
   }
@@ -165,8 +165,8 @@ Each string in the list (usually just one string) defines the CSS.
       template: '''
         <h1>Tour of Heroes</h1>
         <hero-app-main [hero]="hero"></hero-app-main>''',
-      styles: const ['h1 { font-weight: normal; }'],
-      directives: const [HeroAppMainComponent])
+      styles: ['h1 { font-weight: normal; }'],
+      directives: [HeroAppMainComponent])
   class AppComponent {
   // ···
   }
@@ -185,8 +185,8 @@ into a component's `@Component` annotation:
         <h2>{!{hero.name}!}</h2>
         <hero-team [hero]="hero"></hero-team>
         <ng-content></ng-content>''',
-      styleUrls: const ['hero_details_component.css'],
-      directives: const [HeroTeamComponent])
+      styleUrls: ['hero_details_component.css'],
+      directives: [HeroTeamComponent])
   class HeroDetailsComponent {
     // ···
   }
@@ -245,7 +245,7 @@ app root, not the component file.
             {!{member}!}
           </li>
         </ul>''',
-    directives: const [CORE_DIRECTIVES],
+    directives: [coreDirectives],
   )
   class HeroTeamComponent {
     @Input()
@@ -359,7 +359,7 @@ Thankfully, this is the default interpretation of relative URLs in AngularDart:
 <?code-excerpt "lib/src/quest_summary_component.dart (urls)"?>
 ```
   templateUrl: 'quest_summary_component.html',
-  styleUrls: const ['quest_summary_component.css'],
+  styleUrls: ['quest_summary_component.css'],
 ```
 
 [CSS Scoping Module Level 1]: https://www.w3.org/TR/css-scoping-1

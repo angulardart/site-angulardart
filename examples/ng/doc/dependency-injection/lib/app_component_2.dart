@@ -15,8 +15,8 @@ import 'src/logger_service.dart';
     <my-car></my-car>
     <my-heroes></my-heroes>
   ''',
-  directives: const [CarComponent, HeroesComponent],
-  providers: const [
+  directives: [CarComponent, HeroesComponent],
+  providers: [
     Logger,
     // #docregion providers
     const Provider(appConfigToken, useValue: heroDiConfig),

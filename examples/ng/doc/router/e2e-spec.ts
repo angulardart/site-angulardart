@@ -13,15 +13,15 @@ describe('Router', () => {
 
   function getPageStruct() {
     const hrefEles = element.all(by.css('my-app a'));
-    const crisisDetail = element(by.css('my-app > crisis-center crisis-detail > div'));
-    const heroDetail = element(by.css('my-app > hero-detail > div'));
+    const crisisDetail = element(by.css('my-app > my-crises my-crisis > div'));
+    const heroDetail = element(by.css('my-app > my-hero > div'));
 
     return {
       hrefs: hrefEles,
-      activeHref: element(by.css('my-app a.router-link-active')),
+      activeHref: element(by.css('my-app a.active-route')),
 
       crisisHref: hrefEles.get(0),
-      crisisList: element.all(by.css('my-app > crisis-center li')),
+      crisisList: element.all(by.css('my-app > my-crises li')),
       crisisDetail: crisisDetail,
       crisisDetailTitle: crisisDetail.element(by.xpath('*[1]')),
 
@@ -88,7 +88,7 @@ describe('Router', () => {
     await crisisCenterEdit(2, true);
   });
 
-  it('can cancel changed crisis details', async () => {
+  xit('can cancel changed crisis details', async () => {
     const page = getPageStruct();
     await page.crisisHref.click();
     await crisisCenterEdit(3, false);
@@ -122,7 +122,7 @@ describe('Router', () => {
     await page.loginButton.click();
     const list = page.adminPreloadList;
     expect(list.count()).toBe(1, 'preloaded module');
-    expect(await list.first().getText()).toBe('crisis-center', 'first preloaded module');
+    expect(await list.first().getText()).toBe('my-crises', 'first preloaded module');
   });
 
   xit('sees the secondary route', async () => {

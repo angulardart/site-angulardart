@@ -18,7 +18,7 @@ import 'src/hero.dart';
     </ul>
   ''',
   // #enddocregion template
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 // #docregion class
 class AppComponent {

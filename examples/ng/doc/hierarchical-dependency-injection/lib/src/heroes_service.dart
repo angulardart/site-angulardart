@@ -15,7 +15,7 @@ class HeroesService {
     new HeroTaxReturn(20, _mockHeroes[1], 1250000)
   ];
 
-  Future<List<Hero>> getHeroes() async => _mockHeroes;
+  Future<List<Hero>> getAll() async => _mockHeroes;
 
   Future<HeroTaxReturn> getTaxReturn(Hero hero) async {
     HeroTaxReturn r = _mockTaxReturns.firstWhere((r) => r.hero.id == hero.id,

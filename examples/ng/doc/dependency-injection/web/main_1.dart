@@ -12,13 +12,17 @@ import 'package:angular/angular.dart';
 import 'package:dependency_injection/app_component_1.dart';
 import 'package:dependency_injection/src/heroes/hero_service_1.dart';
 
+import 'main_1.template.dart' as ng;
+
 void main_alt() {
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }
 
 void main_discouraged() {
   // #docregion bootstrap-discouraged
-  bootstrap(AppComponent,
-    [HeroService]); // DISCOURAGED (but works)
+  bootstrapStatic(
+      AppComponent,
+      [HeroService], // DISCOURAGED (but works)
+      ng.initReflector);
   // #enddocregion bootstrap-discouraged
 }

@@ -9,7 +9,7 @@ import 'src/loop_back_component.dart';
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component.html',
-  directives: const [
+  directives: [
     ClickMeComponent,
     ClickMe2Component,
     KeyUp1Component,

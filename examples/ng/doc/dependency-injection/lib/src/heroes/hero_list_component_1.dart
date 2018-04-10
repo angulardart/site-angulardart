@@ -10,7 +10,7 @@ import 'mock_heroes.dart';
     <div *ngFor="let hero of heroes">
       {{hero.id}} - {{hero.name}}
     </div>''',
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 // #docregion class
 class HeroListComponent {

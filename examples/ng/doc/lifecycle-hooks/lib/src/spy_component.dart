@@ -7,12 +7,12 @@ import 'spy_directive.dart';
 @Component(
   selector: 'spy-parent',
   templateUrl: 'spy_component.html',
-  styles: const [
+  styles: [
     '.parent {background: khaki}',
     '.heroes {background: LightYellow; padding: 0 8px}'
   ],
-  directives: const [CORE_DIRECTIVES, formDirectives, SpyDirective],
-  providers: const [LoggerService],
+  directives: [coreDirectives, formDirectives, SpyDirective],
+  providers: [LoggerService],
 )
 class SpyParentComponent {
   final LoggerService _logger;

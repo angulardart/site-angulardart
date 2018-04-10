@@ -14,14 +14,17 @@ var fs = require('fs');
 var path = require('canonical-path');
 var _ = require('lodash');
 
-
+// See https://github.com/angular/protractor/blob/master/docs/browser-setup.md
 exports.config = {
   directConnect: true,
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'chrome'
-  },
+    'browserName': 'chrome',
+    chromeOptions: {
+      args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+    }
+   },
 
   // Framework to use. Jasmine is recommended.
   framework: 'jasmine',

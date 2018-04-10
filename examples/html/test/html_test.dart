@@ -1,5 +1,5 @@
 // #docplaster
-@Tags(const ['browser'])
+@Tags(['browser'])
 @TestOn('browser')
 import 'dart:async';
 import 'dart:html';

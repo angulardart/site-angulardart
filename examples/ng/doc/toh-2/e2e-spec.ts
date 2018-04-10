@@ -5,7 +5,7 @@ import { promise } from 'selenium-webdriver';
 
 const expectedH1 = 'Tour of Heroes';
 const expectedTitle = `Angular ${expectedH1}`;
-const expectedH2 = 'My Heroes';
+const expectedH2 = 'Heroes';
 const targetHero = { id: 16, name: 'RubberMan' };
 const nameSuffix = 'X';
 
@@ -31,7 +31,7 @@ class Hero {
         let _name = await detail.element(by.css('h2')).getText();
         return {
             id: +_id.substr(_id.indexOf(':') + 1),
-            name: _name.substr(0, _name.lastIndexOf(' '))
+            name: _name,
         };
     }
 }
@@ -128,6 +128,6 @@ function getPageElts() {
   return {
     heroes: element.all(by.css('my-app li')),
     selected: element(by.css('my-app li.selected')),
-    heroDetail: element(by.css('my-app > div, my-app > hero-detail > div'))
+    heroDetail: element(by.css('my-app > div, my-app > my-hero > div'))
   };
 }

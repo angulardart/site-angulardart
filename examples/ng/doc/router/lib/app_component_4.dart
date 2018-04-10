@@ -2,51 +2,27 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-// Not yet used: import 'compose_message_component.dart';
-import 'src/crisis_center/crisis_center_component.dart';
-import 'src/heroes/hero_detail_component.dart';
-import 'src/heroes/hero_service.dart';
-import 'src/heroes/heroes_component.dart';
-import 'src/not_found_component.dart';
+import 'src/routes_4.dart';
+import 'src/hero/hero_service.dart';
 
 @Component(
   selector: 'my-app',
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
-      <!--
-      // #docregion dragon-crisis
-      <a [routerLink]="['CrisisCenter', 'Crises', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
-      // #enddocregion dragon-crisis
-      -->
+      <a [routerLink]="routes.crises.path"
+         routerLinkActive="active-route">Crisis Center</a>
+      <a [routerLink]="routes.heroes.path"
+         routerLinkActive="active-route">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>
-    <!-- Note: the named outlet is not yet used:
-    // #docregion outlets
-    <router-outlet></router-outlet>
-    <router-outlet name="popup"></router-outlet>
-    // #enddocregion outlets
-    -->
+    <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: const ['.router-link-active {color: #039be5;}'],
-  directives: const [ROUTER_DIRECTIVES],
-  providers: const [HeroService],
+  styles: ['.active-route {color: #039be5;}'],
+  directives: [routerDirectives],
+  providers: [Routes, HeroService],
 )
-// #docregion routes
-@RouteConfig(const [
-  const Redirect(path: '/', redirectTo: const ['Heroes']),
-  const Route(
-      // #docregion crisis-center-path
-      path: '/crisis-center/...',
-      // #enddocregion crisis-center-path
-      name: 'CrisisCenter',
-      component: CrisisCenterComponent),
-  const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent),
-  const Route(
-      path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent),
-  // Not yet used: const AuxRoute(path: '/contact', name: 'Contact', component: ComposeMessageComponent),
-  const Route(path: '/**', name: 'NotFound', component: NotFoundComponent)
-])
-class AppComponent {}
+class AppComponent {
+  final Routes routes;
+
+  AppComponent(this.routes);
+}

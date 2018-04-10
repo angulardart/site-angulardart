@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Appendices
 sideNavGroup: advanced
 prevpage:
@@ -28,19 +27,18 @@ A link parameters list holds the ingredients for router navigation:
 
 You can bind the `RouterLink` directive to such an list like this:
 
-<?code-excerpt "lib/app_component_1.dart (Heroes-link)"?>
+<?code-excerpt "lib/app_component_1.dart (template)" retain="/heroes|Heroes/"?>
 ```
-  <a [routerLink]="['Heroes']">Heroes</a>
+  <a [routerLink]="routes.heroes.path"
+     routerLinkActive="active-route">Heroes</a>
 ```
 
 You've written a two element list when specifying a route parameter to the `navigate` method:
 
-<?code-excerpt "lib/src/heroes/heroes_component.dart (gotoDetail)"?>
+<?code-excerpt "lib/src/hero/hero_list_component.dart (_gotoDetail)"?>
 ```
-  Future gotoDetail() => _router.navigate([
-        'HeroDetail',
-        {'id': selectedHero.id.toString()}
-      ]);
+  Future<NavigationResult> _gotoDetail(int id) =>
+      _router.navigate(_heroUrl(id));
 ```
 
 {% comment %}
@@ -48,7 +46,7 @@ You've written a two element list when specifying a route parameter to the `navi
 parameters; e.g.
 
 this.router.navigate(['/hero', hero.id]); // mandatory parameter
-this.router.navigate(['/crisis-center', { foo: 'foo' }]);
+this.router.navigate(['/crises', { foo: 'foo' }]);
 
 Optional route parameters must be named. In Dart there is no such distinction (yet).
 Hence, we comment out the following two lines:
@@ -56,7 +54,7 @@ Hence, we comment out the following two lines:
 //- :marked
 You can provide optional route parameters in an object like this:
 //- makeExcerpt('app/app.component.3.ts', 'cc-query-params', '')
---> <a [routerLink]="['/crisis-center', { foo: 'foo' }]">Crisis Center</a>
+--> <a [routerLink]="['/crises', { foo: 'foo' }]">Crisis Center</a>
 {% endcomment %}
 
 These examples cover the need for an app with one level routing.
@@ -64,9 +62,9 @@ The moment you add a child router, such as the crisis center, you create new lin
 
 Recall that you specified a default child route for crisis center so this simple `RouterLink` is fine.
 
-<?code-excerpt "lib/app_component_1.dart (CrisisCenter-link)"?>
+<?code-excerpt "lib/app_component_1.dart (template)" retain="/crisis|Crisis/"?>
 ```
-  <a [routerLink]="['CrisisCenter']">Crisis Center</a>
+  routerLinkActive="active-route">Crisis Center</a>
 ```
 
 {% comment %}TODO: rework{% endcomment %}
@@ -74,26 +72,29 @@ Recall that you specified a default child route for crisis center so this simple
 Parse it out:
 
 * The first item in the list identifies the parent route (`CrisisCenter`)
-  whose path is `/crisis-center/...`.
+  whose path is `/crises/...`.
 * There are no parameters for this parent route so you're done with it.
 * The default child route is `Crises`, which has path `/`.
-* The resulting path is `/crisis-center/`.
+* The resulting path is `/crises/`.
 
 Take it a step further. Consider the following router link that
 navigates from the root of the app down to the *Dragon Crisis*:
 
-<?code-excerpt "lib/app_component_4.dart (dragon-crisis)"?>
+<?fixme-code-excerpt "lib/app_component_4.dart (dragon-crisis)"?>
 ```
-  <a [routerLink]="['CrisisCenter', 'Crises', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
+  // FIXME:
+  <a [routerLink]="routes.crises.path"
+     routerLinkActive="active-route">Crisis Center</a>
+  <a [routerLink]="['CrisisCenter', 'Crisis Center', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
 ```
 
 * The first item in the list identifies the parent route (`CrisisCenter`)
-  whose path is `/crisis-center`.
+  whose path is `/crises`.
 * There are no parameters for this parent route so we're done with it.
 * The second item identifies the child route for details about a particular crisis ('CrisisDetail')
   whose path is `/:id`.
 * The third and final item provides the `id` of the *Dragon Crisis* (`{'id': '1'}`).
-* The resulting path is `/crisis-center/1`.
+* The resulting path is `/crises/1`.
 
 In summary, you can write apps with one, two or more levels of routing.
 The link parameters list affords the flexibility to represent any routing depth and
@@ -125,7 +126,7 @@ Here's the *Crisis Center* URL in this "HTML 5 pushState" style:
 
 <?code-excerpt?>
 ```
-  localhost:3002/crisis-center/
+  localhost:3002/crises/
 ```
 
 Older browsers send page requests to the server when the location URL changes ...
@@ -135,7 +136,7 @@ URLs with hashes.  Here's a "hash URL" that routes to the *Crisis Center*
 
 <?code-excerpt?>
 ```
-  localhost:3002/src/#/crisis-center/
+  localhost:3002/src/#/crises/
 ```
 
 The router supports both styles with two `LocationStrategy` providers:
@@ -206,7 +207,7 @@ access to `<head>` or the `index.html`.
 
 Those developers may still use HTML 5 URLs by taking two remedial steps:
 
-1. Provide the router with an appropriate [APP_BASE_HREF][] value.
+1. Provide the router with an appropriate [appBaseHref][] value.
 1. Use _root URLs_ for all web resources: css, images, scripts, and template html files.
 
-[APP_BASE_HREF]: /api/angular_router/angular_router/APP_BASE_HREF-constant.html
+[appBaseHref]: /api/angular_router/angular_router/appBaseHref-constant.html

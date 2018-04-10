@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
   selector: 'quest-summary',
   // #docregion urls
   templateUrl: 'quest_summary_component.html',
-  styleUrls: const ['quest_summary_component.css'],
+  styleUrls: ['quest_summary_component.css'],
   // #enddocregion urls
   // #docregion ViewEncapsulation
   encapsulation: ViewEncapsulation.Emulated,

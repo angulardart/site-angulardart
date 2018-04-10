@@ -6,36 +6,36 @@ import 'dart:async';
 import 'package:pageloader/objects.dart';
 // #enddocregion imports
 
-class AppPO {
+class AppPO extends PageObjectBase {
   @ByTagName('h1')
-  PageLoaderElement _pageTitle;
+  PageLoaderElement get _pageTitle => q('h1');
 
   @FirstByCss('h2')
-  PageLoaderElement _tabTitle;
+  PageLoaderElement get _tabTitle => q('h2');
 
   // #docregion _heroes, selectHero
   @ByTagName('li')
-  List<PageLoaderElement> _heroes;
+  List<PageLoaderElement> get _heroes => qq('li');
   // #enddocregion _heroes, selectHero
 
   @ByTagName('li')
   @WithClass('selected')
   @optional
-  PageLoaderElement _selectedHero;
+  PageLoaderElement get _selected => q('li.selected');
 
   // #docregion hero-detail-heading
   @FirstByCss('div h2')
   @optional
-  PageLoaderElement _heroDetailHeading; // e.g. 'Mr Freeze details!'
+  PageLoaderElement get _heroDetailHeading => q('div h2');
   // #enddocregion hero-detail-heading
 
   @FirstByCss('div div')
   @optional
-  PageLoaderElement _heroDetailId;
+  PageLoaderElement get _heroDetailId => q('div div');
 
   @ByTagName('input')
   @optional
-  PageLoaderElement _input;
+  PageLoaderElement get _input => q('input');
 
   Future<String> get pageTitle => _pageTitle.visibleText;
   Future<String> get tabTitle => _tabTitle.visibleText;
@@ -49,16 +49,14 @@ class AppPO {
   Future selectHero(int index) => _heroes[index].click();
   // #enddocregion selectHero
 
-  Future<Map> get selectedHero async => _selectedHero == null
+  Future<Map> get selected async => _selected == null
       ? null
-      : _heroDataFromLi(await _selectedHero.visibleText);
+      : _heroDataFromLi(await _selected.visibleText);
 
   Future<Map> get heroFromDetails async {
     if (_heroDetailId == null) return null;
     final idAsString = (await _heroDetailId.visibleText).split(':')[1];
-    final text = await _heroDetailHeading.visibleText;
-    final matches = new RegExp((r'^(.*) details!$')).firstMatch(text);
-    return _heroData(idAsString, matches[1]);
+    return _heroData(idAsString, await _heroDetailHeading.visibleText);
   }
 
   // #docregion clear

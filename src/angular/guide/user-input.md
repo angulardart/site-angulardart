@@ -320,15 +320,14 @@ Below is the "Little Tour of Heroes"  component.
 
       <ul><li *ngFor="let hero of heroes">{!{hero}!}</li></ul>
     ''',
-    directives: const [CORE_DIRECTIVES],
+    directives: [coreDirectives],
   )
   class LittleTourComponent {
     List<String> heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
 
     void addHero(String newHero) {
-      if (newHero?.length > 0) {
-        heroes.add(newHero);
-      }
+      if (newHero == null || newHero.isEmpty) return;
+      heroes.add(newHero);
     }
   }
 ```

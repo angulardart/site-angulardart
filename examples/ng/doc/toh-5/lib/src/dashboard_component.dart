@@ -1,5 +1,5 @@
 // #docplaster
-// #docregion , imports
+// #docregion
 import 'dart:async';
 
 import 'package:angular/angular.dart';
@@ -7,18 +7,18 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 // #enddocregion import-router
 
+import 'route_paths.dart' as paths;
 import 'hero.dart';
 import 'hero_service.dart';
-// #enddocregion imports
 
 // #docregion metadata, metadata-wo-styles
 @Component(
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
   // #enddocregion metadata-wo-styles
-  styleUrls: const ['dashboard_component.css'],
+  styleUrls: ['dashboard_component.css'],
   // #docregion metadata-wo-styles
-  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+  directives: [coreDirectives, routerDirectives],
 )
 // #enddocregion metadata, metadata-wo-styles
 // #docregion class
@@ -31,7 +31,12 @@ class DashboardComponent implements OnInit {
   DashboardComponent(this._heroService);
   // #enddocregion ctor
 
-  Future<Null> ngOnInit() async {
-    heroes = (await _heroService.getHeroes()).skip(1).take(4).toList();
+  // #docregion heroUrl
+  String heroUrl(int id) =>
+      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+  // #enddocregion heroUrl
+
+  Future<void> ngOnInit() async {
+    heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 
 import 'backend_service.dart';
@@ -9,15 +11,13 @@ import 'logger_service.dart';
 class HeroService {
   final BackendService _backendService;
   final Logger _logger;
-  final heroes = <Hero>[];
+  List<Hero> heroes;
 
   HeroService(this._logger, this._backendService);
 
-  List<Hero> getHeroes() {
-    _backendService.getAll(Hero).then((heroes) {
-      _logger.log('Fetched ${heroes.length} heroes.');
-      this.heroes.addAll(heroes as List<Hero>); // fill cache
-    });
+  Future<List<Hero>> getAll() async {
+    heroes = await _backendService.getAll(Hero);
+    _logger.log('Fetched ${heroes.length} heroes.');
     return heroes;
   }
 }

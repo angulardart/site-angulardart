@@ -14,9 +14,9 @@ import 'tax_rate_service.dart';
        {{ getTax(amountBox.value) | currency:'USD':true:'1.2-2' }}
       </div>
     ''',
-    directives: const [CORE_DIRECTIVES],
-    providers: const [SalesTaxService, TaxRateService],
-    pipes: const [COMMON_PIPES])
+    directives: [coreDirectives],
+    providers: [SalesTaxService, TaxRateService],
+    pipes: [commonPipes])
 class SalesTaxComponent {
   SalesTaxService _salesTaxService;
 

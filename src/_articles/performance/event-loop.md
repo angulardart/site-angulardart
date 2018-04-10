@@ -22,14 +22,12 @@ and you’ll be able to predict the order of execution.
 <aside class="alert alert-info" markdown="1">
 **Note:**
 Everything in this article applies both to Dart apps running natively
-(using a Dart VM such as dart or in Dartium)
+(using a Dart VM)
 and to Dart apps that have been compiled to JavaScript
 (the output of dart2js).
 This article uses the term _Dart_ to differentiate between
 Dart apps and software written in other languages.
 </aside>
-
-{% include dartium-2.0.html %}
 
 Before reading this article,
 you should be familiar with the basics of

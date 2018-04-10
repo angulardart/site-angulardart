@@ -74,7 +74,7 @@ const config = {
   dartdoc: 'pub global run dartdoc',
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
-  exAppPubGetOrUpgradeCmd: 'upgrade', // or 'get', see https://github.com/dart-lang/site-webdev/issues/1195
+  exAppPubGetOrUpgradeCmd: 'get', // or 'upgrade', see https://github.com/dart-lang/site-webdev/issues/1195
   EXAMPLES_ROOT: EXAMPLES_ROOT,
   EXAMPLES_NG_DOC_PATH: EXAMPLES_NG_DOC_PATH,
   frags: {
@@ -108,6 +108,7 @@ const config = {
 
 const plugins = {
   argv: argv,
+  buildWebCompilerOptions: buildWebCompilerOptions,
   child_process: child_process,
   codeExcerpter: require('code-excerpter'),
   copyFiles: copyFiles,
@@ -119,6 +120,7 @@ const plugins = {
   fs: fs,
   genDartdocForProjs: genDartdocForProjs,
   getPathToApiDir: getPathToApiDir,
+  generateBuildYaml: generateBuildYaml,
   gitCheckDiff: gitCheckDiff,
   globby: globby,
   gutil: gutil,
@@ -263,6 +265,44 @@ gulp.task('__test', () => {
 //=============================================================================
 // Helper functions
 //
+
+function buildWebCompilerOptions() {
+  const options = [
+    // '--fail-on-severe', // On Travis we don't have a way to conveniently clear severe errors from previous runs, so omit this option for now.
+    '--delete-conflicting-outputs',
+    '--output=build',
+  ];
+  if (argv.webCompiler) options.push(
+    `--define='build_web_compilers|entrypoint=compiler=${argv.webCompiler}'`
+  );
+  if (argv.webCompiler === 'dart2js') options.push(
+    `--define='build_web_compilers|entrypoint=dart2js_args=["--checked"]'`
+  );
+  return options.join(' ');
+}
+
+function generateBuildYaml(projectPath) {
+  const buildYamlPath = path.join(projectPath, 'build.yaml');
+  const pubspec = plugins.yamljs.load(path.join(projectPath, 'pubspec.yaml'));
+  const buildYaml = _buildYaml(pubspec.name);
+  plugins.gutil.log(`Generating ${buildYamlPath}:\n${buildYaml}`);
+  plugins.fs.writeFileSync(buildYamlPath, buildYaml);
+}
+
+function _buildYaml(pkgName) {
+  const buildYaml = `targets:
+  ${pkgName}:
+    builders:
+      angular:
+        options:
+          use_new_template_parser: true
+      build_web_compilers|entrypoint:
+        options:
+          compiler: ${argv.webCompiler || 'dartdevc'}
+          ${argv.webCompiler === 'dart2js' ? 'dart2js_args: [--checked]' : ''}
+`;
+  return buildYaml;
+}
 
 function gitCheckDiff() {
   return execSyncAndLog('git status --short') && process.exit(1);

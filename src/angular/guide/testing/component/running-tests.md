@@ -27,12 +27,16 @@ includes a few basic tests for its `AppComponent` in the following test file:
 
 <?code-excerpt "toh-0/test/app_test.dart (excerpt)" region="initial" title?>
 ```
-  @Tags(const ['aot'])
   @TestOn('browser')
 
-  // ···
-  @AngularEntrypoint()
+  import 'package:angular_test/angular_test.dart';
+  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:test/test.dart';
+
+  import 'app_test.template.dart' as ng;
+
   void main() {
+    ng.initReflector();
     final testBed = new NgTestBed<AppComponent>();
     NgTestFixture<AppComponent> fixture;
 
@@ -67,31 +71,35 @@ command:
 
 <?code-excerpt class="code-shell"?>
 ```sh
-  pub run angular_test --test-arg=--tags=aot --test-arg=--platform=dartium  --test-arg=--reporter=expanded
+  pub run build_runner test --fail-on-severe -- -p chrome
 ```
 
-The `--reporter` argument is optional, but using it results in more compact output.
+The optional [build_runner][] `test` flag `--fail-on-severe` prevents tests from
+being run if there is a severe build error. For a complete list of
+command line options run `pub run build_runner test -h`.
 
-The test framework runs code transformers, launches [pub serve][], loads
-the test file, and runs tests:
+Arguments after `--` (like `-p chrome` above) are passed directly to the [test package][] runner.
+To see all command-line options for the test runner, use this command:
+`pub run build_runner test -- -h`.
 
-<?code-excerpt class="code-shell"?>
-```nocode
-  The pub serve output is at .../angular_test_pub_serve_output.log.
-  Run with --verbose to get this output in the console instead.
-  pub serve test --port=0
-  Pub "serve" started on http://localhost:58042
-  Finished compilation. Running tests...
-  pub run test --tags=aot --platform=dartium --reporter=expanded --pub-serve=58042
-  00:00 +0: test/app_test.dart: Default greeting
-  00:00 +1: test/app_test.dart: Greet world
-  00:00 +2: test/app_test.dart: Greet world HTML
-  00:00 +3: All tests passed!
+The first test run builds the entire app.
+Incremental compilation makes subsequent test runs much quicker.
+
+```terminal
+  [INFO] Entrypoint: Generating build script completed, took 230ms
+  [INFO] BuildDefinition: Reading cached asset graph completed, took 271ms
+  [INFO] BuildDefinition: Checking for updates since last build completed, took 409ms
+  [INFO] Build: Running build completed, took 65ms
+  [INFO] Build: Caching finalized dependency graph completed, took 115ms
+  [INFO] CreateOutputDir: Creating merged output dir `/var/folders/cl/hfrjvtvx6bl6t3m8tc1v9xf40000gq/T/build_runner_testimEd04/` completed, took 1.7s
+  [INFO] CreateOutputDir: Writing asset manifest completed, took 1ms
+  [INFO] Build: Succeeded after 1.9s with 0 outputs
+  Running tests...
+
+  00:01 +3: All tests passed!
 ```
 
-As mentioned in the command output, you can use `--verbose` to direct pub serve output
-directly to the console rather than to a log file. This can be more convenient when
-debugging tests.
-
-[pub serve]: /angular/guide/setup#running-the-app
+[build_runner]: https://pub.dartlang.org/packages/build_runner
+[serves the app]: /angular/guide/setup#running-the-app
 [test fixture]: https://github.com/junit-team/junit4/wiki/test-fixtures
+[test package]: https://pub.dartlang.org/packages/test

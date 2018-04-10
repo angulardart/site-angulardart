@@ -10,7 +10,7 @@ import 'src/heroes/heroes_component_1.dart';
     <my-car></my-car>
     <my-heroes></my-heroes>
   ''',
-  directives: const [CarComponent, HeroesComponent],
+  directives: [CarComponent, HeroesComponent],
 )
 class AppComponent {
   final String title = 'Dependency Injection';

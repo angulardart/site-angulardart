@@ -269,7 +269,7 @@ defined in its own file.
 
   @Injectable()
   class HeroService {
-    List<Hero> getHeroes() => mockHeroes;
+    List<Hero> getAll() => mockHeroes;
   }
 ```
 
@@ -333,8 +333,8 @@ Here's a revised `HeroesComponent` that registers the `HeroService` in its `prov
       template: '''
         <h2>Heroes</h2>
         <hero-list></hero-list>''',
-      [!providers: const [HeroService],!]
-      directives: const [HeroListComponent])
+      [!providers: [HeroService],!]
+      directives: [HeroListComponent])
   class HeroesComponent {}
 ```
 
@@ -359,18 +359,33 @@ Applications are bootstrapped in `web/main.dart`:
   import 'package:angular/angular.dart';
   import 'package:dependency_injection/app_component.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent);
+    bootstrapStatic(AppComponent, [], ng.initReflector);
   }
 ```
 
 The first argument to `bootstrap()` is the app root component class.
-The second optional argument is a providers list. For example:
+The second argument is a providers list.
+The last argument is the statically generated provider registration function
+for the app. By using this function, DI works without runtime reflection.
+
+<aside class="alert alert-warning" markdown="1">
+  **Important:** We expect that the name of the `bootstrapStatic()` function
+  will change, and that most apps won't need to import the generated
+  Angular template file `main.template.dart`.
+  For details, see [issue #756](https://github.com/dart-lang/angular/issues/756).
+</aside>
+
+For example:
 
 <?code-excerpt "web/main_1.dart (discouraged)" region="bootstrap-discouraged"?>
 ```
-  bootstrap(AppComponent,
-    [HeroService]); // DISCOURAGED (but works)
+  bootstrapStatic(
+      AppComponent,
+      [HeroService], // DISCOURAGED (but works)
+      ng.initReflector);
 ```
 
 An instance of the `HeroService` will now be available for injection across the entire app.
@@ -384,8 +399,7 @@ Because the `HeroService` is used within the *Heroes* feature set, and nowhere e
 the ideal place to register it is in `HeroesComponent`.
 
 Here's a more realistic example of bootstrap providers, taken from the
-[tutorial, part 5](../tutorial/toh-pt5). It also gives
-you a taste of more advanced concepts that will be presented later in this page.
+[tutorial, part 5](../tutorial/toh-pt5):
 
 <?code-excerpt "../toh-5/web/main.dart" title?>
 ```
@@ -393,12 +407,15 @@ you a taste of more advanced concepts that will be presented later in this page.
   import 'package:angular_router/angular_router.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent, [
-      ROUTER_PROVIDERS,
-      // Remove next line in production
-      provide(LocationStrategy, useClass: HashLocationStrategy),
-    ]);
+    bootstrapStatic(
+        AppComponent,
+        [
+          routerProvidersHash // You can use routerProviders in production
+        ],
+        ng.initReflector);
   }
 ```
 
@@ -570,7 +587,7 @@ it's registered in `AppComponent`:
 
 <?code-excerpt "lib/src/providers_component.dart (providers-logger)" title="lib/app_component.dart (excerpt)"?>
 ```
-  providers: const [Logger]
+  providers: [Logger]
 ```
 
 ### _@Injectable()_
@@ -579,13 +596,6 @@ The **[@Injectable()][Injectable]** annotation identifies a service class as ava
 injector for instantiation. Generally speaking, an injector will report an
 error when trying to instantiate a class that is not marked as
 `@Injectable()`.
-
-{%comment%}
-The [Angular Dart Transformer](https://github.com/dart-lang/angular/wiki/Transformer)
-generates static code to replace the use of dart:mirrors. It requires that types be
-identified as targets for static code generation. Generally this is achieved
-by marking the class as @Injectable (though there are other mechanisms).
-{%endcomment%}
 
 Injectors are also responsible for instantiating components
 like `HeroesComponent`. Why isn't `HeroesComponent` marked as `@Injectable()`?
@@ -628,7 +638,7 @@ The `Logger` class itself is an obvious and natural provider.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-logger)"?>
 ```
-  providers: const [Logger]
+  providers: [Logger]
 ```
 
 But it's not the only way.
@@ -646,7 +656,7 @@ Here's the class-provider syntax again.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-1)"?>
 ```
-  providers: const [Logger]
+  providers: [Logger]
 ```
 
 This is actually a shorthand expression for a provider registration
@@ -654,7 +664,7 @@ using an instance of the [Provider][] class:
 
 <?code-excerpt "lib/src/providers_component.dart (providers-3)"?>
 ```
-  const [const Provider(Logger, useClass: Logger)]
+  [const Provider(Logger, useClass: Logger)]
 ```
 
 The first `Provider` constructor argument is the [token](#token) that serves as the key for both
@@ -673,7 +683,7 @@ to return a `BetterLogger` when something asks for the `Logger`.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-4)"?>
 ```
-  const [const Provider(Logger, useClass: BetterLogger)]
+  [const Provider(Logger, useClass: BetterLogger)]
 ```
 
 <a id="provide"></a>
@@ -711,7 +721,7 @@ Configure it like `BetterLogger`.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-5)"?>
 ```
-  const [UserService, const Provider(Logger, useClass: EvenBetterLogger)]
+  [UserService, const Provider(Logger, useClass: EvenBetterLogger)]
 ```
 
 ### Aliased class providers
@@ -732,7 +742,7 @@ Unfortunately, that's what you get if you try to alias `OldLogger` to `NewLogger
 
 <?code-excerpt "lib/src/providers_component.dart (providers-6a)"?>
 ```
-  const [NewLogger,
+  [NewLogger,
     // Not aliased! Creates two instances of `NewLogger`
     const Provider(OldLogger, useClass: NewLogger)]
 ```
@@ -771,7 +781,7 @@ which makes this object play the logger role.
 
 <?code-excerpt "lib/src/providers_component.dart (providers-7)" replace="/useValue: \w+/[!$&!]/g"?>
 ```
-  const [const Provider(Logger, [!useValue: silentLogger!])]
+  [const Provider(Logger, [!useValue: silentLogger!])]
 ```
 
 See more `useValue` examples in the
@@ -811,7 +821,7 @@ Instead, the `HeroService` constructor takes a boolean flag to control display o
 
   HeroService(this._logger, this._isAuthorized);
 
-  List<Hero> getHeroes() {
+  List<Hero> getAll() {
     var auth = _isAuthorized ? 'authorized' : 'unauthorized';
     _logger.log('Getting heroes for $auth user.');
     return mockHeroes
@@ -840,7 +850,7 @@ and let the injector pass them along to the factory function:
 ```
   const heroServiceProvider = const Provider<HeroService>(HeroService,
       useFactory: heroServiceFactory,
-      deps: const [Logger, UserService]);
+      deps: [Logger, UserService]);
 ```
 
 <div class="l-sub-section" markdown="1">
@@ -945,7 +955,7 @@ Register the dependency provider using the `OpaqueToken` object:
 
 <?code-excerpt "lib/src/providers_component.dart (providers-9)"?>
 ```
-  providers: const [
+  providers: [
     const Provider(appConfigToken, useValue: heroDiConfig)]
 ```
 
@@ -991,7 +1001,7 @@ but you can use a [factory provider](#factory-provider).
 
 <?code-excerpt "lib/app_component.dart (providers)" title?>
 ```
-  providers: const [
+  providers: [
     Logger,
     UserService,
     const Provider(appConfigToken, useFactory: heroDiConfigFactory),
@@ -1049,7 +1059,7 @@ here's an `InjectorComponent` that does.
         <div id="car">{!{car.drive()}!}</div>
         <div id="hero">{!{hero.name}!}</div>
         <div id="rodent">{!{rodent}!}</div>''',
-    providers: const [
+    providers: [
       Car,
       Engine,
       Tires,
@@ -1069,7 +1079,7 @@ here's an `InjectorComponent` that does.
     void ngOnInit() {
       car = _injector.get(Car);
       heroService = _injector.get(HeroService);
-      hero = heroService.getHeroes()[0];
+      hero = heroService.getAll()[0];
     }
 
     String get rodent =>

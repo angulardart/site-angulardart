@@ -10,9 +10,9 @@ enum Color { gray, green, gold }
 
 @Component(
   selector: 'visualize-winnings',
-  styleUrls: const ['visualize_winnings.css'],
+  styleUrls: ['visualize_winnings.css'],
   templateUrl: 'visualize_winnings.html',
-  directives: const [NgStyle],
+  directives: [NgStyle],
 )
 class VisualizeWinningsComponent implements OnInit {
   static const int _pointSize = 5;
@@ -20,7 +20,7 @@ class VisualizeWinningsComponent implements OnInit {
   static const int _pointMargin = 1;
 
   @ViewChild('canvas')
-  ElementRef canvas;
+  CanvasElement canvas;
 
   CanvasRenderingContext2D _ctx;
 
@@ -53,9 +53,9 @@ class VisualizeWinningsComponent implements OnInit {
 
   @override
   ngOnInit() {
-    _ctx = canvas.nativeElement.context2D;
-    _width = canvas.nativeElement.width;
-    _height = canvas.nativeElement.height;
+    _ctx = canvas.context2D;
+    _width = canvas.width;
+    _height = canvas.height;
   }
 
   void renderPoint(Color color) {

@@ -10,20 +10,17 @@ module.exports = function (gulp, plugins, config) {
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;
 
-    // Since we are still using content-shell, then it doesn't matter which web compiler we use
-  // but we'll still honor the WEB_COMPILER setting.
-  const wc = process.env.WEB_COMPILER || 'dart2js'; // vs 'dartdevc'
-  const runAngularTest = 'pub run angular_test'
-    + ` --serve-arg=--web-compiler=${wc}`
-    + ' --test-arg=--platform=content-shell --test-arg=--tags=aot'
-    + ' --test-arg=--reporter=expanded'
-    + ' --verbose';
+  const runAngularTest = [
+    'pub run build_runner test',
+    plugins.buildWebCompilerOptions(),
+    '--',
+    '-p chrome',
+  ].join(' ');
 
   const allExamplesWithTests = ('quickstart ' +
     'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6 ' +
     'template-syntax').split(' ')
-    .map(name => path.join('ng', 'doc', name))
-    .concat(path.join('ng_test', 'github_issues'));
+    .map(name => path.join('ng', 'doc', name));
 
   const testStatus = {
     passed: [],
@@ -58,8 +55,13 @@ module.exports = function (gulp, plugins, config) {
 
   async function pubGetAndRunTest(exPath) {
     try {
-      await plugins.execp(`pub ${config.exAppPubGetOrUpgradeCmd} --no-precompile`, { cwd: exPath });
-      await plugins.execp(runAngularTest, { cwd: exPath, okOnExitRE: /All tests passed/ });
+      await plugins.execp(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: exPath });
+      // plugins.generateBuildYaml(exPath);
+      await plugins.execp(runAngularTest, {
+        cwd: exPath,
+        okOnExitRE: /All tests passed/,
+        errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
+      });
       testStatus.passed.push(exPath);
     } catch (e) {
       plugins.gutil.log(`Error running tests: ${e}\n`);

@@ -57,12 +57,12 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>pipes:</b> const [COMMON_PIPES, MyPipe, ...]
+    <b>pipes:</b> const [commonPipes, MyPipe, ...]
   </code></td>
   <td markdown="1">
   List of pipes used in the component's template.
 
-  See: [Pipes](/angular/guide/pipes), [COMMON_PIPES](/api/angular/angular/COMMON_PIPES-constant)
+  See: [Pipes](/angular/guide/pipes), [commonPipes](/api/angular/angular/commonPipes-constant)
   </td>
 </tr>
 

@@ -17,7 +17,7 @@ import 'car_no_di.dart' as carNoDi;
       <div id="simple">{{simpleCar.drive()}}</div>
       <div id="super">{{superCar.drive()}}</div>
       <div id="test">{{testCar.drive()}}</div>''',
-    providers: const [Car, Engine, Tires])
+    providers: [Car, Engine, Tires])
 class CarComponent {
   final Car car;
 

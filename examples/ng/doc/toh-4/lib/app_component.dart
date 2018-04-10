@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 
 import 'src/hero.dart';
-import 'src/hero_detail_component.dart';
+import 'src/hero_component.dart';
 // #docregion hero-service-import
 import 'src/hero_service.dart';
 // #enddocregion hero-service-import
@@ -15,25 +15,25 @@ import 'src/hero_service.dart';
   // #docregion template
   templateUrl: 'app_component.html',
   // #enddocregion template
-  styleUrls: const ['app_component.css'],
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
-  providers: const [HeroService],
+  styleUrls: ['app_component.css'],
+  directives: [coreDirectives, HeroComponent],
+  providers: [const ClassProvider(HeroService)],
 )
 class AppComponent implements OnInit {
   final title = 'Tour of Heroes';
   final HeroService _heroService;
   List<Hero> heroes;
-  Hero selectedHero;
+  Hero selected;
 
   AppComponent(this._heroService);
 
-  // #docregion getHeroes
-  Future<Null> getHeroes() async {
-    heroes = await _heroService.getHeroes();
+  // #docregion _getHeroes
+  Future<void> _getHeroes() async {
+    heroes = await _heroService.getAll();
   }
-  // #enddocregion getHeroes
+  // #enddocregion _getHeroes
 
-  void ngOnInit() => getHeroes();
+  void ngOnInit() => _getHeroes();
 
-  void onSelect(Hero hero) => selectedHero = hero;
+  void onSelect(Hero hero) => selected = hero;
 }

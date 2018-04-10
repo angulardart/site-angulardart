@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: Services"
   url: /angular/guide/testing/component/services
 ---
+{% include_relative _pageloader-mock-warning.md %}
+
 <?code-excerpt path-base="examples/ng/doc"?>
 
 {% include_relative _page-top-toc.md %}
@@ -20,10 +22,10 @@ nextpage:
 Use the [PageLoaderElement.click()][] method to simulate a user
 click on a given PO element. Here is an example for a _back_ button:
 
-<?code-excerpt "toh-5/test/hero_detail_po.dart (back button)" title?>
+<?code-excerpt "toh-5/test/hero_po.dart (back button)" title?>
 ```
   @ByTagName('button')
-  PageLoaderElement _button;
+  PageLoaderElement get _button => q('button');
   // ···
   Future back() => _button.click();
 ```
@@ -34,7 +36,7 @@ a list as follows:
 <?code-excerpt "toh-2/test/app_po.dart (selectHero)" title?>
 ```
   @ByTagName('li')
-  List<PageLoaderElement> _heroes;
+  List<PageLoaderElement> get _heroes => qq('li');
   // ···
   Future selectHero(int index) => _heroes[index].click();
 ```
@@ -50,10 +52,10 @@ simulate adding text to the input element:
 
 <?code-excerpt "toh-1/test/app_test.dart (AppPO input)" title?>
 ```
-  class AppPO {
+  class AppPO extends PageObjectBase {
     // ···
     @ByTagName('input')
-    PageLoaderElement _input;
+    PageLoaderElement get _input => q('input');
     // ···
     Future type(String s) => _input.type(s);
   }
@@ -86,7 +88,7 @@ Here is an example of a PO method for adding a new hero. It makes use of both
 
 <?code-excerpt "toh-6/test/heroes_po.dart (addHero)" title?>
 ```
-  Future<Null> addHero(String name) async {
+  Future addHero(String name) async {
     await _input.clear();
     await _input.type(name);
     return _add.click();

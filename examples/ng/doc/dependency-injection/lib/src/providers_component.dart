@@ -15,7 +15,7 @@ const template = '{{log}}';
     selector: 'provider-1',
     template: '{{log}}',
     // #docregion providers-1, providers-logger
-    providers: const [Logger]
+    providers: [Logger]
     // #enddocregion providers-1, providers-logger
 )
 class Provider1Component {
@@ -33,7 +33,7 @@ class Provider1Component {
   template: '{{log}}',
   providers:
     // #docregion providers-3
-    const [const Provider(Logger, useClass: Logger)]
+    [const Provider(Logger, useClass: Logger)]
     // #enddocregion providers-3
 )
 class Provider3Component {
@@ -53,7 +53,7 @@ class BetterLogger extends Logger {}
     template: '{{log}}',
     providers:
       // #docregion providers-4
-      const [const Provider(Logger, useClass: BetterLogger)]
+      [const Provider(Logger, useClass: BetterLogger)]
       // #enddocregion providers-4
 )
 class Provider4Component {
@@ -84,7 +84,7 @@ class EvenBetterLogger extends Logger {
     template: '{{log}}',
     providers:
       // #docregion providers-5
-      const [UserService, const Provider(Logger, useClass: EvenBetterLogger)]
+      [UserService, const Provider(Logger, useClass: EvenBetterLogger)]
       // #enddocregion providers-5
 )
 class Provider5Component {
@@ -111,7 +111,7 @@ class OldLogger extends Logger {
     template: '{{log}}',
     providers:
       // #docregion providers-6a
-      const [NewLogger,
+      [NewLogger,
         // Not aliased! Creates two instances of `NewLogger`
         const Provider(OldLogger, useClass: NewLogger)]
       // #enddocregion providers-6a
@@ -175,7 +175,7 @@ const silentLogger = const SilentLogger();
   template: '{{log}}',
   providers:
     // #docregion providers-7
-    const [const Provider(Logger, useValue: silentLogger)]
+    [const Provider(Logger, useValue: silentLogger)]
     // #enddocregion providers-7
 )
 class Provider7Component {
@@ -190,7 +190,7 @@ class Provider7Component {
 @Component(
   selector: 'provider-8',
   template: '{{log}}',
-  providers: const [heroServiceProvider, Logger, UserService])
+  providers: [heroServiceProvider, Logger, UserService])
 class Provider8Component {
   // must be true else this component would have blown up at runtime
   var log = 'Hero service injected successfully via heroServiceProvider';
@@ -204,7 +204,7 @@ class Provider8Component {
   selector: 'provider-9',
   template: '{{log}}',
   // #docregion providers-9
-  providers: const [
+  providers: [
     const Provider(appConfigToken, useValue: heroDiConfig)]
   // #enddocregion providers-9
 )
@@ -227,7 +227,7 @@ class Provider9Component implements OnInit {
 @Component(
     selector: 'provider-10',
     template: '{{log}}',
-    providers: const [const Provider(Logger, useValue: null)]
+    providers: [const Provider(Logger, useValue: null)]
 )
 class Provider10Component implements OnInit {
   final Logger _logger;
@@ -265,7 +265,7 @@ class Provider10Component implements OnInit {
       <div id="p8"><provider-8></provider-8></div>
       <div id="p9"><provider-9></provider-9></div>
       <div id="p10"><provider-10></provider-10></div>''',
-    directives: const [
+    directives: [
       Provider1Component,
       Provider3Component,
       Provider4Component,

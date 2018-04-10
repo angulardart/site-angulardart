@@ -138,7 +138,7 @@ recognizes the directive when it encounters `myHighlight` in the template.
   @Component(
     selector: 'my-app',
     templateUrl: 'app_component.html',
-    directives: const [autoIdDirective, HighlightDirective],
+    directives: [autoIdDirective, HighlightDirective],
   )
   class AppComponent {
     String color;

@@ -11,7 +11,7 @@ import 'src/power_booster_component.dart';
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component.html',
-  directives: const [
+  directives: [
     FlyingHeroesComponent,
     FlyingHeroesImpureComponent,
     HeroAsyncMessageComponent,
@@ -21,7 +21,7 @@ import 'src/power_booster_component.dart';
     PowerBoostCalculatorComponent,
     PowerBoosterComponent,
   ],
-  pipes: const [COMMON_PIPES],
+  pipes: [commonPipes],
 )
 class AppComponent {
   DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988

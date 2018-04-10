@@ -32,7 +32,7 @@ class Hero {
         let _name = await detail.element(by.css('h2')).getText();
         return {
             id: +_id.substr(_id.indexOf(':') + 1),
-            name: _name.substr(0, _name.lastIndexOf(' '))
+            name: _name,
         };
     }
 }
@@ -54,10 +54,10 @@ describe('Tutorial part 5', () => {
       myHeroesHref: navElts.get(1),
       myHeroes: element(by.css('my-app my-heroes')),
       allHeroes: element.all(by.css('my-app my-heroes li')),
-      selectedHero: element(by.css('my-app li.selected')),
+      selected: element(by.css('my-app li.selected')),
       selectedHeroSubview: element(by.css('my-app my-heroes > div')),
 
-      heroDetail: element(by.css('my-app hero-detail > div'))
+      heroDetail: element(by.css('my-app my-hero > div'))
     };
   }
 
@@ -119,7 +119,7 @@ describe('Tutorial part 5', () => {
     it(`selects and shows ${targetHero.name} as selected in list`, () => {
       getHeroLiEltById(targetHero.id).click();
       let expectedText = `${targetHero.id} ${targetHero.name}`;
-      expect(getPageElts().selectedHero.getText()).toBe(expectedText);
+      expect(getPageElts().selected.getText()).toBe(expectedText);
     });
 
     it('shows selected hero subview', async () => {

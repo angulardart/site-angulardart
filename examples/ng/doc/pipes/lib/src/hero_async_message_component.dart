@@ -9,7 +9,7 @@ import 'package:angular/angular.dart';
     <p>Message: {{ message | async }}</p>
     <button (click)="resend()">Resend</button>
   ''',
-  pipes: const [COMMON_PIPES],
+  pipes: [commonPipes],
 )
 class HeroAsyncMessageComponent {
   static const _msgEventDelay = const Duration(milliseconds: 500);

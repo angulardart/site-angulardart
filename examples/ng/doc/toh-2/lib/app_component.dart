@@ -9,31 +9,32 @@ import 'src/hero.dart';
 import 'src/mock_heroes.dart';
 
 // #enddocregion heroes
-// #docregion directives, styleUrls
+// #docregion directives, styleUrls, templateUrl
 @Component(
   selector: 'my-app',
   // #enddocregion directives, styleUrls
   templateUrl: 'app_component.html',
+  // #enddocregion templateUrl
   // #docregion styleUrls
-  styleUrls: const ['app_component.css'],
+  styleUrls: ['app_component.css'],
   // #enddocregion styleUrls
   // #docregion directives
-  directives: const [CORE_DIRECTIVES, formDirectives],
-  // #docregion styleUrls
+  directives: [coreDirectives, formDirectives],
+  // #docregion styleUrls, templateUrl
 )
-// #enddocregion directives, styleUrls
+// #enddocregion directives, styleUrls, templateUrl
 // #docregion heroes
 class AppComponent {
   final title = 'Tour of Heroes';
   // #docregion heroes
   List<Hero> heroes = mockHeroes;
   // #enddocregion heroes
-  // #docregion selectedHero
-  Hero selectedHero;
-  // #enddocregion selectedHero
+  // #docregion selected
+  Hero selected;
+  // #enddocregion selected
 
   // #docregion onSelect
-  void onSelect(Hero hero) => selectedHero = hero;
+  void onSelect(Hero hero) => selected = hero;
   // #enddocregion onSelect
   // #docregion heroes
 }

@@ -35,9 +35,9 @@ module.exports = function (gulp, plugins, config) {
   }
 
   function _pub(cmd) {
-    const output = plugins.execSyncAndLog(`pub ${cmd} --no-precompile`, { cwd: srcData });
+    const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
     if (cmd !== 'upgrade') return;
-    const updatesAvailable = output.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
+    const updatesAvailable = output.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
     if (!updatesAvailable) {
       plugins.gutil.log(`All Angular packages are up-to-date. `);
       return;
@@ -46,7 +46,7 @@ module.exports = function (gulp, plugins, config) {
     const updatesAvailableToReport = [];
     updatesAvailable.forEach(u => {
       if (u.match(skipRegEx)) return true;
-      const m = u.match(/^..(angular\w*) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/);
+      const m = u.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/);
       const pkg = m[1], vers = m[2], was = m[3], wasVers = m[4], avail = m[5], availVers = m[6];
       // plugins.gutil.log(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
       if (wasVers || availVers && (vers.match(/alpha|beta/) || !availVers.match(/alpha|beta/))) {

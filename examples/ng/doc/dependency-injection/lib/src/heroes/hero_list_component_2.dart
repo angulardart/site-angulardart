@@ -18,12 +18,12 @@ import 'hero_service.dart';
     <div *ngFor="let hero of heroes">
       {{hero.id}} - {{hero.name}}
     </div>''',
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 class HeroListComponent {
   final List<Hero> heroes;
 
   // #docregion ctor
-  HeroListComponent(HeroService heroService) : heroes = heroService.getHeroes();
+  HeroListComponent(HeroService heroService) : heroes = heroService.getAll();
   // #enddocregion ctor
 }

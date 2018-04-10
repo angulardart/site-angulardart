@@ -18,13 +18,16 @@ import 'src/villains_list_component.dart';
     <villains-list *ngIf="showVillains"></villains-list>
     <my-cars       *ngIf="showCars"></my-cars>
   ''',
-  directives: const [
-    CORE_DIRECTIVES,
+  directives: [
+    coreDirectives,
     carComponents,
     HeroesListComponent,
-    VillainsListComponent
+    VillainsListComponent,
   ],
-  providers: const [carServices, HeroesService],
+  providers: [
+    carServices,
+    const ClassProvider(HeroesService),
+  ],
 )
 class AppComponent {
   bool showCars = true;

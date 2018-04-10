@@ -204,16 +204,16 @@ First, let’s change the checkbox to use \<material-checkbox>.
 
 @@ -12,7 +13,13 @@
    selector: 'settings-component',
-   styleUrls: const ['settings_component.css'],
+   styleUrls: ['settings_component.css'],
    templateUrl: 'settings_component.html',
--  directives: const [NgFor],
-+  directives: const [
+-  directives: [NgFor],
++  directives: [
 +    MaterialCheckboxComponent,
 +    MaterialRadioComponent,
 +    MaterialRadioGroupComponent,
 +    NgFor
 +  ],
-+  providers: const [materialProviders],
++  providers: [materialProviders],
  )
  class SettingsComponent implements OnInit {
    final initialCashOptions = [0, 10, 100, 1000];
@@ -367,16 +367,16 @@ is contained by a \<material-radio-group>.
 
 @@ -12,7 +13,13 @@
    selector: 'settings-component',
-   styleUrls: const ['settings_component.css'],
+   styleUrls: ['settings_component.css'],
    templateUrl: 'settings_component.html',
--  directives: const [NgFor],
-+  directives: const [
+-  directives: [NgFor],
++  directives: [
 +    MaterialCheckboxComponent,
 +    MaterialRadioComponent,
 +    MaterialRadioGroupComponent,
 +    NgFor
 +  ],
-+  providers: const [materialProviders],
++  providers: [materialProviders],
 ```
 </li>
 

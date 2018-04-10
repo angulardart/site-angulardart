@@ -1,50 +1,38 @@
 // #docregion
-@Tags(const ['aot'])
 @TestOn('browser')
 
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/app_component.dart';
+import 'package:angular_tour_of_heroes/src/routes.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import 'dashboard_po.dart';
+import 'matchers.dart';
+import 'utils.dart';
 
 // #docregion providers-with-context
 NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
-final mockPlatformLocation = new MockPlatformLocation();
-
-class MockPlatformLocation extends Mock implements PlatformLocation {}
-
-@AngularEntrypoint()
 void main() {
-  final providers = new List.from(ROUTER_PROVIDERS)
-    ..addAll([
-      provide(APP_BASE_HREF, useValue: '/'),
-      provide(PlatformLocation, useValue: mockPlatformLocation),
-      provide(ROUTER_PRIMARY_COMPONENT, useValue: AppComponent),
-      HeroService,
-    ]);
-  final testBed = new NgTestBed<DashboardComponent>().addProviders(providers);
-  // #enddocregion providers-with-context
-
-  // #docregion setUpAll
-  setUpAll(() async {
-    when(mockPlatformLocation.pathname).thenReturn('');
-    when(mockPlatformLocation.search).thenReturn('');
-    when(mockPlatformLocation.hash).thenReturn('');
-    when(mockPlatformLocation.getBaseHrefFromDOM()).thenReturn('');
-  });
-  // #enddocregion setUpAll
+  final injector = new InjectorProbe();
+  // #docregion providers
+  final testBed = new NgTestBed<DashboardComponent>().addProviders([
+    const ValueProvider.forToken(appBaseHref, '/'),
+    const ClassProvider(Routes),
+    const ClassProvider(HeroService),
+    routerProviders,
+    const ClassProvider(Router, useClass: MockRouter),
+  ]).addInjector(injector.init);
+  // #enddocregion providers, providers-with-context
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await fixture.resolvePageObject(DashboardPO);
+    po = await new DashboardPO().resolve(fixture);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -60,10 +48,13 @@ void main() {
 
   // #docregion go-to-detail
   test('select hero and navigate to detail', () async {
-    clearInteractions(mockPlatformLocation);
+    final mockRouter = injector.get<MockRouter>(Router);
+    clearInteractions(mockRouter);
     await po.selectHero(3);
-    final c = verify(mockPlatformLocation.pushState(any, any, captureAny));
-    expect(c.captured.single, '/detail/15');
+    final c = verify(mockRouter.navigate(typed(captureAny), typed(captureAny)));
+    expect(c.captured[0], '/heroes/15');
+    expect(c.captured[1], isNavParams()); // empty params
+    expect(c.captured.length, 2);
   });
   // #enddocregion go-to-detail
   // #docregion providers-with-context

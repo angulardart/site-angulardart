@@ -5,11 +5,13 @@ description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced
 prevpage:
   title: "Component Testing: Simulating user action"
-  url: /angular/guide/testing/component/page-objects
+  url: /angular/guide/testing/component/simulating-user-action
 nextpage:
   title: "Component Testing: @Input() and @Output()"
   url: /angular/guide/testing/component/input-and-output
 ---
+{% include_relative _pageloader-mock-warning.md %}
+
 <?code-excerpt path-base="examples/ng/doc"?>
 
 {% include_relative _page-top-toc.md %}
@@ -29,7 +31,7 @@ The `AppComponent` from [part 4][] of the [tutorial][] declares its need for a
   @Component(
     selector: 'my-app',
     // ···
-    providers: const [HeroService],
+    providers: [const ClassProvider(HeroService)],
   )
   class AppComponent implements OnInit {
     List<Hero> heroes;
@@ -50,44 +52,15 @@ services are instatiated, as usual, thanks to Angular's
 Some components expect services to have been bootstrapped, or provided by an
 ancestor in the app component tree.  When testing such a component, you need
 to supply a list of providers to the `NgTestBed` before instantiating the
-fixture. For example:
+fixture. This list of providers can contain both real and mock services,
+as the following example shows:
 
-<?code-excerpt "toh-5/test/heroes.dart (providers)"?>
+<?code-excerpt "toh-5/test/heroes.dart (providers)" title replace="/.addInjector[^;]+//g"?>
 ```
-  final testBed = new NgTestBed<HeroesComponent>().addProviders([
-    provide(Router, useValue: mockRouter),
-    HeroService,
+  final testBed = new NgTestBed<HeroListComponent>().addProviders([
+    const ClassProvider(HeroService),
+    const ClassProvider(Router, useClass: MockRouter),
   ]);
-```
-
-Note that this is true whether a real or mock service is provided. In
-the following example, the providers list includes a real `HeroService` but a
-mock `Router`:
-
-<?code-excerpt "toh-5/test/heroes.dart (providers)" region="providers-with-context" title?>
-```
-  NgTestFixture<HeroesComponent> fixture;
-  HeroesPO po;
-
-  final mockRouter = new MockRouter();
-
-  class MockRouter extends Mock implements Router {}
-
-  @AngularEntrypoint()
-  void main() {
-    final testBed = new NgTestBed<HeroesComponent>().addProviders([
-      provide(Router, useValue: mockRouter),
-      HeroService,
-    ]);
-
-    setUp(() async {
-      fixture = await testBed.create();
-      po = await fixture.resolvePageObject(HeroesPO);
-    });
-
-    tearDown(disposeAnyRunningTest);
-    // ···
-  }
 ```
 
 See [Component Testing: Routing Components][] for details concerning the use of

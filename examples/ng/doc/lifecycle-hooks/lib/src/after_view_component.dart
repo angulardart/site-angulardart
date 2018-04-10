@@ -10,7 +10,7 @@ import 'logger_service.dart';
 @Component(
   selector: 'my-child-view',
   template: '<input [(ngModel)]="hero">',
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: [coreDirectives, formDirectives],
 )
 class ChildViewComponent {
   String hero = 'Magneta';
@@ -27,7 +27,7 @@ class ChildViewComponent {
     <div>-- child view ends --</div>
     <p *ngIf="comment.isNotEmpty" class="comment">{{comment}}</p>''',
   // #enddocregion template
-  directives: const [CORE_DIRECTIVES, ChildViewComponent],
+  directives: [coreDirectives, ChildViewComponent],
 )
 // #docregion hooks
 class AfterViewComponent implements AfterViewChecked, AfterViewInit {
@@ -102,9 +102,9 @@ class AfterViewComponent implements AfterViewChecked, AfterViewInit {
       <div *ngFor="let msg of logs">{{msg}}</div>
     </div>
     ''',
-  styles: const ['.parent {background: burlywood}'],
-  providers: const [LoggerService],
-  directives: const [CORE_DIRECTIVES, AfterViewComponent],
+  styles: ['.parent {background: burlywood}'],
+  providers: [LoggerService],
+  directives: [coreDirectives, AfterViewComponent],
 )
 class AfterViewParentComponent {
   final LoggerService _logger;

@@ -10,11 +10,11 @@
 - <span>Writing component tests</span>
   - [Basics](/angular/guide/testing/component/basics): pubspec config, test
     API fundamentals
-  - [Page objects](/angular/guide/testing/component/page-objects): field annotation, initialization and more
+  - [Page objects](/angular/guide/testing/component/page-objects): field annotation, initialization, and more
   - [Simulating user action](/angular/guide/testing/component/simulating-user-action): click, type, clear
-  - [Services](/angular/guide/testing/component/services): local, external, mock or real
+  - [Services](/angular/guide/testing/component/services): local, external, mock, real
   - [`@Input()` and `@Output()`](/angular/guide/testing/component/input-and-output)
-  - [Routing components](/angular/guide/testing/component/routing-components): mocking the router or platform location
+  - [Routing components](/angular/guide/testing/component/routing-components)
   - Appendices - _coming soon_
 </div>
 <script>

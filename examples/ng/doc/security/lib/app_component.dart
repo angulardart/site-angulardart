@@ -10,7 +10,7 @@ import 'src/inner_html_binding_component.dart';
     <inner-html-binding></inner-html-binding>
     <bypass-security></bypass-security>
   ''',
-  directives: const [
+  directives: [
     BypassSecurityComponent,
     InnerHtmlBindingComponent,
   ],

@@ -372,13 +372,13 @@ _view-to-source-to-view_.
   </tr>
   <tr>
     <td>Two-way</td>
-    <td><code-example>[(target)]="expression"<br>bindon-target="expression"</code-example></td>
+    <td><code-example>[(target)]="expression"</code-example></td>
     <td>Two-way</td>
   </tr>
 </table>
 
 Binding types other than interpolation have a **target name** to the left of the equal sign,
-either surrounded by punctuation (`[]`, `()`) or preceded by a prefix (`bind-`, `on-`, `bindon-`).
+either surrounded by punctuation (`[]`, `()`, `[()]`) or preceded by a prefix (`bind-`, `on-`).
 
 The target name is the name of a _property_. It might look like the name of an _attribute_ but it never is.
 To appreciate the difference, you must develop a new way to think about template HTML.
@@ -407,12 +407,12 @@ You still create a structure and initialize attribute values this way in Angular
 Then you learn to create new elements with components that encapsulate HTML
 and drop them into templates as if they were native HTML elements.
 
-<?code-excerpt "lib/app_component.html (hero-detail-1)"?>
+<?code-excerpt "lib/app_component.html (my-hero-1)"?>
 ```
   <!-- Normal HTML -->
   <div class="special">Mental Model</div>
   <!-- Wow! A new element! -->
-  <hero-detail></hero-detail>
+  <my-hero></my-hero>
 ```
 
 That's HTML Plus.
@@ -506,7 +506,7 @@ The following table summarizes the scenarios:
   <?code-excerpt "lib/app_component.html (property-binding-syntax-1)"?>
   ```
     <img [src]="heroImageUrl">
-    <hero-detail [hero]="currentHero"></hero-detail>
+    <my-hero [hero]="currentHero"></my-hero>
     <div [ngClass]="{special: isSpecial}"></div>
   ```
   </td>
@@ -518,7 +518,7 @@ The following table summarizes the scenarios:
   <?code-excerpt "lib/app_component.html (event-binding-syntax-1)"?>
   ```
     <button (click)="onSave()">Save</button>
-    <hero-detail (deleteRequest)="deleteHero()"></hero-detail>
+    <my-hero (deleteRequest)="deleteHero()"></my-hero>
     <div (myClick)="clicked=$event" clickable>click me</div>
   ```
   </td>
@@ -602,7 +602,7 @@ for parent and child components to communicate):
 
 <?code-excerpt "lib/app_component.html (property-binding-4)"?>
 ```
-  <hero-detail [hero]="currentHero"></hero-detail>
+  <my-hero [hero]="currentHero"></my-hero>
 ```
 
 ### One-way *in*
@@ -686,7 +686,7 @@ The `hero` property of the `HeroDetail` component expects a `Hero` object, which
 
 <?code-excerpt "lib/app_component.html (property-binding-4)"?>
 ```
-  <hero-detail [hero]="currentHero"></hero-detail>
+  <my-hero [hero]="currentHero"></my-hero>
 ```
 
 <div class="alert alert-info" markdown="1">
@@ -717,7 +717,7 @@ Don't make the following mistake:
 <?code-excerpt "lib/app_component.html (property-binding-6)"?>
 ```
   <!-- ERROR: A value of type 'String' can't be assigned to a variable of type 'Hero'.
-  <hero-detail hero="currentHero"></hero-detail>
+  <my-hero hero="currentHero"></my-hero>
   -->
 ```
 
@@ -749,7 +749,7 @@ not a template expression. Angular sets it and forgets about it.
 
 <?code-excerpt "lib/app_component.html (property-binding-7)"?>
 ```
-  <hero-detail prefix="You are my" [hero]="currentHero"></hero-detail>
+  <my-hero prefix="You are my" [hero]="currentHero"></my-hero>
 ```
 
 The `[hero]` binding, on the other hand, remains a live binding to the component's `currentHero` property.
@@ -1098,7 +1098,7 @@ The best it can do is raise an event reporting the user's delete request.
 
 Here are the pertinent excerpts from that `HeroDetailComponent`:
 
-<?code-excerpt "lib/src/hero_detail_component.dart (template)" region="template-1" title?>
+<?code-excerpt "lib/src/hero_component.dart (template)" region="template-1" title?>
 ```
   template: '''
     <div>
@@ -1110,7 +1110,7 @@ Here are the pertinent excerpts from that `HeroDetailComponent`:
     </div>
   ''',
 ```
-<?code-excerpt "lib/src/hero_detail_component.dart (deleteRequest)" title?>
+<?code-excerpt "lib/src/hero_component.dart (deleteRequest)" title?>
 ```
   final _deleteRequest = new StreamController<Hero>();
   @Output()
@@ -1130,7 +1130,7 @@ Now imagine a hosting parent component that binds to the `HeroDetailComponent`'s
 
 <?code-excerpt "lib/app_component.html (event-binding-to-component)"?>
 ```
-  <hero-detail (deleteRequest)="deleteHero($event)" [hero]="currentHero"></hero-detail>
+  <my-hero (deleteRequest)="deleteHero($event)" [hero]="currentHero"></my-hero>
 ```
 
 When the `deleteRequest` event fires, Angular calls the parent component's `deleteHero` method,
@@ -1568,7 +1568,7 @@ Bind the directive to a condition expression like `isActive` in this example.
 
 <?code-excerpt "lib/app_component.html (NgIf-1)"?>
 ```
-  <hero-detail *ngIf="isActive"></hero-detail>
+  <my-hero *ngIf="isActive"></my-hero>
 ```
 
 <div class="alert alert-warning" markdown="1">
@@ -1619,7 +1619,7 @@ You can control the visibility of an element with a
   <div [class.hidden]="isSpecial">Hide with class</div>
 
   <!-- HeroDetail is in the DOM but hidden -->
-  <hero-detail [class.hidden]="isSpecial"></hero-detail>
+  <my-hero [class.hidden]="isSpecial"></my-hero>
 
   <div [style.display]="isSpecial ? 'block' : 'none'">Show with style</div>
   <div [style.display]="isSpecial ? 'none'  : 'block'">Hide with style</div>
@@ -1683,7 +1683,7 @@ You can also apply an `NgFor` to a component element, as in this example:
 
 <?code-excerpt "lib/app_component.html (NgFor-2)"?>
 ```
-  <hero-detail *ngFor="let hero of heroes" [hero]="hero"></hero-detail>
+  <my-hero *ngFor="let hero of heroes" [hero]="hero"></my-hero>
 ```
 
 <div class="alert alert-warning" markdown="1">
@@ -1720,12 +1720,12 @@ To access the hero's properties,
 reference the `hero` input variable within the `ngFor` host element
 (or within its descendents).
 Here `hero` is referenced first in an interpolation
-and then passed in a binding to the `hero` property of the `<hero-detail>` component.
+and then passed in a binding to the `hero` property of the `<my-hero>` component.
 
 <?code-excerpt "lib/app_component.html (NgFor-1-2)"?>
 ```
   <div *ngFor="let hero of heroes">{!{hero.name}!}</div>
-  <hero-detail *ngFor="let hero of heroes" [hero]="hero"></hero-detail>
+  <my-hero *ngFor="let hero of heroes" [hero]="hero"></my-hero>
 ```
 
 Learn more about _template input variables_ in the
@@ -1927,15 +1927,6 @@ The scope of a reference variable is the _entire template_.
 Do not define the same variable name more than once in the same template.
 The runtime value will be unpredictable.
 
-You can use the `ref-` prefix alternative to `#`.
-This example declares the `fax` variable as `ref-fax` instead of `#fax`.
-
-<?code-excerpt "lib/app_component.html (ref-fax)"?>
-```
-  <input ref-fax placeholder="fax number">
-  <button (click)="callFax(fax.value)">Fax</button>
-```
-
 <a href="#contents">back to top</a>
 <div class="l-hr"></div>
 
@@ -1986,8 +1977,8 @@ is the **target** of a binding on the _left_ of the equals&nbsp;(`=`).
 
 <?code-excerpt "lib/app_component.html (io-2)"?>
 ```
-  <hero-detail [hero]="currentHero" (deleteRequest)="deleteHero($event)">
-  </hero-detail>
+  <my-hero [hero]="currentHero" (deleteRequest)="deleteHero($event)">
+  </my-hero>
 ```
 
 Both `HeroDetailComponent.hero` and `HeroDetailComponent.deleteRequest` are on the **left side** of binding declarations.
@@ -2000,7 +1991,7 @@ Target properties must be explicitly marked as inputs or outputs.
 
 In the `HeroDetailComponent`, such properties are marked as input or output properties using annotations.
 
-<?code-excerpt "lib/src/hero_detail_component.dart (input-output-1)"?>
+<?code-excerpt "lib/src/hero_component.dart (input-output-1)"?>
 ```
   @Input()
   Hero hero;

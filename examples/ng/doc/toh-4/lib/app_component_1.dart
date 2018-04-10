@@ -3,7 +3,7 @@
 import 'package:angular/angular.dart';
 
 import 'src/hero.dart';
-import 'src/hero_detail_component.dart';
+import 'src/hero_component.dart';
 import 'src/hero_service_1.dart';
 
 // Testable but never shown
@@ -13,11 +13,11 @@ import 'src/hero_service_1.dart';
     <div *ngFor="let hero of heroes" (click)="onSelect(hero)">
       {{hero.name}}
     </div>
-    <hero-detail [hero]="selectedHero"></hero-detail>
+    <my-hero [hero]="selected"></my-hero>
     ''',
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: [coreDirectives, HeroComponent],
   // #docregion providers
-  providers: const [HeroService],
+  providers: [const ClassProvider(HeroService)],
 // #enddocregion providers
 )
 // #docregion OnInit-and-ngOnInit
@@ -27,7 +27,7 @@ class AppComponent implements OnInit {
   // #docregion heroes, heroes-and-getHeroes
   List<Hero> heroes;
   // #enddocregion heroes, heroes-and-getHeroes
-  Hero selectedHero;
+  Hero selected;
 
   // #docregion new-service
   HeroService heroService = new HeroService(); // DON'T do this
@@ -38,18 +38,18 @@ class AppComponent implements OnInit {
   // #enddocregion ctor
   // #docregion heroes-and-getHeroes
 
-  // #docregion getHeroes
-  void getHeroes() {
+  // #docregion _getHeroes
+  void _getHeroes() {
     // #docregion get-heroes
-    heroes = _heroService.getHeroes();
+    heroes = _heroService.getAll();
     // #enddocregion get-heroes
   }
-  // #enddocregion getHeroes, heroes-and-getHeroes
+  // #enddocregion _getHeroes, heroes-and-getHeroes
 
   // #docregion ngOnInit, OnInit-and-ngOnInit
-  void ngOnInit() => getHeroes();
+  void ngOnInit() => _getHeroes();
   // #enddocregion ngOnInit, OnInit-and-ngOnInit
 
-  void onSelect(Hero hero) => selectedHero = hero;
+  void onSelect(Hero hero) => selected = hero;
   // #docregion OnInit-and-ngOnInit
 }

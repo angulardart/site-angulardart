@@ -13,7 +13,7 @@ class HeroService {
   HeroService(this._logger);
   //#enddocregion ctor
 
-  List<Hero> getHeroes() {
+  List<Hero> getAll() {
     _logger.log('Getting heroes ...');
     return mockHeroes;
   }

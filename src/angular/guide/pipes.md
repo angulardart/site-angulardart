@@ -43,7 +43,7 @@ a human-friendly date.
   @Component(
     selector: 'hero-birthday',
     template: "<p>The hero's birthday is {!{ birthday | date }!}</p>",
-    pipes: const [COMMON_PIPES],
+    pipes: [commonPipes],
   )
   class HeroBirthdayComponent {
     DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988
@@ -227,7 +227,7 @@ Now you need a component to demonstrate the pipe.
         <h2>Power Booster</h2>
         <p>Super power boost: {!{2 | exponentialStrength: 10}!}</p>
       ''',
-      pipes: const [ExponentialStrengthPipe])
+      pipes: [ExponentialStrengthPipe])
   class PowerBoosterComponent {}
 ```
 
@@ -272,8 +272,8 @@ your pipe and two-way data binding with `ngModel`.
         Super Hero Power: {!{power | exponentialStrength: factor}!}
       </p>
     ''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
-    pipes: const [ExponentialStrengthPipe],
+    directives: [coreDirectives, formDirectives],
+    pipes: [ExponentialStrengthPipe],
   )
   class PowerBoostCalculatorComponent {
     num power = 5;
@@ -479,8 +479,8 @@ You can derive a `FlyingHeroesImpureComponent` from `FlyingHeroesComponent`.
   @Component(
     selector: 'flying-heroes-impure',
     templateUrl: 'flying_heroes_component.html',
-    pipes: const [FlyingHeroesImpurePipe],
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    pipes: [FlyingHeroesImpurePipe],
+    directives: [coreDirectives, formDirectives],
   )
   class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
     FlyingHeroesImpureComponent() {
@@ -519,7 +519,7 @@ This next example binds an `Stream` of message strings
       <p>Message: {!{ message | async }!}</p>
       <button (click)="resend()">Resend</button>
     ''',
-    pipes: const [COMMON_PIPES],
+    pipes: [commonPipes],
   )
   class HeroAsyncMessageComponent {
     static const _msgEventDelay = const Duration(milliseconds: 500);
@@ -575,7 +575,7 @@ In the following code, the pipe only calls the server when the request URL chang
         _cachedUrl = url;
         _cachedData = null;
         HttpRequest.getString(url).then((s) {
-          _cachedData = JSON.decode(s);
+          _cachedData = json.decode(s);
         });
       }
       return _cachedData;
@@ -603,8 +603,8 @@ both requesting the heroes from the `heroes.json` file.
 
         <p>Heroes as JSON: {!{'heroes.json' | fetch | json}!}</p>
       ''',
-      directives: const [CORE_DIRECTIVES],
-      pipes: const [COMMON_PIPES, FetchJsonPipe])
+      directives: [coreDirectives],
+      pipes: [commonPipes, FetchJsonPipe])
   class HeroListComponent {}
 ```
 

@@ -15,7 +15,7 @@ import 'package:angular/angular.dart';
         <p>Wait for it ... {{ greeting | async }}</p>
         <button [disabled]="!done" (click)="tryAgain()">Try Again!</button>
       </div>''',
-  pipes: const [AsyncPipe],
+  pipes: [AsyncPipe],
 )
 class AsyncGreeterPipe {
   static const _delay = const Duration(seconds: 2);
@@ -41,7 +41,7 @@ class AsyncGreeterPipe {
 @Component(
   selector: 'async-time',
   template: "<p>Time: {{ time | async | date:'mediumTime'}}</p>",
-  pipes: const [COMMON_PIPES],
+  pipes: [commonPipes],
 )
 class AsyncTimePipe {
   static const _delay = const Duration(seconds: 1);

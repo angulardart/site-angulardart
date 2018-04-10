@@ -201,7 +201,7 @@ convenience you can use groups like [CORE_DIRECTIVES][]
   @Component(
     selector: 'my-app',
     // ···
-    directives: const [CORE_DIRECTIVES],
+    directives: [coreDirectives],
   )
 ```
 </div>

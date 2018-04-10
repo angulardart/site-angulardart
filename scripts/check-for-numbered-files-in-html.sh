@@ -6,7 +6,7 @@
 
 LOGFILE=$TMP/file-vers-check.txt
 
-find publish -type f -name "*.html" -exec grep -E '_\d\.(css|dart|html)' {} + \
+find publish -type f -name "*.html" -exec grep -E '_\d(\.template)?.(css|dart|html)' {} + \
   | grep -Ev 'code-(excerpt|pane)' > $LOGFILE
 
 if [[ -s $LOGFILE ]]; then

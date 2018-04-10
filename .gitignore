@@ -23,7 +23,7 @@ firebase-debug.log
 node_modules
 npm-debug*.log*
 
-package-lock.json
+!package-lock.json
 
 #
 # Angular
@@ -42,7 +42,7 @@ package-lock.json
 .pub
 build
 pubspec.lock
-/examples/**/pubspec.lock
+!/examples/**/pubspec.lock
 !/src/_data/pubspec.lock
 /examples/**/build.yaml
 /examples/**/web/styles.css

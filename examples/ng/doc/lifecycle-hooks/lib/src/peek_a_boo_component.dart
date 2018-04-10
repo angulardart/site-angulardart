@@ -29,7 +29,7 @@ class PeekABoo implements OnInit {
 @Component(
     selector: 'peek-a-boo',
     template: '<p>Now you see my hero, {{name}}</p>',
-    styles: const ['p {background: LightYellow; padding: 8px}'])
+    styles: ['p {background: LightYellow; padding: 8px}'])
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
 class PeekABooComponent extends PeekABoo

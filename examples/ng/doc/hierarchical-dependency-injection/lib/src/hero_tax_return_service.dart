@@ -23,7 +23,7 @@ class HeroTaxReturnService {
     taxReturn = _originalTR;
   }
 
-  Future<Null> saveTaxReturn() async {
+  Future<void> saveTaxReturn() async {
     taxReturn = _currentTR;
     await _heroService.saveTaxReturn(_currentTR);
   }

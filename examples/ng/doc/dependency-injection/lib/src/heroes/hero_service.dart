@@ -13,7 +13,7 @@ class HeroService {
 
   HeroService(this._logger, this._isAuthorized);
 
-  List<Hero> getHeroes() {
+  List<Hero> getAll() {
     var auth = _isAuthorized ? 'authorized' : 'unauthorized';
     _logger.log('Getting heroes for $auth user.');
     return mockHeroes

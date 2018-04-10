@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:pageloader/objects.dart';
 
-class SizerPO {
+class SizerPO extends PageObjectBase {
   @ByTagName('label')
-  PageLoaderElement _fontSize;
+  PageLoaderElement get _fontSize => q('label');
 
   @ByTagName('button')
   @WithVisibleText('-')
-  PageLoaderElement _dec;
+  PageLoaderElement get _dec => q('button', withVisibleText: '-');
 
   @ByTagName('button')
   @WithVisibleText('+')
-  PageLoaderElement _inc;
+  PageLoaderElement get _inc => q('button', withVisibleText: '+');
 
   Future dec() async => _dec.click();
   Future inc() async => _inc.click();

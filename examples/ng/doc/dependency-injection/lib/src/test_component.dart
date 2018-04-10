@@ -22,7 +22,7 @@ class MockHeroService implements HeroService {
   MockHeroService(this._heroes);
 
   @override
-  List<Hero> getHeroes() => _heroes;
+  List<Hero> getAll() => _heroes;
 }
 
 /////////////////////////////////////

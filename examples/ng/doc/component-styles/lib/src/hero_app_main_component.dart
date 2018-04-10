@@ -12,7 +12,7 @@ import 'quest_summary_component.dart';
       <hero-details [hero]="hero" [class.active]="hero.active">
         <hero-controls [hero]="hero"></hero-controls>
       </hero-details>''',
-    directives: const [
+    directives: [
       HeroDetailsComponent,
       HeroControlsComponent,
       QuestSummaryComponent

@@ -142,8 +142,8 @@ property when the user clicks to choose a hero from the list.
 
     HeroListComponent(this._heroService);
 
-    void ngOnInit() {
-      heroes = _heroService.getHeroes();
+    void ngOnInit() async {
+      heroes = await _heroService.getAll();
     }
 
     void selectHero(Hero hero) {
@@ -223,8 +223,8 @@ identifies the class immediately below it as a component class:
   @Component(
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
-    directives: const [CORE_DIRECTIVES, formDirectives, HeroDetailComponent],
-    providers: const [HeroService],
+    directives: [coreDirectives, formDirectives, HeroDetailComponent],
+    providers: [HeroService],
   )
   class HeroListComponent implements OnInit {
     // ···
@@ -462,15 +462,13 @@ that handles the server communication grunt work.
   class HeroService {
     final BackendService _backendService;
     final Logger _logger;
-    final heroes = <Hero>[];
+    List<Hero> heroes;
 
     HeroService(this._logger, this._backendService);
 
-    List<Hero> getHeroes() {
-      _backendService.getAll(Hero).then((heroes) {
-        _logger.log('Fetched ${heroes.length} heroes.');
-        this.heroes.addAll(heroes as List<Hero>); // fill cache
-      });
+    Future<List<Hero>> getAll() async {
+      heroes = await _backendService.getAll(Hero);
+      _logger.log('Fetched ${heroes.length} heroes.');
       return heroes;
     }
   }
@@ -547,7 +545,7 @@ The most common way to register providers is at the component level using the
 ```
   @Component(
     // ···
-    providers: const [BackendService, HeroService, Logger],
+    providers: [BackendService, HeroService, Logger],
   )
   class AppComponent {}
 ```

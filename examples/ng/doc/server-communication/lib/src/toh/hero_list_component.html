@@ -5,6 +5,6 @@
 </ul>
 
 <label>New hero name: <input #newHeroName /></label>
-<button (click)="addHero(newHeroName.value); newHeroName.value=''">Add Hero</button>
+<button (click)="add(newHeroName.value); newHeroName.value=''">Add Hero</button>
 
 <p class="error" *ngIf="errorMessage != null">{{errorMessage}}</p>

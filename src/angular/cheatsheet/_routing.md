@@ -9,29 +9,26 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>@RouteConfig</b>(const [<br>
-      &nbsp;&nbsp;const Route(<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;path: '/:myParam',<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;component: MyComponent,<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;name: 'MyCmp' ),<br>
-    ])
+    new <b>RouteDefinition</b>(<br>
+    &nbsp;&nbsp;path: 'heroes',<br>
+    &nbsp;&nbsp;component: HeroesComponentNgFactory,<br>
+    )<br>
   </code></td>
   <td markdown="1">
-  Configures routes for the decorated component. Supports static, parameterized, and wildcard routes.
+  Basic unit used to configure routes.
 
   See:
   [Tutorial: Routing](/angular/tutorial/toh-pt5),
-  [RouteConfig class](/api/angular_router/angular_router/RouteConfig-class),
-  [Route class](/api/angular_router/angular_router/Route-class)
+  [RouteDefinition class](/api/angular_router/angular_router/RouteDefinition-class)
   </td>
 </tr>
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-html">
-    &lt;<b>router-outlet</b>>&lt;/router-outlet>
+    &lt;<b>router-outlet</b> [routes]="routes">&lt;/router-outlet>
   </code></td>
   <td markdown="1">
-  Marks the location to load the component of the active route.
+  Reserves a location in the DOM as an outlet for the router.
 
   See:
   [Tutorial: Routing](/angular/tutorial/toh-pt5),
@@ -41,10 +38,11 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-html">
-    &lt;a <b>[routerLink]</b>="['/MyCmp', {myParam: 'value'}]">
+    &lt;a <b>routerLink</b>="/heroes/{!{hero.id}!}">...&lt;/a><br>
+    &lt;a <b>[routerLink]</b>="heroesRoute">...&lt;/a>
   </code></td>
   <td markdown="1">
-  Creates a link to a different view based on a route instruction consisting of a route name and optional parameters. To navigate to a root route, use the `/` prefix; for a child route, use the `./`prefix.
+  Creates a link to a different view.
 
   See:
   [Tutorial: Routing](/angular/tutorial/toh-pt5),
@@ -53,6 +51,9 @@
 </tr>
 
 <!--
+
+Needs updating for angular_router 2.0.0
+
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
     <b>@CanActivate</b>(() => ...)<br>
@@ -63,7 +64,6 @@
   <!-- TODO: link to good resource. >
   </td>
 </tr>
--->
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
@@ -100,10 +100,10 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>routerCanDeactivate</b>(nextInstruction, prevInstruction) { ... }
+    <b>canDeactivate</b>(nextInstruction, prevInstruction) { ... }
   </code></td>
   <td markdown="1">
-  The router calls the `routerCanDeactivate` methods (if defined) of every component that would be removed after a navigation. The navigation proceeds if and only if all such methods return true or a future that completes successfully.
+  The router calls the `canDeactivate()` methods (if defined) of every component that would be removed after a navigation. The navigation proceeds if and only if all such methods return true or a future that completes successfully.
 
   See: [CanDeactivate class](/api/angular_router/angular_router/CanDeactivate-class)
   </td>
@@ -119,5 +119,6 @@
   See: [OnDeactivate class](/api/angular_router/angular_router/OnDeactivate-class)
   </td>
 </tr>
+-->
 
 </table>

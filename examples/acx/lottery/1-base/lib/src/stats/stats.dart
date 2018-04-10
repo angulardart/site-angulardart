@@ -6,9 +6,9 @@ import 'package:angular/angular.dart';
 
 @Component(
   selector: 'stats-component',
-  styleUrls: const ['stats.css'],
+  styleUrls: ['stats.css'],
   templateUrl: 'stats.html',
-  directives: const [NgFor, NgIf],
+  directives: [NgFor, NgIf],
 )
 class StatsComponent {
   @Input()

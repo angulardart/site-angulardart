@@ -8,8 +8,8 @@ import 'package:angular_components/angular_components.dart';
 @Component(
   selector: 'help-component',
   templateUrl: 'help.html',
-  styleUrls: const ['help.css'],
-  directives: const [
+  styleUrls: ['help.css'],
+  directives: [
     materialDirectives,
     NgSwitch,
     NgSwitchWhen,

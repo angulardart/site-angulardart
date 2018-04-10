@@ -1,47 +1,26 @@
-// #docregion
-// #docplaster
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'src/crisis_center_component_1.dart';
-import 'src/heroes_component_1.dart';
-import 'src/not_found_component.dart';
+import 'src/routes_2.dart';
 
 @Component(
   selector: 'my-app',
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
+      <a [routerLink]="routes.crises.path"
+         routerLinkActive="active-route">Crisis Center</a>
+      <a [routerLink]="routes.heroes.path"
+         routerLinkActive="active-route">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: const ['.router-link-active {color: #039be5;}'],
-  directives: const [ROUTER_DIRECTIVES],
+  styles: ['.active-route {color: #039be5;}'],
+  directives: [routerDirectives],
+  providers: [Routes],
 )
-@RouteConfig(const [
-  // #docregion Redirect
-  const Redirect(path: '/', redirectTo: const ['Heroes']),
-  // #enddocregion Redirect
-  const Route(
-      path: '/crisis-center',
-      name: 'CrisisCenter',
-      component: CrisisCenterComponent),
-  // #enddocregion ,
-  /*
-  // #docregion Route.useAsDefault
-  const Route(
-      path: '/heroes',
-      name: 'Heroes',
-      component: HeroesComponent,
-      useAsDefault: true),
-  // #enddocregion Route.useAsDefault
-  */
-  // #docregion ,
-  const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent),
-  // #docregion wildcard
-  const Route(path: '/**', name: 'NotFound', component: NotFoundComponent)
-  // #enddocregion wildcard
-])
-class AppComponent {}
+class AppComponent {
+  final Routes routes;
+
+  AppComponent(this.routes);
+}

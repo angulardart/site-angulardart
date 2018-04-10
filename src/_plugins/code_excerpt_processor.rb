@@ -175,6 +175,7 @@ module NgCodeExcerpt
     end
 
     def processCodePane(pi, attrs, args)
+      # FIXME: support use of globally set replace args.
       title = args['title'] || trimFileVers(args[''])
       escapedCode = getCodeFrag(
         fullFragPath(args['path'], args['region']),
@@ -186,9 +187,13 @@ module NgCodeExcerpt
         _, re, replacement, g = args['replace'].split '/'
         escapedCode.gsub!(Regexp.new(re)) {
           match = Regexp.last_match
-          # TODO: add support for $1, $2, ..., and $$ (escaped $).
-          if /\$(\$|\d)/ =~ replacement
-            raise "plugin support for $$, $1, $2, ... has not been implemented yet"
+          # FIXME: doesn't yet recognize escaped '$' ('\$')
+          while (argMatch = /(?<=\$)(\d)(?!\d)/.match(replacement)) do
+            next unless argMatch;
+            replacement.gsub!("$#{argMatch[0]}", match[argMatch[0].to_i])
+          end
+          if /\$\d+|\\\$/ =~ replacement
+            raise "Plugin doesn't support \\$, or more than 9 match groups $1, ..., $9: #{replacement}.\nAborting."
           end
           if replacement.include? '$&'
             replacement.gsub('$&', match[0])

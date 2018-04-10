@@ -13,5 +13,5 @@ HeroService heroServiceFactory(Logger logger, UserService userService) =>
 // #docregion provider
 const heroServiceProvider = const Provider<HeroService>(HeroService,
     useFactory: heroServiceFactory,
-    deps: const [Logger, UserService]);
+    deps: [Logger, UserService]);
 // #enddocregion provider

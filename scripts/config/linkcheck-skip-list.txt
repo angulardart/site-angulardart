@@ -1,6 +1,12 @@
 # ANGULAR
 # =======
 
+# Temporary until the install page integration is complete
+/tools/sdk
+
+# Temporary (until v5 of lottery apps are in angular_examples)
+/examples/lottery/
+
 # angular.io is now an Angular app; the link checker has difficulty seeing anchors
 # (probably because the page hasn't been fully generated yet), so skip such links:
 https://angular.io/.*?#

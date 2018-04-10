@@ -3,13 +3,15 @@ import 'package:angular/angular.dart';
 // #docregion directives
 import 'package:angular_forms/angular_forms.dart';
 
+import 'hero.dart';
+
 @Component(
   selector: 'my-app',
   // #enddocregion directives
   // #docregion editing-Hero, template
   template: '''
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
+    <h2>{{hero.name}}</h2>
     <div><label>id: </label>{{hero.id}}</div>
     <div>
       <label>name: </label>
@@ -18,20 +20,15 @@ import 'package:angular_forms/angular_forms.dart';
   ''',
   // #enddocregion editing-Hero, template
   // #docregion directives
-  directives: const [formDirectives],
+  directives: [formDirectives],
 )
 // #enddocregion directives
+// #docregion class
 class AppComponent {
+  // #enddocregion directives
   final title = 'Tour of Heroes';
-  // #docregion hero-property-1
+  // #docregion hero
   Hero hero = new Hero(1, 'Windstorm');
-  // #enddocregion hero-property-1
-}
-
-// #docregion hero-class-1
-class Hero {
-  final int id;
-  String name;
-
-  Hero(this.id, this.name);
+  // #enddocregion hero
+  // #docregion directives
 }

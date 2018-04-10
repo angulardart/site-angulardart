@@ -6,11 +6,10 @@ set -e -o pipefail
 
 if  [[ -z "$(type -t dart)" ]]; then
     travis_fold start install.dart
-    echo INSTALLING Dart SDK and Dartium ...
+    echo INSTALLING Dart SDK ...
 
-    # URLs for sdk and dartium:
+    # URL for sdk:
     # https://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-linux-x64-release.zip
-    # https://storage.googleapis.com/dart-archive/channels/stable/release/latest/dartium/dartium-macos-x64-release.zip
 
     : ${DART_SDK_CHANNEL:=$(node -p 'require("./src/_data/pkg-vers.json").SDK.channel')} # dev or stable
     : ${DART_SDK_VERS:=$(node -p 'require("./src/_data/pkg-vers.json").SDK.vers')} # dev or stable
@@ -53,17 +52,6 @@ if  [[ -z "$(type -t dart)" ]]; then
     }
 
     if getAndInstall sdk dartsdk; then
-        # if [[ "$_OS_NAME" == "macos" ]]; then
-        #     getAndInstall dartium dartium ia32
-        # else
-        #     getAndInstall dartium
-        # fi
-
-        getAndInstall dartium content_shell
-        # Note that the unzipped package name starts with drt, not content_shell.
-        ln -s $PKG/{drt-*,content_shell}
-        ls -Ll $PKG/content_shell
-
         echo
         dart --version
     fi

@@ -22,7 +22,6 @@ For information on how to get these prerequisite tools,
 see [Get Started](/guides/get-started):
 
 - **Dart SDK** {{site.data.pkg-vers.SDK.vers}} or a compatible version
-- **Dartium**
 - **WebStorm** or your favorite IDE (recommended)
 
 ## Create a starter project  {#create}
@@ -102,23 +101,21 @@ Using WebStorm, or your favorite editor:
 
 ## Run the app
 
+{% include webstorm-not-ready.md %}
+
 In WebStorm:
 
 1. In the project view, right-click `web/index.html`.
 1. Choose **Run ‘index.html’.**
 
-**Note:** If a dialog says that Chromium wants to use your confidential information,
-click **Deny**. Dartium is not for general-purpose browsing,
-and Dartium doesn’t need your information to run this app.
-
-You should see the following app in a [Dartium](/tools/dartium) browser window:
+You should see the following app in a browser window:
 
 ![A web page with the header: Hello Angular](/angular/guide/images/starter-app.png)
 
 To run the app from the command line, use `pub` to build and serve the app:
 
 ```terminal
-$ pub serve
+$ pub run build_runner serve
 ```
 
 Then, to view your app, visit [localhost:8080](localhost:8080).

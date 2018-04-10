@@ -399,10 +399,10 @@ This example monitors the `OnChanges` hook.
 ```
   ngOnChanges(Map<String, SimpleChange> changes) {
     changes.forEach((String propName, SimpleChange change) {
-      String cur = JSON.encode(change.currentValue);
+      String cur = json.encode(change.currentValue);
       String prev = change.previousValue == null
           ? "{}"
-          : JSON.encode(change.previousValue);
+          : json.encode(change.previousValue);
       changeLog.add('$propName: currentValue = $cur, previousValue = $prev');
     });
   }
@@ -516,7 +516,7 @@ Here's a child view that displays a hero's name in an input box:
   @Component(
     selector: 'my-child-view',
     template: '<input [(ngModel)]="hero">',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: [coreDirectives, formDirectives],
   )
   class ChildViewComponent {
     String hero = 'Magneta';

@@ -30,11 +30,12 @@ Before continuing with the Tour of Heroes, verify that you have the following st
   - lib
     - app_component.{css,dart}
     - src
+      - routes.dart
       - dashboard_component.{css,dart,html}
       - hero.dart
-      - hero_detail_component.{css,dart,html}
+      - hero_component.{css,dart,html}
       - hero_service.dart
-      - heroes_component.{css,dart,html}
+      - hero_list_component.{css,dart,html}
       - mock_heroes.dart
   - test
     - app_test.dart
@@ -60,22 +61,18 @@ Update package dependencies by adding the Dart [http][] and
 
 <?code-excerpt path-base="examples/ng/doc"?>
 
-<?code-excerpt "toh-5/pubspec.yaml" diff-with="toh-6/pubspec.yaml" from="dependencies" to="stream_transform"?>
+<?code-excerpt "toh-5/pubspec.yaml" diff-with="toh-6/pubspec.yaml" from="angular:" to="stream_transform"?>
 ```diff
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
-@@ -1,14 +1,20 @@
+@@ -1,3 +1,4 @@
  name: angular_tour_of_heroes
  description: Tour of Heroes
  version: 0.0.1
-
- environment:
-   sdk: '>=1.24.0 <2.0.0'
-
- dependencies:
-   angular: ^4.0.0
-   angular_forms: ^1.0.0
-   angular_router: ^1.0.2
+@@ -9,6 +10,8 @@
+   angular: ^5.0.0-alpha
+   angular_forms: ^2.0.0-alpha
+   angular_router: ^2.0.0-alpha
 +  http: ^0.11.0
 +  stream_transform: ^0.0.6
 ```
@@ -99,10 +96,8 @@ launch the app and its root `AppComponent`.
 
   void main() {
     bootstrap(AppComponent, [
-      ROUTER_PROVIDERS,
-      // Remove next line in production
-      provide(LocationStrategy, useClass: HashLocationStrategy),
-      provide(BrowserClient, useFactory: () => new BrowserClient(), deps: [])
+      routerProvidersHash, // You can use routerProviders in production
+      const FactoryProvider(Client, () => new BrowserClient()),
     ]);
   }
 ```
@@ -130,16 +125,19 @@ Update `web/main.dart` with this version, which uses the mock service:
   import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
   import 'package:http/http.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent, [
-      ROUTER_PROVIDERS,
-      // Remove next line in production
-      provide(LocationStrategy, useClass: HashLocationStrategy),
-      provide(Client, useClass: InMemoryDataService),
-      // Using a real back end?
-      // Import browser_client.dart and change the above to:
-      // [provide(Client, useFactory: () => new BrowserClient(), deps: [])]
-    ]);
+    bootstrapStatic(
+        AppComponent,
+        [
+          routerProvidersHash, // You can use routerProviders in production
+          const ClassProvider(Client, useClass: InMemoryDataService),
+          // Using a real back end?
+          // Import 'package:http/browser_client.dart' and change the above to:
+          // const FactoryProvider(Client, () => new BrowserClient()),
+        ],
+        ng.initReflector);
   }
 ```
 
@@ -197,13 +195,13 @@ implementations.
           }
           break;
         case 'POST':
-          var name = JSON.decode(request.body)['name'];
+          var name = json.decode(request.body)['name'];
           var newHero = new Hero(_nextId++, name);
           _heroesDb.add(newHero);
           data = newHero;
           break;
         case 'PUT':
-          var heroChanges = new Hero.fromJson(JSON.decode(request.body));
+          var heroChanges = new Hero.fromJson(json.decode(request.body));
           var targetHero = _heroesDb.firstWhere((h) => h.id == heroChanges.id);
           targetHero.name = heroChanges.name;
           data = targetHero;
@@ -216,7 +214,7 @@ implementations.
         default:
           throw 'Unimplemented HTTP method ${request.method}';
       }
-      return new Response(JSON.encode({'data': data}), 200,
+      return new Response(json.encode({'data': data}), 200,
           headers: {'content-type': 'application/json'});
     }
 
@@ -259,17 +257,17 @@ class with these capabilities:
 
 In the current `HeroService` implementation, a Future resolved with mock heroes is returned.
 
-<?code-excerpt "../toh-4/lib/src/hero_service.dart (old getHeroes)" region="get-heroes"?>
+<?code-excerpt "../toh-4/lib/src/hero_service.dart (old getAll)" region="getAll"?>
 ```
-  Future<List<Hero>> getHeroes() async => mockHeroes;
+  Future<List<Hero>> getAll() async => mockHeroes;
 ```
 
 This was implemented in anticipation of ultimately
 fetching heroes with an HTTP client, which must be an asynchronous operation.
 
-Now convert `getHeroes()` to use HTTP.
+Now convert `getAll()` to use HTTP.
 
-<?code-excerpt "lib/src/hero_service.dart (updated getHeroes and new class members)" region="getHeroes" title?>
+<?code-excerpt "lib/src/hero_service.dart (updated getAll and new class members)" region="getAll" title?>
 ```
   static const _heroesUrl = 'api/heroes'; // URL to web API
 
@@ -277,7 +275,7 @@ Now convert `getHeroes()` to use HTTP.
 
   HeroService(this._http);
 
-  Future<List<Hero>> getHeroes() async {
+  Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = _extractData(response)
@@ -289,7 +287,7 @@ Now convert `getHeroes()` to use HTTP.
     }
   }
 
-  dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
+  dynamic _extractData(Response resp) => json.decode(resp.body)['data'];
 
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
@@ -333,7 +331,7 @@ It receives a Future of *heroes* just as it did before.
 
 ### Error Handling
 
-At the end of `getHeroes()`, you `catch` server failures and pass them to an error handler.
+At the end of `getAll()`, you `catch` server failures and pass them to an error handler.
 
 <?code-excerpt "lib/src/hero_service.dart (catch)"?>
 ```
@@ -360,17 +358,17 @@ The code also includes an error to the caller in a propagated exception, so that
 
 ### Get hero by id
 
-When the `HeroDetailComponent` asks the `HeroService` to fetch a hero,
+When the `HeroComponent` asks the `HeroService` to fetch a hero,
 the `HeroService` currently fetches all heroes and
 filters for the one with the matching `id`.
 That's fine for a simulation, but it's wasteful to ask a real server for all heroes when you only want one.
 Most web APIs support a _get-by-id_ request in the form `api/hero/:id` (such as `api/hero/11`).
 
-Update the `HeroService.getHero()` method to make a _get-by-id_ request:
+Update the `HeroService.get()` method to make a _get-by-id_ request:
 
-<?code-excerpt "lib/src/hero_service.dart (getHero)" title?>
+<?code-excerpt "lib/src/hero_service.dart (get)" title?>
 ```
-  Future<Hero> getHero(int id) async {
+  Future<Hero> get(int id) async {
     try {
       final response = await _http.get('$_heroesUrl/$id');
       return new Hero.fromJson(_extractData(response));
@@ -380,14 +378,14 @@ Update the `HeroService.getHero()` method to make a _get-by-id_ request:
   }
 ```
 
-This request is almost the same as `getHeroes()`.
+This request is almost the same as `getAll()`.
 The hero id in the URL identifies which hero the server should update.
 
 Also, the `data` in the response is a single hero object rather than a list.
 
-### Unchanged _getHeroes_ API
+### Unchanged _getAll_ API
 
-Although you made significant internal changes to `getHeroes()` and `getHero()`,
+Although you made significant internal changes to `getAll()` and `get()`,
 the public signatures didn't change.
 You still return a Future from both methods.
 You won't have to update any of the components that call them.
@@ -411,7 +409,7 @@ the server.
 At the end of the hero detail template, add a save button with a `click` event
 binding that invokes a new component method named `save()`.
 
-<?code-excerpt "lib/src/hero_detail_component.html (save)" title?>
+<?code-excerpt "lib/src/hero_component.html (save)" title?>
 ```
   <button (click)="save()">Save</button>
 ```
@@ -419,9 +417,9 @@ binding that invokes a new component method named `save()`.
 Add the following `save()` method, which persists hero name changes using the hero service
 `update()` method and then navigates back to the previous view.
 
-<?code-excerpt "lib/src/hero_detail_component.dart (save)" title?>
+<?code-excerpt "lib/src/hero_component.dart (save)" title?>
 ```
-  Future<Null> save() async {
+  Future<void> save() async {
     await _heroService.update(hero);
     goBack();
   }
@@ -430,7 +428,7 @@ Add the following `save()` method, which persists hero name changes using the he
 ### Add a hero service _update()_ method
 
 The overall structure of the `update()` method is similar to that of
-`getHeroes()`, but it uses an HTTP `put()` to persist server-side changes.
+`getAll()`, but it uses an HTTP `put()` to persist server-side changes.
 
 
 <?code-excerpt "lib/src/hero_service.dart (update)" title?>
@@ -441,7 +439,7 @@ The overall structure of the `update()` method is similar to that of
     try {
       final url = '$_heroesUrl/${hero.id}';
       final response =
-          await _http.put(url, headers: _headers, body: JSON.encode(hero));
+          await _http.put(url, headers: _headers, body: json.encode(hero));
       return new Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
@@ -465,7 +463,7 @@ element paired with an add button.
 Insert the following into the heroes component HTML, just after
 the heading:
 
-<?code-excerpt "lib/src/heroes_component.html (add)" title?>
+<?code-excerpt "lib/src/hero_list_component.html (add)" title?>
 ```
   <div>
     <label>Hero name:</label> <input #heroName />
@@ -478,13 +476,13 @@ the heading:
 In response to a click event, call the component's click handler and then
 clear the input field so that it's ready for another name.
 
-<?code-excerpt "lib/src/heroes_component.dart (add)" title?>
+<?code-excerpt "lib/src/hero_list_component.dart (add)" title?>
 ```
-  Future<Null> add(String name) async {
+  Future<void> add(String name) async {
     name = name.trim();
-    if (name.isEmpty) return;
+    if (name.isEmpty) return null;
     heroes.add(await _heroService.create(name));
-    selectedHero = null;
+    selected = null;
   }
 ```
 
@@ -498,7 +496,7 @@ Implement the `create()` method in the `HeroService` class.
   Future<Hero> create(String name) async {
     try {
       final response = await _http.post(_heroesUrl,
-          headers: _headers, body: JSON.encode({'name': name}));
+          headers: _headers, body: json.encode({'name': name}));
       return new Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
@@ -515,7 +513,7 @@ Each hero in the heroes view should have a delete button.
 Add the following button element to the heroes component HTML, after the hero
 name in the repeated `<li>` element.
 
-<?code-excerpt "lib/src/heroes_component.html (delete)"?>
+<?code-excerpt "lib/src/hero_list_component.html (delete)"?>
 ```
   <button class="delete"
     (click)="delete(hero); $event.stopPropagation()">x</button>
@@ -523,10 +521,10 @@ name in the repeated `<li>` element.
 
 The `<li>` element should now look like this:
 
-<?code-excerpt "lib/src/heroes_component.html (li element)" title?>
+<?code-excerpt "lib/src/hero_list_component.html (li element)" title?>
 ```
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero">
+      [class.selected]="hero === selected">
     <span class="badge">{!{hero.id}!}</span>
     <span>{!{hero.name}!}</span>
     <button class="delete"
@@ -541,12 +539,12 @@ select the hero that the user will delete.
 
 The logic of the `delete()` handler is a bit trickier:
 
-<?code-excerpt "lib/src/heroes_component.dart (delete)" title?>
+<?code-excerpt "lib/src/hero_list_component.dart (delete)" title?>
 ```
-  Future<Null> delete(Hero hero) async {
+  Future<void> delete(Hero hero) async {
     await _heroService.delete(hero.id);
     heroes.remove(hero);
-    if (selectedHero == hero) selectedHero = null;
+    if (selected == hero) selected = null;
   }
 ```
 
@@ -557,7 +555,7 @@ from the list and resets the selected hero, if necessary.
 To place the delete button at the far right of the hero entry,
 add this CSS:
 
-<?code-excerpt "lib/src/heroes_component.css (additions)" title?>
+<?code-excerpt "lib/src/hero_list_component.css (additions)" title?>
 ```
   button.delete {
     float:right;
@@ -574,7 +572,7 @@ Add the hero service's `delete()` method, which uses the `delete()` HTTP method 
 
 <?code-excerpt "lib/src/hero_service.dart (delete)" title?>
 ```
-  Future<Null> delete(int id) async {
+  Future<void> delete(int id) async {
     try {
       final url = '$_heroesUrl/$id';
       await _http.delete(url, headers: _headers);
@@ -588,7 +586,7 @@ Refresh the browser and try the new delete functionality.
 
 ## Streams
 
-Recall that `HeroService.getHeroes()` awaits for an `http.get()`
+Recall that `HeroService.getAll()` awaits for an `http.get()`
 response and yields a _Future_ `List<Hero>`, which is fine when you are only
 interested in a single result.
 
@@ -632,7 +630,7 @@ Start by creating `HeroSearchService` that sends search queries to the server's 
       }
     }
 
-    dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
+    dynamic _extractData(Response resp) => json.decode(resp.body)['data'];
 
     Exception _handleError(dynamic e) {
       print(e); // for demo purposes only
@@ -706,16 +704,17 @@ Create the `HeroSearchComponent` class and metadata.
   import 'package:angular_router/angular_router.dart';
   import 'package:stream_transform/stream_transform.dart';
 
+  import 'route_paths.dart' as paths;
   import 'hero_search_service.dart';
   import 'hero.dart';
 
   @Component(
     selector: 'hero-search',
     templateUrl: 'hero_search_component.html',
-    styleUrls: const ['hero_search_component.css'],
-    directives: const [CORE_DIRECTIVES],
-    providers: const [HeroSearchService],
-    pipes: const [COMMON_PIPES],
+    styleUrls: ['hero_search_component.css'],
+    directives: [coreDirectives],
+    providers: [HeroSearchService],
+    pipes: [commonPipes],
   )
   class HeroSearchComponent implements OnInit {
     HeroSearchService _heroSearchService;
@@ -730,7 +729,7 @@ Create the `HeroSearchComponent` class and metadata.
     // Push a search term into the stream.
     void search(String term) => _searchTerms.add(term);
 
-    Future<Null> ngOnInit() async {
+    Future<void> ngOnInit() async {
       heroes = _searchTerms.stream
           .transform(debounce(new Duration(milliseconds: 300)))
           .distinct()
@@ -742,13 +741,11 @@ Create the `HeroSearchComponent` class and metadata.
       });
     }
 
-    void gotoDetail(Hero hero) {
-      var link = [
-        'HeroDetail',
-        {'id': hero.id.toString()}
-      ];
-      _router.navigate(link);
-    }
+    String _heroUrl(int id) =>
+        paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+
+    Future<NavigationResult> gotoDetail(Hero hero) =>
+        _router.navigate(_heroUrl(hero.id));
   }
 ```
 
@@ -780,7 +777,7 @@ You can turn the stream of search terms into a stream of `Hero` lists and assign
 ```
   Stream<List<Hero>> heroes;
 
-  Future<Null> ngOnInit() async {
+  Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(new Duration(milliseconds: 300)))
         .distinct()
@@ -818,7 +815,7 @@ Add the hero search HTML element to the bottom of the `DashboardComponent` templ
 ```
   <h3>Top Heroes</h3>
   <div class="grid grid-pad">
-    <a *ngFor="let hero of heroes"  [routerLink]="['HeroDetail', {id: hero.id.toString()}]"  class="col-1-4">
+    <a *ngFor="let hero of heroes" routerLink="/heroes/{!{hero.id}!}" class="col-1-4">
       <div class="module hero">
         <h4>{!{hero.name}!}</h4>
       </div>
@@ -836,8 +833,8 @@ Finally, import `HeroSearchComponent` from `hero_search_component.dart` and add 
   @Component(
     selector: 'my-dashboard',
     templateUrl: 'dashboard_component.html',
-    styleUrls: const ['dashboard_component.css'],
-    directives: const [CORE_DIRECTIVES, HeroSearchComponent, ROUTER_DIRECTIVES],
+    styleUrls: ['dashboard_component.css'],
+    directives: [coreDirectives, HeroSearchComponent, routerDirectives],
   )
 ```
 
@@ -859,11 +856,11 @@ Verify that you have the following structure:
     - src
       - dashboard_component.{css,dart,html}
       - hero.dart
-      - hero_detail_component.{css,dart,html}
+      - hero_component.{css,dart,html}
       - hero_search_component.{css,dart,html} (new)
       - hero_search_service.dart (new)
       - hero_service.dart
-      - heroes_component.{css,dart,html}
+      - hero_list_component.{css,dart,html}
   - test
     - app_test.dart
     - ...
@@ -891,11 +888,11 @@ Here are the files you added or changed in this page.
   <?code-pane "lib/src/dashboard_component.dart" linenums?>
   <?code-pane "lib/src/dashboard_component.html" linenums?>
   <?code-pane "lib/src/hero.dart" linenums?>
-  <?code-pane "lib/src/hero_detail_component.dart" linenums?>
-  <?code-pane "lib/src/hero_detail_component.html" linenums?>
+  <?code-pane "lib/src/hero_component.dart" linenums?>
+  <?code-pane "lib/src/hero_component.html" linenums?>
   <?code-pane "lib/src/hero_service.dart" linenums?>
-  <?code-pane "lib/src/heroes_component.css" linenums?>
-  <?code-pane "lib/src/heroes_component.dart" linenums?>
+  <?code-pane "lib/src/hero_list_component.css" linenums?>
+  <?code-pane "lib/src/hero_list_component.dart" linenums?>
   <?code-pane "lib/in_memory_data_service.dart" linenums?>
 </code-tabs>
 

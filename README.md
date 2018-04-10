@@ -18,9 +18,8 @@ Install the following tools if you don't have them already.
 
 - **[nvm][]**, the Node Version Manager.
 - **[rvm][]**, the Ruby Version Manager.
-- **[Dart][]**, _including_ both browsers used for testing doc examples:
-  - **Dartium**
-  - **content shell**
+- **[Dart][]**
+- **[Chrome][]** v63 or later.
 
 > IMPORTANT: Follow the installation instructions for each of the tools
 carefully. In particular, configure your shell/environment so
@@ -132,6 +131,7 @@ update-for-dart-2
 
 
 [Build Status SVG]: https://travis-ci.org/dart-lang/site-webdev.svg?branch=master
+[Chrome]: https://www.google.ca/chrome
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install
 [Dart install]: https://www.dartlang.org/install

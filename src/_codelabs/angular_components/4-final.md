@@ -40,7 +40,7 @@ implemented in lib/src/settings/settings_component.* files.
 +++ 4-final/lib/src/settings/settings_component.dart
 @@ -15,6 +15,8 @@
    templateUrl: 'settings_component.html',
-   directives: const [
+   directives: [
      MaterialCheckboxComponent,
 +    MaterialExpansionPanel,
 +    MaterialExpansionPanelSet,

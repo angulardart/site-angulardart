@@ -1,0 +1,14 @@
+name: pageloader
+description: >
+  Pageloader mock to be used until v3 is released;
+  for details, see https://github.com/dart-lang/site-webdev/issues/1351
+version: 0.0.1
+
+environment:
+  sdk: '>=2.0.0-dev.32.0 <2.0.0'
+
+dependencies:
+  angular_test: ^2.0.0-alpha
+
+dev_dependencies:
+  test: ^0.12.30

@@ -11,9 +11,9 @@ import 'package:components_codelab/src/settings/settings.dart';
 
 @Component(
   selector: 'settings-component',
-  styleUrls: const ['settings_component.css'],
+  styleUrls: ['settings_component.css'],
   templateUrl: 'settings_component.html',
-  directives: const [
+  directives: [
     MaterialCheckboxComponent,
     MaterialExpansionPanel,
     MaterialExpansionPanelSet,
@@ -21,7 +21,7 @@ import 'package:components_codelab/src/settings/settings.dart';
     MaterialRadioGroupComponent,
     NgFor
   ],
-  providers: const [materialProviders],
+  providers: [materialProviders],
 )
 class SettingsComponent implements OnInit {
   final initialCashOptions = [0, 10, 100, 1000];

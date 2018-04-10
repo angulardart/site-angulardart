@@ -46,9 +46,9 @@ using whatever [Dart web development tools](/tools) you prefer.
 @@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^4.0.0
-+  angular_components: ^0.8.0
-   intl: ^0.14.0
+   angular: ^5.0.0-alpha
++  angular_components: ^0.9.0-alpha
+   intl: ^0.15.0
 
  dev_dependencies:
 ```
@@ -81,9 +81,9 @@ importing the Angular components and informing Angular about
  import 'src/scores/scores.dart';
  import 'src/settings/settings.dart';
 @@ -22,13 +23,14 @@
-   styleUrls: const ['lottery_simulator.css'],
+   styleUrls: ['lottery_simulator.css'],
    templateUrl: 'lottery_simulator.html',
-   directives: const [
+   directives: [
 +    materialDirectives,
      HelpComponent,
      ScoresComponent,
@@ -91,8 +91,8 @@ importing the Angular components and informing Angular about
      VisualizeWinningsComponent,
      SettingsComponent,
    ],
--  providers: const [Settings],
-+  providers: const [materialProviders, Settings],
+-  providers: [Settings],
++  providers: [materialProviders, Settings],
  )
  class AppComponent implements OnInit {
    final Settings _settings;
@@ -285,8 +285,8 @@ register `materialDirectives`.
  @Component(
    selector: 'help-component',
    templateUrl: 'help.html',
-   styleUrls: const ['help.css'],
-   directives: const [
+   styleUrls: ['help.css'],
+   directives: [
 +    materialDirectives,
      NgSwitch,
      NgSwitchWhen,
@@ -337,10 +337,10 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 
  @Component(
    selector: 'scores-component',
-   styleUrls: const ['scores.css'],
+   styleUrls: ['scores.css'],
    templateUrl: 'scores.html',
-+  directives: const [ScorecardComponent],
-+  providers: const [materialProviders],
++  directives: [ScorecardComponent],
++  providers: [materialProviders],
  )
  class ScoresComponent {
    /// The state of cash the person would have if they saved instead of betting.

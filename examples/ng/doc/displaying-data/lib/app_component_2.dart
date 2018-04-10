@@ -19,7 +19,7 @@ import 'package:angular/angular.dart';
   ''',
   // #enddocregion template
   // #docregion directives
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 // #enddocregion directives
 // #docregion class

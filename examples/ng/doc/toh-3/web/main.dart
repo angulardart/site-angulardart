@@ -3,7 +3,9 @@ import 'package:angular/angular.dart';
 
 import 'package:angular_tour_of_heroes/app_component.dart';
 
+import 'main.template.dart' as ng;
+
 void main() {
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }
 // #enddocregion pt1

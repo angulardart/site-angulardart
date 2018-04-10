@@ -10,7 +10,7 @@ import 'src/hero_service.dart';
   template: '...',
   /* ... */
   // #docregion locally-provided-service
-  providers: const [HeroService],
+  providers: [const ClassProvider(HeroService)],
 )
 class AppComponent implements OnInit {
   List<Hero> heroes;
@@ -19,12 +19,12 @@ class AppComponent implements OnInit {
   AppComponent(this._heroService);
   // #enddocregion locally-provided-service
 
-  // #docregion getHeroes
-  void getHeroes() {
-    _heroService.getHeroes().then((heroes) => this.heroes = heroes);
+  // #docregion _getHeroes
+  void _getHeroes() {
+    _heroService.getAll().then((heroes) => this.heroes = heroes);
   }
-  // #enddocregion getHeroes
+  // #enddocregion _getHeroes
 
-  void ngOnInit() => getHeroes();
+  void ngOnInit() => _getHeroes();
   // #docregion locally-provided-service
 }

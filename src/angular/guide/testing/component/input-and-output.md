@@ -10,6 +10,8 @@ nextpage:
   title: "Component Testing: Routing Components"
   url: /angular/guide/testing/component/routing-components
 ---
+{% include_relative _pageloader-mock-warning.md %}
+
 <?code-excerpt path-base="examples/ng/doc"?>
 
 {% include_relative _page-top-toc.md %}
@@ -23,7 +25,7 @@ The app from [part 3][] of the [tutorial][] will be used as a running example
 to illustrate how to test a component with `@Input()` properties, specifically
 the `HeroDetailComponent`:
 
-<?code-excerpt "toh-3/lib/src/hero_detail_component.dart" title?>
+<?code-excerpt "toh-3/lib/src/hero_component.dart" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_forms/angular_forms.dart';
@@ -31,19 +33,19 @@ the `HeroDetailComponent`:
   import 'hero.dart';
 
   @Component(
-    selector: 'hero-detail',
+    selector: 'my-hero',
     template: '''
       <div *ngIf="hero != null">
-        <h2>{!{hero.name}!} details!</h2>
+        <h2>{!{hero.name}!}</h2>
         <div><label>id: </label>{!{hero.id}!}</div>
         <div>
           <label>name: </label>
           <input [(ngModel)]="hero.name" placeholder="name">
         </div>
       </div>''',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: [coreDirectives, formDirectives],
   )
-  class HeroDetailComponent {
+  class HeroComponent {
     @Input()
     Hero hero;
   }
@@ -57,25 +59,23 @@ Here is the [page object][] for this component:
 
   import 'package:pageloader/objects.dart';
 
-  class HeroDetailPO {
+  class HeroDetailPO extends PageObjectBase {
     @FirstByCss('div h2')
     @optional
-    PageLoaderElement _title; // e.g. 'Mr Freeze details!'
+    PageLoaderElement get _title => q('div h2');
 
     @FirstByCss('div div')
     @optional
-    PageLoaderElement _id;
+    PageLoaderElement get _id => q('div div');
 
     @ByTagName('input')
     @optional
-    PageLoaderElement _input;
+    PageLoaderElement get _input => q('input');
 
     Future<Map> get heroFromDetails async {
       if (_id == null) return null;
       final idAsString = (await _id.visibleText).split(':')[1];
-      final text = await _title.visibleText;
-      final matches = new RegExp((r'^(.*) details!$')).firstMatch(text);
-      return _heroData(idAsString, matches[1]);
+      return _heroData(idAsString, await _title.visibleText);
     }
 
     Future clear() => _input.clear();
@@ -86,19 +86,19 @@ Here is the [page object][] for this component:
   }
 ```
 
-The app component template contains a `<hero-detail>` element that binds the
+The app component template contains a `<my-hero>` element that binds the
 `hero` property to the app component's `selectedHero`:
 
-<?code-excerpt "toh-3/lib/app_component.html (hero-detail)" title?>
+<?code-excerpt "toh-3/lib/app_component.html (my-hero)" title?>
 ```
-  <hero-detail [hero]="selectedHero"></hero-detail>
+  <my-hero [hero]="selected"></my-hero>
 ```
 
 The tests shown below use the following target hero data:
 
 <?code-excerpt "toh-3/test/hero_detail_test.dart (targetHero)" title?>
 ```
-  const targetHero = const {'id': 1, 'name': 'Alice'};
+  const targetHero = {'id': 1, 'name': 'Alice'};
 ```
 
 ## @Input(): No initial value {#input-uninitialized}
@@ -107,9 +107,9 @@ This case occurs when either of the following is true:
 
 - The input is bound to an initial null value,
   such as when app component's `selectedHero` is null above.
-- A component uses a `<hero-detail>` element without a `hero` property:
+- A component uses a `<my-hero>` element without a `hero` property:
   ```html
-  <hero-detail></hero-detail>
+  <my-hero></my-hero>
     ```
 
 When a component is created, its inputs are left uninitialized, so
@@ -120,7 +120,7 @@ basic [page object][] setup is sufficient to test for this case:
   group('No initial @Input() hero:', () {
     setUp(() async {
       fixture = await testBed.create();
-      po = await fixture.resolvePageObject(HeroDetailPO);
+      po = await new HeroDetailPO().resolve(fixture);
     });
 
     test('has empty view', () async {
@@ -145,7 +145,7 @@ named parameter `beforeChangeDetection` of the `NgTestBed.create()` method:
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
               c.hero = new Hero(targetHero['id'], targetHero['name']));
-      po = await fixture.resolvePageObject(HeroDetailPO);
+      po = await new HeroDetailPO().resolve(fixture);
     });
 
     test('show hero details', () async {
@@ -166,15 +166,15 @@ property was [explicitly initialized](#input-initialized):
   group('No initial @Input() hero:', () {
     setUp(() async {
       fixture = await testBed.create();
-      po = await fixture.resolvePageObject(HeroDetailPO);
+      po = await new HeroDetailPO().resolve(fixture);
     });
     // ···
 
     test('transition to ${targetHero['name']} hero', () async {
-      fixture.update((comp) {
+      await fixture.update((comp) {
         comp.hero = new Hero(targetHero['id'], targetHero['name']);
       });
-      po = await fixture.resolvePageObject(HeroDetailPO);
+      po = await new HeroDetailPO().resolve(fixture);
       expect(await po.heroFromDetails, targetHero);
     });
   });
@@ -204,11 +204,11 @@ For example, you might test the font [sizer component][], from the
       // ···
     });
 
-    test('@Output $expectedSize size event', () async {
-      fixture.update((c) async {
-        expect(await c.sizeChange.first, expectedSize);
-      });
-    });
+    test(
+        '@Output $expectedSize size event',
+        () => fixture.update((c) async {
+              expect(await c.sizeChange.first, expectedSize);
+            }));
   });
 ```
 

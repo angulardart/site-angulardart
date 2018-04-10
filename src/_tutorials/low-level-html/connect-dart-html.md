@@ -1,7 +1,6 @@
 ---
 title: "Connect Dart &amp; HTML"
 description: "Shows basic scaffolding of a Dart web app"
-
 nextpage:
   url: /tutorials/low-level-html/add-elements
   title: "Add Elements to the DOM"
@@ -217,28 +216,6 @@ The paragraph tag has the identifier "RipVanWinkle".
 The Dart code you create in the next step uses this ID
 to get the paragraph element.
 
-{% comment %}
-PENDING: cover this somewhere.
-
-Notice the use of the `script` tag.
-The source for a script is provided by a client-side file.
-The HTML code above has two scripts.
-
-The first script includes your mini app.
-The `type` attribute specifies that the script has
-the type `application/dart`,
-which is a new type created by the Dart team.
-Only the Dartium build of Chromium supports `application/dart`.
-The `src` attribute provides the URL to the source file of the script.
-In this case, it is the Dart source file `main.dart`,
-which you provide in the next step.
-The Dart file should be in the same directory as its host HTML file.
-
-The second `script` tag is
-a bootstrap script that takes care of turning on the Dart VM,
-as well as compatibility with non-Dart browsers.
-{% endcomment %}
-
 
 ## Edit the Dart source code {#dart-editor-happiness}
 
@@ -387,13 +364,12 @@ is the RipVanWinkle ID.
 <img class="scale-img-max" src="../images/dart-html-connect.png"
      alt="The RipVanWinkle ID is used by both Dart and HTML">
 
-To run your app outside of DartPad,
-you need to make another connection between the HTML and Dart code:
-you must add \<script> tags to the HTML
-to tell the browser where to find the Dart code.
-You must also add other HTML markup
-to provide additional page information and structure
-that the browser requires.
+To run your app outside of DartPad, you need to compile your Dart
+code to JavaScript. [Use the **build_runner build** command][build]
+to compile your app to deployable JavaScript.
+Then you need to make another connection between the HTML and
+generated JavaScript: you must add a \<script> tag to the HTML
+to tell the browser where to find the compiled Dart code.
 
 {% comment %}
 PENDING: We should include or link to instructions
@@ -409,29 +385,15 @@ assuming that the Dart code is in a file named `main.dart`:
 &lt;html>
   &lt;head>
     &lt;title>A Minimalist App&lt;/title>
+    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Specifies the location of the compiled Dart code">&lt;script defer src="main.dart.js">&lt;/script></a>
   &lt;/head>
-
   &lt;body>
     &lt;p id="RipVanWinkle">
       RipVanWinkle paragraph.
     &lt;/p>
-
-    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Specifies the location of the Dart code">&lt;script type="application/dart" src="main.dart">&lt;/script></a>
-    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Enables the browser to use the Dart code">&lt;script src="packages/browser/dart.js">&lt;/script></a>
   &lt;/body>
 &lt;/html>
 </pre>
-
-The two \<script> tags are the only Dart-specific parts of this added HTML.
-They tie the Dart code into the page,
-telling the browser where to find the Dart code
-and what to do with it.
-
-The next diagram summarizes all the connections
-between the Dart and HTML code.
-
-<img class="scale-img-max" src="../images/dart-html-connect-full.png"
-     alt="The connection between the HTML file and the Dart file">
 
 
 ## Give the app some style with CSS {#add-css}
@@ -556,3 +518,5 @@ PENDING: Link to WebStorm docs? DartPad docs?
 The next tutorial, [Add Elements to the DOM](add-elements),
 shows you how to dynamically change the HTML page
 by adding elements to the DOM.
+
+[build]: /tools/build_runner#build

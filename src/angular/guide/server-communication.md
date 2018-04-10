@@ -43,10 +43,13 @@ The following code registers a [factory provider][]
   import 'package:http/http.dart';
   import 'package:server_communication/app_component.dart';
 
+  import 'main.template.dart' as ng;
+
   void main() {
-    bootstrap(AppComponent, [
-      provide(Client, useFactory: () => new BrowserClient(), deps: [])
-    ]);
+    bootstrapStatic(AppComponent, [
+      const FactoryProvider(Client, () => new BrowserClient()),
+    ],
+    ng.initReflector);
   }
 ```
 
@@ -72,7 +75,7 @@ This demo has a single component, the `HeroListComponent`. Here is its template:
   </ul>
 
   <label>New hero name: <input #newHeroName /></label>
-  <button (click)="addHero(newHeroName.value); newHeroName.value=''">Add Hero</button>
+  <button (click)="add(newHeroName.value); newHeroName.value=''">Add Hero</button>
 
   <p class="error" *ngIf="errorMessage != null">{!{errorMessage}!}</p>
 ```
@@ -104,19 +107,19 @@ Here's the component class:
 
     HeroListComponent(this._heroService);
 
-    Future<Null> ngOnInit() => getHeroes();
+    Future<void> ngOnInit() => _getHeroes();
 
-    Future<Null> getHeroes() async {
+    Future<void> _getHeroes() async {
       try {
-        heroes = await _heroService.getHeroes();
+        heroes = await _heroService.getAll();
       } catch (e) {
         errorMessage = e.toString();
       }
     }
 
-    Future<Null> addHero(String name) async {
+    Future<void> add(String name) async {
       name = name.trim();
-      if (name.isEmpty) return;
+      if (name.isEmpty) return null;
       try {
         heroes.add(await _heroService.create(name));
       } catch (e) {
@@ -147,10 +150,10 @@ Instead, the request is in the `ngOnInit` [lifecycle hook](lifecycle-hooks).
   calling a remote server) handled by a separate method.
 </div>
 
-The asynchronous methods in the hero service, `getHeroes()` and `create()`,
+The asynchronous methods in the hero service, `getAll()` and `create()`,
 return the [Future][] values of the current hero list and the newly added
-hero, respectively. The methods in the hero list component, `getHeroes()` and
-`addHero()`, specify the actions to be taken when the asynchronous method
+hero, respectively. The methods in the hero list component, `_getHeroes()` and
+`add()`, specify the actions to be taken when the asynchronous method
 calls succeed or fail.
 
 For more information about `Future`, see the
@@ -175,7 +178,11 @@ returning mock heroes in a service:
 
   @Injectable()
   class HeroService {
-    Future<List<Hero>> getHeroes() async => mockHeroes;
+    Future<List<Hero>> getAll() async => mockHeroes;
+    // See the "Take it slow" appendix
+    Future<List<Hero>> getAllSlowly() {
+      return new Future.delayed(const Duration(seconds: 2), getAll);
+    }
   }
 ```
 
@@ -200,7 +207,7 @@ the heroes from the server:
 
     HeroService(this._http);
 
-    Future<List<Hero>> getHeroes() async {
+    Future<List<Hero>> getAll() async {
       try {
         final response = await _http.get(_heroesUrl);
         final heroes = _extractData(response)
@@ -215,7 +222,7 @@ the heroes from the server:
     Future<Hero> create(String name) async {
       try {
         final response = await _http.post(_heroesUrl,
-            headers: _headers, body: JSON.encode({'name': name}));
+            headers: _headers, body: json.encode({'name': name}));
         return new Hero.fromJson(_extractData(response));
       } catch (e) {
         throw _handleError(e);
@@ -236,10 +243,10 @@ that's injected into the `HeroService` constructor:
 
 Here's the code that uses the client's `get()` method to fetch data:
 
-<?code-excerpt "lib/src/toh/hero_service.dart (getHeroes)" region="http-get" title?>
+<?code-excerpt "lib/src/toh/hero_service.dart (getAll)" region="http-get" title?>
 ```
   static const _heroesUrl = 'api/heroes'; // URL to web API
-  Future<List<Hero>> getHeroes() async {
+  Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = _extractData(response)
@@ -276,12 +283,12 @@ Alternatively, use a JSON file:
 <div id="extract-data"></div>
 ## Processing the response object
 
-The `getHeroes()` method uses an `_extractData()` helper method to
+The `getAll()` method uses an `_extractData()` helper method to
 map the `_http.get()` response object to heroes:
 
 <?code-excerpt "lib/src/toh/hero_service.dart (excerpt)" region="extract-data" title?>
 ```
-  dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
+  dynamic _extractData(Response resp) => json.decode(resp.body)['data'];
 ```
 
 The `response` object doesn't hold the data in a form that
@@ -313,7 +320,7 @@ For examples of decoding and encoding JSON, see the
 <div id="no-return-response-object"></div>
 ### Don't return the response object
 
-Although it's possible for `getHeroes()` to return the HTTP response,
+Although it's possible for `getAll()` to return the HTTP response,
 that's not a good practice. The point of a data service is to hide the server
 interaction details from consumers. A component that calls the `HeroService`
 only wants the heroes. It is separated from from the code that's responsible
@@ -327,11 +334,11 @@ and do something with them. One way to handle errors is to pass an error message
 back to the component for presentation to the user,
 but only if the message is something that the user can understand and act upon.
 
-This simple app handles a `getHeroes()` error as follows:
+This simple app handles a `getAll()` error as follows:
 
 <?code-excerpt "lib/src/toh/hero_service.dart (excerpt)" region="error-handling" title?>
 ```
-  Future<List<Hero>> getHeroes() async {
+  Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = _extractData(response)
@@ -358,16 +365,16 @@ This simple app handles a `getHeroes()` error as follows:
 #### _HeroListComponent_ error handling  {#hero-list-component}
 
 In `HeroListComponent`, the call to
-`_heroService.getHeroes()` is in a `try` clause, and the
+`_heroService.getAll()` is in a `try` clause, and the
 `errorMessage` variable is conditionally bound in the template.
 When an exception occurs,
 the `errorMessage` variable is assigned a value as follows:
 
-<?code-excerpt "lib/src/toh/hero_list_component.dart (getHeroes)" title?>
+<?code-excerpt "lib/src/toh/hero_list_component.dart (_getHeroes)" title?>
 ```
-  Future<Null> getHeroes() async {
+  Future<void> _getHeroes() async {
     try {
-      heroes = await _heroService.getHeroes();
+      heroes = await _heroService.getAll();
     } catch (e) {
       errorMessage = e.toString();
     }
@@ -422,7 +429,7 @@ Now that you know the server's API, here's the implementation of `create()`:
   Future<Hero> create(String name) async {
     try {
       final response = await _http.post(_heroesUrl,
-          headers: _headers, body: JSON.encode({'name': name}));
+          headers: _headers, body: json.encode({'name': name}));
       return new Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
@@ -437,7 +444,7 @@ the body represents JSON.
 
 ### JSON results
 
-As in `getHeroes()`, the `_extractData()` helper
+As in `_getHeroes()`, the `_extractData()` helper
 [extracts the data](#extract-data) from the response.
 
 Back in `HeroListComponent`, the `addHero()` method
@@ -445,11 +452,11 @@ waits for the service's asynchronous `create()` method to create a hero.
 When `create()` is finished,
 `addHero()` puts the new hero in the `heroes` list:
 
-<?code-excerpt "lib/src/toh/hero_list_component.dart (addHero)" title?>
+<?code-excerpt "lib/src/toh/hero_list_component.dart (add)" title?>
 ```
-  Future<Null> addHero(String name) async {
+  Future<void> add(String name) async {
     name = name.trim();
-    if (name.isEmpty) return;
+    if (name.isEmpty) return null;
     try {
       heroes.add(await _heroService.create(name));
     } catch (e) {

@@ -22,9 +22,9 @@ import 'hero_tax_return_component.dart';
         </hero-tax-return>
       </div>
     ''',
-  styles: const ['li {cursor: pointer;}'],
-  directives: const [CORE_DIRECTIVES, HeroTaxReturnComponent],
-  pipes: const [COMMON_PIPES],
+  styles: ['li {cursor: pointer;}'],
+  directives: [coreDirectives, HeroTaxReturnComponent],
+  pipes: [commonPipes],
 )
 class HeroesListComponent {
   final HeroesService _heroesService;
@@ -33,10 +33,10 @@ class HeroesListComponent {
   final List<HeroTaxReturn> selectedTaxReturns = [];
 
   HeroesListComponent(this._heroesService) {
-    heroes = _heroesService.getHeroes();
+    heroes = _heroesService.getAll();
   }
 
-  Future<Null> showTaxReturn(Hero hero) async {
+  Future<void> showTaxReturn(Hero hero) async {
     var r = await _heroesService.getTaxReturn(hero);
     if (!selectedTaxReturns.any((_r) => _r.id == r.id)) {
       selectedTaxReturns.add(r);

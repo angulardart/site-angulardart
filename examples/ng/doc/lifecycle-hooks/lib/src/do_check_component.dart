@@ -18,11 +18,11 @@ class Hero {
       <div *ngFor="let chg of changeLog">{{chg}}</div>
     </div>
   ''',
-  styles: const [
+  styles: [
     '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
     'p {background: Yellow; padding: 8px; margin-top: 8px}'
   ],
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 class DoCheckComponent implements DoCheck {
   @Input()
@@ -84,8 +84,8 @@ class DoCheckComponent implements DoCheck {
 @Component(
   selector: 'do-check-parent',
   templateUrl: 'do_check_parent_component.html',
-  styles: const ['.parent {background: Lavender}'],
-  directives: const [CORE_DIRECTIVES, formDirectives, DoCheckComponent],
+  styles: ['.parent {background: Lavender}'],
+  directives: [coreDirectives, formDirectives, DoCheckComponent],
 )
 class DoCheckParentComponent {
   Hero hero;

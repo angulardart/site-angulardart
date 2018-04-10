@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 
 @Component(
   selector: 'scores-component',
-  styleUrls: const ['scores.css'],
+  styleUrls: ['scores.css'],
   templateUrl: 'scores.html',
 )
 class ScoresComponent {

@@ -21,7 +21,7 @@ class HeroService {
   // #enddocregion ctor
 
   // #docregion methods, error-handling, http-get
-  Future<List<Hero>> getHeroes() async {
+  Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = _extractData(response)
@@ -39,7 +39,7 @@ class HeroService {
     // #enddocregion create-sig
     try {
       final response = await _http.post(_heroesUrl,
-          headers: _headers, body: JSON.encode({'name': name}));
+          headers: _headers, body: json.encode({'name': name}));
       return new Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
@@ -48,7 +48,7 @@ class HeroService {
   // #enddocregion create, v1
 
   // #docregion extract-data
-  dynamic _extractData(Response resp) => JSON.decode(resp.body)['data'];
+  dynamic _extractData(Response resp) => json.decode(resp.body)['data'];
   // #enddocregion extract-data
   // #docregion error-handling
 

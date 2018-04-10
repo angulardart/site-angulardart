@@ -5,13 +5,13 @@ import 'hero.dart';
 @Component(
   selector: 'hero-form',
   templateUrl: 'hero_form_component.html',
-  styles: const [
+  styles: [
     '''
       button { margin: 6px 0; }
       #heroForm { border: 1px solid black; margin: 20px 0; padding: 8px; max-width: 350px; }
     '''
   ],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  directives: [coreDirectives, formDirectives],
 )
 class HeroFormComponent {
   @Input()

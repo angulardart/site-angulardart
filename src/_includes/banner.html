@@ -2,11 +2,19 @@
 {% comment %}Drop the div .alert classes to revert to the default banner styling.{% endcomment -%}
 <div class="banner alert alert-warning">
   <p class="banner__text">
-    WARNING: This is an
-    <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a> PREVIEW of
+    <b>WARNING</b>: This is an
+    <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a> <b>preview</b> of
     <a href="{{site.url}}" class="no-automatic-external" target="_blank" rel="noopener">
-      {{site.url | regex_replace: '^https?://'}}
+      {{site.url | regex_replace: '^https?://'}}.
     </a>
+    {% if site.site-status-issue-url %}
+    Documentation may be <b>incomplete</b>.
+    Track completion status at
+    <a href="{{site.site-status-issue-url}}">
+      issue
+      #{{site.site-status-issue-url | regex_replace: '^.*/(\d+)$', '\1'}}.
+    </a>
+    {% endif %}
   </p>
 </div>
 {% endif %}

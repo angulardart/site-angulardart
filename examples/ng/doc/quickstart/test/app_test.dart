@@ -1,17 +1,16 @@
 // #docregion , initial
-@Tags(const ['aot'])
 @TestOn('browser')
 
 // #enddocregion
-import 'package:angular/angular.dart';
+import 'package:angular_app/app_component.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:test/test.dart';
 
-import 'package:angular_app/app_component.dart';
+import 'app_test.template.dart' as ng;
 
 // #docregion initial
-@AngularEntrypoint()
 void main() {
+  ng.initReflector();
   // #docregion test-bed-and-fixture
   final testBed = new NgTestBed<AppComponent>();
   NgTestFixture<AppComponent> fixture;

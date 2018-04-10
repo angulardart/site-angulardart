@@ -9,12 +9,14 @@ import 'package:angular/angular.dart';
 // #docregion final
 import 'package:displaying_data/app_component.dart';
 
+import 'main.template.dart' as ng;
+
 void main() {
 // #enddocregion final
 // pick one
-//  bootstrap(v1.AppComponent);
-//  bootstrap(v2.AppComponent);
-//  bootstrap(v3.AppComponent);
+//  bootstrapStatic(v1.AppComponent, [], ng.initReflector);
+//  bootstrapStatic(v2.AppComponent, [], ng.initReflector);
+//  bootstrapStatic(v3.AppComponent, [], ng.initReflector);
 // #docregion final
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }

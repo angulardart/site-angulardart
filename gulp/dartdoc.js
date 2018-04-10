@@ -75,15 +75,22 @@ module.exports = function (gulp, plugins, config) {
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
     if (!fs.existsSync(tmpPubPkgPath)) {
       plugins.execSyncAndLog(`cp -R ${pathToPkgSrcPath} ${tmpPubPkgPath}`);
-      const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
-      // pub hangs on the following dependency: "args: '>=x.y.z <2.0.0'". Patch the pubspec:
-      plugins.execSyncAndLog(`perl -i -pe "s/^(\\s+args):\\s*'>=\\s*([\\d\\.]+)\\s+<2.0.0'/\\1: ^\\2/gm" ${pubspecFile}`);
+      // const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
+      // plugins.execSyncAndLog(`perl -i -pe "s/angular_test: ^2.0.0-alpha+8/angular_test: ^2.0.0-alpha+6/gm" ${pubspecFile}`);
+      // const dep_ovr = '\ndependency_overrides:\n  angular_test: ^2.0.0-alpha+6\n';
+      // plugins.gutil.log(`\nWARNING: appending to ${pubspecFile}: ${dep_ovr}\n`);
+      // fs.appendFileSync(pubspecFile, dep_ovr);
     } else if (fs.existsSync(apiDir)) {
       if (plugins.argv.useCachedApiDoc) {
         plugins.gutil.log(`Keeping previously generated API docs for ${pubPkgName} found at ${apiDir}.`);
       } else {
         plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
       }
+    }
+    // https://github.com/dart-lang/angular/issues/1097
+    if (pubPkgAndVersName === 'angular_forms-2.0.0-alpha') {
+      const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
+      plugins.execSyncAndLog(`perl -i -pe "s/(angular_test: \\^2\\.0\\.0-alpha)\\+8/\\1+6/gm" ${pubspecFile}`);
     }
     return tmpPubPkgPath;
   }

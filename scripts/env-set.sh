@@ -80,10 +80,6 @@ elif [[ -z "$NGIO_ENV_DEFS" ]]; then
         export PATH="$PATH:$DART_SDK/bin"
         export PATH="$PATH:$HOME/.pub-cache/bin"
     fi
-
-    if [[ -z "$(type -t content_shell)" && ! $PATH =~ \/content_shell ]]; then
-        export PATH="$PATH:$PKG/content_shell"
-    fi
   fi
 fi
 

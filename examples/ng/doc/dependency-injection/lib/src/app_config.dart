@@ -24,4 +24,4 @@ AppConfig heroDiConfigFactory() => new AppConfig()
 
 const appConfigProvider = const Provider<AppConfig>(appConfigToken,
   useFactory: heroDiConfigFactory,
-  deps: const []);
+  deps: []);

@@ -43,13 +43,11 @@ pub get
 </li>
 
 <li markdown="1">
-Use the tools of your choice to run the base app.
+Use the tool of your choice to run the base app.
 
-For example, you could use `pub serve` and then visit [localhost:8080](http://localhost:8080){: .no-automatic-external}
-in any modern web browser. Or you could use WebStorm to run the app in Dartium.
+For example, you could use `build_runner` to [serve the app](/tools/build_runner#serve),
+and then visit [localhost:8080](http://localhost:8080){: .no-automatic-external} in Chrome.
 </li>
-
-{% include dartium-2.0.html %}
 
 <li markdown="1">
 Play with the base app. It works, but it’s not pretty. Consider these issues:

@@ -132,13 +132,7 @@ Each file has a distinct purpose and evolves independently as the app grows.
   </td>
 </tr><tr>
   <td><code>pubspec.yaml</code></td>
-  <td markdown="1">The file that describes this Dart package (the app) and its dependencies.
-  For example, it specifies the **angular** and **browser** packages as dependencies,
-  as well as the **angular** transformer.
-
-  **Note:** The **dart_to_js_script_rewriter** transformer, if present,
-  must be **after angular** in the **transformers** list.
-  If the order is wrong, Angular templates don't work.
+  <td markdown="1">The file that describes this Dart package (the app) and its dependencies. For details, see [Pubspec Format.][Pubspec Format]
   </td>
 </tr>
 </table>
@@ -148,3 +142,5 @@ Each file has a distinct purpose and evolves independently as the app grows.
 In the [next tutorial page](./toh-pt1),
 you'll modify the starter app to display more interesting data,
 and to allow the user to edit that data.
+
+[Pubspec Format]: {{site.dartlang}}/tools/pub/pubspec

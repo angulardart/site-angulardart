@@ -31,8 +31,10 @@
       { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/ng2", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/ng2/**", "destination": "/codelabs", "type": 301 },
-      { "source": "/tools/build_runner", "destination": "https://webdev-dartlang-org-dev.firebaseapp.com/tools/build_runner", "type": 302 }
 
+      { "source": "/tools/dartium", "destination": "/dart-2#tools", "type": 301 },
+      { "source": "/tools/pub", "destination": "/dart-2#tools", "type": 301 },
+      { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 }
     ],
     "rewrites": [
       { "source": "/examples/router/**", "destination": "/examples/router/index.html" },

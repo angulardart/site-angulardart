@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 
 import 'hero.dart';
-import 'logger_service.dart';
 
 @Injectable()
 class BackendService {
@@ -13,16 +12,7 @@ class BackendService {
     new Hero('Magneta', 'Manipulates metalic objects')
   ];
 
-  final Logger _logger;
-
-  BackendService(Logger this._logger);
-
-  Future<List> getAll(type) {
-    // TODO get from the database
-    if (type == Hero) return new Future.value(_mockHeroes);
-
-    var msg = 'Cannot get object of this type';
-    _logger.error(msg);
-    throw new Exception(msg);
-  }
+  Future<List> getAll(type) async => type == Hero
+      ? _mockHeroes
+      : throw new Exception('Cannot get object of this type');
 }

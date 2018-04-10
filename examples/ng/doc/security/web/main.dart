@@ -1,10 +1,10 @@
 // #docregion
 import 'package:angular/angular.dart';
 
-// #docregion import
 import 'package:angular_security/app_component.dart';
-// #enddocregion import
+
+import 'main.template.dart' as ng;
 
 void main() {
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }

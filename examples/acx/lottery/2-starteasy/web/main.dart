@@ -5,6 +5,8 @@
 import 'package:angular/angular.dart';
 import 'package:components_codelab/lottery_simulator.dart';
 
+import 'main.template.dart' as ng;
+
 void main() {
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent, [], ng.initReflector);
 }

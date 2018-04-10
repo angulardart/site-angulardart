@@ -36,7 +36,7 @@ If not, go back to the previous pages.
     - app_component.{css,dart,html}
     - src
       - hero.dart
-      - hero_detail_component.dart
+      - hero_component.dart
       - mock_heroes.dart
   - test
     - app_test.dart
@@ -92,7 +92,7 @@ This informs the Angular compiler that `HeroService` will be a candidate for inj
 
 The `HeroService` could get hero data from anywhere&mdash;a
 web service, local storage, or a mock data source.
-For now, import `Hero` and `mockHeroes`, and return the mock heroes from a `getHeroes()` method:
+For now, import `Hero` and `mockHeroes`, and return the mock heroes from a `getAll()` method:
 
 <?code-excerpt "lib/src/hero_service_1.dart" title?>
 ```
@@ -103,7 +103,7 @@ For now, import `Hero` and `mockHeroes`, and return the mock heroes from a `getH
 
   @Injectable()
   class HeroService {
-    List<Hero> getHeroes() => mockHeroes;
+    List<Hero> getAll() => mockHeroes;
   }
 ```
 
@@ -182,7 +182,7 @@ add the following `providers` list as the last parameter of the `@Component` ann
 
 <?code-excerpt "lib/app_component_1.dart (providers)" title?>
 ```
-  providers: const [HeroService],
+  providers: [const ClassProvider(HeroService)],
 ```
 
 The `providers` parameter tells Angular to create a fresh instance of the `HeroService` when it creates an `AppComponent`.
@@ -198,8 +198,8 @@ and **remove** the `heroes` initializer:
 ```
   List<Hero> heroes;
 
-  void getHeroes() {
-    heroes = _heroService.getHeroes();
+  void _getHeroes() {
+    heroes = _heroService.getAll();
   }
 ```
 
@@ -230,7 +230,7 @@ at the right time. In this case, initialize by calling `getHeroes()`.
 <?code-excerpt "lib/app_component_1.dart (OnInit and ngOnInit)"?>
 ```
   class AppComponent implements OnInit {
-    void ngOnInit() => getHeroes();
+    void ngOnInit() => _getHeroes();
   }
 ```
 
@@ -241,11 +241,11 @@ when you click on a hero name.
 ## Async hero services {#async}
 
 The `HeroService` returns a list of mock heroes immediately;
-its `getHeroes()` signature is synchronous.
+its `getAll()` signature is synchronous.
 
-<?code-excerpt "lib/src/hero_service_1.dart (getHeroes)" title?>
+<?code-excerpt "lib/src/hero_service_1.dart (getAll)" title?>
 ```
-  List<Hero> getHeroes() => mockHeroes;
+  List<Hero> getAll() => mockHeroes;
 ```
 
 Eventually, the hero data will come from a remote server.
@@ -254,7 +254,7 @@ additionally, you aren't able to block the UI during the wait.
 
 To coordinate the view with the response,
 you can use *Futures*, which is an asynchronous
-technique that changes the signature of the `getHeroes()` method.
+technique that changes the signature of the `getAll()` method.
 
 ### The hero service returns a _Future_
 
@@ -271,11 +271,11 @@ reported.
 </div>
 
 Add an import of [dart:async][] because it defines `Future`, and
-update the `HeroService` with this `Future`-returning `getHeroes()` method:
+update the `HeroService` with this `Future`-returning `getAll()` method:
 
-<?code-excerpt "lib/src/hero_service.dart (excerpt)" region="get-heroes" title?>
+<?code-excerpt "lib/src/hero_service.dart (getAll)" title?>
 ```
-  Future<List<Hero>> getHeroes() async => mockHeroes;
+  Future<List<Hero>> getAll() async => mockHeroes;
 ```
 
 You're still mocking the data. You're simulating the behavior of an ultra-fast, zero-latency server,
@@ -296,19 +296,19 @@ the `Future` completes successfully, you'll have heroes to display.
 
 Here is the current implementation:
 
-<?code-excerpt "lib/app_component_1.dart (synchronous getHeroes)" region="getHeroes" title?>
+<?code-excerpt "lib/app_component_1.dart (synchronous _getHeroes)" region="_getHeroes" title?>
 ```
-  void getHeroes() {
-    heroes = _heroService.getHeroes();
+  void _getHeroes() {
+    heroes = _heroService.getAll();
   }
 ```
 
 Pass the callback function as an argument to the `Future.then()` method:
 
-<?code-excerpt "lib/app_component_2.dart (asynchronous getHeroes)" region="getHeroes" title?>
+<?code-excerpt "lib/app_component_2.dart (asynchronous _getHeroes)" region="_getHeroes" title?>
 ```
-  void getHeroes() {
-    _heroService.getHeroes().then((heroes) => this.heroes = heroes);
+  void _getHeroes() {
+    _heroService.getAll().then((heroes) => this.heroes = heroes);
   }
 ```
 
@@ -325,14 +325,14 @@ difficult to read and understand. Thankfully, Dart's `async`/`await`
 language feature lets you write asynchronous code that looks just
 like synchronous code. Rewrite `getHeroes()`:
 
-<?code-excerpt "lib/app_component.dart (revised async/await getHeroes)" region="getHeroes" title?>
+<?code-excerpt "lib/app_component.dart (revised async/await _getHeroes)" region="_getHeroes" title?>
 ```
-  Future<Null> getHeroes() async {
-    heroes = await _heroService.getHeroes();
+  Future<void> _getHeroes() async {
+    heroes = await _heroService.getAll();
   }
 ```
 
-The `Future<Null>` return type is the asynchronous equivalent of `void`.
+The `Future<void>` return type is the asynchronous equivalent of `void`.
 
 Read more about asynchronous programming using `async`/`await` in the [Async
 and await][] section of the Dart language tutorial on [Asynchronous
@@ -355,7 +355,7 @@ Verify that you have the following structure after all of your refactoring:
     - app_component.{css,dart,html}
     - src
       - hero.dart
-      - hero_detail_component.dart
+      - hero_component.dart
       - hero_service.dart
       - mock_heroes.dart
   - test
@@ -397,19 +397,19 @@ Read about the Angular component router and navigation among the views in the [n
 ## Appendix: Take it slow {#slow}
 
 To simulate a slow connection,
-add the following `getHeroesSlowly()` method to the `HeroService`.
+add the following `getAllSlowly()` method to the `HeroService`.
 
-<?code-excerpt "lib/src/hero_service.dart (getHeroesSlowly)" title?>
+<?code-excerpt "lib/src/hero_service.dart (getAllSlowly)" title?>
 ```
-  Future<List<Hero>> getHeroesSlowly() {
-    return new Future.delayed(const Duration(seconds: 2), getHeroes);
+  Future<List<Hero>> getAllSlowly() {
+    return new Future.delayed(const Duration(seconds: 2), getAll);
   }
 ```
 
-Like `getHeroes()`, it also returns a `Future`, but this `Future` waits two
+Like `getAll()`, it also returns a `Future`, but this `Future` waits two
 seconds before completing.
 
-Back in the `AppComponent`, replace `getHeroes()` with `getHeroesSlowly()`
+Back in the `AppComponent`, replace `getAll()` with `getAllSlowly()`
 and see how the app behaves.
 
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html

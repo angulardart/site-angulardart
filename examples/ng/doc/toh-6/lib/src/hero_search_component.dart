@@ -6,16 +6,17 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:stream_transform/stream_transform.dart';
 
+import 'route_paths.dart' as paths;
 import 'hero_search_service.dart';
 import 'hero.dart';
 
 @Component(
   selector: 'hero-search',
   templateUrl: 'hero_search_component.html',
-  styleUrls: const ['hero_search_component.css'],
-  directives: const [CORE_DIRECTIVES],
-  providers: const [HeroSearchService],
-  pipes: const [COMMON_PIPES],
+  styleUrls: ['hero_search_component.css'],
+  directives: [coreDirectives],
+  providers: [HeroSearchService],
+  pipes: [commonPipes],
 )
 class HeroSearchComponent implements OnInit {
   HeroSearchService _heroSearchService;
@@ -37,7 +38,7 @@ class HeroSearchComponent implements OnInit {
   // #enddocregion searchTerms
   // #docregion search
 
-  Future<Null> ngOnInit() async {
+  Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(new Duration(milliseconds: 300)))
         .distinct()
@@ -50,11 +51,9 @@ class HeroSearchComponent implements OnInit {
   }
   // #enddocregion search
 
-  void gotoDetail(Hero hero) {
-    var link = [
-      'HeroDetail',
-      {'id': hero.id.toString()}
-    ];
-    _router.navigate(link);
-  }
+  String _heroUrl(int id) =>
+      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+
+  Future<NavigationResult> gotoDetail(Hero hero) =>
+      _router.navigate(_heroUrl(hero.id));
 }

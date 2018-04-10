@@ -37,10 +37,13 @@ on the previous page.
 
 ## Show the hero
 
-Add two properties to the `AppComponent`: a `title` property for the app name and a `hero` property
-for a hero named "Windstorm."
+Make the following changes to `AppComponent`:
 
-<?code-excerpt "lib/app_component_1.dart (AppComponent class)" region="app-component-1" title?>
+- Add a `hero` property for a hero named Windstorm.
+- Add a `title` property initialized as shown below.
+- Drop the `name` property.
+
+<?code-excerpt "lib/app_component_1.dart (class)" title?>
 ```
   class AppComponent {
     final title = 'Tour of Heroes';
@@ -48,18 +51,25 @@ for a hero named "Windstorm."
   }
 ```
 
-Now update the template in the `@Component` annotation with data bindings to these new properties.
+### Add multi-line template HTML
 
-<?code-excerpt "lib/app_component_1.dart (@Component)" region="show-hero" title?>
+Update the template parameter in the `@Component` annotation with data bindings
+to these new properties:
+
+<?code-excerpt "lib/app_component_1.dart (template)" title?>
 ```
-  template: '<h1>{!{title}!}</h1><h2>{!{hero}!} details!</h2>',
+  template: '''
+    <h1>{!{title}!}</h1>
+    <h2>{!{hero}!}</h2>
+  ''',
 ```
 
-Refresh the browser, and the page displays the title and hero name.
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.** The app displays the title and hero name.
 
-The double curly braces are Angular's *interpolation binding* syntax.
-These interpolation bindings present the component's `title` and `hero` property values,
-as strings, inside the HTML header tags.
+The double curly braces are Angular's [interpolation syntax][]. These
+interpolation bindings present the component's `title` and `hero` property
+values, as strings, inside the HTML header tags.
 
 <div class="l-sub-section" markdown="1">
   Read more about interpolation in the [Displaying Data](../guide/displaying-data.html) page.
@@ -67,13 +77,10 @@ as strings, inside the HTML header tags.
 
 ### Create a _Hero_ class
 
-The hero needs more properties.
-Convert the `hero` from a literal string to a class.
+Create a `Hero` class with `id` and `name` properties and
+save it to the following new file:
 
-Create a `Hero` class with `id` and `name` properties.
-Add these properties near the top of the `app_component.dart` file, just below the import statement.
-
-<?code-excerpt "lib/app_component.dart (Hero class)" region="hero-class-1" title?>
+<?code-excerpt "lib/hero.dart" title?>
 ```
   class Hero {
     final int id;
@@ -83,39 +90,50 @@ Add these properties near the top of the `app_component.dart` file, just below t
   }
 ```
 
-In the `AppComponent` class, refactor the component's `hero` property to be of type `Hero`,
-then initialize it with an `id` of `1` and the name `Windstorm`.
+Import `hero.dart` in the `app_component.dart` file:
 
-<?code-excerpt "lib/app_component.dart (hero property)" region="hero-property-1" title?>
+<?code-excerpt "lib/app_component_2.dart (imports)" replace="/import.*hero.*/[!$&!]/g" title?>
+```
+  import 'package:angular/angular.dart';
+
+  [!import 'hero.dart';!]
+```
+
+In the `AppComponent` class, declare the type of `hero` to be `Hero`, and
+initialize it with a new `Hero` having ID of `1` and the name `Windstorm`:
+
+<?code-excerpt "lib/app_component.dart (hero)" title?>
 ```
   Hero hero = new Hero(1, 'Windstorm');
 ```
 
-Because you changed the hero from a string to an object,
-update the binding in the template to refer to the hero's `name` property.
+Because you changed the hero from a string to an object, update the binding in
+the template to refer to the hero's `name` property.
 
-<?code-excerpt "lib/app_component_1.dart" region="show-hero-2"?>
+<?code-excerpt "lib/app_component_2.dart (template)" remove="/'|div/" replace="/\.name/[!$&!]/g"?>
+```html
+  <h1>{!{title}!}</h1>
+  <h2>{!{hero[!.name!]}!}</h2>
 ```
-  template: '<h1>{!{title}!}</h1><h2>{!{hero.name}!} details!</h2>',
+
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.** The app continues to display the hero's name.
+
+### Show all hero properties
+
+Update the template to show all of the hero's properties: add a `<div>` for the
+hero's `id` property and another `<div>` for the hero's `name`.
+
+<?code-excerpt "lib/app_component_2.dart (template)" remove="'" title?>
+```html
+  <h1>{!{title}!}</h1>
+  <h2>{!{hero.name}!}</h2>
+  <div><label>id: </label>{!{hero.id}!}</div>
+  <div><label>name: </label>{!{hero.name}!}</div>
 ```
 
-Refresh the browser, and the page continues to display the hero's name.
-
-### Add multi-line template HTML
-
-To show all of the hero's properties,
-add a `<div>` for the hero's `id` property and another `<div>` for the hero's `name`.
-To keep the template readable, place each `<div>` on its own line.
-
-<?code-excerpt "lib/app_component_1.dart (multi-line strings)" title?>
-```
-  template: '''
-    <h1>{!{title}!}</h1>
-    <h2>{!{hero.name}!} details!</h2>
-    <div><label>id: </label>{!{hero.id}!}</div>
-    <div><label>name: </label>{!{hero.name}!}</div>
-  ''',
-```
+<i class="material-icons">open_in_browser</i>
+**Refresh the browser.** The app shows all the hero's details.
 
 ## Enable editing the hero name
 
@@ -129,8 +147,8 @@ You need a two-way binding between the `<input>` form element and the `hero.name
 
 Refactor the hero name in the template so it looks like this:
 
-<?code-excerpt "lib/app_component_1.dart" region="name-input"?>
-```
+<?code-excerpt "lib/app_component.dart (template)" remove="/h\d|id|'/"?>
+```html
   <div>
     <label>name: </label>
     <input [(ngModel)]="hero.name" placeholder="name">
@@ -156,7 +174,7 @@ Unfortunately, immediately after this change, the **app breaks**!
 
 <i class="material-icons">open_in_browser</i>
 If you **refresh the browser,** the app won't load.
-To know why, look at the `pub serve` output. The template
+To know why, look at the [build_runner serve][] output. The template
 compiler doesn't recognize `ngModel`, and issues a parse error for
 `AppComponent`:
 
@@ -182,17 +200,16 @@ The `angular_forms` library comes in its own package. Add the package to the pub
  name: angular_tour_of_heroes
  description: Tour of Heroes
  version: 0.0.1
-@@ -8,16 +7,14 @@
+@@ -8,15 +7,20 @@
 
  dependencies:
-   angular: ^4.0.0
-+  angular_forms: ^1.0.0
+   angular: ^5.0.0-alpha
++  angular_forms: ^2.0.0-alpha
 ```
 
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>
 
-<a id="component-directives"></a>
-### Update _@Component(directives: ...)_
+### Add _@Component(directives: ...)_ {#component-directives}
 
 Although `NgModel` is a valid Angular directive defined in the [angular_forms][]
 library, it isn't available by default.
@@ -203,20 +220,25 @@ you need to list them in the `directives` argument of your component's
 convenience you can add the [formDirectives][] list
 (note the new import statement):
 
-<?code-excerpt "lib/app_component.dart (directives)" title?>
+<?code-excerpt "lib/app_component.dart (directives)" replace="/directives:.*/[!$&!]/g" title?>
 ```
   import 'package:angular_forms/angular_forms.dart';
+
+  import 'hero.dart';
 
   @Component(
     selector: 'my-app',
     // ···
-    directives: const [formDirectives],
+    [!directives: [formDirectives],!]
   )
+  class AppComponent {
+    // ···
+  }
 ```
 
-<i class="material-icons">open_in_browser</i>
-**Refresh the browser** and the app should work again.
-You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the textbox.
+<i class="material-icons">open_in_browser</i> **Refresh the browser** and the
+app should work again. You can edit the hero's name and see the changes
+reflected immediately in the `<h2>` heading above the textbox.
 
 ## The road you've travelled
 
@@ -233,38 +255,12 @@ Take stock of what you've built.
 
 Your app should look like this <live-example></live-example>.
 
-Here's the complete `app_component.dart` as it stands now:
+Here are the files that you created or modified:
 
-<?code-excerpt "lib/app_component.dart" title linenums?>
-```
-  import 'package:angular/angular.dart';
-  import 'package:angular_forms/angular_forms.dart';
-
-  @Component(
-    selector: 'my-app',
-    template: '''
-      <h1>{!{title}!}</h1>
-      <h2>{!{hero.name}!} details!</h2>
-      <div><label>id: </label>{!{hero.id}!}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="hero.name" placeholder="name">
-      </div>
-    ''',
-    directives: const [formDirectives],
-  )
-  class AppComponent {
-    final title = 'Tour of Heroes';
-    Hero hero = new Hero(1, 'Windstorm');
-  }
-
-  class Hero {
-    final int id;
-    String name;
-
-    Hero(this.id, this.name);
-  }
-```
+<code-tabs>
+  <?code-pane "lib/app_component.dart" linenums?>
+  <?code-pane "lib/hero.dart" linenums?>
+</code-tabs>
 
 ## The road ahead
 
@@ -273,4 +269,6 @@ You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
 
 [angular_forms]: /api/angular_forms
+[build_runner serve]: /tools/build_runner#serve
 [formDirectives]: /api/angular_forms/angular_forms/formDirectives-constant
+[interpolation syntax]: /angular/guide/template-syntax#interpolation

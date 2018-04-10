@@ -17,37 +17,22 @@ nextpage:
 Ready to write tests for your own project? This page explains how to setup your
 project, and it illustrates how to write basic component tests.
 
-## _Pubspec_ configuration
+## Pubspec configuration
 
 Projects with component tests depend on the
-[angular_test][] and [test][] packages. Because these packages are used
+[angular_test][], [build_test][], and [test][] packages. Because these packages are used
 only during development, and not shipped with the app, they don't belong
-under `dependencies` in the [pubspec][]. Instead, `test` and `angular_test`
-are under **`dev_dependencies`**, for example:
+under `dependencies` in the [pubspec][]. Instead add them
+under **`dev_dependencies`**, for example:
 
 <?code-excerpt "toh-0/pubspec.yaml (dev_dependencies)" title?>
 ```
   dev_dependencies:
-    angular_test: ^1.0.0
-    browser: ^0.10.0
-    dart_to_js_script_rewriter: ^1.0.1
+    angular_test: ^2.0.0-alpha
+    build_runner: ^0.8.2
+    build_test: ^0.10.0
+    build_web_compilers: ^0.3.6
     test: ^0.12.30
-```
-
-The `pubspec.yaml` file should also include the `pub_serve` transformer,
-and list test files as Angular `entry_points`.
-Without these changes, `angular_test`-based tests won't run.
-
-<?code-excerpt "toh-0/pubspec.yaml (transformers)" replace="/\S+.*?test.*/[!$&!]/g" title?>
-```
-  transformers:
-  - angular:
-      entry_points:
-      - web/main.dart
-      [!- test/**_test.dart!]
-  [!- test/pub_serve:!]
-      [!$include: test/**_test.dart!]
-  - dart_to_js_script_rewriter
 ```
 
 ## API basics: _test_() and _expect_()
@@ -82,12 +67,16 @@ before it moves on to the next test group, if any. Here is an example:
 
 <?code-excerpt "toh-0/test/app_test.dart (excerpt)" region="initial" title?>
 ```
-  @Tags(const ['aot'])
   @TestOn('browser')
 
-  // ···
-  @AngularEntrypoint()
+  import 'package:angular_test/angular_test.dart';
+  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:test/test.dart';
+
+  import 'app_test.template.dart' as ng;
+
   void main() {
+    ng.initReflector();
     final testBed = new NgTestBed<AppComponent>();
     NgTestFixture<AppComponent> fixture;
 
@@ -109,15 +98,15 @@ Use [setUpAll()][] and [tearDownAll()][] for setup/teardown that should encompas
 ## More _package:test_ features
 
 You've just worked through the elementary features of `package:test`. For
-complete coverage of the package capabilities, see the package
-[documentation][package:test].
+complete coverage of the package capabilities, see the
+[package test documentation.][test]
 
 [angular_test]: https://pub.dartlang.org/packages/angular_test
+[build_test]: https://pub.dartlang.org/packages/build_test
 [group()]: https://pub.dartlang.org/packages/test#writing-tests
 [group API]: {{site.api}}/test/latest/test/group.html
 [NgTestBed]: {{site.api}}/angular_test/latest/angular_test/NgTestBed-class.html
 [NgTestFixture]: {{site.api}}/angular_test/latest/angular_test/NgTestFixture-class.html
-[package:test]: https://pub.dartlang.org/packages/test
 [pubspec]: {{site.dartlang}}/tools/pub/pubspec
 [setUpAll()]: {{site.api}}/test/latest/test/setUpAll.html
 [tearDownAll()]: {{site.api}}/test/latest/test/tearDownAll.html

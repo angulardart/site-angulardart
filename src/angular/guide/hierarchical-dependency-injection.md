@@ -108,9 +108,9 @@ Instead, provide the `VillainsService` in the `providers` metadata of the `Villa
           </ul>
         </div>
       ''',
-    directives: const [CORE_DIRECTIVES],
-    providers: const [VillainsService],
-    pipes: const [COMMON_PIPES],
+    directives: [coreDirectives],
+    providers: [VillainsService],
+    pipes: [commonPipes],
   )
 ```
 
@@ -176,7 +176,7 @@ It also delegates to the app-wide singleton `HeroService`, which it gets by inje
       taxReturn = _originalTR;
     }
 
-    Future<Null> saveTaxReturn() async {
+    Future<void> saveTaxReturn() async {
       taxReturn = _currentTR;
       await _heroService.saveTaxReturn(_currentTR);
     }
@@ -219,9 +219,9 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
           </fieldset>
         </div>
       ''',
-      styleUrls: const ['hero_tax_return_component.css'],
-      directives: const [CORE_DIRECTIVES, formDirectives],
-      providers: const [HeroTaxReturnService])
+      styleUrls: ['hero_tax_return_component.css'],
+      directives: [coreDirectives, formDirectives],
+      providers: [HeroTaxReturnService])
   class HeroTaxReturnComponent {
     final HeroTaxReturnService _heroTaxReturnService;
     String message = '';
@@ -239,19 +239,19 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
       _heroTaxReturnService.taxReturn = htr;
     }
 
-    Future<Null> onCanceled() async {
+    Future<void> onCanceled() async {
       _heroTaxReturnService.restoreTaxReturn();
       await flashMessage('Canceled');
     }
 
     void onClose() => _close.add(null);
 
-    Future<Null> onSaved() async {
+    Future<void> onSaved() async {
       await _heroTaxReturnService.saveTaxReturn();
       await flashMessage('Saved');
     }
 
-    Future<Null> flashMessage(String msg) async {
+    Future<void> flashMessage(String msg) async {
       message = msg;
       await new Future.delayed(const Duration(milliseconds: 500));
       message = '';
@@ -273,7 +273,7 @@ Look closely at the metadata for the `HeroTaxReturnComponent`. Notice the `provi
 
 <?code-excerpt "lib/src/hero_tax_return_component.dart" region="providers"?>
 ```
-  providers: const [HeroTaxReturnService])
+  providers: [HeroTaxReturnService])
 ```
 
 The `HeroTaxReturnComponent` has its own provider of the `HeroTaxReturnService`.

@@ -162,6 +162,11 @@ dependency_overrides:
       .pipe(replace(/COMMON_DIRECTIVES/g, 'CORE_DIRECTIVES, formDirectives'))
       // .pipe(replace(/\bElementRef\b/g, 'Element'))
       .pipe(replace(/\/deep\//g, ':ng-deep'))
+
+      // Router 2.0.0
+      .pipe(replace(/ROUTER_DIRECTIVES/g, 'routerDirectives'))
+      .pipe(replace(/ROUTER_PROVIDERS/g, 'routerProviders'))
+
       .pipe(gulp.dest(baseDir));
   });
 

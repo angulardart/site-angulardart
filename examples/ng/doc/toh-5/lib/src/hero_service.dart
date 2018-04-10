@@ -8,10 +8,10 @@ import 'mock_heroes.dart';
 
 @Injectable()
 class HeroService {
-  Future<List<Hero>> getHeroes() async => mockHeroes;
+  Future<List<Hero>> getAll() async => mockHeroes;
 
-  // #docregion getHero
-  Future<Hero> getHero(int id) async =>
-      (await getHeroes()).firstWhere((hero) => hero.id == id);
-  // #enddocregion getHero
+  // #docregion get
+  Future<Hero> get(int id) async =>
+      (await getAll()).firstWhere((hero) => hero.id == id);
+  // #enddocregion get
 }

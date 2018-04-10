@@ -7,5 +7,5 @@ import 'exponential_strength_pipe.dart';
       <h2>Power Booster</h2>
       <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
     ''',
-    pipes: const [ExponentialStrengthPipe])
+    pipes: [ExponentialStrengthPipe])
 class PowerBoosterComponent {}

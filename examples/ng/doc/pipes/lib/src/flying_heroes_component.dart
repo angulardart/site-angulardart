@@ -8,9 +8,9 @@ import 'heroes.dart';
 @Component(
   selector: 'flying-heroes',
   templateUrl: 'flying_heroes_component.html',
-  styles: const ['#flyers, #all {font-style: italic}'],
-  pipes: const [FlyingHeroesPipe],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  styles: ['#flyers, #all {font-style: italic}'],
+  pipes: [FlyingHeroesPipe],
+  directives: [coreDirectives, formDirectives],
 )
 // #docregion v1
 class FlyingHeroesComponent {
@@ -58,10 +58,10 @@ class FlyingHeroesComponent {
   selector: 'flying-heroes-impure',
   templateUrl: 'flying_heroes_component.html',
   // #enddocregion impure-component
-  styles: const ['.flyers, .all {font-style: italic}'],
+  styles: ['.flyers, .all {font-style: italic}'],
   // #docregion impure-component
-  pipes: const [FlyingHeroesImpurePipe],
-  directives: const [CORE_DIRECTIVES, formDirectives],
+  pipes: [FlyingHeroesImpurePipe],
+  directives: [coreDirectives, formDirectives],
 )
 class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
   FlyingHeroesImpureComponent() {

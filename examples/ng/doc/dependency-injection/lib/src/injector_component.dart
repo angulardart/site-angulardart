@@ -16,7 +16,7 @@ import 'logger_service.dart';
       <div id="car">{{car.drive()}}</div>
       <div id="hero">{{hero.name}}</div>
       <div id="rodent">{{rodent}}</div>''',
-  providers: const [
+  providers: [
     Car,
     Engine,
     Tires,
@@ -38,7 +38,7 @@ class InjectorComponent implements OnInit {
     // #docregion get-hero-service
     heroService = _injector.get(HeroService);
     // #enddocregion get-hero-service
-    hero = heroService.getHeroes()[0];
+    hero = heroService.getAll()[0];
   }
 
   String get rodent =>

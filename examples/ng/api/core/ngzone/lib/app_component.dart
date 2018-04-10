@@ -14,7 +14,7 @@ import 'package:angular/angular.dart';
       <button (click)="processWithinAngularZone()">Process within Angular zone</button>
       <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
     ''',
-  directives: const [CORE_DIRECTIVES],
+  directives: [coreDirectives],
 )
 class AppComponent {
   int progress = 0;
@@ -48,7 +48,7 @@ class AppComponent {
     progress += 1;
     print('Current progress: $progress%');
     if (progress < 100) {
-      new Future.delayed(const Duration(milliseconds: 10),
+      new Future<void>.delayed(const Duration(milliseconds: 10),
           () => _increaseProgress(doneCallback));
     } else {
       doneCallback();

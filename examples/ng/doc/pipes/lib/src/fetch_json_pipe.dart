@@ -16,7 +16,7 @@ class FetchJsonPipe extends PipeTransform {
       _cachedUrl = url;
       _cachedData = null;
       HttpRequest.getString(url).then((s) {
-        _cachedData = JSON.decode(s);
+        _cachedData = json.decode(s);
       });
     }
     return _cachedData;

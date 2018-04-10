@@ -29,19 +29,10 @@ We support the latest version of the following browsers:
 
 Although no production browsers can execute Dart code directly,
 all modern browsers can execute Dart code that's been compiled to JavaScript.
-For convenience while you're developing Dart code on Dart 1.x,
-you can use a version of Chromium (nicknamed [Dartium]) that
-has the Dart VM integrated into it.
-
-{% include dartium-2.0.html %}
-
-{% comment %}
-update-for-dart-2.0
-{% endcomment %}
 
 #### Q. How do I debug an app once it has been compiled to JavaScript?
 
-Dart web apps are easiest to debug with an IDE, like WebStorm, and Dartium.
+Dart web apps are easiest to debug with an IDE, like WebStorm.
 {% comment %}
 update-for-dart-2
 {% endcomment %}
@@ -323,8 +314,6 @@ should have this kind of flexibility.
 [No.](http://news.dartlang.org/2015/03/dart-for-entire-web.html)
 Dart is designed to compile to JavaScript to run across the modern web.
 
-{% include dartium-2.0.html %}
-
 #### Q. Why not compile Dart to asm.js instead of building a specialized VM?
 
 Dart could have used asm.js in two ways; compiling Dart applications to asm.js,
@@ -386,6 +375,3 @@ achievement.
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
-[Dartium]: /tools/dartium
-
-

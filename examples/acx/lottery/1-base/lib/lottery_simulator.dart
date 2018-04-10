@@ -19,16 +19,16 @@ const _normalPulse = const Duration(milliseconds: 200);
 
 @Component(
   selector: 'lottery-simulator',
-  styleUrls: const ['lottery_simulator.css'],
+  styleUrls: ['lottery_simulator.css'],
   templateUrl: 'lottery_simulator.html',
-  directives: const [
+  directives: [
     HelpComponent,
     ScoresComponent,
     StatsComponent,
     VisualizeWinningsComponent,
     SettingsComponent,
   ],
-  providers: const [Settings],
+  providers: [Settings],
 )
 class AppComponent implements OnInit {
   final Settings _settings;

@@ -6,7 +6,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/angular_components.dart';
 
 import 'src/hero.dart';
-import 'src/hero_detail_component.dart';
+import 'src/hero_component.dart';
 import 'src/hero_form_component.dart';
 import 'src/hero_switch_components.dart';
 import 'src/click_directive.dart';
@@ -18,12 +18,12 @@ enum Color { red, green, blue }
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component.html',
-  styleUrls: const ['app_component.css'],
-  directives: const [
-    CORE_DIRECTIVES,
+  styleUrls: ['app_component.css'],
+  directives: [
+    coreDirectives,
     formDirectives,
-    BigHeroDetailComponent,
-    HeroDetailComponent,
+    BigHeroComponent,
+    HeroComponent,
     HeroFormComponent,
     heroSwitchComponents,
     ClickDirective,
@@ -31,11 +31,15 @@ enum Color { red, green, blue }
     SizerComponent,
     materialDirectives
   ],
-  exports: const [Color],
-  providers: const [materialProviders],
-  pipes: const [COMMON_PIPES],
+  exports: [Color],
+  providers: [materialProviders],
+  pipes: [commonPipes],
 )
-class AppComponent implements AfterViewInit, OnInit {
+class AppComponent implements OnInit {
+  ChangeDetectorRef cd;
+
+  AppComponent(this.cd);
+
   @override
   void ngOnInit() {
     resetHeroes();
@@ -43,17 +47,27 @@ class AppComponent implements AfterViewInit, OnInit {
     setCurrentStyles();
   }
 
-  @override
-  void ngAfterViewInit() {
-    // Detect effects of NgForTrackBy
-    trackChanges(heroesNoTrackBy, () => heroesNoTrackByCount++);
-    trackChanges(heroesWithTrackBy, () => heroesWithTrackByCount++);
-  }
+  List<Element> prevHeroesNoTrackBy = [];
 
   @ViewChildren('noTrackBy')
-  QueryList<Element> heroesNoTrackBy;
+  set heroesNoTrackBy(List<Element> elements) {
+    final isSame = elements.every((e) => prevHeroesNoTrackBy.contains(e));
+    if (isSame) return;
+    prevHeroesNoTrackBy = elements;
+    heroesNoTrackByCount++;
+    cd.detectChanges();
+  }
+
+  List<Element> prevHeroesWithTrackBy = [];
+
   @ViewChildren('withTrackBy')
-  QueryList<Element> heroesWithTrackBy;
+  set heroesWithTrackBy(List<Element> elements) {
+    final isSame = elements.every((e) => prevHeroesWithTrackBy.contains(e));
+    if (isSame) return;
+    prevHeroesWithTrackBy = elements;
+    heroesWithTrackByCount++;
+    cd.detectChanges();
+  }
 
   String actionName = 'Go for it';
   String badCurly = 'bad curly';
@@ -110,8 +124,8 @@ class AppComponent implements AfterViewInit, OnInit {
   final List<Hero> heroes = [];
 
   // trackBy change counting
-  int heroesNoTrackByCount = 0;
-  int heroesWithTrackByCount = 0;
+  int heroesNoTrackByCount = -1;
+  int heroesWithTrackByCount = -1;
   int heroesWithTrackByCountReset = 0;
 
   int heroIdIncrement = 1;
@@ -188,18 +202,4 @@ class AppComponent implements AfterViewInit, OnInit {
   // #docregion trackById
   int trackById(int index, dynamic item) => item.id;
   // #enddocregion trackById
-}
-
-// helper to track changes to viewChildren
-void trackChanges(QueryList<Element> views, void countChange()) {
-  List<Element> oldRefs = views.toList();
-  views.changes.listen((Iterable<Element> changes) {
-    final changedRefs = changes.toList();
-    // Is every changed ElemRef the same as old and in the same position
-    final isSame = changedRefs.every((e) => oldRefs.contains(e));
-    if (!isSame) {
-      oldRefs = changedRefs;
-      countChange();
-    }
-  });
 }

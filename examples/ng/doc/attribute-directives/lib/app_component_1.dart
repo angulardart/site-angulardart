@@ -6,7 +6,7 @@ import 'src/highlight_directive_2.dart';
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component_1.html',
-  directives: const [HighlightDirective],
+  directives: [HighlightDirective],
 )
 // #docregion class
 class AppComponent {

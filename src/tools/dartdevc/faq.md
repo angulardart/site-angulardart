@@ -12,20 +12,18 @@ For information on how to use dartdevc, see the
 
 #### What is dartdevc?
 
-The dartdevc tool is a new Dart-to-JavaScript compiler
+The dartdevc tool is a Dart-to-JavaScript compiler
 that's targeted at web app development in modern browsers.
-The existing Dart-to-JavaScript compiler,
-[dart2js](/tools/dart2js),
-is still supported.
+The existing Dart-to-JavaScript compiler, [dart2js][], is still supported.
 
 
 #### How do I use dartdevc?
 
 Don't run `dartdevc` directly.
-Instead, use a build tool.
-For instructions on using `pub build` and `pub serve`
-with dartdevc,
-see the [dartdevc documentation.](/tools/dartdevc)
+The [build_runner][] tool and
+the [build_web_compilers][] package
+use `dartdevc` as the default web compiler
+when [building][build] and [serving][serve] web apps.
 
 
 #### When should I use dartdevc?
@@ -34,13 +32,11 @@ Use **dartdevc** whenever you're actively working on your code.
 Here are some of the advantages of dartdevc over dart2js:
 
 * Faster refreshing after code changes.
-* Stronger runtime checks, based on
-  [strong mode Dart]({{site.dartlang}}/guides/language/sound-dart).
 * Simpler, more readable, more idiomatic JavaScript output
   containing fewer runtime checks.
 * Integration with Chrome dev tools for easier debugging.
 
-Keep using **dart2js** to build your deployed, production app.
+Keep using **[dart2js][]** to build your deployed, production app.
 With dart2js you get advanced optimizations such as
 tree shaking to minimize downloaded code size.
 
@@ -52,7 +48,7 @@ You _might_ be able to use other modern browsers
 (Edge, Firefox, and Safari).
 
 If you find a bug in dartdevc's support for Chrome, Edge, Firefox, or Safari, please
-[create an issue.](https://github.com/dart-lang/sdk/issues/new?title=[dartdevc]%20)
+[create an issue.][dartdevc issue]
 
 
 ## Common problems
@@ -75,19 +71,8 @@ especially when they come from generated code or third-party libraries.
 
 #### My code analyzes correctly, so why am I getting runtime errors?
 
-Some of dartdevc's type safety checks are implemented only at runtime.
-Even if your code has no static type safety errors,
-you may see runtime errors in dartdevc that you don't see in dart2js or the VM
-(even in checked mode).
-
-For more information, see
-[Strong Mode Dart]({{site.dartlang}}/guides/language/sound-dart)
-(especially the sections on
-[runtime checks]({{site.dartlang}}/guides/language/sound-dart#runtime-checks)
-and
-[resources]({{site.dartlang}}/guides/language/sound-dart#other-resources))
-and the
-[common problems page.]({{site.dartlang}}/guides/language/sound-problems)
+Some of Dart's [type safety checks][] are implemented only at runtime.
+Even if your code has no static type errors, you may see [runtime errors.][runtime errors]
 
 
 #### Why does dartdevc take longer to run the first time?
@@ -95,25 +80,25 @@ and the
 Because it's compiling your entire app,
 including the packages your app depends on.
 
-The first time `pub build` or `pub serve` compiles your app,
+The first time you [build][] or [serve][] your app,
 dartdevc compiles every module.
-Afterward, as long as pub continues to run,
-pub tracks which Dart files change,
-and it recompiles only the modules that are affected by those changes.
+Afterward, as long as [build_runner][] continues to run,
+it tracks which Dart files change,
+and dartdevc recompiles only the modules that are affected by those changes.
 
 
 #### Why are subsequent runs taking a long time?
 
 Are the implementation files for your package under `lib/src`?
-If not, pub is probably creating too many modules.
+If not, dartdevc is probably creating too many modules.
 For more information, see
 [How are the modules created?](#how-are-the-modules-created)
 
 
 #### Why is dartdevc producing so many JavaScript files?
 
-Pub is probably creating too many modules
-because implementation files aren't under `lib/src`.
+This happens when dartdevc is creating too many modules.
+Are the implementation files for your package under `lib/src`?
 For more information, see
 [How are the modules created?](#how-are-the-modules-created)
 
@@ -128,15 +113,15 @@ with the label [area-dev-compiler.](https://github.com/dart-lang/sdk/issues?q=is
 
 #### What are JavaScript modules?
 
-When you use pub with dartdevc, modules are an implementation detail.
+When you use dartdevc, modules are an implementation detail.
 
-Pub uses dartdevc to create several JavaScript modules,
+The dartdevc creates several JavaScript modules,
 each of which contains code generated from one or more Dart files.
 When you edit your Dart files,
-`pub serve` recompiles only the affected modules, instead of your whole app.
+build_runner recompiles only the affected modules, instead of your whole app.
 The result is a much quicker edit-refresh cycle.
 
-By contrast, when you use dart2js with or without pub,
+By contrast, when you use dart2js,
 dart2js creates one JavaScript file for the entire app.
 
 If you'd like to know more about JavaScript modules,
@@ -148,9 +133,9 @@ Addy Osmani’s
 
 #### How are the modules created?
 
-When you use pub with dartdevc,
+When you use a build_runner command with dartdevc,
 a heuristic that's based on package structure
-determines which modules pub creates:
+determines which modules the build_runner command creates:
 
 * One module for each Dart file that’s under `lib`, but not under `lib/src`. <br>
   These are the Dart files that are part of the package's public API,
@@ -162,9 +147,11 @@ determines which modules pub creates:
 
 * One module for each Dart file that’s not imported by one of the above.
 
+{% comment %}This currently isn't true: https://github.com/dart-lang/site-webdev/pull/1426#discussion_r176868668
 * Shared modules. <br>
-  Pub produces a minimum set of shared modules,
+  The build_runner tool produces a minimum set of shared modules,
   taking care not to introduce cycles.
+{% endcomment %}
 
 Any Dart file that is imported ends up either
 directly in the importing file’s module
@@ -177,12 +164,13 @@ minimizes the amount of code that your app loads.
 
 #### What kind of modules does dartdevc produce?
 
-When run with pub, dartdevc generates
+When run with [build_runner][], dartdevc generates
 [AMD modules.](https://github.com/amdjs/amdjs-api/blob/master/AMD.md#amd)
-It can also generate
+Dartdevc can also generate
 [ES6 (Harmony)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and
 [CommonJS (Node)](https://nodejs.org/docs/latest/api/modules.html#modules_modules)
-modules.
+modules, but these options aren't currently supported by the
+[build_web_compilers][] package used with the [build_runner][] tool.
 
 
 #### Can I customize my modules?
@@ -215,3 +203,12 @@ for more information.
 
 You can find source code and more documentation in the Dart SDK repo under
 [`/pkg/dev_compiler`.](https://github.com/dart-lang/sdk/tree/master/pkg/dev_compiler)
+
+[build]: /tools/build_runner#build
+[build_runner]: /tools/build_runner
+[build_web_compilers]: https://github.com/dart-lang/build/tree/master/build_web_compilers
+[dart2js]: /tools/dart2js
+[dartdevc issue]: https://github.com/dart-lang/sdk/issues/new?title=[dartdevc]%20
+[runtime errors]: https://www.dartlang.org/guides/language/sound-problems#runtime-errors
+[serve]: /tools/build_runner#serve
+[type safety checks]: https://www.dartlang.org/guides/language/sound-dart

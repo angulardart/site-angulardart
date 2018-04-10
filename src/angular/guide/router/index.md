@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Routing Overview
 description: Overview of core router features
 sideNavGroup: advanced
@@ -10,14 +9,17 @@ nextpage:
   title: Routing Basics
   url: /angular/guide/router/1
 ---
-<!-- FilePath: src/angular/guide/router/index.md -->
+
 <?code-excerpt path-base="examples/ng/doc/router"?>
+<?code-excerpt replace="/_\d((\.template)?\.dart)/$1/g"?>
 
 <div class="alert alert-success" markdown="1">
   This is a **DRAFT** of the router pages, which are still being actively updated.
   Most of the content is accurate, but the sample is still being reworked and enhanced.
-  [Feedback](https://github.com/dart-lang/site-webdev/issues/new) is welcome.
+  [Feedback][] is welcome.
 </div>
+
+[Feedback]: {{site.repo}}/issues/new?title='{{page.title}}' page issue&body=From URL: {{site.url}}{{page.url}}
 
 The Angular **router** enables navigation from one [view](/angular/glossary.html#view) to the next
 as users perform app tasks.
@@ -76,7 +78,7 @@ You'll learn many router details in this guide which covers
 * Confirming or canceling navigation with [guards](#guards)
   * [CanActivate](#can-activate-guard) to prevent navigation to a route
   * [CanActivateChild](#can-activate-child-guard) to prevent navigation to a child route
-  * [CanDeactivate](#can-deactivate-guard) to prevent navigation away from the current route
+  * [CanDeactivate](#can-deactivate) to prevent navigation away from the current route
   * [Resolve](#resolve-guard) to pre-fetch data before activating a route
   * [CanLoad](#can-load-guard) to prevent asynchronous routing
 * Providing optional information across routes with [query parameters](#query-parameters)
@@ -92,19 +94,19 @@ You'll learn many router details in this guide which covers
 ### Add angular_router
 
 Router functionality is in the [angular_router][] library,
-which comes in [its own package][angular_router@pub].
+which comes in [its own package.][angular_router@pub]
 Add the package to the pubspec dependencies:
 
-<?code-excerpt "pubspec.yaml (dependencies)" region="dependencies-wo-forms" title?>
+<?code-excerpt "pubspec.yaml (dependencies)" region="dependencies-wo-forms" replace="/angular_.+/[!$&!]/g" title?>
 ```
   dependencies:
-    angular: ^4.0.0
-    angular_router: ^1.0.2
+    angular: ^5.0.0-alpha
+    [!angular_router: ^2.0.0-alpha!]
 ```
 
 In any Dart file that makes use of router features, import the router library:
 
-<?code-excerpt "lib/app_component_1.dart (import)"?>
+<?code-excerpt "lib/app_component_1.dart (angular_router)"?>
 ```
   import 'package:angular_router/angular_router.dart';
 ```
@@ -115,270 +117,154 @@ If you're already familiar with Angular routing,
 here's a reminder of what you need to do:
 
 - Choose a [location strategy](router/1#which-location-strategy-to-use).
-- Register appropriate router providers when bootstrapping your app.
-- Ensure that each routing component has metadata listing the router
-  directives used by the component.
+- [Register appropriate router providers][router providers] when bootstrapping your app.
+- Ensure that each routing component has metadata listing the
+  [router directives](router/1#router-directives) used by the component.
 
-For details, see
-[Declaring router providers and directives](router/1#declaring-router-providers-and-directives).
+[router providers]: router/1#add-router-providers
 
 ## Basic feature overview
 
-This guide proceeds in phases, marked by milestones, starting from a simple two-pager
+This guide proceeds in phases, marked by milestones, starting from a skeletal app
 and building toward a modular, multi-view design with child routes.
 This overview of core router concepts will help orient you to the details that follow.
 
-### *&lt;base href>*
+### \<base href>
 
 Most routing apps have a `<base href="...">` element in the `index.html` `<head>`
 to tell the router how to compose navigation URLs.
 For details, see [Set the *base href*](router/1#base-href).
 
-### Configuration
+### Routes
 
-When the browser's URL changes, the router looks for a corresponding **`RouteDefinition`**
-from which it can determine the component to display.
+[Routes](router/1#routes) tell the router which views to display when a user
+clicks a link or pastes a URL into the browser address bar. To configure routes
+you'll need to do the following:
 
-A router has no routes until you configure it.
-The following example creates some route definitions. It illustrates
-the preferred way of simultaneously creating a router and
-adding its routes using a **`@RouteConfig`**
-applied to the router's host component:
+<?code-excerpt path-base="examples/ng/doc/toh-5"?>
 
-<?code-excerpt "lib/app_component_1.dart (routes)" region="app-component-routes" title?>
+<ul><li markdown="1">
+Define [route paths](router/1#route-paths):
+
+<?code-excerpt "lib/src/route_paths.dart" region="v1" title?>
 ```
-  @Component(
-    selector: 'my-app',
-    // ···
-  )
-  @RouteConfig(const [
-    const Route(
-        path: '/crisis-center',
-        name: 'CrisisCenter',
-        component: CrisisCenterComponent),
-    const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent)
-  ])
-  class AppComponent {}
-```
+  import 'package:angular_router/angular_router.dart';
 
-There are several flavors of `RouteDefinition`.
-The most common, illustrated above, is a named **`Route`** which maps a URL path to a component.
+  final heroes = new RoutePath(path: 'heroes');
+```
+</li><li markdown="1">
+Define [route definitions](router/1#route-definitions):
+
+<?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
+```
+  // ignore_for_file: uri_has_not_been_generated
+  import 'package:angular/angular.dart';
+  import 'package:angular_router/angular_router.dart';
+
+  import 'route_paths.dart' as paths;
+  import 'hero_list_component.template.dart' as hlct;
+
+  @Injectable()
+  class Routes {
+    static final _heroes = new RouteDefinition(
+      routePath: paths.heroes,
+      component: hlct.HeroListComponentNgFactory,
+    );
+
+    RouteDefinition get heroes => _heroes;
+
+    final List<RouteDefinition> all = [
+      _heroes,
+    ];
+  }
+```
+</li><li markdown="1">
+Bind the route definitions to a _router outlet_, as illustrated next.
+</li></ul>
 
 ### Router outlet
 
-When the browser URL for this app becomes `/#/heroes`,
-the router matches that URL to the `RouteDefinition` named `Heroes` and displays the `HeroesComponent`
-_after_ a `RouterOutlet` that you've placed in the host view's HTML.
+When you visit
+[localhost:8080/#/heroes](http://localhost:8080/#/heroes){:.no-automatic-external},
+the router matches the URL with the heroes route path, and displays a
+`HeroListComponent` immediately below the `<router-outlet>` in the routing
+component template:
 
-<?code-excerpt?>
-```html
-  <router-outlet></router-outlet>
-  <!-- Routed views go here -->
+<?code-excerpt "lib/app_component.dart (routes and template)" remove="/Hero|nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
 ```
+  import 'src/routes.dart';
+
+  @Component(
+    template: '''
+      ...
+      [!<router-outlet [routes]="routes.all"></router-outlet>!]
+    ''',
+    providers: [
+      const ClassProvider(Routes),
+    ],
+  )
+  class AppComponent {
+    final Routes routes;
+
+    AppComponent(this.routes);
+  }
+```
+
+For details, see [RouterOutlet](router/1#routeroutlet).
+
+<?code-excerpt path-base="examples/ng/doc/router"?>
 
 ### Router links
 
-Now you have routes configured and a place to render them, but
-how do you navigate? The URL could arrive directly from the browser address bar.
-But most of the time you navigate as a result of some user action such as the click of
-an anchor tag.
+A [RouterLink][] directive on an anchor tag gives the router control over the anchor.
+Bind each `RouterLink` directive to a template expression that evaluates to a URL.
 
-Consider the following template:
-
-<?code-excerpt "lib/app_component_1.dart (template and styles)" region="template" title?>
+<?code-excerpt "lib/app_component_1.dart (template and styles)" region="template" replace="/\[routerLink\]|routerLinkActive/[!$&!]/g" title?>
 ```
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
+      <a [![routerLink]!]="routes.crises.path"
+         [!routerLinkActive!]="active-route">Crisis Center</a>
+      <a [![routerLink]!]="routes.heroes.path"
+         [!routerLinkActive!]="active-route">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: const ['.router-link-active {color: #039be5;}'],
+  styles: ['.active-route {color: #039be5;}'],
 ```
 
-The `RouterLink` directives on the anchor tags give the router control over those elements.
-You bind each `RouterLink` directive to a template expression that
-returns the route link parameters as a [link parameters list](router/appendices#link-parameters-list).
-The router resolves each link parameters list into a complete URL.
+A [RouterLinkActive][] will apply the named CSS class to the anchor whose link
+is active. This helps visually distinguish the active links.
 
-{% comment %}
-//- TODO: `RouterLinkActive` is forthcoming in the new router. Once it is available, we'll be
-//- able to make use of the a.active style in the global styles file.
- The **`RouterLinkActive`** directive on each anchor tag helps visually distinguish the anchor for the currently selected _active_ route.
-{% endcomment %}
+For details, see [RouterLinks](router/1#router-link).
 
-The `RouterLink` directive also helps visually distinguish the anchor for the currently selected _active_ route.
-The router adds the `router-link-active` CSS class to the element when the associated router link becomes active.
-As illustrated above, you can define this style alongside the template in the `@Component` annotation
-of the `AppComponent`.
+## Summary
 
-### Summary
+Here are the key router terms and their meanings.
 
-The app has a configured router.
-The shell component has a `RouterOutlet` where it can display views produced by the router.
-It has `RouterLink`s that users can click to navigate via the router.
+{:.table .table-striped}
+| **Router Part** | **Meaning** |
+| [Router][] | Displays the app component for the active URL. Manages navigation from one component to the next. |
+| Routing component | An Angular component with a `<router-outlet>` that displays views based on router navigations. |
+| Route | A kind of `RouteDefinition`. Defines how the router should navigate to a component based on a URL pattern. Most routes consist of a path, a route name, and a component type. |
+| [RouteDefinition][] | Defines how the router should navigate to a component based on a URL pattern. |
+| [RouterOutlet][] | The directive (`<router-outlet>`) that marks where the router should display a views. |
+| [RouterLink][] | The directive for binding a clickable HTML element to a route. Clicking an element with a `routerLink` directive triggers a navigation. |
 
-Here are the key router terms and their meanings:
+## What next?
 
-<style>td,th {vertical-align: top}</style>
-<table>
-<tr>
-  <th>Router Part</th>
-  <th>Meaning</th>
-</tr>
-<tr>
-  <td><code>Router</code></td>
-  <td>
-    Displays the app component for the active URL.
-    Manages navigation from one component to the next.
-  </td>
-</tr>
-<tr>
-  <td><code>@RouteConfig</code></td>
-  <td>
-    Configures a router with a <code>RouteDefinition</code> list.
-  </td>
-</tr>
-<tr>
-  <td><code>RouteDefinition</code></td>
-  <td>
-    Defines how the router should navigate to a component based on a URL pattern.
-  </td>
-</tr>
-<tr>
-  <td><code>Route</code></td>
-  <td>
-    A kind of <code>RouteDefinition</code>.
-    Defines how the router should navigate to a component based on a URL pattern.
-    Most routes consist of a path, a route name, and a component type.
-  </td>
-</tr>
-<tr>
-  <td><code>RouterOutlet</code></td>
-  <td>
-    The directive (<code>&lt;router-outlet></code>) that marks where the router should display a view.
-  </td>
-</tr>
-<tr>
-  <td><code>RouterLink</code></td>
-  <td>
-    The directive for binding a clickable HTML element to
-    a route. Clicking an element with a <code>routerLink</code> directive
-    that is bound to a <i>link parameters list</i> triggers a navigation.
-  </td>
-</tr>
-<tr>
-  <td><a href="router/appendices#link-parameters-list">Link parameters list</a></td>
-  <td>
-    A list that the router interprets as a routing instruction.
-    You can bind that list to a <code>RouterLink</code> or pass the list as an argument to
-    the <code>Router.navigate</code> method.
-  </td>
-</tr>
-<tr>
-  <td>Routing component</td>
-  <td>
-    An Angular component with a <code>RouterOutlet</code> that
-    displays views based on router navigations.
-  </td>
-</tr>
-</table>
-
-## The sample app
-
-This guide describes the development of a multi-page routed sample app.
-Along the way, it highlights design decisions and describes key features of the router.
-
-{% comment %}
-//- TODO: review and/or drop the list:
-such as:
-
-* organizing the app features into modules
-* navigating to a component (*Heroes* link to "Heroes List")
-* including a route parameter (passing the Hero `id` while routing to the "Hero Detail")
-* child routes (the *Crisis Center* has its own routes)
-* the `CanActivate` guard (checking route access)
-* the `CanActivateChild` guard (checking child route access)
-* the `CanDeactivate` guard (ask permission to discard unsaved changes)
-* the `Resolve` guard (pre-fetching route data)
-* lazy loading feature modules
-* the `CanLoad` guard (check before loading feature module assets)
-{% endcomment %}
-
-The guide proceeds as a sequence of milestones as if you were building the app step-by-step.
-But, it is not a tutorial and it glosses over details of Angular app construction
-that are more thoroughly covered elsewhere in the documentation.
-
-The full source for the final version of the app can be seen and downloaded from the <live-example></live-example>.
-
-### The sample app in action
-
-Imagine an app that helps the _Hero Employment Agency_ run its business.
-Heroes need work and the agency finds crises for them to solve.
-
-The app has these main features:
-
-1. A *Crisis Center* for maintaining the list of crises for assignment to heroes.
-1. A *Heroes* area for maintaining the list of heroes employed by the agency.
-{% comment %}TODO: add support for Admin feature
-1. An *Admin* area to manage the list of crises and heroes.
-{% endcomment %}
-
-Try it by clicking on this <live-example title="Hero Employment Agency Live Example">live example link</live-example>.
-Once the app warms up, you'll see a row of navigation buttons
-and the *Heroes* view with its list of heroes.
-
-<img class="image-display" src="{% asset_path 'ng/devguide/router/hero-list-2-tab.png' %}" alt="Hero List" width="282">
-
-Select one hero and the app takes you to a hero editing screen.
-
-<img class="image-display" src="{% asset_path 'ng/devguide/router/hero-detail-2-tab.png' %}" alt="Crisis Center Detail" width="282">
-
-Alter the name.
-Click the "Back" button and the app returns to the heroes list which displays the changed hero name.
-Notice that the name change took effect immediately.
-
-Had you clicked the browser's back button instead of the "Back" button,
-the app would have returned you to the heroes list as well.
-Angular app navigation updates the browser history as normal web navigation does.
-
-Now click the *Crisis Center* link for a list of ongoing crises.
-
-<img class="image-display" src="{% asset_path 'ng/devguide/router/crisis-center-list-2-tab.png' %}" alt="Crisis Center List" width="282">
-
-Select a crisis and the app takes you to a crisis editing screen.
-The _Crisis Detail_ appears in a child view on the same page, beneath the list.
-
-Alter the name of a crisis.
-Notice that the corresponding name in the crisis list does _not_ change.
-
-<img class="image-display" src="{% asset_path 'ng/devguide/router/crisis-center-detail-2-tab.png' %}" alt="Crisis Center Detail" width="282">
-
-Unlike *Hero Detail*, which updates as you type,
-*Crisis Detail* changes are temporary until you either save or discard them by pressing the "Save" or "Cancel" buttons.
-Both buttons navigate back to the *Crisis Center* and its list of crises.
-
-***Do not click either button yet***.
-Click the browser back button or the "Heroes" link instead.
-
-Up pops a dialog box.
-
-<img class="image-display" src="{% asset_path 'ng/devguide/router/confirm-dialog.png' %}" alt="Confirm Dialog" width="282">
-
-You can select "OK" and lose your changes or click "Cancel" and continue editing.
-
-Behind this behavior is the router's `routerCanDeactivate` hook.
-The hook gives you a chance to clean-up or ask the user's permission
-before navigating away from the current view.
-
-{% comment %}
-//- Not currently supported:
-The `Admin` and `Login` buttons illustrate other router capabilities to be
-covered later in the guide.
-{% endcomment %}
+The rest of this guide describes the development of a <live-example>multi-page
+routed app</live-example> through a sequence of milestones. Each milestone
+highlights specific design decisions and introduces new key features of the
+router.
 
 [angular_forms]: https://pub.dartlang.org/packages/angular_forms
 [angular_router]: /api/angular_router/angular_router/angular_router-library
 [angular_router@pub]: https://pub.dartlang.org/packages/angular_router
+[RouteDefinition]: /api/angular_router/angular_router/RouteDefinition-class
+[Router]: /api/angular_router/angular_router/Router-class
+[RouterLink]: /api/angular_router/angular_router/RouterLink-class
+[RouterLinkActive]: /api/angular_router/angular_router/RouterLinkActive-class
+[RouterOutlet]: /api/angular_router/angular_router/RouterOutlet-class
+[RoutePath]: /api/angular_router/angular_router/RoutePath-class

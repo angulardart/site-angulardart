@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:pageloader/objects.dart';
 import 'utils.dart';
 
-class DashboardPO {
+class DashboardPO extends PageObjectBase {
   @FirstByCss('h3')
-  PageLoaderElement _title;
+  PageLoaderElement get _title => q('h3');
 
   @ByTagName('a')
-  List<PageLoaderElement> _heroes;
+  List<PageLoaderElement> get _heroes => qq('a');
 
   Future<String> get title => _title.visibleText;
 

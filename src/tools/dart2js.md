@@ -6,51 +6,37 @@ permalink: /tools/dart2js
 ---
 
 Use the _dart2js_ tool to compile Dart code to deployable JavaScript.
-The [`pub serve`](/tools/pub/pub-serve),
-[`pub run`]({{site.dartlang}}/tools/pub/cmd/pub-run), and
-[`pub build`](/tools/pub/pub-build) commands use dart2js.
-If you are using dart2js through one of the pub commands, see [Configuring
-the Built-in dart2js Transformer for Pub](/tools/pub/dart2js-transformer)
-for information on how to specify dart2js flags in your pubspec file.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-The 1.24 Dart SDK introduced pub support for a second Dart-to-JavaScript compiler,
-the Dart development compiler ([_dartdevc_](/tools/dartdevc)).
-You can use dartdevc with `pub serve` to generate JavaScript code that
-runs in any modern browser and has a fast edit-refresh cycle.
-</aside>
-
+Another Dart-to-JavaScript compiler, [dartdevc][], is for development use only.
+The [build_runner][] tool uses dartdevc by default, but when you're compiling
+for production, you can [configure][config] build_runner to use dart2js.
 
 The dart2js tool provides hints for improving your Dart code and removing
-unused code. You can get these hints for all kinds of code—even command-line
-apps.
+unused code.
 Also see [dartanalyzer,](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer)
 which performs a similar analysis but has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips
 on debugging the JavaScript that dart2js generates.
 
-## Basic usage {#basic-usage}
+## Basic usage
 
 Here’s an example of compiling a Dart file to JavaScript:
 
-{% prettify sh %}
-dart2js --out=test.js test.dart
+{% prettify terminal %}
+$ dart2js --out=test.js test.dart
 {% endprettify %}
 
 This command produces a file that contains the JavaScript equivalent of your
 Dart code. It also produces a source map, which can help you debug the
 JavaScript version of the app more easily.
 
-## Usage in pubspec {#pubspec-usage}
+## Build config usage
 
-You can also configure dart2js options in the pubspec file.
-For more information, see
-[Configuring the Built-in dart2js Transformer for
-Pub](/tools/pub/dart2js-transformer).
+You can also configure dart2js options in a build config file.
+For more information, see the [build_runner][] section on
+[config files](/tools/build_runner#config).
 
-## Options {#options}
+## Options
 
 * [Basic options](#basic-options)
 * [Path and environment options](#path-and-environment-options)
@@ -66,12 +52,18 @@ Common command-line options for dart2js include:
 : Generate the output into `<file>`. If not specified,
   the output goes in a file named `out.js`.
 
-`-c` or `--checked`
-: Insert runtime type checks, and enable assertions (checked mode).
+{% comment %}
+  See https://github.com/dart-lang/sdk/issues/32442
+
+  `-c` or `--checked`
+  : Insert runtime type checks, and enable assertions (checked mode).
+{% endcomment %}
+
+`--enable-asserts`
+: Enable assertion checking.
 
 `-m` or `--minify`
 : Generate minified output.
-  This option is used, by default, when you build using `pub serve`.
 
 `-h` or `--help`
 : Display help. (Use `-vh` for information about all options.)
@@ -203,14 +195,18 @@ For more information, see the `--minify` option
 
 `--trust-type-annotations`
 : Assume that all types are correct.
-  If your program works in strong mode or checked mode,
-  we recommend using this option when deploying your code.
+  {%- comment %}
+    See https://github.com/dart-lang/sdk/issues/32442
+    Does this still make sense in Dart 2?
+  {% endcomment %}
+  If the analyzer reports no issues in your code,
+  we recommend using this option when deploying your app.
   This option can significantly improve both size and speed.
 
   <aside class="alert alert-warning" markdown="1">
-  **Warning:** The `--trust-type-annotations` option can
-  result in confusing error messages,
-  especially in minified code.
+    **Warning:** The `--trust-type-annotations` option can
+    result in confusing error messages,
+    especially in minified code.
   </aside>
 
 
@@ -219,30 +215,23 @@ For more information, see the `--minify` option
 You can do a couple of things to improve the code that dart2js generates:
 
 * Write your code in a way that makes type inference easier.
-
 * Once you’re ready to deploy your app, minify it and consider using
   the dart2js [size and speed options](#size-and-speed-options)
   to reduce code size or startup time.
 
 <aside class="alert alert-info" markdown="1">
-**Note:**
-Don’t worry about the size of your app’s included libraries. The dart2js tool
-performs tree shaking to omit unused classes, functions, methods, and so on.
-Just import the libraries you need, and let dart2js get rid of what you don’t
-need.
+  **Note:**
+  Don’t worry about the size of your app’s included libraries. The dart2js tool
+  performs tree shaking to omit unused classes, functions, methods, and so on.
+  Just import the libraries you need, and let dart2js get rid of what you don’t
+  need.
 </aside>
 
 Follow these practices to help dart2js do better type inference, so it can generate smaller and faster JavaScript code:
 
-* Avoid using the dart:mirrors library, directly or indirectly.  If you must
-  use it, provide `@MirrorsUsed` annotations.
-
 * Don't use `Function.apply()`.
-
 * Don't override `noSuchMethod()`.
-
 * Avoid setting variables to null.
-
 * Be consistent with the types of arguments you pass into each function or
   method.
 
@@ -263,14 +252,11 @@ To debug in Chrome:
 
 1. Open the Developer Tools window, as described in the
    [Chrome DevTools documentation](https://developer.chrome.com/devtools/index).
-
 2. Turn on source maps, as described in the video
    [SourceMaps in Chrome](http://bit.ly/YugIUY).
-
 3. Enable debugging, either on all exceptions or only on uncaught exceptions,
    as described in
    [How to set breakpoints](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints).
-
 4. Reload your app.
 
 ### Internet Explorer {#dart2js-debugging-ie}
@@ -279,12 +265,9 @@ To debug in Internet Explorer:
 
 1. Update to the latest version of Internet Explorer. (Source-map support
    was added to IE in April 2014).
-
 2. Load **Developer Tools** (**F12**). For more information, see
    [Using the F12 developer tools](http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
-
 3. Reload the app. The **debugger** tab shows source-mapped files.
-
 4. Exception behavior can be controlled through **Ctrl+Shift+E**;
    the default is **Break on unhandled exceptions**.
 
@@ -294,26 +277,27 @@ Firefox doesn’t yet support source maps (see [bug #771597](https://bugzilla.mo
 
 To debug in Firefox:
 
-<ol>
-<li>Enable the Developer Toolbar, as described in Kevin Dangoor’s blog post,
+1. Enable the Developer Toolbar, as described in Kevin Dangoor’s blog post,
    <a href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/">New Firefox Command Line Helps You Develop
-   Faster"</a>.<br /><br /></li>
+   Faster"</a>.
+   
+2. Click <strong>Pause on exceptions</strong>, as shown in the
+   following figure.
+   <img src="{% asset_path 'ff-debug.png' %}" alt="Firefox Toolbar"><br /><br />
+3. Reload your app.
 
-<li>Click <strong>Pause on exceptions</strong>, as shown in the
-   following figure.<br /></li>
-
-<img src="{% asset_path 'ff-debug.png' %}" alt="Firefox Toolbar"><br /><br />
-
-<li>Reload your app.</li>
-</ol>
 
 ### Safari {#dart2js-debugging-safari}
 
 To debug in Safari:
 
 1. Turn on the Develop menu, as described in the [Safari Web Inspector Tutorial.](https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/EnableWebInspector/EnableWebInspector.html)
-
 2. Enable breaks, either on all exceptions or only on uncaught exceptions.
    See [Add a JavaScript breakpoint](https://support.apple.com/en-ca/guide/safari-developer/add-a-javascript-breakpoint-dev5e4caf347/mac) under [Safari Developer Help.](https://support.apple.com/en-ca/guide/safari-developer/welcome/mac)
-
 3. Reload your app.
+
+[build]: /tools/build_runner#build
+[build_runner]: /tools/build_runner
+[config]: /tools/build_runner#config
+[dartdevc]: /tools/dartdevc
+[serve]: /tools/build_runner#serve

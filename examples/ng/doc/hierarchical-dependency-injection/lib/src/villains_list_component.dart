@@ -15,9 +15,9 @@ import 'villains_service.dart';
         </ul>
       </div>
     ''',
-  directives: const [CORE_DIRECTIVES],
-  providers: const [VillainsService],
-  pipes: const [COMMON_PIPES],
+  directives: [coreDirectives],
+  providers: [VillainsService],
+  pipes: [commonPipes],
 )
 // #enddocregion metadata
 class VillainsListComponent {

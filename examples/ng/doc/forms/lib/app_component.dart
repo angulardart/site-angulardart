@@ -5,6 +5,6 @@ import 'src/hero_form_component.dart';
 @Component(
   selector: 'my-app',
   template: '<hero-form></hero-form>',
-  directives: const [HeroFormComponent],
+  directives: [HeroFormComponent],
 )
 class AppComponent {}

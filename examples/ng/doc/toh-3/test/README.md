@@ -1,7 +1,7 @@
 The toh-3 is a refactoring of toh-2. The app component is simplified, factoring out
 
  - `hero.dart`
- - `hero_detail_component.dart`
+ - `hero_component.dart`
 
 Given that toh-3 is a refactoring, the toh-2 `app_test`s run, without change,
 over toh-3.

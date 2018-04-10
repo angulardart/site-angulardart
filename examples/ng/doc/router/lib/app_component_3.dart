@@ -1,43 +1,27 @@
-// #docplaster
-// #docregion v1,
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'src/crisis_center_component_1.dart';
-// #enddocregion v1
-import 'src/heroes/hero_detail_component.dart';
-// #docregion v1
-import 'src/heroes/hero_service.dart';
-import 'src/heroes/heroes_component.dart';
-import 'src/not_found_component.dart';
+import 'src/routes_3.dart';
+import 'src/hero/hero_service.dart';
 
 @Component(
   selector: 'my-app',
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="['CrisisCenter']">Crisis Center</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
+      <a [routerLink]="routes.crises.path"
+         routerLinkActive="active-route">Crisis Center</a>
+      <a [routerLink]="routes.heroes.path"
+         routerLinkActive="active-route">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: const ['.router-link-active {color: #039be5;}'],
-  directives: const [ROUTER_DIRECTIVES],
-  providers: const [HeroService],
+  styles: ['.active-route {color: #039be5;}'],
+  directives: [routerDirectives],
+  providers: [Routes, HeroService],
 )
-@RouteConfig(const [
-  const Redirect(path: '/', redirectTo: const ['Heroes']),
-  const Route(
-      path: '/crisis-center',
-      name: 'CrisisCenter',
-      component: CrisisCenterComponent),
-  const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent),
-  // #enddocregion v1
-  // #docregion HeroDetail-route
-  const Route(
-      path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent),
-  // #enddocregion HeroDetail-route
-  // #docregion v1
-  const Route(path: '/**', name: 'NotFound', component: NotFoundComponent),
-])
-class AppComponent {}
+class AppComponent {
+  final Routes routes;
+
+  AppComponent(this.routes);
+}

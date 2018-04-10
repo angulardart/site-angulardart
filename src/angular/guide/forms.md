@@ -104,11 +104,11 @@ dependencies:
  version: 0.0.1
 
  environment:
-@@ -8,22 +7,13 @@
+@@ -8,15 +7,9 @@
 
  dependencies:
-   angular: ^4.0.0
-+  angular_forms: ^1.0.0
+   angular: ^5.0.0-alpha
++  angular_forms: ^2.0.0-alpha
 ```
 
 <?code-excerpt path-base="examples/ng/doc/forms"?>
@@ -167,7 +167,7 @@ Create the following file with the given content:
 
   import 'hero.dart';
 
-  const List<String> _powers = const [
+  const List<String> _powers = [
     'Really Smart',
     'Super Flexible',
     'Super Hot',
@@ -177,7 +177,7 @@ Create the following file with the given content:
   @Component(
     selector: 'hero-form',
     templateUrl: 'hero_form_component.html',
-    directives: const [CORE_DIRECTIVES, formDirectives],
+    directives: [coreDirectives, formDirectives],
   )
   class HeroFormComponent {
     Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
@@ -225,7 +225,7 @@ Replace the contents of the starter app version with the following:
   @Component(
     selector: 'my-app',
     template: '<hero-form></hero-form>',
-    directives: const [HeroFormComponent],
+    directives: [HeroFormComponent],
   )
   class AppComponent {}
 ```

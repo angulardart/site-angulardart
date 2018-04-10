@@ -9,7 +9,7 @@ import 'package:angular/angular.dart';
       <button (click)="toggleFormat()">Toggle Format</button>
     ''',
   // #enddocregion template
-  pipes: const [COMMON_PIPES],
+  pipes: [commonPipes],
 )
 // #docregion class
 class HeroBirthday2Component {

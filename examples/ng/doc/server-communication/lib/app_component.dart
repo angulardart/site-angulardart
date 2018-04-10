@@ -11,7 +11,7 @@ import 'src/wiki/wiki_smart_component.dart';
       <my-wiki></my-wiki>
       <my-wiki-smart></my-wiki-smart>
     ''',
-    directives: const [
+    directives: [
       HeroListComponent,
       WikiComponent,
       WikiSmartComponent
