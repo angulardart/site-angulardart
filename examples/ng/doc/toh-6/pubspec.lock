@@ -14,42 +14,42 @@ packages:
       name: angular
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-alpha+9"
+    version: "5.0.0-alpha+10"
   angular_ast:
     dependency: transitive
     description:
       name: angular_ast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.0"
+    version: "0.5.1"
   angular_compiler:
     dependency: transitive
     description:
       name: angular_compiler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0-alpha+9"
+    version: "0.4.0-alpha+10"
   angular_forms:
     dependency: "direct main"
     description:
       name: angular_forms
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+1"
+    version: "2.0.0-alpha+2"
   angular_router:
     dependency: "direct main"
     description:
       name: angular_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+9"
+    version: "2.0.0-alpha+10"
   angular_test:
     dependency: "direct dev"
     description:
       name: angular_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+7"
+    version: "2.0.0-alpha+8"
   archive:
     dependency: transitive
     description:
@@ -133,7 +133,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.2+1"
+    version: "0.8.2+2"
   build_test:
     dependency: "direct dev"
     description:
@@ -287,7 +287,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.4"
+    version: "0.15.5"
   io:
     dependency: transitive
     description:
@@ -391,7 +391,7 @@ packages:
     description:
       path: "examples/util/pageloader"
       ref: "5-dev"
-      resolved-ref: "170aca7f908d41e28624119cbd6f2430795253f3"
+      resolved-ref: "63fb3668f7d857be8d978d35842ac05efc9e89bf"
       url: "https://github.com/dart-lang/site-webdev.git"
     source: git
     version: "0.0.1"
@@ -436,7 +436,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.28.2"
+    version: "0.29.0+1"
   quiver_hashcode:
     dependency: transitive
     description:
@@ -548,7 +548,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.33"
+    version: "0.12.34"
   tuple:
     dependency: transitive
     description:
@@ -592,4 +592,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.37 <=2.0.0-dev.46.0"
+  dart: ">=2.0.0-dev.46.0 <=2.0.0-dev.47.0"
