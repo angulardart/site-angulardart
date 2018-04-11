@@ -11,8 +11,9 @@
 <!-- #enddocregion add -->
 <ul class="heroes">
   <!-- #docregion li-element -->
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-      [class.selected]="hero === selected">
+  <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selected"
+      (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span>
     <span>{{hero.name}}</span>
     <!-- #docregion delete -->

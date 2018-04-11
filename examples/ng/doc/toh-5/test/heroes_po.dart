@@ -28,7 +28,7 @@ class HeroesPO extends PageObjectBase {
   Iterable<Future<Map>> get heroes =>
       _heroes.map((el) async => _heroDataFromLi(await el.visibleText));
 
-  Future selectHero(int index) => _heroes[index].click();
+  Future<void> selectHero(int index) => _heroes[index].click();
 
   Future<Map> get selected async => _selected == null
       ? null

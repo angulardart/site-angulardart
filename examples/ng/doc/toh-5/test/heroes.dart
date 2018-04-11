@@ -96,7 +96,7 @@ void selectedHeroTests(InjectorProbe injector) {
   test('select another hero', () async {
     await po.selectHero(0);
     po = await new HeroesPO().resolve(fixture);
-    final heroData = {idParam: 11, 'name': 'Mr. Nice'};
+    final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selected, heroData);
   });
   // #docregion go-to-detail

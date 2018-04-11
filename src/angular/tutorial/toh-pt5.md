@@ -48,7 +48,6 @@ Before continuing with the Tour of Heroes, verify that you have the following st
       - hero_service.dart
       - mock_heroes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html
@@ -1214,15 +1213,15 @@ Verify that you have the following structure:
   - lib
     - app_component.{css,dart}
     - src
-      - routes.dart
       - dashboard_component.{css,dart,html}
       - hero.dart
       - hero_component.{css,dart,html}
-      - hero_service.dart
       - hero_list_component.{css,dart,html}
+      - hero_service.dart
       - mock_heroes.dart
+      - route_paths.dart
+      - routes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html

@@ -7,9 +7,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 // #enddocregion import-router
 
-import 'route_paths.dart' as paths;
 import 'hero.dart';
 import 'hero_service.dart';
+import 'route_paths.dart' as paths;
 
 // #docregion metadata, metadata-wo-styles
 @Component(

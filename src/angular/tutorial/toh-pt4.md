@@ -18,7 +18,7 @@ Instead of copying and pasting the same code over and over,
 you'll create a single reusable data service and
 inject it into the components that need it.
 Using a separate service keeps components lean and focused on supporting the view,
-and makes it easy to unit-test components with a mock service.
+and makes it easy to unit test components with a mock service.
 
 Because data services are invariably asynchronous,
 you'll finish the page with a *Future*-based version of the data service.
@@ -39,7 +39,6 @@ If not, go back to the previous pages.
       - hero_component.dart
       - mock_heroes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html
@@ -359,7 +358,6 @@ Verify that you have the following structure after all of your refactoring:
       - hero_service.dart
       - mock_heroes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html

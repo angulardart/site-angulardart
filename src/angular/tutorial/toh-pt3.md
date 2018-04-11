@@ -35,7 +35,6 @@ If not, go back to the previous pages.
       - hero.dart
       - mock_heroes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html
@@ -292,7 +291,6 @@ Verify that you have the following structure:
       - hero_component.dart
       - mock_heroes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html

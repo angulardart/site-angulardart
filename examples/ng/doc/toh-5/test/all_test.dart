@@ -14,5 +14,5 @@ void main() {
   group('dashboard: mock router:', dashboard.main);
   group('dashboard: real router:', dashboard_real_router.main);
   group('heroes:', heroes.main);
-  group('heroes_detail:', hero_detail.main);
+  group('hero:', hero_detail.main);
 }

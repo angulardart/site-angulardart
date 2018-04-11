@@ -8,6 +8,9 @@ import 'hero.dart';
 import 'hero_service.dart';
 // #docregion search
 import 'hero_search_component.dart';
+// #enddocregion search
+import 'route_paths.dart' as paths;
+// #docregion search
 
 @Component(
   selector: 'my-dashboard',
@@ -22,6 +25,9 @@ class DashboardComponent implements OnInit {
   final HeroService _heroService;
 
   DashboardComponent(this._heroService);
+
+  String heroUrl(int id) =>
+      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
 
   Future<void> ngOnInit() async {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();

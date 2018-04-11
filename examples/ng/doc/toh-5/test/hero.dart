@@ -41,10 +41,10 @@ void main() {
     expect(fixture.rootElement.text.trim(), '');
   });
 
-  const targetHero = {idParam: 15, 'name': 'Magneta'};
+  const targetHero = {'id': 15, 'name': 'Magneta'};
 
   group('${targetHero['name']} initial hero:', () {
-    final Map updatedHero = {idParam: targetHero[idParam]};
+    final Map updatedHero = {'id': targetHero[idParam]};
 
     final mockRouterState = new MockRouterState();
     when(mockRouterState.parameters)

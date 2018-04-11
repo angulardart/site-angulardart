@@ -88,7 +88,7 @@ Here is an example of a PO method for adding a new hero. It makes use of both
 
 <?code-excerpt "toh-6/test/heroes_po.dart (addHero)" title?>
 ```
-  Future addHero(String name) async {
+  Future<void> addHero(String name) async {
     await _input.clear();
     await _input.type(name);
     return _add.click();

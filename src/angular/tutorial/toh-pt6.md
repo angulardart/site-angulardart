@@ -30,15 +30,15 @@ Before continuing with the Tour of Heroes, verify that you have the following st
   - lib
     - app_component.{css,dart}
     - src
-      - routes.dart
       - dashboard_component.{css,dart,html}
       - hero.dart
       - hero_component.{css,dart,html}
-      - hero_service.dart
       - hero_list_component.{css,dart,html}
+      - hero_service.dart
       - mock_heroes.dart
+      - route_paths.dart
+      - routes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - index.html
@@ -106,8 +106,8 @@ so provide it through the app's root injector:
   }
 ```
 
-Notice that you supply `BrowserClient` as a class provider in list argument to
-generated injector. This has the same effect as the `providers` list in
+Notice that you supply `BrowserClient` as a class provider in list argument of
+the generated injector. This has the same effect as the `providers` list in
 `@Component` annotation.
 
 <aside class="alert alert-warning" markdown="1">
@@ -529,8 +529,9 @@ The `<li>` element should now look like this:
 
 <?code-excerpt "lib/src/hero_list_component.html (li element)" title?>
 ```
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-      [class.selected]="hero === selected">
+  <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selected"
+      (click)="onSelect(hero)">
     <span class="badge">{!{hero.id}!}</span>
     <span>{!{hero.name}!}</span>
     <button class="delete"
@@ -719,7 +720,7 @@ Create the `HeroSearchComponent` class and metadata.
     templateUrl: 'hero_search_component.html',
     styleUrls: ['hero_search_component.css'],
     directives: [coreDirectives],
-    providers: [HeroSearchService],
+    providers: [const ClassProvider(HeroSearchService)],
     pipes: [commonPipes],
   )
   class HeroSearchComponent implements OnInit {
@@ -821,7 +822,8 @@ Add the hero search HTML element to the bottom of the `DashboardComponent` templ
 ```
   <h3>Top Heroes</h3>
   <div class="grid grid-pad">
-    <a *ngFor="let hero of heroes" routerLink="/heroes/{!{hero.id}!}" class="col-1-4">
+    <a *ngFor="let hero of heroes" class="col-1-4"
+       [routerLink]="heroUrl(hero.id)">
       <div class="module hero">
         <h4>{!{hero.name}!}</h4>
       </div>
@@ -832,7 +834,7 @@ Add the hero search HTML element to the bottom of the `DashboardComponent` templ
 
 Finally, import `HeroSearchComponent` from `hero_search_component.dart` and add it to the `directives` list.
 
-<?code-excerpt "lib/src/dashboard_component.dart (search)" title?>
+<?code-excerpt "lib/src/dashboard_component.dart (search)" remove="·" title?>
 ```
   import 'hero_search_component.dart';
 
@@ -863,12 +865,13 @@ Verify that you have the following structure:
       - dashboard_component.{css,dart,html}
       - hero.dart
       - hero_component.{css,dart,html}
+      - hero_list_component.{css,dart,html}
       - hero_search_component.{css,dart,html} (new)
       - hero_search_service.dart (new)
       - hero_service.dart
-      - hero_list_component.{css,dart,html}
+      - route_paths.dart
+      - routes.dart
   - test
-    - app_test.dart
     - ...
   - web
     - main.dart
