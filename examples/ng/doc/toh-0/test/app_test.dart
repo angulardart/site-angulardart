@@ -3,14 +3,15 @@
 
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
+// #docregion test-bed-and-fixture
+import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
+// #enddocregion test-bed-and-fixture
 import 'package:test/test.dart';
 
-import 'app_test.template.dart' as ng;
-
+// #docregion test-bed-and-fixture
 void main() {
-  ng.initReflector();
-  // #docregion test-bed-and-fixture
-  final testBed = new NgTestBed<AppComponent>();
+  final testBed =
+      NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
   NgTestFixture<AppComponent> fixture;
   // #enddocregion test-bed-and-fixture
 
@@ -37,5 +38,5 @@ void main() {
     expect(html, '<h1>Hello Angular</h1>');
   });
   // #enddocregion more-tests
-  // #docregion initial
+  // #docregion initial, test-bed-and-fixture
 }

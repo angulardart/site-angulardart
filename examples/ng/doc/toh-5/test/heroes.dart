@@ -1,31 +1,41 @@
-// #docregion , providers-with-context
+// #docregion
 @TestOn('browser')
-// #enddocregion providers-with-context
 
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/route_paths.dart' show idParam;
 import 'package:angular_tour_of_heroes/src/hero_list_component.dart';
+// #docregion providers-with-context, rootInjector
+import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
+    as ng;
+// #enddocregion rootInjector
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
-// #docregion providers-with-context
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+// #docregion rootInjector
+import 'heroes.template.dart' as self;
+// #enddocregion rootInjector
 import 'heroes_po.dart';
 import 'utils.dart';
 
 NgTestFixture<HeroListComponent> fixture;
 HeroesPO po;
 
+// #docregion rootInjector
+@GenerateInjector([
+  const ClassProvider(HeroService),
+  const ClassProvider(Router, useClass: MockRouter),
+])
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 void main() {
-  final injector = new InjectorProbe();
-  // #docregion providers
-  final testBed = new NgTestBed<HeroListComponent>().addProviders([
-    const ClassProvider(HeroService),
-    const ClassProvider(Router, useClass: MockRouter),
-  ]).addInjector(injector.init);
-  // #enddocregion providers
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<HeroListComponent>(
+      ng.HeroListComponentNgFactory,
+      rootInjector: injector.factory);
+  // #enddocregion rootInjector
 
   setUp(() async {
     fixture = await testBed.create();
@@ -37,9 +47,9 @@ void main() {
 
   group('Basics:', basicTests);
   group('Selected hero:', () => selectedHeroTests(injector));
-  // #docregion providers-with-context
+  // #docregion providers-with-context, rootInjector
 }
-// #enddocregion providers-with-context
+// #enddocregion providers-with-context, rootInjector
 
 void basicTests() {
   test('title', () async {

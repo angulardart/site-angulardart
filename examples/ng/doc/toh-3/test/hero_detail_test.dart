@@ -4,10 +4,10 @@
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/hero.dart';
 import 'package:angular_tour_of_heroes/src/hero_component.dart';
+import 'package:angular_tour_of_heroes/src/hero_component.template.dart' as ng;
 import 'package:test/test.dart';
 
 import 'hero_detail_po.dart';
-import 'hero_detail_test.template.dart' as ng;
 
 // #docregion targetHero
 const targetHero = {'id': 1, 'name': 'Alice'};
@@ -17,8 +17,8 @@ NgTestFixture<HeroComponent> fixture;
 HeroDetailPO po;
 
 void main() {
-  ng.initReflector();
-  final testBed = new NgTestBed<HeroComponent>();
+  final testBed =
+      NgTestBed.forComponent<HeroComponent>(ng.HeroComponentNgFactory);
 
   tearDown(disposeAnyRunningTest);
 

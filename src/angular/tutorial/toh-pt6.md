@@ -83,26 +83,32 @@ Update package dependencies by adding the Dart [http][] and
 
 Before the app can use `BrowserClient`, you have to register it as a service provider.
 
-You should be able to access `BrowserClient` services from anywhere in the app.
-So register it in the `bootstrap` call where you
-launch the app and its root `AppComponent`.
+You should be able to access `BrowserClient` services from anywhere in the app,
+so provide it through the app's root injector:
 
-<?code-excerpt "web/main.dart (v1)" title linenums?>
+<?code-excerpt "web/main_1.dart" title linenums replace="/_\d//g"?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
-  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
   import 'package:http/browser_client.dart';
 
+  import 'main.template.dart' as self;
+
+  @GenerateInjector([
+    routerProvidersHash, // You can use routerProviders in production
+    const ClassProvider(BrowserClient),
+  ])
+  final InjectorFactory injector = self.injector$Injector;
+
   void main() {
-    bootstrap(AppComponent, [
-      routerProvidersHash, // You can use routerProviders in production
-      const FactoryProvider(Client, () => new BrowserClient()),
-    ]);
+    runApp(ng.AppComponentNgFactory, createInjector: injector);
   }
 ```
 
-Notice that you supply `BrowserClient` in a list, as the second parameter to the `bootstrap` method.  This has the same effect as the `providers` list in `@Component` annotation.
+Notice that you supply `BrowserClient` as a class provider in list argument to
+generated injector. This has the same effect as the `providers` list in
+`@Component` annotation.
 
 <aside class="alert alert-warning" markdown="1">
 **Note:** Unless you have an appropriately configured backend server (or a mock server),
@@ -117,31 +123,31 @@ a mock service, the *in-memory web API*.
 
 Update `web/main.dart` with this version, which uses the mock service:
 
-<?code-excerpt "web/main.dart (v2)" title linenums?>
+<?code-excerpt "web/main.dart" title linenums?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
-  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
   import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
   import 'package:http/http.dart';
 
-  import 'main.template.dart' as ng;
+  import 'main.template.dart' as self;
+
+  @GenerateInjector([
+    routerProvidersHash, // You can use routerProviders in production
+    const ClassProvider(Client, useClass: InMemoryDataService),
+    // Using a real back end?
+    // Import 'package:http/browser_client.dart' and change the above to:
+    //   const ClassProvider(Client, useClass: BrowserClient),
+  ])
+  final InjectorFactory injector = self.injector$Injector;
 
   void main() {
-    bootstrapStatic(
-        AppComponent,
-        [
-          routerProvidersHash, // You can use routerProviders in production
-          const ClassProvider(Client, useClass: InMemoryDataService),
-          // Using a real back end?
-          // Import 'package:http/browser_client.dart' and change the above to:
-          // const FactoryProvider(Client, () => new BrowserClient()),
-        ],
-        ng.initReflector);
+    runApp(ng.AppComponentNgFactory, createInjector: injector);
   }
 ```
 
-You want to replace `BrowserClient`, the service that talks to the remote server,
+Replace `BrowserClient`, the service that talks to the remote server,
 with the in-memory web API service.
 The in-memory web API service, shown below, is implemented using the
 `http` library `MockClient` class.

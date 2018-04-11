@@ -398,24 +398,24 @@ The preferred approach is to register app services in app components.
 Because the `HeroService` is used within the *Heroes* feature set, and nowhere else,
 the ideal place to register it is in `HeroesComponent`.
 
-Here's a more realistic example of bootstrap providers, taken from the
+Here's a more realistic example of bootstrapping providers, taken from the
 [tutorial, part 5](../tutorial/toh-pt5):
 
 <?code-excerpt "../toh-5/web/main.dart" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
-  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
 
-  import 'main.template.dart' as ng;
+  import 'main.template.dart' as self;
+
+  @GenerateInjector(
+    routerProvidersHash, // You can use routerProviders in production
+  )
+  final InjectorFactory injector = self.injector$Injector;
 
   void main() {
-    bootstrapStatic(
-        AppComponent,
-        [
-          routerProvidersHash // You can use routerProviders in production
-        ],
-        ng.initReflector);
+    runApp(ng.AppComponentNgFactory, createInjector: injector);
   }
 ```
 

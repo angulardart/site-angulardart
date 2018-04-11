@@ -1,7 +1,6 @@
 import 'package:angular/angular.dart';
-
-import 'package:angular_tour_of_heroes/app_component_1.dart';
+import 'package:angular_tour_of_heroes/app_component_1.template.dart' as ng;
 
 void main() {
-  bootstrap(AppComponent);
+  runApp(ng.AppComponentNgFactory);
 }

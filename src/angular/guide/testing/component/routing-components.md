@@ -37,28 +37,36 @@ whereas those for the dashboard use a **real router**.
 
 ## Using a mock router
 
-To test using a mock router, you must add the mock router class to the providers list of the `NgTestBed`, as described in the section on
+To test using a mock router, you must add the mock router class to the providers
+list of the generated root injector, as described in the section on
 [Component-external services: mock or real](services#component-external-services-mock-or-real):
 
 <?code-excerpt "toh-5/test/heroes.dart (excerpt)" region="providers-with-context" title?>
 ```
-  @TestOn('browser')
-  // ···
+  import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
+      as ng;
+  import 'package:angular_tour_of_heroes/src/hero_service.dart';
   import 'package:mockito/mockito.dart';
   import 'package:test/test.dart';
 
+  import 'heroes.template.dart' as self;
   import 'heroes_po.dart';
   import 'utils.dart';
 
   NgTestFixture<HeroListComponent> fixture;
   HeroesPO po;
 
+  @GenerateInjector([
+    const ClassProvider(HeroService),
+    const ClassProvider(Router, useClass: MockRouter),
+  ])
+  final InjectorFactory rootInjector = self.rootInjector$Injector;
+
   void main() {
-    final injector = new InjectorProbe();
-    final testBed = new NgTestBed<HeroListComponent>().addProviders([
-      const ClassProvider(HeroService),
-      const ClassProvider(Router, useClass: MockRouter),
-    ]).addInjector(injector.init);
+    final injector = new InjectorProbe(rootInjector);
+    final testBed = NgTestBed.forComponent<HeroListComponent>(
+        ng.HeroListComponentNgFactory,
+        rootInjector: injector.factory);
 
     setUp(() async {
       fixture = await testBed.create();
@@ -76,14 +84,15 @@ You'll see an example soon.
 <?code-excerpt "toh-5/test/utils.dart (InjectorProbe)" title?>
 ```
   class InjectorProbe {
-    Injector injector;
+    InjectorFactory _parent;
+    Injector _injector;
 
-    // Signature must match the argument type of `NgTestBed.addInjector()`.
-    Injector init([Injector injector]) {
-      this.injector = injector;
-      return injector;
-    }
+    InjectorProbe(this._parent);
 
+    InjectorFactory get factory => _factory;
+    Injector get injector => _injector ??= _factory();
+
+    Injector _factory([Injector parent]) => _injector = _parent(parent);
     T get<T>(dynamic token) => injector?.get(token);
   }
 ```
@@ -154,13 +163,9 @@ need to provide a value for [appBaseHref][]:
 
 <?code-excerpt "toh-5/test/dashboard.dart (providers)" title replace="/.addInjector[^;]+//g"?>
 ```
-  final testBed = new NgTestBed<DashboardComponent>().addProviders([
-    const ValueProvider.forToken(appBaseHref, '/'),
-    const ClassProvider(Routes),
-    const ClassProvider(HeroService),
-    routerProviders,
-    const ClassProvider(Router, useClass: MockRouter),
-  ]);
+  final testBed = NgTestBed.forComponent<DashboardComponent>(
+      ng.DashboardComponentNgFactory,
+      rootInjector: injector.factory);
 ```
 
 The test itself is similar to the one used for heroes, with the exception
@@ -185,15 +190,14 @@ seen already:
 
 <?code-excerpt "toh-5/test/app.dart (provisioning and setup)" title?>
 ```
-  final injector = new InjectorProbe();
-  final testBed = new NgTestBed<AppComponent>()
-      .addProviders(routerProvidersForTesting)
-      .addInjector(injector.init);
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory,
+      rootInjector: injector.factory);
 
   setUp(() async {
     fixture = await testBed.create();
     router = injector.get<Router>(Router);
-    await router.navigate('/');
+    await router?.navigate('/');
     await fixture.update();
     appPO = await new AppPO().resolve(fixture);
   });
@@ -289,12 +293,17 @@ rather than `DashboardComponent`:
   DashboardPO po;
   Router router;
 
+  @GenerateInjector([
+    const ClassProvider(HeroService),
+    routerProvidersForTesting,
+  ])
+  final InjectorFactory rootInjector = self.rootInjector$Injector;
+
   void main() {
-    final injector = new InjectorProbe();
-    final testBed = new NgTestBed<TestComponent>().addProviders([
-      const ClassProvider(HeroService),
-      routerProvidersForTesting,
-    ]).addInjector(injector.init);
+    final injector = new InjectorProbe(rootInjector);
+    final testBed = NgTestBed.forComponent<TestComponent>(
+        self.TestComponentNgFactory,
+        rootInjector: injector.factory);
     // ···
   }
 ```

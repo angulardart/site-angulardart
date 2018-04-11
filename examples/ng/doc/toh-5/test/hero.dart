@@ -5,24 +5,31 @@ import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/route_paths.dart' show idParam;
 import 'package:angular_tour_of_heroes/src/hero_component.dart';
+import 'package:angular_tour_of_heroes/src/hero_component.template.dart' as ng;
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'hero.template.dart' as self;
 import 'hero_po.dart';
 import 'utils.dart';
 
 NgTestFixture<HeroComponent> fixture;
 HeroDetailPO po;
 
+@GenerateInjector([
+  const ClassProvider(HeroService),
+  const ClassProvider(Location, useClass: MockLocation),
+])
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 /// HeroDetail is simple enough that it can be tested without a router.
 /// Instead we only mock Location.
 void main() {
-  final injector = new InjectorProbe();
-  final testBed = new NgTestBed<HeroComponent>().addProviders([
-    const ClassProvider(HeroService),
-    const ClassProvider(Location, useClass: MockLocation),
-  ]).addInjector(injector.init);
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<HeroComponent>(
+      ng.HeroComponentNgFactory,
+      rootInjector: injector.factory);
 
   setUp(() async {
     fixture = await testBed.create();

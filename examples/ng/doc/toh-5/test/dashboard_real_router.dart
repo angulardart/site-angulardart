@@ -10,6 +10,7 @@ import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:test/test.dart';
 
 import 'dashboard_po.dart';
+import 'dashboard_real_router.template.dart' as self;
 import 'matchers.dart';
 import 'utils.dart';
 
@@ -18,12 +19,17 @@ NgTestFixture<TestComponent> fixture;
 DashboardPO po;
 Router router;
 
+@GenerateInjector([
+  const ClassProvider(HeroService),
+  routerProvidersForTesting,
+])
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 void main() {
-  final injector = new InjectorProbe();
-  final testBed = new NgTestBed<TestComponent>().addProviders([
-    const ClassProvider(HeroService),
-    routerProvidersForTesting,
-  ]).addInjector(injector.init);
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<TestComponent>(
+      self.TestComponentNgFactory,
+      rootInjector: injector.factory);
   // #enddocregion providers-with-context
 
   // #docregion setUp

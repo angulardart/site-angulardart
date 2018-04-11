@@ -31,13 +31,12 @@ includes a few basic tests for its `AppComponent` in the following test file:
 
   import 'package:angular_test/angular_test.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
   import 'package:test/test.dart';
 
-  import 'app_test.template.dart' as ng;
-
   void main() {
-    ng.initReflector();
-    final testBed = new NgTestBed<AppComponent>();
+    final testBed =
+        NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
     NgTestFixture<AppComponent> fixture;
 
     setUp(() async {

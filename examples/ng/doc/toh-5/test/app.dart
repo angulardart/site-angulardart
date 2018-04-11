@@ -1,9 +1,12 @@
 @TestOn('browser')
+import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
+import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
 import 'package:test/test.dart';
 
+import 'app.template.dart' as self;
 import 'app_po.dart';
 import 'utils.dart';
 
@@ -11,17 +14,19 @@ NgTestFixture<AppComponent> fixture;
 AppPO appPO;
 Router router;
 
+@GenerateInjector(routerProvidersForTesting)
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 void main() {
   // #docregion provisioning-and-setup
-  final injector = new InjectorProbe();
-  final testBed = new NgTestBed<AppComponent>()
-      .addProviders(routerProvidersForTesting)
-      .addInjector(injector.init);
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory,
+      rootInjector: injector.factory);
 
   setUp(() async {
     fixture = await testBed.create();
     router = injector.get<Router>(Router);
-    await router.navigate('/');
+    await router?.navigate('/');
     await fixture.update();
     appPO = await new AppPO().resolve(fixture);
   });

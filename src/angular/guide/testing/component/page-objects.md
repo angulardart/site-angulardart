@@ -155,7 +155,8 @@ generally initialized during setup:
 
 <?code-excerpt "toh-1/test/app_test.dart (appPO setup)" title?>
 ```
-  final testBed = new NgTestBed<AppComponent>();
+  final testBed =
+      NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
   NgTestFixture<AppComponent> fixture;
   AppPO appPO;
 

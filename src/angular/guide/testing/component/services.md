@@ -49,18 +49,29 @@ services are instatiated, as usual, thanks to Angular's
 
 ## Component-external services: mock or real
 
-Some components expect services to have been bootstrapped, or provided by an
-ancestor in the app component tree.  When testing such a component, you need
-to supply a list of providers to the `NgTestBed` before instantiating the
-fixture. This list of providers can contain both real and mock services,
-as the following example shows:
+When testing a component that expects a service, you need to supply the
+`NgTestBed` with a root injector factory. The provider list of the generated
+injector factory can contain both real and mock services, as shown here:
 
-<?code-excerpt "toh-5/test/heroes.dart (providers)" title replace="/.addInjector[^;]+//g"?>
+<?code-excerpt "toh-5/test/heroes.dart (rootInjector)" title remove="Probe" replace="/injector.factory/rootInjector/g; /rootInjector(?!\$)/[!$&!]/g"?>
 ```
-  final testBed = new NgTestBed<HeroListComponent>().addProviders([
+  import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
+      as ng;
+  // ···
+  import 'heroes.template.dart' as self;
+  // ···
+  @GenerateInjector([
     const ClassProvider(HeroService),
     const ClassProvider(Router, useClass: MockRouter),
-  ]);
+  ])
+  final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
+
+  void main() {
+    final testBed = NgTestBed.forComponent<HeroListComponent>(
+        ng.HeroListComponentNgFactory,
+        [!rootInjector!]: [!rootInjector!]);
+    // ···
+  }
 ```
 
 See [Component Testing: Routing Components][] for details concerning the use of

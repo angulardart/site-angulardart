@@ -58,8 +58,7 @@ env:
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=hierarchical"
     - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
-    #
-    - TEST_OPT="--skip=toh-5"
+    - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp
 
 matrix:

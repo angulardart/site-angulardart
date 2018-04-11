@@ -56,8 +56,14 @@ Component tests must explicitly define the **component under test**. You define 
 
 <?code-excerpt "toh-0/test/app_test.dart (test bed and fixture)" title?>
 ```
-  final testBed = new NgTestBed<AppComponent>();
-  NgTestFixture<AppComponent> fixture;
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
+  // ···
+  void main() {
+    final testBed =
+        NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
+    NgTestFixture<AppComponent> fixture;
+    // ···
+  }
 ```
 
 You'll generally initialize the fixture in a `setUp()` function.
@@ -71,13 +77,12 @@ before it moves on to the next test group, if any. Here is an example:
 
   import 'package:angular_test/angular_test.dart';
   import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
   import 'package:test/test.dart';
 
-  import 'app_test.template.dart' as ng;
-
   void main() {
-    ng.initReflector();
-    final testBed = new NgTestBed<AppComponent>();
+    final testBed =
+        NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
     NgTestFixture<AppComponent> fixture;
 
     setUp(() async {

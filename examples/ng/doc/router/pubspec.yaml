@@ -4,7 +4,7 @@ description: Router Example
 version: 0.0.1
 
 environment:
-  sdk: '>=2.0.0-dev.32.0 <2.0.0'
+  sdk: '>=2.0.0-dev.46.0 <2.0.0'
 
 # #docregion dependencies, dependencies-wo-forms
 dependencies:

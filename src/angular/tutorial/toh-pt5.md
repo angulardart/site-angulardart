@@ -199,24 +199,24 @@ the router library:
 
 ### Make the router available
 
-To tell Angular that your app uses the router,
-specify [routerProvidersHash][] in your app's bootstrap function:
+To tell Angular that your app uses the router, pass as an argument to `runApp()`
+an injector seeded with [routerProvidersHash][]:
 
 <?code-excerpt "web/main.dart" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
-  import 'package:angular_tour_of_heroes/app_component.dart';
+  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
 
-  import 'main.template.dart' as ng;
+  import 'main.template.dart' as self;
+
+  @GenerateInjector(
+    routerProvidersHash, // You can use routerProviders in production
+  )
+  final InjectorFactory injector = self.injector$Injector;
 
   void main() {
-    bootstrapStatic(
-        AppComponent,
-        [
-          routerProvidersHash // You can use routerProviders in production
-        ],
-        ng.initReflector);
+    runApp(ng.AppComponentNgFactory, createInjector: injector);
   }
 ```
 

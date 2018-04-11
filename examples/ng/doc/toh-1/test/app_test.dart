@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
+import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
 import 'package:pageloader/objects.dart';
 import 'package:test/test.dart';
 
@@ -49,9 +50,9 @@ class AppPO extends PageObjectBase {
 // #enddocregion AppPO, AppPO-initial, AppPO-hero, AppPO-input
 
 void main() {
-  ng.initReflector();
   // #docregion appPO-setup
-  final testBed = new NgTestBed<AppComponent>();
+  final testBed =
+      NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
   NgTestFixture<AppComponent> fixture;
   AppPO appPO;
 

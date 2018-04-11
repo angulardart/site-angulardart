@@ -6,10 +6,13 @@ import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/routes.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.dart';
+import 'package:angular_tour_of_heroes/src/dashboard_component.template.dart'
+    as ng;
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'dashboard.template.dart' as self;
 import 'dashboard_po.dart';
 import 'matchers.dart';
 import 'utils.dart';
@@ -18,16 +21,21 @@ import 'utils.dart';
 NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
+@GenerateInjector([
+  const ValueProvider.forToken(appBaseHref, '/'),
+  const ClassProvider(Routes),
+  const ClassProvider(HeroService),
+  routerProviders,
+  const ClassProvider(Router, useClass: MockRouter),
+])
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 void main() {
-  final injector = new InjectorProbe();
+  final injector = new InjectorProbe(rootInjector);
   // #docregion providers
-  final testBed = new NgTestBed<DashboardComponent>().addProviders([
-    const ValueProvider.forToken(appBaseHref, '/'),
-    const ClassProvider(Routes),
-    const ClassProvider(HeroService),
-    routerProviders,
-    const ClassProvider(Router, useClass: MockRouter),
-  ]).addInjector(injector.init);
+  final testBed = NgTestBed.forComponent<DashboardComponent>(
+      ng.DashboardComponentNgFactory,
+      rootInjector: injector.factory);
   // #enddocregion providers, providers-with-context
 
   setUp(() async {
