@@ -4,8 +4,8 @@ import 'sales_tax_service.dart';
 import 'tax_rate_service.dart';
 
 @Component(
-    selector: 'sales-tax',
-    template: '''
+  selector: 'sales-tax',
+  template: '''
       <h2>Sales Tax Calculator</h2>
       Amount: <input #amountBox (change)="0">
 
@@ -14,9 +14,13 @@ import 'tax_rate_service.dart';
        {{ getTax(amountBox.value) | currency:'USD':true:'1.2-2' }}
       </div>
     ''',
-    directives: [coreDirectives],
-    providers: [SalesTaxService, TaxRateService],
-    pipes: [commonPipes])
+  directives: [coreDirectives],
+  providers: [
+    const ClassProvider(SalesTaxService),
+    const ClassProvider(TaxRateService),
+  ],
+  pipes: [commonPipes],
+)
 class SalesTaxComponent {
   SalesTaxService _salesTaxService;
 

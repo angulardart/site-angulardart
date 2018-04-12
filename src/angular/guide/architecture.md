@@ -34,7 +34,7 @@ markup, writing *component* classes to manage those templates, adding
 application logic in *services*, and boxing components and services in
 *modules*.
 
-Then you launch the app by *bootstrapping* the _root module_.
+After you launch the app,
 Angular takes over, presenting your app content in a browser and
 responding to user interactions according to the instructions you've provided.
 
@@ -224,7 +224,7 @@ identifies the class immediately below it as a component class:
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
     directives: [coreDirectives, formDirectives, HeroDetailComponent],
-    providers: [HeroService],
+    providers: [const ClassProvider(HeroService)],
   )
   class HeroListComponent implements OnInit {
     // ···
@@ -534,7 +534,8 @@ In brief, you must register a **provider** of the `HeroService` with the
 injector. A provider can create or return a service, and is often the service
 class itself.
 
-You can register providers _with a component_ or _during bootstrapping_.
+You can register providers with a _component_, or through the _root injector_
+when the app is launched.
 
 ### Registering providers with a component
 
@@ -545,7 +546,11 @@ The most common way to register providers is at the component level using the
 ```
   @Component(
     // ···
-    providers: [BackendService, HeroService, Logger],
+    providers: [
+      const ClassProvider(BackendService),
+      const ClassProvider(HeroService),
+      const ClassProvider(Logger),
+    ],
   )
   class AppComponent {}
 ```
@@ -555,14 +560,14 @@ service with each new instance of that component. A service provided through a
 component is shared with all of the component's descendants in the app component
 tree.
 
-### Registering providers during bootstrapping
+### Registering providers with the root injector
 
-Registering providers when bootstrapping is much less common.
-For details, see the section on
-[registering a service provider][config-injector] in the guide to dependency
-injection.
+Registering providers with the root injector is much less common.
+For details, see the [Dependency Injection][] section on
+[registering a service provider][].
 
-[config-injector]: dependency-injection#injector-config
+[Dependency Injection]: dependency-injection
+[registering a service provider]: dependency-injection#injector-config
 
 Points to remember about dependency injection:
 

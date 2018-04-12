@@ -18,7 +18,11 @@ import 'src/sales_tax_component.dart';
   ''',
   directives: [HeroListComponent, SalesTaxComponent],
   // #docregion providers
-  providers: [BackendService, HeroService, Logger],
+  providers: [
+    const ClassProvider(BackendService),
+    const ClassProvider(HeroService),
+    const ClassProvider(Logger),
+  ],
 )
 // #docregion class
 class AppComponent {}

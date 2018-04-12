@@ -37,14 +37,16 @@ Usually you give it one string, as in the following example:
 <?code-excerpt "lib/app_component.dart" title?>
 ```
   @Component(
-      selector: 'hero-app',
-      template: '''
-        <h1>Tour of Heroes</h1>
-        <hero-app-main [hero]="hero"></hero-app-main>''',
-      styles: ['h1 { font-weight: normal; }'],
-      directives: [HeroAppMainComponent])
+    selector: 'hero-app',
+    template: '''
+      <h1>Tour of Heroes</h1>
+      <hero-app-main [hero]="hero"></hero-app-main>
+    ''',
+    styles: ['h1 { font-weight: normal; }'],
+    directives: [HeroAppMainComponent],
+  )
   class AppComponent {
-  // ···
+    // ···
   }
 ```
 
@@ -161,14 +163,16 @@ Each string in the list (usually just one string) defines the CSS.
 <?code-excerpt "lib/app_component.dart" title?>
 ```
   @Component(
-      selector: 'hero-app',
-      template: '''
-        <h1>Tour of Heroes</h1>
-        <hero-app-main [hero]="hero"></hero-app-main>''',
-      styles: ['h1 { font-weight: normal; }'],
-      directives: [HeroAppMainComponent])
+    selector: 'hero-app',
+    template: '''
+      <h1>Tour of Heroes</h1>
+      <hero-app-main [hero]="hero"></hero-app-main>
+    ''',
+    styles: ['h1 { font-weight: normal; }'],
+    directives: [HeroAppMainComponent],
+  )
   class AppComponent {
-  // ···
+    // ···
   }
 ```
 

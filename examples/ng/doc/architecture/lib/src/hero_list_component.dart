@@ -11,7 +11,7 @@ import 'hero_service.dart';
   templateUrl: 'hero_list_component.html',
   directives: [coreDirectives, formDirectives, HeroDetailComponent],
   // #docregion providers
-  providers: [HeroService],
+  providers: [const ClassProvider(HeroService)],
   // #enddocregion providers
 )
 // #docregion class
