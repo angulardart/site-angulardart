@@ -6,19 +6,6 @@ toc: false
 ---
 
 <div class="item-with-pic" markdown="1">
-<img src="/codelabs/images/from-java-to-dart.png"
-     width="150px"
-     alt="Bicycle image from codelab">
-<div class="details" markdown="1">
-#### [Intro to Dart for Java Developers](https://codelabs.developers.google.com/codelabs/from-java-to-dart/)
-{: .title}
-
-Use DartPad (no download required!) to explore how
-Dart makes writing modern apps easy and fun.
-</div>
-</div>
-
-<div class="item-with-pic" markdown="1">
 <img src="/codelabs/images/startup-namer.png"
      width="150px"
      alt="Screenshot of startup_namer app">
