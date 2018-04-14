@@ -309,7 +309,7 @@ In the DOM of a running Angular app with emulated view
 encapsulation enabled, each DOM element has some extra classes
 attached to it:
 
-{% prettify %}
+{% prettify html %}
 <hero-details class="_nghost-pmm-5">
   <h2 class="_ngcontent-pmm-5">Mister Fantastic</h2>
   <hero-team class="_ngcontent-pmm-5 _nghost-pmm-6">
@@ -329,7 +329,7 @@ The exact values of these classes aren't important. They are automatically
 generated and you never refer to them in app code. But they are targeted
 by the generated component styles, which are in the `<head>` section of the DOM:
 
-{% prettify %}
+{% prettify css %}
 ._nghost-pmm-5 {
   display: block;
   border: 1px solid black;
