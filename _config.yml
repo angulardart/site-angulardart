@@ -1,6 +1,6 @@
 # Site settings
 title: webdev.dartlang.org
-description: "Documentation to help you build high-quality web apps, using Dart tools and libraries. Includes AngularDart docs."
+description: Documentation to help you build high-quality web apps, using Dart tools and libraries. Includes AngularDart docs.
 url: https://webdev-dartlang-org-dev.firebaseapp.com
 prev-url: https://webdev.dartlang.org
 permalink: /:categories/:title
@@ -14,13 +14,13 @@ site-status-issue-url: https://github.com/dart-lang/site-webdev/issues/1369
 #
 www: https://www.dartlang.org
 webdev: https://webdev.dartlang.org
-dartlang: "https://www.dartlang.org"
-dart_vm:  "https://www.dartlang.org/dart-vm"
-flutter:  "https://flutter.io"
-dart_api: "https://api.dartlang.org"
-acx_api: "/api/angular_components"
-flutter_api: "https://docs.flutter.io"
-api: "https://www.dartdocs.org/documentation"
+dartlang: https://www.dartlang.org
+dart_vm:  https://www.dartlang.org/dart-vm
+flutter:  https://flutter.io
+dart_api: https://api.dartlang.org
+acx_api: /api/angular_components
+flutter_api: https://docs.flutter.io
+api: https://www.dartdocs.org/documentation
 
 ghNgEx: https://github.com/angular-examples
 # ghNgExBranch: --> use site.branch since branches should match across repos.
@@ -78,14 +78,14 @@ defaults:
 
 custom:
   dartpad:
-    embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
-    embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"
-    embed-inline-prefix: "https://dartpad.dartlang.org/embed-inline.html"
-    direct-link: "https://dartpad.dartlang.org"
+    embed-dart-prefix: https://dartpad.dartlang.org/embed-dart.html
+    embed-html-prefix: https://dartpad.dartlang.org/embed-html.html
+    embed-inline-prefix: https://dartpad.dartlang.org/embed-inline.html
+    direct-link: https://dartpad.dartlang.org
   downloads:
-    dartarchive-be-url-prefix: "https://storage.googleapis.com/dart-archive/channels/be/raw"
-    dartarchive-dev-url-prefix: "https://storage.googleapis.com/dart-archive/channels/dev/release"
-    dartarchive-stable-url-prefix: "https://storage.googleapis.com/dart-archive/channels/stable/release"
+    dartarchive-be-url-prefix: https://storage.googleapis.com/dart-archive/channels/be/raw
+    dartarchive-dev-url-prefix: https://storage.googleapis.com/dart-archive/channels/dev/release
+    dartarchive-stable-url-prefix: https://storage.googleapis.com/dart-archive/channels/stable/release
     binaries:
       - os: windows
         name: Windows
@@ -136,7 +136,7 @@ assets:
   # cdn: https://cdn.example.com
   # skip_baseurl_with_cdn: false
   # skip_prefix_with_cdn: false
-  prefix: "/assets"
+  prefix: /assets
   assets:
     - "*.png"
     - "*.jpg"
@@ -144,7 +144,7 @@ assets:
     - "*.ttf"
     - "*.woff"
     - "*.svg"
-  #   - "bundle.css"
+  #   - bundle.css
   # digest: true
   sources:
     - _assets/icons

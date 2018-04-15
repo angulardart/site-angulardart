@@ -1,9 +1,6 @@
 # ANGULAR
 # =======
 
-# Temporary until the install page integration is complete
-/tools/sdk
-
 # Temporary until we update the examples to use Angular 5-alpha+10 new app startup API
 /api/angular/angular/bootstrap
 
