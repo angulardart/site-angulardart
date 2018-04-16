@@ -202,7 +202,7 @@ gulp.task('build', done => plugins.runSequence(
 gulp.task('_build-prep', done => plugins.runSequence(
   '_clean-only-once',
   // TODO: is stagehand proj still used?
-  ['get-stagehand-proj', 'add-example-apps-to-site'],
+  ['get-stagehand-proj', '_examples-get-repos'],
   'create-example-fragments',
   done)
 );

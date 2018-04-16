@@ -37,9 +37,10 @@ module.exports = function (gulp, plugins, config) {
     gutil.log(`examples:\n  ${examples.join('\n  ')}`);
   });
 
-  gulp.task('add-example-apps-to-site', ['_examples-get-repos', '_examples-cp-to-site-folder']);
+  gulp.task('add-example-apps-to-site', ['_clean'], done =>
+    plugins.runSequence('_examples-get-repos', '_examples-cp-to-site-folder', done));
 
-  gulp.task('_examples-get-repos', ['_clean'], () => {
+  gulp.task('_examples-get-repos', () => {
     // const promises = [];
     examples.forEach(name => {
       const exPath = path.join(tmpReposPath, EXAMPLES_ROOT, name)
@@ -59,7 +60,7 @@ module.exports = function (gulp, plugins, config) {
   });
 
   let c = 0;
-  gulp.task('_examples-cp-to-site-folder', ['_clean', '_examples-get-repos'], done => {
+  gulp.task('_examples-cp-to-site-folder', done => {
     if (fs.existsSync(siteExPath)) {
       gutil.log(`  No examples to copy since folder exists: '${siteExPath}'.`);
       gutil.log(`  Use '--clean' to have '${siteExPath}' refreshed.`);

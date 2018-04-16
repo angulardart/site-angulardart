@@ -107,7 +107,8 @@ jobs:
       script:
         - ./scripts/write-ci-info.sh -v
         - gulp _api-doc-prep --use-cached-api-doc --dartdoc=all
-        - gulp _jekyll-build
+        - gulp _jekyll-build _examples-cp-to-site-folder
+        - ls -l publish/examples
         - ls -l publish/assets/bootstrap/*
       after_script:
         - ./scripts/check-all.sh || travis_terminate 1
