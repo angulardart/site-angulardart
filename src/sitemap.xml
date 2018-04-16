@@ -1,15 +1,14 @@
 ---
 layout: null
-sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% assign collections = site.collections | map: 'label' | join: ',' | prepend: 'pages,' | split: ',' -%}
 {%- for colName in collections -%}
 {%- for page in site[colName] -%}
-{%- unless page.sitemap == false -%}
+{%- unless page.sitemap == false or page.url == 'sitemap.xml' -%}
 <url>
-  <loc>{{ site.url | append: page.url | regex_replace: '/$' }}</loc>
+  <loc>{{ site.url | append: page.url | regex_replace: '(\.html|/)$' }}</loc>
   <lastmod>
     {%- if page.sitemap.lastmod -%}
       {{ page.sitemap.lastmod | date: "%Y-%m-%d" }}
@@ -33,7 +32,7 @@ sitemap: false
 {%- unless pkgLib[0] contains 'dart:' -%}
 {%- for page in pkgLib[1] %}
 <url>
-  <loc>{{ site.url | append: '/api/' | append: page.path | regex_replace: '(/|\.html)$' }}</loc>
+  <loc>{{ site.url | append: '/api/' | append: page.libName | append: '/' | append: page.path | regex_replace: '(\.html|/)$' }}</loc>
   <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
   <changefreq>monthly</changefreq>
 </url>
