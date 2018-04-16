@@ -1,12 +1,12 @@
 import 'package:angular/angular.dart';
 
 @Injectable()
+/// Logger that keeps only the last log entry.
 class Logger {
-  List<String> _logs = [];
-  List<String> get logs => _logs;
+  String _log = '';
 
-  void log(String message) {
-    _logs.add(message);
-    print(message);
-  }
+  void fine(String msg) => _log = msg;
+
+  @override
+  String toString() => '[$runtimeType] $_log';
 }

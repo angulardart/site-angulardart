@@ -17,11 +17,11 @@ import 'logger_service.dart';
       <div id="hero">{{hero.name}}</div>
       <div id="rodent">{{rodent}}</div>''',
   providers: [
-    Car,
-    Engine,
-    Tires,
+    const ClassProvider(Car),
+    const ClassProvider(Engine),
+    const ClassProvider(Tires),
     heroServiceProvider,
-    Logger,
+    const ClassProvider(Logger),
   ],
 )
 class InjectorComponent implements OnInit {
@@ -34,7 +34,9 @@ class InjectorComponent implements OnInit {
 
   @override
   void ngOnInit() {
+    // #docregion injector-get
     car = _injector.get(Car);
+    // #enddocregion injector-get
     // #docregion get-hero-service
     heroService = _injector.get(HeroService);
     // #enddocregion get-hero-service

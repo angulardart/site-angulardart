@@ -17,16 +17,20 @@ import 'src/logger_service.dart';
   ''',
   directives: [CarComponent, HeroesComponent],
   providers: [
-    Logger,
+    const ClassProvider(Logger),
     // #docregion providers
-    const Provider(appConfigToken, useValue: heroDiConfig),
+    const ValueProvider.forToken(appTitleToken, appTitle),
     // #enddocregion providers
   ],
 )
 class AppComponent {
   final String title;
 
-  // #docregion ctor
-  AppComponent(@Inject(appConfigToken) Map config) : title = config['title'];
-  // #enddocregion ctor
+  // #docregion inject-appTitleToken
+  AppComponent(@Inject(appTitleToken) this.title);
+  // #enddocregion inject-appTitleToken
+
+  // #docregion appTitleToken
+  AppComponent._(@appTitleToken this.title);
+  // #enddocregion appTitleToken
 }

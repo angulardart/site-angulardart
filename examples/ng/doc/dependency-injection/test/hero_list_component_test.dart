@@ -6,7 +6,7 @@ import 'package:dependency_injection/src/heroes/hero_service.dart';
 import 'package:test/test.dart';
 
 ///////////////////////////////////////
-////#docregion spec
+// #docregion spec
 List<Hero> expectedHeroes = [
   new Hero(1, 'hero1'),
   new Hero(2, 'hero2', true)
@@ -25,4 +25,4 @@ void main() {
     expect(hlc.heroes.length, expectedHeroes.length);
   });
 }
-//#enddocregion spec
+// #enddocregion spec

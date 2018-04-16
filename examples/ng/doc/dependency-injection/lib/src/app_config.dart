@@ -1,27 +1,30 @@
-// #docregion token
+// #docregion appTitleToken
 import 'package:angular/angular.dart';
 
-const appConfigToken = const OpaqueToken('app.config');
-// #enddocregion token
+const appTitleToken = const OpaqueToken<String>('app.title');
+// #enddocregion appTitleToken
 
-// #docregion config
-const Map heroDiConfig = const <String,String>{
-  'apiEndpoint' : 'api.heroes.com',
-  'title' : 'Dependency Injection'
+// #docregion appTitle
+const appTitle = 'Dependency Injection';
+// #enddocregion appTitle
+
+// #docregion appConfigMap
+const appConfigMap = const {
+  'apiEndpoint': 'api.heroes.com',
+  'title': 'Dependency Injection',
+  // ...
 };
-// #enddocregion config
 
-// #docregion config-alt
+const appConfigMapToken = const OpaqueToken<Map>('app.config');
+// #enddocregion appConfigMap
+
+
+// #docregion AppConfig
 class AppConfig {
   String apiEndpoint;
   String title;
 }
 
-AppConfig heroDiConfigFactory() => new AppConfig()
+AppConfig appConfigFactory() => new AppConfig()
   ..apiEndpoint = 'api.heroes.com'
   ..title = 'Dependency Injection';
-// #enddocregion config-alt
-
-const appConfigProvider = const Provider<AppConfig>(appConfigToken,
-  useFactory: heroDiConfigFactory,
-  deps: []);

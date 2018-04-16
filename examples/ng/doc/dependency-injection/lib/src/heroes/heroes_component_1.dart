@@ -21,7 +21,7 @@ import 'hero_service.dart';
       <h2>Heroes</h2>
       <hero-list></hero-list>''',
     // #enddocregion v1
-    providers: [HeroService],
+    providers: [const ClassProvider(HeroService)],
     // #docregion v1
     directives: [HeroListComponent])
 class HeroesComponent {}

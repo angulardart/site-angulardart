@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Architecture Overview
 description: The basic building blocks of Angular applications
 sideNavGroup: basic

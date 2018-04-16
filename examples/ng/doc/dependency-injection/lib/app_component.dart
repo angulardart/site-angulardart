@@ -31,13 +31,15 @@ import 'src/providers_component.dart';
     HeroesComponent,
     InjectorComponent,
     TestComponent,
-    ProvidersComponent
+    ProvidersComponent,
   ],
   // #docregion providers
   providers: [
-    Logger,
-    UserService,
-    const Provider(appConfigToken, useFactory: heroDiConfigFactory),
+    const ClassProvider(Logger),
+    const ClassProvider(UserService),
+    // #docregion FactoryProvider
+    const FactoryProvider(AppConfig, appConfigFactory),
+    // #enddocregion FactoryProvider
   ],
   // #enddocregion providers
 )
@@ -45,10 +47,9 @@ class AppComponent {
   final UserService _userService;
   final String title;
 
-  // #docregion ctor
-  AppComponent(@Inject(appConfigToken) AppConfig config, this._userService)
-      : title = config.title;
-  // #enddocregion ctor
+  // #docregion AppComponent
+  AppComponent(AppConfig config, this._userService) : title = config.title;
+  // #enddocregion AppComponent
 
   bool get isAuthorized {
     return user.isAuthorized;
