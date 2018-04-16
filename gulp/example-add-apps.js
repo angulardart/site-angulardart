@@ -44,15 +44,14 @@ module.exports = function (gulp, plugins, config) {
     examples.forEach(name => {
       const exPath = path.join(tmpReposPath, EXAMPLES_ROOT, name)
       if (fs.existsSync(exPath)) {
+        _exec('git checkout gh-pages', { cwd: exPath });
         _exec('git pull', { cwd: exPath });
       } else {
         const repo = `${config.ghNgEx}/${name}.git`;
         // To checkout gh-pages only use: --depth 1 --branch gh-pages.
         _exec(`git clone ${repo} ${exPath}`);
         _exec('git fetch', { cwd: exPath });
-        // _exec('git remote show origin', {cwd: exPath});
         _exec('git checkout gh-pages', { cwd: exPath });
-        // promises.push(execp(...));
       }
     });
     // return plugins.q.all(promises);

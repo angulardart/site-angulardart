@@ -200,12 +200,16 @@ gulp.task('build', done => plugins.runSequence(
   done));
 
 gulp.task('_build-prep', done => plugins.runSequence(
-  '_clean',
+  '_clean-only-once',
   // TODO: is stagehand proj still used?
   ['get-stagehand-proj', 'add-example-apps-to-site'],
   'create-example-fragments',
   done)
 );
+
+gulp.task('_clean-only-once', ['_clean'], () => {
+  argv.clean = false; // Avoid a subcommand cleaning things out again
+});
 
 gulp.task('_api-doc-prep', done => plugins.runSequence(
   'dartdoc',
