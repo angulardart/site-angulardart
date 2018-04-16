@@ -50,7 +50,6 @@ class CrisisListComponent extends Object
     crises = await _crisisService.getAll();
   }
 
-  // #docregion onActivate
   @override
   Future<void> onActivate(_, RouterState current) async {
     log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}; selected.id = ${selected?.id}');
@@ -63,17 +62,14 @@ class CrisisListComponent extends Object
     log('onDeactivate: ${current?.toUrl()} -> ${next?.toUrl()}');
   }
 
+  // #docregion _select
   Crisis _selectHero(RouterState routerState) {
-    final id = _getId(routerState);
+    final id = paths.getId(routerState.parameters);
     return id == null
         ? null
         : crises.firstWhere((e) => e.id == id, orElse: () => null);
   }
-
-  // #docregion _getId
-  int _getId(RouterState routerState) => int
-      .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
-  // #enddocregion _getId, onActivate
+  // #enddocregion _select
 
   // #docregion onSelect
   void onSelect(Crisis crisis) async {

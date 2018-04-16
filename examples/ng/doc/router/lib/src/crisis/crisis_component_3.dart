@@ -24,12 +24,9 @@ class CrisisComponent implements OnActivate {
 
   @override
   Future<void> onActivate(_, RouterState current) async {
-    final id = _getId(current);
+    final id = paths.getId(current.parameters);
     if (id != null) crisis = await (_crisisService.get(id));
   }
-
-  int _getId(RouterState routerState) => int
-      .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
 
   // #docregion goBack
   Future<NavigationResult> goBack() => _router.navigate(

@@ -189,8 +189,7 @@ implementations.
       var data;
       switch (request.method) {
         case 'GET':
-          final id =
-              int.parse(request.url.pathSegments.last, onError: (_) => null);
+          final id = int.tryParse(request.url.pathSegments.last);
           if (id != null) {
             data = _heroesDb
                 .firstWhere((hero) => hero.id == id); // throws if no match

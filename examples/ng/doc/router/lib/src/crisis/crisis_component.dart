@@ -42,7 +42,7 @@ class CrisisComponent extends Object
     log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}');
     // #enddocregion OnActivate-and-OnDeactivate
     // #docregion onActivate
-    final id = _getId(current);
+    final id = paths.getId(current.parameters);
     if (id == null) return null;
     crisis = await (_crisisService.get(id));
     name = crisis?.name;
@@ -57,9 +57,6 @@ class CrisisComponent extends Object
     log('onDeactivate: ${current?.toUrl()} -> ${_?.toUrl()}');
   }
   // #enddocregion onDeactivate, OnActivate-and-OnDeactivate
-
-  int _getId(RouterState routerState) => int
-      .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
 
   // #docregion save
   Future<void> save() async {

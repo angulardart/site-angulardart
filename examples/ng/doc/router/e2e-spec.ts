@@ -5,7 +5,10 @@ import { browser, element, by, ElementFinder, ExpectedConditions } from 'protrac
 const numDashboardTabs = 2;
 const numCrises = 4;
 const numHeroes = 10;
+const targetCrisis = { id: 3, name: 'Giant Asteroid Heading For Earth' };
+const targetHero = { id: 15, name: 'Magneta' };
 const EC = ExpectedConditions;
+const pathStart = '#'; // Path location start character. Either '#' or '/'
 
 describe('Router', () => {
 
@@ -29,6 +32,8 @@ describe('Router', () => {
       heroesList: element.all(by.css('my-app > my-heroes li')),
       heroDetail: heroDetail,
       heroDetailTitle: heroDetail.element(by.xpath('*[1]')),
+
+      selected: element(by.css('my-app li.selected')),
 
       adminHref: hrefEles.get(2),
       adminPreloadList: element.all(by.css('my-app > ng-component > ng-component > ul > li')),
@@ -88,7 +93,7 @@ describe('Router', () => {
     await crisisCenterEdit(2, true);
   });
 
-  xit('can cancel changed crisis details', async () => {
+  it('can cancel changed crisis details', async () => {
     const page = getPageStruct();
     await page.crisisHref.click();
     await crisisCenterEdit(3, false);
@@ -114,6 +119,25 @@ describe('Router', () => {
     let buttonEle = page.heroDetail.element(by.css('button'));
     await buttonEle.click();
     expect(heroEle.getText()).toContain(heroText + '-foo');
+  });
+
+  it('deep links to Heroes and selected hero', async () => {
+    await browser.get(`${pathStart}heroes?id=${targetHero.id}`);
+    const page = getPageStruct();
+    expect(page.activeHref.getText()).toEqual('Heroes');
+    expect(page.heroesList.count()).toBe(numHeroes, 'list count');
+    expect(page.selected.isPresent()).toBe(true, 'selected');
+    expect(page.selected.getText()).toContain(targetHero.name);
+  });
+
+  it('deep links to Crises and selected crisis', async () => {
+    await browser.get(`${pathStart}crises/${targetCrisis.id}`);
+    const page = getPageStruct();
+    // FIXME(https://github.com/dart-lang/site-webdev/issues/1497)
+    // expect(page.activeHref.getText()).toEqual('Crisis Center');
+    expect(page.crisisList.count()).toBe(numCrises, 'list count');
+    expect(page.selected.isPresent()).toBe(true, 'selected');
+    expect(page.selected.getText()).toContain(targetCrisis.name);
   });
 
   xit('sees preloaded modules', async () => {

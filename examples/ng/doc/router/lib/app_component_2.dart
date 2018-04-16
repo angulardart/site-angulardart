@@ -17,7 +17,7 @@ import 'src/routes_2.dart';
   ''',
   styles: ['.active-route {color: #039be5;}'],
   directives: [routerDirectives],
-  providers: [Routes],
+  providers: [const ClassProvider(Routes)],
 )
 class AppComponent {
   final Routes routes;

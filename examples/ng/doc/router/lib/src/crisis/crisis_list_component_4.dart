@@ -42,7 +42,6 @@ class CrisisListComponent implements OnActivate {
     crises = await _crisisService.getAll();
   }
 
-  // #docregion onActivate
   @override
   Future<void> onActivate(_, RouterState current) async {
     await _getCrises();
@@ -50,16 +49,11 @@ class CrisisListComponent implements OnActivate {
   }
 
   Crisis _select(RouterState routerState) {
-    final id = _getId(routerState);
+    final id = paths.getId(routerState.parameters);
     return id == null
         ? null
         : crises.firstWhere((e) => e.id == id, orElse: () => null);
   }
-
-  // #docregion _getId
-  int _getId(RouterState routerState) => int
-      .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
-  // #enddocregion _getId, onActivate
 
   // #docregion onSelect, onSelect-_gotoDetail
   void onSelect(Crisis crises) => _gotoDetail(crises.id);

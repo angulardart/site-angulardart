@@ -275,7 +275,7 @@ like this:
       <router-outlet [routes]="[routes.hero]"></router-outlet>
     ''',
     directives: [RouterOutlet, DashboardComponent],
-    providers: [Routes],
+    providers: [const ClassProvider(Routes)],
   )
   class TestComponent {
     final Routes routes;

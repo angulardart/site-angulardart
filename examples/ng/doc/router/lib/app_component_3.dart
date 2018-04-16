@@ -18,7 +18,10 @@ import 'src/hero/hero_service.dart';
   ''',
   styles: ['.active-route {color: #039be5;}'],
   directives: [routerDirectives],
-  providers: [Routes, HeroService],
+  providers: [
+    const ClassProvider(HeroService),
+    const ClassProvider(Routes),
+  ],
 )
 class AppComponent {
   final Routes routes;

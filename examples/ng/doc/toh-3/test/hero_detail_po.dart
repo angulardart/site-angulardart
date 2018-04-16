@@ -25,5 +25,5 @@ class HeroDetailPO extends PageObjectBase {
   Future type(String s) => _input.type(s);
 
   Map<String, dynamic> _heroData(String idAsString, String name) =>
-      {'id': int.parse(idAsString, onError: (_) => -1), 'name': name};
+      {'id': int.tryParse(idAsString) ?? -1, 'name': name};
 }

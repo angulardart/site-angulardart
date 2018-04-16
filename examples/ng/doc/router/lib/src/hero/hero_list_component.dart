@@ -36,15 +36,11 @@ class HeroListComponent implements OnActivate {
   }
 
   Hero _select(RouterState routerState) {
-    final id = _getId(routerState);
+    final id = paths.getId(routerState.queryParameters);
     return id == null
         ? null
         : heroes.firstWhere((e) => e.id == id, orElse: () => null);
   }
-
-  int _getId(RouterState routerState) =>
-      int.parse(routerState.queryParameters[paths.idParam] ?? '',
-          onError: (_) => null);
   // #enddocregion onActivate
 
   // #docregion onSelect, onSelect-_gotoDetail

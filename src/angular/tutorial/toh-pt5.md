@@ -347,8 +347,8 @@ routes and bind them to the `routes` property as shown here:
       [!<router-outlet [routes]="routes.all"></router-outlet>!]
     ''',
     providers: [
-      const ClassProvider(Routes),
       const ClassProvider(HeroService),
+      const ClassProvider(Routes),
     ],
   )
   class AppComponent {
@@ -427,8 +427,8 @@ and the list of heroes displays.
     ''',
     directives: [routerDirectives],
     providers: [
-      const ClassProvider(Routes),
       const ClassProvider(HeroService),
+      const ClassProvider(Routes),
     ],
   )
   class AppComponent {
@@ -795,25 +795,32 @@ into the constructor, saving their values in private fields:
   HeroComponent(this._heroService, this._location);
 ```
 
-To get notified when a hero detail route is natigated to, make `HeroComponent`
+To get notified when a hero route is natigated to, make `HeroComponent`
 implement the [OnActivate][] interface, and update `hero` from
 the [onActivate()][] [router lifecycle hook][]:
 
-<?code-excerpt "lib/src/hero_component.dart (excerpt)" region="OnActivate" title?>
+<?code-excerpt "lib/src/hero_component.dart (OnActivate)" title?>
 ```
   class HeroComponent implements OnActivate {
     @override
     Future<void> onActivate(_, RouterState current) async {
-      final id = _getId(current);
+      final id = paths.getId(current.parameters);
       if (id != null) hero = await (_heroService.get(id));
     }
-
-    int _getId(RouterState routerState) => int
-        .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
   }
 ```
 
-Notice how you can extract the `id` from the [RouterState.parameters][] map.
+The hook implementation makes use of the `getId()` helper function that
+extracts the `id` from the [RouterState.parameters][] map.
+
+<?code-excerpt "lib/src/route_paths.dart (getId)" title?>
+```
+  int getId(Map<String, String> parameters) {
+    final id = parameters[idParam];
+    return id == null ? null : int.tryParse(id);
+  }
+```
+
 The hero ID is a number. Route parameters are always strings.
 So the route parameter value is converted to a number.
 
