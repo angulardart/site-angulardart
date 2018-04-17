@@ -22,7 +22,7 @@ class SizerComponent {
   int get size => _size;
   @Input()
   void set size(/*String|int*/ val) {
-    int z = val is int ? val : int.parse(val, onError: (_) => null);
+    int z = val is int ? val : int.tryParse(val);
     if (z != null) _size = min(maxSize, max(minSize, z));
   }
 

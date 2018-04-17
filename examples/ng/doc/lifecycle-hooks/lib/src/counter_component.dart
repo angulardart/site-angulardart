@@ -55,7 +55,7 @@ class MyCounterComponent implements OnChanges {
     ''',
   styles: ['.parent {background: gold;}'],
   directives: [coreDirectives, MyCounterComponent],
-  providers: [LoggerService],
+  providers: [const ClassProvider(LoggerService)],
 )
 class CounterParentComponent {
   final LoggerService _logger;

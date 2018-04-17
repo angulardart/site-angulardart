@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: HTTP Client
 description: Use HTTP to talk to a remote server.
 sideNavGroup: advanced
@@ -10,7 +9,6 @@ nextpage:
   title: Lifecycle Hooks
   url: /angular/guide/lifecycle-hooks
 ---
-<!-- FilePath: src/angular/guide/server-communication.md -->
 <?code-excerpt path-base="examples/ng/doc/server-communication"?>
 
 Most frontend applications communicate with backend services
@@ -28,28 +26,28 @@ illustrate server communication:
 Try the <live-example>live example</live-example>,
 which hosts both demos.
 
-
-<div class="l-main-section"></div>
 ## Providing HTTP services  {#http-providers}
 
 The demos in this page use the http package's [Client][] interface.
 The following code registers a [factory provider][]
 (which creates a [BrowserClient][] instance) for `Client`:
 
-<?code-excerpt "web/main.dart (v1)" title?>
+<?code-excerpt "web/main_1.dart" replace="/_1//g" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:http/browser_client.dart';
   import 'package:http/http.dart';
-  import 'package:server_communication/app_component.dart';
+  import 'package:server_communication/app_component.template.dart' as ng;
 
-  import 'main.template.dart' as ng;
+  import 'main.template.dart' as self;
+
+  @GenerateInjector([
+    const ClassProvider(Client, useClass: BrowserClient),
+  ])
+  final InjectorFactory injector = self.injector$Injector;
 
   void main() {
-    bootstrapStatic(AppComponent, [
-      const FactoryProvider(Client, () => new BrowserClient()),
-    ],
-    ng.initReflector);
+    runApp(ng.AppComponentNgFactory, createInjector: injector);
   }
 ```
 

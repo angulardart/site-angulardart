@@ -326,7 +326,7 @@ Here's the final code:
 <code-tabs>
   <?code-pane "lib/app_component.dart" linenums?>
   <?code-pane "lib/src/hero.dart" linenums?>
-  <?code-pane "web/main.dart" region="final" linenums?>
+  <?code-pane "web/main.dart" linenums?>
   <?code-pane "web/index.html" linenums?>
   <?code-pane "pubspec.yaml" linenums?>
 </code-tabs>

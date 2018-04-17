@@ -1,9 +1,6 @@
 import 'package:angular/angular.dart';
-
-import 'package:forms/app_component.dart';
-
-import 'main.template.dart' as ng;
+import 'package:forms/app_component.template.dart' as ng;
 
 void main() {
-  bootstrapStatic(AppComponent, [], ng.initReflector);
+  runApp(ng.AppComponentNgFactory);
 }

@@ -160,7 +160,7 @@
   <!-- #docregion property-binding-syntax-1 -->
   <img [src]="heroImageUrl">
   <my-hero [hero]="currentHero"></my-hero>
-  <div [ngClass]="{special: isSpecial}"></div>
+  <div [ngClass]="{'special': isSpecial}">...</div>
   <!-- #enddocregion property-binding-syntax-1 -->
 </div>
 <br><br>
@@ -385,10 +385,10 @@ button</button>
 <!-- #enddocregion event-binding-to-component -->
 <br>
 
-<big-my-hero
+<my-big-hero
     (deleteRequest)="deleteHero($event)"
     [hero]="currentHero">
-</big-my-hero>
+</my-big-hero>
 
 <!-- #docregion event-binding-bubbling -->
 <div class="parent-div" (click)="onClickMe($event)" clickable>Click me
@@ -473,8 +473,8 @@ without NgModel
 
 <!-- not used in chapter -->
 <br>
-<label>saveable   <input type="checkbox" [(ngModel)]="canSave"></label> |
-<label>modified:  <input type="checkbox" [value]="!isUnchanged" (change)="isUnchanged=!isUnchanged"></label> |
+<label>saveable   <input type="checkbox" [(ngModel)]="canSave"></label>
+<label>modified:  <input type="checkbox" [checked]="!isUnchanged" (change)="isUnchanged=!isUnchanged"></label>
 <label>special:   <input type="checkbox" [(ngModel)]="isSpecial"></label>
 <button (click)="setCurrentClasses()">Refresh currentClasses</button>
 <br><br>
@@ -487,7 +487,7 @@ without NgModel
 <div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
 
 <div class="bad curly special">Bad curly special</div>
-<div [ngClass]="{bad:false, curly:true, special:true}">Curly special</div>
+<div [ngClass]="{'bad':false, 'curly':true, 'special':true}">Curly special</div>
 
 <a class="to-toc" href="#toc">top</a>
 

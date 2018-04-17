@@ -3,10 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:components_codelab/lottery_simulator.dart';
-
-import 'main.template.dart' as ng;
+import 'package:components_codelab/lottery_simulator.template.dart' as ng;
 
 void main() {
-  bootstrapStatic(AppComponent, [], ng.initReflector);
+  runApp(ng.AppComponentNgFactory);
 }

@@ -18,8 +18,6 @@ dev_dependencies:
   test: ^0.12.30
 
 dependency_overrides:
-  angular: ^5.0.0-alpha+9
-  angular_forms: ^2.0.0-alpha+1
   # Temporarily use mock pageloader (https://github.com/dart-lang/site-webdev/issues/1351):
   pageloader:
      git:

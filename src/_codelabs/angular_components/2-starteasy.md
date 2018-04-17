@@ -80,7 +80,7 @@ importing the Angular components and informing Angular about
  import 'src/help/help.dart';
  import 'src/scores/scores.dart';
  import 'src/settings/settings.dart';
-@@ -22,13 +23,14 @@
+@@ -22,13 +23,17 @@
    styleUrls: ['lottery_simulator.css'],
    templateUrl: 'lottery_simulator.html',
    directives: [
@@ -91,8 +91,11 @@ importing the Angular components and informing Angular about
      VisualizeWinningsComponent,
      SettingsComponent,
    ],
--  providers: [Settings],
-+  providers: [materialProviders, Settings],
+-  providers: [const ClassProvider(Settings)],
++  providers: [
++    materialProviders,
++    const ClassProvider(Settings),
++  ],
  )
  class AppComponent implements OnInit {
    final Settings _settings;

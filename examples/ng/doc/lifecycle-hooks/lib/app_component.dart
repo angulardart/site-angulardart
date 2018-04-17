@@ -9,15 +9,16 @@ import 'src/peek_a_boo_parent_component.dart';
 import 'src/spy_component.dart';
 
 @Component(
-    selector: 'my-app',
-    templateUrl: 'app_component.html',
-    directives: [
-      AfterContentParentComponent,
-      AfterViewParentComponent,
-      CounterParentComponent,
-      DoCheckParentComponent,
-      OnChangesParentComponent,
-      PeekABooParentComponent,
-      SpyParentComponent,
-    ])
+  selector: 'my-app',
+  templateUrl: 'app_component.html',
+  directives: [
+    AfterContentParentComponent,
+    AfterViewParentComponent,
+    CounterParentComponent,
+    DoCheckParentComponent,
+    OnChangesParentComponent,
+    PeekABooParentComponent,
+    SpyParentComponent,
+  ],
+)
 class AppComponent {}

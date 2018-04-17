@@ -507,7 +507,7 @@ The following table summarizes the scenarios:
   ```
     <img [src]="heroImageUrl">
     <my-hero [hero]="currentHero"></my-hero>
-    <div [ngClass]="{special: isSpecial}"></div>
+    <div [ngClass]="{'special': isSpecial}">...</div>
   ```
   </td>
 </tr>
@@ -1243,7 +1243,7 @@ It has a `size` value property and a companion `sizeChange` event:
     int get size => _size;
     @Input()
     void set size(/*String|int*/ val) {
-      int z = val is int ? val : int.parse(val, onError: (_) => null);
+      int z = val is int ? val : int.tryParse(val);
       if (z != null) _size = min(maxSize, max(minSize, z));
     }
 

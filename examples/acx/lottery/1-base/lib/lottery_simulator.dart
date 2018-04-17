@@ -28,7 +28,7 @@ const _normalPulse = const Duration(milliseconds: 200);
     VisualizeWinningsComponent,
     SettingsComponent,
   ],
-  providers: [Settings],
+  providers: [const ClassProvider(Settings)],
 )
 class AppComponent implements OnInit {
   final Settings _settings;
