@@ -68,7 +68,7 @@ Create the file `hero_service.dart` under `lib/src`.
 
 <div class="l-sub-section" markdown="1">
   The naming convention for service files is the service name in lowercase followed by `_service`.
-  For a multi-word service name, use lower [snake_case](../guide/glossary.html#snake_case).
+  For a multi-word service name, use lower [snake_case](../guide/glossary#snake_case).
   For example, the filename for `SpecialSuperHeroService` is `special_super_hero_service.dart`.
 </div>
 
@@ -165,7 +165,7 @@ a `HeroService` injection point.
 Now Angular knows to supply a `HeroService` instance when it creates a new `AppComponent`.
 
 <div class="l-sub-section" markdown="1">
-  Read more about dependency injection in the [Dependency Injection](../guide/dependency-injection.html) page.
+  Read more about dependency injection in the [Dependency Injection](../guide/dependency-injection) page.
 </div>
 
 The *injector* doesn't know yet how to create a `HeroService`.
@@ -219,7 +219,7 @@ at creation, after each change, and at its eventual destruction.
 Each interface has a single method. When the component implements that method, Angular calls it at the appropriate time.
 
 <div class="l-sub-section" markdown="1">
-  Read more about lifecycle hooks in the [Lifecycle Hooks](../guide/lifecycle-hooks.html) page.
+  Read more about lifecycle hooks in the [Lifecycle Hooks](../guide/lifecycle-hooks) page.
 </div>
 
 Add [OnInit][] to the list of interfaces implemented by `AppComponent`, and
@@ -390,7 +390,7 @@ The Tour of Heroes has become more reusable using shared components and services
 The next goal is to create a dashboard, add menu links that route between the views, and format data in a template.
 As the app evolves, you'll discover how to design it to make it easier to grow and maintain.
 
-Read about the Angular component router and navigation among the views in the [next tutorial](toh-pt5.html) page.
+Read about the Angular component router and navigation among the views in the [next tutorial](toh-pt5) page.
 
 ## Appendix: Take it slow {#slow}
 

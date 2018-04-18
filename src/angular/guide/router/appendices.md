@@ -150,7 +150,7 @@ You can switch to the `HashLocationStrategy` with an override during the bootstr
 
 <div class="l-sub-section" markdown="1">
   Learn about "providers" and the bootstrap process in the
-  [Dependency Injection guide](../dependency-injection.html#bootstrap)
+  [Dependency Injection guide](../dependency-injection#bootstrap)
 </div>
 
 ### Which strategy is best?

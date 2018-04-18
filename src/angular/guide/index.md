@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/setup
 ---
 This page describes the Angular documentation at a high level.
-If you're new to Angular, you may want to visit [Learning Angular](./guide/learning-angular) first.
+If you're new to Angular, you may want to visit [Learning Angular](guide/learning-angular) first.
 
 ## Themes
 
@@ -27,12 +27,12 @@ a collection of pages devoted to that theme.
   <td><b>Guide</b></td>
   <td markdown="1">
   Learn the Angular basics (you're already here!) like the
-  [setup](./guide/setup) for local development,
-  [displaying data](./guide/displaying-data) and
-  accepting [user input](./guide/user-input),
-  building simple [forms](./guide/forms),
-  [injecting app services](./guide/dependency-injection) into components,
-  and using Angular's [template syntax](./guide/template-syntax).
+  [setup](guide/setup) for local development,
+  [displaying data](guide/displaying-data) and
+  accepting [user input](guide/user-input),
+  building simple [forms](guide/forms),
+  [injecting app services](guide/dependency-injection) into components,
+  and using Angular's [template syntax](guide/template-syntax).
   </td>
 </tr>
 <tr>
@@ -69,12 +69,12 @@ Each page includes code snippets from a sample app that accompanies the page.
 You can reuse these snippets in your applications.
 
 Look for a link to a running version of that sample, often near the top of the page,
-such as this <live-example name="architecture"></live-example> from the [Architecture](./guide/architecture) page.
+such as this <live-example name="architecture"></live-example> from the [Architecture](guide/architecture) page.
 
 ## Reference pages
 
-* The [Glossary](./glossary) defines terms that Angular developers should know.
-* The [Cheat Sheet](./cheatsheet) lists Angular syntax for common scenarios.
+* The [Glossary](glossary) defines terms that Angular developers should know.
+* The [Cheat Sheet](cheatsheet) lists Angular syntax for common scenarios.
 * The [API Reference](/api) is the authority on every public-facing member of the Angular libraries.
 
 ## Feedback

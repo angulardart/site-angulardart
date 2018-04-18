@@ -19,7 +19,7 @@ When you're done with this page, the app should look like this <live-example></l
 ## Where you left off
 
 Before you continue with this page of the Tour of Heroes,
-verify that you have the following structure after [The Hero Editor](./toh-pt1) page.
+verify that you have the following structure after [The Hero Editor](toh-pt1) page.
 If your structure doesn't match, go back to that page to figure out what you missed.
 
 <div class="ul-filetree" markdown="1">

@@ -72,7 +72,7 @@ interpolation bindings present the component's `title` and `hero` property
 values, as strings, inside the HTML header tags.
 
 <div class="l-sub-section" markdown="1">
-  Read more about interpolation in the [Displaying Data](../guide/displaying-data.html) page.
+  Read more about interpolation in the [Displaying Data](../guide/displaying-data) page.
 </div>
 
 ### Create a _Hero_ class
@@ -162,8 +162,8 @@ and from the textbox back to the property.
 
 <div class="l-sub-section" markdown="1">
   Read more about `ngModel` in the
-  [Forms](../guide/forms.html#ngModel) and
-  [Template Syntax](../guide/template-syntax.html#ngModel) pages.
+  [Forms](../guide/forms#ngModel) and
+  [Template Syntax](../guide/template-syntax#ngModel) pages.
 </div>
 
 ## Declare non-core directives
@@ -264,7 +264,7 @@ Here are the files that you created or modified:
 
 ## The road ahead
 
-In the [next tutorial page](./toh-pt2.html), you'll build on the Tour of Heroes app to display a list of heroes.
+In the [next tutorial page](toh-pt2), you'll build on the Tour of Heroes app to display a list of heroes.
 You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
 

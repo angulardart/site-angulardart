@@ -153,7 +153,7 @@ property when the user clicks to choose a hero from the list.
 
 Angular creates, updates, and destroys components as the user moves through the
 app. Your app can take action at each moment in this lifecycle through optional
-[lifecycle hooks](lifecycle-hooks.html), like `ngOnInit()` declared above.
+[lifecycle hooks](lifecycle-hooks), like `ngOnInit()` declared above.
 
 <div class="l-hr"></div>
 
@@ -182,7 +182,7 @@ template for the example `HeroListComponent`:
 ```
 
 The template uses typical HTML elements like `<h2>` and  `<p>`. It also
-includes code that uses Angular's [template syntax](template-syntax.html) like
+includes code that uses Angular's [template syntax](template-syntax) like
 `*ngFor`, `{!{hero.name}}`, `(click)`, `[hero]`, and `<hero-detail>`.
 
 In the last line of the template, the `<hero-detail>` tag is a custom element
@@ -300,15 +300,15 @@ four forms of data binding syntax:
 
 Here are the three ways that the example uses data binding syntax:
 
-* The `{!{hero.name}}` [*interpolation*](displaying-data.html#interpolation)
+* The `{!{hero.name}}` [*interpolation*](displaying-data#interpolation)
   displays the component's `hero.name` property value within the `<li>`
   element.
 
-* The `[hero]` [*property binding*](template-syntax.html#property-binding)
+* The `[hero]` [*property binding*](template-syntax#property-binding)
   passes the value of `selectedHero` from the parent `HeroListComponent` to the
   `hero` property of the child `HeroDetailComponent`.
 
-* The `(click)` [*event binding*](user-input.html#click) calls the component's
+* The `(click)` [*event binding*](user-input#click) calls the component's
   `selectHero` method when the user clicks a hero's name.
 
 The fourth form of data binding is
@@ -378,9 +378,9 @@ The [example template](#templates) uses two built-in structural directives:
   <hero-detail *ngIf="selectedHero != null"></hero-detail>
 ```
 
-* [`*ngFor`](displaying-data.html#ngFor) tells Angular to stamp out one
+* [`*ngFor`](displaying-data#ngFor) tells Angular to stamp out one
   `<li>` per hero in the `heroes` list.
-* [`*ngIf`](displaying-data.html#ngIf) includes the `HeroDetail` component only
+* [`*ngIf`](displaying-data#ngIf) includes the `HeroDetail` component only
   if a selected hero exists.
 
 <div class="alert alert-warning" markdown="1">
@@ -406,10 +406,10 @@ by setting its display value property and responding to change events.
 ```
 
 Angular has a few more directives that either alter the layout structure
-(for example, [ngSwitch](template-syntax.html#ngSwitch))
+(for example, [ngSwitch](template-syntax#ngSwitch))
 or modify aspects of DOM elements and components
-(for example, [ngStyle](template-syntax.html#ngStyle) and
-[ngClass](template-syntax.html#ngClass)).
+(for example, [ngStyle](template-syntax#ngStyle) and
+[ngClass](template-syntax#ngClass)).
 
 You can also write your own directives. Components such as
 `HeroListComponent` are one kind of custom directive.

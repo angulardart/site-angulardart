@@ -28,12 +28,12 @@ There are three kinds of directives in Angular:
 You saw a simple component in the [Starter App](../tutorial/toh-pt0).
 
 *Structural Directives* change the structure of the view.
-Two examples are [NgFor](template-syntax.html#ngFor) and [NgIf](template-syntax.html#ngIf).
-Learn about them in the [Structural Directives](structural-directives.html) page.
+Two examples are [NgFor](template-syntax#ngFor) and [NgIf](template-syntax#ngIf).
+Learn about them in the [Structural Directives](structural-directives) page.
 
 *Attribute directives* are used as attributes of elements.
-The built-in [NgStyle](template-syntax.html#ngStyle) directive in the
-[Template Syntax](template-syntax.html) page, for example,
+The built-in [NgStyle](template-syntax#ngStyle) directive in the
+[Template Syntax](template-syntax) page, for example,
 can change several element styles at the same time.
 
 There are two kinds of attribute directive:
@@ -62,7 +62,7 @@ when the user hovers over that element. You can apply it like this:
 
 ### Write the directive code
 
-Follow the [setup](setup.html) instructions for creating a new local project
+Follow the [setup](setup) instructions for creating a new local project
 named `attribute_directives`.
 
 Create the following source file in the indicated folder:

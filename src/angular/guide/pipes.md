@@ -58,7 +58,7 @@ Focus on the component's template.
 ```
 
 Inside the interpolation expression, you flow the component's `birthday` value through the
-[pipe operator](./template-syntax.html#pipe) ( | ) to the [Date pipe](/api/angular/angular/DatePipe-class.html)
+[pipe operator](template-syntax#pipe) ( | ) to the [Date pipe](/api/angular/angular/DatePipe-class.html)
 function on the right. All pipes work this way.
 
 <div class="l-sub-section" markdown="1">
@@ -99,8 +99,8 @@ After formatting the hero's April 15th birthday, it renders as **<samp>04/15/88<
 ```
 
 The parameter value can be any valid template expression,
-(see the [Template expressions](./template-syntax.html#template-expressions) section of the
-[Template Syntax](./template-syntax.html) page)
+(see the [Template expressions](template-syntax#template-expressions) section of the
+[Template Syntax](template-syntax) page)
 such as a string literal or a component property.
 In other words, you can control the format through a binding the same way you control the birthday value through a binding.
 

@@ -128,6 +128,6 @@ serves the new app.
 
 ## Next step
 
-If you're new to Angular, we recommend staying on the [learning path](learning-angular.html).
+If you're new to Angular, we recommend staying on the [learning path](learning-angular).
 If you'd like to know more about the app you just created, see
 [The Starter App.](/angular/tutorial/toh-pt0)

@@ -362,7 +362,7 @@ created under test or before you decide to display it.
 Constructors should do no more than set the initial local variables to simple values.
 
 An `ngOnInit` is a good place for a component to fetch its initial data. The
-[Tutorial](../tutorial/toh-pt4.html#oninit) and [HTTP](server-communication.html#oninit) chapter
+[Tutorial](../tutorial/toh-pt4#oninit) and [HTTP](server-communication#oninit) chapter
 show how.
 
 

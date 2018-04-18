@@ -45,14 +45,14 @@ No brackets. No parentheses. Just `*ngIf` set to a string.
 
 You'll learn in this guide that the [asterisk (*) is a convenience notation](#asterisk)
 and the string is a [_microsyntax_](#microsyntax) rather than the usual
-[template expression](template-syntax.html#template-expressions).
+[template expression](template-syntax#template-expressions).
 Angular desugars this notation into a marked-up `<template>` that surrounds the
 host element and its descendents.
 Each structural directive does something different with that template.
 
-Three of the common, built-in structural directives &mdash; [NgIf](template-syntax.html#ngIf),
-[NgFor](template-syntax.html#ngFor), and [NgSwitch...](template-syntax.html#ngSwitch) &mdash; are
-described in the [_Template Syntax_](template-syntax.html) guide and seen in samples throughout the Angular documentation.
+Three of the common, built-in structural directives &mdash; [NgIf](template-syntax#ngIf),
+[NgFor](template-syntax#ngFor), and [NgSwitch...](template-syntax#ngSwitch) &mdash; are
+described in the [_Template Syntax_](template-syntax) guide and seen in samples throughout the Angular documentation.
 Here's an example of them in a template:
 
 <?code-excerpt "lib/app_component.html (built-in)"?>
@@ -96,9 +96,9 @@ and how to [write your own](#unless) structural directive.
   A *component* manages a region of HTML in the manner of a native HTML element.
   Technically it's a directive with a template.
 
-  An [*attribute* directive](attribute-directives.html) changes the appearance or behavior
+  An [*attribute* directive](attribute-directives) changes the appearance or behavior
   of an element, component, or another directive.
-  For example, the built-in [`NgStyle`](template-syntax.html#ngStyle) directive
+  For example, the built-in [`NgStyle`](template-syntax#ngStyle) directive
   changes several element styles at the same time.
 
   You can apply many _attribute_ directives to one host element.
@@ -298,7 +298,7 @@ There are several such variables in this example: `hero`, `i`, and `odd`.
 All are preceded by the keyword `let`.
 
 A _template input variable_ is **_not_** the same as a
-[template _reference_ variable](template-syntax.html#ref-vars),
+[template _reference_ variable](template-syntax#ref-vars),
 neither _semantically_ nor _syntactically_.
 
 You declare a template _input_ variable using the `let` keyword (`let hero`).
@@ -639,7 +639,7 @@ The directive consumer expects to bind a true/false condition to `[myUnless]`.
 That means the directive needs a `myUnless` property, decorated with `@Input`
 
 <div class="l-sub-section" markdown="1">
-  Read about `@Input` in the [_Template Syntax_](template-syntax.html#inputs-outputs) guide.
+  Read about `@Input` in the [_Template Syntax_](template-syntax#inputs-outputs) guide.
 </div>
 
 <?code-excerpt "lib/src/unless_directive.dart (set)"?>

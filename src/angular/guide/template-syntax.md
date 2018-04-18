@@ -64,7 +64,7 @@ Almost all HTML syntax is valid template syntax.
 The `<script>` element is a notable exception;
 it's forbidden, eliminating the risk of script injection attacks.
 In practice, `<script>` is ignored and a warning appears in the browser console.
-See the [Security](security.html) page for details.
+See the [Security](security) page for details.
 
 Some legal HTML doesn't make much sense in a template.
 The `<html>`, `<body>`, and `<base>` elements have no useful role.
@@ -972,15 +972,15 @@ The following example conditionally sets the font size in  “em” and “%” 
   the [NgStyle directive](#ngStyle) is generally preferred when setting several inline styles at the same time.
 
   Note that a _style property_ name can be written in either
-  [dash-case](glossary.html#dash-case), as shown above, or
-  [camelCase](glossary.html#camelcase), such as `fontSize`.
+  [dash-case](glossary#dash-case), as shown above, or
+  [camelCase](glossary#camelcase), such as `fontSize`.
 </div>
 
 <div class="alert alert-info" markdown="1">
   <h4>Style property names</h4>
 
-  While [camelCase](glossary.html#camelcase) and
-  [dash-case](glossary.html#dash-case) style property naming schemes are
+  While [camelCase](glossary#camelcase) and
+  [dash-case](glossary#dash-case) style property naming schemes are
   equivalent in AngularDart, only dash-case names are recognized by the
   `dart:html` [CssStyleDeclaration][CssSD] methods `getPropertyValue()`
   and `setProperty()`.
@@ -1330,7 +1330,7 @@ Attribute directives listen to and modify the behavior of
 other HTML elements, attributes, properties, and components.
 They are usually applied to elements as if they were HTML attributes, hence the name.
 
-Many details are covered in the [_Attribute Directives_](attribute-directives.html) guide.
+Many details are covered in the [_Attribute Directives_](attribute-directives) guide.
 Many Angular packages such as the [`Router`](router.html "Routing and Navigation")
 and [`Forms`](forms.html "Forms") packages define their own attribute directives.
 This section is an introduction to the most commonly used attribute directives:
@@ -1490,7 +1490,7 @@ That `ngModel` directive hides these onerous details behind its own  `ngModel` i
   that adapts an element to this protocol.
   The `<input>` box is one of those elements.
   Angular provides *value accessors* for all of the basic HTML form elements and the
-  [_Forms_](forms.html) guide shows how to bind to them.
+  [_Forms_](forms) guide shows how to bind to them.
 
   You can't apply `[(ngModel)]` to a non-form native element or a third-party custom component
   until you write a suitable *value accessor*,
@@ -1542,15 +1542,15 @@ They shape or reshape the DOM's _structure_, typically by adding, removing, and 
 the host elements to which they are attached.
 
 The deep details of structural directives are covered in the
-[_Structural Directives_](structural-directives.html) guide,
+[_Structural Directives_](structural-directives) guide,
 where you'll learn the following:
 
 * Why you must
-[_prefix the directive name with an asterisk_ (\*)](structural-directives.html#asterisk "The * in *ngIf").
+[_prefix the directive name with an asterisk_ (\*)](structural-directives#asterisk "The * in *ngIf").
 * How to [group elements](structural-directives#group-sibling-elements)
 when there is no suitable host element for the directive.
 * How to write your own structural directive.
-* Why you can apply only [one structural directive](structural-directives.html#one-per-element "one per host element") to an element.
+* Why you can apply only [one structural directive](structural-directives#one-per-element "one per host element") to an element.
 
 _This_ section is an introduction to the common structural directives:
 
@@ -1706,7 +1706,7 @@ Angular translates this instruction into a `<template>` around the host element,
 then uses this template repeatedly to create a new set of elements and bindings for each `hero`
 in the list.
 
-Learn about the _microsyntax_ in the [_Structural Directives_](structural-directives.html#microsyntax) guide.
+Learn about the _microsyntax_ in the [_Structural Directives_](structural-directives#microsyntax) guide.
 
 <div id="template-input-variable"></div>
 <div id="template-input-variables"></div>
@@ -1729,7 +1729,7 @@ and then passed in a binding to the `hero` property of the `<my-hero>` component
 ```
 
 Learn more about _template input variables_ in the
-[_Structural Directives_](structural-directives.html#template-input-variable) guide.
+[_Structural Directives_](structural-directives#template-input-variable) guide.
 
 #### *ngFor with _index_
 
@@ -1885,7 +1885,7 @@ The phone button click handler passes the _input_ value to the component's `call
 But a directive can change that behavior and set the value to something else, such as itself.
 The `NgForm` directive does that.
 
-The following is a *simplified* version of the form example in the [Forms](forms.html) guide.
+The following is a *simplified* version of the form example in the [Forms](forms) guide.
 
 <?code-excerpt "lib/src/hero_form_component.html"?>
 ```
@@ -1921,7 +1921,7 @@ to the parent component's `onSubmit` method.
 
 A template _reference_ variable (`#phone`) is _not_ the same as a template _input_ variable (`let phone`)
 such as you might see in an [`*ngFor`](#template-input-variable).
-Learn the difference in the [_Structural Directives_](structural-directives.html#template-input-variable) guide.
+Learn the difference in the [_Structural Directives_](structural-directives#template-input-variable) guide.
 
 The scope of a reference variable is the _entire template_.
 Do not define the same variable name more than once in the same template.
@@ -2020,7 +2020,7 @@ because events stream *out* of that property and toward the handler in a templat
 
 Sometimes the public name of an input/output property should be different from the internal name.
 
-This is frequently the case with [attribute directives](attribute-directives.html).
+This is frequently the case with [attribute directives](attribute-directives).
 Directive consumers expect to bind to the name of the directive.
 For example, when you apply a directive with a `myClick` selector to a `<div>` tag,
 you expect to bind to an event property that is also called `myClick`.
@@ -2064,7 +2064,7 @@ for specific scenarios. The next sections cover two of these operators: _pipe_ a
 The result of an expression might require some transformation before it's ready to use in a binding.
 For example, you might display a number as a currency, force text to uppercase, or filter a list and sort it.
 
-Angular [pipes](./pipes.html) are a good choice for small transformations such as these.
+Angular [pipes](pipes) are a good choice for small transformations such as these.
 Pipes are simple functions that accept an input value and return a transformed value.
 They're easy to apply within template expressions, using the **pipe operator (`|`)**:
 
@@ -2086,7 +2086,7 @@ You can chain expressions through multiple pipes:
   </div>
 ```
 
-You can also [apply parameters](./pipes.html#parameterizing-a-pipe) to a pipe:
+You can also [apply parameters](pipes#parameterizing-a-pipe) to a pipe:
 
 <?code-excerpt "lib/app_component.html (pipes-3)"?>
 ```

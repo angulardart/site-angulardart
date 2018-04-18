@@ -70,7 +70,7 @@ The `selector` property tells Angular to display the component inside a custom `
 
 The `template` property defines a message inside an `<h1>` header.
 The message starts with "Hello" and ends with `{!{name}!}`,
-which is an Angular [interpolation binding](../guide/displaying-data.html) expression.
+which is an Angular [interpolation binding](../guide/displaying-data) expression.
 At runtime, Angular replaces `{!{name}!}` with
 the value of the component's `name` property.
 Interpolation binding is one of many Angular features you'll discover in this documentation.
@@ -139,7 +139,7 @@ Each file has a distinct purpose and evolves independently as the app grows.
 
 ## What's next
 
-In the [next tutorial page](./toh-pt1),
+In the [next tutorial page](toh-pt1),
 you'll modify the starter app to display more interesting data,
 and to allow the user to edit that data.
 

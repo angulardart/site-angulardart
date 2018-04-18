@@ -155,7 +155,7 @@ Declare that `hero` is an *input* property by annotating it with `@Input()`:
 
 <div class="l-sub-section" markdown="1">
   Read more about _input_ properties in the
-  [Attribute Directives](../guide/attribute-directives.html#why-input) page.
+  [Attribute Directives](../guide/attribute-directives#why-input) page.
 </div>
 
 That's it. The `hero` property is the only thing in the `HeroComponent` class.
@@ -266,7 +266,7 @@ list. You don't need `formDirectives` anymore, so delete it and the
 
 ## App design changes
 
-As [before](./toh-pt2.html), whenever a user clicks on a hero name,
+As [before](toh-pt2), whenever a user clicks on a hero name,
 the hero detail appears below the hero list.
 But now the `HeroComponent` is presenting those details.
 
@@ -326,4 +326,4 @@ That's not sustainable.
 Data access should be refactored to a separate service
 and shared among the components that need data.
 
-You’ll learn to create services in the [next tutorial](toh-pt4.html) page.
+You’ll learn to create services in the [next tutorial](toh-pt4) page.

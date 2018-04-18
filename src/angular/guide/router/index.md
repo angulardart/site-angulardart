@@ -21,7 +21,7 @@ nextpage:
 
 [Feedback]: {{site.repo}}/issues/new?title='{{page.title}}' page issue&body=From URL: {{site.url}}{{page.url}}
 
-The Angular **router** enables navigation from one [view](/angular/glossary.html#view) to the next
+The Angular **router** enables navigation from one [view](/angular/glossary#view) to the next
 as users perform app tasks.
 
 This guide covers the router's primary features, illustrating them through the evolution

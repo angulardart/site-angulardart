@@ -488,7 +488,7 @@ to the _Name_ `<input>` tag and use it to display the input's CSS classes.
 <div class="l-sub-section" markdown="1">
 #### Template reference variables
 
-  The `spy` [template reference variable](./template-syntax.html#ref-vars) gets bound to the
+  The `spy` [template reference variable](template-syntax#ref-vars) gets bound to the
   `<input>` DOM element, whereas the `name` variable (through the `#name="ngForm"` syntax)
   gets bound to the [NgModel](/api/angular_forms/angular_forms/NgModel-class.html)
   associated with the input element.

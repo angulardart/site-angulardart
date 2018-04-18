@@ -35,7 +35,7 @@ The easiest way to display a component property
 is to bind the property name through interpolation.
 With interpolation, you put the property name in the view template, enclosed in double curly braces: {% raw %}`{{myHero}}`{% endraw %}.
 
-Follow the [setup](setup.html) instructions for creating a new project
+Follow the [setup](setup) instructions for creating a new project
 named `displaying_data`.
 
 Then modify the `app_component.dart` file by
@@ -166,13 +166,13 @@ It marks that `<li>` element (and its children) as the "repeater template":
 
 <div class="alert alert-warning" markdown="1">
   Don't forget the leading asterisk (\*) in `*ngFor`. It is an essential part of the syntax.
-  For more information, see the [Template Syntax](./template-syntax.html#ngFor) page.
+  For more information, see the [Template Syntax](template-syntax#ngFor) page.
 </div>
 
 Notice the `hero` variable in the `ngFor` instruction;
 it is an example of a _template input variable_. Read
-more about template input variables in the [microsyntax](./template-syntax.html#microsyntax) section of
-the [Template Syntax](./template-syntax.html) page.
+more about template input variables in the [microsyntax](template-syntax#microsyntax) section of
+the [Template Syntax](template-syntax) page.
 
 Angular duplicates the `<li>` for each item in the list, setting the `hero` variable
 to the item (the hero) in the current iteration. Angular uses that variable as the
@@ -292,7 +292,7 @@ To see it in action, add the following paragraph at the bottom of the template:
 
 <div class="alert alert-warning" markdown="1">
   Don't forget the leading asterisk (\*) in `*ngIf`. It is an essential part of the syntax.
-  Read more about `ngIf` and `*` in the [ngIf section](./template-syntax.html#ngIf) of the [Template Syntax](./template-syntax.html) page.
+  Read more about `ngIf` and `*` in the [ngIf section](template-syntax#ngIf) of the [Template Syntax](template-syntax) page.
 </div>
 
 The template expression inside the double quotes,
@@ -300,8 +300,8 @@ The template expression inside the double quotes,
 When the component's list of heroes has more than three items, Angular adds the paragraph
 to the DOM and the message appears. If there are three or fewer items, Angular omits the
 paragraph, so no message appears. For more information,
-see the [template expressions](./template-syntax.html#template-expressions) section of the
-[Template Syntax](./template-syntax.html) page.
+see the [template expressions](template-syntax#template-expressions) section of the
+[Template Syntax](template-syntax) page.
 
 <div class="alert alert-info" markdown="1">
   Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in larger projects when conditionally including or excluding

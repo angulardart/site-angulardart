@@ -32,12 +32,12 @@ but here's a possible learning path if you're new to Angular:
 
 1. Read [User Input](user-input) to learn how to respond to user-initiated DOM events.
 
-1. Read [Forms](forms.html), which covers data entry and validation within the UI.
+1. Read [Forms](forms), which covers data entry and validation within the UI.
 
 1. Read [Dependency Injection](dependency-injection) to learn how to build large,
    maintainable applications from small, single-purpose parts.
 
-1. Scan [Template Syntax](template-syntax.html),
+1. Scan [Template Syntax](template-syntax),
    a comprehensive study of Angular template HTML.
 
 Then feel free to skip around among the other pages on this site.
