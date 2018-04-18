@@ -2,6 +2,7 @@
 title: Changelog
 description: A summary of changes to the site documentation and examples.
 ---
+
 This page summarizes changes to this site's documentation and examples.
 Many of these changes are due to new releases of
 AngularDart, AngularDart Components, or the Dart SDK.
@@ -19,15 +20,21 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
-## AngularDart 5.0 alpha / Dart 2.0 preview (March 2018)
+## AngularDart 5.0 alpha / Dart 2.0 beta (April 2018)
 
-- Updated **Angular package versions** in `pubspec.yaml`
+- Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
+  - Updated `environment.sdk`:
+    <?code-excerpt "examples/ng/doc/quickstart/pubspec.yaml" retain="sdk:" indent-by="0"?>
+    {% prettify %}
+    sdk: '>=2.0.0-dev.46.0 <2.0.0'
+    {% endprettify %}
   - `angular: {{site.data.pubspec.dependencies.angular}}`
   - `angular_components: {{site.data.pubspec.dependencies.angular_components}}`
   - `angular_forms: {{site.data.pubspec.dependencies.angular_forms}}`
   - `angular_router: {{site.data.pubspec.dependencies.angular_router}}`
   - `angular_test: {{site.data.pubspec.dependencies.angular_test}}`
-- Switched to **new build system**:
+
+- Switched to **new [build system][build_runner]**:
   - Added new `dev_dependencies`:
     - `build_runner: {{site.data.pubspec.dev_dependencies.build_runner}}`
     - `build_test: {{site.data.pubspec.dev_dependencies.build_test}}`
@@ -39,27 +46,71 @@ Also see:
     - <del>`angular`</del>
     - <del>`dart_to_js_script_rewriter`</del>
     - <del>`test/pub_serve`</del>
+
 - Adjusted `web/index.html` files because Dartium is no longer supported:
     - Dropped <del>`<script defer src="packages/browser/dart.js"></script>`</del>
     - Replaced `<script defer src="main.dart" type="application/dart"></script>` by<br>
       `<script defer src="main.dart.js"></script>`
   - Note: `test` version 0.12.30 or later runs chrome tests headless by default.
     We were already using version 0.12.30 along with the Angular 4 examples.
+
 - Added error option to `analysis_options.yaml`:
   - `uri_has_not_been_generated: ignore`
-- Switched to new approach to **bootstrapping** in `web/main.dart` files:
-  - Added `import 'main.template.dart' as ng;`
-  - Renamed `bootstrap()` to `bootstrapStatic()`
-  - Added an empty list of providers (`[]`), if call to `bootstrap()` originally
-    had only one argument
-  - Added `ng.initReflector()` as the third argument to `bootstrapStatic()`
+
+- Changed **app launching** code in `web/main.dart` files:
+  - Replaced `import 'package:angular_app/app_component.dart'` by<br>
+    `import 'package:angular_app/app_component.template.dart' as ng;`
+  - Replaced `bootstrap(AppComponent)` with `runApp(ng.AppComponentNgFactory)`
+
+- Switched to **compile-time dependency injection**:
+  - Switched to using typed <code>const <i>Foo</i>Provider()</code> expressions.
+
+    {:.table .table-striped}
+    | Angular 4.x provider | Angular 5 provider |
+    |--|--
+    | Bare class name `C` | `const ClassProvider(C)`
+    | `Provider(C, useClass: D)` | `ClassProvider(C, useClass: D)`
+    | `Provider(C, useValue: v)` | `ValueProvider(C, v)`
+    | `Provider(C, useFactory: f, deps: d)` | `FactoryProvider(C, f)`<br>_(Compile-time DI makes explicitly declaring `deps` unnecessary)_
+    | `Provider(C, useExisting: D)` | `ExistingProvider(C, D)`
+
+    For examples, see the file changes in the [dependency-injection diff][].
+
+  - In `web/main.dart` files that formerly bootstrapped providers
+    (such as
+    [this one][4.x toh-5/web/main.dart]):
+    - Added import: `import 'main.template.dart' as self;`
+    - Added variable with metadata necessary to statically initialize the app's root injector:
+      <?code-excerpt "examples/ng/doc/toh-5/web/main.dart (injector)" indent-by="0"?>
+      {% prettify %}
+      @GenerateInjector(
+        routerProvidersHash, // You can use routerProviders in production
+      )
+      final InjectorFactory injector = self.injector$Injector;
+      {% endprettify %}
+    - Used the app's root injector factory as an argument to `runApp()`:
+      <?code-excerpt "examples/ng/doc/toh-5/web/main.dart" retain="runApp" indent-by="0"?>
+      {% prettify %}
+      runApp(ng.AppComponentNgFactory, createInjector: injector);
+      {% endprettify %}
+
+    For example, see the `web/main.dart` file changes in the [toh-5 diff][].
+
 - Updated all `test/*_test.dart` files and their **Angular entry points**:
   - Dropped <del>`@Tags(const ['aot'])`</del>
   - Dropped <del>`import 'package:angular/angular.dart'`<del>
   - Added `import 'foo_test.template.dart' as ng;` in `foo_test.dart`
   - For every function `bar()` annotated with `@AngularEntrypoint()`:
     - Dropped <del>`@AngularEntrypoint()`</del>
-    - Added a call to `ng.initReflector();` at the start of `bar()`
+    - Replaced `new NgTestBed<AppComponent>().addProviders(providers)` with<br>
+      `NgTestBed.forComponent<AppComponent>(ng.FooComponentNgFactory, rootInjector: injector);`
+      where `injector` is an injector factory created by
+      a newly added `@GenerateInjector`-annotated `injector` field
+      (as describe above).
+  - Examples:
+    - `test/app_test.dart` in the [quickstart diff][]
+    - `test/app.dart` (compare to `test/app_test.dart` to in the [toh-5 diff][])
+
 - Adjusted to new **template syntax**:
   - _Binding syntax_:
     - <code>bindon-<i>target</i></code> for [two-way bindings][]
@@ -68,25 +119,37 @@ Also see:
       is no longer supported. Use <code>#<i>var</i></code> instead.
   - [ngFor][] _microsyntax_ statements must be separated using semicolon (`;`).<br>
       Using a space or comma to separate statements is no longer supported.
+
 - Switched to use of new **Angular router** API:
   There are many Dart file changes (too many to list all here) including:
   - `APP_BASE_HREF` &rarr; `appBaseHref`
   - `ROUTER_DIRECTIVES` &rarr; `routerDirectives`
   - `ROUTER_PROVIDERS` &rarr; `routerProviders`,
     and provide through [bootstrap][] (recommended)
+
 - Other Dart file changes:
   -  `CORE_DIRECTIVES` &rarr; `coreDirectives`
   - `COMMON_PIPES` &rarr; `commonPipes`
   - Template-syntax example changes due to the [deprecation of `QueryList`](https://github.com/dart-lang/angular/blob/master/doc/deprecated_query_list.md)
-    - Replaced `QueryList<T>` by `List<T>`
+    - Replaced `QueryList<T>` with `List<T>`
     - Switched to using setter to detect changes to view children (`@ViewChildren()`)
 
 Dart 2 specific changes:
 
-- Pubspec changes:
-  - Updated `environment.sdk` entry to be `'{{site.data.pubspec.environment.sdk}}'`
 - Dart file changes:
-  - Replaced `Future<Null>` by `Future<void>`
+  - Replaced `Future<Null>` with `Future<void>`
+
+More information:
+
+* [`angular` changelog][]
+* [5.0 prep tracking issue](https://github.com/dart-lang/site-webdev/issues/1369)
+* [Diff between 4.x and 5-dev branches](https://github.com/dart-lang/site-webdev/compare/4.x...master)
+* Diff between 4.x and 5-dev branches for selected example apps:
+  - Starter app: [quickstart diff]
+  - Tutorial services example: [toh-4 diff]({{site.ghNgEx}}/toh-4/compare/4.x...master)
+  - Tutorial router example: [toh-5 diff][]
+  - Router example: [router diff]({{site.ghNgEx}}/router/compare/4.x...master)
+  - Dependency injection example: [dependency-injection diff][]
 
 ## HTML library tour (December 2017)
 
@@ -291,10 +354,15 @@ More information:
 * [PR #478](https://github.com/dart-lang/site-webdev/pull/478/files) (initial text and toh-0 tests)
 * [PR #567](https://github.com/dart-lang/site-webdev/pull/567/files?w=1) (toh-6 tests)
 
+[4.x toh-5/web/main.dart]: https://github.com/dart-lang/site-webdev/blob/4.x/examples/ng/doc/toh-5/web/main.dart
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
 [bootstrap]: /api/angular/angular/bootstrap
+[build_runner]: /tools/build_runner
+[dependency-injection diff]: {{site.ghNgEx}}/dependency-injection/compare/4.x...master
 [forms]: /angular/guide/forms
 [ngFor]: /angular/guide/template-syntax#ngFor
+[quickstart diff]: {{site.ghNgEx}}/quickstart/compare/4.x...master
 [template reference variables]: /angular/guide/template-syntax#ref-vars
+[toh-5 diff]: {{site.ghNgEx}}/toh-5/compare/4.x...master
 [two-way bindings]: /angular/guide/template-syntax#two-way
