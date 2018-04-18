@@ -8,15 +8,15 @@ import 'villains_service.dart';
 @Component(
   selector: 'villains-list',
   template: '''
-      <div>
-        <h3>Villains</h3>
-        <ul>
-          <li *ngFor="let villain of villains | async">{{villain.name}}</li>
-        </ul>
-      </div>
-    ''',
+    <div>
+      <h3>Villains</h3>
+      <ul>
+        <li *ngFor="let villain of villains | async">{{villain.name}}</li>
+      </ul>
+    </div>
+  ''',
   directives: [coreDirectives],
-  providers: [VillainsService],
+  providers: [const ClassProvider(VillainsService)],
   pipes: [commonPipes],
 )
 // #enddocregion metadata

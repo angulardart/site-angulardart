@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Hierarchical Dependency Injectors
 description: Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.
 sideNavGroup: advanced
@@ -10,23 +9,20 @@ nextpage:
   title: HTTP Client
   url: /angular/guide/server-communication
 ---
-<!-- FilePath: src/angular/guide/hierarchical-dependency-injection.md -->
 <?code-excerpt path-base="examples/ng/doc/hierarchical-dependency-injection"?>
 
 You learned the basics of Angular Dependency injection in the
-[Dependency Injection](./dependency-injection.html) guide.
-
-Angular has a _Hierarchical Dependency Injection_ system.
-There is actually a tree of injectors that parallel an app's component tree.
+[Dependency Injection](dependency-injection) page.
+Angular has a _Hierarchical Dependency Injection_ system:
+there is actually a tree of injectors that parallel an app's component tree.
 You can reconfigure the injectors at any level of that component tree.
 
-This guide explores this system and how to use it to your advantage.
-
+In this page you'll explore this system and learn how to use it to your advantage.
 Try the <live-example></live-example>.
 
 ## The injector tree
 
-In the [Dependency Injection](./dependency-injection.html) guide,
+In the [Dependency Injection](dependency-injection) page,
 you learned how to configure a dependency injector and how to retrieve dependencies where you need them.
 
 In fact, there is no such thing as ***the*** injector.
@@ -67,15 +63,14 @@ If it runs out of ancestors, Angular throws an error.
 ### Re-providing a service at different levels
 
 You can re-register a provider for a particular dependency token at multiple levels of the injector tree.
-You don't *have* to re-register providers. You shouldn't do so unless you have a good reason.
-But you *can*.
+but you shouldn't do so unless you have a good reason.
 
 As the resolution logic works upwards, the first provider encountered wins.
 Thus, a provider in an intermediate injector intercepts a request for a service from something lower in the tree.
-It effectively "reconfigures" and "shadows" a provider at a higher level in the tree.
+It effectively shadows a provider at a higher level in the tree.
 
 If you only specify providers at the top level (typically the root `AppComponent`), the tree of injectors appears to be flat.
-All requests bubble up to the root injector that you configured with the `bootstrap` method.
+All requests bubble up to the root injector that you configured with the [runApp()][] method.
 
 ## Component injectors
 
@@ -101,15 +96,15 @@ Instead, provide the `VillainsService` in the `providers` metadata of the `Villa
   @Component(
     selector: 'villains-list',
     template: '''
-        <div>
-          <h3>Villains</h3>
-          <ul>
-            <li *ngFor="let villain of villains | async">{!{villain.name}!}</li>
-          </ul>
-        </div>
-      ''',
+      <div>
+        <h3>Villains</h3>
+        <ul>
+          <li *ngFor="let villain of villains | async">{!{villain.name}!}</li>
+        </ul>
+      </div>
+    ''',
     directives: [coreDirectives],
-    providers: [VillainsService],
+    providers: [const ClassProvider(VillainsService)],
     pipes: [commonPipes],
   )
 ```
@@ -196,32 +191,33 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
   import 'hero_tax_return_service.dart';
 
   @Component(
-      selector: 'hero-tax-return',
-      template: '''
-        <div class="tax-return">
-          <div class="msg" [class.canceled]="message==='Canceled'">{!{message}!}</div>
-          <fieldset>
-            <span id="name">{!{taxReturn.name}!}</span>
-            <label id="tid">TID: {!{taxReturn.taxId}!}</label>
-          </fieldset>
-          <fieldset>
-            <label>
-              Income: <input type="number" [(ngModel)]="taxReturn.income" class="num">
-            </label>
-          </fieldset>
-          <fieldset>
-            <label>Tax: {!{taxReturn.tax}!}</label>
-          </fieldset>
-          <fieldset>
-            <button (click)="onSaved()">Save</button>
-            <button (click)="onCanceled()">Cancel</button>
-            <button (click)="onClose()">Close</button>
-          </fieldset>
-        </div>
-      ''',
-      styleUrls: ['hero_tax_return_component.css'],
-      directives: [coreDirectives, formDirectives],
-      providers: [HeroTaxReturnService])
+    selector: 'hero-tax-return',
+    template: '''
+      <div class="tax-return">
+        <div class="msg" [class.canceled]="message==='Canceled'">{!{message}!}</div>
+        <fieldset>
+          <span id="name">{!{taxReturn.name}!}</span>
+          <label id="tid">TID: {!{taxReturn.taxId}!}</label>
+        </fieldset>
+        <fieldset>
+          <label>
+            Income: <input type="number" [(ngModel)]="taxReturn.income" class="num">
+          </label>
+        </fieldset>
+        <fieldset>
+          <label>Tax: {!{taxReturn.tax}!}</label>
+        </fieldset>
+        <fieldset>
+          <button (click)="onSaved()">Save</button>
+          <button (click)="onCanceled()">Cancel</button>
+          <button (click)="onClose()">Close</button>
+        </fieldset>
+      </div>
+    ''',
+    styleUrls: ['hero_tax_return_component.css'],
+    directives: [coreDirectives, formDirectives],
+    providers: [const ClassProvider(HeroTaxReturnService)],
+  )
   class HeroTaxReturnComponent {
     final HeroTaxReturnService _heroTaxReturnService;
     String message = '';
@@ -273,7 +269,8 @@ Look closely at the metadata for the `HeroTaxReturnComponent`. Notice the `provi
 
 <?code-excerpt "lib/src/hero_tax_return_component.dart" region="providers"?>
 ```
-  providers: [HeroTaxReturnService])
+    providers: [const ClassProvider(HeroTaxReturnService)],
+  )
 ```
 
 The `HeroTaxReturnComponent` has its own provider of the `HeroTaxReturnService`.
@@ -291,7 +288,7 @@ No tax return overwriting. No mess.
 Another reason to re-provide a service is to substitute a _more specialized_ implementation of that service,
 deeper in the component tree.
 
-Consider again the Car example from the [Dependency Injection](./dependency-injection.html) guide.
+Consider again the Car example from the [Dependency Injection](dependency-injection) guide.
 Suppose you configured the root injector (marked as A) with _generic_ providers for
 `CarService`, `EngineService` and `TiresService`.
 
@@ -328,3 +325,5 @@ Restrict Dependency Lookups
 ## Dependency Visibility
 [TODO] (providers vs viewProviders) This has been postponed for now until come up with a decent use case
 {% endcomment %}
+
+[runApp()]: /api/angular/angular/runApp

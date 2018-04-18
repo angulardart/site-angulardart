@@ -18,9 +18,9 @@ class CCarComponent {
 @Component(
   selector: 'b-car',
   template: '''
-      <div>B: {{description}}</div>
-      <c-car></c-car>
-    ''',
+    <div>B: {{description}}</div>
+    <c-car></c-car>
+  ''',
   directives: [CCarComponent],
   providers: [
     const ClassProvider(CarService, useClass: CarService2),
@@ -38,9 +38,9 @@ class BCarComponent {
 @Component(
   selector: 'a-car',
   template: '''
-      <div>A: {{description}}</div>
-      <b-car></b-car>
-    ''',
+    <div>A: {{description}}</div>
+    <b-car></b-car>
+  ''',
   directives: [BCarComponent],
 )
 class ACarComponent {
@@ -54,9 +54,9 @@ class ACarComponent {
 @Component(
   selector: 'my-cars',
   template: '''
-      <h3>Cars</h3>
-      <a-car></a-car>
-    ''',
+    <h3>Cars</h3>
+    <a-car></a-car>
+  ''',
   directives: [ACarComponent],
 )
 class CarsComponent {}

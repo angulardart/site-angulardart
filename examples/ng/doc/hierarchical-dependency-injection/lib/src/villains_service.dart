@@ -10,7 +10,7 @@ class Villain {
 
 @Injectable()
 class VillainsService {
-  static final List<Villain> _mockVillains = <Villain>[
+  static final List<Villain> _mockVillains = [
     new Villain(1, 'Dr. Evil'),
     new Villain(2, 'Moriarty')
   ];
