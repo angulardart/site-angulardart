@@ -1,16 +1,17 @@
 ---
-layout: angular
 title: Cheat Sheet
 toc: false
 ---
 <style>
 table { table-layout: fixed; width: 100%; }
 table td { overflow: auto; }
-th.nowrap code { white-space: nowrap; padding: 0px;}
-td.nowrap code { white-space: nowrap; padding: 0px;}
-.prettyprint { background: none; }
+td.nowrap, th.nowrap { white-space: nowrap; }
+td.nowrap { background-color: rgba(236, 239, 241, 0.18); }
+td.nowrap code, th.nowrap code { white-space: nowrap; padding: 0px;}
+.prettyprint { background: inherit; padding: 0; }
+.highlight { font-weight: bold; }
+td:nth-child(1), th:nth-child(1) { width: 35%; }
 </style>
-<div class="l-content-small docs-content cheatsheet">
 {% include_relative _bootstrapping.md %}
 {% include_relative _template-syntax.md %}
 {% include_relative _built-in-directives.md %}
@@ -22,4 +23,3 @@ td.nowrap code { white-space: nowrap; padding: 0px;}
 {% include_relative _lifecycle-hooks.md %}
 {% include_relative _dependency-injection.md %}
 {% include_relative _routing.md %}
-</div>

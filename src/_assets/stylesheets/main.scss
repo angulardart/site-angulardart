@@ -161,6 +161,10 @@ code {
   background-color: transparent;
   padding: 0;
   color: darken($brand-primary, 20%);
+  .highlight {
+    background: #fffde7;
+    padding: 2px;
+  }
 }
 img {
   max-width: 100%;
@@ -1202,6 +1206,43 @@ body.obsolete {
     border: 10px solid $alert-danger-bg;
   }
 }
+
+.md-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  > ul {
+    list-style-type: none;
+    // @extend tr;
+    display: table-row !important;
+    > li {
+      // @extend td;
+      display: table-cell !important;
+      overflow: auto;
+      padding: 16px 32px;
+      vertical-align: middle;
+      border-bottom: 1px solid #ECEFF1;
+      &:nth-child(2) { width: 35%; }
+      &:nth-child(1) {
+        background-color: rgba(236, 239, 241, 0.15);
+        white-space: nowrap;
+        & code, pre {
+          white-space: nowrap; padding: 0px;
+        }
+      }
+      > p { margin-bottom: 0; }
+      &.prettyprint { background: inherit; padding: 0; }
+      &.highlight { font-weight: bold; }
+    }
+  }
+  hr { display: none; }
+  .md-thead {
+    background-color: rgba(236, 239, 241, 0.30);
+    border-right: 1px solid #ECEFF1;
+    font-weight: 600;
+  }
+}
+
 /* -----------------------------------------
   Media Queries
  ----------------------------------------- */
