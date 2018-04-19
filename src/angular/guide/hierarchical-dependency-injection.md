@@ -78,13 +78,13 @@ The ability to configure one or more providers at different levels opens up inte
 
 ### Scenario: service isolation
 
-Architectural reasons may lead you to restrict access to a service to the application domain where it belongs.
+Architectural reasons may lead you to restrict access to a service to the app domain where it belongs.
 
 The guide sample includes a `VillainsListComponent` that displays a list of villains.
 It gets those villains from a `VillainsService`.
 
 While you _could_ provide `VillainsService` in the root `AppComponent` (that's where you'll find the `HeroesService`),
-that would make the `VillainsService` available everywhere in the application, including the _Hero_ workflows.
+that would make the `VillainsService` available everywhere in the app, including the _Hero_ workflows.
 
 If you later modified the `VillainsService`, you could break something in a hero component somewhere.
 That's not supposed to happen but providing the service in `AppComponent` creates that risk.
@@ -117,7 +117,7 @@ Now you know that a hero component can't access it. You've reduced your exposure
 
 ### Scenario: multiple edit sessions
 
-Many applications allow users to work on several open tasks at the same time.
+Many apps allow users to work on several open tasks at the same time.
 For example, in a tax preparation app, the preparer could be working on several tax returns,
 switching from one to the other throughout the day.
 

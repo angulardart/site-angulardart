@@ -21,7 +21,7 @@ DartPads.
 
 </div>
 
-Web applications often use
+Web apps often use
 [JSON](http://www.json.org/)
 (JavaScript Object Notation)
 to pass data between clients and servers.

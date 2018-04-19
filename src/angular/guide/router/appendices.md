@@ -124,9 +124,8 @@ one that would otherwise require a page load.
 
 Here's the *Crisis Center* URL in this "HTML 5 pushState" style:
 
-<?code-excerpt?>
-```
-  localhost:3002/crises/
+```nocode
+localhost:3002/crises/
 ```
 
 Older browsers send page requests to the server when the location URL changes ...
@@ -134,9 +133,8 @@ unless the change occurs after a "#" (called the "hash").
 Routers can take advantage of this exception by composing in-app route
 URLs with hashes.  Here's a "hash URL" that routes to the *Crisis Center*
 
-<?code-excerpt?>
-```
-  localhost:3002/src/#/crises/
+```nocode
+localhost:3002/src/#/crises/
 ```
 
 The router supports both styles with two `LocationStrategy` providers:
@@ -144,13 +142,12 @@ The router supports both styles with two `LocationStrategy` providers:
 1. `PathLocationStrategy` - the default "HTML 5 pushState" style.
 1. `HashLocationStrategy` - the "hash URL" style.
 
-The router's `ROUTER_PROVIDERS` list sets the `LocationStrategy` to the `PathLocationStrategy`,
-making it the default strategy.
-You can switch to the `HashLocationStrategy` with an override during the bootstrapping process if you prefer it.
+The [routerProviders][] list sets the `LocationStrategy` to the `PathLocationStrategy`.
+Use [routerProvidersHash][] instead if you want your app to use hash URLs.
 
 <div class="l-sub-section" markdown="1">
-  Learn about "providers" and the bootstrap process in the
-  [Dependency Injection guide](../dependency-injection#bootstrap)
+  Learn about providers and the app-launching process in the
+  [Dependency Injection guide](../dependency-injection#root-injector-providers)
 </div>
 
 ### Which strategy is best?
@@ -211,3 +208,5 @@ Those developers may still use HTML 5 URLs by taking two remedial steps:
 1. Use _root URLs_ for all web resources: css, images, scripts, and template html files.
 
 [appBaseHref]: /api/angular_router/angular_router/appBaseHref-constant.html
+[routerProviders]: /api/angular_router/angular_router/routerProviders-constant
+[routerProvidersHash]: /api/angular_router/angular_router/routerProvidersHash-constant

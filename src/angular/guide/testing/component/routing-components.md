@@ -360,7 +360,6 @@ you can simply test the last URL cached by the mock platform location:
 [appBaseHref]: /api/angular_router/angular_router/appBaseHref-constant
 [app shell]: /angular/tutorial/toh-pt5#create-appcomponent
 [base href]: /angular/guide/router/1#set-the-base-href
-[bootstrapping]: /angular/guide/architecture#dependency-injection
 [dashboard]: /angular/tutorial/toh-pt5#add-heroes-to-the-dashboard
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [link parameter list]: /angular/guide/router/appendices#link-parameters-list

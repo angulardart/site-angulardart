@@ -69,7 +69,7 @@ Here's some documentation to help you get started:
 [dart:html API reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html)
 : Complete reference documentation for the dart:html library.
 
-Once you're ready to develop complex applications that support
+Once you're ready to develop complex apps that support
 features such as event handling and dependency injection,
 we recommend using [AngularDart.][AngularDart]
 

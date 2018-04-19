@@ -15,7 +15,7 @@ nextpage:
 It's used so widely that almost everyone just calls it _DI_.
 
 Angular has its own dependency injection framework, and
-you really can't build an Angular application without it.
+you really can't build an Angular app without it.
 
 This page covers what DI is, why it's useful, and how to use Angular DI.
 
@@ -340,7 +340,7 @@ and all of its child components.
 A component-provided service may have a limited lifetime. Each new instance of the component gets its own instance of the service
 and, when the component instance is destroyed, so is that service instance.
 
-In this sample app, the `HeroComponent` is created when the application starts
+In this sample app, the `HeroComponent` is created when the app starts
 and is never destroyed so the `HeroService` created for the `HeroComponent` also lives for the life of the app.
 
 <a id="bootstrap"></a>
@@ -364,7 +364,7 @@ which you pass as an argument to the [runApp()][] function:
 
 An instance of the `HeroService` will now be available for injection across the entire app.
 
-Use root injector provisioning for application-wide services
+Use root injector provisioning for app-wide services
 declared _external_ to the app package.
 This is why registering app specific services is discouraged.
 
@@ -372,7 +372,7 @@ The preferred approach is to register app services in app components.
 Because the `HeroService` is used within the *Heroes* feature set, and nowhere else,
 the ideal place to register it is in `HeroesComponent`.
 
-Here's a more realistic example of bootstrapping providers, taken from the
+Here's a more realistic example of a root injector, taken from the
 [tutorial, part 5](../tutorial/toh-pt5):
 
 <?code-excerpt "../toh-5/web/main.dart" title replace="/injector(?!\$)/[!$&!]/g"?>
@@ -448,10 +448,10 @@ When Angular destroys one of these component instances, it also destroys the
 component's injector and that injector's service instances.
 
 Thanks to [injector inheritance](hierarchical-dependency-injection),
-you can still inject application-wide services into these components.
+you can still inject app-wide services into these components.
 A component's injector is a child of its parent component's injector,
 and a descendent of its parent's parent's injector,
-and so on all the way back to the application's _root_ injector.
+and so on all the way back to the app's _root_ injector.
 Angular can inject a service provided by any injector in that lineage.
 
 {% comment %}From TS page; not relevant until we have modules.

@@ -117,7 +117,7 @@ If you're already familiar with Angular routing,
 here's a reminder of what you need to do:
 
 - Choose a [location strategy](router/1#which-location-strategy-to-use).
-- [Register appropriate router providers][router providers] when bootstrapping your app.
+- [Register appropriate router providers][router providers] when launching your app.
 - Ensure that each routing component has metadata listing the
   [router directives](router/1#router-directives) used by the component.
 

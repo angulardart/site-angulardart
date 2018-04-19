@@ -95,7 +95,7 @@ That element is a placeholder in the body of your `index.html` file:
   </body>
 ```
 
-When you bootstrap with the `AppComponent` class (in `web/main.dart`), Angular looks for a `<my-app>`
+When you launch your app with the `AppComponent` class (in `web/main.dart`), Angular looks for a `<my-app>`
 in the `index.html`, finds it, instantiates an instance of `AppComponent`, and renders it
 inside the `<my-app>` tag.
 
@@ -216,7 +216,7 @@ The app's code defines the data directly inside the component, which isn't best 
 In a simple demo, however, it's fine.
 
 At the moment, the binding is to a list of strings.
-In real applications, most bindings are to more specialized objects.
+In real apps, most bindings are to more specialized objects.
 
 To convert this binding to use specialized objects, turn the list
 of hero names into a list of `Hero` objects. For that you'll need a `Hero` class.

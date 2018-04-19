@@ -23,7 +23,7 @@ For example, in most use cases, users prefer to see a date in a simple format li
 <samp>Fri Apr 15 1988 00:00:00 GMT-0700 (Pacific Daylight Time)</samp>.
 
 Clearly, some values benefit from a bit of editing. You may notice that you
-desire many of the same transformations repeatedly, both within and across many applications.
+desire many of the same transformations repeatedly, both within and across many apps.
 You can almost think of them as styles.
 In fact, you might like to apply them in your HTML templates as you do styles.
 
@@ -396,7 +396,7 @@ That's an easy rule to follow in *this* example
 where the only way to change the data is by adding a hero.
 
 More often, you don't know when the data have changed,
-especially in applications that mutate data in many ways,
+especially in apps that mutate data in many ways,
 perhaps in app locations far away.
 A component in such an app usually can't know about those changes.
 Moreover, it's unwise to distort the component design to accommodate a pipe.

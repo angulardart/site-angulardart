@@ -96,7 +96,7 @@ content to load.
 
 As such, we recommend the following:
 
-1. Restrict your application to a single Dart script per document.
+1. Restrict your app to a single Dart script per document.
 1. Place your Dart script at the end of your document's body (followed
    only by the dart.js script if you choose to use that).
 1. Do not use async or defer attributes on your Dart script tag at this point.
@@ -189,7 +189,7 @@ We disallow inline event listeners of the form:
 
 With JavaScript, programmers can embed inline event listener code
 directly onto HTML nodes.
-However, this is typically discouraged in modern JavaScript applications.
+However, this is typically discouraged in modern JavaScript apps.
 HTML pages generally render more quickly
 if listeners are added programmatically afterwards.
 Modern security guidelines also discourage inline code.

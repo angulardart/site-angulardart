@@ -13,9 +13,9 @@ nextpage:
 <?code-excerpt path-base="examples/ng/doc/component-styles"?>
 {%comment%}TODO: consider adding material equivalent to TS Appendices 1 & 2 if relevant.{%endcomment%}
 
-Angular applications are styled with standard CSS. That means you can apply
+Angular apps are styled with standard CSS. That means you can apply
 everything you know about CSS stylesheets, selectors, rules, and media queries
-directly to Angular applications.
+directly to Angular apps.
 
 Additionally, Angular can bundle *component styles*
 with components, enabling a more modular design than regular stylesheets.

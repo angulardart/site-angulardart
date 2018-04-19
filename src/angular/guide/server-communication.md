@@ -11,7 +11,7 @@ nextpage:
 ---
 <?code-excerpt path-base="examples/ng/doc/server-communication"?>
 
-Most frontend applications communicate with backend services
+Most frontend apps communicate with backend services
 using the HTTP protocol.
 Dart web apps typically do this using the XMLHttpRequest (XHR) API,
 using either [HttpRequest][] from the [dart:html][] library

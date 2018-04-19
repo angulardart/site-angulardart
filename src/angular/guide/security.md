@@ -1,7 +1,7 @@
 ---
 layout: angular
 title: Security
-description: Developing for content security in Angular applications
+description: Developing for content security in Angular apps
 sideNavGroup: advanced
 prevpage:
   title: Routing & Navigation
@@ -62,7 +62,7 @@ is inserted into the DOM from a template, via property, attribute, style, class 
 Angular sanitizes and escapes untrusted values.
 
 _Angular templates are the same as executable code_: HTML, attributes, and binding expressions
-(but not the values bound) in templates are trusted to be safe. This means that applications must
+(but not the values bound) in templates are trusted to be safe. This means that apps must
 prevent values that an attacker can control from ever making it into the source code of a
 template. Never generate template source code by concatenating user input and templates.
 To prevent these vulnerabilities, use
@@ -153,7 +153,7 @@ carries a high risk of introducing template-injection vulnerabilities.
 
 ## Trusting safe values  {#bypass-security-apis}
 
-Sometimes applications genuinely need to include executable code, display an `<iframe>` from some
+Sometimes apps genuinely need to include executable code, display an `<iframe>` from some
 URL, or construct potentially dangerous URLs. To prevent automatic sanitization in any of these
 situations, you can tell Angular that you inspected a value, checked how it was generated, and made
 sure it will always be secure. But *be careful*. If you trust a value that might be malicious, you
@@ -316,9 +316,9 @@ h3#xssi Cross-site script inclusion (XSSI)
 //- end of block http
 {% endcomment %}
 
-## Auditing Angular applications  {#code-review}
+## Auditing Angular apps  {#code-review}
 
-Angular applications must follow the same security principles as regular web applications, and
+Angular apps must follow the same security principles as regular web apps, and
 must be audited as such. Angular-specific APIs that should be audited in a security review,
 such as the [_bypassSecurityTrust_](#bypass-security-apis) methods, are marked in the documentation
 as security sensitive.

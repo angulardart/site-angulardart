@@ -7,7 +7,7 @@ permalink: /tutorials
 toc: false
 ---
 
-These tutorials cover topics relevant to Dart web applications.
+These tutorials cover topics relevant to Dart web apps.
 
 ## Angular
 

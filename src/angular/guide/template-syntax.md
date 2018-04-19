@@ -1303,7 +1303,7 @@ Fortunately, the Angular [_NgModel_](#ngModel) directive is a bridge that enable
 
 Earlier versions of Angular included over seventy built-in directives.
 The community contributed many more, and countless private directives
-have been created for internal applications.
+have been created for internal apps.
 
 You don't need many of those directives in Angular.
 You can often achieve the same results with the more capable and expressive Angular binding system.

@@ -66,7 +66,7 @@ You can always get the full source through the [sample repos]({{site.ghNgEx}})
 ## Code samples
 
 Each page includes code snippets from a sample app that accompanies the page.
-You can reuse these snippets in your applications.
+You can reuse these snippets in your apps.
 
 Look for a link to a running version of that sample, often near the top of the page,
 such as this <live-example name="architecture"></live-example> from the [Architecture](guide/architecture) page.

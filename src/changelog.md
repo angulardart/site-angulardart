@@ -125,7 +125,7 @@ Also see:
   - `APP_BASE_HREF` &rarr; `appBaseHref`
   - `ROUTER_DIRECTIVES` &rarr; `routerDirectives`
   - `ROUTER_PROVIDERS` &rarr; `routerProviders`,
-    and provide through [bootstrap][] (recommended)
+    and provide through [runApp()][] (recommended)
 
 - Other Dart file changes:
   -  `CORE_DIRECTIVES` &rarr; `coreDirectives`
@@ -357,12 +357,12 @@ More information:
 [4.x toh-5/web/main.dart]: https://github.com/dart-lang/site-webdev/blob/4.x/examples/ng/doc/toh-5/web/main.dart
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
-[bootstrap]: /api/angular/angular/bootstrap
 [build_runner]: /tools/build_runner
 [dependency-injection diff]: {{site.ghNgEx}}/dependency-injection/compare/4.x...master
 [forms]: /angular/guide/forms
 [ngFor]: /angular/guide/template-syntax#ngFor
 [quickstart diff]: {{site.ghNgEx}}/quickstart/compare/4.x...master
+[runApp()]: /api/angular/angular/runApp.html
 [template reference variables]: /angular/guide/template-syntax#ref-vars
 [toh-5 diff]: {{site.ghNgEx}}/toh-5/compare/4.x...master
 [two-way bindings]: /angular/guide/template-syntax#two-way

@@ -173,7 +173,7 @@ may like Dart's static type annotations.
 #### Q. What does Google think of TypeScript?
 
 TypeScript and Dart have similar goals; they make building large-scale web
-applications easier. However, their approaches are fairly different. TypeScript
+apps easier. However, their approaches are fairly different. TypeScript
 maintains backwards compatability with JavaScript, whereas Dart purposely made a
 break from certain parts of JavaScript’s syntax and semantics in order to
 eradicate large classes of bugs and to improve performance. The web has suffered
@@ -181,7 +181,7 @@ from too little choice for too long, and we think that both Dart and TypeScript
 are pointing to a brighter future for web developers. You can read a
 [more complete response][typescript] on our blog.
 
-#### Q. I have a large application written in GWT. How do I port it to Dart?
+#### Q. I have a large app written in GWT. How do I port it to Dart?
 
 Java and Dart are syntactically similar,
 so this might be easier than you think.
@@ -316,14 +316,14 @@ Dart is designed to compile to JavaScript to run across the modern web.
 
 #### Q. Why not compile Dart to asm.js instead of building a specialized VM?
 
-Dart could have used asm.js in two ways; compiling Dart applications to asm.js,
+Dart could have used asm.js in two ways; compiling Dart apps to asm.js,
 or compile the Dart VM to asm.js.
 
 However, after careful consideration it becomes clear that both ways incur non-
 acceptable overhead which nullifies some of Dart’s value proposition: its fast
 start-up and better performance.
 
-**Compilation of a Dart application to asm.js**
+**Compilation of a Dart app to asm.js**
 
 Asm.js is a very restricted subset of JavaScript best suited as a compilation
 target for C compilers. It does not include JavaScript objects, or direct

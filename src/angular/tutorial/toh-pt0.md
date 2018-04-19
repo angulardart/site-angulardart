@@ -120,7 +120,7 @@ Each file has a distinct purpose and evolves independently as the app grows.
   </td>
 </tr><tr>
   <td><code>web/main.dart</code></td>
-  <td markdown="1">Bootstraps the app to run in the browser.
+  <td markdown="1">Launches the app in the browser.
   </td>
 </tr><tr>
   <td><code>web/index.html</code></td>

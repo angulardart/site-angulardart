@@ -1,6 +1,6 @@
 ---
 title: Architecture Overview
-description: The basic building blocks of Angular applications
+description: The basic building blocks of Angular apps
 sideNavGroup: basic
 prevpage:
   title: Learning Angular
@@ -23,12 +23,12 @@ nextpage:
 </style>
 
 AngularDart (which we usually call simply Angular in this documentation)
-is a framework for building client applications in HTML and Dart.
+is a framework for building client apps in HTML and Dart.
 It is published as the
 [**angular**](https://pub.dartlang.org/packages/angular) package, which
 is available via the Pub tool.
 
-You write Angular applications by composing HTML *templates* with Angularized
+You write Angular apps by composing HTML *templates* with Angularized
 markup, writing *component* classes to manage those templates, adding
 application logic in *services*, and boxing components and services in
 *modules*.
@@ -62,7 +62,7 @@ app:
 
 <img class="image-left" src="{% asset_path 'ng/devguide/architecture/module.png' %}" alt="Modules" width="150px">
 
-Angular apps are modular; that is, applications are assembled from many
+Angular apps are modular; that is, apps are assembled from many
 **modules**.
 
 In this guide, the term **_module_** refers to a Dart compilation unit, such
@@ -358,7 +358,7 @@ A directive is a class with a `@Directive` annotation. A component is a
 <div class="l-sub-section" markdown="1">
   While **a component is technically a directive**, this architectural overview
   separates components from directives because components are a distinctive
-  part of, and central to, Angular applications.
+  part of, and central to, Angular apps.
 </div>
 
 Two *other* kinds of directives exist: _structural_ and _attribute_ directives.

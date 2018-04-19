@@ -11,7 +11,7 @@ nextpage:
   url: /angular/guide/dependency-injection
 ---
 <?code-excerpt path-base="examples/ng/doc/forms"?>
-Forms are the mainstay of business applications.
+Forms are the mainstay of business apps.
 You use forms to log in, submit a help request, place an order, book a flight,
 schedule a meeting, and perform countless other data-entry tasks.
 

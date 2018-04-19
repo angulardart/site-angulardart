@@ -340,7 +340,7 @@ The *Reset* button clears the `heroes` list.
 Angular removes all hero `<div>` elements from the DOM and destroys their spy directives at the same time.
 The spy's `ngOnDestroy` method reports its last moments.
 
-The `ngOnInit` and `ngOnDestroy` methods have more vital roles to play in real applications.
+The `ngOnInit` and `ngOnDestroy` methods have more vital roles to play in real apps.
 
 ### OnInit
 
