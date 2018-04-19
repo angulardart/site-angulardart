@@ -43,11 +43,11 @@ Make the following changes to `AppComponent`:
 - Add a `title` property initialized as shown below.
 - Drop the `name` property.
 
-<?code-excerpt "lib/app_component_1.dart (class)" title?>
+<?code-excerpt "lib/app_component_1.dart (class)" replace="/final.*|var.*/[!$&!]/g" title?>
 ```
   class AppComponent {
-    final title = 'Tour of Heroes';
-    var hero = 'Windstorm';
+    [!final title = 'Tour of Heroes';!]
+    [!var hero = 'Windstorm';!]
   }
 ```
 
@@ -90,21 +90,20 @@ save it to the following new file:
   }
 ```
 
-Import `hero.dart` in the `app_component.dart` file:
+Make these changes to `app_component.dart`:
 
-<?code-excerpt "lib/app_component_2.dart (imports)" replace="/import.*hero.*/[!$&!]/g" title?>
+- Import `hero.dart`.
+- In the `AppComponent` class, declare the type of `hero` to be `Hero`, and
+  initialize it with a new `Hero` having an ID of `1` and the name "Windstorm".
+
+<?code-excerpt "lib/app_component_2.dart (import and class)" replace="/import.*|Hero(?= )|new.*/[!$&!]/g" title?>
 ```
-  import 'package:angular/angular.dart';
-
   [!import 'hero.dart';!]
-```
-
-In the `AppComponent` class, declare the type of `hero` to be `Hero`, and
-initialize it with a new `Hero` having ID of `1` and the name `Windstorm`:
-
-<?code-excerpt "lib/app_component.dart (hero)" title?>
-```
-  Hero hero = new Hero(1, 'Windstorm');
+  // ···
+  class AppComponent {
+    final title = 'Tour of Heroes';
+    [!Hero!] hero = [!new Hero(1, 'Windstorm');!]
+  }
 ```
 
 Because you changed the hero from a string to an object, update the binding in

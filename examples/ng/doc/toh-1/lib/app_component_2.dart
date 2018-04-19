@@ -1,8 +1,8 @@
-// #docregion imports
 import 'package:angular/angular.dart';
 
+// #docregion import-and-class
 import 'hero.dart';
-// #enddocregion imports
+// #enddocregion import-and-class
 
 @Component(
   selector: 'my-app',
@@ -15,7 +15,7 @@ import 'hero.dart';
   ''',
   // #enddocregion template
 )
-// #docregion class
+// #docregion class, import-and-class
 class AppComponent {
   final title = 'Tour of Heroes';
   Hero hero = new Hero(1, 'Windstorm');
