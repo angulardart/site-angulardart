@@ -20,7 +20,6 @@ module.exports = function (gulp, plugins, config) {
 
   const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const EXAMPLES_TESTING_PATH = path.join(EXAMPLES_PATH, 'testing/ts');
-  const BOILERPLATE_PATH = path.join(EXAMPLES_PATH, '_boilerplate');
   const TOOLS_PATH = config.TOOLS_PATH;
   // const STYLES_SOURCE_PATH = path.join(TOOLS_PATH, 'styles-builder/less');
 
@@ -28,161 +27,6 @@ module.exports = function (gulp, plugins, config) {
   let skippedExPaths = [];
 
   const lang='dart';
-
-  var _exampleBoilerplateFiles = [
-    // Only the *.css files were needed for Dart.
-    // but they are handled via _exampleDartWebBoilerPlateFiles.
-  ];
-
-  const _exampleDartWebBoilerPlateFiles = ['favicon.png', 'styles.css'];
-  const _exampleUnitTestingBoilerplateFiles = [];
-  const _e2eTestFileName = 'e2e-spec.ts';
-
-
-  gulp.task('add-example-boilerplate', function(done) {
-    // var realPath = path.join(EXAMPLES_PATH, '/node_modules');
-    // var nodeModulesPaths = excludeDartPaths(getNodeModulesPaths(EXAMPLES_PATH));
-    // nodeModulesPaths.forEach(function(linkPath) {
-    //   gutil.log("symlinking " + linkPath + ' -> ' + realPath)
-    //   fsUtils.addSymlink(realPath, linkPath);
-    // });
-    return argv.fast ? done() : buildStyles(copyExampleBoilerplate, done);
-  });
-
-  //Builds Angular Docs CSS file from Bootstrap npm LESS source
-  //and copies the result to the _examples folder to be included as
-  //part of the example boilerplate.
-  function buildStyles(cb, done){
-    // 2017-03-05: Stop building a2docs.css file
-    /*
-    gulp.src(path.join(STYLES_SOURCE_PATH, _styleLessName))
-      .pipe(less())
-      .pipe(gulp.dest(BOILERPLATE_PATH)).on('end', function(){
-        cb().then(function() { done(); });
-      });
-    */
-    cb().then(function() { done(); });
-  }
-
-  // copies boilerplate files to locations
-  // where an example app is found
-  // also copies certain web files (e.g., styles.css) to web
-  function copyExampleBoilerplate() {
-    gutil.log('Copying example boilerplate files');
-    var sourceFiles = _exampleBoilerplateFiles.map(function(fn) {
-      return path.join(BOILERPLATE_PATH, fn);
-    });
-    var examplePaths = excludeDartPaths(getExamplePaths(EXAMPLES_PATH));
-
-    var dartWebSourceFiles = _exampleDartWebBoilerPlateFiles.map(function(fn){
-      return path.join(BOILERPLATE_PATH, fn);
-    });
-    var dartExampleWebPaths = getDartExampleWebPaths(EXAMPLES_PATH);
-
-    // Make boilerplate files read-only to avoid that they be edited by mistake.
-    var destFileMode = '444';
-    return copyFiles(sourceFiles, examplePaths, destFileMode)
-      .then(function() {
-        return copyFiles(dartWebSourceFiles, dartExampleWebPaths, destFileMode);
-      })
-      // copy the unit test boilerplate
-      .then(function() {
-        var unittestSourceFiles =
-          _exampleUnitTestingBoilerplateFiles
-            .map(function(name) { return path.join(EXAMPLES_TESTING_PATH, name); });
-        var unittestPaths = getUnitTestingPaths(EXAMPLES_PATH);
-        return copyFiles(unittestSourceFiles, unittestPaths, destFileMode);
-      })
-      .catch(function(err) {
-        gutil.log(err);
-        throw err;
-      });
-  }
-
-  gulp.task('remove-example-boilerplate', function() {
-    // var nodeModulesPaths = getNodeModulesPaths(EXAMPLES_PATH);
-    // nodeModulesPaths.forEach(function(linkPath) {
-    //   fsUtils.removeSymlink(linkPath);
-    // });
-    deleteExampleBoilerPlate();
-  });
-
-  function isDartPath(path) { return true; }
-
-  function excludeDartPaths(paths) {
-    return paths.filter(function (p) { return !isDartPath(p); });
-  }
-
-  function getExamplePaths(basePath, includeBase) {
-    // includeBase defaults to false
-    return getPaths(basePath, _e2eTestFileName, includeBase);
-  }
-
-  function getDartExampleWebPaths(basePath) {
-    return plugins.globby.sync([path.join(basePath, '**/web')]);
-  }
-
-  function getUnitTestingPaths(basePath) {
-    var examples = getPaths(basePath, _e2eTestFileName, true);
-    return examples.filter((example) => {
-      var exampleConfig = fs.readJsonSync(`${example}/${_e2eTestFileName}`, {throws: false});
-      return exampleConfig && !!exampleConfig.unittesting;
-    });
-  }
-
-  function getPaths(basePath, filename, includeBase) {
-    var filenames = getFilenames(basePath, filename, includeBase);
-    var paths = filenames.map(function(fileName) {
-      return path.dirname(fileName);
-    });
-    return paths;
-  }
-
-  function getFilenames(basePath, filename, includeBase) {
-    // includeBase defaults to false
-    var includePatterns = [path.join(basePath, "**/" + filename)];
-    if (!includeBase) {
-      // ignore (skip) the top level version.
-      includePatterns.push("!" + path.join(basePath, "/" + filename));
-    }
-    // ignore (skip) the files in BOILERPLATE_PATH.
-    includePatterns.push("!" + path.join(BOILERPLATE_PATH, "/" + filename));
-    var nmPattern = path.join(basePath, "**/node_modules/**");
-    var filenames = plugins.globby.sync(includePatterns, {ignore: [nmPattern]});
-    return filenames;
-  }
-
-  // deletes boilerplate files that were added by copyExampleBoilerplate
-  // from locations where an example app is found
-  gulp.task('delete-example-boilerplate', deleteExampleBoilerPlate);
-
-  function deleteExampleBoilerPlate() {
-    gutil.log('Deleting example boilerplate files');
-    var examplePaths = getExamplePaths(EXAMPLES_PATH);
-    var dartExampleWebPaths = getDartExampleWebPaths(EXAMPLES_PATH);
-    var unittestPaths = getUnitTestingPaths(EXAMPLES_PATH);
-
-    return deleteFiles(_exampleBoilerplateFiles, examplePaths)
-      .then(function() {
-        return deleteFiles(_exampleDartWebBoilerPlateFiles, dartExampleWebPaths);
-      })
-      .then(function() {
-        return deleteFiles(_exampleUnitTestingBoilerplateFiles, unittestPaths);
-      });
-  }
-
-  function deleteFiles(baseFileNames, destPaths) {
-    var remove = Q.denodeify(fsExtra.remove);
-    var delPromises = [];
-    destPaths.forEach(function(destPath) {
-      baseFileNames.forEach(function(baseFileName) {
-        var destFileName = path.join(destPath, baseFileName);
-        var p = remove(destFileName);
-        delPromises.push(p);
-      });
-    });
-    return Q.all(delPromises);
-  }
 
   // ==========================================================================
   // Tasks and helper functions for running e2e
@@ -227,10 +71,13 @@ module.exports = function (gulp, plugins, config) {
     header += `  Filter: ${filter ? filter : 'All tests'}\n\n`;
     fs.writeFileSync(outputFile, header);
 
-    // create an array of combos where each
-    // combo consists of { examplePath: ... }
-    var examplePaths = [];
-    var e2eSpecPaths = getE2eSpecPaths(EXAMPLES_PATH);
+    var e2eSpecPaths = plugins.globby.sync([
+      `${EXAMPLES_PATH}/**/*e2e-spec.*`,
+      `!**/.*/**`, // No need to search inside dot folders
+      `!**/node_modules/**`, // should be no node_module, but just in case.
+    ]);
+
+    console.log(`>> e2eSpecPaths: ${e2eSpecPaths.join('\n  ')}`);
 
     // Do negative filter first (remove what we don't want):
     if (skipRegEx) {
@@ -240,11 +87,9 @@ module.exports = function (gulp, plugins, config) {
     // Then do positive filter (keep what we want):
     if (filter) e2eSpecPaths = e2eSpecPaths.filter(p => p.match(filter));
 
-    e2eSpecPaths.forEach(function(specPath) {
-      // get all of the examples under each dir where a pcFilename is found
-      let localExamplePaths = getExamplePaths(specPath, true);
-      examplePaths.push(...localExamplePaths);
-    });
+    // At the moment, all spec files are just below the project root,
+    // and there is at most one spec file (which means there are no duplicates):
+    var examplePaths = e2eSpecPaths.map(p => path.dirname(p));
 
     gutil.log(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
     gutil.log(`\nE2E skipping:\n  ${skippedExPaths.join('\n  ')}`);
@@ -327,13 +172,6 @@ module.exports = function (gulp, plugins, config) {
     log += `\nE2E skipped:\n  ${skippedExPaths.join('\n  ')}`;
     gutil.log(log);
     fs.appendFileSync(outputFile, log);
-  }
-
-  // TODO: filter out all paths that are subdirs of another
-  // path in the result.
-  function getE2eSpecPaths(basePath) {
-    var paths = getPaths(basePath, '*e2e-spec.+(js|ts)', true);
-    return _.uniq(paths);
   }
 
 };

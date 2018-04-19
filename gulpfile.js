@@ -14,6 +14,7 @@ const argv = require('yargs').argv;
 const assert = require('assert-plus');
 const cheerio = require('gulp-cheerio');
 const child_process = require('child_process');
+const chmod = require('gulp-chmod');
 const cpExec = require('child_process').exec;
 const del = require('del');
 const fsExtra = require('fs-extra');
@@ -46,7 +47,7 @@ const siteFolder = _configYml.destination || _throw();
 
 // angular.io constants
 const EXAMPLES_ROOT = 'examples';
-const EXAMPLES_NG_DOC_PATH = './examples/ng/doc'; // used to be named EXAMPLES_PATH
+const EXAMPLES_NG_DOC_PATH = 'examples/ng/doc'; // used to be named EXAMPLES_PATH
 const TOOLS_PATH = './tools';
 const TMP_PATH = process.env.TMP; // shared temp folder (for larger downloads, etc)
 const LOCAL_TMP = 'tmp'; // temp folder local to this project
@@ -110,6 +111,7 @@ const plugins = {
   argv: argv,
   buildWebCompilerOptions: buildWebCompilerOptions,
   child_process: child_process,
+  chmod: chmod,
   codeExcerpter: require('code-excerpter'),
   copyFiles: copyFiles,
   del: del,

@@ -1167,7 +1167,9 @@ The designers provided some basic styles to apply to elements across the entire 
 These correspond to the full set of master styles that you installed earlier during [setup](/angular/guide/setup).
 Here's an excerpt:
 
-<?code-excerpt "../_boilerplate/styles.css (toh)" title="web/styles.css (excerpt)"?>
+<?code-excerpt path-base="examples/ng/doc/_boilerplate"?>
+
+<?code-excerpt "web/styles.css (excerpt)" region="toh" title?>
 ```
   @import url(https://fonts.googleapis.com/css?family=Roboto);
   @import url(https://fonts.googleapis.com/css?family=Material+Icons);
@@ -1196,6 +1198,8 @@ Here's an excerpt:
     font-family: Arial, Helvetica, sans-serif;
   }
 ```
+
+<?code-excerpt path-base="examples/ng/doc/toh-5"?>
 
 Create the file `web/styles.css`, if necessary.
 Ensure that the file contains the [master styles provided here][master styles].

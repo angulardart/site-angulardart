@@ -41,4 +41,36 @@ module.exports = function (gulp, plugins, config) {
     });
   }
 
-};
+  // ==========================================================================
+  // Boilerplate management
+
+  const boilerplateSrcDirs = [config.EXAMPLES_ROOT, config.EXAMPLES_NG_DOC_PATH];
+  let bpDeps = [];
+  boilerplateSrcDirs.forEach((bpParentDir, i) => {
+    const target = `_add-example-boilerplate-${i}`;
+    bpDeps.push(target);
+    const examplePaths = examplesFullPath.filter(p => p.startsWith(bpParentDir));
+    gulp.task(target, () => _addExampleBoilerplate(boilerplateSrcDirs[i], examplePaths));
+  });
+
+  gulp.task('add-example-boilerplate', bpDeps);
+
+  function _addExampleBoilerplate(bpParentDir, examplePaths) {
+    if (examplePaths.length === 0) return;
+
+    const baseDir = path.join(bpParentDir, '_boilerplate');
+    let stream = gulp.src([
+      `${baseDir}/.gitignore`,
+      `${baseDir}/**`,
+    ], { base: baseDir })
+    .pipe(plugins.chmod(0o444));
+
+    examplePaths.forEach(exPath => {
+      stream = stream.pipe(gulp.dest(exPath));
+    });
+    return stream;
+  }
+
+  gulp.task('git-clean-example', () => examplesExec('git clean -xdf'));
+
+}

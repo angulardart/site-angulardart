@@ -85,7 +85,7 @@ The app contains the following core files:
   <?code-pane "test/app_test.dart" linenums?>
   <?code-pane "web/main.dart" linenums?>
   <?code-pane "web/index.html" linenums?>
-  <?code-pane "../_boilerplate/styles.css (quickstart)" title="web/styles.css (excerpt)" linenums?>
+  <?code-pane "../_boilerplate/web/styles.css (quickstart)" title="web/styles.css (excerpt)" linenums?>
   <?code-pane "pubspec.yaml" linenums?>
 </code-tabs>
 
