@@ -195,11 +195,7 @@ class AppComponent implements OnInit {
   }
   // #enddocregion setStyles
 
-  // #docregion trackByHeroes
-  int trackByHeroes(int index, Hero hero) => hero.id;
-  // #enddocregion trackByHeroes
-
-  // #docregion trackById
-  int trackById(int index, dynamic item) => item.id;
-  // #enddocregion trackById
+  // #docregion trackByHeroId
+  Object trackByHeroId(_, dynamic o) => o is Hero ? o.id : o;
+  // #enddocregion trackByHeroId
 }

@@ -56,8 +56,7 @@ env:
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
     # Skip hier-di (https://github.com/dart-lang/angular/issues/1102):
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=hierarchical"
-    # Skip struct, template (https://github.com/dart-lang/site-webdev/issues/1516):
-    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh|struct|template"
+    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
     - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp

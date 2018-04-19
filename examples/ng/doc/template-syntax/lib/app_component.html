@@ -601,22 +601,15 @@ without NgModel
   </div>
 </div>
 
-<p>with <code>trackBy: trackByHeroes(int, Hero)</code></p>
+<p>with <code>trackBy: trackByHeroId(int, dynamic)</code></p>
 <div class="box">
   <!-- #docregion trackBy -->
-  <div *ngFor="let hero of heroes; trackBy: trackByHeroes"  #withTrackBy>
+  <div *ngFor="let hero of heroes; trackBy: trackByHeroId"  #withTrackBy>
     ({{hero.id}}) {{hero.name}}
   </div>
   <!-- #enddocregion trackBy -->
   <div id="withTrackByCnt" *ngIf="heroesWithTrackByCount > 0">
-    Hero DOM elements change #{{heroesWithTrackByCount}} with <code>trackBy: trackByHeroes</code>
-  </div>
-</div>
-
-<p>with <code>trackById: trackById(int, dynamic)</code></p>
-<div class="box">
-  <div *ngFor="let hero of heroes; trackBy: trackById">
-    ({{hero.id}}) {{hero.name}}
+    Hero DOM elements change #{{heroesWithTrackByCount}} with <code>trackBy: trackByHeroId</code>
   </div>
 </div>
 

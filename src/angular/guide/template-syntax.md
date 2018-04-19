@@ -1748,8 +1748,7 @@ The next example captures the `index` in a variable named `i` and displays it wi
   and `odd` in the [NgFor API reference](/api/angular/angular/NgFor-class.html).
 </div>
 
-<div id="trackBy"></div>
-#### *ngFor with _trackBy_
+#### *ngFor with _trackBy_ {#trackBy}
 
 The `NgFor` directive can perform poorly, especially with large lists.
 A small change to one item, an item removed, or an item added can trigger a cascade of DOM manipulations.
@@ -1765,19 +1764,23 @@ Angular can avoid this churn with `trackBy`.
 Add a method to the component that returns the value `NgFor` _should_ track.
 In this case, that value is the hero's `id`.
 
-<?code-excerpt "lib/app_component.dart (trackByHeroes)"?>
+<?code-excerpt "lib/app_component.dart (trackByHeroId)"?>
 ```
-  int trackByHeroes(int index, Hero hero) => hero.id;
+  Object trackByHeroId(_, dynamic o) => o is Hero ? o.id : o;
 ```
 
 In the microsyntax expression, set `trackBy` to this method.
 
 <?code-excerpt "lib/app_component.html (trackBy)" replace="/\s+#withTrackBy//g"?>
 ```
-  <div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+  <div *ngFor="let hero of heroes; trackBy: trackByHeroId">
     ({!{hero.id}!}) {!{hero.name}!}
   </div>
 ```
+
+<aside class="alert alert-info" markdown="1">
+  **Note:** A track-by function's signature must match the [TrackByFn][] type.
+</aside>
 
 Here is an illustration of the _trackBy_ effect.
 "Reset heroes" creates new heroes with the same `hero.id`s.
@@ -2199,3 +2202,4 @@ You've completed this survey of template syntax.
 Now it's time to put that knowledge to work on your own components and directives.
 
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
+[TrackByFn]: /api/angular/angular/TrackByFn.html
