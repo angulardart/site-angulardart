@@ -9,6 +9,7 @@ nextpage:
   title: Routing Basics
   url: /angular/guide/router/1
 ---
+{%- assign pageUrl = page.url | regex_replace: '/index$|/index.html$|/$' -%}
 
 <?code-excerpt path-base="examples/ng/doc/router"?>
 <?code-excerpt replace="/_\d((\.template)?\.dart)/$1/g"?>
@@ -116,12 +117,12 @@ In any Dart file that makes use of router features, import the router library:
 If you're already familiar with Angular routing,
 here's a reminder of what you need to do:
 
-- Choose a [location strategy](router/1#which-location-strategy-to-use).
+- Choose a [location strategy]({{pageUrl}}/1#which-location-strategy-to-use).
 - [Register appropriate router providers][router providers] when launching your app.
 - Ensure that each routing component has metadata listing the
-  [router directives](router/1#router-directives) used by the component.
+  [router directives]({{pageUrl}}/1#router-directives) used by the component.
 
-[router providers]: router/1#add-router-providers
+[router providers]: {{pageUrl}}/1#add-router-providers
 
 ## Basic feature overview
 
@@ -133,18 +134,18 @@ This overview of core router concepts will help orient you to the details that f
 
 Most routing apps have a `<base href="...">` element in the `index.html` `<head>`
 to tell the router how to compose navigation URLs.
-For details, see [Set the *base href*](router/1#base-href).
+For details, see [Set the *base href*]({{pageUrl}}/1#base-href).
 
 ### Routes
 
-[Routes](router/1#routes) tell the router which views to display when a user
+[Routes]({{pageUrl}}/1#routes) tell the router which views to display when a user
 clicks a link or pastes a URL into the browser address bar. To configure routes
 you'll need to do the following:
 
 <?code-excerpt path-base="examples/ng/doc/toh-5"?>
 
 <ul><li markdown="1">
-Define [route paths](router/1#route-paths):
+Define [route paths]({{pageUrl}}/1#route-paths):
 
 <?code-excerpt "lib/src/route_paths.dart" region="v1" title?>
 ```
@@ -153,7 +154,7 @@ Define [route paths](router/1#route-paths):
   final heroes = new RoutePath(path: 'heroes');
 ```
 </li><li markdown="1">
-Define [route definitions](router/1#route-definitions):
+Define [route definitions]({{pageUrl}}/1#route-definitions):
 
 <?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
 ```
@@ -210,7 +211,7 @@ component template:
   }
 ```
 
-For details, see [RouterOutlet](router/1#routeroutlet).
+For details, see [RouterOutlet]({{pageUrl}}/1#routeroutlet).
 
 <?code-excerpt path-base="examples/ng/doc/router"?>
 
@@ -237,7 +238,7 @@ Bind each `RouterLink` directive to a template expression that evaluates to a UR
 A [RouterLinkActive][] will apply the named CSS class to the anchor whose link
 is active. This helps visually distinguish the active links.
 
-For details, see [RouterLinks](router/1#router-link).
+For details, see [RouterLinks]({{pageUrl}}/1#router-link).
 
 ## Summary
 
