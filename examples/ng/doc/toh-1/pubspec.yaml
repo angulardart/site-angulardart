@@ -21,6 +21,5 @@ dependency_overrides:
   pageloader:
      git:
        url: https://github.com/dart-lang/site-webdev.git
-       ref: 5-dev
        path: examples/util/pageloader
 #    path: ../../../util/pageloader
