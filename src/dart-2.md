@@ -1,5 +1,5 @@
 ---
-title: Dart 2 Migration Guide
+title: Dart 2 Migration Guide for Web Apps
 description: Tips for migrating your web app from Dart 1.x to Dart 2.
 ---
 {% assign ng5-url = '' -%}
