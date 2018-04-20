@@ -1,0 +1,15 @@
+.dart_tool
+.packages
+.pub
+build
+!pubspec.lock
+
+# Boilerplate files: ignore copies but not originals
+
+.gitignore
+LICENSE
+**/web/styles.css
+**/web/favicon.png
+
+!/.gitignore
+!**/_boilerplate/**
