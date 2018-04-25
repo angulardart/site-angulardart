@@ -190,16 +190,8 @@ Here is `*ngIf` displaying the hero's name if `hero` exists.
   <div *ngIf="hero != null" >{!{hero.name}!}</div>
 ```
 
-The asterisk is "syntactic sugar" for something a bit more complicated.
-Internally, Angular desugars it in two stages.
-First, it translates the `*ngIf="..."` into a template _attribute_, `template="ngIf ..."`,&nbsp; like this.
-
-<?code-excerpt "lib/app_component.html (ngif-template-attr)"?>
-```
-  <div template="ngIf hero != null">{!{hero.name}!}</div>
-```
-
-Then it translates the template _attribute_ into a template _element_, wrapped around the host element, like this.
+The asterisk is [syntactic sugar][] for something a bit more complicated.
+Internally, Angular desugars it into a [template element][], wrapped around the host element, like this.
 
 <?code-excerpt "lib/app_component.html (ngif-template)"?>
 ```
@@ -219,7 +211,7 @@ Only the finished product ends up in the DOM.
 Angular consumed the `<template>` content during its actual rendering and
 replaced the `<template>` with a diagnostic comment.
 
-The [`NgFor`](#ngFor) and [`NgSwitch...`](#ngSwitch) directives follow the same pattern.
+The [NgFor](#ngFor) and [NgSwitch](#ngSwitch) directives follow the same pattern.
 
 ## Inside _*ngFor_ {#ngFor}
 
@@ -231,11 +223,6 @@ Here's a full-featured app of `NgFor`, written all three ways:
 <?code-excerpt "lib/app_component.html (inside-ngfor)"?>
 ```
   <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackByHeroId"
-       [class.odd]="odd">
-    ({!{i}!}) {!{hero.name}!}
-  </div>
-
-  <div template="ngFor let hero of heroes; let i=index; let odd=odd; trackBy: trackByHeroId"
        [class.odd]="odd">
     ({!{i}!}) {!{hero.name}!}
   </div>
@@ -328,8 +315,7 @@ There are no easy answers to these questions. Prohibiting multiple structural di
 There's an easy solution for this use case: put the `*ngIf` on a container element that wraps the `*ngFor` element.
 One or both elements can be an [`{{page.ng_container}}`](#ngcontainer) so you don't have to introduce extra levels of HTML.
 
-<div id="ngSwitch"></div>
-## Inside _NgSwitch_ directives
+## Inside _NgSwitch_ directives {#ngSwitch}
 
 The Angular _NgSwitch_ is actually a set of cooperating directives: `NgSwitch`, `NgSwitchCase`, and `NgSwitchDefault`.
 
@@ -369,19 +355,7 @@ The `NgSwitchDefault` displays its host element when no sibling `NgSwitchCase` m
 </div>
 
 As with other structural directives, the `NgSwitchCase` and `NgSwitchDefault`
-can be desugared into the template _attribute_ form.
-
-<?code-excerpt "lib/app_component.html (ngswitch-template-attr)"?>
-```
-  <div [ngSwitch]="hero?.emotion">
-    <happy-hero    template="ngSwitchCase 'happy'"    [hero]="hero"></happy-hero>
-    <sad-hero      template="ngSwitchCase 'sad'"      [hero]="hero"></sad-hero>
-    <confused-hero template="ngSwitchCase 'confused'" [hero]="hero"></confused-hero>
-    <unknown-hero  template="ngSwitchDefault"         [hero]="hero"></unknown-hero>
-  </div>
-```
-
-That, in turn, can be desugared into the `<template>` element form.
+can be desugared into the `<template>` element form.
 
 <?code-excerpt "lib/app_component.html (ngswitch-template)"?>
 ```
@@ -412,8 +386,7 @@ You'll refer to the `<template>` when you [write your own structural directive](
 
 ## The *template* element  {#template}
 
-The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank" rel="noopener" title="MDN: Template Tag">HTML 5 &lt;template&gt;</a>
-is a formula for rendering HTML.
+The HTML 5 [template element][] is a formula for rendering HTML.
 It is never displayed directly.
 In fact, before rendering the view, Angular _replaces_ the `<template>` and its contents with a comment.
 
@@ -739,3 +712,6 @@ You learned
 * how that works for the `NgIf`, `NgFor` and `NgSwitch` built-in directives.
 * about the [_microsyntax_](#microsyntax) that expands into a [`<template>`](#template).
 * to write a [custom structural directive](#unless), `UnlessDirective`.
+
+[syntactic sugar]: https://en.wikipedia.org/wiki/Syntactic_sugar
+[template element]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template

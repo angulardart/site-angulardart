@@ -4,9 +4,7 @@ import { browser, element, by } from 'protractor';
 
 describe('Structural Directives', function () {
 
-  beforeAll(function () {
-    browser.get('');
-  });
+  beforeAll(() => browser.get(''));
 
   it('first div should show hero name with *ngIf', function () {
     const allDivs = element.all(by.tagName('div'));
@@ -18,9 +16,9 @@ describe('Structural Directives', function () {
     expect(allLis.get(0).getText()).toEqual('Mr. Nice');
   });
 
-  it('ngSwitch have three <happy-hero> instances', function () {
+  it('ngSwitch has <happy-hero> instances', function () {
     const happyHeroEls = element.all(by.tagName('happy-hero'));
-    expect(happyHeroEls.count()).toEqual(3);
+    expect(happyHeroEls.count()).toEqual(2);
   });
 
   it('should toggle *ngIf="hero" with a button', function () {
@@ -37,12 +35,10 @@ describe('Structural Directives', function () {
     expect(paragraph.count()).toEqual(1);
   });
 
-  it('myUnless should show 3 paragraph (A)s and (B)s at the start', function () {
-    const paragraph = element.all(by.css('p.unless'));
-    expect(paragraph.count()).toEqual(3);
-    for (let i = 0; i < 3; i++) {
-      expect(paragraph.get(i).getText()).toContain('(A)');
-    }
+  it('myUnless shows (A)s', function () {
+    // const paragraph = element.all(by.css('p.unless')).
+    const paragraph = element.all(by.xpath('//p[contains(@class, "unless")][contains(text(), "(A)")]'));
+    expect(paragraph.count()).toEqual(2);
   });
 
   it('myUnless should show 1 paragraph (B) after toggling condition', function () {

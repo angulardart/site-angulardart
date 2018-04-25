@@ -53,17 +53,23 @@ module.exports = function (gulp, plugins, config) {
     gulp.task(target, () => _addExampleBoilerplate(boilerplateSrcDirs[i], examplePaths));
   });
 
+  // gulp add-example-boilerplate [--filter=pattern] [--skip=pattern]
   gulp.task('add-example-boilerplate', bpDeps);
 
   function _addExampleBoilerplate(bpParentDir, examplePaths) {
     if (examplePaths.length === 0) return;
 
+    const readOnlyPerms = {
+      owner: { write: false },
+      group: { write: false },
+      others: { write: false }
+    };
     const baseDir = path.join(bpParentDir, '_boilerplate');
     let stream = gulp.src([
       `${baseDir}/.gitignore`,
       `${baseDir}/**`,
     ], { base: baseDir })
-    .pipe(plugins.chmod(0o444));
+      .pipe(plugins.chmod(readOnlyPerms));
 
     examplePaths.forEach(exPath => {
       stream = stream.pipe(gulp.dest(exPath));
@@ -71,6 +77,21 @@ module.exports = function (gulp, plugins, config) {
     return stream;
   }
 
-  gulp.task('git-clean-example', () => examplesExec('git clean -xdf'));
+  // gulp clean-examples [--force] [--clean] [-e foo -e bar ...] [--filter=pattern] [--skip=pattern]
+  gulp.task('clean-examples', () => {
+    const cmd = ['git clean -xd'];
+    cmd.push(argv.force ? '-f' : '-n');
+
+    let exclude = argv.clean ? [] : ['.dart_tool/', '.idea/', '.packages'];
+    if (argv.e) {
+      if (argv.e.constructor === Array) {
+        exclude = exclude.concat(argv.e);
+      } else {
+        exclude.push(argv.e);
+      }
+    }
+    exclude.forEach(e => cmd.push(`-e ${e}`));
+    return examplesExec(`${cmd.join(' ')}`);
+  });
 
 }

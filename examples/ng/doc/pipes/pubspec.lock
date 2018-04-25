@@ -14,28 +14,28 @@ packages:
       name: angular
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-alpha+10"
+    version: "5.0.0-alpha+11"
   angular_ast:
     dependency: transitive
     description:
       name: angular_ast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.1"
+    version: "0.5.2"
   angular_compiler:
     dependency: transitive
     description:
       name: angular_compiler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0-alpha+10"
+    version: "0.4.0-alpha+11"
   angular_forms:
     dependency: "direct main"
     description:
       name: angular_forms
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+2"
+    version: "2.0.0-alpha+3"
   archive:
     dependency: transitive
     description:
@@ -63,7 +63,7 @@ packages:
       name: barback
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.2+15"
+    version: "0.15.2+16"
   bazel_worker:
     dependency: transitive
     description:
@@ -105,7 +105,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0+2"
+    version: "0.2.1"
   build_resolvers:
     dependency: transitive
     description:
@@ -119,7 +119,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.2+2"
+    version: "0.8.3"
   build_test:
     dependency: "direct dev"
     description:
@@ -133,7 +133,7 @@ packages:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.6"
+    version: "0.3.7+2"
   built_collection:
     dependency: transitive
     description:
@@ -238,7 +238,7 @@ packages:
       name: graphs
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   html:
     dependency: transitive
     description:
@@ -420,7 +420,7 @@ packages:
       name: scratch_space
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.2+1"
   shelf:
     dependency: transitive
     description:
@@ -562,4 +562,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.46.0 <=2.0.0-dev.49.0"
+  dart: ">=2.0.0-dev.48 <=2.0.0-dev.49.0"
