@@ -42,7 +42,7 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.2"
+    version: "1.4.3"
   async:
     dependency: transitive
     description:
@@ -77,7 +77,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.2"
+    version: "0.12.3"
   build_barback:
     dependency: transitive
     description:
@@ -98,7 +98,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   build_resolvers:
     dependency: transitive
     description:
@@ -112,7 +112,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.3"
+    version: "0.8.5"
   build_test:
     dependency: "direct dev"
     description:
@@ -126,7 +126,7 @@ packages:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.7+2"
+    version: "0.3.7+3"
   built_collection:
     dependency: transitive
     description:
@@ -555,4 +555,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.48 <=2.0.0-dev.49.0"
+  dart: ">=2.0.0-dev.48.0 <=2.0.0-dev.50.0"
