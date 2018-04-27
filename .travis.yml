@@ -1,7 +1,7 @@
 dist: trusty
 sudo: required # required because we need to install fonts for content-shell
 language: dart
-dart: stable
+dart: 1.24.3
 with_content_shell: true
 
 cache:
