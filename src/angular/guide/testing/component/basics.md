@@ -29,9 +29,9 @@ under **`dev_dependencies`**, for example:
 ```
   dev_dependencies:
     angular_test: ^2.0.0-alpha
-    build_runner: ^0.8.2
-    build_test: ^0.10.0
-    build_web_compilers: ^0.3.6
+    build_runner: ^0.8.6
+    build_test: ^0.10.2
+    build_web_compilers: ^0.3.7
     test: ^0.12.30
 ```
 

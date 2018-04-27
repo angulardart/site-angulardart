@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.31.1"
+    version: "0.31.2-alpha.1"
   angular:
     dependency: "direct main"
     description:
@@ -98,7 +98,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.3"
+    version: "0.12.4"
   build_barback:
     dependency: transitive
     description:
@@ -119,7 +119,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.2+2"
   build_resolvers:
     dependency: transitive
     description:
@@ -133,7 +133,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5"
+    version: "0.8.6"
   build_test:
     dependency: "direct dev"
     description:
@@ -224,7 +224,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.9+1"
+    version: "1.0.11"
   fixnum:
     dependency: transitive
     description:
@@ -238,7 +238,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0-alpha.9"
+    version: "0.1.0-alpha.11"
   glob:
     dependency: transitive
     description:
@@ -322,7 +322,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0-alpha.9"
+    version: "0.3.0-alpha.11"
   logging:
     dependency: transitive
     description:
@@ -371,7 +371,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.4.1"
   package_config:
     dependency: transitive
     description:
@@ -391,7 +391,7 @@ packages:
     description:
       path: "examples/util/pageloader"
       ref: HEAD
-      resolved-ref: "3b11811ff09a78214d7dff346a0b74ee182aad0a"
+      resolved-ref: "6d334d7cfdfdd9fe7b53fcf9853cb066756b42af"
       url: "https://github.com/dart-lang/site-webdev.git"
     source: git
     version: "0.0.1"
@@ -499,7 +499,7 @@ packages:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.4"
+    version: "0.10.5"
   source_span:
     dependency: transitive
     description:

@@ -77,8 +77,6 @@ module.exports = function (gulp, plugins, config) {
       `!**/node_modules/**`, // should be no node_module, but just in case.
     ]);
 
-    console.log(`>> e2eSpecPaths: ${e2eSpecPaths.join('\n  ')}`);
-
     // Do negative filter first (remove what we don't want):
     if (skipRegEx) {
       skippedExPaths = e2eSpecPaths.filter(p => p.match(skipRegEx));
