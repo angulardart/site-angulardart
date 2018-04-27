@@ -3,7 +3,6 @@
 
 module.exports = function (gulp, plugins, config) {
 
-  const less = require('gulp-less');
   const _ = require('lodash');
 
   const argv = plugins.argv;
@@ -21,7 +20,6 @@ module.exports = function (gulp, plugins, config) {
   const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
   const EXAMPLES_TESTING_PATH = path.join(EXAMPLES_PATH, 'testing/ts');
   const TOOLS_PATH = config.TOOLS_PATH;
-  // const STYLES_SOURCE_PATH = path.join(TOOLS_PATH, 'styles-builder/less');
 
   let skipRegEx = argv.skip;
   let skippedExPaths = [];
