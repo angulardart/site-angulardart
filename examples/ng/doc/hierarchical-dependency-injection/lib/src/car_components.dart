@@ -61,7 +61,7 @@ class ACarComponent {
 )
 class CarsComponent {}
 
-const carComponents = [
+const carComponents = const [
   CarsComponent,
   ACarComponent,
   BCarComponent,
@@ -69,7 +69,7 @@ const carComponents = [
 ];
 
 // generic car-related services
-const carServices = [
+const carServices = const [
   const ClassProvider(CarService),
   const ClassProvider(EngineService),
   const ClassProvider(TiresService),
