@@ -20,7 +20,7 @@ flutter:  https://flutter.io
 dart_api: https://api.dartlang.org
 acx_api: /api/angular_components
 flutter_api: https://docs.flutter.io
-api: https://www.dartdocs.org/documentation
+api: https://pub.dartlang.org/documentation
 
 ghNgEx: https://github.com/angular-examples
 # ghNgExBranch: --> use site.branch since branches should match across repos.
