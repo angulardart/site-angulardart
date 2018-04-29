@@ -623,7 +623,7 @@ Now create the `DashboardComponent` class like this:
   }
 ```
 
-You're using the same kind of features for the dashbaord as you did for the heroes component:
+You're using the same kind of features for the dashboard as you did for the heroes component:
 
 * Define a `heroes` list property.
 * Inject a `HeroService` in the constructor, saving it to a private field.
