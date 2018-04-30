@@ -198,6 +198,7 @@ extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, 
 gulp.task('build', done => plugins.runSequence(
   '_build-prep',
   '_api-doc-prep',
+  '_examples-cp-to-site-folder',
   '_jekyll-build',
   done));
 

@@ -79,7 +79,7 @@ module.exports = function (gulp, plugins, config) {
     ], { base: baseDir })
       // Adjust the <base href>:
       .pipe(indexHtml)
-      .pipe(replace(/(<base href=")([^"]+)\/\d+(\/">)/, '$1/examples$2$3'))
+      .pipe(replace(/(<base href=")([^"]+)\/\d+(\/.*?">)/, '$1/examples$2$3'))
       .pipe(indexHtml.restore)
       // Strip out NG version number from the path:
       .pipe(rename(p => p.dirname = p.dirname.replace(re, '$1')))
