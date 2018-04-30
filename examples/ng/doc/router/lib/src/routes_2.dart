@@ -1,5 +1,3 @@
-// ignore_for_file: unused_element
-// #docplaster
 // #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
@@ -38,7 +36,6 @@ class Routes {
     ),
     // #enddocregion redirect
     // #docregion wildcard
-    // ...
     new RouteDefinition(
       path: '.+',
       component: nfct.NotFoundComponentNgFactory,

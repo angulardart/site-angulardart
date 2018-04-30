@@ -271,7 +271,6 @@ As a first route, define a route to the heroes component:
 
 <?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
 ```
-  // ignore_for_file: uri_has_not_been_generated
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
 
@@ -308,8 +307,6 @@ access the factory you need to import the generated component template file:
 
 <?code-excerpt "lib/src/routes.dart (hlct)"?>
 ```
-  // ignore_for_file: uri_has_not_been_generated
-  // ···
   import 'hero_list_component.template.dart' as hlct;
 ```
 

@@ -158,7 +158,6 @@ Define [route definitions]({{pageUrl}}/1#route-definitions):
 
 <?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
 ```
-  // ignore_for_file: uri_has_not_been_generated
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
 

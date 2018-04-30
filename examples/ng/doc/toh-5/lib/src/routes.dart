@@ -1,5 +1,4 @@
 // #docregion , a-first-route, hlct
-// ignore_for_file: uri_has_not_been_generated
 // #enddocregion hlct
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
