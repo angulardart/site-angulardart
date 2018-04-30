@@ -206,7 +206,8 @@ dependency_overrides:
     return gulp.src([
       `${baseDir}/**/analysis_options.yaml`,
     ]) // , { base: baseDir }
-      .pipe(replace(/#\s+exclude:\n#\s+- path\/to\/exclude.*/, _ignore_uri_has_not_been_generated))
+      // .pipe(replace(/#\s+exclude:\n#\s+- path\/to\/exclude.*/, _ignore_uri_has_not_been_generated))
+      .pipe(replace(/(plugins:\s+)(angular):\s+enabled: true/, '$1- $2'))
       .pipe(gulp.dest(baseDir));
   });
 
