@@ -98,7 +98,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.4"
+    version: "0.12.5"
   build_barback:
     dependency: transitive
     description:
@@ -119,7 +119,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2+2"
+    version: "0.2.2+3"
   build_resolvers:
     dependency: transitive
     description:
@@ -133,7 +133,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.6"
+    version: "0.8.7"
   build_test:
     dependency: "direct dev"
     description:
@@ -391,7 +391,7 @@ packages:
     description:
       path: "examples/util/pageloader"
       ref: HEAD
-      resolved-ref: "6d334d7cfdfdd9fe7b53fcf9853cb066756b42af"
+      resolved-ref: a1b1e5c64cdc43c2f7840a48c46e4c678051d0d5
       url: "https://github.com/dart-lang/site-webdev.git"
     source: git
     version: "0.0.1"
@@ -592,4 +592,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.48.0 <=2.0.0-dev.50.0"
+  dart: "2.0.0-dev.51.0"

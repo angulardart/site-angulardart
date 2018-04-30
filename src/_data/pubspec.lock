@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.31.2-alpha.1"
+    version: "0.31.1"
   angular:
     dependency: "direct main"
     description:
@@ -105,7 +105,7 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.4"
+    version: "0.12.5"
   build_barback:
     dependency: transitive
     description:
@@ -126,7 +126,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2+2"
+    version: "0.2.2+3"
   build_resolvers:
     dependency: transitive
     description:
@@ -140,7 +140,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.6"
+    version: "0.8.7"
   build_test:
     dependency: "direct dev"
     description:
@@ -245,7 +245,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.11"
+    version: "1.0.9+1"
   fixnum:
     dependency: transitive
     description:
@@ -259,7 +259,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0-alpha.11"
+    version: "0.1.0-alpha.9"
   glob:
     dependency: transitive
     description:
@@ -343,7 +343,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0-alpha.11"
+    version: "0.3.0-alpha.9"
   logging:
     dependency: transitive
     description:
@@ -632,4 +632,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.48.0 <=2.0.0-dev.50.0"
+  dart: "2.0.0-dev.51.0"
