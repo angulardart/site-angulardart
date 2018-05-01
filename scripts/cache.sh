@@ -2,11 +2,10 @@
 
 set -e -o pipefail
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . ./scripts/env-set.sh > /dev/null
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh > /dev/null
 
 cd `dirname $0`/..
 
-# BASE="$NGIO_REPO/public/docs/ts"
 BASE="src/angular"
 TS_BASE="$BASE/_jade/ts"
 LATEST="$TS_BASE/latest"
@@ -93,7 +92,7 @@ function cacheRefresh() {
     fi
 
     local allFound=true;
-    
+
     for f in $FILES; do
         local srcPath="$LATEST/$f";
         local destPath="$CACHE/$f";

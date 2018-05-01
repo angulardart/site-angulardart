@@ -15,12 +15,11 @@ module.exports = function (gulp, plugins, config) {
     plugins.gutil.log(`If you still want to use the old task it is: _put-ngio-files.`);
   });
 
-  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'], cb => {
+  gulp.task('_put-ngio-files', ['_put-dart-pages', '_put-ts-jade', '_put-includes'], () => {
     // Create mock cookbook so that sidenav still works
     const cookbook = path.join(dartLatest, 'cookbook');
     if (!fs.existsSync(cookbook)) fs.mkdirSync(cookbook);
     fs.writeFileSync(path.join(cookbook, '_data.json'), '{ "index": {}}');
-    return cp.exec('./scripts/ngio-backport-finish.sh');
   });
 
   gulp.task('_put-dart-pages', ['_put-api', '_put-qs-etc', '_put-guide', '_put-router', '_put-tutorial']);

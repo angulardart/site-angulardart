@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . ./scripts/env-set.sh > /dev/null
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh > /dev/null
 
 if [[ $CI_TASK == e2e* || $CI_TASK == test* ]]; then
   set -x

@@ -1,7 +1,7 @@
 'use strict';
 
-if (!process.env.NGIO_ENV_DEFS) {
-  const msg = 'Some necessary environment variables are undefined.\n' +
+if (!process.env.DART_SITE_ENV_DEFS) {
+  const msg = 'Some mandatory environment variables are undefined.\n' +
     'Did you forget to: source ./scripts/env-set.sh?';
   console.log(msg);
   throw msg;
@@ -53,6 +53,7 @@ const TMP_PATH = process.env.TMP; // shared temp folder (for larger downloads, e
 const LOCAL_TMP = 'tmp'; // temp folder local to this project
 if (!fs.existsSync(LOCAL_TMP)) fs.mkdirpSync(LOCAL_TMP);
 
+const angularRepoRoot = process.env.NG_REPO;
 const angulario = path.resolve('../angular.io');
 
 const isSilent = !!argv.silent;
@@ -91,11 +92,11 @@ const config = {
   qsProjName: qsProjName,
   relDartDocApiDir: path.join('doc', 'api'),
   repoPath: {
-    acx: process.env.ACX_REPO,
-    forms: path.join(process.env.NG_REPO, 'angular_forms'),
-    ng: path.join(process.env.NG_REPO, 'angular'),
-    router: path.join(process.env.NG_REPO, 'angular_router'),
-    test: path.join(process.env.NG_REPO, 'angular_test'),
+    acx: '../angular_components',
+    forms: path.join(angularRepoRoot, 'angular_forms'),
+    ng: path.join(angularRepoRoot, 'angular'),
+    router: path.join(angularRepoRoot, 'angular_router'),
+    test: path.join(angularRepoRoot, 'angular_test'),
   },
   siteFolder: siteFolder,
   source: source,

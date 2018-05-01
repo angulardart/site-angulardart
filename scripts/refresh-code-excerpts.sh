@@ -13,7 +13,7 @@ function usage() {
 
 if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . $rootDir/scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . $rootDir/scripts/env-set.sh
 
 if [[ $1 == --log-at* ]]; then LOG_AT="$1"; shift; fi
 

@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . ./scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh
 
 if [[ -n $TRAVIS && $CI_TASK != build* ]]; then
   echo "check-all: nothing to check since this isn't a build task."
@@ -10,7 +10,7 @@ if [[ -n $TRAVIS && $CI_TASK != build* ]]; then
 fi
 
 travis_fold start check_links
-(set -x; ./scripts/check-links.sh)
+(set -x; ./scripts/shared/check-links.sh)
 travis_fold end check_links
 
 errorMessage="

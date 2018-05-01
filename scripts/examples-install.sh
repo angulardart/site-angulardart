@@ -2,7 +2,9 @@
 
 set -e -o pipefail
 
-[[ -z "$NGIO_ENV_DEFS" ]] && . ./scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh
+
+NGDOCEX=examples/ng/doc
 
 travis_fold start install.e2e
 set -x
