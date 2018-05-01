@@ -907,7 +907,7 @@ template.
 
 Update the dashboard component:
 
-- Import `router_paths.dart` as `paths`
+- Import `route_paths.dart` as `paths`
 - Add `routerDirectives` to the `directives` list
 - Add the following method:
 
@@ -1052,8 +1052,9 @@ by telling the router where to go.
 
 This approach requires the following changes to the component class:
 
-1. Inject the `Router` in the constructor, along with the `HeroService`.
-1. Implement `gotoDetail()` by calling the router `navigate()` method.
+- Import `route_paths.dart` as `paths`.
+- Inject the `Router` in the constructor, along with the `HeroService`.
+- Implement `gotoDetail()` by calling the router `navigate()` method.
 
 Here's the revised `HeroListComponent` class:
 
