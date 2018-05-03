@@ -93,10 +93,10 @@ with these changes applied.
   Lists changes made to this site's documentation and examples.
 
 [angular-examples]: https://github.com/angular-examples
-[angular-examples/quickstart]: https://github.com/angular-examples/quickstart/compare/master...5-dev
-[angular-examples/quickstart/pubspec.yaml]: https://github.com/angular-examples/quickstart/compare/master...5-dev#diff-2
-[angular-examples/quickstart/web/index.html]: https://github.com/angular-examples/quickstart/compare/master...5-dev#diff-4
-[angular-examples/toh-5]: https://github.com/angular-examples/toh-5/compare/master...5-dev
+[angular-examples/quickstart]: https://github.com/angular-examples/quickstart/compare/4.x...master
+[angular-examples/quickstart/pubspec.yaml]: https://github.com/angular-examples/quickstart/compare/4.x...master#diff-4
+[angular-examples/quickstart/web/index.html]: https://github.com/angular-examples/quickstart/compare/4.x...master#diff-6
+[angular-examples/toh-5]: https://github.com/angular-examples/toh-5/compare/4.x...master
 [build]: https://github.com/dart-lang/build
 [build_runner]: https://pub.dartlang.org/packages/build_runner
 [dart-2]: {{site.dartlang}}/dart-2
