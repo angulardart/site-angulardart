@@ -283,8 +283,8 @@ Now convert `getAll()` to use HTTP.
   Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
-      final heroes = _extractData(response)
-          .map((value) => new Hero.fromJson(value))
+      final heroes = (_extractData(response) as List)
+          .map((json) => new Hero.fromJson(json))
           .toList();
       return heroes;
     } catch (e) {
@@ -628,7 +628,7 @@ Start by creating `HeroSearchService` that sends search queries to the server's 
     Future<List<Hero>> search(String term) async {
       try {
         final response = await _http.get('app/heroes/?name=$term');
-        return _extractData(response)
+        return (_extractData(response) as List)
             .map((json) => new Hero.fromJson(json))
             .toList();
       } catch (e) {

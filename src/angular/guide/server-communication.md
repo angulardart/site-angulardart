@@ -208,7 +208,7 @@ the heroes from the server:
     Future<List<Hero>> getAll() async {
       try {
         final response = await _http.get(_heroesUrl);
-        final heroes = _extractData(response)
+        final heroes = (_extractData(response) as List)
             .map((value) => new Hero.fromJson(value))
             .toList();
         return heroes;
@@ -247,7 +247,7 @@ Here's the code that uses the client's `get()` method to fetch data:
   Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
-      final heroes = _extractData(response)
+      final heroes = (_extractData(response) as List)
           .map((value) => new Hero.fromJson(value))
           .toList();
       return heroes;
@@ -339,7 +339,7 @@ This simple app handles a `getAll()` error as follows:
   Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
-      final heroes = _extractData(response)
+      final heroes = (_extractData(response) as List)
           .map((value) => new Hero.fromJson(value))
           .toList();
       return heroes;

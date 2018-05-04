@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.31.2-alpha.2"
+    version: "0.31.1"
   angular:
     dependency: "direct main"
     description:
@@ -126,7 +126,7 @@ packages:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.8"
+    version: "0.4.0"
   built_collection:
     dependency: transitive
     description:
@@ -196,7 +196,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.12"
+    version: "1.0.9+1"
   fixnum:
     dependency: transitive
     description:
@@ -210,7 +210,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0-alpha.12"
+    version: "0.1.0-alpha.9"
   glob:
     dependency: transitive
     description:
@@ -267,6 +267,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2+1"
+  isolate:
+    dependency: transitive
+    description:
+      name: isolate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   js:
     dependency: transitive
     description:
@@ -287,7 +294,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0-alpha.12"
+    version: "0.3.0-alpha.9"
   logging:
     dependency: transitive
     description:
@@ -349,7 +356,7 @@ packages:
     description:
       path: "examples/util/pageloader"
       ref: HEAD
-      resolved-ref: "5bd3771b7ab70e021279c540c026df1cd789cc41"
+      resolved-ref: a80a77106355900ecf3a3fdbc39b4b6b82a51dc7
       url: "https://github.com/dart-lang/site-webdev.git"
     source: git
     version: "0.0.1"

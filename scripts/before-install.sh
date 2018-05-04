@@ -31,6 +31,10 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
     (set -x; pub global activate --source git https://github.com/chalin/code_excerpt_updater.git)
   travis_fold end before_install.ceu
 
+  travis_fold start before_install.dartdoc
+    (set -x; pub global activate dartdoc)
+  travis_fold end before_install.dartdoc
+
   travis_fold start before_install.linkcheck
     (set -x; pub global activate linkcheck)
   travis_fold end before_install.linkcheck
@@ -40,7 +44,7 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   travis_fold end before_install.stagehand
 
   travis_fold start before_install.dartdoc
-    (set -x; pub global activate dartdoc)
+    (set -x; pub global activate webdev)
   travis_fold end before_install.dartdoc
 
   ./scripts/get-ng-repo.sh
