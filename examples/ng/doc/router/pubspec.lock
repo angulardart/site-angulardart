@@ -63,14 +63,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.6"
-  barback:
-    dependency: transitive
-    description:
-      name: barback
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.15.2+16"
+    version: "2.0.7"
   bazel_worker:
     dependency: transitive
     description:
@@ -92,13 +85,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.5"
-  build_barback:
-    dependency: transitive
-    description:
-      name: build_barback
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0+3"
   build_config:
     dependency: transitive
     description:
@@ -126,21 +112,21 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.7"
+    version: "0.8.8"
   build_test:
     dependency: "direct dev"
     description:
       name: build_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2+2"
+    version: "0.10.2+3"
   build_web_compilers:
     dependency: "direct dev"
     description:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.7+3"
+    version: "0.3.8"
   built_collection:
     dependency: transitive
     description:
@@ -176,13 +162,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.3"
-  code_transformers:
-    dependency: transitive
-    description:
-      name: code_transformers
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.1+4"
   collection:
     dependency: transitive
     description:
@@ -203,7 +182,7 @@ packages:
       name: crypto
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2+1"
+    version: "2.0.3"
   csslib:
     dependency: transitive
     description:
@@ -273,7 +252,7 @@ packages:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.2"
   intl:
     dependency: transitive
     description:
@@ -322,14 +301,14 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.2"
+    version: "0.12.2+1"
   meta:
     dependency: transitive
     description:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.2"
+    version: "1.1.5"
   mime:
     dependency: transitive
     description:
@@ -399,7 +378,7 @@ packages:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.4.1"
   quiver:
     dependency: transitive
     description:
@@ -427,7 +406,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.2"
+    version: "0.7.3"
   shelf_packages_handler:
     dependency: transitive
     description:
@@ -490,7 +469,7 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.5"
+    version: "1.6.6"
   stream_transform:
     dependency: transitive
     description:
@@ -518,7 +497,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.35"
+    version: "0.12.37"
   tuple:
     dependency: transitive
     description:
@@ -562,4 +541,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.51.0 <=2.0.0-dev.52.0"
+  dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.53.0"

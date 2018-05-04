@@ -55,7 +55,7 @@ You'll need it in step 4.
   The easiest way to install Dart on Windows is to use the
   <a href="http://www.gekorm.com/dart-windows/" target="_blank">community install wizard.</a>
 
-  <img src="images/installer-screenshot-no.png" alt="Screenshot of the Dart Setup Wizard">
+  <img src="{% asset_path 'shared/dart/installer-screenshot-no.png' %}" alt="Dart Setup Wizard">
 </div>
 <div id="tab-sdk-install-linux" class="tabs__content" markdown="1">
   You can use Aptitude to install the Dart SDK on Linux.
