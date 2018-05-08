@@ -63,16 +63,4 @@ a.button.md-button {
     color: rgba($white, .87);
   }
 
-  &.button-shield,
-  &.button-shield.md-button {
-    background-color: $blue-600;
-    background: $blue-600 url($shield-22) 24px 13px no-repeat;
-    color: rgba($white, .87);
-    padding-left: 54px;
-
-    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-      background: $blue-600 url($shield-22-at-2x) 24px 13px no-repeat;
-      background-size: 22px 22px;
-    }
-  }
 }

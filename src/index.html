@@ -1,7 +1,7 @@
 ---
 layout: homepage
-title: "Dart for the web"
-description: "Dart is a modern language well suited to writing fast, scalable, web apps."
+title: Dart for the web
+description: Dart is a modern language well suited to writing fast, scalable, web apps.
 ---
 
 <section class="slogan">
@@ -14,26 +14,35 @@ description: "Dart is a modern language well suited to writing fast, scalable, w
 </section>
 
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-5 col-lg-4">
-                <div class="content">
-                    <h2>Used in production</h2>
-                    <p>Google builds many critical web apps using the
-                       <a href="{{site.dartlang}}"
-		         class="no-automatic-external">Dart
-			 programming language</a>,
-                    often with <a href="/angular">AngularDart</a>. The next generation of Google AdWords is built in Dart. Google Fiber&rsquo;s latest web app is built in it. So is Google&rsquo;s internal CRM.</p>
-                    <p>Outside Google, amazing companies like Wrike, Blossom, Workiva, and DGLogik have been building their products in Dart.</p>
-                </div>
-            </div>
-            <div class="col-sm-7 col-lg-8">
-                <div class="content">
-                    <p class="text-center">{% img 'screenshot01.png' %}</p>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-5 col-lg-6">
+        <div class="content">
+          <h2>Used in production</h2>
         </div>
+      </div>
+      <div class="col-sm-7 col-lg-6">
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-5 col-lg-4">
+        <div class="content">
+          <p>Google builds many critical web apps using the
+            <a href="{{site.dartlang}}" class="no-automatic-external">Dart programming language</a>, often with
+            <a href="/angular">AngularDart</a>. The next generation of Google AdWords is built in Dart. Google Fiber&rsquo;s latest web app
+            is built in it. So is Google&rsquo;s internal CRM.</p>
+          <p>Outside Google, amazing companies like Wrike, Blossom, Workiva, and DGLogik have been building their products in
+            Dart.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-7 col-lg-8">
+        <div class="content">
+          <img src="{% asset_path adwords-screenshot.png %}" alt="" class="center-block">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="no-padding">
@@ -84,107 +93,75 @@ For example, <code>dart:html</code> is a sane, Dart-y wrapper around the DOM and
 </section>
 
 <section>
-    <div class="container">
-        <div class="row headline">
-            <div class="col-sm-7 col-lg-6">
-                <div class="content">
-                    <h2>Stable & maintained</h2>
-                </div>
-
-            </div>
-            <div class="col-sm-5 col-lg-6">
-            </div>
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-5 col-lg-6">
+        <div class="content">
+          <h2>Great with Angular</h2>
         </div>
-
-        <div class="row">
-            <div class="col-sm-7 col-lg-6">
-                <div class="content">
-                    <p>
-                        Google and other companies have been using Dart for years. The SDK alone has hundreds of commits each month, and a new release every 6 weeks. Through all the activity, the API stays stable.
-                    </p>
-                </div>
-            </div>
-            <div class="huge-number col-sm-5 col-lg-6">
-                <div class="content">
-                    <p class="huge-number__number">516</p>
-                    <p>(average monthly commits to<br><a href="https://github.com/dart-lang">dart-lang GitHub repositories</a>)</p>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="col-sm-7 col-lg-6">
+      </div>
     </div>
-</section>
-
-
-<section>
-    <div class="container">
-        <div class="row headline">
-            <div class="col-sm-7 col-lg-6">
-            </div>
-            <div class="col-sm-5 col-lg-6">
-                <div class="content">
-                    <h2>Great with Angular</h2>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-sm-5 col-lg-6">
+        <div class="content">
+          <p>
+            You can do Dart web development with whatever web framework (or lack of one) you choose. We recommend
+            <a href="/angular">AngularDart</a>.
+          </p>
+          <p>
+            Google uses this framework+language combo in production, and invests heavily in its development.
+          </p>
         </div>
-
-        <div class="row">
-            <div class="col-sm-7 col-lg-6">
-                <div class="content">
-                    <p class="text-center">
-                        {% img 'angular-dart-love.svg' width:'50%' %}
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-5 col-lg-6">
-                <div class="content">
-                    <p>
-                        You can do Dart web development with whatever web framework (or lack of one) you choose. We recommend <a href="/angular">AngularDart</a>.
-                    </p>
-                    <p>
-                        Google uses this framework+language combo in production, and invests heavily in its development.
-                    </p>
-                </div>
-            </div>
+      </div>
+      <div class="col-sm-7 col-lg-6">
+        <div class="content">
+          <img src="{% asset_path 'angular-dart-love.svg' width:'50%' %}" alt="Angular-Dart Love" class="center-block" width="50%">
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <section>
-    <div class="container">
-        <div class="row headline">
-            <div class="col-sm-5 col-lg-4">
-                <div class="content">
-                    <h2>“Batteries included”</h2>
-                </div>
-
-            </div>
-            <div class="col-sm-7 col-lg-8">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-5 col-lg-4">
-                <div class="content">
-                    <p>
-                        Code completion, refactoring, step-by-step debugging, powerful static analysis, profiling, code coverage, a standard unit test library—all these are supported by the preferred IDE, <a href="/tools/webstorm">WebStorm</a>.
-                    </p>
-                    <p>
-                        <a href="https://www.dartlang.org/tools">Dart plugins</a>
-                        also exist for other IDEs and editors, such as Atom,
-			Sublime Text 3, Emacs, and Vim.
-                    </p>
-                    <p>
-                        The Dart language and tools help you find bugs early on, before they become big problems. An automatic code formatter helps you focus on how your code works, rather than how it looks.
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-7 col-lg-8">
-                <div class="content">
-                    <p class="text-center">{% img 'screenshot02.png' %}</p>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-7 col-lg-8"></div>
+      <div class="col-sm-5 col-lg-4">
+          <div class="content">
+            <h2>“Batteries included”</h2>
+          </div>
         </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-7 col-lg-8">
+        <div class="content">
+          <img src="{% asset_path 'IDE+hacker-news-pwa.png' %}"
+            alt="Angular PWA in IDE"
+            style="margin-top: -1rem; margin-bottom: -3rem">
+        </div>
+      </div>
+      <div class="col-sm-5 col-lg-4">
+        <div class="content">
+          <p>
+            Code completion, refactoring, step-by-step debugging, powerful static analysis, profiling, code coverage, a standard unit
+            test library—all these are supported by the preferred IDE,
+            <a href="/tools/webstorm">WebStorm</a>.
+          </p>
+          <p>
+            <a href="https://www.dartlang.org/tools">Dart plugins</a>
+            also exist for other IDEs and editors, such as Atom, Sublime Text 3, Emacs, and Vim.
+          </p>
+          <p>
+            The Dart language and tools help you find bugs early on, before they become big problems. An automatic code formatter helps
+            you focus on how your code works, rather than how it looks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -194,7 +171,6 @@ For example, <code>dart:html</code> is a sane, Dart-y wrapper around the DOM and
                 <div class="content">
                     <h2>Loved by developers</h2>
                 </div>
-
             </div>
             <div class="col-sm-5 col-lg-6">
             </div>
