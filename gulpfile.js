@@ -277,15 +277,13 @@ gulp.task('__test', () => {
 function buildWebCompilerOptions() {
   const options = [
     // '--fail-on-severe', // On Travis we don't have a way to conveniently clear severe errors from previous runs, so omit this option for now.
-    '--delete-conflicting-outputs',
+    // '--delete-conflicting-outputs',
     '--output=build',
   ];
-  if (argv.webCompiler) options.push(
-    `--define='build_web_compilers|entrypoint=compiler=${argv.webCompiler}'`
-  );
-  if (argv.webCompiler === 'dart2js') options.push(
-    `--define='build_web_compilers|entrypoint=dart2js_args=["--checked"]'`
-  );
+  if (argv.webCompiler === 'dartdevc') options.push(`--no-release`);
+  // if (argv.webCompiler === 'dart2js' || !argv.webCompiler) options.push(
+  //   `--define='build_web_compilers|entrypoint=dart2js_args=["--checked"]'`
+  // );
   return options.join(' ');
 }
 

@@ -15,6 +15,11 @@ travis_fold start before_install.npm_install_shared
   (set -x; npm install --global gulp-cli --no-optional)
 travis_fold end before_install.npm_install_shared
 
+travis_fold start before_install.dartdoc
+  (set -x; pub global activate webdev)
+travis_fold end before_install.dartdoc
+
+
 ./scripts/install-dart-sdk.sh
 
 if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
@@ -42,10 +47,5 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   travis_fold start before_install.stagehand
     (set -x; pub global activate stagehand)
   travis_fold end before_install.stagehand
-
-  travis_fold start before_install.dartdoc
-    (set -x; pub global activate webdev)
-  travis_fold end before_install.dartdoc
-
   ./scripts/get-ng-repo.sh
 fi

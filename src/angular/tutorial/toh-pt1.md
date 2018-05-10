@@ -173,7 +173,7 @@ Unfortunately, immediately after this change, the **app breaks**!
 
 <i class="material-icons">open_in_browser</i>
 If you **refresh the browser,** the app won't load.
-To know why, look at the [build_runner serve][] output. The template
+To know why, look at the [webdev serve][] output. The template
 compiler doesn't recognize `ngModel`, and issues a parse error for
 `AppComponent`:
 
@@ -268,6 +268,6 @@ You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
 
 [angular_forms]: /api/angular_forms
-[build_runner serve]: /tools/build_runner#serve
+[webdev serve]: /tools/webdev#serve
 [formDirectives]: /api/angular_forms/angular_forms/formDirectives-constant
 [interpolation syntax]: /angular/guide/template-syntax#interpolation

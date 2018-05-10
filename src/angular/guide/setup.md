@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Setup for Development
 description: How to use Dart tools to create and run Angular apps
 sideNavGroup: basic
@@ -112,10 +111,10 @@ You should see the following app in a browser window:
 
 ![A web page with the header: Hello Angular](/angular/guide/images/starter-app.png)
 
-To run the app from the command line, use `pub` to build and serve the app:
+To run the app from the command line, use [webdev][] to build and serve the app:
 
 ```terminal
-$ pub run build_runner serve
+$ webdev serve
 ```
 
 Then, to view your app, visit [localhost:8080](localhost:8080).
@@ -131,3 +130,5 @@ serves the new app.
 If you're new to Angular, we recommend staying on the [learning path](learning-angular).
 If you'd like to know more about the app you just created, see
 [The Starter App.](/angular/tutorial/toh-pt0)
+
+[webdev]: /tools/webdev

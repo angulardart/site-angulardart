@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Running Component Tests
 description: Running component tests
 sideNavGroup: advanced
@@ -68,9 +67,8 @@ the app component template generates the text "Hello Angular":
 To run tests, open a terminal, and from the project root issue the following
 command:
 
-<?code-excerpt class="code-shell"?>
-```sh
-  pub run build_runner test --fail-on-severe -- -p chrome
+```terminal
+$ pub run build_runner test --fail-on-severe -- -p chrome
 ```
 
 The optional [build_runner][] `test` flag `--fail-on-severe` prevents tests from
@@ -90,7 +88,7 @@ Incremental compilation makes subsequent test runs much quicker.
   [INFO] BuildDefinition: Checking for updates since last build completed, took 409ms
   [INFO] Build: Running build completed, took 65ms
   [INFO] Build: Caching finalized dependency graph completed, took 115ms
-  [INFO] CreateOutputDir: Creating merged output dir `/var/folders/cl/hfrjvtvx6bl6t3m8tc1v9xf40000gq/T/build_runner_testimEd04/` completed, took 1.7s
+  [INFO] CreateOutputDir: Creating merged output dir `.../build_runner_testimEd04/` completed, took 1.7s
   [INFO] CreateOutputDir: Writing asset manifest completed, took 1ms
   [INFO] Build: Succeeded after 1.9s with 0 outputs
   Running tests...

@@ -365,7 +365,7 @@ is the RipVanWinkle ID.
      alt="The RipVanWinkle ID is used by both Dart and HTML">
 
 To run your app outside of DartPad, you need to compile your Dart
-code to JavaScript. [Use the **build_runner build** command][build]
+code to JavaScript. [Use the **webdev build** command][build]
 to compile your app to deployable JavaScript.
 Then you need to make another connection between the HTML and
 generated JavaScript: you must add a \<script> tag to the HTML
@@ -519,4 +519,4 @@ The next tutorial, [Add Elements to the DOM](add-elements),
 shows you how to dynamically change the HTML page
 by adding elements to the DOM.
 
-[build]: /tools/build_runner#build
+[build]: /tools/webdev#build

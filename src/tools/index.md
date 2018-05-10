@@ -44,4 +44,7 @@ offer specialized support for web programming.
 [build_runner](/tools/build_runner)
 : A package for building and serving web apps
 
+[webdev](/tools/webdev)
+: A command line interface for Dart web app development
+
 [DartPad]: {{site.custom.dartpad.direct-link}}

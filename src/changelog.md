@@ -20,7 +20,7 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
-## AngularDart 5.0 alpha / Dart 2.0 beta (April 2018)
+## AngularDart 5.0 alpha / Dart 2.0 beta (May 2018)
 
 - Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
   - Updated `environment.sdk`:
@@ -34,7 +34,7 @@ Also see:
   - `angular_router: {{site.data.pubspec.dependencies.angular_router}}`
   - `angular_test: {{site.data.pubspec.dependencies.angular_test}}`
 
-- Switched to **new [build system][build_runner]**:
+- Switched to **new [build system][webdev]**:
   - Added new `dev_dependencies`:
     - `build_runner: {{site.data.pubspec.dev_dependencies.build_runner}}`
     - `build_test: {{site.data.pubspec.dev_dependencies.build_test}}`
@@ -357,7 +357,6 @@ More information:
 [4.x toh-5/web/main.dart]: https://github.com/dart-lang/site-webdev/blob/4.x/examples/ng/doc/toh-5/web/main.dart
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
-[build_runner]: /tools/build_runner
 [dependency-injection diff]: {{site.ghNgEx}}/dependency-injection/compare/4.x...master
 [forms]: /angular/guide/forms
 [ngFor]: /angular/guide/template-syntax#ngFor
@@ -366,3 +365,4 @@ More information:
 [template reference variables]: /angular/guide/template-syntax#ref-vars
 [toh-5 diff]: {{site.ghNgEx}}/toh-5/compare/4.x...master
 [two-way bindings]: /angular/guide/template-syntax#two-way
+[webdev]: /tools/webdev

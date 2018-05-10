@@ -7,8 +7,9 @@ permalink: /tools/dart2js
 
 Use the _dart2js_ tool to compile Dart code to deployable JavaScript.
 Another Dart-to-JavaScript compiler, [dartdevc][], is for development use only.
-The [build_runner][] tool uses dartdevc by default, but when you're compiling
-for production, you can [configure][config] build_runner to use dart2js.
+The [webdev build][] command uses dart2js by default.
+The [webdev serve][] command uses dartdevc by default, but you can switch
+to dart2js using the `--release` flag.
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code.
@@ -22,9 +23,9 @@ on debugging the JavaScript that dart2js generates.
 
 Here’s an example of compiling a Dart file to JavaScript:
 
-{% prettify terminal %}
+```terminal
 $ dart2js --out=test.js test.dart
-{% endprettify %}
+```
 
 This command produces a file that contains the JavaScript equivalent of your
 Dart code. It also produces a source map, which can help you debug the
@@ -280,7 +281,7 @@ To debug in Firefox:
 1. Enable the Developer Toolbar, as described in Kevin Dangoor’s blog post,
    <a href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/">New Firefox Command Line Helps You Develop
    Faster"</a>.
-   
+
 2. Click <strong>Pause on exceptions</strong>, as shown in the
    following figure.
    <img src="{% asset_path 'ff-debug.png' %}" alt="Firefox Toolbar"><br /><br />
@@ -296,8 +297,9 @@ To debug in Safari:
    See [Add a JavaScript breakpoint](https://support.apple.com/en-ca/guide/safari-developer/add-a-javascript-breakpoint-dev5e4caf347/mac) under [Safari Developer Help.](https://support.apple.com/en-ca/guide/safari-developer/welcome/mac)
 3. Reload your app.
 
-[build]: /tools/build_runner#build
 [build_runner]: /tools/build_runner
 [config]: /tools/build_runner#config
 [dartdevc]: /tools/dartdevc
-[serve]: /tools/build_runner#serve
+[webdev]: /tools/webdev
+[webdev build]: /tools/webdev#build
+[webdev serve]: /tools/webdev#serve

@@ -45,7 +45,7 @@ pub get
 <li markdown="1">
 Use the tool of your choice to run the base app.
 
-For example, you could use `build_runner` to [serve the app](/tools/build_runner#serve),
+For example, you could use `webdev` to [serve the app](/tools/webdev#serve),
 and then visit [localhost:8080](http://localhost:8080){: .no-automatic-external} in Chrome.
 </li>
 

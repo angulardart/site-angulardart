@@ -17,7 +17,7 @@ points you to resources for serving the app.
 
 ## Building your app {#compiling-to-javascript}
 
-Use the build_runner tool to build your app,
+Use the webdev tool to build your app,
 compiling it to JavaScript and generating all the assets
 you need for deployment.
 When you build using [dart2js][],
@@ -27,18 +27,18 @@ thanks to the dart2js compiler's support for tree shaking.
 With a little extra work, you can make your deployable app
 [smaller, faster, and more reliable](#make-your-app-smaller-faster-and-more-reliable).
 
-### Compile using build_runner
+### Compile using webdev
 
-[Use the **build_runner build** command][build] to create
+[Use the **webdev build** command][build] to create
 a deployable version of your app.
-Here's what happens when you use build_runner with dart2js
+Here's what happens when you use webdev with dart2js
 and the `--output build` option:
 
 * Deployable files appear under your app's `build/web` directory.
 * dart2js compiles your app to JavaScript, saving the result
   in the file `build/web/main.dart.js`.
 
-For more information, see the documentation for [build_runner][].
+For more information, see the documentation for [webdev][].
 
 ### Use dart2js flags to produce better JavaScript
 
@@ -178,9 +178,10 @@ Other resources:
   [Customize Hosting Behavior](https://firebase.google.com/docs/hosting/url-redirects-rewrites)
   covers redirects, rewrites, and more.
 
-[build]: /tools/build_runner#build
+[build]: /tools/webdev#build
 [build_runner]: /tools/build_runner
 [config]: /tools/build_runner#config
 [dart2js]: /tools/dart2js
 [dartdevc]: /tools/dartdevc
 [peanut]: https://pub.dartlang.org/packages/peanut
+[webdev]: /tools/webdev

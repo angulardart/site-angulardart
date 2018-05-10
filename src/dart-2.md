@@ -30,8 +30,8 @@ Here are the highlights:
 {:.table .table-striped}
 | **Dart 1.x** | **Dart 2** |
 | Dartium, content shell | Chrome and [dartdevc][] |
-| `pub build` | `pub run build_runner build`. See: [build_runner build](/tools/build_runner#build) |
-| `pub serve` | `pub run build_runner serve`. See: [build_runner serve](/tools/build_runner#serve) |
+| `pub build` | [`webdev build`](/tools/webdev#build) |
+| `pub serve` | [`webdev serve`](/tools/webdev#serve) |
 | `pub run angular_test` | `pub run build_runner test -- -p chrome`. See: [Running tests][]{{ng5-desc}} |
 | pub transformers | [build][] package transformers. See: [Transforming code][] |
 
@@ -98,10 +98,8 @@ with these changes applied.
 [angular-examples/quickstart/web/index.html]: https://github.com/angular-examples/quickstart/compare/4.x...master#diff-6
 [angular-examples/toh-5]: https://github.com/angular-examples/toh-5/compare/4.x...master
 [build]: https://github.com/dart-lang/build
-[build_runner]: https://pub.dartlang.org/packages/build_runner
 [dart-2]: {{site.dartlang}}/dart-2
 [dartdevc]: /tools/dartdevc
 [Documentation changelog]: {{ng5-url}}/changelog
-[Getting started with build_runner]: https://github.com/dart-lang/build/blob/master/docs/getting_started.md#getting-started-with-build_runner
 [Running tests]: {{ng5-url}}/angular/guide/testing/component/running-tests
 [Transforming code]: https://github.com/dart-lang/build/blob/master/docs/transforming_code.md

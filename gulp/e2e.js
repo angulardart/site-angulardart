@@ -124,7 +124,7 @@ module.exports = function (gulp, plugins, config) {
         // plugins.generateBuildYaml(appDir);
         let buildOpts = plugins.buildWebCompilerOptions();
         if (fs.existsSync(path.join(appDir, 'build.no_test.yaml'))) buildOpts += ' --config=no_test';
-        await pexec(`pub run build_runner build ${buildOpts}`, {
+        await pexec(`pub global run webdev build ${buildOpts}`, {
           cwd: appDir,
           log: gutil.log,
           okOnExitRE: /\[INFO\]( Build:)? Succeeded/,
