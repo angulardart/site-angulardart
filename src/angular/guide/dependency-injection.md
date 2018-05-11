@@ -509,15 +509,16 @@ The sample app's `Logger` service is quite simple:
 ```
   import 'package:angular/angular.dart';
 
-  @Injectable()
   /// Logger that keeps only the last log entry.
+  @Injectable()
   class Logger {
     String _log = '';
+    String get id => 'Logger';
 
     void fine(String msg) => _log = msg;
 
     @override
-    String toString() => '[$runtimeType] $_log';
+    String toString() => '[$id] $_log';
   }
 ```
 
@@ -631,6 +632,7 @@ Maybe an `EvenBetterLogger` could display the user name in the log message.
 
     EvenBetterLogger([!this._userService!]);
 
+    String get id => 'EvenBetterLogger';
     String toString() => super.toString() + ' (user:${_userService.user.name})';
   }
 ```
@@ -683,6 +685,7 @@ Sometimes it's easier to provide a ready-made object rather than ask the injecto
 ```
   class SilentLogger implements Logger {
     const SilentLogger();
+    String get id => 'SilentLogger';
     @override
     void fine(String msg) {}
     @override

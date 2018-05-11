@@ -73,44 +73,44 @@ describe('Dependency Injection Tests', function () {
   describe('Provider variations:', function() {
 
     it('ClassProvider(Logger)', function () {
-      expect(element(by.css('class-provider')).getText()).toEqual('[Logger]');
+      expect(element(by.css('class-provider')).getText()).toContain('[Logger]');
     });
 
     it('ClassProvider(useClass:BetterLogger)', function () {
-      expect(element(by.css('use-class')).getText()).toEqual('[BetterLogger]');
+      expect(element(by.css('use-class')).getText()).toContain('[BetterLogger]');
     });
 
     it('ClassProvider(useClass:EvenBetterLogger) with dependencies', function () {
       expectedMsg = '[EvenBetterLogger] (user:Bob)';
-      expect(element(by.css('use-class-deps')).getText()).toEqual(expectedMsg);
+      expect(element(by.css('use-class-deps')).getText()).toContain(expectedMsg);
     });
 
     it('Two NewLoggers', function () {
         expectedMsg = '[NewLogger] The newLogger and oldLogger are identical: false';
-      expect(element(by.css('two-new-loggers')).getText()).toEqual(expectedMsg);
+      expect(element(by.css('two-new-loggers')).getText()).toContain(expectedMsg);
     });
 
     it('ExistingProvider', function () {
       expectedMsg = '[NewLogger] The newLogger and oldLogger are identical: true';
-      expect(element(by.css('existing-provider')).getText()).toEqual(expectedMsg);
+      expect(element(by.css('existing-provider')).getText()).toContain(expectedMsg);
     });
 
     it('ValueProvider for silentLogger', function () {
-      expect(element(by.css('value-provider')).getText()).toEqual('');
+      expect(element(by.css('value-provider')).getText()).toEqual('ValueProvider:');
     });
 
     it('FactoryProvider', function () {
-      expect(element(by.css('factory-provider')).getText()).toEqual('[Logger] Got 7 heroes');
+      expect(element(by.css('factory-provider')).getText()).toContain('[Logger] Got 7 heroes');
     });
 
     it('ValueProvider.forToken(appTitleToken)', function () {
         expectedMsg = 'App config map title is Dependency Injection';
-        expect(element(by.css('value-provider-for-token')).getText()).toEqual(expectedMsg);
+        expect(element(by.css('value-provider-for-token')).getText()).toContain(expectedMsg);
     });
 
     it('ValueProvider.forToken(appTitleToken)', function () {
         expectedMsg = 'App config map title is Dependency Injection';
-        expect(element(by.css('value-provider-for-map')).getText()).toEqual(expectedMsg);
+        expect(element(by.css('value-provider-for-map')).getText()).toContain(expectedMsg);
     });
 
     it('@Optional dependency', function () {

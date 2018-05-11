@@ -21,7 +21,9 @@ For information on how to get these prerequisite tools,
 see [Get Started](/guides/get-started):
 
 - **Dart SDK** {{site.data.pkg-vers.SDK.vers}} or a compatible version
-- **WebStorm** or your favorite IDE (recommended)
+- Your favorite IDE, or **WebStorm** (recommended).
+
+{% include webstorm-status.md %}
 
 ## Create a starter project  {#create}
 
@@ -99,8 +101,6 @@ Using WebStorm, or your favorite editor:
 <div><a id="running-the-app"></a></div>
 
 ## Run the app
-
-{% include webstorm-not-ready.md %}
 
 In WebStorm:
 

@@ -276,6 +276,7 @@ gulp.task('__test', () => {
 
 function buildWebCompilerOptions() {
   const options = [
+    '--no-release',
     // '--fail-on-severe', // On Travis we don't have a way to conveniently clear severe errors from previous runs, so omit this option for now.
     // '--delete-conflicting-outputs',
     '--output=build',

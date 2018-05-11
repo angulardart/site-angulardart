@@ -15,7 +15,7 @@ abstract class _Base {
 
 @Component(
   selector: 'class-provider',
-  template: '{{logger}}',
+  template: 'ClassProvider: {{logger}}',
   // #docregion ClassProvider
   providers: [
     const ClassProvider(Logger),
@@ -27,11 +27,13 @@ class ClassProviderComponent extends _Base {
 }
 
 @Injectable()
-class BetterLogger extends Logger {}
+class BetterLogger extends Logger {
+  String get id => 'BetterLogger';
+}
 
 @Component(
   selector: 'use-class',
-  template: '{{logger}}',
+  template: 'ClassProvider, useClass: {{logger}}',
   providers: [
     // #docregion ClassProvider-useClass
     const ClassProvider(Logger, useClass: BetterLogger),
@@ -49,13 +51,14 @@ class EvenBetterLogger extends Logger {
 
   EvenBetterLogger(this._userService);
 
+  String get id => 'EvenBetterLogger';
   String toString() => super.toString() + ' (user:${_userService.user.name})';
 }
 // #enddocregion EvenBetterLogger
 
 @Component(
   selector: 'use-class-deps',
-  template: '{{logger}}',
+  template: 'ClassProvider, useClass: {{logger}}',
   providers: [
     // #docregion logger-with-dependencies
     const ClassProvider(UserService),
@@ -68,17 +71,20 @@ class ServiceWithDepsComponent extends _Base {
 }
 
 @Injectable()
-class NewLogger extends Logger implements OldLogger {}
+class NewLogger extends Logger implements OldLogger {
+  String get id => 'NewLogger';
+}
 
 class OldLogger extends Logger {
   OldLogger() {
     throw new Exception("Don't call the Old Logger!");
   }
+  String get id => 'OldLogger';
 }
 
 @Component(
   selector: 'two-new-loggers',
-  template: '{{logger}}',
+  template: 'Two new loggers: {{logger}}',
   providers: [
     // #docregion two-NewLoggers
     const ClassProvider(NewLogger),
@@ -94,7 +100,7 @@ class TwoNewLoggersComponent extends _Base {
 
 @Component(
   selector: 'existing-provider',
-  template: '{{logger}}',
+  template: 'ExistingProvider: {{logger}}',
   providers: [
     // #docregion ExistingProvider
     const ClassProvider(NewLogger),
@@ -111,6 +117,7 @@ class ExistingProviderComponent extends _Base {
 // #docregion const-class, silent-logger
 class SilentLogger implements Logger {
   const SilentLogger();
+  String get id => 'SilentLogger';
   @override
   void fine(String msg) {}
   @override
@@ -124,7 +131,7 @@ const silentLogger = const SilentLogger();
 
 @Component(
   selector: 'value-provider',
-  template: '{{logger}}',
+  template: 'ValueProvider: {{logger}}',
   providers: [
     // #docregion ValueProvider
     const ValueProvider(Logger, silentLogger),
@@ -139,7 +146,7 @@ class ValueProviderComponent extends _Base {
 
 @Component(
   selector: 'factory-provider',
-  template: '{{logger}}',
+  template: 'FactoryProvider: {{logger}}',
   providers: [
     heroServiceProvider,
     const ClassProvider(Logger),
@@ -154,7 +161,7 @@ class FactoryProviderComponent extends _Base {
 
 @Component(
   selector: 'value-provider-for-token',
-  template: '{{log}}',
+  template: 'ValueProvider.forToken: {{log}}',
   providers: [
     // #docregion ValueProvider-forToken
     const ValueProvider.forToken(appTitleToken, appTitle)
@@ -170,7 +177,7 @@ class ValueProviderForTokenComponent {
 
 @Component(
   selector: 'value-provider-for-map',
-  template: '{{log}}',
+  template: 'ValueProvider.forToken, map: {{log}}',
   providers: [
     // #docregion ValueProvider-map-forToken
     const ValueProvider.forToken(appConfigMapToken, appConfigMap)
@@ -210,16 +217,18 @@ class HeroService1 extends _Base {
   template: '''
     <h2>Provider variations</h2>
 
-    <class-provider></class-provider>
-    <use-class></use-class>
-    <use-class-deps></use-class-deps>
-    <two-new-loggers></two-new-loggers>
-    <existing-provider></existing-provider>
-    <value-provider></value-provider>
-    <factory-provider></factory-provider>
-    <value-provider-for-token></value-provider-for-token>
-    <value-provider-for-map></value-provider-for-map>
-    <optional-injection></optional-injection>
+    <ul>
+      <li><class-provider></class-provider></li>
+      <li><use-class></use-class></li>
+      <li><use-class-deps></use-class-deps></li>
+      <li><two-new-loggers></two-new-loggers></li>
+      <li><existing-provider></existing-provider></li>
+      <li><value-provider></value-provider></li>
+      <li><factory-provider></factory-provider></li>
+      <li><value-provider-for-token></value-provider-for-token></li>
+      <li><value-provider-for-map></value-provider-for-map></li>
+      <li><optional-injection></optional-injection></li>
+    </ul>
   ''',
   directives: [
     ClassProviderComponent,

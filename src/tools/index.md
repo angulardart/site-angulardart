@@ -11,8 +11,6 @@ For information about general tools for Dart apps, see
 
 ## Recommended IDE {#ides}
 
-{% include webstorm-not-ready.md %}
-
 If you don't already have a favorite IDE,
 we recommend WebStorm, which comes with Dart support.
 
@@ -21,7 +19,7 @@ we recommend WebStorm, which comes with Dart support.
 <b>WebStorm</b>
 </a>
 
-See [Dart Tools]({{site.dartlang}}/tools) for a list of other IDEs.
+See [Dart Tools]({{site.dartlang}}/tools#ides) for a list of other IDEs.
 
 ## SDK
 

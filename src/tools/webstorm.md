@@ -2,78 +2,45 @@
 title: Installing and Configuring WebStorm
 short-title: WebStorm
 description: We recommend WebStorm for developing Dart web apps.
-permalink: /tools/webstorm
 ---
-
-{% include webstorm-not-ready.md %}
 
 WebStorm is an IDE from JetBrains for client-side development.
 It comes with the Dart plugin pre-installed.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-If you're interested in using Dart
-with another JetBrains IDE such as IntelliJ IDEA, see the page
-[Dart Plugin from JetBrains]({{site.dartlang}}/tools/jetbrains-plugin).
-</aside>
 
 ## Getting started
 
 To get started with WebStorm,
 install it and then tell it where to find the Dart SDK.
 
-{% comment %}
-update-for-dart-2
-{% endcomment %}
-
 ### Installing software
 
-* [Install WebStorm](http://www.jetbrains.com/webstorm/download/) or,
-  to try out the latest Dart language features,
-  [Install WebStorm EAP](https://confluence.jetbrains.com/display/WI/WebStorm+EAP)
-* [Install the Dart SDK]({{site.dartlang}}/install)
-
+* [Install the Dart SDK](/tools/sdk#install) version
+  **{{site.data.pkg-vers.SDK.vers}}** or later.
+* [Install WebStorm](https://www.jetbrains.com/webstorm/download) version
+  **2018.1.3** or later.
 
 ### Configuring Dart support
 
 Here's one way to configure Dart support in WebStorm:
 
-<ol>
-<li>
-  <p>
-    Create a new Dart project:
-  </p>
-
-  <ol type="a">
-    <li> From the Welcome screen, click <b>Create New Project</b>.</li>
-    <li> In the next dialog, click <b>Dart</b>.</li>
-  </ol>
-</li>
-<br>
-
-<li>
-  <p>
-    If you don't see a value for the <b>Dart SDK</b> path, enter it.
-  </p>
-
-  <p>
-    For example, the SDK path might be
-    <code><em>&lt;dart installation directory></em>/dart/dart-sdk</code>.
-  </p>
-
-<aside class="alert alert-info" markdown="1">
-  <b>Note:</b>
-  The <b>Dart SDK</b> path specifies the directory that
-  contains the SDK's `bin` and `lib` directories;
-  the `bin` directory contains tools such as `dart` and `dart2js`.
-  WebStorm ensures that the path is valid.
-  For more information, see the Dart installation guide for your OS:
-  [Windows]({{site.dartlang}}/install/windows),
-  [Linux]({{site.dartlang}}/install/linux), or
-  [Mac]({{site.dartlang}}/install/mac).
-</aside>
-</li>
-</ol>
+ 1. Create a new Dart project:
+    1. From the Welcome screen, click **Create New Project**.
+    1. In the next dialog, click **Dart**.
+    {:type="a"}
+ 2. If you don't see a value for the **Dart SDK** path, enter it.
+    For example, the SDK path might be<br>
+    <code><i>&lt;dart-installation-directory></i>/dart/dart-sdk</code>.
+    <aside class="alert alert-info" markdown="1">
+      **Note:**
+      The **Dart SDK** path specifies the directory that
+      contains the SDK's `bin` and `lib` directories;
+      the `bin` directory contains tools such as `dart` and `dart2js`.
+      WebStorm ensures that the path is valid.
+      For more information, see the Dart installation guide for your OS:
+      [Windows]({{site.dartlang}}/install/windows),
+      [Linux]({{site.dartlang}}/install/linux), or
+      [Mac]({{site.dartlang}}/install/mac).
+    </aside>
 
 An alternative to Step 1
 is to open an existing Dart project,
@@ -88,12 +55,12 @@ https://www.jetbrains.com/webstorm/help/project-and-ide-settings.html.
 ## Reporting issues
 
 Please report issues and feedback via the official
-[JetBrains issue tracker for Dart](https://youtrack.jetbrains.com/issues/WEB?q=Subsystem%3A+Dart).
+[JetBrains issue tracker for Dart.](https://youtrack.jetbrains.com/issues/WEB?q=Subsystem%3A+Dart)
 Include details of the expected behavior, the actual behavior,
 and screenshots if appropriate.
 
 Your questions are welcome in the
-[Dart plugin for WebStorm/IntelliJ editors mailing list](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss).
+[Dart plugin for WebStorm/IntelliJ editors mailing list.](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss)
 
 ## More information
 

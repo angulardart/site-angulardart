@@ -2,14 +2,18 @@
 title: Get Started
 description: A guide to get you quickly writing web apps in Dart.
 ---
+
+{% assign channel = site.data.pkg-vers.SDK.channel -%}
+{% if channel == 'stable' -%}
+  {% assign isStable = true -%}
+{% else -%}
+  {% assign isDev = true -%}
+{% endif -%}
+
 Follow these steps to start using Dart to develop web apps.
 First you'll play with Dart in your browser, no download required.
 Then you'll install Dart and build a small app
 that uses the [AngularDart][] framework and [AngularDart Components][].
-
-[AngularDart]: /angular
-[AngularDart Components]: /components
-
 
 ## 1. Play with DartPad
 
@@ -38,7 +42,7 @@ More information:
 * [Dart library tour]({{site.dartlang}}/guides/libraries/library-tour)
 
 
-## 2. Install Dart
+## 2. Install Dart {%-if isDev%} 2 **dev channel** release {%-endif%}
 
 Once you're ready to move beyond DartPad and develop real apps,
 you need the Dart SDK.
@@ -51,42 +55,57 @@ You'll need it in step 4.
   <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
   <li class="tab-link" data-tab="tab-sdk-install-mac">Mac</li>
 </ul>
-<div id="tab-sdk-install-windows" class="tabs__content current" markdown="1">
-  The easiest way to install Dart on Windows is to use the
-  <a href="http://www.gekorm.com/dart-windows/" target="_blank">community install wizard.</a>
 
-  <img src="{% asset_path 'shared/dart/installer-screenshot-no.png' %}" alt="Dart Setup Wizard">
+<div id="tab-sdk-install-windows" class="tabs__content current" markdown="1">
+  Use [Chocolatey](https://chocolatey.org) to install a {{channel}} release of
+  the Dart SDK:
+  ```terminal
+  C:\> choco install dart-sdk {%-if isDev%} --pre {%-endif%}
+  ```
 </div>
+
 <div id="tab-sdk-install-linux" class="tabs__content" markdown="1">
   You can use Aptitude to install the Dart SDK on Linux.
 
-  First, perform the following one-time setup:
-
-  {% prettify shell %}
-  sudo apt-get update
-  sudo apt-get install apt-transport-https
-  sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-  sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-  {% endprettify %}
-
-  Then install the Dart SDK:
-
-  {% prettify shell %}
-  sudo apt-get update
-  sudo apt-get install dart
-  {% endprettify %}
+   1. Perform the following one-time setup:
+      ```terminal
+      $ sudo apt-get update
+      $ sudo apt-get install apt-transport-https
+      $ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+      {% if isStable -%}
+      $ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+      {% else -%}
+      ```
+      Set up Dart **{{site.data.pkg-vers.SDK.channel}} channel**:
+      ```terminal
+      $ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list > /etc/apt/sources.list.d/dart_unstable.list'
+      {% endif -%}
+      ```
+   2. Install the Dart SDK:
+      ```terminal
+      $ sudo apt-get update
+      $ sudo apt-get install dart
+      ```
 </div>
+
 <div id="tab-sdk-install-mac" class="tabs__content" markdown="1">
   With [Homebrew](http://brew.sh/),
   installing Dart is easy.
 
-  {% prettify shell %}
-  brew tap dart-lang/dart
-  brew install dart
-  {% endprettify %}
+  ```terminal
+  $ brew tap dart-lang/dart
+  {% if isStable -%}
+  $ brew install dart
+  {% else -%}
+  ```
+  Get **{{site.data.pkg-vers.SDK.channel}} channel** release:
+  ```terminal
+  $ brew install dart --devel
+  {% endif -%}
+  ```
 </div>
 
-More information: [installing and updating Dart]({{site.dartlang}}/install)
+More information: [Install the SDK](/tools/sdk#install)
 
 
 ## 3. Get WebStorm
@@ -95,10 +114,9 @@ Although using an IDE is optional, we highly recommend WebStorm. WebStorm comes
 with Dart support, making it easy to write correct Dart code and to run it in a
 browser.
 
-<a href="http://www.jetbrains.com/webstorm/download/">Download and install WebStorm.</a>
+[Download and install WebStorm](/tools/webstorm).
 
 More information: [Dart tools for the web](/tools)
-
 
 ## 4. Create a web app
 
@@ -113,37 +131,35 @@ Here's how to use WebStorm to create a web app that uses AngularDart:
 1. Edit the **Location** field to set the app location and name.
 1. Select **Generate sample content** to show the list of templates.
 1. Choose the **AngularDart Web App** template.
-1. Click **Create**.<br>
-   ![WebStorm screenshot](images/create-ng2-project.png)
+1. Click **Create**.<br>![WebStorm new project dialog][]
 
-More information:
-
-* [Installing and using WebStorm](/tools/webstorm)
-* [Setup for AngularDart development](/angular/guide/setup)
+More information: [Setup for AngularDart development](/angular/guide/setup)
 
 ## 5. Run the app
 
-{% include webstorm-not-ready.md %}
+{% include webstorm-status.md %}
 
-To run the app from WebStorm, right-click the app's `web/index.html` file and choose
-**Run 'index.html'**.
+To run the app from WebStorm, do the following:
 
-![Running the app from WebStorm](images/run-app-in-ws.png)
+1. Right-click the app's `web/index.html` file in the project view.
+2. Choose **Run 'index.html'** in the pop up menu.
+
+![Running the app from WebStorm]({% asset_path webstorm-run-index-html.png %})
 
 {% include pub-get-workaround.html %}
 
 You should see a simple todo list manager. Try it out!
 
-![Running the customized app from WebStorm](images/run-app.png)
+![Launched To-do app]({% asset_path my-first-angular-app.png %}){:width="500"}
 
 ## 6. Add custom code to the app
 
 Let's customize the app you just created.
 
-1.  Copy the `thingsTodo()` function from the DartPad above
+ 1. Copy the `thingsTodo()` function from the DartPad above
     to the bottom of the `lib/todo_list/todo_list_service.dart` file.
 
-2.  Still in `todo_list_service.dart`, initialize the `mockTodoList` field using
+ 2. Still in `todo_list_service.dart`, initialize the `mockTodoList` field using
     `thingsTodo()`:
 
     {% prettify dart %}
@@ -154,10 +170,13 @@ Let's customize the app you just created.
     [!Iterable<String> thingsTodo() sync* { ... }!]
     {% endprettify %}
 
-3.  Run the app. Now the initial todo list has things to do!
-    After you feed the cats, your todo list should look like this:
+ 3. Save your changes.
 
-    ![Running the customized app from WebStorm](images/run-customized-app.png)
+ 4. WebStorm automatically rebuilds your app.
+    Refresh the app's browser window.
+    Now the initial todo list has things to do!
+    After you feed the cats, your todo list should look something like this:
+    ![Running the To-do app]({% asset_path my-first-angular-app-at-work.png %}){:width="500"}
 
 <aside class="alert alert-info" markdown="1">
   **Feeling lost? Don't worry!**
@@ -190,3 +209,7 @@ Or check out these resources:
   * [Web Libraries](/guides/web-programming)
 
 If you get stuck, find help at [Community and Support.](/community)
+
+[AngularDart]: /angular
+[AngularDart Components]: /components
+[WebStorm new project dialog]: {% asset_path webstorm-new-project.png %}
