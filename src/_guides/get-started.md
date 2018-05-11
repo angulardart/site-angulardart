@@ -175,7 +175,7 @@ Let's customize the app you just created.
  4. WebStorm automatically rebuilds your app.
     Refresh the app's browser window.
     Now the initial todo list has things to do!
-    After you feed the cats, your todo list should look something like this:
+    After you feed the cats, your todo list should look something like this:<br>
     ![Running the To-do app]({% asset_path my-first-angular-app-at-work.png %}){:width="500"}
 
 <aside class="alert alert-info" markdown="1">
