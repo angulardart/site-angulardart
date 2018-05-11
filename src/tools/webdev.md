@@ -26,7 +26,7 @@ To launch a development server, which serves your app and watches for source
 code changes, use the following command:
 
 ```
-webdev serve [--release] [<directory>[:<port>]] [<directory>[:<port>]] ...
+webdev serve [--release] [ [<directory>[:<port>]] ... ]
 ```
 
 By default your app is compiled using [dartdevc][] and served from the `web`

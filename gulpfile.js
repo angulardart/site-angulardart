@@ -12,7 +12,6 @@ const gutil = require('gulp-util');
 
 const argv = require('yargs').argv;
 const assert = require('assert-plus');
-const cheerio = require('gulp-cheerio');
 const child_process = require('child_process');
 const chmod = require('gulp-chmod');
 const cpExec = require('child_process').exec;
@@ -20,6 +19,7 @@ const del = require('del');
 const fsExtra = require('fs-extra');
 const fs = fsExtra;
 const globby = require("globby");
+const imagemin = require('gulp-imagemin');
 const path = require('canonical-path');
 const { promisify } = require('util');
 // const promisifiedExec = promisify(cp.exec); // use pexec
@@ -268,6 +268,28 @@ gulp.task('git-check-diff', () => {
 
 gulp.task('__test', () => {
   // Use to write experimental tasks.
+});
+
+gulp.task('compress-images', () => {
+  const baseDir = argv.path
+    ? path.resolve(argv.path)
+    : path.resolve('.'); // project root
+  if (!fs.existsSync(baseDir)) throw `ERROR: compress-images: path DNE "${baseDir}".`;
+  gutil.log(`Compressing image files under: ${baseDir}`);
+  return gulp.src([
+    `${baseDir}/**/*.gif`,
+    `${baseDir}/**/*.jpg`,
+    `${baseDir}/**/*.jpeg`,
+    `${baseDir}/**/*.png`,
+    `!${baseDir}/**/.*/**`,
+    `!${baseDir}/**/build/**`,
+    `!${baseDir}/**/node_modules/**`,
+  ], { base: baseDir })
+    .pipe(imagemin([
+      // imagemin.gifsicle({interlaced: true}),
+      // imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 4})]))
+    .pipe(gulp.dest(baseDir))
 });
 
 //=============================================================================
