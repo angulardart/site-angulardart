@@ -133,7 +133,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.3"
+    version: "5.4.4"
   charcode:
     dependency: transitive
     description:
@@ -182,7 +182,7 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.2"
+    version: "0.14.4"
   dart_style:
     dependency: transitive
     description:
@@ -280,7 +280,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.3"
+    version: "0.2.4"
   jsonpadding:
     dependency: "direct main"
     description:
@@ -548,4 +548,4 @@ packages:
     source: hosted
     version: "2.1.13"
 sdks:
-  dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.53.0"
+  dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.55.0"
