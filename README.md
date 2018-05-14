@@ -8,7 +8,9 @@ The [webdev.dartlang.org][] site, built with [Jekyll][] and hosted on [Firebase]
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
 For simple changes (such as to CSS and text), you probably don't need to build this site.
-But if you want/need to build, here's how.
+Often you can make changes using the GitHub UI.
+
+If you want/need to build, read on.
 
 ## Before you build this site
 
@@ -25,13 +27,24 @@ Install the following tools if you don't have them already.
 carefully. In particular, configure your shell/environment so
 that the tools are available in every terminal/command window you create.
 
-### 2. Clone this repo
+### 2. Clone this repo _and_ its submodule
 
-1. **Create or choose a directory** to hold this site's Git repository, and the
-   other repositories needed to build this site (which will be fetched later);
-   for example, `~/git`.
-1. **Clone this repo** ([site-webdev][]) into the chosen directory by following
-   the instructions given in the GitHub help on [Cloning a repository][].
+> NOTE: This repo has a git _submodule_, which affects how you clone it.
+
+To **clone this repo** ([site-webdev][]), follow the instructions given in the
+GitHub help on [Cloning a repository][], and _choose one_ of the following
+submodule-cloning techniques:
+
+- Clone this repo and its submodule _at the same_, use the
+  `--recurse-submodules` option:<br>
+  `git clone --recurse-submodules https://github.com/dart-lang/site-webdev.git`
+- If you've already cloned this repo without its submodule, then run
+  this command from the repo root:<br>
+  `git submodule update --init --remote`
+
+> IMPORTANT:
+> Whenever you update your repo, update the submodule as well:<br>
+> `git pull; git submodule update --init --remote`
 
 ### 3. Run installation scripts
 
