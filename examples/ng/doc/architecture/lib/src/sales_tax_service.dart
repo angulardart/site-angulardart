@@ -10,5 +10,5 @@ class SalesTaxService {
 
   num getVAT(dynamic /* String | num */ value) =>
       rateService.getRate('VAT') *
-      (value is num ? value : num.parse(value, (_) => 0));
+      (value is num ? value : num.tryParse(value) ?? 0);
 }
