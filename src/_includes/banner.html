@@ -1,20 +1,35 @@
 {% if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" %}
-{% comment %}Drop the div .alert classes to revert to the default banner styling.{% endcomment -%}
-<div class="banner alert alert-info">
+{% comment %}To revert to the default banner styling, change the div class to
+"banner".{% endcomment -%}
+<div class="alert alert-info">
   <p class="banner__text">
-    <b>WARNING</b>: This is an
-    <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a> <b>preview</b> of
+    This site is a <b>preview</b> of changes to
     <a href="{{site.webdev}}" class="no-automatic-external" target="_blank" rel="noopener">
-      {{site.webdev | regex_replace: '^https?://'}}.
+      {{site.webdev | regex_replace: '^https?://'}}
     </a>
+    for <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a>
+    and <a href="{{site.www}}/dart-2">Dart 2.</a>
     {% if site.site-status-issue-url %}
-    Documentation may be <b>incomplete</b>.
-    Track completion status at
+    To see the documentation completion status, view
     <a href="{{site.site-status-issue-url}}">
       issue
       #{{site.site-status-issue-url | regex_replace: '^.*/(\d+)$', '\1'}}.
     </a>
     {% endif %}
   </p>
+
+  <p class="banner__text">
+    <b>Important:</b>
+    The AngularDart analyzer still requires <code>new</code> and
+    <code>const</code>, even though those keywords are optional in Dart 2. Until
+    <a href="https://github.com/dart-lang/angular/issues/1313">issue #1313</a>
+    is closed, continue to
+    <b>use <code>new</code> and <code>const</code>.</b>
+  </p>
 </div>
 {% endif %}
+
+{% comment %}
+update-for-dart-2
+Make [optional in Dart 2] a link to a source of info about optional new/const.
+{% endcomment %}
