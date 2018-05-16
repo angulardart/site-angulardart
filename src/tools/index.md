@@ -23,8 +23,8 @@ See [Dart Tools]({{site.dartlang}}/tools#ides) for a list of other IDEs.
 
 ## SDK
 
-Although [DartPad][]{: target="_blank"} is a great way to learn how to write a
-simple web app, once you're ready to develop real apps, you need to
+Although [DartPad][]{: target="_blank"} is a great way to experiment with
+Dart code, once you're ready to develop a web app, you need to
 [install the Dart SDK.](/tools/sdk)
 
 ## Command-line tools
@@ -33,16 +33,23 @@ In addition to the [other Dart tools]({{site.dartlang}}/tools)
 included in the SDK, the following tools
 offer specialized support for web programming.
 
+[webdev](/tools/webdev)
+: A command line interface (CLI) for Dart web app development,
+  including building and serving web apps.
+{% comment %}
+PENDING: say something about IDEs using webdev?
+{% endcomment %}
+
 [dart2js](/tools/dart2js)
-: The original Dart-to-JavaScript compiler, with tree shaking
+: The original Dart-to-JavaScript compiler, with tree shaking.
+  IDEs and the webdev CLI use dart2js when building web apps for deployment.
 
 [dartdevc](/tools/dartdevc)
-: The Dart dev compiler, a modular Dart-to-JavaScript compiler
+: The Dart dev compiler, a modular Dart-to-JavaScript compiler.
+  IDEs and the webdev CLI use dartdevc when running a development server.
 
 [build_runner](/tools/build_runner)
-: A package for building and serving web apps
-
-[webdev](/tools/webdev)
-: A command line interface for Dart web app development
+: A build package that's used behind the scenes by the webdev CLI.
+  Also useful for [testing](/tools/build_runner#command-test).
 
 [DartPad]: {{site.custom.dartpad.direct-link}}
