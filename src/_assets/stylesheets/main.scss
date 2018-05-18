@@ -977,8 +977,9 @@ main .content {
 }
 
 /* Used for inlined icon markers, usually at the start of a paragraph */
-.content > p > i.material-icons {
-  vertical-align: bottom;
+.content, .slogan {
+  p > i.material-icons { vertical-align: bottom; }
+  .banner.alert + .banner.alert { margin-top: -40px; }
 }
 
 .breadcrumb {

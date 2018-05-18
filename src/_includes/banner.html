@@ -1,15 +1,6 @@
-{% if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" %}
-{% comment %}Drop the div .alert classes to revert to the default banner styling.{% endcomment -%}
-<div class="banner alert alert-warning">
-  <p class="banner__text">
-    WARNING: This is an
-    <a href="/version">Angular {{site.data.pkg-vers.angular.vers}}</a> PREVIEW of
-    <a href="{{site.url}}" class="no-automatic-external" target="_blank" rel="noopener">
-      {{site.url | regex_replace: '^https?://'}}
-    </a>
-  </p>
-</div>
-{% else %}
+{% capture banner %}{% include banner-top.md %}{% endcapture -%}
+{{ banner | markdownify }}
+
 <div class="banner alert alert-info">
   <p class="banner__text">
     This site covers <b>AngularDart 4</b>.
@@ -17,4 +8,3 @@
     <a href="{{site.dev-url}}">preview site.</a>
   </p>
 </div>
-{% endif %}
