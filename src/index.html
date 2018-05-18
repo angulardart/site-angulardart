@@ -5,6 +5,10 @@ description: Dart is a modern language well suited to writing fast, scalable, we
 ---
 
 <section class="slogan">
+  {% if true -%}
+  {% capture banner %}{% include banner-top.md %}{% endcapture -%}
+  {{ banner | markdownify }}
+  {% endif -%}
   <div class="container">
     <div class="content">
       <h2>Build web apps in a modern language, using<br>stable libraries and solid tools.</h2>
