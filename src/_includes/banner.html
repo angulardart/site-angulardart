@@ -2,12 +2,13 @@
 
 {% comment %}
 To disable all banners, set the if condition above to false.
-
 To revert to the default banner styling, change the div class to "banner".
 {% endcomment -%}
 
-{% capture banner %}{% include banner-top.md %}{% endcapture -%}
-{{ banner | markdownify }}
+{% if false -%}
+  {% capture banner %}{% include banner-top.md %}{% endcapture -%}
+  {{ banner | markdownify }}
+{%- endif -%}
 
 <div class="alert alert-info">
   {%- if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" -%}
