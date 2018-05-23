@@ -1,5 +1,7 @@
-{% capture banner %}{% include banner-top.md %}{% endcapture -%}
-{{ banner | markdownify }}
+{% if false -%}
+  {% capture banner %}{% include banner-top.md %}{% endcapture -%}
+  {{ banner | markdownify }}
+{% endif -%}
 
 <div class="banner alert alert-info">
   <p class="banner__text">
