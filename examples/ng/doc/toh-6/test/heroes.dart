@@ -84,7 +84,7 @@ void selectedHeroTests(InjectorProbe injector) {
   test('go to detail', () async {
     await po.gotoDetail();
     final mockRouter = injector.get<MockRouter>(Router);
-    final c = verify(mockRouter.navigate(typed(captureAny)));
+    final c = verify(mockRouter.navigate(captureAny));
     expect(c.captured.single, '/heroes/${targetHero[idParam]}');
   });
 

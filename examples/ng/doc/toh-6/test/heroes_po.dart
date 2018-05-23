@@ -50,7 +50,7 @@ class HeroesPO extends PageObjectBase {
   Future<String> get myHeroNameInUppercase async {
     if (_miniDetailHeading == null) return null;
     final text = await _miniDetailHeading.visibleText;
-    final matches = new RegExp((r'^(.*) is my hero\s*$')).firstMatch(text);
+    final matches = new RegExp((r'^\s*(.+) is my hero\s*$')).firstMatch(text);
     return matches[1];
   }
 

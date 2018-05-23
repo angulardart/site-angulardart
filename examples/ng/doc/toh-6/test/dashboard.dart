@@ -57,7 +57,7 @@ void main() {
     final mockRouter = injector.get<MockRouter>(Router);
     clearInteractions(mockRouter);
     await po.selectHero(3);
-    final c = verify(mockRouter.navigate(typed(captureAny), typed(captureAny)));
+    final c = verify(mockRouter.navigate(captureAny, captureAny));
     expect(c.captured[0], '/heroes/15');
     expect(c.captured[1], isNavParams()); // empty params
     expect(c.captured.length, 2);

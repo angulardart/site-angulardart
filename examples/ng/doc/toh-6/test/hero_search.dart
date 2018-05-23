@@ -79,7 +79,7 @@ void heroSearchTests(InjectorProbe injector) {
     final mockRouter = injector.get<MockRouter>(Router);
     clearInteractions(mockRouter);
     await po.selectHero(0);
-    final c = verify(mockRouter.navigate(typed(captureAny)));
+    final c = verify(mockRouter.navigate(captureAny));
     expect(c.captured.single, '/heroes/15');
   });
 }

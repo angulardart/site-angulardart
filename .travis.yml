@@ -1,7 +1,7 @@
 dist: trusty
 sudo: required
 language: dart
-dart: 2.0.0-dev.55.0
+dart: 2.0.0-dev.57.0
 
 cache:
   timeout: 300
