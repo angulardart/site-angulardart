@@ -57,7 +57,7 @@ webdev build [--no-release] --output [<dirname>:]<dirname>
 ```
 
 The first build is the slowest. After that, assets are cached on disk and
-incremental builds are faster.
+incremental builds are much faster.
 
 By default, the `build` command uses the [dart2js][] web compiler to create a
 production version of your app. Add `--no-release` to compile with [dartdevc][].

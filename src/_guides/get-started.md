@@ -69,22 +69,22 @@ You'll need it in step 4.
 
    1. Perform the following one-time setup:
       ```terminal
-      $ sudo apt-get update
-      $ sudo apt-get install apt-transport-https
-      $ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+      > sudo apt-get update
+      > sudo apt-get install apt-transport-https
+      > sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
       {% if isStable -%}
-      $ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+      > sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
       {% else -%}
       ```
       Set up Dart **{{site.data.pkg-vers.SDK.channel}} channel**:
       ```terminal
-      $ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list > /etc/apt/sources.list.d/dart_unstable.list'
+      > sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list > /etc/apt/sources.list.d/dart_unstable.list'
       {% endif -%}
       ```
    2. Install the Dart SDK:
       ```terminal
-      $ sudo apt-get update
-      $ sudo apt-get install dart
+      > sudo apt-get update
+      > sudo apt-get install dart
       ```
 </div>
 
@@ -93,14 +93,14 @@ You'll need it in step 4.
   installing Dart is easy.
 
   ```terminal
-  $ brew tap dart-lang/dart
+  > brew tap dart-lang/dart
   {% if isStable -%}
-  $ brew install dart
+  > brew install dart
   {% else -%}
   ```
   Get **{{site.data.pkg-vers.SDK.channel}} channel** release:
   ```terminal
-  $ brew install dart --devel
+  > brew install dart --devel
   {% endif -%}
   ```
 </div>
@@ -108,18 +108,28 @@ You'll need it in step 4.
 More information: [Install the SDK](/tools/sdk#install)
 
 
-## 3. Get WebStorm
+## 3. Get WebStorm or CLI tools
 
-Although using an IDE is optional, we highly recommend WebStorm. WebStorm comes
+<i class="material-icons">web</i>
+Although using an IDE is optional, we highly recommend that you
+[download and install WebStorm](/tools/webstorm). WebStorm comes
 with Dart support, making it easy to write correct Dart code and to run it in a
 browser.
 
-[Download and install WebStorm](/tools/webstorm).
+<i class="fas fa-terminal dark"></i>
+If you'd rather work from the command line, install [webdev][]
+and [stagehand:][stagehand]
+
+```terminal
+> pub global activate webdev
+> pub global activate stagehand
+```
 
 More information: [Dart tools for the web](/tools)
 
 ## 4. Create a web app
 
+<i class="material-icons">web</i>
 We recommend using Angular for your Dart web apps,
 but you have [other options](/guides/web-programming) as well.
 Here's how to use WebStorm to create a web app that uses AngularDart:
@@ -133,12 +143,23 @@ Here's how to use WebStorm to create a web app that uses AngularDart:
 1. Choose the **AngularDart Web App** template.
 1. Click **Create**.<br>![WebStorm new project dialog][]
 
+<i class="fas fa-terminal dark"></i>
+To create the app from the command line, use these commands:
+
+```terminal
+> mkdir quickstart
+> cd quickstart
+> stagehand web-angular
+> pub get
+```
+
 More information: [Setup for AngularDart development](/angular/guide/setup)
 
 ## 5. Run the app
 
 {% include webstorm-status.md %}
 
+<i class="material-icons">web</i>
 To run the app from WebStorm, do the following:
 
 1. Right-click the app's `web/index.html` file in the project view.
@@ -151,6 +172,17 @@ To run the app from WebStorm, do the following:
 You should see a simple todo list manager. Try it out!
 
 ![Launched To-do app]({% asset_path my-first-angular-app.png %}){:width="500"}
+
+<i class="fas fa-terminal dark"></i>
+To run the app from the command line, use [webdev][] to build and serve the app:
+
+```terminal
+> webdev serve
+```
+
+Then, to view your app, visit [localhost:8080](localhost:8080).
+Webdev is slowest when it builds and serves your app for the first time.
+After that, assets are cached on disk and incremental builds are much faster.
 
 ## 6. Add custom code to the app
 
@@ -172,7 +204,7 @@ Let's customize the app you just created.
 
  3. Save your changes.
 
- 4. WebStorm automatically rebuilds your app.
+ 4. WebStorm and webdev automatically rebuild your app.
     Refresh the app's browser window.
     Now the initial todo list has things to do!
     After you feed the cats, your todo list should look something like this:<br>
@@ -212,4 +244,6 @@ If you get stuck, find help at [Community and Support.](/community)
 
 [AngularDart]: /angular
 [AngularDart Components]: /components
+[stagehand]: {{site.pub-pkg}}/stagehand
+[webdev]: /tools/webdev
 [WebStorm new project dialog]: {% asset_path webstorm-new-project.png %}

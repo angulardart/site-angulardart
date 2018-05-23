@@ -85,7 +85,7 @@ pub run build_runner build [--release] [--output <dirname>] ...
 ```
 
 The first build is the slowest. After that, assets are cached on disk and
-incremental builds are faster.
+incremental builds are much faster.
 
 To continuously run builds as you edit, use the `watch` command.
 
