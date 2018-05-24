@@ -12,6 +12,7 @@ module.exports = function (gulp, plugins, config) {
 
   const runAngularTest = [
     'pub run build_runner test',
+    '--delete-conflicting-outputs',
     plugins.buildWebCompilerOptions(),
     '--',
     '-p chrome',

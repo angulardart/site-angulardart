@@ -122,6 +122,8 @@ module.exports = function (gulp, plugins, config) {
       } else {
         await pexec(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: appDir });
         // plugins.generateBuildYaml(appDir);
+        // webdev don't always play nice if the output dir exists so delete it if present:
+        if (fs.existsSync(path.join(appDir, 'build'))) await plugins.execp('rm -Rf build', { cwd: appDir });
         let buildOpts = plugins.buildWebCompilerOptions();
         if (fs.existsSync(path.join(appDir, 'build.no_test.yaml'))) buildOpts += ' --config=no_test';
         await pexec(`pub global run webdev build ${buildOpts}`, {

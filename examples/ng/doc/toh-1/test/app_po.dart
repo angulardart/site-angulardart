@@ -1,6 +1,4 @@
-// #docregion
-
-// #docregion imports
+// #docregion , imports
 import 'dart:async';
 
 import 'package:pageloader/pageloader.dart';
