@@ -1,30 +1,36 @@
 import 'dart:async';
 
-import 'package:pageloader/objects.dart';
+import 'package:pageloader/pageloader.dart';
 
-class SizerPO extends PageObjectBase {
+part 'sizer_po.g.dart';
+
+@PageObject()
+abstract class SizerPO {
+  SizerPO();
+  factory SizerPO.create(PageLoaderElement context) = $SizerPO.create;
+
   @ByTagName('label')
-  PageLoaderElement get _fontSize => q('label');
+  PageLoaderElement get _fontSize;
 
   @ByTagName('button')
   @WithVisibleText('-')
-  PageLoaderElement get _dec => q('button', withVisibleText: '-');
+  PageLoaderElement get _dec;
 
   @ByTagName('button')
   @WithVisibleText('+')
-  PageLoaderElement get _inc => q('button', withVisibleText: '+');
+  PageLoaderElement get _inc;
 
-  Future dec() async => _dec.click();
-  Future inc() async => _inc.click();
+  Future<void> dec() async => _dec.click();
+  Future<void> inc() async => _inc.click();
 
-  Future<int> get fontSizeFromLabelText async {
-    final text = await _fontSize.visibleText;
+  int get fontSizeFromLabelText {
+    final text = _fontSize.visibleText;
     final matches = new RegExp((r'^FontSize: (\d+)px$')).firstMatch(text);
     return _toInt(matches[1]);
   }
 
-  Future<int> get fontSizeFromStyle async {
-    final text = await _fontSize.attributes['style'];
+  int get fontSizeFromStyle {
+    final text = _fontSize.attributes['style'];
     final matches = new RegExp((r'^font-size: (\d+)px;$')).firstMatch(text);
     return _toInt(matches[1]);
   }

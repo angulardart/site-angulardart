@@ -29,10 +29,10 @@ class IsRouterState extends Matcher {
   }
   bool matches(item, Map matchState) =>
       item is RouterState &&
-          _expected.path == item.path &&
-          const MapEquality()
-              .equals(_expected.queryParameters, item.queryParameters) &&
-          _expected.fragment == item.fragment;
+      _expected.path == item.path &&
+      const MapEquality()
+          .equals(_expected.queryParameters, item.queryParameters) &&
+      _expected.fragment == item.fragment;
 
   Description describe(Description description) => description.add(
       'RouterState(${_expected.path}, ..., queryParameters: ${_expected.queryParameters}, fragment: ${_expected.fragment})');

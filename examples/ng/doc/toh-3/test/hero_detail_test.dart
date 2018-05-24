@@ -5,6 +5,7 @@ import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/hero.dart';
 import 'package:angular_tour_of_heroes/src/hero_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_component.template.dart' as ng;
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'hero_detail_po.dart';
@@ -26,13 +27,15 @@ void main() {
   group('No initial @Input() hero:', () {
     setUp(() async {
       fixture = await testBed.create();
-      po = await new HeroDetailPO().resolve(fixture);
+      final context =
+          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = new HeroDetailPO.create(context);
     });
     // #enddocregion transition-to-hero
 
-    test('has empty view', () async {
+    test('has empty view', () {
       expect(fixture.rootElement.text.trim(), '');
-      expect(await po.heroFromDetails, isNull);
+      expect(po.heroFromDetails, isNull);
     });
     // #enddocregion no-initial-hero
     // #docregion transition-to-hero
@@ -41,8 +44,7 @@ void main() {
       await fixture.update((comp) {
         comp.hero = new Hero(targetHero['id'], targetHero['name']);
       });
-      po = await new HeroDetailPO().resolve(fixture);
-      expect(await po.heroFromDetails, targetHero);
+      expect(po.heroFromDetails, targetHero);
     });
     // #enddocregion transition-to-hero
     // #docregion no-initial-hero
@@ -59,11 +61,13 @@ void main() {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
               c.hero = new Hero(targetHero['id'], targetHero['name']));
-      po = await new HeroDetailPO().resolve(fixture);
+      final context =
+          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = new HeroDetailPO.create(context);
     });
 
-    test('show hero details', () async {
-      expect(await po.heroFromDetails, targetHero);
+    test('show hero details', () {
+      expect(po.heroFromDetails, targetHero);
     });
     // #enddocregion initial-hero
 
@@ -71,7 +75,7 @@ void main() {
       const nameSuffix = 'X';
       updatedHero['name'] = "${targetHero['name']}$nameSuffix";
       await po.type(nameSuffix);
-      expect(await po.heroFromDetails, updatedHero);
+      expect(po.heroFromDetails, updatedHero);
     });
 
     test('change name', () async {
@@ -79,7 +83,7 @@ void main() {
       updatedHero['name'] = newName;
       await po.clear();
       await po.type(newName);
-      expect(await po.heroFromDetails, updatedHero);
+      expect(po.heroFromDetails, updatedHero);
     });
     // #docregion initial-hero
   });

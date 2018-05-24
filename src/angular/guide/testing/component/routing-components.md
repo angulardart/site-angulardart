@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: "Component Testing: Routing Components"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced
@@ -10,8 +9,6 @@ nextpage:
   title: End-to-end Testing
   url: /angular/guide/testing/e2e
 ---
-{% include_relative _pageloader-mock-warning.md %}
-
 <?code-excerpt path-base="examples/ng/doc"?>
 
 {% include_relative _page-top-toc.md %}
@@ -47,6 +44,7 @@ list of the generated root injector, as described in the section on
       as ng;
   import 'package:angular_tour_of_heroes/src/hero_service.dart';
   import 'package:mockito/mockito.dart';
+  import 'package:pageloader/html.dart';
   import 'package:test/test.dart';
 
   import 'heroes.template.dart' as self;
@@ -70,7 +68,9 @@ list of the generated root injector, as described in the section on
 
     setUp(() async {
       fixture = await testBed.create();
-      po = await new HeroesPO().resolve(fixture);
+      final context =
+          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = new HeroesPO.create(context);
     });
 
     tearDown(disposeAnyRunningTest);
@@ -199,7 +199,9 @@ seen already:
     router = injector.get<Router>(Router);
     await router?.navigate('/');
     await fixture.update();
-    appPO = await new AppPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = new AppPO.create(context);
   });
 ```
 
@@ -320,7 +322,9 @@ You can achieve this by registering a listener:
     router = fixture.assertOnlyInstance.router;
     navHistory = [];
     router.onRouteActivated.listen((newState) => navHistory.add(newState));
-    po = await new DashboardPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = new DashboardPO.create(context);
   });
 ```
 

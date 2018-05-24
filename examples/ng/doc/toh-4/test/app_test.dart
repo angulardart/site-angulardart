@@ -3,6 +3,7 @@
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'app_po.dart';
@@ -16,7 +17,9 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    appPO = await new AppPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = new AppPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -48,7 +51,6 @@ void selectHeroTests() {
 
   setUp(() async {
     await appPO.selectHero(5);
-    appPO = await new AppPO().resolve(fixture); // Refresh PO
   });
 
   test('is selected', () async {

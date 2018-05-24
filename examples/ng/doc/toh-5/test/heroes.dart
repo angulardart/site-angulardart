@@ -12,6 +12,7 @@ import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
 // #enddocregion rootInjector
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 // #docregion rootInjector
@@ -39,7 +40,9 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await new HeroesPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = new HeroesPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -52,16 +55,16 @@ void main() {
 // #enddocregion providers-with-context, rootInjector
 
 void basicTests() {
-  test('title', () async {
-    expect(await po.title, 'Heroes');
+  test('title', () {
+    expect(po.title, 'Heroes');
   });
 
-  test('hero count', () async {
+  test('hero count', () {
     expect(po.heroes.length, 10);
   });
 
-  test('no selected hero', () async {
-    expect(await po.selected, null);
+  test('no selected hero', () {
+    expect(po.selected, null);
   });
 }
 
@@ -71,17 +74,15 @@ void selectedHeroTests(InjectorProbe injector) {
 
   setUp(() async {
     await po.selectHero(4);
-    po = await new HeroesPO().resolve(fixture);
   });
 
   // #enddocregion go-to-detail
-  test('is selected', () async {
-    expect(await po.selected, targetHero);
+  test('is selected', () {
+    expect(po.selected, targetHero);
   });
 
-  test('show mini-detail', () async {
-    expect(
-        await po.myHeroNameInUppercase, equalsIgnoringCase(targetHero['name']));
+  test('show mini-detail', () {
+    expect(po.myHeroNameInUppercase, equalsIgnoringCase(targetHero['name']));
   });
 
   // #docregion go-to-detail
@@ -95,7 +96,6 @@ void selectedHeroTests(InjectorProbe injector) {
 
   test('select another hero', () async {
     await po.selectHero(0);
-    po = await new HeroesPO().resolve(fixture);
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selected, heroData);
   });

@@ -4,6 +4,7 @@
 import 'dart:async';
 
 import 'package:angular_test/angular_test.dart';
+import 'package:pageloader/html.dart';
 import 'package:template_syntax/src/sizer_component.dart';
 import 'package:test/test.dart';
 
@@ -22,7 +23,9 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await new SizerPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = new SizerPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -33,13 +36,11 @@ void main() {
 
   test('@Input() size ${inputSize} as String', () async {
     await fixture.update((c) => c.size = inputSize.toString());
-    po = await new SizerPO().resolve(fixture);
     await _expectSize(inputSize);
   });
 
   test('@Input() size ${inputSize} as int', () async {
     await fixture.update((c) => c.size = inputSize);
-    po = await new SizerPO().resolve(fixture);
     await _expectSize(inputSize);
   });
 

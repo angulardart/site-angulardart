@@ -1223,8 +1223,8 @@ It has a `size` value property and a companion `sizeChange` event:
   import 'dart:math';
   import 'package:angular/angular.dart';
 
-  const _minSize = 8;
-  const _maxSize = _minSize * 5;
+  const minSize = 8;
+  const maxSize = minSize * 5;
 
   @Component(
     selector: 'my-sizer',
@@ -1234,12 +1234,10 @@ It has a `size` value property and a companion `sizeChange` event:
         <button (click)="inc()" [disabled]="size >= maxSize">+</button>
         <label [style.font-size.px]="size">FontSize: {!{size}!}px</label>
       </div>''',
+    exports: [minSize, maxSize],
   )
   class SizerComponent {
-    // TODO: under Angular 4 we will be able to just export the const
-    final int minSize = _minSize, maxSize = _maxSize;
-
-    int _size = _minSize * 2;
+    int _size = minSize * 2;
     int get size => _size;
     @Input()
     void set size(/*String|int*/ val) {

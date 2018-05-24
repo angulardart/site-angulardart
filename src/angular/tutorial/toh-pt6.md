@@ -65,11 +65,7 @@ Update package dependencies by adding the Dart [http][] and
 ```diff
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
-@@ -1,3 +1,4 @@
- name: angular_tour_of_heroes
- description: Tour of Heroes
- version: 0.0.1
-@@ -9,6 +10,8 @@
+@@ -9,6 +9,8 @@
    angular: ^5.0.0-alpha
    angular_forms: ^2.0.0-alpha
    angular_router: ^2.0.0-alpha

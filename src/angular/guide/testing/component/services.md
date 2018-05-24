@@ -10,8 +10,6 @@ nextpage:
   title: "Component Testing: @Input() and @Output()"
   url: /angular/guide/testing/component/input-and-output
 ---
-{% include_relative _pageloader-mock-warning.md %}
-
 <?code-excerpt path-base="examples/ng/doc"?>
 
 {% include_relative _page-top-toc.md %}

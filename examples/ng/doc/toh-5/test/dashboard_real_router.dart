@@ -7,6 +7,7 @@ import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/routes.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'dashboard_po.dart';
@@ -40,19 +41,21 @@ void main() {
     router = fixture.assertOnlyInstance.router;
     navHistory = [];
     router.onRouteActivated.listen((newState) => navHistory.add(newState));
-    po = await new DashboardPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = new DashboardPO.create(context);
   });
   // #enddocregion setUp
 
   tearDown(disposeAnyRunningTest);
 
-  test('title', () async {
-    expect(await po.title, 'Top Heroes');
+  test('title', () {
+    expect(po.title, 'Top Heroes');
   });
 
-  test('show top heroes', () async {
+  test('show top heroes', () {
     final expectedNames = ['Narco', 'Bombasto', 'Celeritas', 'Magneta'];
-    expect(await po.heroNames, expectedNames);
+    expect(po.heroNames, expectedNames);
   });
 
   // #docregion go-to-detail

@@ -225,13 +225,25 @@ dependency_overrides:
   gulp.task('update-tests', cb => {
     const baseDir = getBaseDir();
     return gulp.src([
-      `${baseDir}/**/test/*_test.dart`,
+      `${baseDir}/**/test/*_po.dart`,
       `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
     ]) // , { base: baseDir }
-      .pipe(replace(/import 'package:angular\/angular.dart';\n/, ''))
-      .pipe(replace(/@AngularEntrypoint\(\)\n(void main\(\) {)(\s+)/,
-        "import 'app_test.template.dart' as ng;\n" + // 'app_test' is the most common; adjust as necessary in each file
-        '$1$2ng.initReflector();$2'))
+      // .pipe(replace(/import 'package:angular\/angular.dart';\n/, ''))
+      // .pipe(replace(/@AngularEntrypoint\(\)\n(void main\(\) {)(\s+)/,
+      //   "import 'app_test.template.dart' as ng;\n" + // 'app_test' is the most common; adjust as necessary in each file
+      //   '$1$2ng.initReflector();$2'))
+      .pipe(replace(/( get \w*)\s*=>\s*q.*?;/g, '$1;'))
+      .pipe(replace(/@FirstByCss(\(.*?\))/g, '@First(ByCss$1)'))
+      .pipe(replace(/\b(Future)(\s)/g, '$1<void>$2'))
+      .pipe(replace(/class (\w+) extends PageObjectBase\s*{/g, `part 'app_po.g.dart';
+
+@PageObject()
+abstract class $1 {
+
+  $1();
+  factory $1.create(PageLoaderElement context) = $$$1.create;
+`))
+      // .pipe(replace(/\s+@optional\s+/g, '\n'))
       .pipe(gulp.dest(baseDir));
   });
 

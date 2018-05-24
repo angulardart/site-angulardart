@@ -7,9 +7,7 @@ import 'hero.dart';
 
 @Component(
   selector: 'my-hero',
-  styles: [
-    'button {margin-left: 8px} div {margin: 8px 0} img {height:24px}'
-  ],
+  styles: ['button {margin-left: 8px} div {margin: 8px 0} img {height:24px}'],
   // #docregion template-1
   template: '''
     <div>

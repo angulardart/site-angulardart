@@ -3,6 +3,7 @@
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'app_po.dart';
@@ -16,7 +17,9 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    appPO = await new AppPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = new AppPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -26,20 +29,20 @@ void main() {
 }
 
 void basicTests() {
-  test('page title', () async {
-    expect(await appPO.pageTitle, 'Tour of Heroes');
+  test('page title', () {
+    expect(appPO.pageTitle, 'Tour of Heroes');
   });
 
-  test('tab title', () async {
-    expect(await appPO.tabTitle, 'Heroes');
+  test('tab title', () {
+    expect(appPO.tabTitle, 'Heroes');
   });
 
   test('hero count', () {
     expect(appPO.heroes.length, 10);
   });
 
-  test('no selected hero', () async {
-    expect(await appPO.selected, null);
+  test('no selected hero', () {
+    expect(appPO.selected, null);
   });
 }
 
@@ -48,15 +51,14 @@ void selectHeroTests() {
 
   setUp(() async {
     await appPO.selectHero(5);
-    appPO = await new AppPO().resolve(fixture); // Refresh PO
   });
 
   test('is selected', () async {
     expect(await appPO.selected, targetHero);
   });
 
-  test('show hero details', () async {
-    expect(await appPO.heroFromDetails, targetHero);
+  test('show hero details', () {
+    expect(appPO.heroFromDetails, targetHero);
   });
 
   group('Update hero:', () {
@@ -74,12 +76,12 @@ void selectHeroTests() {
       await appPO.type(targetHero['name']);
     });
 
-    test('name in list is updated', () async {
-      expect(await appPO.selected, updatedHero);
+    test('name in list is updated', () {
+      expect(appPO.selected, updatedHero);
     });
 
-    test('name in details view is updated', () async {
-      expect(await appPO.heroFromDetails, updatedHero);
+    test('name in details view is updated', () {
+      expect(appPO.heroFromDetails, updatedHero);
     });
   });
 }

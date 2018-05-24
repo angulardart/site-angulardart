@@ -6,6 +6,7 @@ import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
 import 'package:angular_tour_of_heroes/in_memory_data_service.dart';
 import 'package:http/http.dart';
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'app.template.dart' as self;
@@ -16,8 +17,10 @@ NgTestFixture<AppComponent> fixture;
 AppPO appPO;
 Router router;
 
-@GenerateInjector([  const ClassProvider(Client, useClass: InMemoryDataService),
-routerProvidersForTesting,])
+@GenerateInjector([
+  const ClassProvider(Client, useClass: InMemoryDataService),
+  routerProvidersForTesting,
+])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
@@ -31,7 +34,9 @@ void main() {
     router = injector.get<Router>(Router);
     await router?.navigate('/');
     await fixture.update();
-    appPO = await new AppPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = new AppPO.create(context);
   });
   // #enddocregion provisioning-and-setup
 
@@ -43,10 +48,10 @@ void main() {
   group('Select Heroes:', () {
     setUp(() async {
       await appPO.selectTab(1);
-      appPO = await new AppPO().resolve(fixture);
+      await fixture.update();
     });
 
-    test('route', () async {
+    test('route', () {
       expect(router.current.path, '/heroes');
     });
 
@@ -61,7 +66,7 @@ void main() {
       await appPO.selectTab(1);
       await fixture.update();
       await appPO.selectTab(0);
-      appPO = await new AppPO().resolve(fixture);
+      await fixture.update();
     });
 
     dashboardTests();
@@ -85,18 +90,18 @@ void main() {
 }
 
 void basicTests() {
-  test('page title', () async {
-    expect(await appPO.pageTitle, 'Tour of Heroes');
+  test('page title', () {
+    expect(appPO.pageTitle, 'Tour of Heroes');
   });
 
-  test('tab titles', () async {
+  test('tab titles', () {
     final expectTitles = ['Dashboard', 'Heroes'];
-    expect(await appPO.tabTitles, expectTitles);
+    expect(appPO.tabTitles, expectTitles);
   });
 }
 
 void dashboardTests() {
-  test('route', () async {
+  test('route', () {
     expect(router.current.path, '/dashboard');
   });
 

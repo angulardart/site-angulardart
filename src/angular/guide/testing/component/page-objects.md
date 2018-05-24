@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: "Component Testing: Page Objects"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced
@@ -9,9 +8,9 @@ prevpage:
 nextpage:
   title: "Component Testing: Simulating user action"
   url: /angular/guide/testing/component/simulating-user-action
-pageloaderObjectsApi: https://www.dartdocs.org/documentation/pageloader/latest/pageloader.objects
 ---
 <?code-excerpt path-base="examples/ng/doc"?>
+{% capture pageloaderObjectsApi %}{{site.api}}/pageloader/latest/pageloader.objects{% endcapture %}
 
 {% include_relative _page-top-toc.md %}
 
@@ -21,23 +20,21 @@ encoding of page elements in templates.
 
 You can achieve this separation by creating **[page object][]** (PO) classes
 having APIs written in terms of _application-specific concepts_, such as
-"title", "hero id", and "hero name". A PO class encapsulates details about:
+"title", "hero ID", and "hero name". A PO class encapsulates details about:
 
 - HTML element access, for example, whether a hero name is contained in a
   heading element or a `<div>`
 - Type conversions, for example, from `String` to `int`, as you'd need to
-  do for a hero id
+  do for a hero ID
 
 ## Pubspec configuration
 
 The [angular_test][] package recognizes page objects implemented using annotations
 from the [pageloader][] package.
 
-{% include_relative _pageloader-mock-warning.md %}
-
 Add the package to the pubspec dependencies:
 
-<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dev_dependencies" to=" test:"?>
+<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dev_dependencies"?>
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
@@ -45,7 +42,7 @@ Add the package to the pubspec dependencies:
  name: angular_tour_of_heroes
  description: Tour of Heroes
  version: 0.0.1
-@@ -8,15 +7,19 @@
+@@ -8,15 +7,12 @@
 
  dependencies:
    angular: ^5.0.0-alpha
@@ -56,18 +53,39 @@ Add the package to the pubspec dependencies:
    build_runner: ^0.8.8
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
-   test: ^0.12.30
++  pageloader: ^3.0.0-alpha
+   test: ^0.12.35
 ```
 
 ## Imports
 
-Include these imports at the top of your page object class:
+Include these imports at the top of your page object file:
 
-<?code-excerpt "toh-2/test/app_po.dart (imports)" title?>
+<?code-excerpt "toh-1/test/app_po.dart (imports)" title?>
 ```
   import 'dart:async';
 
-  import 'package:pageloader/objects.dart';
+  import 'package:pageloader/pageloader.dart';
+```
+
+Update the imports at the top of your test file:
+
+<?code-excerpt "toh-0/test/app_test.dart" diff-with="toh-1/test/app_test.dart" to="void main"?>
+```diff
+--- toh-0/test/app_test.dart
++++ toh-1/test/app_test.dart
+@@ -1,42 +1,53 @@
+ @TestOn('browser')
+
+ import 'package:angular_test/angular_test.dart';
+ import 'package:angular_tour_of_heroes/app_component.dart';
+ import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;
++import 'package:pageloader/html.dart';
+ import 'package:test/test.dart';
+
++import 'app_po.dart';
++
+ void main() {
 ```
 
 ## Running example
@@ -97,63 +115,92 @@ as the Hero Editor. You might use such a page object to test the title like this
 
 <?code-excerpt "toh-1/test/app_test.dart (title)" title?>
 ```
-  test('title', () async {
-    expect(await appPO.title, 'Tour of Heroes');
+  test('title', () {
+    expect(appPO.title, 'Tour of Heroes');
   });
 ```
 
-## PO field annotation basics {#po-annotations}
+## PO class
 
-You can declaratively identify HTML elements that occur in a component's
-template by adorning PO class fields with [pageloader][] annotations like `@ByTagName('h1')`.
-During test execution, the package binds such fields to the
-DOM element(s) specified by the annotation. For example,
-an initial version of `AppPO` might look like this:
+Pageloader recognizes POs that satisfy the following conditions.
 
-<?code-excerpt "toh-1/test/app_test.dart (AppPO initial)" title?>
+- Source file:
+  - The file contains a `part` statement referring to the filename but with a `.g.dart` suffix.
+  - The file doesn't contain any Angular annotations (like `@Component` or
+    `@GenerateInjector`) that would trigger the Angular builder. This is a
+    temporary limitation; for details, see
+    [pageloader issue #134](https://github.com/google/pageloader/issues/134).
+- PO class (declared in the source file):
+  - `@PageObject()` annotates the class.
+  - The class is `abstract`.
+  - The class has these constructors:
+    - A default constructor.
+    - A factory constructor defined as shown below.
+
+Here's an example of a valid page object implementation:
+
+<?code-excerpt "toh-1/test/app_po.dart (excerpt)" region="boilerplate" title?>
 ```
-  class AppPO extends PageObjectBase {
-    @ByTagName('h1')
-    PageLoaderElement get _title => q('h1');
-    // ···
-    Future<String> get title => _title.visibleText;
+  part 'app_po.g.dart';
+
+  @PageObject()
+  abstract class AppPO {
+
+    AppPO();
+    factory AppPO.create(PageLoaderElement context) = $AppPO.create;
     // ···
   }
 ```
 
-<div class="alert alert-warning" markdown="1">
-  **Warning:**
-  Use of the mock pageloader [temporarily][issue 1351] requires that all
-  annotated page object fields be **getters** bound to a query function.
-  The CSS selector used in the annotation is passed as an argument to the
-  query function.
-</div>
+During the build process, pageloader generates an implementation for your
+abstract PO class based on the fields you declare, and saves the implementation
+to the `*.g.dart` file. The generated code contains factory methods like
+`$AppPO.create`.
 
-Because of its **[@ByTagName()]({{page.pageloaderObjectsApi}}/ByTagName-class.html)**
+## PO field annotation basics {#po-annotations}
+
+You can declaratively identify HTML elements that occur in a component's
+template by adorning PO class getters with [pageloader][] annotations like
+`@ByTagName('h1')`. For example, an initial version of `AppPO` might look like
+this:
+
+<?code-excerpt "toh-1/test/app_po.dart (AppPO initial)" title replace="/(@By|PageLoaderElement get).*/[!$&!]/g"?>
+```
+  @PageObject()
+  abstract class AppPO {
+
+    AppPO();
+    factory AppPO.create(PageLoaderElement context) = $AppPO.create;
+
+    [!@ByTagName('h1')!]
+    [!PageLoaderElement get _title;!]
+    // ···
+    String get title => _title.visibleText;
+    // ···
+  }
+```
+
+Because of its [@ByTagName()]({{pageloaderObjectsApi}}/ByTagName-class.html)
 annotation, the `_h1` field will get bound to the app component
 [template's `<h1>` element](#toh-1libapp_componentdart-template).
 
 Other basic tags, which you'll soon see examples of, include:
-- **[@ByClass()]({{page.pageloaderObjectsApi}}/ByClass-class.html)**
-- **[@ByCss()]({{page.pageloaderObjectsApi}}/ByCss-class.html)**
-- **[@ById()]({{page.pageloaderObjectsApi}}/ById-class.html)**
-- **[@FirstByCss()]({{page.pageloaderObjectsApi}}/FirstByCss-class.html)**
-- **[@WithVisibleText()]({{page.pageloaderObjectsApi}}/WithVisibleText-class.html)**
+- [@ByClass()]({{pageloaderObjectsApi}}/ByClass-class.html)
+- [@ByCss()]({{pageloaderObjectsApi}}/ByCss-class.html)
+- [@ById()]({{pageloaderObjectsApi}}/ById-class.html)
+- [@First()]({{pageloaderObjectsApi}}/First-class.html)
+- [@WithVisibleText()]({{pageloaderObjectsApi}}/WithVisibleText-class.html)
 
 The PO `title` field returns the heading element's text.
-Access to page elements is **asynchronous**, which is why `title` is of type
-[Future][], and the "title" test shown [earlier](#toh-1testapp_testdart-title)
-is marked as `async`.
-
-[Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
 
 ## PO instantiation
 
-Get a PO instance from the fixture's `resolvePageObject()` method, passing the
-PO type as argument. Since most page objects are shared across tests, they are
-generally initialized during setup:
+Create PO instances using the PO factory constructor. PO fields are **lazily
+initialized** from a _context_ passed as an argument to the constructor. Create a
+context from the fixture's [rootElement][] as shown below. Since most page
+objects are shared across tests, they are generally initialized during setup:
 
-<?code-excerpt "toh-1/test/app_test.dart (appPO setup)" title?>
+<?code-excerpt "toh-1/test/app_test.dart (appPO setup)" title replace="/(final context|appPO|new) .*/[!$&!]/g"?>
 ```
   final testBed =
       NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
@@ -162,24 +209,11 @@ generally initialized during setup:
 
   setUp(() async {
     fixture = await testBed.create();
-    appPO = await new AppPO().resolve(fixture);
+    [!final context =!]
+        [!new HtmlPageLoaderElement.createFromElement(fixture.rootElement);!]
+    [!appPO = new AppPO.create(context);!]
   });
 ```
-
-<div class="alert alert-warning" markdown="1">
-  **Warning:**
-  Support for `resolvePageObject()` has been [temporarily][issue 1351]
-  removed from `angular_test`. In the meantime, initialize page object classes
-  built using the mock pageloader as shown above.
-</div>
-
-<div class="alert alert-warning" markdown="1">
-  <h4>PO field bindings are final</h4>
-
-  PO fields are bound at the time the PO instance is created, based on
-  the state of the fixture's component's view. Once bound, they do not
-  change.
-</div>
 
 ## Using POs in tests
 
@@ -191,37 +225,44 @@ for this:
 ```
   const windstormData = const <String, dynamic>{'id': 1, 'name': 'Windstorm'};
 
-  test('initial hero properties', () async {
-    expect(await appPO.heroId, windstormData['id']);
-    expect(await appPO.heroName, windstormData['name']);
+  test('initial hero properties', () {
+    expect(appPO.heroId, windstormData['id']);
+    expect(appPO.heroName, windstormData['name']);
   });
 ```
 
 After looking at the app component's [template](#toh-1libapp_componentdart-template),
 you might define the PO `heroId` and `heroName` fields like this:
 
-<?code-excerpt "toh-1/test/app_test.dart (AppPO hero)" title?>
+<?code-excerpt "toh-1/test/app_po.dart (AppPO hero)" title?>
 ```
-  class AppPO extends PageObjectBase {
+  abstract class AppPO {
     // ···
-    @FirstByCss('div')
-    PageLoaderElement get _id => q('div'); // e.g. 'id: 1'
+    @First(ByCss('div'))
+    PageLoaderElement get _id; // e.g. 'id: 1'
 
     @ByTagName('h2')
-    PageLoaderElement get _heroName => q('h2');
+    PageLoaderElement get _heroName;
     // ···
-    Future<int> get heroId async {
-      final idAsString = (await _id.visibleText).split(':')[1];
+    int get heroId {
+      final idAsString = _id.visibleText.split(':')[1];
       return int.tryParse(idAsString) ?? -1;
     }
 
-    Future<String> get heroName => _heroName.visibleText;
+    String get heroName => _heroName.visibleText;
     // ···
   }
 ```
 
 The page object extracts the id from text that follows the "id:" label in
 the first `<div>`, and the hero name from the `<h2>` text.
+
+<div class="alert alert-warning" markdown="1">
+  <h4>PO field bindings are lazily initialized and final</h4>
+
+  PO fields are bound when the field is first accessed, based on the state of the
+  fixture's root element. Once bound, they do not change.
+</div>
 
 ## PO _List_ fields
 
@@ -244,7 +285,7 @@ To define a PO field that collects all generated `<li>` elements, use the annota
 <?code-excerpt "toh-2/test/app_po.dart (_heroes)" title?>
 ```
   @ByTagName('li')
-  List<PageLoaderElement> get _heroes => qq('li');
+  List<PageLoaderElement> get _heroes;
 ```
 
 When bound, the `_heroes` list will contain an element for each `<li>` in the view. If the displayed heroes list is empty, then `_heroes` will be an empty list
@@ -254,8 +295,8 @@ You might render hero data (as a map) from the text of the `<li>` elements like 
 
 <?code-excerpt "toh-2/test/app_po.dart (heroes)" title?>
 ```
-  Iterable<Future<Map>> get heroes =>
-      _heroes.map((el) async => _heroDataFromLi(await el.visibleText));
+  Iterable<Map> get heroes =>
+      _heroes.map((el) => _heroDataFromLi(el.visibleText));
 
   // ···
   Map<String, dynamic> _heroDataFromLi(String liText) {
@@ -280,17 +321,29 @@ Only once a hero is selected from the [Heroes List][toh-pt2], are the selected h
   </div>
 ```
 
-To access optionally displayed page elements like these, use the
-**[@optional][]** annotation:
+Declare an optional field like any other field:
 
-<?code-excerpt "toh-2/test/app_po.dart (hero detail heading)" title?>
+<?code-excerpt "toh-2/test/app_po.dart (hero detail ID)" title?>
 ```
-  @FirstByCss('div h2')
-  @optional
-  PageLoaderElement get _heroDetailHeading => q('div h2');
+  @First(ByCss('div div'))
+  PageLoaderElement get _heroDetailId;
 ```
 
-When no hero details are present in the view, then `_heroDetailHeading` will be `null`.
+To determine whether an optionally displayed page element is present, test its
+`exists` property:
+
+<?code-excerpt "toh-2/test/app_po.dart (heroFromDetails)" title replace="/\w+\.exists/[!$&!]/g"?>
+```
+  Map get heroFromDetails {
+    if (![!_heroDetailId.exists!]) return null;
+    // ···
+  }
+```
+
+{% comment %}
+NOTE: Because fields are lazily initialized, and because we don't test the fields both
+before and after the call to `selectHero()`, we don't require a new PO instance. We might
+new a new instance in later tests, so I'm keeping this prose for now.
 
 ## Getting optional POs after view updates
 
@@ -302,9 +355,8 @@ You'll need to fetch a new PO (since the old PO has null optional fields):
 <?code-excerpt "toh-2/test/app_test.dart (new PO after view update)"?>
 ```
   await appPO.selectHero(5);
-  appPO = await new AppPO().resolve(fixture);
   // ···
-  expect(await appPO.selected, targetHero);
+  expect(appPO.selected, targetHero);
 ```
 
 You'll most likely have more than one test over the selected hero.
@@ -317,23 +369,24 @@ setup method, which selects the hero and gets a new PO.
 
   setUp(() async {
     await appPO.selectHero(5);
-    appPO = await new AppPO().resolve(fixture);
   });
 
-  test('is selected', () async {
-    expect(await appPO.selected, targetHero);
+  test('is selected', () {
+    expect(appPO.selected, targetHero);
   });
 
-  test('show hero details', () async {
-    expect(await appPO.heroFromDetails, targetHero);
+  test('show hero details', () {
+    expect(appPO.heroFromDetails, targetHero);
   });
 ```
+{% endcomment %}
 
 [angular_test]: https://pub.dartlang.org/packages/angular_test
-[@optional]: {{page.pageloaderObjectsApi}}/optional-constant.html
+[@optional]: {{pageloaderObjectsApi}}/optional-constant.html
 [issue 1351]: https://github.com/dart-lang/site-webdev/issues/1351
 [page object]: https://martinfowler.com/bliki/PageObject.html
 [pageloader]: https://pub.dartlang.org/packages/pageloader
+[rootElement]: {{site.api}}/angular_test/latest/angular_test/NgTestFixture/rootElement.html
 [separate concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [toh-pt1]: /angular/tutorial/toh-pt1
 [toh-pt2]: /angular/tutorial/toh-pt2
