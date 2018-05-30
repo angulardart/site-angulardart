@@ -22,7 +22,6 @@ import 'hero.dart';
   // #docregion directives
   directives: [formDirectives],
 )
-// #enddocregion directives
 // #docregion class
 class AppComponent {
   // #enddocregion directives

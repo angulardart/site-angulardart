@@ -7,7 +7,8 @@ readonly rootDir="$(cd "$(dirname "$0")/.." && pwd)"
 
 function usage() {
   echo $1; echo
-  echo "Usage: $(basename $0) [--api] [path-to-src-file-or-folder]"; echo
+  echo "Usage: $(basename $0) [--log-at=LEVEL] [--api|--yaml] [path-to-src-file-or-folder]";
+  echo
   exit 1;
 }
 
@@ -17,16 +18,27 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
 if [[ $1 == --log-at* ]]; then LOG_AT="$1"; shift; fi
 
-gulp create-example-fragments $LOG_AT
-
 ARGS='--no-escape-ng-interpolation '
 
 if [[ $1 == '--api' ]]; then
-  API='/_api'
-  shift
+  API='/_api'; shift
 else
   ARGS='--escape-ng-interpolation '
 fi
+
+FRAG="$rootDir/tmp/_fragments$API"
+
+if [[ $1 == '--yaml' ]]; then
+  ARGS+='--yaml '; shift
+  [[ -z $API ]] || usage "ERROR: the legacy --api flag cannot be used with --yaml"
+  pub run build_runner build --delete-conflicting-outputs --config doc --output="$FRAG"
+  echo
+else
+  gulp create-example-fragments $LOG_AT
+fi
+
+SRC="$1"
+: ${SRC:="$rootDir/src"}
 
 ARGS+='--indentation 2 '
 ARGS+='--replace='
@@ -35,11 +47,7 @@ ARGS+='/ellipsis;?/.../g;' # ellipses; --> ...
 ARGS+='/\/\*(\s*\.\.\.\s*)\*\//$1/g;' # /*...*/ --> ...
 ARGS+='/\{\/\*-(\s*\.\.\.\s*)-\*\/\}/$1/g;' # {/*-...-*/} --> ... (removed brackets too)
 
-SRC="$1"
-: ${SRC:="$rootDir/src"}
 [[ -e $SRC ]] || usage "ERROR: source file/folder does not exist: '$SRC'"
-
-FRAG="$rootDir/tmp/_fragments$API"
 [[ -e $FRAG ]] || usage "ERROR: fragments folder does not exist: '$FRAG'"
 
 echo "Source:     $SRC"

@@ -46,7 +46,6 @@ void main() {
       });
       expect(po.heroFromDetails, targetHero);
     });
-    // #enddocregion transition-to-hero
     // #docregion no-initial-hero
   });
   // #enddocregion no-initial-hero, transition-to-hero

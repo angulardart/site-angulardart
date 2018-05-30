@@ -40,7 +40,6 @@ class InMemoryDataService extends MockClient {
           data = _heroesDb.where((hero) => hero.name.contains(regExp)).toList();
         }
         break;
-      // #enddocregion init-disabled
       case 'POST':
         var name = json.decode(request.body)['name'];
         var newHero = new Hero(_nextId++, name);
@@ -58,7 +57,6 @@ class InMemoryDataService extends MockClient {
         _heroesDb.removeWhere((hero) => hero.id == id);
         // No data, so leave it as null.
         break;
-      // #docregion init-disabled
       default:
         throw 'Unimplemented HTTP method ${request.method}';
     }

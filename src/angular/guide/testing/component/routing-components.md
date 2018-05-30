@@ -121,9 +121,8 @@ The button's click event is bound to the `gotoDetail()` method which is defined 
 
 <?code-excerpt "toh-5/lib/src/hero_list_component.dart (gotoDetail)" title?>
 ```
-    Future<NavigationResult> gotoDetail() =>
-        _router.navigate(_heroUrl(selected.id));
-  }
+  Future<NavigationResult> gotoDetail() =>
+      _router.navigate(_heroUrl(selected.id));
 ```
 
 In the following test excerpt:

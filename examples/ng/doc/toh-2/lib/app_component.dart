@@ -26,7 +26,6 @@ import 'src/mock_heroes.dart';
 // #docregion heroes
 class AppComponent {
   final title = 'Tour of Heroes';
-  // #docregion heroes
   List<Hero> heroes = mockHeroes;
   // #enddocregion heroes
   // #docregion selected

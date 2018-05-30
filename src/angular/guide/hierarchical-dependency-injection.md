@@ -269,8 +269,7 @@ Look closely at the metadata for the `HeroTaxReturnComponent`. Notice the `provi
 
 <?code-excerpt "lib/src/hero_tax_return_component.dart" region="providers"?>
 ```
-    providers: [const ClassProvider(HeroTaxReturnService)],
-  )
+  providers: [const ClassProvider(HeroTaxReturnService)],
 ```
 
 The `HeroTaxReturnComponent` has its own provider of the `HeroTaxReturnService`.

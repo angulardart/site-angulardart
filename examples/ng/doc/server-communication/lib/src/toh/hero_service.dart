@@ -45,7 +45,7 @@ class HeroService {
       throw _handleError(e);
     }
   }
-  // #enddocregion create, v1
+  // #enddocregion create
 
   // #docregion extract-data
   dynamic _extractData(Response resp) => json.decode(resp.body)['data'];

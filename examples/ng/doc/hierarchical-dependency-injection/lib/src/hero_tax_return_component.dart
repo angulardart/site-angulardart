@@ -35,8 +35,8 @@ import 'hero_tax_return_service.dart';
   directives: [coreDirectives, formDirectives],
   // #docregion providers
   providers: [const ClassProvider(HeroTaxReturnService)],
+  // #enddocregion providers
 )
-// #enddocregion providers
 class HeroTaxReturnComponent {
   final HeroTaxReturnService _heroTaxReturnService;
   String message = '';

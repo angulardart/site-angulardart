@@ -57,7 +57,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_shred-other-examples', done => {
     const options = Object.assign({}, _devguideShredOptions);
     options.examplesDir = path.join(config.EXAMPLES_ROOT, 'html');
-    options.fragmentsDir = path.join(options.fragmentsDir, 'html');
+    options.fragmentsDir = path.join(options.fragmentsDir, 'examples', 'html');
     return shred(options, done);
   });
 

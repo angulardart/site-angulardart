@@ -216,16 +216,6 @@ the heroes from the server:
         throw _handleError(e);
       }
     }
-
-    Future<Hero> create(String name) async {
-      try {
-        final response = await _http.post(_heroesUrl,
-            headers: _headers, body: json.encode({'name': name}));
-        return new Hero.fromJson(_extractData(response));
-      } catch (e) {
-        throw _handleError(e);
-      }
-    }
 ```
 
 <div id="client-object"></div>

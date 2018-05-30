@@ -4,7 +4,7 @@ title: "A Tour of the dart:html Library"
 description: Learn about the dart:html library and APIs.
 permalink: /guides/html-library-tour
 ---
-<?code-excerpt path-base="html"?>
+<?code-excerpt path-base="examples/html"?>
 
 Use the [dart:html][] library to
 program the browser, manipulate objects and elements in the DOM, and
