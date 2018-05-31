@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.32.0"
+    version: "0.32.1"
   angular:
     dependency: "direct main"
     description:
@@ -133,7 +133,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.5"
+    version: "5.5.1"
   charcode:
     dependency: transitive
     description:
@@ -203,7 +203,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   glob:
     dependency: transitive
     description:
@@ -224,7 +224,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.3"
+    version: "0.13.3+1"
   http:
     dependency: "direct main"
     description:
@@ -273,7 +273,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5"
+    version: "0.2.6"
   jsonpadding:
     dependency: "direct main"
     description:
@@ -287,7 +287,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   logging:
     dependency: transitive
     description:
@@ -329,7 +329,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.1"
+    version: "1.4.2"
   package_config:
     dependency: transitive
     description:
@@ -343,7 +343,7 @@ packages:
       name: package_resolver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   path:
     dependency: transitive
     description:
@@ -541,4 +541,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.58.0"
+  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.59.0"
