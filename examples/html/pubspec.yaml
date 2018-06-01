@@ -1,0 +1,17 @@
+# #docregion
+name: html_library_sample
+description: HTML package sample
+version: 0.0.1
+
+environment:
+  sdk: '>=2.0.0-dev.55.0 <2.0.0'
+
+dependencies:
+  html: any
+
+dev_dependencies:
+  test: ^0.12.38
+  dartlang_examples_util:
+    git:
+      url: https://github.com/dart-lang/site-www.git
+      path: examples/util

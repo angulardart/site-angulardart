@@ -10,6 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;
 
+  const runHtmlTest = 'pub run test -p travischrome --tags browser';
   const runAngularTest = [
     'pub run build_runner test',
     '--delete-conflicting-outputs',
@@ -21,7 +22,8 @@ module.exports = function (gulp, plugins, config) {
   const allExamplesWithTests = ('quickstart ' +
     'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6 ' +
     'template-syntax').split(' ')
-    .map(name => path.join('ng', 'doc', name));
+    .map(name => path.join('ng', 'doc', name))
+    .concat('html');
 
   const testStatus = {
     passed: [],
@@ -58,7 +60,8 @@ module.exports = function (gulp, plugins, config) {
     try {
       await plugins.execp(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: exPath });
       // plugins.generateBuildYaml(exPath);
-      await plugins.execp(runAngularTest, {
+      const runTest = exPath === 'examples/html' ? runHtmlTest : runAngularTest;
+      await plugins.execp(runTest, {
         cwd: exPath,
         okOnExitRE: /All tests passed/,
         errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
