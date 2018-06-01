@@ -68,7 +68,7 @@ This file will hold the new `HeroComponent`.
 
 Start writing the `HeroComponent` as follows:
 
-<?code-excerpt "lib/src/hero_component.dart (initial version)" region="v1" title?>
+<?code-excerpt "lib/src/hero_component.dart (initial version)" region="v1" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_forms/angular_forms.dart';
@@ -119,7 +119,7 @@ The `HeroComponent` template binds to the component's `hero` property.
 Add that property, along with the requisite import,
 to the `HeroComponent` class.
 
-<?code-excerpt "lib/src/hero_component.dart (hero)" title?>
+<?code-excerpt "lib/src/hero_component.dart (hero)" plaster="none" title?>
 ```
   import 'hero.dart';
 

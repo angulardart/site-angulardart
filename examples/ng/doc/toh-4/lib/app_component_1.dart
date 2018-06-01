@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'package:angular/angular.dart';
 
@@ -36,9 +35,8 @@ class AppComponent implements OnInit {
   final HeroService _heroService;
   AppComponent(this._heroService);
   // #enddocregion ctor
-  // #docregion heroes-and-getHeroes
 
-  // #docregion _getHeroes
+  // #docregion _getHeroes, heroes-and-getHeroes
   void _getHeroes() {
     // #docregion get-heroes
     heroes = _heroService.getAll();

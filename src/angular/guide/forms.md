@@ -160,7 +160,7 @@ Begin with the class because it states, in brief, what the hero editor can do.
 
 Create the following file with the given content:
 
-<?code-excerpt "lib/src/hero_form_component.dart (v1)" title?>
+<?code-excerpt "lib/src/hero_form_component.dart (v1)" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_forms/angular_forms.dart';
@@ -234,7 +234,7 @@ Replace the contents of the starter app version with the following:
 
 Create the template file with the following contents:
 
-<?code-excerpt "lib/src/hero_form_component_1.html (start)" title?>
+<?code-excerpt "lib/src/hero_form_component_1.html (start)" plaster="none" title?>
 ```
   <div class="container">
     <h1>Hero Form</h1>
@@ -755,6 +755,7 @@ its `hidden` property to the `HeroFormComponent.submitted` property.
   <div [hidden]="submitted">
     <h1>Hero Form</h1>
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <!-- ··· -->
     </form>
   </div>
 ```
@@ -763,7 +764,7 @@ The form is visible from the start because the
 `submitted` property is false until you submit the form,
 as this fragment from the `HeroFormComponent` shows:
 
-<?code-excerpt "lib/src/hero_form_component.dart (submitted)" title?>
+<?code-excerpt "lib/src/hero_form_component.dart (submitted)" plaster="none" title?>
 ```
   bool submitted = false;
 

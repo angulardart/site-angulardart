@@ -1,4 +1,3 @@
-# #docregion
 name: server_communication
 description: Server Communication
 version: 0.0.1
@@ -9,7 +8,7 @@ environment:
 dependencies:
   angular: ^5.0.0-alpha
   http: ^0.11.0
-  jsonpadding: ^0.1.0
+  jsonpadding: ^1.0.1
   stream_transform: ^0.0.5
 
 dev_dependencies:

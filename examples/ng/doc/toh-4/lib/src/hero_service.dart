@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'dart:async';
 
@@ -11,7 +10,7 @@ import 'mock_heroes.dart';
 class HeroService {
   // #docregion getAll
   Future<List<Hero>> getAll() async => mockHeroes;
-  // #enddocregion , getAll
+  // #enddocregion getAll,
   // See the "Take it slow" appendix
   // #docregion getAllSlowly
   Future<List<Hero>> getAllSlowly() {

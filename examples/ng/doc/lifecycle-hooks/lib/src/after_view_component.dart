@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -84,7 +83,6 @@ class AfterViewComponent implements AfterViewChecked, AfterViewInit {
     _logger.log(message);
   }
   // #docregion hooks
-  // ...
 }
 // #enddocregion hooks
 

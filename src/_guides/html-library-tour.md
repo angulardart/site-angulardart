@@ -349,7 +349,7 @@ The HttpRequest static method `getString()` is an easy way to get data
 from a web server. Use `await` with the `getString()` call
 to ensure that you have the data before continuing execution.
 
-<?code-excerpt "test/html_test.dart (getString)" replace="/await.*;/[!$&!]/g"?>
+<?code-excerpt "test/html_test.dart (getString)" plaster="none" replace="/await.*;/[!$&!]/g"?>
 {% prettify dart %}
   Future main() async {
     String pageHtml = [!await HttpRequest.getString(url);!]
@@ -383,7 +383,7 @@ retrieves, you can use the `request()` static method instead of
     if (req.status == 200) {
       // Successful URL access...
     }
-    // ...
+    // ···
   }
 {% endprettify %}
 
@@ -449,7 +449,7 @@ handler.
     if (request.status == 200) {
       // Successful URL access...
     }
-    // ...
+    // ···
   }
 {% endprettify %}
 
@@ -492,7 +492,7 @@ To send string data on the WebSocket, use the `send()` method:
 To receive data on the WebSocket, register a listener for message
 events:
 
-<?code-excerpt "test/html_test.dart (onMessage)"?>
+<?code-excerpt "test/html_test.dart (onMessage)" plaster="none"?>
 {% prettify dart %}
   ws.onMessage.listen((MessageEvent e) {
     print('Received message: ${e.data}');
@@ -509,7 +509,7 @@ and (as shown earlier) message. Here’s an example of a method that
 creates a WebSocket object and registers handlers for open, close,
 error, and message events:
 
-<?code-excerpt "test/html_test.dart (initWebSocket)"?>
+<?code-excerpt "test/html_test.dart (initWebSocket)" plaster="none"?>
 {% prettify dart %}
   void initWebSocket([int retrySeconds = 1]) {
     var reconnectScheduled = false;

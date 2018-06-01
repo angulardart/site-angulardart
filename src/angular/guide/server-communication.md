@@ -165,7 +165,7 @@ and the resources at the end of that tutorial.
 In the previous samples, the app faked interaction with the server by
 returning mock heroes in a service:
 
-<?code-excerpt "../toh-4/lib/src/hero_service.dart"?>
+<?code-excerpt "../toh-4/lib/src/hero_service.dart" plaster="none"?>
 ```
   import 'dart:async';
 
@@ -177,10 +177,6 @@ returning mock heroes in a service:
   @Injectable()
   class HeroService {
     Future<List<Hero>> getAll() async => mockHeroes;
-    // See the "Take it slow" appendix
-    Future<List<Hero>> getAllSlowly() {
-      return new Future.delayed(const Duration(seconds: 2), getAll);
-    }
   }
 ```
 
@@ -234,6 +230,7 @@ Here's the code that uses the client's `get()` method to fetch data:
 <?code-excerpt "lib/src/toh/hero_service.dart (getAll)" region="http-get" title?>
 ```
   static const _heroesUrl = 'api/heroes'; // URL to web API
+  // ···
   Future<List<Hero>> getAll() async {
     try {
       final response = await _http.get(_heroesUrl);
@@ -324,7 +321,7 @@ but only if the message is something that the user can understand and act upon.
 
 This simple app handles a `getAll()` error as follows:
 
-<?code-excerpt "lib/src/toh/hero_service.dart (excerpt)" region="error-handling" title?>
+<?code-excerpt "lib/src/toh/hero_service.dart (excerpt)" region="error-handling" plaster="none" title?>
 ```
   Future<List<Hero>> getAll() async {
     try {

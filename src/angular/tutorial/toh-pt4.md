@@ -74,7 +74,7 @@ Create the file `hero_service.dart` under `lib/src`.
 
 Name the class `HeroService`.
 
-<?code-excerpt "lib/src/hero_service_1.dart (empty class)" title?>
+<?code-excerpt "lib/src/hero_service_1.dart (empty class)" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
 
@@ -196,7 +196,7 @@ and **remove** the `heroes` initializer:
 <?code-excerpt "lib/app_component_1.dart (heroes and getHeroes)" title?>
 ```
   List<Hero> heroes;
-
+  // ···
   void _getHeroes() {
     heroes = _heroService.getAll();
   }
@@ -229,7 +229,9 @@ at the right time. In this case, initialize by calling `getHeroes()`.
 <?code-excerpt "lib/app_component_1.dart (OnInit and ngOnInit)"?>
 ```
   class AppComponent implements OnInit {
+    // ···
     void ngOnInit() => _getHeroes();
+    // ···
   }
 ```
 

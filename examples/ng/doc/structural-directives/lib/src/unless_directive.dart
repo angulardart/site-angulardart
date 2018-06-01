@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion no-docs, skeleton,
 import 'package:angular/angular.dart';
 

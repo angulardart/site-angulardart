@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion , imports
 import 'dart:async';
 import 'dart:convert';
@@ -69,7 +68,6 @@ class HeroService {
   }
   // #enddocregion create
   // #docregion update
-
   Future<Hero> update(Hero hero) async {
     try {
       final url = '$_heroesUrl/${hero.id}';

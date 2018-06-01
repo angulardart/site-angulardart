@@ -1,5 +1,4 @@
-// #docplaster
-@Tags(['browser'])
+@Tags(const ['browser'])
 @TestOn('browser')
 import 'dart:async';
 import 'dart:html';
@@ -86,7 +85,6 @@ void main() {
       if (req.status == 200) {
         // Successful URL access...
       }
-      // ...
       // #enddocregion request
       expect(req.status, 200);
       // #docregion request
@@ -121,7 +119,6 @@ void main() {
       if (request.status == 200) {
         // Successful URL access...
       }
-      // ...
       // #enddocregion POST
       print('Request status: ${request.status}');
       // #docregion POST

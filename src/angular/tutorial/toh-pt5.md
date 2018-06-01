@@ -263,13 +263,13 @@ First create a file to hold route paths. Initialize it with this content:
 <?code-excerpt "lib/src/route_paths.dart" region="v1" title?>
 ```
   import 'package:angular_router/angular_router.dart';
-
+  // ···
   final heroes = new RoutePath(path: 'heroes');
 ```
 
 As a first route, define a route to the heroes component:
 
-<?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
+<?code-excerpt "lib/src/routes.dart (a first route)" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
@@ -334,7 +334,7 @@ the app.
 The `<router-outlet>` takes a list of routes as input, so import the app
 routes and bind them to the `routes` property as shown here:
 
-<?code-excerpt "lib/app_component.dart (routes and template)" remove="/nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
+<?code-excerpt "lib/app_component.dart (routes and template)" plaster="none" remove="/nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
 ```
   import 'src/routes.dart';
 
@@ -468,7 +468,7 @@ and then creating a route definition.
   final dashboard = new RoutePath(path: 'dashboard');
 ```
 
-<?code-excerpt "lib/src/routes.dart (dashboard)" replace="/_dashboard/[!$&!]/g" remove="·" title?>
+<?code-excerpt "lib/src/routes.dart (dashboard)" replace="/_dashboard/[!$&!]/g" plaster="none" title?>
 ```
   static final [!_dashboard!] = new RouteDefinition(
     routePath: paths.dashboard,
@@ -551,6 +551,7 @@ template file, and add the directives shown below (you'll add the necessary impo
   @Component(
     selector: 'my-dashboard',
     templateUrl: 'dashboard_component.html',
+    // ···
     directives: [coreDirectives],
   )
 ```
@@ -761,6 +762,7 @@ you can **remove the `@Input()` annotation** from the `hero` field:
 ```
   class HeroComponent implements OnActivate {
     Hero hero;
+    // ···
   }
 ```
 
@@ -774,9 +776,9 @@ Add the following imports:
 <?code-excerpt "lib/src/hero_component.dart (added-imports)" title?>
 ```
   import 'dart:async';
-
+  // ···
   import 'package:angular_router/angular_router.dart';
-
+  // ···
   import 'hero_service.dart';
   import 'route_paths.dart' as paths;
 ```
@@ -799,11 +801,13 @@ the [onActivate()][] [router lifecycle hook][]:
 <?code-excerpt "lib/src/hero_component.dart (OnActivate)" title?>
 ```
   class HeroComponent implements OnActivate {
+    // ···
     @override
     Future<void> onActivate(_, RouterState current) async {
       final id = paths.getId(current.parameters);
       if (id != null) hero = await (_heroService.get(id));
     }
+    // ···
   }
 ```
 
@@ -882,6 +886,7 @@ Update the component metadata with a `templateUrl` pointing to the template file
   @Component(
     selector: 'my-hero',
     templateUrl: 'hero_component.html',
+    // ···
     directives: [coreDirectives, formDirectives],
   )
 ```

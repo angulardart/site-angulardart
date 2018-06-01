@@ -435,7 +435,7 @@ The overall structure of the `update()` method is similar to that of
 <?code-excerpt "lib/src/hero_service.dart (update)" title?>
 ```
   static final _headers = {'Content-Type': 'application/json'};
-
+  // ···
   Future<Hero> update(Hero hero) async {
     try {
       final url = '$_heroesUrl/${hero.id}';
@@ -728,7 +728,6 @@ Create the `HeroSearchComponent` class and metadata.
 
     HeroSearchComponent(this._heroSearchService, this._router) {}
 
-    // Push a search term into the stream.
     void search(String term) => _searchTerms.add(term);
 
     Future<void> ngOnInit() async {
@@ -759,8 +758,7 @@ Focus on `_searchTerms`:
 ```
   StreamController<String> _searchTerms =
       new StreamController<String>.broadcast();
-
-  // Push a search term into the stream.
+  // ···
   void search(String term) => _searchTerms.add(term);
 ```
 
@@ -778,7 +776,7 @@ You can turn the stream of search terms into a stream of `Hero` lists and assign
 <?code-excerpt "lib/src/hero_search_component.dart (search)"?>
 ```
   Stream<List<Hero>> heroes;
-
+  // ···
   Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(new Duration(milliseconds: 300)))
@@ -829,7 +827,7 @@ Add the hero search HTML element to the bottom of the `DashboardComponent` templ
 
 Finally, import `HeroSearchComponent` from `hero_search_component.dart` and add it to the `directives` list.
 
-<?code-excerpt "lib/src/dashboard_component.dart (search)" remove="·" title?>
+<?code-excerpt "lib/src/dashboard_component.dart (search)" plaster="none" title?>
 ```
   import 'hero_search_component.dart';
 

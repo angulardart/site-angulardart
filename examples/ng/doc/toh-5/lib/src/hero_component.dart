@@ -1,15 +1,14 @@
-// #docplaster
 // #docregion , v2
 // #docregion added-imports
 import 'dart:async';
-
 // #enddocregion added-imports
+
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 // #docregion added-imports
 import 'package:angular_router/angular_router.dart';
-
 // #enddocregion added-imports
+
 import 'hero.dart';
 // #docregion added-imports
 import 'hero_service.dart';

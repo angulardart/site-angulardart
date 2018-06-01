@@ -182,7 +182,7 @@ An expression can also refer to properties of the _template's_ context,
 such as a [template input variable](#template-input-variable) (`let hero`)
 or a [template reference variable](#ref-vars) (`#heroInput`).
 
-<?code-excerpt "lib/app_component.html (context-var)"?>
+<?code-excerpt "lib/app_component.html (context-var)" plaster="none"?>
 ```
   <div *ngFor="let hero of heroes">{!{hero.name}!}</div>
   <input #heroInput> {!{heroInput.value}!}
@@ -315,7 +315,7 @@ a [template input variable](#template-input-variable) (`let hero`),
 and a [template reference variable](#ref-vars) (`#heroForm`)
 are passed to an event handling method of the component.
 
-<?code-excerpt "lib/app_component.html (context-var-statement)"?>
+<?code-excerpt "lib/app_component.html (context-var-statement)" plaster="none"?>
 ```
   <button (click)="onSave($event)">Save</button>
   <button *ngFor="let hero of heroes" (click)="deleteHero(hero)">{!{hero.name}!}</button>
@@ -1110,7 +1110,7 @@ Here are the pertinent excerpts from that `HeroDetailComponent`:
     </div>
   ''',
 ```
-<?code-excerpt "lib/src/hero_component.dart (deleteRequest)" title?>
+<?code-excerpt "lib/src/hero_component.dart (deleteRequest)" plaster="none" title?>
 ```
   final _deleteRequest = new StreamController<Hero>();
   @Output()
@@ -1720,7 +1720,7 @@ reference the `hero` input variable within the `ngFor` host element
 Here `hero` is referenced first in an interpolation
 and then passed in a binding to the `hero` property of the `<my-hero>` component.
 
-<?code-excerpt "lib/app_component.html (NgFor-1-2)"?>
+<?code-excerpt "lib/app_component.html (NgFor-1-2)" plaster="none"?>
 ```
   <div *ngFor="let hero of heroes">{!{hero.name}!}</div>
   <my-hero *ngFor="let hero of heroes" [hero]="hero"></my-hero>
@@ -1801,7 +1801,7 @@ Angular puts only the *selected* element into the DOM.
 *NgSwitch* is actually a set of three, cooperating directives:
 `NgSwitch`, `NgSwitchCase`, and `NgSwitchDefault` as seen in this example.
 
-<?code-excerpt "lib/app_component.html (NgSwitch)"?>
+<?code-excerpt "lib/app_component.html (NgSwitch)" plaster="none"?>
 ```
   <div [ngSwitch]="currentHero.emotion">
     <happy-hero    *ngSwitchCase="'happy'"    [hero]="currentHero"></happy-hero>

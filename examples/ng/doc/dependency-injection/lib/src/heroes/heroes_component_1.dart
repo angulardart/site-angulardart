@@ -1,6 +1,4 @@
-// #docplaster
-// #docregion
-// #docregion full, v1
+// #docregion , full, v1
 import 'package:angular/angular.dart';
 
 // #enddocregion full, v1

@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'dart:async';
 
@@ -31,13 +30,12 @@ class HeroSearchComponent implements OnInit {
   // #enddocregion searchTerms
 
   HeroSearchComponent(this._heroSearchService, this._router) {}
-  // #docregion searchTerms
 
-  // Push a search term into the stream.
+  // #docregion searchTerms
   void search(String term) => _searchTerms.add(term);
   // #enddocregion searchTerms
-  // #docregion search
 
+  // #docregion search
   Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(new Duration(milliseconds: 300)))

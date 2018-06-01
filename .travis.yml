@@ -55,8 +55,7 @@ env:
     - JEKYLL_ENV=production
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l]"
-    # Skip server-comm (https://github.com/dart-lang/site-webdev/issues/1575):
-    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=server-comm|toh"
+    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
     - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp

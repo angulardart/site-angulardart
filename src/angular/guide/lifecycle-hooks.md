@@ -538,7 +538,7 @@ The following hooks take action based on changing values *within the child view*
 which can only be reached by querying for the child view via the property decorated with
 [@ViewChild](/api/angular/angular/ViewChild-class.html).
 
-<?code-excerpt "lib/src/after_view_component.dart (class excerpts)" region="hooks" title?>
+<?code-excerpt "lib/src/after_view_component.dart (class excerpts)" region="hooks" plaster="none" title?>
 ```
   class AfterViewComponent implements AfterViewChecked, AfterViewInit {
     var _prevHero = '';
@@ -563,7 +563,6 @@ which can only be reached by querying for the child view via the property decora
         _doSomething();
       }
     }
-    // ...
   }
 ```
 
@@ -682,7 +681,7 @@ The following *AfterContent* hooks take action based on changing values in a  *c
 which can only be reached by querying for it via the property decorated with
 [@ContentChild](/api/angular/angular/ContentChild-class.html).
 
-<?code-excerpt "lib/src/after_content_component.dart (class excerpts)" region="hooks" title?>
+<?code-excerpt "lib/src/after_content_component.dart (class excerpts)" region="hooks" plaster="none" title?>
 ```
   class AfterContentComponent implements AfterContentChecked, AfterContentInit {
     String _prevHero = '';
@@ -708,8 +707,6 @@ which can only be reached by querying for it via the property decorated with
         _doSomething();
       }
     }
-
-    // ...
   }
 ```
 

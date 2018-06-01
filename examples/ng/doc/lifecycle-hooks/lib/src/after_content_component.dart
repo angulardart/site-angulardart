@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -61,8 +60,8 @@ class AfterContentComponent implements AfterContentChecked, AfterContentInit {
       _doSomething();
     }
   }
-
   // #enddocregion hooks
+  
   // #docregion do-something
   /// This surrogate for real business logic; sets the `comment`
   void _doSomething() {
@@ -76,7 +75,6 @@ class AfterContentComponent implements AfterContentChecked, AfterContentInit {
     _logger.log(message);
   }
   // #docregion hooks
-  // ...
 }
 // #enddocregion hooks
 

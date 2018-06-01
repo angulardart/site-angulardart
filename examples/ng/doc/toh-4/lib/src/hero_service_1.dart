@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion empty-class,
 import 'package:angular/angular.dart';
 

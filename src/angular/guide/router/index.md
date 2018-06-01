@@ -102,6 +102,7 @@ Add the package to the pubspec dependencies:
 ```
   dependencies:
     angular: ^5.0.0-alpha
+    # ···
     [!angular_router: ^2.0.0-alpha!]
 ```
 
@@ -150,13 +151,13 @@ Define [route paths]({{pageUrl}}/1#route-paths):
 <?code-excerpt "lib/src/route_paths.dart" region="v1" title?>
 ```
   import 'package:angular_router/angular_router.dart';
-
+  // ···
   final heroes = new RoutePath(path: 'heroes');
 ```
 </li><li markdown="1">
 Define [route definitions]({{pageUrl}}/1#route-definitions):
 
-<?code-excerpt "lib/src/routes.dart (a first route)" remove="·" title?>
+<?code-excerpt "lib/src/routes.dart (a first route)" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
@@ -190,7 +191,7 @@ the router matches the URL with the heroes route path, and displays a
 `HeroListComponent` immediately below the `<router-outlet>` in the routing
 component template:
 
-<?code-excerpt "lib/app_component.dart (routes and template)" remove="/Hero|nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
+<?code-excerpt "lib/app_component.dart (routes and template)" plaster="none" remove="/Hero|nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
 ```
   import 'src/routes.dart';
 

@@ -1,7 +1,5 @@
-// #docplaster
 // #docregion v1
 import 'package:angular_router/angular_router.dart';
-
 // #enddocregion v1
 // #docregion dashboard
 final dashboard = new RoutePath(path: 'dashboard');

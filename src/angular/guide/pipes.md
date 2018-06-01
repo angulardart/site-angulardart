@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Pipes
 description: Pipes transform displayed values within a template.
 sideNavGroup: advanced
@@ -10,7 +9,6 @@ nextpage:
   title: Router
   url: /angular/guide/router
 ---
-<!-- FilePath: src/angular/guide/pipes.md -->
 <?code-excerpt path-base="examples/ng/doc/pipes"?>
 
 Every app starts out with what seems like a simple task: get data, transform them, and show them to users.
@@ -297,7 +295,7 @@ Angular picks a simpler, faster change detection algorithm when you use a pipe.
 In the next example, the component uses the default, aggressive change detection strategy to monitor and update
 its display of every hero in the `heroes` list. Here's the template:
 
-<?code-excerpt "lib/src/flying_heroes_component.html (v1)" region="template-1" title?>
+<?code-excerpt "lib/src/flying_heroes_component.html (v1)" region="template-1" plaster="none" title?>
 ```
   New hero:
     <input type="text" #box
@@ -311,11 +309,12 @@ its display of every hero in the `heroes` list. Here's the template:
 
 The companion component class provides heroes, adds heroes into the list, and can reset the list.
 
-<?code-excerpt "lib/src/flying_heroes_component.dart (v1)" title?>
+<?code-excerpt "lib/src/flying_heroes_component.dart (v1)" plaster="none" replace="/  (heroes\.add)/$1/g" title?>
 ```
   class FlyingHeroesComponent {
     List<Hero> heroes;
     bool canFly = true;
+
     FlyingHeroesComponent() {
       reset();
     }
@@ -325,7 +324,7 @@ The companion component class provides heroes, adds heroes into the list, and ca
       if (name.isEmpty) return;
 
       var hero = new Hero(name, canFly);
-        heroes.add(hero);
+      heroes.add(hero);
     }
 
     void reset() {
@@ -474,7 +473,7 @@ This is a good candidate for an impure pipe because the `transform` function is 
 
 You can derive a `FlyingHeroesImpureComponent` from `FlyingHeroesComponent`.
 
-<?code-excerpt "lib/src/flying_heroes_component.dart (impure component)" title?>
+<?code-excerpt "lib/src/flying_heroes_component.dart (impure component)" plaster="none" title?>
 ```
   @Component(
     selector: 'flying-heroes-impure',

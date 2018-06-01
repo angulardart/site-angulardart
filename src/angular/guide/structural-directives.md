@@ -55,7 +55,7 @@ Three of the common, built-in structural directives &mdash; [NgIf](template-synt
 described in the [_Template Syntax_](template-syntax) guide and seen in samples throughout the Angular documentation.
 Here's an example of them in a template:
 
-<?code-excerpt "lib/app_component.html (built-in)"?>
+<?code-excerpt "lib/app_component.html (built-in)" plaster="none"?>
 ```
   <div *ngIf="hero != null" >{!{hero.name}!}</div>
 
@@ -220,7 +220,7 @@ template _attribute_ to template _element_.
 
 Here's a full-featured app of `NgFor`, written all three ways:
 
-<?code-excerpt "lib/app_component.html (inside-ngfor)"?>
+<?code-excerpt "lib/app_component.html (inside-ngfor)" plaster="none"?>
 ```
   <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackByHeroId"
        [class.odd]="odd">
@@ -562,7 +562,7 @@ that does the opposite of `NgIf`.
 Creating a directive is similar to creating a component.
 Here's how you might begin:
 
-<?code-excerpt "lib/src/unless_directive.dart (skeleton)" title?>
+<?code-excerpt "lib/src/unless_directive.dart (skeleton)" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
 
@@ -642,7 +642,7 @@ Nobody reads the `myUnless` property so it doesn't need a getter.
 
 The completed directive code looks like this:
 
-<?code-excerpt "lib/src/unless_directive.dart (excerpt)" region="no-docs" title?>
+<?code-excerpt "lib/src/unless_directive.dart (excerpt)" region="no-docs" plaster="none" title?>
 ```
   import 'package:angular/angular.dart';
 

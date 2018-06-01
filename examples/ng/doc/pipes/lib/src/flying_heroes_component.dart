@@ -1,4 +1,3 @@
-// #docplaster
 // #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -19,8 +18,8 @@ class FlyingHeroesComponent {
   // #enddocregion v1
   bool mutate = true;
   String title = 'Flying Heroes (pure pipe)';
-
   // #docregion v1
+
   FlyingHeroesComponent() {
     reset();
   }

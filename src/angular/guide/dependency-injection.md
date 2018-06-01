@@ -317,7 +317,7 @@ The most common of these is [@Component()][].
 
 Here's a revised `HeroesComponent` that registers the `HeroService` in its `providers` list.
 
-<?code-excerpt "lib/src/heroes/heroes_component_1.dart (revised)" region="full" replace="/providers:.*/[!$&!]/g" title?>
+<?code-excerpt "lib/src/heroes/heroes_component_1.dart (revised)" region="full" plaster="none" replace="/providers:.*/[!$&!]/g" title?>
 ```
   import 'package:angular/angular.dart';
 
@@ -914,7 +914,7 @@ a logger?
 You can tell Angular that the dependency is optional by annotating the
 constructor argument with [@Optional()][]:
 
-<?code-excerpt "lib/src/providers_component.dart (Optional)" replace="/(\w+)\d/$1/g; / : super\S+//g" remove="·"?>
+<?code-excerpt "lib/src/providers_component.dart (Optional)" plaster="none" replace="/(\w+)\d/$1/g; / : super\S+//g"?>
 ```
   HeroService(@Optional() Logger logger) {
     logger?.fine('Hello');

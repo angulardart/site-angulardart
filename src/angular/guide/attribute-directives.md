@@ -223,7 +223,7 @@ which you declare and initialize in the constructor.
 
 Here's the updated directive in full:
 
-<?code-excerpt "lib/src/highlight_directive_2.dart" title?>
+<?code-excerpt "lib/src/highlight_directive_2.dart" plaster="none" title?>
 ```
   import 'dart:html';
 
