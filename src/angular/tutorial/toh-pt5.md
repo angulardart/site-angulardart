@@ -758,9 +758,9 @@ The major changes are driven by how you get hero names.
 You will no longer receive the hero in a parent component property binding, so
 you can **remove the `@Input()` annotation** from the `hero` field:
 
-<?code-excerpt "lib/src/hero_component.dart (hero with @Input removed)" region="hero" title?>
+<?code-excerpt "lib/src/hero_component.dart (hero with @Input removed)" region="hero" replace="/implements \w+ //g" title?>
 ```
-  class HeroComponent implements OnActivate {
+  class HeroComponent {
     Hero hero;
     // ···
   }
