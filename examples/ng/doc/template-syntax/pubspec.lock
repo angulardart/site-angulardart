@@ -126,7 +126,7 @@ packages:
       name: build_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2+3"
+    version: "0.10.2+4"
   build_web_compilers:
     dependency: "direct dev"
     description:
@@ -308,7 +308,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.7"
+    version: "0.2.7+1"
   kernel:
     dependency: transitive
     description:
@@ -392,7 +392,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.1"
+    version: "1.6.0"
   perf_api:
     dependency: transitive
     description:
@@ -539,7 +539,7 @@ packages:
       name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.12"
   string_scanner:
     dependency: transitive
     description:
@@ -625,4 +625,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.59.0"
+  dart: ">=2.0.0-dev.56.0 <=2.0.0-dev.60.0"

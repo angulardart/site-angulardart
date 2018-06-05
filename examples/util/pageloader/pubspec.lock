@@ -14,28 +14,28 @@ packages:
       name: angular
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-alpha+13"
+    version: "5.0.0-alpha+14"
   angular_ast:
     dependency: transitive
     description:
       name: angular_ast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.3+1"
+    version: "0.5.3+2"
   angular_compiler:
     dependency: transitive
     description:
       name: angular_compiler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0-alpha+13"
+    version: "0.4.0-alpha+14"
   angular_test:
     dependency: "direct main"
     description:
       name: angular_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+11"
+    version: "2.0.0-alpha+12"
   args:
     dependency: transitive
     description:
@@ -273,7 +273,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.1"
+    version: "1.6.0"
   plugin:
     dependency: transitive
     description:
@@ -443,4 +443,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.59.0"
+  dart: ">=2.0.0-dev.56.0 <=2.0.0-dev.60.0"
