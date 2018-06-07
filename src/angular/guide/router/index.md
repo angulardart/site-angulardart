@@ -167,15 +167,13 @@ Define [route definitions]({{pageUrl}}/1#route-definitions):
 
   @Injectable()
   class Routes {
-    static final _heroes = new RouteDefinition(
-      routePath: paths.heroes,
-      component: hlct.HeroListComponentNgFactory,
-    );
-
-    RouteDefinition get heroes => _heroes;
+    RoutePath get heroes => paths.heroes;
 
     final List<RouteDefinition> all = [
-      _heroes,
+      new RouteDefinition(
+        path: paths.heroes.path,
+        component: hlct.HeroListComponentNgFactory,
+      ),
     ];
   }
 ```
@@ -225,9 +223,9 @@ Bind each `RouterLink` directive to a template expression that evaluates to a UR
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [![routerLink]!]="routes.crises.path"
+      <a [![routerLink]!]="routes.crises.toUrl()"
          [!routerLinkActive!]="active-route">Crisis Center</a>
-      <a [![routerLink]!]="routes.heroes.path"
+      <a [![routerLink]!]="routes.heroes.toUrl()"
          [!routerLinkActive!]="active-route">Heroes</a>
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>

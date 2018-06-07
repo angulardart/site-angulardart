@@ -279,15 +279,13 @@ As a first route, define a route to the heroes component:
 
   @Injectable()
   class Routes {
-    static final _heroes = new RouteDefinition(
-      routePath: paths.heroes,
-      component: hlct.HeroListComponentNgFactory,
-    );
-
-    RouteDefinition get heroes => _heroes;
+    RoutePath get heroes => paths.heroes;
 
     final List<RouteDefinition> all = [
-      _heroes,
+      new RouteDefinition(
+        path: paths.heroes.path,
+        component: hlct.HeroListComponentNgFactory,
+      ),
     ];
   }
 ```
@@ -468,18 +466,16 @@ and then creating a route definition.
   final dashboard = new RoutePath(path: 'dashboard');
 ```
 
-<?code-excerpt "lib/src/routes.dart (dashboard)" replace="/_dashboard/[!$&!]/g" plaster="none" title?>
+<?code-excerpt "lib/src/routes.dart (dashboard)" replace="/(all = \[)[\S\s]+?···/$1/g" title?>
 ```
-  static final [!_dashboard!] = new RouteDefinition(
-    routePath: paths.dashboard,
-    component: dct.DashboardComponentNgFactory,
-  );
-
-  RouteDefinition get dashboard => [!_dashboard!];
-
+  RoutePath get dashboard => paths.dashboard;
+  // ···
   final List<RouteDefinition> all = [
-    [!_dashboard!],
-    _heroes,
+    new RouteDefinition(
+      path: paths.dashboard.path,
+      component: dct.DashboardComponentNgFactory,
+    ),
+    // ···
   ];
 ```
 
@@ -692,23 +688,18 @@ In the routes file, import the hero detail component template:
 
 Next, add the following route:
 
-<?code-excerpt "lib/src/routes.dart (hero)" replace="/hero\b(?!,)|_hero\b/[!$&!]/g" title?>
+<?code-excerpt "lib/src/routes.dart (hero)" title?>
 ```
-  class Routes {
+  RoutePath get hero => paths.hero;
+
+  final List<RouteDefinition> all = [
     // ···
-    static final [!_hero!] = new RouteDefinition(
-      routePath: paths.hero,
+    new RouteDefinition(
+      path: paths.hero.path,
       component: hct.HeroComponentNgFactory,
-    );
-
-    RouteDefinition get [!hero!] => [!_hero!];
-
-    final List<RouteDefinition> all = [
-      // ···
-      [!_hero!],
-      _heroes,
-    ];
-  }
+    ),
+    // ···
+  ];
 ```
 
 You're finished with the app routes.

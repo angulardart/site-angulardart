@@ -15,47 +15,41 @@ import 'hero_list_component.template.dart' as hlct;
 // #enddocregion hlct
 
 @Injectable()
-// #docregion hero
 class Routes {
-  // #enddocregion hero
-  static final _heroes = new RouteDefinition(
-    routePath: paths.heroes,
-    component: hlct.HeroListComponentNgFactory,
-  );
+  RoutePath get heroes => paths.heroes;
 
-  RouteDefinition get heroes => _heroes;
   // #enddocregion a-first-route
-
   // #docregion dashboard
-  static final _dashboard = new RouteDefinition(
-    routePath: paths.dashboard,
-    component: dct.DashboardComponentNgFactory,
-  );
-
-  RouteDefinition get dashboard => _dashboard;
+  RoutePath get dashboard => paths.dashboard;
   // #enddocregion dashboard
 
   // #docregion hero
-  static final _hero = new RouteDefinition(
-    routePath: paths.hero,
-    component: hct.HeroComponentNgFactory,
-  );
+  RoutePath get hero => paths.hero;
 
-  RouteDefinition get hero => _hero;
   // #docregion a-first-route, dashboard
-
   final List<RouteDefinition> all = [
     // #enddocregion a-first-route, dashboard, hero
     // #docregion redirect-route
     new RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
     // #enddocregion redirect-route
     // #docregion dashboard
-    _dashboard,
+    new RouteDefinition(
+      path: paths.dashboard.path,
+      component: dct.DashboardComponentNgFactory,
+    ),
     // #enddocregion dashboard
     // #docregion hero
-    _hero,
-    // #docregion a-first-route, dashboard
-    _heroes,
+    new RouteDefinition(
+      path: paths.hero.path,
+      component: hct.HeroComponentNgFactory,
+    ),
+    // #enddocregion hero
+    // #docregion a-first-route
+    new RouteDefinition(
+      path: paths.heroes.path,
+      component: hlct.HeroListComponentNgFactory,
+    ),
+    // #docregion dashboard, hero
   ];
-  // #enddocregion dashboard
+  // #enddocregion dashboard, hero
 }

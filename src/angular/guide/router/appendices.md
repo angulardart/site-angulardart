@@ -29,7 +29,7 @@ You can bind the `RouterLink` directive to such an list like this:
 
 <?code-excerpt "lib/app_component_1.dart (template)" retain="/heroes|Heroes/"?>
 ```
-  <a [routerLink]="routes.heroes.path"
+  <a [routerLink]="routes.heroes.toUrl()"
      routerLinkActive="active-route">Heroes</a>
 ```
 

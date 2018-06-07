@@ -273,15 +273,18 @@ like this:
     selector: 'test',
     template: '''
       <my-dashboard></my-dashboard>
-      <router-outlet [routes]="[routes.hero]"></router-outlet>
+      <router-outlet [routes]="[heroRoute]"></router-outlet>
     ''',
     directives: [RouterOutlet, DashboardComponent],
     providers: [const ClassProvider(Routes)],
   )
   class TestComponent {
-    final Routes routes;
+    final RouteDefinition heroRoute;
     final Router router;
-    TestComponent(this.routes, this.router);
+
+    TestComponent(Routes routes, this.router)
+        : heroRoute =
+              routes.all.firstWhere((def) => def.path == routes.hero.path);
   }
 ```
 

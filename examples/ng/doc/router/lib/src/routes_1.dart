@@ -1,7 +1,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'route_paths.dart' as paths;
+import 'route_paths_1.dart' as paths;
 import 'crisis_list_component_1.template.dart' as clct;
 import 'hero_list_component_1.template.dart' as hlct;
 
