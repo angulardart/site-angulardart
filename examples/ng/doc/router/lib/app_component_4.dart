@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
@@ -17,7 +16,7 @@ import 'src/hero/hero_service.dart';
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: ['.active-route {color: #039be5;}'],
+  styles: ['.active-route {color: #039be5}'],
   directives: [routerDirectives],
   providers: [
     const ClassProvider(HeroService),

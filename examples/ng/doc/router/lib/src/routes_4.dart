@@ -10,28 +10,22 @@ import 'not_found_component.template.dart' as nfct;
 
 @Injectable()
 class Routes {
-  static final _crises = new RouteDefinition(
-    routePath: paths.crises,
-    component: clct.CrisisListComponentNgFactory,
-  );
-
-  static final _heroes = new RouteDefinition(
-    routePath: paths.heroes,
-    component: hlct.HeroListComponentNgFactory,
-  );
-
-  static final _hero = new RouteDefinition(
-    routePath: paths.hero,
-    component: hct.HeroComponentNgFactory,
-  );
-
-  final crises = _crises;
-  final heroes = _heroes;
+  RoutePath get crises => paths.crises;
+  RoutePath get heroes => paths.heroes;
 
   final List<RouteDefinition> all = [
-    _crises,
-    _heroes,
-    _hero,
+    new RouteDefinition(
+      routePath: paths.crises,
+      component: clct.CrisisListComponentNgFactory,
+    ),
+    new RouteDefinition(
+      routePath: paths.heroes,
+      component: hlct.HeroListComponentNgFactory,
+    ),
+    new RouteDefinition(
+      routePath: paths.hero,
+      component: hct.HeroComponentNgFactory,
+    ),
     new RouteDefinition.redirect(
       path: '',
       redirectTo: paths.heroes.toUrl(),

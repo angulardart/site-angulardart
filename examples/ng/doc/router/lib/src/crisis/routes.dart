@@ -10,28 +10,25 @@ import 'route_paths.dart' as paths;
 
 class Routes {
   // #enddocregion home
-  static final _crisis = new RouteDefinition(
-    routePath: paths.crisis,
-    component: cct.CrisisComponentNgFactory,
-  );
-
-  final crisis = _crisis;
+  RoutePath get crisis => paths.crisis;
   // #enddocregion v1
-
   // #docregion home
-  static final _home = new RouteDefinition(
-    routePath: paths.home,
-    component: clhct.CrisisListHomeComponentNgFactory,
-    useAsDefault: true,
-  );
-
-  final home = _home;
+  RoutePath get home => paths.home;
   // #docregion v1
 
   final List<RouteDefinition> all = [
-    _crisis,
+    // #enddocregion home
+    new RouteDefinition(
+      routePath: paths.crisis,
+      component: cct.CrisisComponentNgFactory,
+    ),
     // #enddocregion v1
-    _home,
+    // #docregion home
+    new RouteDefinition(
+      routePath: paths.home,
+      component: clhct.CrisisListHomeComponentNgFactory,
+      useAsDefault: true,
+    ),
     // #docregion v1
   ];
 }

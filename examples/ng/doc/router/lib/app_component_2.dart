@@ -15,7 +15,7 @@ import 'src/routes_2.dart';
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: ['.active-route {color: #039be5;}'],
+  styles: ['.active-route {color: #039be5}'],
   directives: [routerDirectives],
   providers: [const ClassProvider(Routes)],
 )

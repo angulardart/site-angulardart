@@ -7,21 +7,17 @@ import 'hero_list_component_1.template.dart' as hlct;
 
 @Injectable()
 class Routes {
-  static final _crises = new RouteDefinition(
-    routePath: paths.crises,
-    component: clct.CrisisListComponentNgFactory,
-  );
-
-  static final _heroes = new RouteDefinition(
-    routePath: paths.heroes,
-    component: hlct.HeroListComponentNgFactory,
-  );
-
-  final crises = _crises;
-  final heroes = _heroes;
+  RoutePath get crises => paths.crises;
+  RoutePath get heroes => paths.heroes;
 
   final List<RouteDefinition> all = [
-    _crises,
-    _heroes,
+    new RouteDefinition(
+      path: paths.crises.path,
+      component: clct.CrisisListComponentNgFactory,
+    ),
+    new RouteDefinition(
+      path: paths.heroes.path,
+      component: hlct.HeroListComponentNgFactory,
+    ),
   ];
 }

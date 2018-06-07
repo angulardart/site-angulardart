@@ -23,7 +23,7 @@ import 'src/routes_1.dart';
     <router-outlet [routes]="routes.all"></router-outlet>
   ''',
   // #enddocregion template-and-directives
-  styles: ['.active-route {color: #039be5;}'],
+  styles: ['.active-route {color: #039be5}'],
   // #enddocregion template
   // #docregion template-and-directives
   directives: [routerDirectives],

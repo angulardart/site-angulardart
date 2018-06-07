@@ -230,7 +230,7 @@ Bind each `RouterLink` directive to a template expression that evaluates to a UR
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>
   ''',
-  styles: ['.active-route {color: #039be5;}'],
+  styles: ['.active-route {color: #039be5}'],
 ```
 
 A [RouterLinkActive][] will apply the named CSS class to the anchor whose link

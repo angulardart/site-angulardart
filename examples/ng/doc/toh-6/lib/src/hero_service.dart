@@ -67,6 +67,7 @@ class HeroService {
     }
   }
   // #enddocregion create
+
   // #docregion update
   Future<Hero> update(Hero hero) async {
     try {

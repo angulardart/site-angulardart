@@ -17,16 +17,15 @@ import 'hero_list_component.template.dart' as hlct;
 @Injectable()
 class Routes {
   RoutePath get heroes => paths.heroes;
-
   // #enddocregion a-first-route
   // #docregion dashboard
   RoutePath get dashboard => paths.dashboard;
   // #enddocregion dashboard
-
   // #docregion hero
   RoutePath get hero => paths.hero;
+  // #docregion a-first-route
 
-  // #docregion a-first-route, dashboard
+  // #docregion dashboard
   final List<RouteDefinition> all = [
     // #enddocregion a-first-route, dashboard, hero
     // #docregion redirect-route
