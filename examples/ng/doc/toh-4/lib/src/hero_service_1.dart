@@ -1,4 +1,4 @@
-// #docregion empty-class,
+// #docregion empty-class, ''
 import 'package:angular/angular.dart';
 
 // #enddocregion empty-class

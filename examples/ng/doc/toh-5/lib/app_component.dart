@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 // #docregion router-import
 import 'package:angular_router/angular_router.dart';

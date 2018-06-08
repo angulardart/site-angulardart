@@ -1,4 +1,4 @@
-// #docregion , v1, final
+// #docregion '', v1, final
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 
@@ -45,7 +45,7 @@ class HeroFormComponent {
   // #enddocregion clear
   // #docregion v1
 }
-// #enddocregion , v1, final
+// #enddocregion '', v1, final
 
 Hero skyDog() {
   // #docregion SkyDog

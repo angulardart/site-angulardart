@@ -1,4 +1,4 @@
-// #docregion , a-first-route
+// #docregion a-first-route
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 

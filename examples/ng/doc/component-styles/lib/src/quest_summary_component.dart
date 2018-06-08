@@ -1,6 +1,6 @@
 import 'package:angular/angular.dart';
 
-// #docregion , ViewEncapsulation
+// #docregion ViewEncapsulation
 @Component(
   // #enddocregion ViewEncapsulation
   selector: 'quest-summary',

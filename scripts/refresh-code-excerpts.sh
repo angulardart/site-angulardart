@@ -32,7 +32,7 @@ if [[ $1 == '--yaml' ]]; then
   ARGS+='--yaml '; shift
   [[ -z $API ]] || usage "ERROR: the legacy --api flag cannot be used with --yaml"
   rm -Rf "$FRAG"
-  pub run build_runner build --delete-conflicting-outputs --config doc --output="$FRAG"
+  pub run build_runner build --delete-conflicting-outputs --config excerpt --output="$FRAG"
   echo
 else
   gulp create-example-fragments $LOG_AT

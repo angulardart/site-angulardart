@@ -1,4 +1,4 @@
-// #docregion , v2
+// #docregion v2
 import 'dart:async';
 
 import 'package:angular/angular.dart';

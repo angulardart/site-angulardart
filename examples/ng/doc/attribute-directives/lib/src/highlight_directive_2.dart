@@ -30,7 +30,7 @@ class HighlightDirective {
   void _highlight([String color]) {
     _el.style.backgroundColor = color;
   }
-  // #enddocregion mouse-methods,
+  // #enddocregion '', mouse-methods
 
   // #docregion color
   @Input()

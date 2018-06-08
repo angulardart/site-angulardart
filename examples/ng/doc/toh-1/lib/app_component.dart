@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 // #docregion directives
 import 'package:angular_forms/angular_forms.dart';

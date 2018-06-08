@@ -1,4 +1,3 @@
-// #docregion
 import 'dart:async';
 
 import 'package:pageloader/pageloader.dart';

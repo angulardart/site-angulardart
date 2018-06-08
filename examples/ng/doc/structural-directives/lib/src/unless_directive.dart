@@ -1,4 +1,4 @@
-// #docregion no-docs, skeleton,
+// #docregion no-docs, skeleton
 import 'package:angular/angular.dart';
 
 // #enddocregion no-docs, skeleton

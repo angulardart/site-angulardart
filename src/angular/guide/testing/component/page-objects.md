@@ -38,11 +38,7 @@ Add the package to the pubspec dependencies:
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -1,4 +1,3 @@
- name: angular_tour_of_heroes
- description: Tour of Heroes
- version: 0.0.1
-@@ -8,15 +7,12 @@
+@@ -7,15 +7,12 @@
 
  dependencies:
    angular: ^5.0.0-alpha
@@ -74,7 +70,7 @@ Update the imports at the top of your test file:
 ```diff
 --- toh-0/test/app_test.dart
 +++ toh-1/test/app_test.dart
-@@ -1,42 +1,53 @@
+@@ -1,42 +1,52 @@
  @TestOn('browser')
 
  import 'package:angular_test/angular_test.dart';

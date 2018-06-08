@@ -1,4 +1,3 @@
-// #docregion
 // #docregion pure
 import 'package:angular/angular.dart';
 import 'heroes.dart';

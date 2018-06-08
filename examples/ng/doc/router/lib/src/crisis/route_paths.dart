@@ -1,4 +1,4 @@
-// #docregion , v1
+// #docregion v1
 import 'package:angular_router/angular_router.dart';
 
 import '../route_paths.dart';

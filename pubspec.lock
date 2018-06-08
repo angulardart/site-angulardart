@@ -97,10 +97,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "707dc0100d4f05a7529af999739f4880c330dc0d"
+      resolved-ref: "78dd246534ecb4653306518d2ac99418c8346f7c"
       url: "https://github.com/chalin/code_excerpter.git"
     source: git
-    version: "0.1.0"
+    version: "0.2.0"
   collection:
     dependency: transitive
     description:
@@ -198,7 +198,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.7+1"
+    version: "0.2.8"
   kernel:
     dependency: transitive
     description:

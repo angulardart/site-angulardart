@@ -1,4 +1,4 @@
-// #docregion , directives
+// #docregion directives
 import 'package:angular/angular.dart';
 
 @Component(

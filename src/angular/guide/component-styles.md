@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Component Styles
 description: Learn how to apply CSS styles to components.
 sideNavGroup: advanced
@@ -34,7 +33,7 @@ One way to do this is to set the `styles` property in the component metadata.
 The `styles` property takes a list of strings that contain CSS code.
 Usually you give it one string, as in the following example:
 
-<?code-excerpt "lib/app_component.dart" title?>
+<?code-excerpt "lib/app_component.dart (class)" replace="/styles/[!$&!]/g" title?>
 ```
   @Component(
     selector: 'hero-app',
@@ -42,7 +41,7 @@ Usually you give it one string, as in the following example:
       <h1>Tour of Heroes</h1>
       <hero-app-main [hero]="hero"></hero-app-main>
     ''',
-    styles: ['h1 { font-weight: normal; }'],
+    [!styles!]: ['h1 { font-weight: normal; }'],
     directives: [HeroAppMainComponent],
   )
   class AppComponent {
@@ -160,7 +159,7 @@ The scoping rules outlined earlier apply to each of these loading patterns.
 You can add a `styles` list property to the `@Component` annotation.
 Each string in the list (usually just one string) defines the CSS.
 
-<?code-excerpt "lib/app_component.dart" title?>
+<?code-excerpt "lib/app_component.dart (class)" replace="/styles/[!$&!]/g" title?>
 ```
   @Component(
     selector: 'hero-app',
@@ -168,7 +167,7 @@ Each string in the list (usually just one string) defines the CSS.
       <h1>Tour of Heroes</h1>
       <hero-app-main [hero]="hero"></hero-app-main>
     ''',
-    styles: ['h1 { font-weight: normal; }'],
+    [!styles!]: ['h1 { font-weight: normal; }'],
     directives: [HeroAppMainComponent],
   )
   class AppComponent {

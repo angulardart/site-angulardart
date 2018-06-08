@@ -1,4 +1,3 @@
-// #docregion
 @TestOn('browser')
 
 import 'package:angular/angular.dart';

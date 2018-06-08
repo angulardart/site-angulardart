@@ -1,4 +1,3 @@
-// #docregion
 import 'dart:convert';
 import 'dart:html';
 

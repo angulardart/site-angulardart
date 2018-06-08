@@ -1,4 +1,3 @@
-// #docregion
 import 'package:angular/angular.dart';
 // #docregion import
 import 'src/hero.dart';

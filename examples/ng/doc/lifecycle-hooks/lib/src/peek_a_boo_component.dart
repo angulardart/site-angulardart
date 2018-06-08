@@ -1,4 +1,3 @@
-// #docregion
 // #docregion lc-imports
 import 'package:angular/angular.dart';
 
