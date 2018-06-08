@@ -10,6 +10,7 @@ cache:
   - $HOME/.pub-cache
   - $HOME/.nvm
   - $HOME/.rvm
+  - .dart_tool
   - node_modules
   # - publish # takes too long to cache and check for freshness
   - tmp # TODO: rename to cache or .cache
@@ -87,6 +88,7 @@ jobs:
     - stage: cache warmup and basic checks
       env: CI_TASK="build"
       script:
+      - pub get
       - bundle install
       - gulp ng-pkg-pub-get # --skip=package_name|...
       - gulp _build-prep --clean
@@ -104,6 +106,7 @@ jobs:
     - stage: build site and test examples
       env: CI_TASK="build"
       script:
+        - pub get
         - ./scripts/write-ci-info.sh -v
         - gulp _api-doc-prep --use-cached-api-doc --dartdoc=all
         - gulp _jekyll-build _examples-cp-to-site-folder

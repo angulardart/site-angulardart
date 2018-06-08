@@ -5,6 +5,7 @@
 
 require 'open3'
 require 'nokogiri'
+require 'yaml'
 
 module NgCodeExcerpt
 
@@ -177,7 +178,7 @@ module NgCodeExcerpt
     def processCodePane(pi, attrs, args)
       # FIXME: support use of globally set replace args.
       title = args['title'] || trimFileVers(args[''])
-      escapedCode = getCodeFrag(
+      escapedCode = getCodeFrag(args['path'],
         fullFragPath(args['path'], args['region']),
         srcPath(args['path'], args['region']),
         args['region'])
@@ -219,8 +220,19 @@ module NgCodeExcerpt
       # puts ">> path base set to #{@pathBase}"
     end
 
-    def getCodeFrag(fragPath, srcPath, region)
-      if File.exists? fragPath
+    def getCodeFrag(projRelPath, fragPath, srcPath, region)
+      excerptYamlPath = File.join(Dir.pwd, 'tmp', '_fragments', @pathBase, projRelPath + '.excerpt.yaml');
+      if File.exists? excerptYamlPath
+        yaml = YAML.load_file(excerptYamlPath)
+        result = yaml[region]
+        if (result.nil?)
+          result = "BAD FILENAME: region '#{region}' not found in #{excerptYamlPath}"
+          logPuts result
+        else
+          lines = result.split(/(?<=\n)/) # split and keep separator
+          result = escapeAndTrimCode(lines)
+        end
+      elsif File.exists? fragPath
         lines = File.readlines fragPath
         result = escapeAndTrimCode(lines)
       elsif srcPath && (File.exists? srcPath)
