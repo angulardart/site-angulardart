@@ -101,7 +101,7 @@ Add the package to the pubspec dependencies:
 <?code-excerpt "pubspec.yaml (dependencies)" region="dependencies-wo-forms" replace="/angular_.+/[!$&!]/g" title?>
 ```
   dependencies:
-    angular: ^5.0.0-alpha
+    angular: ^5.0.0-alpha+13
     # ···
     [!angular_router: ^2.0.0-alpha!]
 ```

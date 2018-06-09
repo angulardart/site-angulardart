@@ -4,10 +4,9 @@ set -e -o pipefail
 
 readonly rootDir="$(cd "$(dirname "$0")/.." && pwd)"
 
-
 function usage() {
   echo $1; echo
-  echo "Usage: $(basename $0) [--log-at=LEVEL] [--api|--yaml] [path-to-src-file-or-folder]";
+  echo "Usage: $(basename $0) [--help] [--log-at=LEVEL] [[--api] --legacy] [path-to-src-file-or-folder]";
   echo
   exit 1;
 }
@@ -18,38 +17,43 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
 if [[ $1 == --log-at* ]]; then LOG_AT="$1"; shift; fi
 
-ARGS='--no-escape-ng-interpolation '
+ARGS=''
+FRAG="$rootDir/tmp/_fragments"
+
+if [[ -e "$FRAG" ]]; then echo Deleting old "$FRAG"; rm -Rf "$FRAG"; fi
 
 if [[ $1 == '--api' ]]; then
   API='/_api'; shift
+  FRAG+=$API
+  ARGS+='--no-escape-ng-interpolation '
 else
-  ARGS='--escape-ng-interpolation '
+  ARGS+='--escape-ng-interpolation '
 fi
 
-FRAG="$rootDir/tmp/_fragments$API"
-
-if [[ $1 == '--yaml' ]]; then
-  ARGS+='--yaml '; shift
-  [[ -z $API ]] || usage "ERROR: the legacy --api flag cannot be used with --yaml"
-  rm -Rf "$FRAG"
+if [[ $1 == '--legacy' ]]; then
+  shift
+  gulp create-example-fragments $LOG_AT
+else
+  ARGS+='--yaml '
+  [[ -z $API ]] || usage "ERROR: the legacy --api flag can only be used with --legacy"
+  if [[ ! -e "pubspec.lock" ]]; then pub get; fi
   pub run build_runner build --delete-conflicting-outputs --config excerpt --output="$FRAG"
   echo
-else
-  gulp create-example-fragments $LOG_AT
 fi
+
+[[ -e "$FRAG" ]] || usage "ERROR: fragments folder was not generated: '$FRAG'"
 
 SRC="$1"
 : ${SRC:="$rootDir/src"}
+[[ -e $SRC ]] || usage "ERROR: source file/folder does not exist: '$SRC'"
 
 ARGS+='--indentation 2 '
 ARGS+='--replace='
+# The replace expressions that follow must not contain (unencode/unescaped) spaces:
 ARGS+='/\/\/!<br>//g;' # Use //!<br> to force a line break (against dartfmt)
-ARGS+='/ellipsis;?/.../g;' # ellipses; --> ...
+ARGS+='/ellipsis(<\w+>)?(\(\))?;?/.../g;' # ellipses; --> ...
 ARGS+='/\/\*(\s*\.\.\.\s*)\*\//$1/g;' # /*...*/ --> ...
 ARGS+='/\{\/\*-(\s*\.\.\.\s*)-\*\/\}/$1/g;' # {/*-...-*/} --> ... (removed brackets too)
-
-[[ -e $SRC ]] || usage "ERROR: source file/folder does not exist: '$SRC'"
-[[ -e $FRAG ]] || usage "ERROR: fragments folder does not exist: '$FRAG'"
 
 echo "Source:     $SRC"
 echo "Fragments:  $FRAG"

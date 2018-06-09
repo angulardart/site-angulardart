@@ -105,7 +105,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2+5"
+    version: "0.2.2+6"
   build_resolvers:
     dependency: transitive
     description:
@@ -133,7 +133,7 @@ packages:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0+3"
+    version: "0.4.0+4"
   built_collection:
     dependency: transitive
     description:
@@ -308,7 +308,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.7+1"
+    version: "0.2.8"
   kernel:
     dependency: transitive
     description:
@@ -455,7 +455,7 @@ packages:
       name: sass_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   scratch_space:
     dependency: transitive
     description:
@@ -532,14 +532,14 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.6"
+    version: "1.6.7"
   stream_transform:
     dependency: transitive
     description:
       name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.12"
+    version: "0.0.13"
   string_scanner:
     dependency: transitive
     description:
@@ -567,7 +567,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.38+3"
+    version: "0.12.40"
   tuple:
     dependency: transitive
     description:

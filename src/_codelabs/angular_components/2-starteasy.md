@@ -43,12 +43,11 @@ using whatever [Dart web development tools](/tools) you prefer.
 ```diff
 --- 1-base/pubspec.yaml
 +++ 2-starteasy/pubspec.yaml
-@@ -7,6 +7,8 @@
+@@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^5.0.0-alpha
-+  # TODO(https://github.com/dart-lang/angular_components/issues/267): drop +12
-+  angular_components: ^0.9.0-alpha+12
+   angular: ^5.0.0-alpha+13
++  angular_components: ^0.9.0-alpha+13
    intl: ^0.15.0
 
  dev_dependencies:

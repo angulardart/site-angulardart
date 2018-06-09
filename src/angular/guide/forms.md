@@ -107,7 +107,7 @@ dependencies:
 @@ -7,15 +7,9 @@
 
  dependencies:
-   angular: ^5.0.0-alpha
+   angular: ^5.0.0-alpha+13
 +  angular_forms: ^2.0.0-alpha
 ```
 

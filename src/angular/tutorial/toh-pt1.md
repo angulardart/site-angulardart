@@ -198,7 +198,7 @@ The `angular_forms` library comes in its own package. Add the package to the pub
 @@ -7,15 +7,12 @@
 
  dependencies:
-   angular: ^5.0.0-alpha
+   angular: ^5.0.0-alpha+13
 +  angular_forms: ^2.0.0-alpha
 ```
 

@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: cef0d3d94476d90da02a6ef2ce1341294acf3c05
+      resolved-ref: "74491a68d89e049c0a73fdee9dec558592d9e732"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.1"
@@ -282,7 +282,7 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.6"
+    version: "1.6.7"
   string_scanner:
     dependency: transitive
     description:
@@ -303,7 +303,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.38+3"
+    version: "0.12.40"
   typed_data:
     dependency: transitive
     description:
