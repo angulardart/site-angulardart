@@ -168,7 +168,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.9"
+    version: "1.14.10"
   convert:
     dependency: transitive
     description:
@@ -469,7 +469,7 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.7"
+    version: "1.6.7+1"
   stream_transform:
     dependency: transitive
     description:
