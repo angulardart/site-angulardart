@@ -52,7 +52,7 @@ addons:
 
 env:
   global:
-    # https://github.com/filiph/linkcheck/issues/12:
+    # https://github.com/dart-lang/site-webdev/issues/1638
     # - DART_VM_OPTIONS=--preview-dart-2
     - DISPLAY=:99.0
     - JEKYLL_ENV=production

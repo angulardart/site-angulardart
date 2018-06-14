@@ -13,7 +13,9 @@ module.exports = function (gulp, plugins, config) {
 
   ['get', 'upgrade'].forEach(cmd => {
     gulp.task(`pub-${cmd}-and-check`, [`pub-${cmd}`], () => plugins.gitCheckDiff());
-    gulp.task(`pub-${cmd}`, [`examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
+    gulp.task(`pub-${cmd}`, [`root-pub-${cmd}`, `examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
+
+    gulp.task(`root-pub-${cmd}`, () => plugins.execSyncAndLog(`pub ${cmd}`));
 
     gulp.task(`ng-pkg-pub-${cmd}`, () => {
       if (srcData.match(skipRegEx) || !srcData.match(chooseRegEx)) return;

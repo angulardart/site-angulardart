@@ -34,19 +34,19 @@ from the [pageloader][] package.
 
 Add the package to the pubspec dependencies:
 
-<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dev_dependencies"?>
+<?code-excerpt "toh-0/pubspec.yaml" diff-with="toh-1/pubspec.yaml" from="dev_dependencies" to=" test:"?>
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -7,15 +7,12 @@
+@@ -7,18 +7,15 @@
 
  dependencies:
-   angular: ^5.0.0-alpha+13
+   angular: ^5.0.0-alpha+14
 +  angular_forms: ^2.0.0-alpha
 
  dev_dependencies:
    angular_test: ^2.0.0-alpha
-   build_runner: ^0.8.9
+   build_runner: ^0.8.10
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
 +  pageloader: ^3.0.0-alpha

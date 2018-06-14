@@ -86,12 +86,12 @@ packages:
     source: hosted
     version: "0.12.6"
   build_config:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.6+2"
+    version: "0.3.0"
   build_modules:
     dependency: transitive
     description:
@@ -112,7 +112,14 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.9"
+    version: "0.8.10"
+  build_runner_core:
+    dependency: transitive
+    description:
+      name: build_runner_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   build_test:
     dependency: "direct dev"
     description:
@@ -378,7 +385,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.0"
+    version: "1.6.1"
   perf_api:
     dependency: transitive
     description:
@@ -414,6 +421,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.1"
+  pubspec_parse:
+    dependency: transitive
+    description:
+      name: pubspec_parse
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   quiver:
     dependency: transitive
     description:
@@ -525,7 +539,7 @@ packages:
       name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.14"
   string_scanner:
     dependency: transitive
     description:
@@ -590,4 +604,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.56.0 <=2.0.0-dev.61.0"
+  dart: "2.0.0-dev.62.0"

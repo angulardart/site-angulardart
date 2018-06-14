@@ -6,16 +6,19 @@ environment:
   sdk: '>=2.0.0-dev.56.0 <2.0.0'
 
 dependencies:
-  angular: ^5.0.0-alpha+13
+  angular: ^5.0.0-alpha+14
 
 # #docregion dev_dependencies, build-dependencies
 dev_dependencies:
   # #enddocregion build-dependencies
   angular_test: ^2.0.0-alpha
   # #docregion build-dependencies
-  build_runner: ^0.8.9
+  build_runner: ^0.8.10
   build_test: ^0.10.2
   build_web_compilers: ^0.4.0
   # #enddocregion build-dependencies
   test: ^0.12.30
 # #enddocregion dev_dependencies
+
+dependency_overrides:
+  build_config: ^0.3.0

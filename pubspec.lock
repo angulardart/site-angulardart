@@ -92,22 +92,38 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  code_excerpt_updater:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "98c7d24242044468a5a97d0cb8d2b088038ea942"
+      url: "https://github.com/chalin/code_excerpt_updater.git"
+    source: git
+    version: "0.10.1"
   code_excerpter:
     dependency: "direct dev"
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "78dd246534ecb4653306518d2ac99418c8346f7c"
+      resolved-ref: bd968b9cbad599535e9ca9d57020a94b7be270ca
       url: "https://github.com/chalin/code_excerpter.git"
     source: git
-    version: "0.2.0"
+    version: "0.3.1+2"
   collection:
     dependency: transitive
     description:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.9"
+    version: "1.14.10"
+  console:
+    dependency: transitive
+    description:
+      name: console
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   convert:
     dependency: transitive
     description:
@@ -206,6 +222,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.1"
+  linkcheck:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: chalin-dart-2-runtime-0612
+      resolved-ref: "0a05224e424250128fd5b92e47ea6dc1316c4e2b"
+      url: "https://github.com/chalin/linkcheck.git"
+    source: git
+    version: "2.0.0"
   logging:
     dependency: transitive
     description:
@@ -275,7 +300,7 @@ packages:
       name: pubspec_parse
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   quiver:
     dependency: transitive
     description:
@@ -310,14 +335,14 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.6"
+    version: "1.6.7+1"
   stream_transform:
     dependency: transitive
     description:
       name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.12"
+    version: "0.0.14"
   string_scanner:
     dependency: transitive
     description:
@@ -339,6 +364,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0+4"
+  vector_math:
+    dependency: transitive
+    description:
+      name: vector_math
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.7"
   watcher:
     dependency: transitive
     description:
@@ -354,4 +386,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.55.0 <=2.0.0-dev.61.0"
+  dart: ">=2.0.0-dev.61 <=2.0.0-dev.61.0"

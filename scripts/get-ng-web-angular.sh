@@ -19,7 +19,7 @@ fi
 travis_fold start get_angular_app
 set -x
 cd "$TMP_QS"
-pub global run stagehand web-angular
+pub run stagehand web-angular
 pub get
 set +x
 travis_fold end get_angular_app

@@ -403,26 +403,11 @@ img {
       font-size: 18px;
       font-weight: normal;
       text-transform: uppercase;
-      &.active {
-        font-weight: bold;
-      }
-      /*a {
-        color: $gray-dark;
-        &:hover {
-          color: $brand-secondary;
-        }
-        &:active {
-          color: darken($gray-light, 15%);
-        }
-      }*/
+      &.active { font-weight: bold; }
       a {
         color: $default-link;
-        &:hover {
-          color: $brand-secondary;
-        }
-        &:active {
-          color: darken($brand-secondary, 15%);
-        }
+        &:hover { color: $brand-secondary; }
+        &:active { color: darken($brand-secondary, 15%); }
       }
     }
     ul {

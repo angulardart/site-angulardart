@@ -46,7 +46,7 @@ using whatever [Dart web development tools](/tools) you prefer.
 @@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^5.0.0-alpha+13
+   angular: ^5.0.0-alpha+14
 +  angular_components: ^0.9.0-alpha+14
    intl: ^0.15.0
 
