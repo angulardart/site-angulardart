@@ -1,7 +1,7 @@
 dist: trusty
 sudo: required
 language: dart
-dart: 2.0.0-dev.61.0
+dart: 2.0.0-dev.63.0
 
 cache:
   timeout: 300
@@ -57,7 +57,8 @@ env:
     - DISPLAY=:99.0
     - JEKYLL_ENV=production
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
-    - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l]"
+    # Skip lifecycle-hooks; https://github.com/dart-lang/site-webdev/issues/1647
+    - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=life"
     - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
     - TEST_OPT=""

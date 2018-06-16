@@ -38,10 +38,10 @@ Add the package to the pubspec dependencies:
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -7,18 +7,15 @@
+@@ -7,15 +7,12 @@
 
  dependencies:
-   angular: ^5.0.0-alpha+14
+   angular: ^5.0.0-alpha+15
 +  angular_forms: ^2.0.0-alpha
 
  dev_dependencies:
@@ -50,7 +50,7 @@ Add the package to the pubspec dependencies:
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
 +  pageloader: ^3.0.0-alpha
-   test: ^0.12.35
+   test: ^0.12.42
 ```
 
 ## Imports

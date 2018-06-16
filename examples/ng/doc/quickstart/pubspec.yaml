@@ -3,10 +3,10 @@ description: A web app that uses AngularDart
 version: 0.0.1
 
 environment:
-  sdk: '>=2.0.0-dev.56.0 <2.0.0'
+  sdk: '>=2.0.0-dev.60.0 <2.0.0'
 
 dependencies:
-  angular: ^5.0.0-alpha+14
+  angular: ^5.0.0-alpha+15
 
 # #docregion dev_dependencies, build-dependencies
 dev_dependencies:
@@ -17,8 +17,5 @@ dev_dependencies:
   build_test: ^0.10.2
   build_web_compilers: ^0.4.0
   # #enddocregion build-dependencies
-  test: ^0.12.30
+  test: ^0.12.42
 # #enddocregion dev_dependencies
-
-dependency_overrides:
-  build_config: ^0.3.0

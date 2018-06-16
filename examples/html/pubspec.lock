@@ -56,7 +56,7 @@ packages:
       name: crypto
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.5"
   csslib:
     dependency: transitive
     description:
@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "37bf14a6fd41ef9c3102f2356b377f84456270bc"
+      resolved-ref: "8ca97304b4dc34a66adc8334d4dddec9ebc0d3ce"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.1"
@@ -129,6 +129,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1"
+  json_rpc_2:
+    dependency: transitive
+    description:
+      name: json_rpc_2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.8"
   kernel:
     dependency: transitive
     description:
@@ -149,7 +156,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.2+1"
+    version: "0.12.3"
   meta:
     dependency: transitive
     description:
@@ -303,7 +310,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.40"
+    version: "0.12.42"
   typed_data:
     dependency: transitive
     description:
@@ -318,6 +325,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0+4"
+  vm_service_client:
+    dependency: transitive
+    description:
+      name: vm_service_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.4+3"
   watcher:
     dependency: transitive
     description:
@@ -340,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: "2.0.0-dev.62.0"
+  dart: ">=2.0.0-dev.62.0 <=2.0.0-dev.63.0"

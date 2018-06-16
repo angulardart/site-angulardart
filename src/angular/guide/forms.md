@@ -104,10 +104,10 @@ dependencies:
  version: 0.0.1
 
  environment:
-@@ -7,18 +7,12 @@
+@@ -7,15 +7,9 @@
 
  dependencies:
-   angular: ^5.0.0-alpha+14
+   angular: ^5.0.0-alpha+15
 +  angular_forms: ^2.0.0-alpha
 ```
 
