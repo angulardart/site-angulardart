@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   angular: ^5.0.0-alpha+15
-  angular_components: ^0.9.0-alpha+14
+  angular_components: ^0.9.0-alpha+15
   angular_forms: ^2.0.0-alpha
 
 dev_dependencies:
@@ -19,6 +19,4 @@ dev_dependencies:
   test: ^0.12.42
 
 dependency_overrides:
-  angular: ^5.0.0-alpha+15
-  angular_forms: ^2.0.0-alpha+7
   build_config: ^0.3.0

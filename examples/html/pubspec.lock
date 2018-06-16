@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "8ca97304b4dc34a66adc8334d4dddec9ebc0d3ce"
+      resolved-ref: "23aac2f0b88ca83795642a1d8f0aac06398b2969"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.1"

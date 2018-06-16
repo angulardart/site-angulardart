@@ -35,9 +35,9 @@ packages:
       name: angular_components
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.0-alpha+14"
+    version: "0.9.0-alpha+15"
   angular_forms:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: angular_forms
       url: "https://pub.dartlang.org"
@@ -204,13 +204,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.4"
-  dart2_constant:
-    dependency: transitive
-    description:
-      name: dart2_constant
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1+dart2"
   dart_internal:
     dependency: transitive
     description:
@@ -455,7 +448,7 @@ packages:
       name: sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.0"
+    version: "1.6.1"
   sass_builder:
     dependency: transitive
     description:
