@@ -181,7 +181,7 @@ attaching them to the DOM. Here’s an example of creating a paragraph
 
 <?code-excerpt "lib/html.dart (creating-elements)"?>
 {% prettify dart %}
-  var elem = new ParagraphElement();
+  var elem = ParagraphElement();
   elem.text = 'Creating is easy!';
 {% endprettify %}
 
@@ -190,7 +190,7 @@ are also parsed and created.
 
 <?code-excerpt "lib/html.dart (creating-from-html)"?>
 {% prettify dart %}
-  var elem2 = new Element.html(
+  var elem2 = Element.html(
     '<p>Creating <em>is</em> easy!</p>',
   );
 {% endprettify %}
@@ -260,7 +260,7 @@ set an element ID with the `id` property:
 
 <?code-excerpt "lib/html.dart (set-id)"?>
 {% prettify dart %}
-  var message = new DivElement();
+  var message = DivElement();
   message.id = 'message2';
   message.text = 'Please subscribe to the Dart mailing list.';
 {% endprettify %}
@@ -270,7 +270,7 @@ cascades:
 
 <?code-excerpt "lib/html.dart (elem-set-cascade)"?>
 {% prettify dart %}
-  var message = new DivElement()
+  var message = DivElement()
     ..id = 'message2'
     ..text = 'Please subscribe to the Dart mailing list.';
 {% endprettify %}
@@ -405,7 +405,7 @@ TODO: use original source from dart-tutorials-samples/web/portmanteaux/portmante
 
 <?code-excerpt "lib/html.dart (new-HttpRequest)"?>
 {% prettify dart %}
-  var request = new HttpRequest();
+  var request = HttpRequest();
   request
     ..open('POST', url)
     ..onLoadEnd.listen((e) => requestComplete(request))
@@ -435,7 +435,7 @@ handler.
   Future main() async {
     var data = {'dart': 'fun', 'angular': 'productive'};
 
-    var request = new HttpRequest();
+    var request = HttpRequest();
     request
       ..open('POST', url)
       ..setRequestHeader(
@@ -475,7 +475,7 @@ the websocket sample app.
 
 <?code-excerpt "test/html_test.dart (WebSocket)"?>
 {% prettify dart %}
-  var ws = new WebSocket('ws://echo.websocket.org');
+  var ws = WebSocket('ws://echo.websocket.org');
 {% endprettify %}
 
 ### Sending data
@@ -518,7 +518,7 @@ error, and message events:
 
     void scheduleReconnect() {
       if (!reconnectScheduled) {
-        new Timer(new Duration(seconds: retrySeconds),
+        Timer(Duration(seconds: retrySeconds),
             () => initWebSocket(retrySeconds * 2));
       }
       reconnectScheduled = true;

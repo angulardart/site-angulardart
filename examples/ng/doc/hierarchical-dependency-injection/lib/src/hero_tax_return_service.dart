@@ -14,7 +14,7 @@ class HeroTaxReturnService {
 
   void set taxReturn(HeroTaxReturn htr) {
     _originalTR = htr;
-    _currentTR = new HeroTaxReturn.copy(htr);
+    _currentTR = HeroTaxReturn.copy(htr);
   }
 
   HeroTaxReturn get taxReturn => _currentTR;

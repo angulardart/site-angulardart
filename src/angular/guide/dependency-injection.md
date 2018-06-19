@@ -35,8 +35,8 @@ Imagine writing the following code:
     var description = 'No DI';
 
     Car() {
-      engine = new Engine();
-      tires = new Tires();
+      engine = Engine();
+      tires = Tires();
     }
 
     // Method using the engine and tires
@@ -111,7 +111,7 @@ Now you can create a car by passing the engine and tires to the constructor.
 <?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation)"?>
 ```
   // Simple car with 4 cylinders and Flintstone tires.
-  new Car(new Engine(), new Tires())
+  Car(Engine(), Tires())
 ```
 
 How cool is that?
@@ -126,7 +126,7 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
   The _consumer_ of `Car` has the problem. The consumer must update the car creation code to
   something like this:
 
-  <?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-param)" replace="/new Car.*/[!$&!]/g"?>
+  <?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-param)" replace="/Car\(E.*/[!$&!]/g"?>
   ```
     class Engine2 extends Engine {
       Engine2(cylinders) : super.withCylinders(cylinders);
@@ -134,7 +134,7 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
 
     Car superCar() =>
       // Super car with 12 cylinders and Flintstone tires.
-      [!new Car(new Engine2(12), new Tires())!]
+      [!Car(Engine2(12), Tires())!]
       ..description = 'Super';
   ```
 
@@ -148,7 +148,7 @@ of its dependencies.
 You can pass mocks to the constructor that do exactly what you want them to do
 during each test:
 
-<?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-mocks)" replace="/new Car.*/[!$&!]/g"?>
+<?code-excerpt "lib/src/car/car_creations.dart (car-ctor-instantiation-with-mocks)" replace="/\bCar\(.*/[!$&!]/g"?>
 ```
   class MockEngine extends Engine {
     MockEngine() : super.withCylinders(8);
@@ -160,7 +160,7 @@ during each test:
 
   Car testCar() =>
     // Test car with 8 cylinders and YokoGoodStone tires.
-    [!new Car(new MockEngine(), new MockTires())!]
+    [!Car(MockEngine(), MockTires())!]
     ..description = 'Test';
 ```
 
@@ -184,11 +184,11 @@ You _could_ write a giant class to do that:
   // BAD pattern!
   class CarFactory {
     Car createCar() =>
-        new Car(createEngine(), createTires())
+        Car(createEngine(), createTires())
           ..description = 'Factory';
 
-    Engine createEngine() => new Engine();
-    Tires createTires() => new Tires();
+    Engine createEngine() => Engine();
+    Tires createTires() => Tires();
   }
 ```
 
@@ -470,10 +470,10 @@ under test:
 
 <?code-excerpt "lib/src/test_component.dart (spec)"?>
 ```
-  var expectedHeroes = [new Hero(0, 'A'), new Hero(1, 'B')];
-  var mockService = new MockHeroService(expectedHeroes);
+  var expectedHeroes = [Hero(0, 'A'), Hero(1, 'B')];
+  var mockService = MockHeroService(expectedHeroes);
   it('should have heroes when HeroListComponent created', () {
-    var hlc = new HeroListComponent(mockService);
+    var hlc = HeroListComponent(mockService);
     expect(hlc.heroes.length).toEqual(expectedHeroes.length);
   });
 ```
@@ -753,7 +753,7 @@ A factory provider needs a factory function:
 <?code-excerpt "lib/src/heroes/hero_service_provider.dart (factory)" title?>
 ```
   HeroService heroServiceFactory(Logger logger, UserService userService) =>
-      new HeroService(logger, userService.user.isAuthorized);
+      HeroService(logger, userService.user.isAuthorized);
 ```
 
 Although the `HeroService` has no access to the `UserService`, the factory function does.
@@ -880,7 +880,7 @@ consider defining a custom app configuration class:
     String title;
   }
 
-  AppConfig [!appConfigFactory!]() => new AppConfig()
+  AppConfig [!appConfigFactory!]() => AppConfig()
     ..apiEndpoint = 'api.heroes.com'
     ..title = 'Dependency Injection';
 ```

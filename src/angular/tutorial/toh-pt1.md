@@ -96,13 +96,13 @@ Make these changes to `app_component.dart`:
 - In the `AppComponent` class, declare the type of `hero` to be `Hero`, and
   initialize it with a new `Hero` having an ID of `1` and the name "Windstorm".
 
-<?code-excerpt "lib/app_component_2.dart (import and class)" replace="/import.*|Hero(?= )|new.*/[!$&!]/g" title?>
+<?code-excerpt "lib/app_component_2.dart (import and class)" replace="/import.*|Hero(?= )|Hero.1.*/[!$&!]/g" title?>
 ```
   [!import 'hero.dart';!]
   // ···
   class AppComponent {
     final title = 'Tour of Heroes';
-    [!Hero!] hero = [!new Hero(1, 'Windstorm');!]
+    [!Hero!] hero = [!Hero(1, 'Windstorm');!]
   }
 ```
 

@@ -2,7 +2,7 @@ The toh-4 is a refactoring of toh-3. The app component is simplified, factoring 
 the `HeroService`.
 
 Given that toh-4 is a refactoring, the toh-2 `app_test`s run, without change.
- 
+
 Changes/new features:
 
 - Test a component requiring a service, that is _not_ replaced by a mock service.

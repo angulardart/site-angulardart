@@ -163,7 +163,7 @@ class AppComponent implements OnInit {
   // updates with fresh set of cloned heroes
   void resetHeroes() {
     heroes.clear();
-    Hero.mockHeroes.forEach((hero) => heroes.add(new Hero.copy(hero)));
+    Hero.mockHeroes.forEach((hero) => heroes.add(Hero.copy(hero)));
     currentHero = heroes[0];
     heroesWithTrackByCountReset = 0;
   }

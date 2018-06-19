@@ -247,10 +247,10 @@ of `Hero` objects:
 <?code-excerpt "lib/app_component_3.dart (heroes)" title?>
 ```
   List<Hero> heroes = [
-    new Hero(1, 'Windstorm'),
-    new Hero(13, 'Bombasto'),
-    new Hero(15, 'Magneta'),
-    new Hero(20, 'Tornado')
+    Hero(1, 'Windstorm'),
+    Hero(13, 'Bombasto'),
+    Hero(15, 'Magneta'),
+    Hero(20, 'Tornado')
   ];
   Hero get myHero => heroes.first;
 ```

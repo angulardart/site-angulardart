@@ -18,13 +18,13 @@ void main() {
 
   const initSize = 16;
 
-  final testBed = new NgTestBed<SizerComponent>();
+  final testBed = NgTestBed<SizerComponent>();
 
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new SizerPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = SizerPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);

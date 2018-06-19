@@ -16,7 +16,7 @@ import 'src/hero_app_main_component.dart';
 class AppComponent {
   // #enddocregion class
   Hero hero =
-      new Hero('Human Torch', ['Mister Fantastic', 'Invisible Woman', 'Thing']);
+      Hero('Human Torch', ['Mister Fantastic', 'Invisible Woman', 'Thing']);
 
   @HostBinding('class')
   String get themeClass => 'theme-light';

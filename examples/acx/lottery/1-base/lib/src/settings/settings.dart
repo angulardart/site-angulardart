@@ -5,7 +5,7 @@
 import 'package:angular/angular.dart';
 import 'package:components_codelab/src/lottery/lottery.dart';
 
-final DateTime _now = new DateTime.now();
+final DateTime _now = DateTime.now();
 
 typedef bool Inhibitor(int bettedToday, int wonToday, int dailyDisposable);
 
@@ -13,7 +13,7 @@ typedef bool Inhibitor(int bettedToday, int wonToday, int dailyDisposable);
 class Settings {
   int initialCash = 10;
 
-  /// The amount of cash that the player has on them each new day.
+  /// The amount of cash that the player has on them each day.
   int dailyDisposable = 2;
 
   Strategy strategy = Strategy._strategies.first;
@@ -30,7 +30,7 @@ class Settings {
 
   List<Lottery> get lotteries => Lottery.lotteries;
 
-  int get maxDays => new DateTime(
+  int get maxDays => DateTime(
           _now.year + years, _now.month, _now.day, _now.hour, _now.minute)
       .difference(_now)
       .inDays;
@@ -39,7 +39,7 @@ class Settings {
 }
 
 class Strategy {
-  static final conservative = new Strategy(
+  static final conservative = Strategy(
       "Conservative",
       "only disposable income",
       "Buy one ticket per day. Buy more only if daily disposable income "
@@ -48,17 +48,17 @@ class Strategy {
       (bettedToday, wonToday, dailyDisposable) =>
           bettedToday < dailyDisposable);
 
-  static final reinvest = new Strategy(
+  static final reinvest = Strategy(
       "Reinvest",
       "disposable income and winnings",
-      "Re-invest the day's winning tickets to buy new ones (unless the "
+      "Re-invest the day's winning tickets to buy ones (unless the "
       "winnings are 10x more than the daily disposable income, in which case "
       "keep the cash).",
       (bettedToday, wonToday, dailyDisposable) =>
           bettedToday < dailyDisposable + wonToday &&
           wonToday < dailyDisposable * 10);
 
-  static final allIn = new Strategy(
+  static final allIn = Strategy(
       "All in",
       "everything",
       "Use all available cash to buy tickets every day (even if we just won "

@@ -5,7 +5,7 @@ import 'car.dart';
 Car simpleCar() =>
   // #docregion car-ctor-instantiation
   // Simple car with 4 cylinders and Flintstone tires.
-  new Car(new Engine(), new Tires())
+  Car(Engine(), Tires())
   // #enddocregion car-ctor-instantiation
   ..description = 'Simple';
 
@@ -18,7 +18,7 @@ class Engine2 extends Engine {
 
 Car superCar() =>
   // Super car with 12 cylinders and Flintstone tires.
-  new Car(new Engine2(12), new Tires())
+  Car(Engine2(12), Tires())
   ..description = 'Super';
 // #enddocregion car-ctor-instantiation-with-param
 
@@ -35,6 +35,6 @@ class MockTires extends Tires {
 
 Car testCar() =>
   // Test car with 8 cylinders and YokoGoodStone tires.
-  new Car(new MockEngine(), new MockTires())
+  Car(MockEngine(), MockTires())
   ..description = 'Test';
 // #enddocregion car-ctor-instantiation-with-mocks

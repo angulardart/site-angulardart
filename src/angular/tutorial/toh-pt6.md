@@ -191,18 +191,18 @@ implementations.
                 .firstWhere((hero) => hero.id == id); // throws if no match
           } else {
             String prefix = request.url.queryParameters['name'] ?? '';
-            final regExp = new RegExp(prefix, caseSensitive: false);
+            final regExp = RegExp(prefix, caseSensitive: false);
             data = _heroesDb.where((hero) => hero.name.contains(regExp)).toList();
           }
           break;
         case 'POST':
           var name = json.decode(request.body)['name'];
-          var newHero = new Hero(_nextId++, name);
+          var newHero = Hero(_nextId++, name);
           _heroesDb.add(newHero);
           data = newHero;
           break;
         case 'PUT':
-          var heroChanges = new Hero.fromJson(json.decode(request.body));
+          var heroChanges = Hero.fromJson(json.decode(request.body));
           var targetHero = _heroesDb.firstWhere((h) => h.id == heroChanges.id);
           targetHero.name = heroChanges.name;
           data = targetHero;
@@ -215,12 +215,12 @@ implementations.
         default:
           throw 'Unimplemented HTTP method ${request.method}';
       }
-      return new Response(json.encode({'data': data}), 200,
+      return Response(json.encode({'data': data}), 200,
           headers: {'content-type': 'application/json'});
     }
 
     static resetDb() {
-      _heroesDb = _initialHeroes.map((json) => new Hero.fromJson(json)).toList();
+      _heroesDb = _initialHeroes.map((json) => Hero.fromJson(json)).toList();
       _nextId = _heroesDb.map((hero) => hero.id).fold(0, max) + 1;
     }
 
@@ -246,7 +246,7 @@ class with these capabilities:
     Hero(this.id, this.name);
 
     factory Hero.fromJson(Map<String, dynamic> hero) =>
-        new Hero(_toInt(hero['id']), hero['name']);
+        Hero(_toInt(hero['id']), hero['name']);
 
     Map toJson() => {'id': id, 'name': name};
   }
@@ -280,7 +280,7 @@ Now convert `getAll()` to use HTTP.
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = (_extractData(response) as List)
-          .map((json) => new Hero.fromJson(json))
+          .map((json) => Hero.fromJson(json))
           .toList();
       return heroes;
     } catch (e) {
@@ -292,7 +292,7 @@ Now convert `getAll()` to use HTTP.
 
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
-    return new Exception('Server error; cause: $e');
+    return Exception('Server error; cause: $e');
   }
 ```
 
@@ -347,7 +347,7 @@ This is a critical step. You must anticipate HTTP failures, as they happen frequ
 ```
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
-    return new Exception('Server error; cause: $e');
+    return Exception('Server error; cause: $e');
   }
 ```
 
@@ -372,7 +372,7 @@ Update the `HeroService.get()` method to make a _get-by-id_ request:
   Future<Hero> get(int id) async {
     try {
       final response = await _http.get('$_heroesUrl/$id');
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -441,7 +441,7 @@ The overall structure of the `update()` method is similar to that of
       final url = '$_heroesUrl/${hero.id}';
       final response =
           await _http.put(url, headers: _headers, body: json.encode(hero));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -498,7 +498,7 @@ Implement the `create()` method in the `HeroService` class.
     try {
       final response = await _http.post(_heroesUrl,
           headers: _headers, body: json.encode({'name': name}));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -625,7 +625,7 @@ Start by creating `HeroSearchService` that sends search queries to the server's 
       try {
         final response = await _http.get('app/heroes/?name=$term');
         return (_extractData(response) as List)
-            .map((json) => new Hero.fromJson(json))
+            .map((json) => Hero.fromJson(json))
             .toList();
       } catch (e) {
         throw _handleError(e);
@@ -636,7 +636,7 @@ Start by creating `HeroSearchService` that sends search queries to the server's 
 
     Exception _handleError(dynamic e) {
       print(e); // for demo purposes only
-      return new Exception('Server error; cause: $e');
+      return Exception('Server error; cause: $e');
     }
   }
 ```
@@ -724,7 +724,7 @@ Create the `HeroSearchComponent` class and metadata.
 
     Stream<List<Hero>> heroes;
     StreamController<String> _searchTerms =
-        new StreamController<String>.broadcast();
+        StreamController<String>.broadcast();
 
     HeroSearchComponent(this._heroSearchService, this._router) {}
 
@@ -732,10 +732,10 @@ Create the `HeroSearchComponent` class and metadata.
 
     Future<void> ngOnInit() async {
       heroes = _searchTerms.stream
-          .transform(debounce(new Duration(milliseconds: 300)))
+          .transform(debounce(Duration(milliseconds: 300)))
           .distinct()
           .transform(switchMap((term) => term.isEmpty
-              ? new Stream<List<Hero>>.fromIterable([<Hero>[]])
+              ? Stream<List<Hero>>.fromIterable([<Hero>[]])
               : _heroSearchService.search(term).asStream()))
           .handleError((e) {
         print(e); // for demo purposes only
@@ -757,7 +757,7 @@ Focus on `_searchTerms`:
 <?code-excerpt "lib/src/hero_search_component.dart (searchTerms)"?>
 ```
   StreamController<String> _searchTerms =
-      new StreamController<String>.broadcast();
+      StreamController<String>.broadcast();
   // ···
   void search(String term) => _searchTerms.add(term);
 ```
@@ -779,10 +779,10 @@ You can turn the stream of search terms into a stream of `Hero` lists and assign
   // ···
   Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
-        .transform(debounce(new Duration(milliseconds: 300)))
+        .transform(debounce(Duration(milliseconds: 300)))
         .distinct()
         .transform(switchMap((term) => term.isEmpty
-            ? new Stream<List<Hero>>.fromIterable([<Hero>[]])
+            ? Stream<List<Hero>>.fromIterable([<Hero>[]])
             : _heroSearchService.search(term).asStream()))
         .handleError((e) {
       print(e); // for demo purposes only

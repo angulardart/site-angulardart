@@ -20,7 +20,7 @@ final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
   // #docregion provisioning-and-setup
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory,
       rootInjector: injector.factory);
 
@@ -30,8 +30,8 @@ void main() {
     await router?.navigate('/');
     await fixture.update();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    appPO = new AppPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = AppPO.create(context);
   });
   // #enddocregion provisioning-and-setup
 

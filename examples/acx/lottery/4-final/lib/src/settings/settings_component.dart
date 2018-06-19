@@ -32,7 +32,7 @@ class SettingsComponent implements OnInit {
 
   final yearsOptions = [1, 2, 3, 5, 10];
 
-  final _settingsChanged = new StreamController<Null>();
+  final _settingsChanged = StreamController<Null>();
 
   @Output()
   Stream<Null> get settingsChanged => _settingsChanged.stream;

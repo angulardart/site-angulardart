@@ -14,25 +14,25 @@ class Routes {
   // #docregion redirect, wildcard
   final List<RouteDefinition> all = [
     // #enddocregion redirect, wildcard
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.crises,
       component: clct.CrisisListComponentNgFactory,
     ),
     // #docregion useAsDefault
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.heroes,
       component: hlct.HeroListComponentNgFactory,
       useAsDefault: true,
     ),
     // #enddocregion useAsDefault
     // #docregion redirect
-    new RouteDefinition.redirect(
+    RouteDefinition.redirect(
       path: '',
       redirectTo: paths.heroes.toUrl(),
     ),
     // #enddocregion redirect
     // #docregion wildcard
-    new RouteDefinition(
+    RouteDefinition(
       path: '.+',
       component: nfct.NotFoundComponentNgFactory,
     ),

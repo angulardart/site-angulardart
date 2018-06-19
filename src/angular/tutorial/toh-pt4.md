@@ -125,7 +125,7 @@ You could create a new instance of the `HeroService` with `new` like this:
 
 <?code-excerpt "lib/app_component_1.dart (excerpt)" region="new-service" title?>
 ```
-  HeroService heroService = new HeroService(); // DON'T do this
+  HeroService heroService = HeroService(); // DON'T do this
 ```
 
 However, this option isn't ideal for the following reasons:
@@ -402,7 +402,7 @@ add the following `getAllSlowly()` method to the `HeroService`.
 <?code-excerpt "lib/src/hero_service.dart (getAllSlowly)" title?>
 ```
   Future<List<Hero>> getAllSlowly() {
-    return new Future.delayed(const Duration(seconds: 2), getAll);
+    return Future.delayed(const Duration(seconds: 2), getAll);
   }
 ```
 

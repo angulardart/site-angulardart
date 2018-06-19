@@ -44,7 +44,7 @@ a human-friendly date.
     pipes: [commonPipes],
   )
   class HeroBirthdayComponent {
-    DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988
+    DateTime birthday = DateTime(1988, 4, 15); // April 15, 1988
   }
 ```
 
@@ -120,7 +120,7 @@ That method toggles the component's `format` property between a short form
 <?code-excerpt "lib/src/hero_birthday2_component.dart (class)" title?>
 ```
   class HeroBirthday2Component {
-    DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988
+    DateTime birthday = DateTime(1988, 4, 15); // April 15, 1988
 
     bool toggle = true;
 
@@ -323,12 +323,12 @@ The companion component class provides heroes, adds heroes into the list, and ca
       name = name.trim();
       if (name.isEmpty) return;
 
-      var hero = new Hero(name, canFly);
+      var hero = Hero(name, canFly);
       heroes.add(hero);
     }
 
     void reset() {
-      heroes = new List<Hero>.from(mockHeroes);
+      heroes = List<Hero>.from(mockHeroes);
     }
   }
 ```
@@ -531,7 +531,7 @@ This next example binds an `Stream` of message strings
 
     void resend() {
       message =
-          new Stream.periodic(_msgEventDelay, (i) => _msgs[i]).take(_msgs.length);
+          Stream.periodic(_msgEventDelay, (i) => _msgs[i]).take(_msgs.length);
     }
 
     List<String> _msgs = <String>[

@@ -11,11 +11,11 @@ class Routes {
   RoutePath get heroes => paths.heroes;
 
   final List<RouteDefinition> all = [
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.crises.path,
       component: clct.CrisisListComponentNgFactory,
     ),
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.heroes.path,
       component: hlct.HeroListComponentNgFactory,
     ),

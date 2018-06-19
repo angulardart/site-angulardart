@@ -25,6 +25,6 @@ class AppConfig {
   String title;
 }
 
-AppConfig appConfigFactory() => new AppConfig()
+AppConfig appConfigFactory() => AppConfig()
   ..apiEndpoint = 'api.heroes.com'
   ..title = 'Dependency Injection';

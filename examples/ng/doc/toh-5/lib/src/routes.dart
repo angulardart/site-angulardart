@@ -29,22 +29,22 @@ class Routes {
   final List<RouteDefinition> all = [
     // #enddocregion a-first-route, dashboard, hero
     // #docregion redirect-route
-    new RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
+    RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
     // #enddocregion redirect-route
     // #docregion dashboard
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.dashboard.path,
       component: dct.DashboardComponentNgFactory,
     ),
     // #enddocregion dashboard
     // #docregion hero
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.hero.path,
       component: hct.HeroComponentNgFactory,
     ),
     // #enddocregion hero
     // #docregion a-first-route
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.heroes.path,
       component: hlct.HeroListComponentNgFactory,
     ),

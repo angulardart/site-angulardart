@@ -27,8 +27,8 @@ class CarComponent {
 
   CarComponent(this.car);
 
-  Car factoryCar = (new CarFactory()).createCar();
-  carNoDi.Car noDiCar = new carNoDi.Car();
+  Car factoryCar = (CarFactory()).createCar();
+  carNoDi.Car noDiCar = carNoDi.Car();
   Car simpleCar = carCreations.simpleCar();
   Car superCar = carCreations.superCar();
   Car testCar = carCreations.testCar();

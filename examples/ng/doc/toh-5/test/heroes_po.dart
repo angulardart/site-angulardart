@@ -39,14 +39,14 @@ abstract class HeroesPO {
   String get myHeroNameInUppercase {
     if (!_miniDetailHeading.exists) return null;
     final text = _miniDetailHeading.visibleText;
-    final matches = new RegExp((r'^\s*(.+) is my hero\s*$')).firstMatch(text);
+    final matches = RegExp((r'^\s*(.+) is my hero\s*$')).firstMatch(text);
     return matches[1];
   }
 
   Future<void> gotoDetail() => _gotoDetail.click();
 
   Map<String, dynamic> _heroDataFromLi(String liText) {
-    final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
+    final matches = RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
     return heroData(matches[1], matches[2]);
   }
 }

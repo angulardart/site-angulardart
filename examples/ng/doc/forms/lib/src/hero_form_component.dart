@@ -17,7 +17,7 @@ const List<String> _powers = [
   directives: [coreDirectives, formDirectives],
 )
 class HeroFormComponent {
-  Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
+  Hero model = Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
   // #docregion submitted
   bool submitted = false;
 
@@ -49,7 +49,7 @@ class HeroFormComponent {
 
 Hero skyDog() {
   // #docregion SkyDog
-  var myHero = new Hero(
+  var myHero = Hero(
       42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
   print('My hero is ${myHero.name}.'); // "My hero is SkyDog."
   // #enddocregion SkyDog

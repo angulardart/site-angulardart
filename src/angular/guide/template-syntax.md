@@ -1112,7 +1112,7 @@ Here are the pertinent excerpts from that `HeroDetailComponent`:
 ```
 <?code-excerpt "lib/src/hero_component.dart (deleteRequest)" plaster="none" title?>
 ```
-  final _deleteRequest = new StreamController<Hero>();
+  final _deleteRequest = StreamController<Hero>();
   @Output()
   Stream<Hero> get deleteRequest => _deleteRequest.stream;
 
@@ -1245,7 +1245,7 @@ It has a `size` value property and a companion `sizeChange` event:
       if (z != null) _size = min(maxSize, max(minSize, z));
     }
 
-    final _sizeChange = new StreamController<int>();
+    final _sizeChange = StreamController<int>();
     @Output()
     Stream<int> get sizeChange => _sizeChange.stream;
 
@@ -1996,7 +1996,7 @@ In the `HeroDetailComponent`, such properties are marked as input or output prop
 ```
   @Input()
   Hero hero;
-  final _deleteRequest = new StreamController<Hero>();
+  final _deleteRequest = StreamController<Hero>();
   @Output()
   Stream<Hero> get deleteRequest => _deleteRequest.stream;
 ```
@@ -2044,7 +2044,7 @@ To specify the alias for the property name, pass the alias into the input/output
 
 <?code-excerpt "lib/src/click_directive.dart (output-myClick)"?>
 ```
-  final _onClick = new StreamController<String>();
+  final _onClick = StreamController<String>();
   // @Output(alias) propertyName = ...
   @Output('myClick')
   Stream<String> get clicks => _onClick.stream;

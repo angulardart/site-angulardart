@@ -18,7 +18,7 @@ class HeroTaxReturn {
   HeroTaxReturn(int _id, this.hero, [this.income = 0]) : id = _id ?? _nextId++;
 
   factory HeroTaxReturn.copy(HeroTaxReturn r) =>
-      new HeroTaxReturn(r.id, r.hero, r.income);
+      HeroTaxReturn(r.id, r.hero, r.income);
 
   String get name => hero.name;
   num get tax => 0.10 * (income ?? 0);

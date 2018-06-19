@@ -8,8 +8,8 @@ enum Category { jackpot, win, lose }
 
 abstract class Lottery {
   static final List<Lottery> lotteries = [
-    new Powerball(new Random()),
-    new SimpleLottery(new Random())
+    Powerball(Random()),
+    SimpleLottery(Random())
   ];
 
   String get description;
@@ -38,33 +38,33 @@ class Powerball implements Lottery {
     double draw = _random.nextDouble();
 
     if (draw < 1 / 292201338.0) {
-      return new Ticket(jackpot, Category.jackpot);
+      return Ticket(jackpot, Category.jackpot);
     }
     if (draw < 1 / 11688053.52) {
-      return new Ticket(1000000, Category.win);
+      return Ticket(1000000, Category.win);
     }
     if (draw < 1 / 913129.18) {
-      return new Ticket(50000, Category.win);
+      return Ticket(50000, Category.win);
     }
     if (draw < 1 / 36525.17) {
-      return new Ticket(100, Category.win);
+      return Ticket(100, Category.win);
     }
     if (draw < 1 / 14494.11) {
-      return new Ticket(100, Category.win);
+      return Ticket(100, Category.win);
     }
     if (draw < 1 / 579.76) {
-      return new Ticket(7, Category.win);
+      return Ticket(7, Category.win);
     }
     if (draw < 1 / 701.33) {
-      return new Ticket(7, Category.win);
+      return Ticket(7, Category.win);
     }
     if (draw < 1 / 91.98) {
-      return new Ticket(4, Category.win);
+      return Ticket(4, Category.win);
     }
     if (draw < 1 / 38.32) {
-      return new Ticket(4, Category.win);
+      return Ticket(4, Category.win);
     }
-    return new Ticket(0, Category.lose);
+    return Ticket(0, Category.lose);
   }
 }
 
@@ -83,12 +83,12 @@ class SimpleLottery implements Lottery {
   Ticket bet() {
     double draw = _random.nextDouble();
     if (draw < 0.01) {
-      return new Ticket(100, Category.jackpot);
+      return Ticket(100, Category.jackpot);
     }
     if (draw < 0.1) {
-      return new Ticket(10, Category.win);
+      return Ticket(10, Category.win);
     }
-    return new Ticket(0, Category.lose);
+    return Ticket(0, Category.lose);
   }
 }
 

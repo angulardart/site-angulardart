@@ -24,7 +24,7 @@ class WikiSmartComponent {
 
   WikiSmartComponent(this._wikipediaService) {
     _onSearchTerm.stream
-        .transform(debounce(new Duration(milliseconds: 300)))
+        .transform(debounce(Duration(milliseconds: 300)))
         .distinct()
         .transform(
             switchMap((term) => _wikipediaService.search(term).asStream()))
@@ -33,7 +33,7 @@ class WikiSmartComponent {
     });
   }
 
-  final _onSearchTerm = new StreamController<String>();
+  final _onSearchTerm = StreamController<String>();
 
   void search(String term) => _onSearchTerm.add(term);
 }

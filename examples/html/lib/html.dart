@@ -37,12 +37,12 @@ void miscDeclAnalyzedButNotTested() {
 
   {
     // #docregion creating-elements
-    var elem = new ParagraphElement();
+    var elem = ParagraphElement();
     elem.text = 'Creating is easy!';
     // #enddocregion creating-elements
 
     // #docregion creating-from-html
-    var elem2 = new Element.html(
+    var elem2 = Element.html(
       '<p>Creating <em>is</em> easy!</p>',
     );
     // #enddocregion creating-from-html
@@ -72,7 +72,7 @@ void miscDeclAnalyzedButNotTested() {
     // #enddocregion classes-add
 
     // #docregion set-id
-    var message = new DivElement();
+    var message = DivElement();
     message.id = 'message2';
     message.text = 'Please subscribe to the Dart mailing list.';
     // #enddocregion set-id
@@ -80,7 +80,7 @@ void miscDeclAnalyzedButNotTested() {
 
   {
     // #docregion elem-set-cascade
-    var message = new DivElement()
+    var message = DivElement()
       ..id = 'message2'
       ..text = 'Please subscribe to the Dart mailing list.';
     // #enddocregion elem-set-cascade
@@ -124,7 +124,7 @@ void miscDeclAnalyzedButNotTested() {
     var url, encodedData;
     void requestComplete(HttpRequest req) {}
     // #docregion new-HttpRequest
-    var request = new HttpRequest();
+    var request = HttpRequest();
     request
       ..open('POST', url)
       ..onLoadEnd.listen((e) => requestComplete(request))

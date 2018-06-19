@@ -28,7 +28,7 @@ class EngineService {
   String id;
   EngineService() : id = 'E1';
 
-  Engine getEngine() => new Engine();
+  Engine getEngine() => Engine();
 }
 
 @Injectable()
@@ -38,14 +38,14 @@ class EngineService2 extends EngineService {
   }
 
   @override
-  Engine getEngine() => new Engine()..cylinders = 8;
+  Engine getEngine() => Engine()..cylinders = 8;
 }
 
 //// Tire services ///
 @Injectable()
 class TiresService {
   final id = 'T1';
-  Tires getTires() => new Tires();
+  Tires getTires() => Tires();
 }
 
 /// Car Services ///
@@ -57,7 +57,7 @@ class CarService {
 
   CarService(this.engineService, this.tiresService) : id = 'C1';
 
-  Car getCar() => new Car(engineService.getEngine(), tiresService.getTires());
+  Car getCar() => Car(engineService.getEngine(), tiresService.getTires());
 
   String get name => '$id-${engineService.id}-${tiresService.id}';
 }

@@ -13,23 +13,23 @@ class Routes {
   RoutePath get heroes => paths.heroes;
 
   final List<RouteDefinition> all = [
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.crises,
       component: clct.CrisisListComponentNgFactory,
     ),
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.heroes,
       component: hlct.HeroListComponentNgFactory,
     ),
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.hero,
       component: hct.HeroComponentNgFactory,
     ),
-    new RouteDefinition.redirect(
+    RouteDefinition.redirect(
       path: '',
       redirectTo: paths.heroes.toUrl(),
     ),
-    new RouteDefinition(
+    RouteDefinition(
       path: '.*',
       component: nfct.NotFoundComponentNgFactory,
     ),

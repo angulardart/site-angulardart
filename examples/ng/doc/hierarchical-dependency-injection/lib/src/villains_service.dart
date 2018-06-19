@@ -11,8 +11,8 @@ class Villain {
 @Injectable()
 class VillainsService {
   static final List<Villain> _mockVillains = [
-    new Villain(1, 'Dr. Evil'),
-    new Villain(2, 'Moriarty')
+    Villain(1, 'Dr. Evil'),
+    Villain(2, 'Moriarty')
   ];
 
   Future<List<Villain>> getVillains() async => _mockVillains;

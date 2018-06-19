@@ -18,13 +18,13 @@ class Routes {
 
   final List<RouteDefinition> all = [
     // #enddocregion home
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.crisis,
       component: cct.CrisisComponentNgFactory,
     ),
     // #enddocregion v1
     // #docregion home
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.home,
       component: clhct.CrisisListHomeComponentNgFactory,
       useAsDefault: true,

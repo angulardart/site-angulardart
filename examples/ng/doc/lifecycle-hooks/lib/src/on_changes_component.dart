@@ -71,7 +71,7 @@ class OnChangesParentComponent {
 
   void reset() {
     // new Hero object every time; triggers onChange
-    hero = new Hero('Windstorm');
+    hero = Hero('Windstorm');
     // setting power only triggers onChange if this value is different
     power = 'sing';
     childView?.reset();

@@ -264,7 +264,7 @@ First create a file to hold route paths. Initialize it with this content:
 ```
   import 'package:angular_router/angular_router.dart';
   // ···
-  final heroes = new RoutePath(path: 'heroes');
+  final heroes = RoutePath(path: 'heroes');
 ```
 
 As a first route, define a route to the heroes component:
@@ -282,7 +282,7 @@ As a first route, define a route to the heroes component:
     RoutePath get heroes => paths.heroes;
 
     final List<RouteDefinition> all = [
-      new RouteDefinition(
+      RouteDefinition(
         path: paths.heroes.path,
         component: hlct.HeroListComponentNgFactory,
       ),
@@ -463,7 +463,7 @@ and then creating a route definition.
 
 <?code-excerpt "lib/src/route_paths.dart (dashboard)" title?>
 ```
-  final dashboard = new RoutePath(path: 'dashboard');
+  final dashboard = RoutePath(path: 'dashboard');
 ```
 
 <?code-excerpt "lib/src/routes.dart (dashboard)" replace="/(all = \[)[\S\s]+?···/$1/g" title?>
@@ -471,7 +471,7 @@ and then creating a route definition.
   RoutePath get dashboard => paths.dashboard;
   // ···
   final List<RouteDefinition> all = [
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.dashboard.path,
       component: dct.DashboardComponentNgFactory,
     ),
@@ -496,7 +496,7 @@ To make this happen, add a redirect route:
 
 <?code-excerpt "lib/src/routes.dart (redirect route)" title?>
 ```
-  new RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
+  RouteDefinition.redirect(path: '', redirectTo: paths.dashboard.toUrl()),
 ```
 
 <div class="l-sub-section" markdown="1">
@@ -673,7 +673,7 @@ First, define the route path:
 <?code-excerpt "lib/src/route_paths.dart (hero)" title?>
 ```
   const idParam = 'id';
-  final hero = new RoutePath(path: '${heroes.path}/:$idParam');
+  final hero = RoutePath(path: '${heroes.path}/:$idParam');
 ```
 
 The colon (:) in the path indicates that `:$idParam` (`:id`) is a placeholder
@@ -694,7 +694,7 @@ Next, add the following route:
 
   final List<RouteDefinition> all = [
     // ···
-    new RouteDefinition(
+    RouteDefinition(
       path: paths.hero.path,
       component: hct.HeroComponentNgFactory,
     ),
@@ -936,7 +936,7 @@ This time, you're binding to the parameterized `hero` path you defined earlier:
 <?code-excerpt "lib/src/route_paths.dart (hero)"?>
 ```
   const idParam = 'id';
-  final hero = new RoutePath(path: '${heroes.path}/:$idParam');
+  final hero = RoutePath(path: '${heroes.path}/:$idParam');
 ```
 
 The `heroUrl()` method generates the string representation of the path using the

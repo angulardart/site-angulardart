@@ -27,7 +27,7 @@ class FlyingHeroesComponent {
     name = name.trim();
     if (name.isEmpty) return;
 
-    var hero = new Hero(name, canFly);
+    var hero = Hero(name, canFly);
     // #enddocregion v1
     if (mutate) {
       // Pure pipe won't update display because heroes list
@@ -36,16 +36,16 @@ class FlyingHeroesComponent {
       heroes.add(hero);
       // #enddocregion v1, push
     } else {
-      // Pipe updates display because heroes list is a new object
+      // Pipe updates display because heroes list is a object
       // #docregion concat
-      heroes = new List<Hero>.from(heroes)..add(hero);
+      heroes = List<Hero>.from(heroes)..add(hero);
       // #enddocregion concat
     }
     // #docregion v1
   }
 
   void reset() {
-    heroes = new List<Hero>.from(mockHeroes);
+    heroes = List<Hero>.from(mockHeroes);
   }
 }
 // #enddocregion v1

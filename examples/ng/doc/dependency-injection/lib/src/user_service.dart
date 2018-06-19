@@ -8,8 +8,8 @@ class User {
 }
 
 // Todo: get the user; don't 'new' it.
-final User _alice = new User('Alice', true);
-final User _bob = new User('Bob', false);
+final User _alice = User('Alice', true);
+final User _bob = User('Bob', false);
 
 @Injectable()
 class UserService {

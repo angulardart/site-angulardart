@@ -35,7 +35,7 @@ DashboardPO po;
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<DashboardComponent>(
       ng.DashboardComponentNgFactory,
       rootInjector: injector.factory);
@@ -43,8 +43,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new DashboardPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = DashboardPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -85,7 +85,7 @@ void heroSearchTests() {
 
   setUp(() async {
     await po.search.type('ma');
-    await new Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
   });
 
   test('list matching heroes', () {

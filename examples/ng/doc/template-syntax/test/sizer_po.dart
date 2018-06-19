@@ -25,13 +25,13 @@ abstract class SizerPO {
 
   int get fontSizeFromLabelText {
     final text = _fontSize.visibleText;
-    final matches = new RegExp((r'^FontSize: (\d+)px$')).firstMatch(text);
+    final matches = RegExp((r'^FontSize: (\d+)px$')).firstMatch(text);
     return _toInt(matches[1]);
   }
 
   int get fontSizeFromStyle {
     final text = _fontSize.attributes['style'];
-    final matches = new RegExp((r'^font-size: (\d+)px;$')).firstMatch(text);
+    final matches = RegExp((r'^font-size: (\d+)px;$')).firstMatch(text);
     return _toInt(matches[1]);
   }
 

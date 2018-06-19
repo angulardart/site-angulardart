@@ -145,7 +145,7 @@ You can create a new hero like this:
 
 <?code-excerpt "lib/src/hero_form_component.dart" region="SkyDog"?>
 ```
-  var myHero = new Hero(
+  var myHero = Hero(
       42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
   print('My hero is ${myHero.name}.'); // "My hero is SkyDog."
 ```
@@ -180,7 +180,7 @@ Create the following file with the given content:
     directives: [coreDirectives, formDirectives],
   )
   class HeroFormComponent {
-    Hero model = new Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
+    Hero model = Hero(18, 'Dr IQ', _powers[0], 'Chuck Overstreet');
     bool submitted = false;
 
     List<String> get powers => _powers;

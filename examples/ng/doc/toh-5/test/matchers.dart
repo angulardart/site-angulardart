@@ -2,12 +2,12 @@ import 'package:angular_router/angular_router.dart';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-IsNavParams isNavParams([dynamic expected]) => new IsNavParams(expected);
+IsNavParams isNavParams([dynamic expected]) => IsNavParams(expected);
 
 class IsNavParams extends Matcher {
   NavigationParams _expected;
   IsNavParams([NavigationParams expected]) {
-    _expected = expected == null ? new NavigationParams() : expected;
+    _expected = expected == null ? NavigationParams() : expected;
   }
   bool matches(item, Map matchState) =>
       item is NavigationParams &&
@@ -20,12 +20,12 @@ class IsNavParams extends Matcher {
       'NavigationParams(${_expected.queryParameters}, ${_expected.fragment}, ${_expected.updateUrl})');
 }
 
-IsRouterState isRouterState(dynamic expected) => new IsRouterState(expected);
+IsRouterState isRouterState(dynamic expected) => IsRouterState(expected);
 
 class IsRouterState extends Matcher {
   RouterState _expected;
   IsRouterState(/*RouterState|String*/ expected) {
-    _expected = expected is String ? new RouterState(expected, []) : expected;
+    _expected = expected is String ? RouterState(expected, []) : expected;
   }
   bool matches(item, Map matchState) =>
       item is RouterState &&

@@ -27,7 +27,7 @@ final InjectorFactory rootInjector = self.rootInjector$Injector;
 /// HeroDetail is simple enough that it can be tested without a router.
 /// Instead we only mock Location.
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<HeroComponent>(
       ng.HeroComponentNgFactory,
       rootInjector: injector.factory);
@@ -47,15 +47,15 @@ void main() {
   group('${targetHero['name']} initial hero:', () {
     final Map updatedHero = {'id': targetHero[idParam]};
 
-    final mockRouterState = new MockRouterState();
+    final mockRouterState = MockRouterState();
     when(mockRouterState.parameters)
         .thenReturn({idParam: '${targetHero[idParam]}'});
 
     setUp(() async {
       await fixture.update((c) => c.onActivate(null, mockRouterState));
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
 
     test('show hero details', () {

@@ -23,5 +23,5 @@ class LoggerService {
   void clear() => logs.clear();
 
   // schedules a view refresh to ensure display catches up
-  tick() => new Future(() {});
+  tick() => Future(() {});
 }

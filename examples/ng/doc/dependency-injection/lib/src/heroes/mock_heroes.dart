@@ -13,5 +13,5 @@ List<Hero> mockHeroes = <Map>[
   {'id': 20, 'isSecret': true, 'name': 'Tornado'}
 ].map(_initHero).toList();
 
-Hero _initHero(Map heroProperties) => new Hero(
+Hero _initHero(Map heroProperties) => Hero(
     heroProperties['id'], heroProperties['name'], heroProperties['isSecret']);

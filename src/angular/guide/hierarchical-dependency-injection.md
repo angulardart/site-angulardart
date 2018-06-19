@@ -162,7 +162,7 @@ It also delegates to the app-wide singleton `HeroService`, which it gets by inje
 
     void set taxReturn(HeroTaxReturn htr) {
       _originalTR = htr;
-      _currentTR = new HeroTaxReturn.copy(htr);
+      _currentTR = HeroTaxReturn.copy(htr);
     }
 
     HeroTaxReturn get taxReturn => _currentTR;
@@ -224,7 +224,7 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
 
     HeroTaxReturnComponent(this._heroTaxReturnService);
 
-    final _close = new StreamController<Null>();
+    final _close = StreamController<Null>();
     @Output()
     Stream<Null> get close => _close.stream;
 
@@ -249,7 +249,7 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
 
     Future<void> flashMessage(String msg) async {
       message = msg;
-      await new Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 500));
       message = '';
     }
   }

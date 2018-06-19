@@ -25,7 +25,7 @@ class HeroSearchComponent implements OnInit {
   // #enddocregion search
   // #docregion searchTerms
   StreamController<String> _searchTerms =
-      new StreamController<String>.broadcast();
+      StreamController<String>.broadcast();
   // #enddocregion searchTerms
 
   HeroSearchComponent(this._heroSearchService, this._router) {}
@@ -37,10 +37,10 @@ class HeroSearchComponent implements OnInit {
   // #docregion search
   Future<void> ngOnInit() async {
     heroes = _searchTerms.stream
-        .transform(debounce(new Duration(milliseconds: 300)))
+        .transform(debounce(Duration(milliseconds: 300)))
         .distinct()
         .transform(switchMap((term) => term.isEmpty
-            ? new Stream<List<Hero>>.fromIterable([<Hero>[]])
+            ? Stream<List<Hero>>.fromIterable([<Hero>[]])
             : _heroSearchService.search(term).asStream()))
         .handleError((e) {
       print(e); // for demo purposes only

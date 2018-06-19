@@ -14,7 +14,7 @@ class HeroService {
   // See the "Take it slow" appendix
   // #docregion getAllSlowly
   Future<List<Hero>> getAllSlowly() {
-    return new Future.delayed(const Duration(seconds: 2), getAll);
+    return Future.delayed(const Duration(seconds: 2), getAll);
   }
   // #enddocregion getAllSlowly
   // #docregion

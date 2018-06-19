@@ -61,7 +61,7 @@ list of the generated root injector, as described in the section on
   final InjectorFactory rootInjector = self.rootInjector$Injector;
 
   void main() {
-    final injector = new InjectorProbe(rootInjector);
+    final injector = InjectorProbe(rootInjector);
     final testBed = NgTestBed.forComponent<HeroListComponent>(
         ng.HeroListComponentNgFactory,
         rootInjector: injector.factory);
@@ -69,8 +69,8 @@ list of the generated root injector, as described in the section on
     setUp(() async {
       fixture = await testBed.create();
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroesPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroesPO.create(context);
     });
 
     tearDown(disposeAnyRunningTest);
@@ -189,7 +189,7 @@ seen already:
 
 <?code-excerpt "toh-5/test/app.dart (provisioning and setup)" title?>
 ```
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory,
       rootInjector: injector.factory);
 
@@ -199,8 +199,8 @@ seen already:
     await router?.navigate('/');
     await fixture.update();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    appPO = new AppPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = AppPO.create(context);
   });
 ```
 
@@ -304,7 +304,7 @@ rather than `DashboardComponent`:
   final InjectorFactory rootInjector = self.rootInjector$Injector;
 
   void main() {
-    final injector = new InjectorProbe(rootInjector);
+    final injector = InjectorProbe(rootInjector);
     final testBed = NgTestBed.forComponent<TestComponent>(
         self.TestComponentNgFactory,
         rootInjector: injector.factory);
@@ -325,8 +325,8 @@ You can achieve this by registering a listener:
     navHistory = [];
     router.onRouteActivated.listen((newState) => navHistory.add(newState));
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new DashboardPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = DashboardPO.create(context);
   });
 ```
 

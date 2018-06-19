@@ -196,7 +196,7 @@ initialized** from a _context_ passed as an argument to the constructor. Create 
 context from the fixture's [rootElement][] as shown below. Since most page
 objects are shared across tests, they are generally initialized during setup:
 
-<?code-excerpt "toh-1/test/app_test.dart (appPO setup)" title replace="/(final context|appPO|new) .*/[!$&!]/g"?>
+<?code-excerpt "toh-1/test/app_test.dart (appPO setup)" title replace="/(final context |appPO |HtmlPageLoaderElement\.).*/[!$&!]/g"?>
 ```
   final testBed =
       NgTestBed.forComponent<AppComponent>(ng.AppComponentNgFactory);
@@ -206,8 +206,8 @@ objects are shared across tests, they are generally initialized during setup:
   setUp(() async {
     fixture = await testBed.create();
     [!final context =!]
-        [!new HtmlPageLoaderElement.createFromElement(fixture.rootElement);!]
-    [!appPO = new AppPO.create(context);!]
+        [!HtmlPageLoaderElement.createFromElement(fixture.rootElement);!]
+    [!appPO = AppPO.create(context);!]
   });
 ```
 
@@ -296,7 +296,7 @@ You might render hero data (as a map) from the text of the `<li>` elements like 
 
   // ···
   Map<String, dynamic> _heroDataFromLi(String liText) {
-    final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
+    final matches = RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
     return _heroData(matches[1], matches[2]);
   }
 ```

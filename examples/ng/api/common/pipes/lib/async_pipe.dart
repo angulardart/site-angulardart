@@ -34,7 +34,7 @@ class AsyncGreeterPipe {
 
   void tryAgain() {
     done = false;
-    greeting = new Future<String>.delayed(_delay, greet);
+    greeting = Future<String>.delayed(_delay, greet);
   }
 }
 
@@ -46,5 +46,5 @@ class AsyncGreeterPipe {
 class AsyncTimePipe {
   static const _delay = const Duration(seconds: 1);
   final Stream<DateTime> time =
-      new Stream.periodic(_delay, (_) => new DateTime.now());
+      Stream.periodic(_delay, (_) => DateTime.now());
 }

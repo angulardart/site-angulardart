@@ -19,25 +19,25 @@ class Routes {
   // #docregion hero
   final List<RouteDefinition> all = [
     // #enddocregion hero
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.crises,
       component: clct.CrisisListComponentNgFactory,
     ),
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.heroes,
       component: hlct.HeroListComponentNgFactory,
     ),
     // #docregion hero
-    new RouteDefinition(
+    RouteDefinition(
       routePath: paths.hero,
       component: hct.HeroComponentNgFactory,
     ),
     // #enddocregion hero
-    new RouteDefinition.redirect(
+    RouteDefinition.redirect(
       path: '',
       redirectTo: paths.heroes.toUrl(),
     ),
-    new RouteDefinition(
+    RouteDefinition(
       path: '.+',
       component: nfct.NotFoundComponentNgFactory,
     ),

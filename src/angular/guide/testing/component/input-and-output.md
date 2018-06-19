@@ -121,8 +121,8 @@ basic [page object][] setup is sufficient to test for this case:
     setUp(() async {
       fixture = await testBed.create();
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
 
     test('has empty view', () {
@@ -146,10 +146,10 @@ named parameter `beforeChangeDetection` of the `NgTestBed.create()` method:
     setUp(() async {
       fixture = await testBed.create(
           beforeChangeDetection: (c) =>
-              c.hero = new Hero(targetHero['id'], targetHero['name']));
+              c.hero = Hero(targetHero['id'], targetHero['name']));
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
 
     test('show hero details', () {
@@ -171,14 +171,14 @@ property was [explicitly initialized](#input-initialized):
     setUp(() async {
       fixture = await testBed.create();
       final context =
-          new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-      po = new HeroDetailPO.create(context);
+          HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+      po = HeroDetailPO.create(context);
     });
     // ···
 
     test('transition to ${targetHero['name']} hero', () async {
       await fixture.update((comp) {
-        comp.hero = new Hero(targetHero['id'], targetHero['name']);
+        comp.hero = Hero(targetHero['id'], targetHero['name']);
       });
       expect(po.heroFromDetails, targetHero);
     });

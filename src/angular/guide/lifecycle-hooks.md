@@ -476,7 +476,7 @@ The *DoCheck* sample extends the *OnChanges* sample with the following `ngDoChec
       var noChangeMsg =
           'DoCheck called ${count}x when no change to hero or power';
       if (count == 1) {
-        // add new "no change" message
+        // add "no change" message
         changeLog.add(noChangeMsg);
       } else {
         // update last "no change" message

@@ -8,5 +8,5 @@ import 'package:angular/angular.dart';
   pipes: [commonPipes],
 )
 class HeroBirthdayComponent {
-  DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988
+  DateTime birthday = DateTime(1988, 4, 15); // April 15, 1988
 }

@@ -8,8 +8,8 @@ import 'package:test/test.dart';
 ///////////////////////////////////////
 // #docregion spec
 List<Hero> expectedHeroes = [
-  new Hero(1, 'hero1'),
-  new Hero(2, 'hero2', true)
+  Hero(1, 'hero1'),
+  Hero(2, 'hero2', true)
 ];
 
 class HeroServiceMock implements HeroService {
@@ -17,11 +17,11 @@ class HeroServiceMock implements HeroService {
   List<Hero> getAll() => expectedHeroes;
 }
 
-var mockService = new HeroServiceMock();
+var mockService = HeroServiceMock();
 
 void main() {
   test('should have heroes when HeroListComponent created', () {
-    var hlc = new HeroListComponent(mockService);
+    var hlc = HeroListComponent(mockService);
     expect(hlc.heroes.length, expectedHeroes.length);
   });
 }

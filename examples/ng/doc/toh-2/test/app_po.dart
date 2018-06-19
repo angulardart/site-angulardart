@@ -76,7 +76,7 @@ abstract class AppPO {
 
   // #docregion heroes
   Map<String, dynamic> _heroDataFromLi(String liText) {
-    final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
+    final matches = RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
     return _heroData(matches[1], matches[2]);
   }
   // #enddocregion heroes

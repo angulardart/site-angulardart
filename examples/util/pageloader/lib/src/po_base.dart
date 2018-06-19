@@ -7,11 +7,11 @@ export 'dart:html' show Element;
 export 'package:angular_test/angular_test.dart' show NgTestFixture;
 
 PageLoaderElement _newPLE(Element e) =>
-    e == null ? e : new PageLoaderElement(e);
+    e == null ? e : PageLoaderElement(e);
 
 class PageObjectBase {
-  final _elCache = new Map<String, PageLoaderElement>();
-  final _listElCache = new Map<String, List<PageLoaderElement>>();
+  final _elCache = Map<String, PageLoaderElement>();
+  final _listElCache = Map<String, List<PageLoaderElement>>();
 
   Element _root;
 
@@ -36,7 +36,7 @@ class PageObjectBase {
         selectors,
         () => root
             .querySelectorAll(selectors)
-            .map((e) => new PageLoaderElement(e))
+            .map((e) => PageLoaderElement(e))
             .toList(),
       );
 

@@ -22,10 +22,10 @@ import 'src/hero.dart';
 class AppComponent {
   final title = 'Tour of Heroes';
   List<Hero> heroes = [
-    new Hero(1, 'Windstorm'),
-    new Hero(13, 'Bombasto'),
-    new Hero(15, 'Magneta'),
-    new Hero(20, 'Tornado')
+    Hero(1, 'Windstorm'),
+    Hero(13, 'Bombasto'),
+    Hero(15, 'Magneta'),
+    Hero(20, 'Tornado')
   ];
   Hero get myHero => heroes.first;
 }

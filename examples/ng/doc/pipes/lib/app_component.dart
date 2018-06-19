@@ -24,5 +24,5 @@ import 'src/power_booster_component.dart';
   pipes: [commonPipes],
 )
 class AppComponent {
-  DateTime birthday = new DateTime(1988, 4, 15); // April 15, 1988
+  DateTime birthday = DateTime(1988, 4, 15); // April 15, 1988
 }

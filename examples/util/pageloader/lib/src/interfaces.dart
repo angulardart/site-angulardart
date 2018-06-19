@@ -11,37 +11,37 @@ class PageLoaderElement {
 
   String get visibleTextSync => _e?.text;
 
-  PageLoaderAttributes get attributes => _attr ??= new PageLoaderAttributes(_e);
+  PageLoaderAttributes get attributes => _attr ??= PageLoaderAttributes(_e);
 
   Future<bool> clear() async {
     if (_e is! InputElement) return false;
     final _input = _e as InputElement;
     final initialValue = _input.value;
     _input.value = '';
-    var result = _input.dispatchEvent(new Event('input'));
+    var result = _input.dispatchEvent(Event('input'));
     if (initialValue != null && initialValue != '') {
-      result = _input.dispatchEvent(new Event('change')) && result;
+      result = _input.dispatchEvent(Event('change')) && result;
     }
     return result;
   }
 
-  Future<bool> click() async => _e.dispatchEvent(new MouseEvent('click'));
+  Future<bool> click() async => _e.dispatchEvent(MouseEvent('click'));
 
   Future<bool> type(String keys) async {
     if (_e is! InputElement) return false;
     final _input = _e as InputElement;
     final initialValue = _input.value;
     _input.value = (_input.value ?? '') + keys;
-    var result = _input.dispatchEvent(new Event('input'));
+    var result = _input.dispatchEvent(Event('input'));
     if (_input.value != initialValue) {
-      result = _input.dispatchEvent(new Event('change')) && result;
+      result = _input.dispatchEvent(Event('change')) && result;
     }
     return result;
   }
 
   Stream<PageLoaderElement> getElementsByCss(String selector) async* {
     for (final e in _e.querySelectorAll(selector)) {
-      yield new PageLoaderElement(e);
+      yield PageLoaderElement(e);
     }
   }
 }

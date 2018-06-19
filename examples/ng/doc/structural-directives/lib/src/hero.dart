@@ -10,8 +10,8 @@ class Hero {
 }
 
 final List<Hero> mockHeroes = <Hero>[
-  new Hero(1, 'Mr. Nice', 'happy'),
-  new Hero(2, 'Narco', 'sad'),
-  new Hero(3, 'Windstorm', 'confused'),
-  new Hero(4, 'Magneta')
+  Hero(1, 'Mr. Nice', 'happy'),
+  Hero(2, 'Narco', 'sad'),
+  Hero(3, 'Windstorm', 'confused'),
+  Hero(4, 'Magneta')
 ];

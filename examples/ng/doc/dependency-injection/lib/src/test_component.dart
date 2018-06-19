@@ -28,10 +28,10 @@ class MockHeroService implements HeroService {
 /////////////////////////////////////
 dynamic runTests() {
   // #docregion spec
-  var expectedHeroes = [new Hero(0, 'A'), new Hero(1, 'B')];
-  var mockService = new MockHeroService(expectedHeroes);
+  var expectedHeroes = [Hero(0, 'A'), Hero(1, 'B')];
+  var mockService = MockHeroService(expectedHeroes);
   it('should have heroes when HeroListComponent created', () {
-    var hlc = new HeroListComponent(mockService);
+    var hlc = HeroListComponent(mockService);
     expect(hlc.heroes.length).toEqual(expectedHeroes.length);
   });
   // #enddocregion spec
@@ -42,7 +42,7 @@ dynamic runTests() {
 // Fake Jasmine infrastructure
 String testName;
 dynamic testResults;
-dynamic expect(dynamic actual) => new ExpectResult(actual);
+dynamic expect(dynamic actual) => ExpectResult(actual);
 
 class ExpectResult {
   final actual;

@@ -24,7 +24,7 @@ class HeroService {
     try {
       final response = await _http.get(_heroesUrl);
       final heroes = (_extractData(response) as List)
-          .map((value) => new Hero.fromJson(value))
+          .map((value) => Hero.fromJson(value))
           .toList();
       return heroes;
     } catch (e) {
@@ -39,7 +39,7 @@ class HeroService {
     try {
       final response = await _http.post(_heroesUrl,
           headers: _headers, body: json.encode({'name': name}));
-      return new Hero.fromJson(_extractData(response));
+      return Hero.fromJson(_extractData(response));
     } catch (e) {
       throw _handleError(e);
     }
@@ -53,7 +53,7 @@ class HeroService {
 
   Exception _handleError(dynamic e) {
     print(e); // for demo purposes only
-    return new Exception('Server error; cause: $e');
+    return Exception('Server error; cause: $e');
   }
   // #enddocregion error-handling, methods
 }

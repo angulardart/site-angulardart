@@ -7,7 +7,7 @@ import 'package:jsonpadding/jsonpadding.dart';
 class WikipediaService {
   Future<List> search(String term) async {
     // #docregion call-jsonp
-    Uri uri = new Uri(
+    Uri uri = Uri(
         scheme: 'http',
         host: 'en.wikipedia.org',
         path: 'w/api.php',

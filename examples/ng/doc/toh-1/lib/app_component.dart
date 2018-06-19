@@ -26,7 +26,7 @@ class AppComponent {
   // #enddocregion directives
   final title = 'Tour of Heroes';
   // #docregion hero
-  Hero hero = new Hero(1, 'Windstorm');
+  Hero hero = Hero(1, 'Windstorm');
   // #enddocregion hero
   // #docregion directives
 }

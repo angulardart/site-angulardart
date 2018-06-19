@@ -42,7 +42,7 @@ class HeroTaxReturnComponent {
 
   HeroTaxReturnComponent(this._heroTaxReturnService);
 
-  final _close = new StreamController<Null>();
+  final _close = StreamController<Null>();
   @Output()
   Stream<Null> get close => _close.stream;
 
@@ -67,7 +67,7 @@ class HeroTaxReturnComponent {
 
   Future<void> flashMessage(String msg) async {
     message = msg;
-    await new Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 500));
     message = '';
   }
 }

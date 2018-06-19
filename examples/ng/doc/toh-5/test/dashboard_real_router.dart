@@ -26,7 +26,7 @@ Router router;
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<TestComponent>(
       self.TestComponentNgFactory,
       rootInjector: injector.factory);
@@ -41,8 +41,8 @@ void main() {
     navHistory = [];
     router.onRouteActivated.listen((newState) => navHistory.add(newState));
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new DashboardPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = DashboardPO.create(context);
   });
   // #enddocregion setUp
 

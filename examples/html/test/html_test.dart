@@ -105,7 +105,7 @@ void main() {
     Future main() async {
       var data = {'dart': 'fun', 'angular': 'productive'};
 
-      var request = new HttpRequest();
+      var request = HttpRequest();
       request
         ..open('POST', url)
         ..setRequestHeader(
@@ -129,12 +129,12 @@ void main() {
   });
 
   test('WebSockets', () async {
-    final logger = new Logger();
+    final logger = Logger();
     final print = logger.print; // shadow global print
-    final wsStream = new StreamController<String>();
+    final wsStream = StreamController<String>();
 
     // #docregion WebSocket
-    var ws = new WebSocket('ws://echo.websocket.org');
+    var ws = WebSocket('ws://echo.websocket.org');
     // #enddocregion WebSocket
 
     // #docregion initWebSocket
@@ -145,7 +145,7 @@ void main() {
 
       void scheduleReconnect() {
         if (!reconnectScheduled) {
-          new Timer(new Duration(seconds: retrySeconds),
+          Timer(Duration(seconds: retrySeconds),
               () => initWebSocket(retrySeconds * 2));
         }
         reconnectScheduled = true;
@@ -181,7 +181,7 @@ void main() {
     // #enddocregion initWebSocket
 
     final t = wsStream.stream.timeout(
-      new Duration(seconds: 5),
+      Duration(seconds: 5),
       onTimeout: (s) => s.add('Timeout!'),
     );
 

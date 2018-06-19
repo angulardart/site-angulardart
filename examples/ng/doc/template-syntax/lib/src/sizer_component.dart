@@ -24,7 +24,7 @@ class SizerComponent {
     if (z != null) _size = min(maxSize, max(minSize, z));
   }
 
-  final _sizeChange = new StreamController<int>();
+  final _sizeChange = StreamController<int>();
   @Output()
   Stream<int> get sizeChange => _sizeChange.stream;
 

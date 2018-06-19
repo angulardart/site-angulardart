@@ -30,7 +30,7 @@ HeroSearchPO po;
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<HeroSearchComponent>(
       ng.HeroSearchComponentNgFactory,
       rootInjector: injector.factory);
@@ -39,8 +39,8 @@ void main() {
     InMemoryDataService.resetDb();
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new HeroSearchPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = HeroSearchPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);

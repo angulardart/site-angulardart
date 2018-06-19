@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 @Directive(selector: '[myClick]')
 class ClickDirective {
   // #docregion output-myClick
-  final _onClick = new StreamController<String>();
+  final _onClick = StreamController<String>();
   // @Output(alias) propertyName = ...
   @Output('myClick')
   Stream<String> get clicks => _onClick.stream;
@@ -24,7 +24,7 @@ class ClickDirective {
 
 @Directive(selector: '[myClick2]')
 class ClickDirective2 {
-  final _onClick = new StreamController<String>();
+  final _onClick = StreamController<String>();
   @Output('myClick')
   Stream<String> get clicks => _onClick.stream;
   bool _toggle = false;

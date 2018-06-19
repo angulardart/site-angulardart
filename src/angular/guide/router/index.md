@@ -152,7 +152,7 @@ Define [route paths]({{pageUrl}}/1#route-paths):
 ```
   import 'package:angular_router/angular_router.dart';
   // ···
-  final heroes = new RoutePath(path: 'heroes');
+  final heroes = RoutePath(path: 'heroes');
 ```
 </li><li markdown="1">
 Define [route definitions]({{pageUrl}}/1#route-definitions):
@@ -170,7 +170,7 @@ Define [route definitions]({{pageUrl}}/1#route-definitions):
     RoutePath get heroes => paths.heroes;
 
     final List<RouteDefinition> all = [
-      new RouteDefinition(
+      RouteDefinition(
         path: paths.heroes.path,
         component: hlct.HeroListComponentNgFactory,
       ),

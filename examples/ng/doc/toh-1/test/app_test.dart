@@ -18,8 +18,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    appPO = new AppPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    appPO = AppPO.create(context);
   });
   // #enddocregion appPO-setup
 
