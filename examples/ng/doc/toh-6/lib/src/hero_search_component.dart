@@ -24,8 +24,7 @@ class HeroSearchComponent implements OnInit {
   Stream<List<Hero>> heroes;
   // #enddocregion search
   // #docregion searchTerms
-  StreamController<String> _searchTerms =
-      StreamController<String>.broadcast();
+  StreamController<String> _searchTerms = StreamController<String>.broadcast();
   // #enddocregion searchTerms
 
   HeroSearchComponent(this._heroSearchService, this._router) {}

@@ -18,7 +18,6 @@ const appConfigMap = const {
 const appConfigMapToken = const OpaqueToken<Map>('app.config');
 // #enddocregion appConfigMap
 
-
 // #docregion AppConfig
 class AppConfig {
   String apiEndpoint;

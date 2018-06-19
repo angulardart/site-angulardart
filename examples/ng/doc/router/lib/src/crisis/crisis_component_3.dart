@@ -28,9 +28,7 @@ class CrisisComponent implements OnActivate {
   }
 
   // #docregion goBack
-  Future<NavigationResult> goBack() => _router.navigate(
-      paths.heroes.toUrl(),
-      NavigationParams(
-          queryParameters: {paths.idParam: crisis.id.toString()}));
+  Future<NavigationResult> goBack() => _router.navigate(paths.heroes.toUrl(),
+      NavigationParams(queryParameters: {paths.idParam: crisis.id.toString()}));
   // #enddocregion goBack
 }

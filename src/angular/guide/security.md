@@ -192,7 +192,8 @@ this, mark the URL value as a trusted URL using the `bypassSecurityTrustUrl` cal
     // Angular sanitizes them in data binding, but we can
     // explicitly tell Angular to trust this value:
     dangerousUrl = 'javascript:alert("Hi there")';
-    trustedUrl = sanitizer.bypassSecurityTrustUrl('javascript:alert("Hi there")');
+    trustedUrl =
+        sanitizer.bypassSecurityTrustUrl('javascript:alert("Hi there")');
 ```
 
 <img class="image-display" src="{% asset_path 'ng/devguide/security/bypass-security-component.png' %}"

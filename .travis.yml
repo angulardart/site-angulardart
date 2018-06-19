@@ -95,8 +95,14 @@ jobs:
       - bundle install
       - gulp ng-pkg-pub-get # --skip=package_name|...
       - gulp _build-prep --clean
-    # TODO: run analyzer (and dartfmt?) over examples
-    # Until we run the analyzer, we aren't gaining much by warming up the test and e2e caches.
+
+    - env: CI_TASK="dartfmt"
+      script: gulp $CI_TASK
+
+    - env: CI_TASK="analyze"
+      # Skip apps that have component tests
+      script: gulp $CI_TASK --skip=ng/doc/t
+
     # - env: CI_TASK="test $TEST_OPT"
     # - env: CI_TASK="e2e $E2E_OPT1"
     # - env: CI_TASK="e2e $E2E_OPT2"

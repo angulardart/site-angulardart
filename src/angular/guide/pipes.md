@@ -220,12 +220,13 @@ Now you need a component to demonstrate the pipe.
   import 'exponential_strength_pipe.dart';
 
   @Component(
-      selector: 'power-booster',
-      template: '''
-        <h2>Power Booster</h2>
-        <p>Super power boost: {!{2 | exponentialStrength: 10}!}</p>
-      ''',
-      pipes: [ExponentialStrengthPipe])
+    selector: 'power-booster',
+    template: '''
+      <h2>Power Booster</h2>
+      <p>Super power boost: {!{2 | exponentialStrength: 10}!}</p>
+    ''',
+    pipes: [ExponentialStrengthPipe],
+  )
   class PowerBoosterComponent {}
 ```
 
@@ -592,18 +593,19 @@ both requesting the heroes from the `heroes.json` file.
   import 'fetch_json_pipe.dart';
 
   @Component(
-      selector: 'hero-list',
-      template: '''
-        <h2>Heroes from JSON File</h2>
+    selector: 'hero-list',
+    template: '''
+      <h2>Heroes from JSON File</h2>
 
-        <div *ngFor="let hero of ('heroes.json' | fetch) ">
-          {!{hero['name']}!}
-        </div>
+      <div *ngFor="let hero of ('heroes.json' | fetch) ">
+        {!{hero['name']}!}
+      </div>
 
-        <p>Heroes as JSON: {!{'heroes.json' | fetch | json}!}</p>
-      ''',
-      directives: [coreDirectives],
-      pipes: [commonPipes, FetchJsonPipe])
+      <p>Heroes as JSON: {!{'heroes.json' | fetch | json}!}</p>
+    ''',
+    directives: [coreDirectives],
+    pipes: [commonPipes, FetchJsonPipe],
+  )
   class HeroListComponent {}
 ```
 

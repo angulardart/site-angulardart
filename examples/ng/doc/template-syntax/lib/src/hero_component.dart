@@ -37,8 +37,7 @@ class HeroComponent implements OnInit {
 
   @override
   void ngOnInit() {
-    if (hero == null)
-      hero = Hero(null, '', 'Zzzzzz'); // default sleeping hero
+    if (hero == null) hero = Hero(null, '', 'Zzzzzz'); // default sleeping hero
   }
 
   // #docregion deleteRequest

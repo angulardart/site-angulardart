@@ -34,12 +34,20 @@ module.exports = function (gulp, plugins, config) {
   // General exec task. Args: --cmd='some-cmd with args'
   gulp.task('examples-exec', () => examplesExec(argv.cmd));
 
-  function examplesExec(cmd) {
+  function examplesExec(cmd, optional_options) {
     if (!cmd) throw `Invalid command: ${cmd}`;
-    examplesFullPath.forEach((exPath) => {
-      _exec(cmd, { cwd: exPath });
-    });
+    const opt = optional_options || {};
+    examplesFullPath.forEach(p => _exec(cmd, Object.assign(opt, { cwd: p })));
   }
+
+  gulp.task('analyze', () => {
+    examplesExec('pub get', {
+      env:
+        Object.assign(process.env, { PUB_ALLOW_PRERELEASE_SDK: 'quiet' }),
+    });
+    examplesExec('dartanalyzer --preview-dart-2 --no-hints --fatal-warnings .');
+  });
+  gulp.task('dartfmt', () => examplesExec('dartfmt -w --set-exit-if-changed lib web test'));
 
   // ==========================================================================
   // Boilerplate management

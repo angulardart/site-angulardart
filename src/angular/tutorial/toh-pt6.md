@@ -723,8 +723,7 @@ Create the `HeroSearchComponent` class and metadata.
     Router _router;
 
     Stream<List<Hero>> heroes;
-    StreamController<String> _searchTerms =
-        StreamController<String>.broadcast();
+    StreamController<String> _searchTerms = StreamController<String>.broadcast();
 
     HeroSearchComponent(this._heroSearchService, this._router) {}
 
@@ -756,8 +755,7 @@ Focus on `_searchTerms`:
 
 <?code-excerpt "lib/src/hero_search_component.dart (searchTerms)"?>
 ```
-  StreamController<String> _searchTerms =
-      StreamController<String>.broadcast();
+  StreamController<String> _searchTerms = StreamController<String>.broadcast();
   // ···
   void search(String term) => _searchTerms.add(term);
 ```

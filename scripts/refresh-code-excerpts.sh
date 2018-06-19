@@ -50,7 +50,7 @@ SRC="$1"
 ARGS+='--indentation 2 '
 ARGS+='--replace='
 # The replace expressions that follow must not contain (unencode/unescaped) spaces:
-ARGS+='/\/\/!<br>//g;' # Use //!<br> to force a line break (against dartfmt)
+ARGS+='/\s*\/\/!<br>//g;' # Use //!<br> to force a line break (against dartfmt)
 ARGS+='/ellipsis(<\w+>)?(\(\))?;?/.../g;' # ellipses; --> ...
 ARGS+='/\/\*(\s*\.\.\.\s*)\*\//$1/g;' # /*...*/ --> ...
 ARGS+='/\{\/\*-(\s*\.\.\.\s*)-\*\/\}/$1/g;' # {/*-...-*/} --> ... (removed brackets too)

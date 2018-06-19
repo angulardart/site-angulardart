@@ -428,8 +428,7 @@ handler.
 <?code-excerpt "test/html_test.dart (POST)"?>
 {% prettify dart %}
   String encodeMap(Map data) => data.keys
-      .map((k) =>
-          '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}')
+      .map((k) => '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}')
       .join('&');
 
   Future main() async {
@@ -530,8 +529,7 @@ error, and message events:
     });
 
     ws.onClose.listen((e) {
-      print('Websocket closed, retrying in ' +
-          '$retrySeconds seconds');
+      print('Websocket closed, retrying in ' + '$retrySeconds seconds');
       scheduleReconnect();
     });
 

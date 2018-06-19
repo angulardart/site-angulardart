@@ -6,8 +6,7 @@ import 'package:angular_test/angular_test.dart';
 export 'dart:html' show Element;
 export 'package:angular_test/angular_test.dart' show NgTestFixture;
 
-PageLoaderElement _newPLE(Element e) =>
-    e == null ? e : PageLoaderElement(e);
+PageLoaderElement _newPLE(Element e) => e == null ? e : PageLoaderElement(e);
 
 class PageObjectBase {
   final _elCache = Map<String, PageLoaderElement>();

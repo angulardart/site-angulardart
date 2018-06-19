@@ -49,8 +49,8 @@ class HeroFormComponent {
 
 Hero skyDog() {
   // #docregion SkyDog
-  var myHero = Hero(
-      42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
+  var myHero =
+      Hero(42, 'SkyDog', 'Fetch any object at any distance', 'Leslie Rollover');
   print('My hero is ${myHero.name}.'); // "My hero is SkyDog."
   // #enddocregion SkyDog
   return myHero;

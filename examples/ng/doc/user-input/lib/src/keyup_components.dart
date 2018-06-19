@@ -39,7 +39,6 @@ class KeyUp1Component {
 }
 // #enddocregion v1-class
 
-
 // #docregion v2
 @Component(
   selector: 'key-up2',
@@ -54,7 +53,6 @@ class KeyUp2Component {
 }
 // #enddocregion v2
 
-
 // #docregion v3
 @Component(
   selector: 'key-up3',
@@ -67,7 +65,6 @@ class KeyUp3Component {
   String values = '';
 }
 // #enddocregion v3
-
 
 // #docregion v4
 @Component(

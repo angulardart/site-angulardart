@@ -14,7 +14,7 @@ const argv = require('yargs').argv;
 const assert = require('assert-plus');
 const child_process = require('child_process');
 const chmod = require('gulp-chmod');
-const cpExec = require('child_process').exec;
+const cpExec = child_process.exec;
 const del = require('del');
 const fsExtra = require('fs-extra');
 const fs = fsExtra;
@@ -24,7 +24,7 @@ const path = require('canonical-path');
 const { promisify } = require('util');
 // const promisifiedExec = promisify(cp.exec); // use pexec
 const Q = require("q");
-const spawn = require('child_process').spawn;
+const spawn = child_process.spawn;
 const taskListing = require('gulp-task-listing');
 // cross platform version of spawn that also works on windows.
 const xSpawn = require('cross-spawn');
@@ -288,7 +288,7 @@ gulp.task('compress-images', () => {
     .pipe(imagemin([
       // imagemin.gifsicle({interlaced: true}),
       // imagemin.jpegtran({progressive: true}),
-      imagemin.optipng({optimizationLevel: 4})]))
+      imagemin.optipng({ optimizationLevel: 4 })]))
     .pipe(gulp.dest(baseDir))
 });
 
@@ -414,13 +414,21 @@ function pexec(cmd, options) {
   return promise;
 }
 
-// Execute given command, and log and return command output
+// Execute given command, and log and return command output.
+// After printing stdout and stderr, this throws if there is an execution error.
 function execSyncAndLog(cmd, optional_options) {
   const cwd = optional_options && optional_options.cwd ? ` # cwd: ${optional_options.cwd}` : '';
   gutil.log(`> ${cmd}${cwd}`);
-  const output = child_process.execSync(cmd, optional_options) + '';
-  gutil.log(output);
-  return output;
+  let output;
+  try {
+    const output = child_process.execSync(cmd, optional_options) + '';
+    gutil.log(output);
+    return output;
+  } catch (e) {
+    output = `ExecSync error in ${cmd}\n${e.stdout}\n${e.stderr}\n`;
+    gutil.log(output);
+    throw e;
+  }
 }
 
 function execp(cmdAndArgs, options) {

@@ -179,7 +179,7 @@ class AppComponent implements OnInit {
 
   void _reconfigurePulse() {
     _pulse?.cancel();
-    _pulse = Timer.periodic(
-        _fastEnabled ? _fastPulse : _normalPulse, (_) => step());
+    _pulse =
+        Timer.periodic(_fastEnabled ? _fastPulse : _normalPulse, (_) => step());
   }
 }

@@ -3,11 +3,11 @@ import 'car.dart';
 
 ///////// example 1 ////////////
 Car simpleCar() =>
-  // #docregion car-ctor-instantiation
-  // Simple car with 4 cylinders and Flintstone tires.
-  Car(Engine(), Tires())
-  // #enddocregion car-ctor-instantiation
-  ..description = 'Simple';
+    // #docregion car-ctor-instantiation
+    // Simple car with 4 cylinders and Flintstone tires.
+    Car(Engine(), Tires())
+      // #enddocregion car-ctor-instantiation
+      ..description = 'Simple';
 
 ///////// example 2 ////////////
 
@@ -17,9 +17,9 @@ class Engine2 extends Engine {
 }
 
 Car superCar() =>
-  // Super car with 12 cylinders and Flintstone tires.
-  Car(Engine2(12), Tires())
-  ..description = 'Super';
+    // Super car with 12 cylinders and Flintstone tires.
+    Car(Engine2(12), Tires()) //!<br>
+      ..description = 'Super';
 // #enddocregion car-ctor-instantiation-with-param
 
 /////////// example 3 //////////
@@ -30,11 +30,13 @@ class MockEngine extends Engine {
 }
 
 class MockTires extends Tires {
-  MockTires() { make = 'YokoGoodStone'; }
+  MockTires() {
+    make = 'YokoGoodStone';
+  }
 }
 
 Car testCar() =>
-  // Test car with 8 cylinders and YokoGoodStone tires.
-  Car(MockEngine(), MockTires())
-  ..description = 'Test';
+    // Test car with 8 cylinders and YokoGoodStone tires.
+    Car(MockEngine(), MockTires()) //!<br>
+      ..description = 'Test';
 // #enddocregion car-ctor-instantiation-with-mocks

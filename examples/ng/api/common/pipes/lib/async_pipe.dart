@@ -45,6 +45,5 @@ class AsyncGreeterPipe {
 )
 class AsyncTimePipe {
   static const _delay = const Duration(seconds: 1);
-  final Stream<DateTime> time =
-      Stream.periodic(_delay, (_) => DateTime.now());
+  final Stream<DateTime> time = Stream.periodic(_delay, (_) => DateTime.now());
 }

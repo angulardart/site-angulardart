@@ -7,10 +7,7 @@ import 'package:test/test.dart';
 
 ///////////////////////////////////////
 // #docregion spec
-List<Hero> expectedHeroes = [
-  Hero(1, 'hero1'),
-  Hero(2, 'hero2', true)
-];
+List<Hero> expectedHeroes = [Hero(1, 'hero1'), Hero(2, 'hero2', true)];
 
 class HeroServiceMock implements HeroService {
   @override

@@ -33,7 +33,8 @@ class InMemoryDataService extends MockClient {
       case 'GET':
         final id = int.tryParse(request.url.pathSegments.last);
         if (id != null) {
-          data = _heroesDb.firstWhere((hero) => hero.id == id); // throws if no match
+          data = _heroesDb
+              .firstWhere((hero) => hero.id == id); // throws if no match
         } else {
           String prefix = request.url.queryParameters['name'] ?? '';
           final regExp = RegExp(prefix, caseSensitive: false);

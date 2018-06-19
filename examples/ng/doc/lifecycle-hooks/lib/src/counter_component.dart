@@ -13,9 +13,7 @@ import 'spy_directive.dart';
       <div *ngFor="let chg of changeLog" mySpy>{{chg}}</div>
     </div>
     ''',
-  styles: [
-    '.counter {background: LightYellow; padding: 8px; margin-top: 8px}'
-  ],
+  styles: ['.counter {background: LightYellow; padding: 8px; margin-top: 8px}'],
   directives: [coreDirectives, SpyDirective],
 )
 class MyCounterComponent implements OnChanges {

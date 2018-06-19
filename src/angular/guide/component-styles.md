@@ -209,16 +209,18 @@ inside `<style>` tags.
 <?code-excerpt "lib/src/hero_controls_component.dart (inline styles)" title?>
 ```
   @Component(
-      selector: 'hero-controls',
-      template: '''
-        <style>
-          button {
-            background-color: white;
-            border: 1px solid #777;
-          }
-        </style>
-        <h3>Controls</h3>
-        <button (click)="activate()">Activate</button>''')
+    selector: 'hero-controls',
+    template: '''
+      <style>
+        button {
+          background-color: white;
+          border: 1px solid #777;
+        }
+      </style>
+      <h3>Controls</h3>
+      <button (click)="activate()">Activate</button>
+    ''',
+  )
   class HeroControlsComponent {
     @Input()
     Hero hero;

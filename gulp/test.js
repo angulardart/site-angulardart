@@ -10,6 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;
 
+  const webdevBuild = 'webdev build --no-release';
   const runHtmlTest = 'pub run test -p travischrome --tags browser';
   const runAngularTest = [
     'pub run build_runner test',
@@ -23,7 +24,10 @@ module.exports = function (gulp, plugins, config) {
     'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6 ' +
     'template-syntax').split(' ')
     .map(name => path.join('ng', 'doc', name))
-    .concat('html');
+    .concat('html')
+    .concat(['1-base', '2-starteasy', '3-usebuttons', '4-final']
+      .map(name => path.join('acx', 'lottery', name)))
+    .sort();
 
   const testStatus = {
     passed: [],
@@ -56,19 +60,30 @@ module.exports = function (gulp, plugins, config) {
     plugins.gutil.log(`tests:\n  ${examplesToTest.join('\n  ')}`)
   });
 
+  function webdevBuildOnly(path) {
+    return path.startsWith('examples/acx');
+  }
+
   async function pubGetAndRunTest(exPath) {
     try {
       await plugins.execp(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: exPath });
+
       // plugins.generateBuildYaml(exPath);
-      const runTest = exPath === 'examples/html' ? runHtmlTest : runAngularTest;
+      const runTest =
+        exPath === 'examples/html' ? runHtmlTest
+          : webdevBuildOnly(exPath) ? webdevBuild :
+            runAngularTest;
       await plugins.execp(runTest, {
         cwd: exPath,
-        okOnExitRE: /All tests passed/,
+        okOnExitRE: webdevBuildOnly(exPath) ? '' : /All tests passed/,
         errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
       });
+
+      await plugins.execp('dartanalyzer --preview-dart-2 --fatal-warnings .', { cwd: exPath });
+
       testStatus.passed.push(exPath);
     } catch (e) {
-      plugins.gutil.log(`Error running tests: ${e}\n`);
+      plugins.gutil.log(`Error preparing for or running tests: ${e}\n`);
       testStatus.failed.push(exPath);
     }
   }

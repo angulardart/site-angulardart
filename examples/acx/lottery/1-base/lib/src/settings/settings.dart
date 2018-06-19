@@ -30,10 +30,10 @@ class Settings {
 
   List<Lottery> get lotteries => Lottery.lotteries;
 
-  int get maxDays => DateTime(
-          _now.year + years, _now.month, _now.day, _now.hour, _now.minute)
-      .difference(_now)
-      .inDays;
+  int get maxDays =>
+      DateTime(_now.year + years, _now.month, _now.day, _now.hour, _now.minute)
+          .difference(_now)
+          .inDays;
 
   List<Strategy> get strategies => Strategy._strategies;
 }

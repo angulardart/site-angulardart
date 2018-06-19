@@ -32,9 +32,7 @@ class HeroComponent implements OnActivate {
   // #enddocregion OnActivate
 
   // #docregion goBack
-  Future<NavigationResult> goBack() => _router.navigate(
-      paths.heroes.toUrl(),
-      NavigationParams(
-          queryParameters: {paths.idParam: hero.id.toString()}));
+  Future<NavigationResult> goBack() => _router.navigate(paths.heroes.toUrl(),
+      NavigationParams(queryParameters: {paths.idParam: hero.id.toString()}));
   // #enddocregion goBack
 }

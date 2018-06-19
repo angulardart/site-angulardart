@@ -41,8 +41,8 @@ Imagine writing the following code:
 
     // Method using the engine and tires
     String drive() => '$description car with '
-      '${engine.cylinders} cylinders and '
-      '${tires.make} tires.';
+        '${engine.cylinders} cylinders and '
+        '${tires.make} tires.';
   }
 ```
 
@@ -133,9 +133,9 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
     }
 
     Car superCar() =>
-      // Super car with 12 cylinders and Flintstone tires.
-      [!Car(Engine2(12), Tires())!]
-      ..description = 'Super';
+        // Super car with 12 cylinders and Flintstone tires.
+        [!Car(Engine2(12), Tires())!]
+          ..description = 'Super';
   ```
 
 The critical point is this: the `Car` class did not have to change.
@@ -155,13 +155,15 @@ during each test:
   }
 
   class MockTires extends Tires {
-    MockTires() { make = 'YokoGoodStone'; }
+    MockTires() {
+      make = 'YokoGoodStone';
+    }
   }
 
   Car testCar() =>
-    // Test car with 8 cylinders and YokoGoodStone tires.
-    [!Car(MockEngine(), MockTires())!]
-    ..description = 'Test';
+      // Test car with 8 cylinders and YokoGoodStone tires.
+      [!Car(MockEngine(), MockTires())!]
+        ..description = 'Test';
 ```
 
 **You just learned what dependency injection is**.
@@ -183,9 +185,8 @@ You _could_ write a giant class to do that:
 
   // BAD pattern!
   class CarFactory {
-    Car createCar() =>
-        Car(createEngine(), createTires())
-          ..description = 'Factory';
+    Car createCar() => Car(createEngine(), createTires())
+      ..description = 'Factory';
 
     Engine createEngine() => Engine();
     Tires createTires() => Tires();
@@ -325,12 +326,14 @@ Here's a revised `HeroesComponent` that registers the `HeroService` in its `prov
   import 'hero_service.dart';
 
   @Component(
-      selector: 'my-heroes',
-      template: '''
-        <h2>Heroes</h2>
-        <hero-list></hero-list>''',
-      [!providers: [const ClassProvider(HeroService)],!]
-      directives: [HeroListComponent])
+    selector: 'my-heroes',
+    template: '''
+      <h2>Heroes</h2>
+      <hero-list></hero-list>
+    ''',
+    [!providers: [const ClassProvider(HeroService)],!]
+    directives: [HeroListComponent],
+  )
   class HeroesComponent {}
 ```
 
@@ -739,9 +742,7 @@ Instead, the `HeroService` constructor takes a boolean flag to control display o
   List<Hero> getAll() {
     var auth = _isAuthorized ? 'authorized' : 'unauthorized';
     _logger.fine('Getting heroes for $auth user.');
-    return mockHeroes
-        .where((hero) => _isAuthorized || !hero.isSecret)
-        .toList();
+    return mockHeroes.where((hero) => _isAuthorized || !hero.isSecret).toList();
   }
 ```
 
