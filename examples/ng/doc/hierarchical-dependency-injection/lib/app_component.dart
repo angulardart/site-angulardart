@@ -26,7 +26,7 @@ import 'src/villains_list_component.dart';
   ],
   providers: [
     carServices,
-    const ClassProvider(HeroesService),
+    ClassProvider(HeroesService),
   ],
 )
 class AppComponent {

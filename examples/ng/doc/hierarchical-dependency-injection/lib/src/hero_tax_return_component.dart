@@ -33,7 +33,7 @@ import 'hero_tax_return_service.dart';
   styleUrls: ['hero_tax_return_component.css'],
   directives: [coreDirectives, formDirectives],
   // #docregion providers
-  providers: [const ClassProvider(HeroTaxReturnService)],
+  providers: [ClassProvider(HeroTaxReturnService)],
   // #enddocregion providers
 )
 class HeroTaxReturnComponent {
@@ -67,7 +67,7 @@ class HeroTaxReturnComponent {
 
   Future<void> flashMessage(String msg) async {
     message = msg;
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(Duration(milliseconds: 500));
     message = '';
   }
 }

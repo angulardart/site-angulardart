@@ -29,7 +29,7 @@ The `AppComponent` from [part 4][] of the [tutorial][] declares its need for a
   @Component(
     selector: 'my-app',
     // ···
-    providers: [const ClassProvider(HeroService)],
+    providers: [ClassProvider(HeroService)],
   )
   class AppComponent implements OnInit {
     List<Hero> heroes;
@@ -59,8 +59,8 @@ injector factory can contain both real and mock services, as shown here:
   import 'heroes.template.dart' as self;
   // ···
   @GenerateInjector([
-    const ClassProvider(HeroService),
-    const ClassProvider(Router, useClass: MockRouter),
+    ClassProvider(HeroService),
+    ClassProvider(Router, useClass: MockRouter),
   ])
   final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
 

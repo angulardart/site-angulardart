@@ -6,7 +6,7 @@ import 'package:server_communication/app_component.template.dart' as ng;
 import 'main_1.template.dart' as self;
 
 @GenerateInjector([
-  const ClassProvider(Client, useClass: BrowserClient),
+  ClassProvider(Client, useClass: BrowserClient),
 ])
 final InjectorFactory injector = self.injector$Injector;
 

@@ -19,9 +19,9 @@ import 'src/sales_tax_component.dart';
   directives: [HeroListComponent, SalesTaxComponent],
   // #docregion providers
   providers: [
-    const ClassProvider(BackendService),
-    const ClassProvider(HeroService),
-    const ClassProvider(Logger),
+    ClassProvider(BackendService),
+    ClassProvider(HeroService),
+    ClassProvider(Logger),
   ],
 )
 // #docregion class

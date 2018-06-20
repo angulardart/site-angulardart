@@ -93,7 +93,7 @@ so provide it through the app's root injector:
 
   @GenerateInjector([
     routerProvidersHash, // You can use routerProviders in production
-    const ClassProvider(BrowserClient),
+    ClassProvider(BrowserClient),
   ])
   final InjectorFactory injector = self.injector$Injector;
 
@@ -131,10 +131,10 @@ Update `web/main.dart` with this version, which uses the mock service:
 
   @GenerateInjector([
     routerProvidersHash, // You can use routerProviders in production
-    const ClassProvider(Client, useClass: InMemoryDataService),
+    ClassProvider(Client, useClass: InMemoryDataService),
     // Using a real back end?
     // Import 'package:http/browser_client.dart' and change the above to:
-    //   const ClassProvider(Client, useClass: BrowserClient),
+    //   ClassProvider(Client, useClass: BrowserClient),
   ])
   final InjectorFactory injector = self.injector$Injector;
 
@@ -715,7 +715,7 @@ Create the `HeroSearchComponent` class and metadata.
     templateUrl: 'hero_search_component.html',
     styleUrls: ['hero_search_component.css'],
     directives: [coreDirectives],
-    providers: [const ClassProvider(HeroSearchService)],
+    providers: [ClassProvider(HeroSearchService)],
     pipes: [commonPipes],
   )
   class HeroSearchComponent implements OnInit {

@@ -15,11 +15,11 @@ import 'logger_service.dart';
       <div id="hero">{{hero.name}}</div>
       <div id="rodent">{{rodent}}</div>''',
   providers: [
-    const ClassProvider(Car),
-    const ClassProvider(Engine),
-    const ClassProvider(Tires),
+    ClassProvider(Car),
+    ClassProvider(Engine),
+    ClassProvider(Tires),
     heroServiceProvider,
-    const ClassProvider(Logger),
+    ClassProvider(Logger),
   ],
 )
 class InjectorComponent implements OnInit {

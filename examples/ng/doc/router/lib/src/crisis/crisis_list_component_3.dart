@@ -12,7 +12,7 @@ import 'crisis_service.dart';
   templateUrl: 'crisis_list_component_3.html',
   styleUrls: ['crisis_list_component.css'],
   directives: [coreDirectives],
-  providers: [const ClassProvider(CrisisService)],
+  providers: [ClassProvider(CrisisService)],
 )
 class CrisisListComponent implements OnActivate {
   final CrisisService _crisisService;

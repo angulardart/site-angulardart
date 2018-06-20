@@ -8,7 +8,7 @@ import 'main_1.template.dart' as self;
 // #docregion discouraged
 @GenerateInjector([
   // For illustration purposes only (don't register app-local services here).
-  const ClassProvider(HeroService),
+  ClassProvider(HeroService),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 

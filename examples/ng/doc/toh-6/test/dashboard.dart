@@ -25,12 +25,12 @@ NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
 @GenerateInjector([
-  const ValueProvider.forToken(appBaseHref, '/'),
-  const ClassProvider(Client, useClass: InMemoryDataService),
-  const ClassProvider(Routes),
-  const ClassProvider(HeroService),
+  ValueProvider.forToken(appBaseHref, '/'),
+  ClassProvider(Client, useClass: InMemoryDataService),
+  ClassProvider(Routes),
+  ClassProvider(HeroService),
   routerProviders,
-  const ClassProvider(Router, useClass: MockRouter),
+  ClassProvider(Router, useClass: MockRouter),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
@@ -85,7 +85,7 @@ void heroSearchTests() {
 
   setUp(() async {
     await po.search.type('ma');
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(Duration(seconds: 1));
   });
 
   test('list matching heroes', () {

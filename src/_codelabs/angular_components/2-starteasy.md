@@ -91,10 +91,10 @@ importing the Angular components and informing Angular about
      VisualizeWinningsComponent,
      SettingsComponent,
    ],
--  providers: [const ClassProvider(Settings)],
+-  providers: [ClassProvider(Settings)],
 +  providers: [
 +    materialProviders,
-+    const ClassProvider(Settings),
++    ClassProvider(Settings),
 +  ],
  )
  class AppComponent implements OnInit {

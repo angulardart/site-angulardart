@@ -104,7 +104,7 @@ Instead, provide the `VillainsService` in the `providers` metadata of the `Villa
       </div>
     ''',
     directives: [coreDirectives],
-    providers: [const ClassProvider(VillainsService)],
+    providers: [ClassProvider(VillainsService)],
     pipes: [commonPipes],
   )
 ```
@@ -216,7 +216,7 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
     ''',
     styleUrls: ['hero_tax_return_component.css'],
     directives: [coreDirectives, formDirectives],
-    providers: [const ClassProvider(HeroTaxReturnService)],
+    providers: [ClassProvider(HeroTaxReturnService)],
   )
   class HeroTaxReturnComponent {
     final HeroTaxReturnService _heroTaxReturnService;
@@ -249,7 +249,7 @@ Here is the `HeroTaxReturnComponent` that makes use of it.
 
     Future<void> flashMessage(String msg) async {
       message = msg;
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 500));
       message = '';
     }
   }
@@ -269,7 +269,7 @@ Look closely at the metadata for the `HeroTaxReturnComponent`. Notice the `provi
 
 <?code-excerpt "lib/src/hero_tax_return_component.dart" region="providers"?>
 ```
-  providers: [const ClassProvider(HeroTaxReturnService)],
+  providers: [ClassProvider(HeroTaxReturnService)],
 ```
 
 The `HeroTaxReturnComponent` has its own provider of the `HeroTaxReturnService`.

@@ -14,9 +14,9 @@ import 'src/stats/stats.dart';
 import 'src/visualize_winnings/visualize_winnings.dart';
 import 'package:intl/intl.dart';
 
-const _fastPulse = const Duration(milliseconds: 5);
+const _fastPulse = Duration(milliseconds: 5);
 
-const _normalPulse = const Duration(milliseconds: 200);
+const _normalPulse = Duration(milliseconds: 200);
 
 @Component(
   selector: 'lottery-simulator',
@@ -32,7 +32,7 @@ const _normalPulse = const Duration(milliseconds: 200);
   ],
   providers: [
     materialProviders,
-    const ClassProvider(Settings),
+    ClassProvider(Settings),
   ],
 )
 class AppComponent implements OnInit {

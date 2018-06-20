@@ -181,7 +181,7 @@ add the following `providers` list as the last parameter of the `@Component` ann
 
 <?code-excerpt "lib/app_component_1.dart (providers)" title?>
 ```
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
 ```
 
 The `providers` parameter tells Angular to create a fresh instance of the `HeroService` when it creates an `AppComponent`.
@@ -402,7 +402,7 @@ add the following `getAllSlowly()` method to the `HeroService`.
 <?code-excerpt "lib/src/hero_service.dart (getAllSlowly)" title?>
 ```
   Future<List<Hero>> getAllSlowly() {
-    return Future.delayed(const Duration(seconds: 2), getAll);
+    return Future.delayed(Duration(seconds: 2), getAll);
   }
 ```
 

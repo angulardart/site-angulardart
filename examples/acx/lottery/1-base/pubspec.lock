@@ -112,7 +112,7 @@ packages:
       name: build_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2+4"
+    version: "0.10.2+5"
   build_web_compilers:
     dependency: "direct dev"
     description:
@@ -133,7 +133,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.5.1"
+    version: "5.5.2"
   charcode:
     dependency: transitive
     description:
@@ -189,7 +189,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.14"
+    version: "1.1.0"
   fixnum:
     dependency: transitive
     description:
@@ -504,7 +504,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.42"
+    version: "1.0.0"
   tuple:
     dependency: transitive
     description:

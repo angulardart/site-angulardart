@@ -42,7 +42,7 @@ The following code registers a [factory provider][]
   import 'main.template.dart' as self;
 
   @GenerateInjector([
-    const ClassProvider(Client, useClass: BrowserClient),
+    ClassProvider(Client, useClass: BrowserClient),
   ])
   final InjectorFactory injector = self.injector$Injector;
 

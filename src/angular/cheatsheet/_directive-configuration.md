@@ -23,7 +23,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>providers:</b> const [MyService, const Provider(...)]
+    <b>providers:</b> [MyService, Provider(...)]
   </code></td>
   <td markdown="1">
   List of dependency injection providers for this directive and its children.

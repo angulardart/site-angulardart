@@ -101,7 +101,7 @@ class AfterViewComponent implements AfterViewChecked, AfterViewInit {
     ''',
   styles: ['.parent {background: burlywood}'],
   directives: [coreDirectives, AfterViewComponent],
-  providers: [const ClassProvider(LoggerService)],
+  providers: [ClassProvider(LoggerService)],
 )
 class AfterViewParentComponent {
   final LoggerService _logger;

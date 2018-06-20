@@ -9,7 +9,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    const <b>Provider</b>(MyService, <b>useClass</b>: MyMockService)
+    <b>Provider</b>(MyService, <b>useClass</b>: MyMockService)
   </code></td>
   <td markdown="1">
   Sets or overrides the provider for `MyService` to the `MyMockService` class.
@@ -23,7 +23,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    const <b>Provider</b>(MyService, <b>useFactory</b>: myFactory)
+    <b>Provider</b>(MyService, <b>useFactory</b>: myFactory)
   </code></td>
   <td markdown="1">
   Sets or overrides the provider for `MyService` to the `myFactory` factory function.
@@ -37,7 +37,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    const <b>Provider</b>(MyValue, <b>useValue</b>: 42)
+    <b>Provider</b>(MyValue, <b>useValue</b>: 42)
   </code></td>
   <td markdown="1">
   Sets or overrides the provider for `MyValue` to the value `42`.

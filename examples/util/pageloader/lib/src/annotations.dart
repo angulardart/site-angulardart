@@ -1,4 +1,4 @@
-const optional = const _Optional();
+const optional = _Optional();
 
 class _Optional {
   const _Optional();

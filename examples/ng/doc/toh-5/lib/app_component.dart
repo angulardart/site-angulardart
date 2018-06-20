@@ -32,8 +32,8 @@ import 'src/hero_service.dart';
   // #enddocregion directives
   // #docregion routes-and-template
   providers: [
-    const ClassProvider(HeroService),
-    const ClassProvider(Routes),
+    ClassProvider(HeroService),
+    ClassProvider(Routes),
   ],
 )
 class AppComponent {

@@ -19,8 +19,8 @@ NgTestFixture<HeroComponent> fixture;
 HeroDetailPO po;
 
 @GenerateInjector([
-  const ClassProvider(HeroService),
-  const ClassProvider(Location, useClass: MockLocation),
+  ClassProvider(HeroService),
+  ClassProvider(Location, useClass: MockLocation),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 

@@ -18,7 +18,7 @@ import 'package:angular/angular.dart';
   pipes: [AsyncPipe],
 )
 class AsyncGreeterPipe {
-  static const _delay = const Duration(seconds: 2);
+  static const _delay = Duration(seconds: 2);
 
   Future<String> greeting;
   bool done;
@@ -44,6 +44,6 @@ class AsyncGreeterPipe {
   pipes: [commonPipes],
 )
 class AsyncTimePipe {
-  static const _delay = const Duration(seconds: 1);
+  static const _delay = Duration(seconds: 1);
   final Stream<DateTime> time = Stream.periodic(_delay, (_) => DateTime.now());
 }

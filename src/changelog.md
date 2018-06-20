@@ -20,7 +20,7 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
-## AngularDart 5.0 alpha / Dart 2.0 beta (May 2018)
+## AngularDart 5.0 alpha / Dart 2.0 beta (June 2018)
 
 - Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
   - Updated `environment.sdk`:
@@ -63,12 +63,12 @@ Also see:
   - Replaced `bootstrap(AppComponent)` with `runApp(ng.AppComponentNgFactory)`
 
 - Switched to **compile-time dependency injection**:
-  - Switched to using typed <code>const <i>Foo</i>Provider()</code> expressions.
+  - Switched to using typed <code><i>Foo</i>Provider()</code> expressions.
 
     {:.table .table-striped}
     | Angular 4.x provider | Angular 5 provider |
     |--|--
-    | Bare class name `C` | `const ClassProvider(C)`
+    | Bare class name `C` | `ClassProvider(C)`
     | `Provider(C, useClass: D)` | `ClassProvider(C, useClass: D)`
     | `Provider(C, useValue: v)` | `ValueProvider(C, v)`
     | `Provider(C, useFactory: f, deps: d)` | `FactoryProvider(C, f)`<br>_(Compile-time DI makes explicitly declaring `deps` unnecessary)_
@@ -137,6 +137,8 @@ Also see:
 Dart 2 specific changes:
 
 - Dart file changes:
+  - Dropped `new` keywords
+  - Dropped unnecessary `const` keywords
   - Replaced `Future<Null>` with `Future<void>`
 
 More information:

@@ -35,10 +35,10 @@ import 'src/providers_component.dart';
   ],
   // #docregion providers
   providers: [
-    const ClassProvider(Logger),
-    const ClassProvider(UserService),
+    ClassProvider(Logger),
+    ClassProvider(UserService),
     // #docregion FactoryProvider
-    const FactoryProvider(AppConfig, appConfigFactory),
+    FactoryProvider(AppConfig, appConfigFactory),
     // #enddocregion FactoryProvider
   ],
   // #enddocregion providers

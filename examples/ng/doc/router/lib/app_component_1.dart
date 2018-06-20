@@ -27,7 +27,7 @@ import 'src/routes_1.dart';
   // #docregion template-and-directives
   directives: [routerDirectives],
   // #enddocregion template-and-directives
-  providers: [const ClassProvider(Routes)],
+  providers: [ClassProvider(Routes)],
   // #docregion routes
 )
 class AppComponent {

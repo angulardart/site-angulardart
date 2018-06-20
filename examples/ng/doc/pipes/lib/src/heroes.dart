@@ -7,9 +7,9 @@ class Hero {
   String toString() => "$name (${canFly ? 'can fly' : 'doesn\'t fly'})";
 }
 
-const List<Hero> mockHeroes = const <Hero>[
-  const Hero("Windstorm", true),
-  const Hero("Bombasto", false),
-  const Hero("Magneto", false),
-  const Hero("Tornado", true),
+const List<Hero> mockHeroes = <Hero>[
+  Hero("Windstorm", true),
+  Hero("Bombasto", false),
+  Hero("Magneto", false),
+  Hero("Tornado", true),
 ];

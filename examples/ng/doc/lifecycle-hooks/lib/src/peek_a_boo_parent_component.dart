@@ -24,7 +24,7 @@ import 'peek_a_boo_component.dart';
     ''',
   styles: ['.parent {background: moccasin}'],
   directives: [coreDirectives, formDirectives, PeekABooComponent],
-  providers: [const ClassProvider(LoggerService)],
+  providers: [ClassProvider(LoggerService)],
 )
 class PeekABooParentComponent {
   final LoggerService _logger;

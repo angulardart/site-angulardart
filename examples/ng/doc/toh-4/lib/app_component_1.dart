@@ -15,7 +15,7 @@ import 'src/hero_service_1.dart';
     ''',
   directives: [coreDirectives, HeroComponent],
   // #docregion providers
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
 // #enddocregion providers
 )
 // #docregion OnInit-and-ngOnInit

@@ -18,7 +18,7 @@ AppPO appPO;
 Router router;
 
 @GenerateInjector([
-  const ClassProvider(Client, useClass: InMemoryDataService),
+  ClassProvider(Client, useClass: InMemoryDataService),
   routerProvidersForTesting,
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;

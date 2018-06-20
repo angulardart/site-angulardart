@@ -20,9 +20,9 @@ import 'routes.dart';
   // #enddocregion routes
   // #docregion providers
   providers: [
-    const ClassProvider(CrisisService),
-    const ClassProvider(DialogService),
-    const ClassProvider(Routes),
+    ClassProvider(CrisisService),
+    ClassProvider(DialogService),
+    ClassProvider(Routes),
   ],
   // #enddocregion providers
   // #docregion routes

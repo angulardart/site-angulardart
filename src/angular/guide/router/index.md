@@ -199,7 +199,7 @@ component template:
       [!<router-outlet [routes]="routes.all"></router-outlet>!]
     ''',
     providers: [
-      const ClassProvider(Routes),
+      ClassProvider(Routes),
     ],
   )
   class AppComponent {

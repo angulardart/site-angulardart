@@ -16,8 +16,8 @@ import 'tax_rate_service.dart';
     ''',
   directives: [coreDirectives],
   providers: [
-    const ClassProvider(SalesTaxService),
-    const ClassProvider(TaxRateService),
+    ClassProvider(SalesTaxService),
+    ClassProvider(TaxRateService),
   ],
   pipes: [commonPipes],
 )

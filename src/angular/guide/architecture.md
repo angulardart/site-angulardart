@@ -223,7 +223,7 @@ identifies the class immediately below it as a component class:
     selector: 'hero-list',
     templateUrl: 'hero_list_component.html',
     directives: [coreDirectives, formDirectives, HeroDetailComponent],
-    providers: [const ClassProvider(HeroService)],
+    providers: [ClassProvider(HeroService)],
   )
   class HeroListComponent implements OnInit {
     // ···
@@ -546,9 +546,9 @@ The most common way to register providers is at the component level using the
   @Component(
     // ···
     providers: [
-      const ClassProvider(BackendService),
-      const ClassProvider(HeroService),
-      const ClassProvider(Logger),
+      ClassProvider(BackendService),
+      ClassProvider(HeroService),
+      ClassProvider(Logger),
     ],
   )
   class AppComponent {}

@@ -145,7 +145,7 @@ The first draft looks like this:
       <my-heroes></my-heroes>
     ''',
     directives: [HeroListComponent],
-    providers: [const ClassProvider(HeroService)],
+    providers: [ClassProvider(HeroService)],
   )
   class AppComponent {
     final title = 'Tour of Heroes';
@@ -342,8 +342,8 @@ routes and bind them to the `routes` property as shown here:
       [!<router-outlet [routes]="routes.all"></router-outlet>!]
     ''',
     providers: [
-      const ClassProvider(HeroService),
-      const ClassProvider(Routes),
+      ClassProvider(HeroService),
+      ClassProvider(Routes),
     ],
   )
   class AppComponent {
@@ -422,8 +422,8 @@ and the list of heroes displays.
     ''',
     directives: [routerDirectives],
     providers: [
-      const ClassProvider(HeroService),
-      const ClassProvider(Routes),
+      ClassProvider(HeroService),
+      ClassProvider(Routes),
     ],
   )
   class AppComponent {

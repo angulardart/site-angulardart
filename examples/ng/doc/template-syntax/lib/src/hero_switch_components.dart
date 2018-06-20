@@ -41,7 +41,7 @@ class UnknownHeroComponent {
       : 'Are you feeling indecisive?';
 }
 
-const List heroSwitchComponents = const [
+const List heroSwitchComponents = [
   HappyHeroComponent,
   SadHeroComponent,
   ConfusedHeroComponent,

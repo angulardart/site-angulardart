@@ -20,7 +20,7 @@ import 'hero_service.dart';
     <hero-list></hero-list>
   ''',
   // #enddocregion v1
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
   // #docregion v1
   directives: [HeroListComponent],
 )

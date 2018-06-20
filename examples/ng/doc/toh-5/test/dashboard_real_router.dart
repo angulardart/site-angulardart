@@ -20,7 +20,7 @@ DashboardPO po;
 Router router;
 
 @GenerateInjector([
-  const ClassProvider(HeroService),
+  ClassProvider(HeroService),
   routerProvidersForTesting,
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
@@ -88,7 +88,7 @@ void main() {
     <router-outlet [routes]="[heroRoute]"></router-outlet>
   ''',
   directives: [RouterOutlet, DashboardComponent],
-  providers: [const ClassProvider(Routes)],
+  providers: [ClassProvider(Routes)],
 )
 class TestComponent {
   final RouteDefinition heroRoute;

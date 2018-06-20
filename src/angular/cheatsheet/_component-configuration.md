@@ -10,7 +10,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>viewProviders:</b> const [MyService, const Provider(...)]
+    <b>viewProviders:</b> [MyService, Provider(...)]
   </code></td>
   <td markdown="1">
   List of dependency injection providers scoped to this component's view.
@@ -33,8 +33,8 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>styles:</b> const ['.primary {color: red}']<br>
-    <b>styleUrls:</b> const ['my-component.css']
+    <b>styles:</b> ['.primary {color: red}']<br>
+    <b>styleUrls:</b> ['my-component.css']
   </code></td>
   <td markdown="1">
   List of inline CSS styles or external stylesheet URLs for styling the component’s view.
@@ -45,7 +45,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>directives:</b> const [CORE_DIRECTIVES, MyDirective, MyComponent]
+    <b>directives:</b> [CORE_DIRECTIVES, MyDirective, MyComponent]
   </code></td>
   <td markdown="1">
   List of directives used in the component's template.
@@ -57,7 +57,7 @@
 
 <tr>
   <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>pipes:</b> const [commonPipes, MyPipe, ...]
+    <b>pipes:</b> [commonPipes, MyPipe, ...]
   </code></td>
   <td markdown="1">
   List of pipes used in the component's template.

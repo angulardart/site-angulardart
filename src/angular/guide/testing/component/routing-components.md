@@ -55,8 +55,8 @@ list of the generated root injector, as described in the section on
   HeroesPO po;
 
   @GenerateInjector([
-    const ClassProvider(HeroService),
-    const ClassProvider(Router, useClass: MockRouter),
+    ClassProvider(HeroService),
+    ClassProvider(Router, useClass: MockRouter),
   ])
   final InjectorFactory rootInjector = self.rootInjector$Injector;
 
@@ -208,11 +208,11 @@ Where `routerProvidersForTesting` is defined as follows:
 
 <?code-excerpt "toh-5/test/utils.dart (routerProvidersForTesting)" title?>
 ```
-  const /* List<Provider|List<Provider>> */ routerProvidersForTesting = const [
-    const ValueProvider.forToken(appBaseHref, '/'),
+  const /* List<Provider|List<Provider>> */ routerProvidersForTesting = [
+    ValueProvider.forToken(appBaseHref, '/'),
     routerProviders,
     // Mock platform location even with real router, otherwise sometimes tests hang.
-    const ClassProvider(PlatformLocation, useClass: MockPlatformLocation),
+    ClassProvider(PlatformLocation, useClass: MockPlatformLocation),
   ];
 ```
 
@@ -276,7 +276,7 @@ like this:
       <router-outlet [routes]="[heroRoute]"></router-outlet>
     ''',
     directives: [RouterOutlet, DashboardComponent],
-    providers: [const ClassProvider(Routes)],
+    providers: [ClassProvider(Routes)],
   )
   class TestComponent {
     final RouteDefinition heroRoute;
@@ -298,7 +298,7 @@ rather than `DashboardComponent`:
   Router router;
 
   @GenerateInjector([
-    const ClassProvider(HeroService),
+    ClassProvider(HeroService),
     routerProvidersForTesting,
   ])
   final InjectorFactory rootInjector = self.rootInjector$Injector;

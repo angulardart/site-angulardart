@@ -5,7 +5,7 @@ import 'car_services.dart';
 @Component(
   selector: 'c-car',
   template: '<div>C: {{description}}</div>',
-  providers: [const ClassProvider(CarService, useClass: CarService3)],
+  providers: [ClassProvider(CarService, useClass: CarService3)],
 )
 class CCarComponent {
   String description;
@@ -23,8 +23,8 @@ class CCarComponent {
   ''',
   directives: [CCarComponent],
   providers: [
-    const ClassProvider(CarService, useClass: CarService2),
-    const ClassProvider(EngineService, useClass: EngineService2)
+    ClassProvider(CarService, useClass: CarService2),
+    ClassProvider(EngineService, useClass: EngineService2)
   ],
 )
 class BCarComponent {
@@ -61,7 +61,7 @@ class ACarComponent {
 )
 class CarsComponent {}
 
-const carComponents = const [
+const carComponents = [
   CarsComponent,
   ACarComponent,
   BCarComponent,
@@ -69,8 +69,8 @@ const carComponents = const [
 ];
 
 // generic car-related services
-const carServices = const [
-  const ClassProvider(CarService),
-  const ClassProvider(EngineService),
-  const ClassProvider(TiresService),
+const carServices = [
+  ClassProvider(CarService),
+  ClassProvider(EngineService),
+  ClassProvider(TiresService),
 ];

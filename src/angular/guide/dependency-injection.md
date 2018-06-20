@@ -331,7 +331,7 @@ Here's a revised `HeroesComponent` that registers the `HeroService` in its `prov
       <h2>Heroes</h2>
       <hero-list></hero-list>
     ''',
-    [!providers: [const ClassProvider(HeroService)],!]
+    [!providers: [ClassProvider(HeroService)],!]
     directives: [HeroListComponent],
   )
   class HeroesComponent {}
@@ -352,11 +352,11 @@ and is never destroyed so the `HeroService` created for the `HeroComponent` also
 You can also register providers in the app's root injector,
 which you pass as an argument to the [runApp()][] function:
 
-<?code-excerpt "web/main_1.dart (discouraged)" replace="/(const )?ClassProvider.*|rootInjector(?!\$)/[!$&!]/g"?>
+<?code-excerpt "web/main_1.dart (discouraged)" replace="/ClassProvider.*|rootInjector(?!\$)/[!$&!]/g"?>
 ```
   @GenerateInjector([
     // For illustration purposes only (don't register app-local services here).
-    [!const ClassProvider(HeroService),!]
+    [!ClassProvider(HeroService),!]
   ])
   final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
 
@@ -544,7 +544,7 @@ it's registered in `AppComponent`:
 <?code-excerpt "lib/src/providers_component.dart (ClassProvider)" title="lib/app_component.dart (excerpt)"?>
 ```
   providers: [
-    const ClassProvider(Logger),
+    ClassProvider(Logger),
   ],
 ```
 
@@ -596,10 +596,10 @@ The next few sections explain the many ways you can register a provider.
 There are many ways to provide something that implements `Logger`.
 The most common way is to use [ClassProvider][]:
 
-<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" replace="/(const )?Class.*/[!$&!]/g"?>
+<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" replace="/Class.*/[!$&!]/g"?>
 ```
   providers: [
-    [!const ClassProvider(Logger),!]
+    [!ClassProvider(Logger),!]
   ],
 ```
 
@@ -620,7 +620,7 @@ to return a `BetterLogger` when something asks for the `Logger`.
 
 <?code-excerpt "lib/src/providers_component.dart (ClassProvider useClass)" replace="/ClassProvider|useClass/[!$&!]/g"?>
 ```
-  const [!ClassProvider!](Logger, [!useClass!]: BetterLogger),
+  [!ClassProvider!](Logger, [!useClass!]: BetterLogger),
 ```
 
 ### Provider for a class with dependencies
@@ -645,8 +645,8 @@ which is also listed in the app component's `providers` list:
 
 <?code-excerpt "lib/src/providers_component.dart (logger with dependencies)"?>
 ```
-  const ClassProvider(UserService),
-  const ClassProvider(Logger, useClass: EvenBetterLogger),
+  ClassProvider(UserService),
+  ClassProvider(Logger, useClass: EvenBetterLogger),
 ```
 
 ### Existing providers
@@ -667,8 +667,8 @@ Unfortunately, that's what you get if you try `useClass`:
 
 <?code-excerpt "lib/src/providers_component.dart (two NewLoggers)" replace="/NewLogger(?=\))/[!$&!]/g"?>
 ```
-  const ClassProvider([!NewLogger!]),
-  const ClassProvider(OldLogger, useClass: [!NewLogger!]),
+  ClassProvider([!NewLogger!]),
+  ClassProvider(OldLogger, useClass: [!NewLogger!]),
 ```
 
 To ensure that the _same_ `NewLogger` instance is provided for both
@@ -676,8 +676,8 @@ To ensure that the _same_ `NewLogger` instance is provided for both
 
 <?code-excerpt "lib/src/providers_component.dart (ExistingProvider)" replace="/ExistingProvider/[!$&!]/g"?>
 ```
-  const ClassProvider(NewLogger),
-  const [!ExistingProvider!](OldLogger, NewLogger),
+  ClassProvider(NewLogger),
+  [!ExistingProvider!](OldLogger, NewLogger),
 ```
 
 ### Value providers
@@ -695,14 +695,14 @@ Sometimes it's easier to provide a ready-made object rather than ask the injecto
     String toString() => '';
   }
 
-  const silentLogger = const SilentLogger();
+  const silentLogger = SilentLogger();
 ```
 
 Then you register the object using [ValueProvider][]:
 
 <?code-excerpt "lib/src/providers_component.dart (ValueProvider)" replace="/useValue: \w+/[!$&!]/g"?>
 ```
-  const ValueProvider(Logger, silentLogger),
+  ValueProvider(Logger, silentLogger),
 ```
 
 For more examples of `ValueProvider`, see [OpaqueToken](#opaquetoken).
@@ -764,8 +764,7 @@ and let the injector pass them along to the factory function:
 
 <?code-excerpt "lib/src/heroes/hero_service_provider.dart (provider)" title?>
 ```
-  const heroServiceProvider =
-      const FactoryProvider(HeroService, heroServiceFactory);
+  const heroServiceProvider = FactoryProvider(HeroService, heroServiceFactory);
 ```
 
 Notice that you captured the factory provider in a constant, `heroServiceProvider`.
@@ -826,7 +825,7 @@ One solution is to define and use an [OpaqueToken][]:
 ```
   import 'package:angular/angular.dart';
 
-  const appTitleToken = const OpaqueToken<String>('app.title');
+  const appTitleToken = OpaqueToken<String>('app.title');
 ```
 
 The generic type argument, while optional, conveys the dependency's type to developers
@@ -837,7 +836,7 @@ Register the dependency provider using the `OpaqueToken` object:
 
 <?code-excerpt "lib/src/providers_component.dart (ValueProvider-forToken)"?>
 ```
-  const ValueProvider.forToken(appTitleToken, appTitle)
+  ValueProvider.forToken(appTitleToken, appTitle)
 ```
 
 Now you can inject the title into any constructor that needs it, with
@@ -860,13 +859,13 @@ configuration objects with lots of simple properties captured as a [Map:][Map]
 
 <?code-excerpt "lib/src/app_config.dart (appConfigMap)" replace="/appConfigMap\w*/[!$&!]/g"?>
 ```
-  const [!appConfigMap!] = const {
+  const [!appConfigMap!] = {
     'apiEndpoint': 'api.heroes.com',
     'title': 'Dependency Injection',
     // ...
   };
 
-  const [!appConfigMapToken!] = const OpaqueToken<Map>('app.config');
+  const [!appConfigMapToken!] = OpaqueToken<Map>('app.config');
 ```
 
 ### Custom configuration class
@@ -898,7 +897,7 @@ you can use a [factory provider](#factory-providers).
 
 <?code-excerpt "lib/app_component.dart (FactoryProvider)" title?>
 ```
-  const FactoryProvider(AppConfig, appConfigFactory),
+  FactoryProvider(AppConfig, appConfigFactory),
 ```
 
 You might use the app config like this:
@@ -953,11 +952,11 @@ here's an `InjectorComponent` that does.
         <div id="hero">{!{hero.name}!}</div>
         <div id="rodent">{!{rodent}!}</div>''',
     providers: [
-      const ClassProvider(Car),
-      const ClassProvider(Engine),
-      const ClassProvider(Tires),
+      ClassProvider(Car),
+      ClassProvider(Engine),
+      ClassProvider(Tires),
       heroServiceProvider,
-      const ClassProvider(Logger),
+      ClassProvider(Logger),
     ],
   )
   class InjectorComponent implements OnInit {

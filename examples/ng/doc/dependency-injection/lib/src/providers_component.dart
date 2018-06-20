@@ -18,7 +18,7 @@ abstract class _Base {
   template: 'ClassProvider: {{logger}}',
   // #docregion ClassProvider
   providers: [
-    const ClassProvider(Logger),
+    ClassProvider(Logger),
   ],
   // #enddocregion ClassProvider
 )
@@ -36,7 +36,7 @@ class BetterLogger extends Logger {
   template: 'ClassProvider, useClass: {{logger}}',
   providers: [
     // #docregion ClassProvider-useClass
-    const ClassProvider(Logger, useClass: BetterLogger),
+    ClassProvider(Logger, useClass: BetterLogger),
     // #enddocregion ClassProvider-useClass
   ],
 )
@@ -61,8 +61,8 @@ class EvenBetterLogger extends Logger {
   template: 'ClassProvider, useClass: {{logger}}',
   providers: [
     // #docregion logger-with-dependencies
-    const ClassProvider(UserService),
-    const ClassProvider(Logger, useClass: EvenBetterLogger),
+    ClassProvider(UserService),
+    ClassProvider(Logger, useClass: EvenBetterLogger),
     // #enddocregion logger-with-dependencies
   ],
 )
@@ -87,8 +87,8 @@ class OldLogger extends Logger {
   template: 'Two new loggers: {{logger}}',
   providers: [
     // #docregion two-NewLoggers
-    const ClassProvider(NewLogger),
-    const ClassProvider(OldLogger, useClass: NewLogger),
+    ClassProvider(NewLogger),
+    ClassProvider(OldLogger, useClass: NewLogger),
     // #enddocregion two-NewLoggers
   ],
 )
@@ -103,8 +103,8 @@ class TwoNewLoggersComponent extends _Base {
   template: 'ExistingProvider: {{logger}}',
   providers: [
     // #docregion ExistingProvider
-    const ClassProvider(NewLogger),
-    const ExistingProvider(OldLogger, NewLogger),
+    ClassProvider(NewLogger),
+    ExistingProvider(OldLogger, NewLogger),
     // #enddocregion ExistingProvider
   ],
 )
@@ -126,7 +126,7 @@ class SilentLogger implements Logger {
 // #enddocregion const-class
 
 // #docregion const-object
-const silentLogger = const SilentLogger();
+const silentLogger = SilentLogger();
 // #enddocregion const-object, silent-logger
 
 @Component(
@@ -134,7 +134,7 @@ const silentLogger = const SilentLogger();
   template: 'ValueProvider: {{logger}}',
   providers: [
     // #docregion ValueProvider
-    const ValueProvider(Logger, silentLogger),
+    ValueProvider(Logger, silentLogger),
     // #enddocregion ValueProvider
   ],
 )
@@ -149,8 +149,8 @@ class ValueProviderComponent extends _Base {
   template: 'FactoryProvider: {{logger}}',
   providers: [
     heroServiceProvider,
-    const ClassProvider(Logger),
-    const ClassProvider(UserService),
+    ClassProvider(Logger),
+    ClassProvider(UserService),
   ],
 )
 class FactoryProviderComponent extends _Base {
@@ -164,7 +164,7 @@ class FactoryProviderComponent extends _Base {
   template: 'ValueProvider.forToken: {{log}}',
   providers: [
     // #docregion ValueProvider-forToken
-    const ValueProvider.forToken(appTitleToken, appTitle)
+    ValueProvider.forToken(appTitleToken, appTitle)
     // #enddocregion ValueProvider-forToken
   ],
 )
@@ -180,7 +180,7 @@ class ValueProviderForTokenComponent {
   template: 'ValueProvider.forToken, map: {{log}}',
   providers: [
     // #docregion ValueProvider-map-forToken
-    const ValueProvider.forToken(appConfigMapToken, appConfigMap)
+    ValueProvider.forToken(appConfigMapToken, appConfigMap)
     // #enddocregion ValueProvider-map-forToken
   ],
 )
@@ -197,7 +197,7 @@ class ValueProviderForMapComponent {
   selector: 'optional-injection',
   template: '{{message}}',
   providers: [
-    const ValueProvider(Logger, null),
+    ValueProvider(Logger, null),
   ],
 )
 class HeroService1 extends _Base {

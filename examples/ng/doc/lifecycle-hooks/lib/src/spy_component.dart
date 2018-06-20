@@ -12,7 +12,7 @@ import 'spy_directive.dart';
     '.heroes {background: LightYellow; padding: 0 8px}'
   ],
   directives: [coreDirectives, formDirectives, SpyDirective],
-  providers: [const ClassProvider(LoggerService)],
+  providers: [ClassProvider(LoggerService)],
 )
 class SpyParentComponent {
   final LoggerService _logger;

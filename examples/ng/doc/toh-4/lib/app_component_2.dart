@@ -10,7 +10,7 @@ import 'src/hero_service.dart';
   template: '...',
   /* ... */
   // #docregion locally-provided-service
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
 )
 class AppComponent implements OnInit {
   List<Hero> heroes;

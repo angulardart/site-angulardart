@@ -32,7 +32,7 @@ void main() {
   // #enddocregion title
 
   // #docregion hero
-  const windstormData = const <String, dynamic>{'id': 1, 'name': 'Windstorm'};
+  const windstormData = <String, dynamic>{'id': 1, 'name': 'Windstorm'};
 
   test('initial hero properties', () {
     expect(appPO.heroId, windstormData['id']);

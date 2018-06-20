@@ -10,7 +10,7 @@ import 'src/hero_list_component.dart';
     <my-heroes></my-heroes>
   ''',
   directives: [HeroListComponent],
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
 )
 class AppComponent {
   final title = 'Tour of Heroes';

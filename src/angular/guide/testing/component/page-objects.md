@@ -219,7 +219,7 @@ for this:
 
 <?code-excerpt "toh-1/test/app_test.dart (hero)" title?>
 ```
-  const windstormData = const <String, dynamic>{'id': 1, 'name': 'Windstorm'};
+  const windstormData = <String, dynamic>{'id': 1, 'name': 'Windstorm'};
 
   test('initial hero properties', () {
     expect(appPO.heroId, windstormData['id']);

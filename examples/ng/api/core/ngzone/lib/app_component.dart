@@ -48,8 +48,8 @@ class AppComponent {
     progress += 1;
     print('Current progress: $progress%');
     if (progress < 100) {
-      Future<void>.delayed(const Duration(milliseconds: 10),
-          () => _increaseProgress(doneCallback));
+      Future<void>.delayed(
+          Duration(milliseconds: 10), () => _increaseProgress(doneCallback));
     } else {
       doneCallback();
     }

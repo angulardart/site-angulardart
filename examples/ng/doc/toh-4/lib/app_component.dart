@@ -15,7 +15,7 @@ import 'src/hero_service.dart';
   // #enddocregion template
   styleUrls: ['app_component.css'],
   directives: [coreDirectives, HeroComponent],
-  providers: [const ClassProvider(HeroService)],
+  providers: [ClassProvider(HeroService)],
 )
 class AppComponent implements OnInit {
   final title = 'Tour of Heroes';

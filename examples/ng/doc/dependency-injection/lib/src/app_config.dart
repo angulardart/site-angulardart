@@ -1,7 +1,7 @@
 // #docregion appTitleToken
 import 'package:angular/angular.dart';
 
-const appTitleToken = const OpaqueToken<String>('app.title');
+const appTitleToken = OpaqueToken<String>('app.title');
 // #enddocregion appTitleToken
 
 // #docregion appTitle
@@ -9,13 +9,13 @@ const appTitle = 'Dependency Injection';
 // #enddocregion appTitle
 
 // #docregion appConfigMap
-const appConfigMap = const {
+const appConfigMap = {
   'apiEndpoint': 'api.heroes.com',
   'title': 'Dependency Injection',
   // ...
 };
 
-const appConfigMapToken = const OpaqueToken<Map>('app.config');
+const appConfigMapToken = OpaqueToken<Map>('app.config');
 // #enddocregion appConfigMap
 
 // #docregion AppConfig

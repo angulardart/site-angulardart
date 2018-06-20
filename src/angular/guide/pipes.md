@@ -522,7 +522,7 @@ This next example binds an `Stream` of message strings
     pipes: [commonPipes],
   )
   class HeroAsyncMessageComponent {
-    static const _msgEventDelay = const Duration(milliseconds: 500);
+    static const _msgEventDelay = Duration(milliseconds: 500);
 
     Stream<String> message;
 

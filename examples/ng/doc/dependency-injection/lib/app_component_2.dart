@@ -16,9 +16,9 @@ import 'src/logger_service.dart';
   ''',
   directives: [CarComponent, HeroesComponent],
   providers: [
-    const ClassProvider(Logger),
+    ClassProvider(Logger),
     // #docregion providers
-    const ValueProvider.forToken(appTitleToken, appTitle),
+    ValueProvider.forToken(appTitleToken, appTitle),
     // #enddocregion providers
   ],
 )

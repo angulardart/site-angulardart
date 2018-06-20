@@ -25,8 +25,8 @@ HeroesPO po;
 
 // #docregion rootInjector
 @GenerateInjector([
-  const ClassProvider(HeroService),
-  const ClassProvider(Router, useClass: MockRouter),
+  ClassProvider(HeroService),
+  ClassProvider(Router, useClass: MockRouter),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 

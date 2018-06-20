@@ -1,3 +1,4 @@
+// Drop `const` once https://github.com/dart-lang/test/issues/888 is fixed
 @Tags(const ['browser'])
 @TestOn('browser')
 import 'dart:async';
