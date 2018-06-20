@@ -20,13 +20,14 @@ module.exports = function (gulp, plugins, config) {
     '-p chrome',
   ].join(' ');
 
-  const allExamplesWithTests = ('quickstart ' +
-    'toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6 ' +
-    'template-syntax').split(' ')
+  const allExamplesWithTests = `quickstart
+      toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6
+      template-syntax`.split(/\s+/)
     .map(name => path.join('ng', 'doc', name))
     .concat('html')
     .concat(['1-base', '2-starteasy', '3-usebuttons', '4-final']
       .map(name => path.join('acx', 'lottery', name)))
+    .concat(['ng/api/common/pipes', 'ng/api/core/ngzone'])
     .sort();
 
   const testStatus = {
@@ -60,8 +61,8 @@ module.exports = function (gulp, plugins, config) {
     plugins.gutil.log(`tests:\n  ${examplesToTest.join('\n  ')}`)
   });
 
-  function webdevBuildOnly(path) {
-    return path.startsWith('examples/acx');
+  function onlyBuild(path) {
+    return path.startsWith('examples/acx') || path.startsWith('examples/ng/api');
   }
 
   async function pubGetAndRunTest(exPath) {
@@ -71,11 +72,11 @@ module.exports = function (gulp, plugins, config) {
       // plugins.generateBuildYaml(exPath);
       const runTest =
         exPath === 'examples/html' ? runHtmlTest
-          : webdevBuildOnly(exPath) ? webdevBuild :
+          : onlyBuild(exPath) ? webdevBuild :
             runAngularTest;
       await plugins.execp(runTest, {
         cwd: exPath,
-        okOnExitRE: webdevBuildOnly(exPath) ? '' : /All tests passed/,
+        okOnExitRE: onlyBuild(exPath) ? '' : /All tests passed/,
         errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
       });
 
