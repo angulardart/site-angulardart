@@ -130,7 +130,7 @@ module.exports = function (gulp, plugins, config) {
           cwd: appDir,
           log: gutil.log,
           okOnExitRE: /\[INFO\]( Build:)? Succeeded/,
-          errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
+          errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating asset graph|Throwing away cached asset graph|No actions completed for ))/,
         });
       }
       await pexec(

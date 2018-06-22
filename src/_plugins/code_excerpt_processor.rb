@@ -176,7 +176,7 @@ module NgCodeExcerpt
     end
 
     def processCodePane(pi, attrs, args)
-      # FIXME: support use of globally set replace args.
+      # TODO: support use of globally set replace args.
       title = args['title'] || trimFileVers(args[''])
       escapedCode = getCodeFrag(args['path'],
         fullFragPath(args['path'], args['region']),
@@ -188,7 +188,7 @@ module NgCodeExcerpt
         _, re, replacement, g = args['replace'].split '/'
         escapedCode.gsub!(Regexp.new(re)) {
           match = Regexp.last_match
-          # FIXME: doesn't yet recognize escaped '$' ('\$')
+          # TODO: doesn't yet recognize escaped '$' ('\$')
           while (argMatch = /(?<=\$)(\d)(?!\d)/.match(replacement)) do
             next unless argMatch;
             replacement.gsub!("$#{argMatch[0]}", match[argMatch[0].to_i])

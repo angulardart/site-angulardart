@@ -50,7 +50,7 @@ Add the package to the pubspec dependencies:
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
 +  pageloader: ^3.0.0-alpha
-   test: ^0.12.42
+   test: ^1.0.0
 ```
 
 ## Imports

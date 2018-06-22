@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
   const chooseRegEx = argv.filter || '.';
   const skipRegEx = argv.skip || null;
 
-  const webdevBuild = 'webdev build --no-release';
+  const webdevBuild = 'pub global run webdev build --no-release';
   const runHtmlTest = 'pub run test -p travischrome --tags browser';
   const runAngularTest = [
     'pub run build_runner test',
@@ -80,7 +80,7 @@ module.exports = function (gulp, plugins, config) {
         errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating|Throwing away cached) asset graph)/,
       });
 
-      await plugins.execp('dartanalyzer --preview-dart-2 --fatal-warnings .', { cwd: exPath });
+      await plugins.execp('dartanalyzer --fatal-warnings .', { cwd: exPath });
 
       testStatus.passed.push(exPath);
     } catch (e) {

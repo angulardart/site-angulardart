@@ -26,7 +26,7 @@ Also see:
   - Updated `environment.sdk`:
     <?code-excerpt "examples/ng/doc/quickstart/pubspec.yaml" retain="sdk:" indent-by="0"?>
     {% prettify %}
-    sdk: '>=2.0.0-dev.60.0 <2.0.0'
+    sdk: '>=2.0.0-dev.64.1 <2.0.0'
     {% endprettify %}
   - `angular: {{site.data.pubspec.dependencies.angular}}`
   - `angular_components: {{site.data.pubspec.dependencies.angular_components}}`

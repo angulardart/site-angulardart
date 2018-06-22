@@ -32,7 +32,7 @@ under **`dev_dependencies`**, for example:
     build_runner: ^0.8.10
     build_test: ^0.10.2
     build_web_compilers: ^0.4.0
-    test: ^0.12.42
+    test: ^1.0.0
 ```
 
 ## API basics: _test_() and _expect_()

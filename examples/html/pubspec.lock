@@ -69,10 +69,10 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: f6d59e712f61c8c62192a008e29d8626f38d2427
+      resolved-ref: "2c7c31fce4f65e72db3384b8f5be82f8798bbdd5"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
-    version: "0.0.1"
+    version: "0.0.2"
   front_end:
     dependency: transitive
     description:
@@ -86,7 +86,7 @@ packages:
       name: glob
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.5"
+    version: "1.1.6"
   html:
     dependency: "direct main"
     description:
@@ -310,7 +310,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.42"
+    version: "1.0.0"
   typed_data:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.62.0 <=2.0.0-dev.63.0"
+  dart: "2.0.0-dev.64.1"

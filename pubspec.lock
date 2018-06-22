@@ -106,10 +106,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: bd968b9cbad599535e9ca9d57020a94b7be270ca
+      resolved-ref: "4cb53e473e25558ed3b16134c3c24c4bb0bb7daa"
       url: "https://github.com/chalin/code_excerpter.git"
     source: git
-    version: "0.3.1+2"
+    version: "0.4.0"
   collection:
     dependency: transitive
     description:
@@ -172,7 +172,7 @@ packages:
       name: glob
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.5"
+    version: "1.1.6"
   graphs:
     dependency: transitive
     description:
@@ -214,7 +214,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.8"
+    version: "0.2.9"
   kernel:
     dependency: transitive
     description:
@@ -298,7 +298,7 @@ packages:
       name: pubspec_parse
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   quiver:
     dependency: transitive
     description:
@@ -384,4 +384,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.62.0 <=2.0.0-dev.63.0"
+  dart: ">=2.0.0-dev.62.0 <=2.0.0-dev.64.1"
