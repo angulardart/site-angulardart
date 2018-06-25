@@ -1,7 +1,6 @@
 ---
-layout: default
 title: "Dart Tutorials: Get Data"
-description: "Tutorials related to getting data."
+description: Tutorials related to getting data.
 permalink: /tutorials/get-data
 toc: false
 ---

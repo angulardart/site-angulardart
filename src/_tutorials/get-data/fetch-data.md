@@ -1,6 +1,7 @@
 ---
-title: "Fetch Data Dynamically"
-description: "Use HttpRequest to fetch data from a file or a server."
+title: Fetch Data Dynamically
+description: Use HttpRequest to fetch data from a file or a server.
+obsolete: true
 ---
 
 {% comment %}
@@ -10,15 +11,13 @@ DartPads.
 
 ### Get data from a file or server.
 
-<div class="panel" markdown="1">
+<div class="mini-toc" markdown="1">
+  <h4>What's the point?</h4>
 
-#### <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?
-
-* Data on the web is often formatted in JSON.
-* JSON is text based and human readable.
-* The dart:convert library provides support for JSON.
-* Use HttpRequest to dynamically load data.
-
+  * Data on the web is often formatted in JSON.
+  * JSON is text based and human readable.
+  * The dart:convert library provides support for JSON.
+  * Use HttpRequest to dynamically load data.
 </div>
 
 Web apps often use
@@ -571,11 +570,7 @@ to create the String objects specified by the JSON string.
 
 ## Other resources
 
-Check out Chris Buckett's article,
-<a href="/articles/get-data/json-web-service"
-   target="_blank" rel="noopener">Using Dart with JSON Web Services</a>,
-for more information and an example with source code for both
-client and server programs.
+* [JSON Support]({{site.dartlang}}/guides/json)
 
 ## What next?
 
