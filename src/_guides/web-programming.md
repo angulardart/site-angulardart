@@ -24,22 +24,19 @@ You can also follow the
 
 To leverage one of the many existing libraries written in JavaScript,
 use [package:js.](https://pub.dartlang.org/packages/js)
-If a TypeScript type definition file exists for a JavaScript library
-(see [DefinitelyTyped](http://definitelytyped.org/) for more info),
-you can use the
+If a [TypeScript type definition](http://definitelytyped.org/)
+exists for a JavaScript library, you can use the
 [js_facade_gen](https://github.com/dart-lang/js_facade_gen)
 tool to generate Dart code for that library.
 
 Here are some projects on GitHub that use package:js:
 
+[dart_js_interop](https://github.com/matanlurey/dart_js_interop)
+: Examples of using package:js,
+  with comparisons to old code that uses the dart:js library.
+
 [firebase](https://github.com/firebase/firebase-dart)
 : Dart wrapper library for Firebase.
-
-[captains_log_final](https://github.com/dart-lang/one-hour-codelab/tree/dev-workflow/dev-workflow/captains_log_final)
-: Example includes [lib/quill.dart,](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/dev-workflow/dev-workflow/captains_log_final/lib/quill.dart) which is generated from Quill.js.
-
-[chartjs](https://github.com/google/chartjs.dart)
-: Dart API for Chart.js.
 
 {% comment %}
 Check out these pages:
