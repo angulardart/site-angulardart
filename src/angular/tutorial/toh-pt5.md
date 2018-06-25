@@ -784,7 +784,7 @@ into the constructor, saving their values in private fields:
   HeroComponent(this._heroService, this._location);
 ```
 
-To get notified when a hero route is natigated to, make `HeroComponent`
+To get notified when a hero route is navigated to, make `HeroComponent`
 implement the [OnActivate][] interface, and update `hero` from
 the [onActivate()][] [router lifecycle hook][]:
 
