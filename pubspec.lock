@@ -35,7 +35,7 @@ packages:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   build_resolvers:
     dependency: transitive
     description:
@@ -228,7 +228,7 @@ packages:
       name: linkcheck
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.0+1"
   logging:
     dependency: transitive
     description:
@@ -384,4 +384,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.62.0 <=2.0.0-dev.64.1"
+  dart: "2.0.0-dev.64.1"

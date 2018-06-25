@@ -98,14 +98,14 @@ packages:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   build_modules:
     dependency: transitive
     description:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2+6"
+    version: "0.2.3"
   build_resolvers:
     dependency: transitive
     description:
@@ -343,7 +343,7 @@ packages:
       name: mockito
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0-beta"
+    version: "3.0.0-beta+1"
   multi_server_socket:
     dependency: transitive
     description:
@@ -441,7 +441,7 @@ packages:
       name: scratch_space
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2+1"
+    version: "0.0.3"
   shelf:
     dependency: transitive
     description:

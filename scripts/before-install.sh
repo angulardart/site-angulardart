@@ -34,7 +34,10 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   travis_fold start before_install.dartdoc
     (set -x; pub global activate dartdoc)
   travis_fold end before_install.dartdoc
+
   ./scripts/get-ng-repo.sh
 fi
 
+travis_fold start before_install.pub_upgrade
 pub upgrade
+travis_fold end before_install.pub_upgrade
