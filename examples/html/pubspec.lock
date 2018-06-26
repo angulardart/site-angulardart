@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "2c7c31fce4f65e72db3384b8f5be82f8798bbdd5"
+      resolved-ref: b3a63f88bd17fc6c239edfe8eedc2c8c4d433fd6
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -338,7 +338,7 @@ packages:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.7+8"
+    version: "0.9.7+9"
   web_socket_channel:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: "2.0.0-dev.64.1"
+  dart: ">=2.0.0-dev.64.1 <=2.0.0-dev.65.0"

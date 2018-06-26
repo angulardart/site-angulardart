@@ -70,42 +70,42 @@ packages:
       name: build
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.6"
+    version: "0.12.7"
   build_config:
     dependency: transitive
     description:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   build_modules:
     dependency: transitive
     description:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2+6"
+    version: "0.2.3"
   build_resolvers:
     dependency: transitive
     description:
       name: build_resolvers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0+2"
+    version: "0.2.1"
   build_runner:
     dependency: "direct dev"
     description:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.10"
+    version: "0.9.0"
   build_runner_core:
     dependency: transitive
     description:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.2.0"
   build_test:
     dependency: "direct dev"
     description:
@@ -406,7 +406,7 @@ packages:
       name: scratch_space
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2+1"
+    version: "0.0.3"
   shelf:
     dependency: transitive
     description:
@@ -539,7 +539,7 @@ packages:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.7+8"
+    version: "0.9.7+9"
   web_socket_channel:
     dependency: transitive
     description:
@@ -555,4 +555,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: "2.0.0-dev.64.1"
+  dart: ">=2.0.0-dev.64.1 <=2.0.0-dev.65.0"

@@ -19,7 +19,7 @@ To use `build_runner`, add these dev dependencies to your app's pubspec:
 ```
   dev_dependencies:
     # ···
-    build_runner: ^0.8.10
+    build_runner: ^0.9.0
     build_test: ^0.10.2
     build_web_compilers: ^0.4.0
 ```

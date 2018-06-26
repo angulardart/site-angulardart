@@ -10,9 +10,7 @@ if [[ -n $TRAVIS && $CI_TASK != build* ]]; then
 fi
 
 travis_fold start check_links
-# FIXME: https://github.com/dart-lang/sdk/issues/33430
-# (set -x; ./scripts/shared/check-links.sh)
-echo "Skipping check-links.sh due to https://github.com/dart-lang/sdk/issues/33430"
+(set -x; ./scripts/shared/check-links.sh)
 travis_fold end check_links
 
 errorMessage="
