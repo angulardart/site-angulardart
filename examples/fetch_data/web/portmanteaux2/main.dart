@@ -33,8 +33,11 @@ void requestComplete(HttpRequest request) {
       processResponse(request.responseText);
       return;
     default:
+      // The GET request failed. Handle the error.
+      // #enddocregion requestComplete
       final li = LIElement()..text = 'Request failed, status=${request.status}';
       wordList.children.add(li);
+    // #docregion requestComplete
   }
 }
 // #enddocregion requestComplete

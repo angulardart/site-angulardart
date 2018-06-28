@@ -1,13 +1,8 @@
 ---
 title: Fetch Data Dynamically
 description: Use HttpRequest to fetch data from a file or a server.
-obsolete: true
 ---
-
-{% comment %}
-NOTE: No sample_links section goes here because all the samples are in embedded
-DartPads.
-{% endcomment %}
+<?code-excerpt path-base="examples/fetch_data"?>
 
 ### Get data from a file or server.
 
@@ -28,8 +23,7 @@ Data can be _serialized_ into a JSON string,
 which is then passed between a client and server,
 and revived as an object at its destination.
 This tutorial shows you how to use functions in the
-<a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html"
-   target="_blank" rel="noopener">dart:convert</a>
+[dart:convert][]{: target="_blank" rel="noopener"}
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
 this tutorial also shows how a web app
@@ -53,13 +47,14 @@ Click run ( {% img 'red-run.png' %} ) to start the app.
 Then change the values of the input elements,
 and check out the JSON format for each data type.
 You might prefer to
-<a href="{{site.custom.dartpad.direct-link}}/245c841595786300b3f4" target="_blank" rel="noopener">open the app in DartPad</a>
+[open the app in DartPad]({{site.custom.dartpad.direct-link}}/1d42e4eadb75bcc1ffbc079e299b862e){: target="_blank" rel="noopener"}
 to have more space for the app's code and UI.
 
 {% comment %}
-https://gist.github.com/Sfshaza/245c841595786300b3f4
+https://gist.github.com/chalin/1d42e4eadb75bcc1ffbc079e299b862e
 
-main.dart:
+<?code-excerpt "web/main.dart" indent-by="0"?>
+{% prettify %}
 // Copyright (c) 2015, the Dart project authors.
 // Please see the AUTHORS file for details.
 // All rights reserved. Use of this source code is governed
@@ -87,7 +82,6 @@ TextAreaElement boolAsJson;
 TextAreaElement mapAsJson;
 
 void main() {
-
   // Set up the input text areas.
   favoriteNumber = querySelector('#favoriteNumber');
   valueOfPi = querySelector('#valueOfPi');
@@ -123,19 +117,15 @@ void main() {
 
 // Pre-fill the form with some default values.
 void _populateFromJson() {
+  final jsonDataAsString = '''{
+    "favoriteNumber": 73,
+    "valueOfPi": 3.141592,
+    "chocolate": true,
+    "horoscope": "Cancer",
+    "favoriteThings": ["monkeys", "parrots", "lattes"]
+  }''';
 
-  String jsonDataAsString = '''
-  { "favoriteNumber":73,
-    "valueOfPi":3.141592,
-    "chocolate":true,
-    "horoscope":"Cancer",
-    "favoriteThings":["monkeys",
-                      "parrots",
-                      "lattes"]
-  }
-  ''';
-
-  Map jsonData = JSON.decode(jsonDataAsString);
+  Map jsonData = json.decode(jsonDataAsString);
 
   favoriteNumber.value = jsonData['favoriteNumber'].toString();
   valueOfPi.value = jsonData['valueOfPi'].toString();
@@ -144,24 +134,27 @@ void _populateFromJson() {
   favTwo.value = jsonData['favoriteThings'][1];
   favThree.value = jsonData['favoriteThings'][2];
 
-  if (jsonData['chocolate']) {
-    loveChocolate.checked = true;
-  } else {
-    noLoveForChocolate.checked = true;
-  }
+  final chocolateRadioButton =
+      jsonData['chocolate'] == false ? noLoveForChocolate : loveChocolate;
+  chocolateRadioButton.checked = true;
 }
 
-// Display all values as JSON.
-void showJson(Event e) {
-
+// TODO(chalin): I'm currently minimizing changes, but make showJson private.
+/// Display all values as JSON.
+void showJson(/*Event*/ dynamic _) {
+  // FIXME(https://github.com/dart-lang/sdk/issues/33627): type argument
   // Grab the data that will be converted to JSON.
-  num favNum = int.parse(favoriteNumber.value);
-  num pi = double.parse(valueOfPi.value);
-  bool chocolate = loveChocolate.checked;
-  String sign = horoscope.value;
-  List<String> favoriteThings = [ favOne.value, favTwo.value, favThree.value ];
+  final favNum = int.tryParse(favoriteNumber.value);
+  final pi = double.tryParse(valueOfPi.value);
+  final chocolate = loveChocolate.checked;
+  final sign = horoscope.value;
+  final favoriteThings = <String>[
+    favOne.value,
+    favTwo.value,
+    favThree.value,
+  ];
 
-  Map formData = {
+  final formData = {
     'favoriteNumber': favNum,
     'valueOfPi': pi,
     'chocolate': chocolate,
@@ -169,69 +162,72 @@ void showJson(Event e) {
     'favoriteThings': favoriteThings
   };
 
-  // Convert everything to JSON and display the results.
-  intAsJson.text    = JSON.encode(favNum);
-  doubleAsJson.text = JSON.encode(pi);
-  boolAsJson.text   = JSON.encode(chocolate);
-  stringAsJson.text = JSON.encode(sign);
-  listAsJson.text   = JSON.encode(favoriteThings);
-  mapAsJson.text    = JSON.encode(formData);
+  // Convert to JSON and display results.
+  intAsJson.text = json.encode(favNum);
+  doubleAsJson.text = json.encode(pi);
+  boolAsJson.text = json.encode(chocolate);
+  stringAsJson.text = json.encode(sign);
+  listAsJson.text = json.encode(favoriteThings);
+  mapAsJson.text = json.encode(formData);
 }
+{% endprettify %}
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=245c841595786300b3f4&horizontalRatio=50&verticalRatio=90"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=1d42e4eadb75bcc1ffbc079e299b862e&horizontalRatio=50&verticalRatio=90"
     width="100%"
     height="600px"
     style="border: 1px solid #ccc;">
 </iframe>
 
-The dart:convert library contains two convenient functions
+The `dart:convert` library contains two convenient functions
 for working with JSON strings:
 
 | dart:convert function | Description |
 |---|---|
-| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/decode.html" target="_blank" rel="noopener">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/encode.html" target="_blank" rel="noopener">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
+| [json.decode()][]{:target="_blank" rel="noopener"} | Builds Dart objects from a string containing JSON data. |
+| [json.encode()][]{:target="_blank" rel="noopener"} |  Serializes a Dart object into a JSON string. |
 {: .table}
 
 To use these functions,
 you need to import dart:convert into your Dart code:
 
+<?code-excerpt "web/main.dart" retain="dart:convert"?>
 {% prettify dart %}
-import 'dart:convert';
+  import 'dart:convert';
 {% endprettify %}
 
-The JSON.encode() and JSON.decode() functions can handle these Dart types
+The `json.encode()` and `json.decode()` functions can handle these Dart types
 automatically:
 
-* num
-* String
-* bool
-* null
-* List
-* Map
+* `num`
+* `String`
+* `bool`
+* `Null`
+* `List`
+* `Map`
 
 ## Serializing data into JSON
 
-Use the JSON.encode() function to serialize an object that supports JSON.
-The `showJson` function, from the its_all_about_you example,
+Use the [json.encode()][] function to serialize an object that supports JSON.
+The `showJson()` function, from the example,
 converts all of the data to JSON strings.
 
+<?code-excerpt "web/main.dart (showJson)" indent-by="0" remove="FIXME" replace="/(\n\s+)(.*? json.encode.*?;)/$1[!$2!]/g"?>
 {% prettify dart %}
-import 'dart:convert';
-...
-// Display all values as JSON.
-void showJson(Event e) {
-
+void showJson(/*Event*/ dynamic _) {
   // Grab the data that will be converted to JSON.
-  num favNum = int.parse(favoriteNumber.value);
-  num pi = double.parse(valueOfPi.value);
-  bool chocolate = loveChocolate.checked;
-  String sign = horoscope.value;
-  List<String> favoriteThings = [ favOne.value, favTwo.value, favThree.value ];
+  final favNum = int.tryParse(favoriteNumber.value);
+  final pi = double.tryParse(valueOfPi.value);
+  final chocolate = loveChocolate.checked;
+  final sign = horoscope.value;
+  final favoriteThings = <String>[
+    favOne.value,
+    favTwo.value,
+    favThree.value,
+  ];
 
-  Map formData = {
+  final formData = {
     'favoriteNumber': favNum,
     'valueOfPi': pi,
     'chocolate': chocolate,
@@ -239,78 +235,79 @@ void showJson(Event e) {
     'favoriteThings': favoriteThings
   };
 
-  // Convert everything to JSON and display the results.
-  [[highlight]]intAsJson.text    = JSON.encode(favNum);[[/highlight]]
-  [[highlight]]doubleAsJson.text = JSON.encode(pi);[[/highlight]]
-  [[highlight]]boolAsJson.text   = JSON.encode(chocolate);[[/highlight]]
-  [[highlight]]stringAsJson.text = JSON.encode(sign);[[/highlight]]
-  [[highlight]]listAsJson.text   = JSON.encode(favoriteThings);[[/highlight]]
-  [[highlight]]mapAsJson.text    = JSON.encode(formData);[[/highlight]]
+  // Convert to JSON and display results.
+  [!intAsJson.text = json.encode(favNum);!]
+  [!doubleAsJson.text = json.encode(pi);!]
+  [!boolAsJson.text = json.encode(chocolate);!]
+  [!stringAsJson.text = json.encode(sign);!]
+  [!listAsJson.text = json.encode(favoriteThings);!]
+  [!mapAsJson.text = json.encode(formData);!]
 }
 {% endprettify %}
 
-Below is the JSON string that results from the code
-using the original values from the its_all_about_you app.
+Shown below is the JSON string that results from the code
+using the original values from the app:
 
 <img class="scale-img-max" src="../images/jsonstring.png"
      alt="The JSON string for the its_all_about_you app">
 
-Boolean and numeric values
-appear as they would if they were literal values in code,
-without quotes or other delineating marks.
-A boolean value is either `true` or `false`.
-A null object is represented with `null`.
-
-Strings are contained within double quotes.
-A list is delineated with square brackets;
-its items are comma-separated.
-The list in this example contains strings.
-A map is delineated with curly brackets;
-it contains comma-separated key/value pairs,
-where the key appears first, followed by a colon,
-followed by the value.
-In this example,
-the keys in the map are strings.
-The values in the map vary in type but they are all JSON-parsable.
+- **Numeric** and boolean values
+  appear as they would if they were literal values in code,
+  without quotes or other delineating marks.
+- A **boolean** value is either `true` or `false`.
+- The **null** value is represented as `null`.
+- **Strings** are contained within _double_ quotes.
+- A **list** is delineated with square brackets;
+  its items are comma-separated.
+  The list in this example contains strings.
+- A **map** is delineated with curly brackets;
+  it contains comma-separated key/value pairs,
+  where the key appears first, followed by a colon,
+  followed by the value.
+  In this example,
+  the keys in the map are strings.
+  The values in the map vary in type but they are all JSON-parsable.
 
 ## Parsing JSON data
 
-Use the JSON.decode() function from the dart:convert library to
+Use the [json.decode()][] function from the [dart:convert][] library to
 create Dart objects from a JSON string.
-The its_all_about_you example initially populates the values in the form
+The example initially populates the values in the form
 from this JSON string:
 
+<?code-excerpt "web/main.dart (jsonDataAsString)" indent-by="0" ?>
 {% prettify dart %}
-String jsonDataAsString = '''
-{ "favoriteNumber":73,
-  "valueOfPi":3.141592,
-  "chocolate":true,
-  "horoscope":"Cancer",
-  "favoriteThings":["monkeys",
-                    "parrots",
-                    "lattes"]
-}
-''';
+final jsonDataAsString = '''{
+  "favoriteNumber": 73,
+  "valueOfPi": 3.141592,
+  "chocolate": true,
+  "horoscope": "Cancer",
+  "favoriteThings": ["monkeys", "parrots", "lattes"]
+}''';
 
-Map jsonData = JSON.decode(jsonDataAsString);
+Map jsonData = json.decode(jsonDataAsString);
 {% endprettify %}
 
-This code calls the JSON.decode() function with a properly formatted JSON
-string. <strong>Note that Dart strings can use either single or double
-quotes to denote strings. JSON requires double quotes.</strong>
+This code calls [json.decode()][] with a properly formatted JSON
+string.
+
+<aside class="alert alert-warning" markdown="1">
+  **Note:** Dart strings can use either single or double
+  quotes to denote strings. **JSON requires double quotes**.
+</aside>
 
 In this example, the full JSON string is hard coded into the Dart code,
 but it could be created by the form itself
-or read from a static file or received from a server.
-An example later on this page shows how to dynamically fetch
+or read from a static file or fetched from a server.
+An example later in this page shows how to dynamically fetch
 JSON data from a file that is co-located with the code for the app.
 
-The JSON.decode() function reads the string and
+The `json.decode()` function reads the string and
 builds Dart objects from it.
 In this example,
-the JSON.decode() function creates a Map object based on
+the `json.decode()` function creates a `Map` object based on
 the information in the JSON string.
-The Map contains objects of various types
+The `Map` contains objects of various types
 including an integer, a double, a boolean value, a regular string,
 and a list.
 All of the keys in the map are strings.
@@ -319,7 +316,7 @@ All of the keys in the map are strings.
 
 To make an HTTP GET request from within a web app,
 you need to provide a URI (Uniform Resource Identifier) for the resource.
-A URI (Uniform Resource Identifier) is a character string
+A URI is a character string
 that uniquely names a resource.
 A URL (Uniform Resource Locator) is a specific kind of URI
 that also provides the location of a resource.
@@ -336,8 +333,7 @@ For example, the URL for this page breaks down as follows:
      alt="The tutorial URL">
 
 This URL specifies the HTTP protocol.
-At its most basic,
-when you enter an HTTP address into a web browser,
+When you enter an HTTP address into a web browser,
 the browser sends an HTTP GET request to a web server,
 and the web server sends an HTTP response that contains the
 contents of the page (or an error message).
@@ -362,23 +358,23 @@ retrieving information in files specific to
 and co-located with the app.
 
 <aside class="alert alert-info" markdown="1">
-<strong>A note about security:</strong>
-Browsers place tight security restrictions on HTTP requests
-made by embedded apps.
-Specifically, any resources requested by a web app
-must be served from the same origin.
-That is, the resources must be from the same protocol, host, and port
-as the app itself.
-This means that your web app cannot request
-just any resource from the web with HTTP requests through the browser,
-even if that request is seemingly harmless (like a GET.)
+  **Security note:**
+  Browsers place tight security restrictions on HTTP requests
+  made by embedded apps.
+  Specifically, any resources requested by a web app
+  must be served from the same origin.
+  That is, the resources must be from the same protocol, host, and port
+  as the app itself.
+  This means that your web app cannot request
+  just any resource from the web with HTTP requests through the browser,
+  even if that request is seemingly harmless (like a GET.)
 
-Some servers do allow cross-origin requests
-through a mechanism called
-CORS (Cross-origin resource sharing),
-which uses headers in an HTTP request
-to ask for and receive permission.
-CORS is server specific.
+  Some servers do allow cross-origin requests
+  through a mechanism called
+  CORS (Cross-origin resource sharing),
+  which uses headers in an HTTP request
+  to ask for and receive permission.
+  CORS is server specific.
 </aside>
 
 The SDK provides these useful classes for
@@ -386,12 +382,12 @@ formulating URIs and making HTTP requests:
 
 | Dart code | Library | Description |
 |---|---|
-| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Uri-class.html" target="_blank" rel="noopener">Uri</a> | (core library) | An object representing a URI. |
-| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
-| <a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-io/HttpRequest-class.html" target="_blank" rel="noopener">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
+| [Uri][] | [dart:core][] | Uniform resource identifier |
+| [HttpRequest][HttpRequest] |  [dart:html][] | Client-side HTTP request object. For use in web apps. |
+| [HttpRequest][HttpRequest@io] |  [dart:io][] | Server-side HTTP request object. Does not work in web apps. |
 {: .table}
 
-## Using the getString() function to load a file {#using-getString-function}
+## Using getString() to load a file {#using-getString-function}
 
 One useful HTTP request your web app *can* make is a GET request
 for a data file served from the same origin as the app.
@@ -402,74 +398,86 @@ the app makes a GET request of the server
 and loads the file.
 
 <aside class="alert alert-info" markdown="1">
-**Implementation note:**
-The original portmanteaux example loaded a co-located file:
-
-<pre>
-var path = 'portmanteaux.json';
-</pre>
-
-When we moved the example into [**DartPad**]({{site.custom.dartpad.direct-link}}),
-we couldn't co-locate the JSON file because DartPad
-supports at most 3 files: one Dart file, one HTML file,
-and one CSS file.
-The workaround was to move `portmanteaux.json` to dartlang.org and
-configure dartlang.org's CORS headers to allow read-only access
-from everywhere.
+  **Implementation note:**
+  The original portmanteaux example loaded the co-located file `portmanteaux.json`.
+  When we moved the example into [**DartPad**]({{site.custom.dartpad.direct-link}}),
+  we couldn't co-locate the JSON file because DartPad
+  supports at most 3 files: one Dart file, one HTML file,
+  and one CSS file.
+  A workaround was to move `portmanteaux.json` to dartlang.org and
+  configure dartlang.org's CORS headers to allow read-only access
+  from everywhere.
 </aside>
 
 **Try it!** Click run ( {% img 'red-run.png' %} )
 and then click the **Get portmanteaux** button.
 
-{% comment %} https://gist.github.com/Sfshaza/8640071ecb67b1309938 {% endcomment %}
+{% comment %} https://gist.github.com/chalin/6b76bce8d46986e624f4e82925c48287 {% endcomment %}
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=8640071ecb67b1309938&horizontalRatio=68&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=6b76bce8d46986e624f4e82925c48287&horizontalRatio=68&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
 </iframe>
 
-This program uses a convenience method,
-`getString()`,
-provided by the HttpRequest class
-to request the file from the server.
+This program uses a convenience method, [getString()][], provided by the
+[HttpRequest][] class to request the file from the server.
 
-<img class="scale-img-max" src="../images/getstringfunction.png"
-     alt="Use the getString() function to make a request">
+<?code-excerpt "web/portmanteaux/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?>
+{% prettify dart %}
+Future<void> makeRequest(/*Event*/ dynamic _) async {
+  const path = 'https://www.dartlang.org/f/portmanteaux.json';
+  try {
+    [!// Make the GET request!]
+    final jsonString = await HttpRequest.getString(path);
+    [!// The request succeeded. Process the JSON.!]
+    processResponse(jsonString);
+  } catch (e) {
+    [!// The GET request failed. Handle the error.!]
+    // ···
+  }
+}
 
-The getString() method uses a Future object to handle the request.
-A Future is a way to perform potentially time-consuming operations,
+void processResponse(String jsonString) {
+  for (final portmanteau in json.decode(jsonString)) {
+    wordList.children.add(LIElement()..text = portmanteau);
+  }
+}
+{% endprettify %}
+
+The `getString()` method uses a Future object to handle the request.
+A [Future][] is a way to perform potentially time-consuming operations,
 such as HTTP requests, asynchronously.
 If you haven't encountered Futures yet,
 you can learn more about them in
 [Asynchronous Programming: Futures]({{site.dartlang}}/tutorials/language/futures).
-Until then, you can use the code above as an idiom
-and provide your own code for the body of the processString() function
+Until then, you can use the code above as a guide
+and provide your own code for the body of the `processResponse()` function
 and your own code to handle the error.
 
 <aside class="alert alert-info" markdown="1">
-**Note:**
-The examples in this section use the `async` and `await` keywords.
-If you are not familiar with these keywords, see
-[Asynchrony support]({{site.dartlang}}/guides/language/language-tour#asynchrony)
-in the [language tour]({{site.dartlang}}/guides/language/language-tour).
+  **Note:**
+  The examples in this section use the `async` and `await` keywords.
+  If you are not familiar with these keywords, see
+  [Asynchrony support]({{site.dartlang}}/guides/language/language-tour#asynchrony)
+  in the [language tour]({{site.dartlang}}/guides/language/language-tour).
 </aside>
 
 ## Using an HttpRequest object to load a file {#making-a-get-request}
 
-The getString() method is good for an HTTP GET request that returns
-a string loaded from the resource.
-For different cases,
-you need to create an HttpRequest object,
+The `getString()` method is good for an HTTP GET request that returns
+a string loaded from a resource.
+For other cases,
+you need to create an [HttpRequest][] object,
 configure its header and other information,
-and use the `send()` method to make the request.
+and use the [send()][] method to make the request.
 
 This section rewrites the portmanteaux code to explicitly construct
 an HttpRequest object.
 
-{% comment %} https://gist.github.com/Sfshaza/83f7779d18a8bbe8ccb1 {% endcomment %}
+{% comment %} https://gist.github.com/chalin/c387e454cb751ab0632c68ccbbf94d12 {% endcomment %}
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=83f7779d18a8bbe8ccb1&horizontalRatio=68&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=c387e454cb751ab0632c68ccbbf94d12&horizontalRatio=68&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
@@ -483,10 +491,11 @@ configures it with a URI and callback function,
 and then sends the request.
 Let's take a look at the Dart code:
 
+<?code-excerpt "web/portmanteaux2/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?>
 {% prettify dart %}
-void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/f/portmanteaux.json';
-  var httpRequest = new HttpRequest();
+Future<void> makeRequest(/*Event*/ dynamic _) async {
+  const path = 'https://www.dartlang.org/f/portmanteaux.json';
+  final httpRequest = HttpRequest();
   httpRequest
     ..open('GET', path)
     ..onLoadEnd.listen((e) => requestComplete(httpRequest))
@@ -499,7 +508,7 @@ void makeRequest(Event e) {
 
 ### Sending the request
 
-The send() method sends the request to the server.
+The [send()][] method sends the request to the server.
 
 {% prettify dart %}
 httpRequest.send('');
@@ -509,17 +518,17 @@ Because the request in this example is a simple GET request,
 the code can send an empty string.
 For other types of requests,
 such as POST requests,
-this string can contain further details or relevant data.
+this string can contain relevant data.
 You can also configure the HttpRequest object
-by setting various header parameters using the setRequestHeader() method.
+by setting various header parameters using the [setRequestHeader()][] method.
 
 ### Handling the response
 
-To handle the response from the request,
+To handle the HTTP response,
 you need to set up a callback function
-before calling send().
+before calling `send()`.
 Our example sets up a one-line callback function
-for `onLoadEnd` events
+for [onLoadEnd][] events
 that in turn calls `requestComplete()`.
 This callback function is called when the request completes,
 either successfully or unsuccessfully.
@@ -527,29 +536,36 @@ either successfully or unsuccessfully.
 <img class="scale-img-max" src="../images/set-callback.png"
      alt="Set up a callback function for request completion">
 
-The callback function for our example,
-requestComplete(),
+The `requestComplete()` function
 checks the status code for the request.
-If the status code is 200,
-the file was found and loaded successfully,
-The contents of the requested file, `portmanteaux.json`, are
-returned in the `responseText` property of an HttpRequest object.
-Using the `JSON.decode()` function from the dart:convert library,
-the code easily converts the JSON-formatted list of words
-to a Dart list of strings,
-creates a new LIElement for each one,
-and adds it to the &lt;ul&gt; element on the page.
 
-<img class="scale-img-max" src="../images/portmanteaux-callback.png"
-     alt="Getting the response text from an HTTP GET request">
+<?code-excerpt "web/portmanteaux2/main.dart (requestComplete)" indent-by="0" replace="/request\.\w+(?=\))/[!$&!]/g"?>
+{% prettify dart %}
+void requestComplete(HttpRequest request) {
+  switch ([!request.status!]) {
+    case 200:
+      processResponse([!request.responseText!]);
+      return;
+    default:
+      // The GET request failed. Handle the error.
+      // ···
+  }
+}
+{% endprettify %}
+
+If the status code is 200,
+the file was found and loaded successfully.
+The content of the requested file (`portmanteaux.json`) is
+returned in the [responseText][] property of an HttpRequest object.
 
 ### Populating the UI from JSON
 
 The data file in the portmanteaux example,
-portmanteaux.json,
-contains a JSON-formatted list of strings.
+`portmanteaux.json`,
+contains the following JSON-formatted list of strings:
 
-{% prettify dart %}
+<?code-excerpt "web/portmanteaux.json" indent-by="0"?>
+{% prettify json %}
 [
   "portmanteau", "fantabulous", "spork", "smog",
   "spanglish", "gerrymander", "turducken", "stagflation",
@@ -558,21 +574,43 @@ contains a JSON-formatted list of strings.
 ]
 {% endprettify %}
 
-Upon request, the server reads this data from the file
+Upon request, the server reads the file
 and sends it as a single string
 to the client program.
-The client program receives the JSON string
-and uses JSON.decode()
-to create the String objects specified by the JSON string.
 
-<img class="scale-img-max" src="../images/json-parse.png"
-     alt="Decode a JSON formatted list of strings">
+Using [json.decode()][],
+the app easily converts the JSON-formatted list of words
+to a Dart list of strings,
+creates a new [LIElement][] for each one,
+and adds it to the `<ul>` element on the page.
+
+<?code-excerpt "web/portmanteaux2/main.dart (processResponse)" indent-by="0" replace="/json\.\w+/[!$&!]/g"?>
+{% prettify dart %}
+void processResponse(String jsonString) {
+  for (final portmanteau in [!json.decode!](jsonString)) {
+    wordList.children.add(LIElement()..text = portmanteau);
+  }
+}
+{% endprettify %}
 
 ## Other resources
 
 * [JSON Support]({{site.dartlang}}/guides/json)
+* [Asynchronous Programming: Futures]({{site.dartlang}}/tutorials/language/futures)
 
-## What next?
-
-* If you haven't yet read
-  [Asynchronous Programming: Futures]({{site.dartlang}}/tutorials/language/futures)
+[dart:convert]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html
+[dart:core]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/dart-core-library.html
+[dart:html]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html
+[dart:io]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-io/dart-io-library.html
+[Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
+[getString()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest/getString.html
+[HttpRequest]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest-class.html
+[HttpRequest@io]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-io/HttpRequest-class.html
+[json.decode()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/decode.html
+[json.encode()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/JsonCodec/encode.html
+[LIElement]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/LIElement-class.html
+[onLoadEnd]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequestEventTarget/onLoadEnd.html
+[responseText]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest/responseText.html
+[send()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest/send.html
+[setRequestHeader()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/HttpRequest/setRequestHeader.html
+[Uri]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Uri-class.html
