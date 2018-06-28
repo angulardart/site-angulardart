@@ -79,17 +79,15 @@ void _populateFromJson() {
   favTwo.value = jsonData['favoriteThings'][1];
   favThree.value = jsonData['favoriteThings'][2];
 
-  if (jsonData['chocolate']) {
-    loveChocolate.checked = true;
-  } else {
-    noLoveForChocolate.checked = true;
-  }
+  final chocolateRadioButton =
+      jsonData['chocolate'] == false ? noLoveForChocolate : loveChocolate;
+  chocolateRadioButton.checked = true;
 }
 
 // TODO(chalin): I'm currently minimizing changes, but make showJson private.
 /// Display all values as JSON.
 // #docregion showJson
-void showJson(/*Event*/ _) {
+void showJson(/*Event*/ dynamic _) {
   // FIXME(https://github.com/dart-lang/sdk/issues/33627): type argument
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value);
@@ -102,7 +100,7 @@ void showJson(/*Event*/ _) {
     favThree.value,
   ];
 
-  Map formData = {
+  final formData = {
     'favoriteNumber': favNum,
     'valueOfPi': pi,
     'chocolate': chocolate,

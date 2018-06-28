@@ -1,8 +1,7 @@
 analyzer:
   exclude: [build/**]
-  strong-mode: true
-  errors:
-    uri_has_not_been_generated: ignore
+  strong-mode:
+    implicit-dynamic: false
 
 # Lint rules and documentation, see http://dart-lang.github.io/linter/lints
 linter:
