@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.32.1"
+    version: "0.32.2"
   args:
     dependency: transitive
     description:
@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: b3a63f88bd17fc6c239edfe8eedc2c8c4d433fd6
+      resolved-ref: "5e9310167b256b6c7b428be0a447963a29c29b59"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -79,7 +79,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   glob:
     dependency: transitive
     description:
@@ -142,7 +142,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.1"
+    version: "0.3.2"
   logging:
     dependency: transitive
     description:
@@ -268,7 +268,7 @@ packages:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.5"
+    version: "0.10.6"
   source_span:
     dependency: transitive
     description:
@@ -310,7 +310,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.2.0"
   typed_data:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: ">=2.0.0-dev.64.1 <=2.0.0-dev.65.0"
+  dart: "2.0.0-dev.65.0"
