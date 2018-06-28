@@ -4,6 +4,7 @@ targets:
       include:
         - examples/acx/*/*/{lib,test,web}/**
         - examples/acx/*/*/pubspec.yaml
+        - examples/fetch_data/{lib,test,web}/**
         - examples/html/{lib,test}/**
         - examples/ng/api/*/*/{lib,test,web}/**
         - examples/ng/api/*/*/pubspec.yaml

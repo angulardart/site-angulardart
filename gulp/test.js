@@ -24,7 +24,7 @@ module.exports = function (gulp, plugins, config) {
       toh-0 toh-1 toh-2 toh-3 toh-4 toh-5 toh-6
       template-syntax`.split(/\s+/)
     .map(name => path.join('ng', 'doc', name))
-    .concat('html')
+    .concat(['fetch_data', 'html'])
     .concat(['1-base', '2-starteasy', '3-usebuttons', '4-final']
       .map(name => path.join('acx', 'lottery', name)))
     .concat(['ng/api/common/pipes', 'ng/api/core/ngzone'])
@@ -62,7 +62,8 @@ module.exports = function (gulp, plugins, config) {
   });
 
   function onlyBuild(path) {
-    return path.startsWith('examples/acx') || path.startsWith('examples/ng/api');
+    return path.startsWith('examples/acx') || path.startsWith('examples/ng/api')
+      || path.startsWith('examples/fetch_data');
   }
 
   async function pubGetAndRunTest(exPath) {
