@@ -141,8 +141,7 @@ void _populateFromJson() {
 
 // TODO(chalin): I'm currently minimizing changes, but make showJson private.
 /// Display all values as JSON.
-void showJson(/*Event*/ dynamic _) {
-  // FIXME(https://github.com/dart-lang/sdk/issues/33627): type argument
+void showJson(Event _) {
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value);
   final pi = double.tryParse(valueOfPi.value);
@@ -215,7 +214,7 @@ converts all of the data to JSON strings.
 
 <?code-excerpt "web/main.dart (showJson)" indent-by="0" remove="FIXME" replace="/(\n\s+)(.*? json.encode.*?;)/$1[!$2!]/g"?>
 {% prettify dart %}
-void showJson(/*Event*/ dynamic _) {
+void showJson(Event _) {
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value);
   final pi = double.tryParse(valueOfPi.value);
@@ -425,7 +424,7 @@ This program uses a convenience method, [getString()][], provided by the
 
 <?code-excerpt "web/portmanteaux/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?>
 {% prettify dart %}
-Future<void> makeRequest(/*Event*/ dynamic _) async {
+Future<void> makeRequest(Event _) async {
   const path = 'https://www.dartlang.org/f/portmanteaux.json';
   try {
     [!// Make the GET request!]
@@ -493,7 +492,7 @@ Let's take a look at the Dart code:
 
 <?code-excerpt "web/portmanteaux2/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?>
 {% prettify dart %}
-Future<void> makeRequest(/*Event*/ dynamic _) async {
+Future<void> makeRequest(Event _) async {
   const path = 'https://www.dartlang.org/f/portmanteaux.json';
   final httpRequest = HttpRequest();
   httpRequest

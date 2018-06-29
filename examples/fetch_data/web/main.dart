@@ -87,8 +87,7 @@ void _populateFromJson() {
 // TODO(chalin): I'm currently minimizing changes, but make showJson private.
 /// Display all values as JSON.
 // #docregion showJson
-void showJson(/*Event*/ dynamic _) {
-  // FIXME(https://github.com/dart-lang/sdk/issues/33627): type argument
+void showJson(Event _) {
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value);
   final pi = double.tryParse(valueOfPi.value);

@@ -15,8 +15,7 @@ void main() {
 }
 
 // #docregion makeRequest
-Future<void> makeRequest(/*Event*/ dynamic _) async {
-  // FIXME(https://github.com/dart-lang/sdk/issues/33627): type argument
+Future<void> makeRequest(Event _) async {
   const path = 'https://www.dartlang.org/f/portmanteaux.json';
   try {
     // Make the GET request
