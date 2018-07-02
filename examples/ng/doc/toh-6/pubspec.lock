@@ -14,7 +14,7 @@ packages:
       name: angular
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-alpha+15"
+    version: "5.0.0-beta"
   angular_ast:
     dependency: transitive
     description:
@@ -28,28 +28,28 @@ packages:
       name: angular_compiler
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0-alpha+15"
+    version: "0.4.0-alpha+16"
   angular_forms:
     dependency: "direct main"
     description:
       name: angular_forms
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+7"
+    version: "2.0.0-beta"
   angular_router:
     dependency: "direct main"
     description:
       name: angular_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+14"
+    version: "2.0.0-alpha+15"
   angular_test:
     dependency: "direct dev"
     description:
       name: angular_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-alpha+13"
+    version: "2.0.0-beta"
   archive:
     dependency: transitive
     description:

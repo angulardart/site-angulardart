@@ -7,11 +7,11 @@ environment:
 
 # #docregion dependencies, dependencies-wo-forms
 dependencies:
-  angular: ^5.0.0-alpha+15
+  angular: ^5.0.0-beta
   # #enddocregion dependencies-wo-forms
-  angular_forms: ^2.0.0-alpha
+  angular_forms: ^2.0.0-beta
   # #docregion dependencies-wo-forms
-  angular_router: ^2.0.0-alpha
+  angular_router: ^2.0.0-alpha+15
 # #enddocregion dependencies, dependencies-wo-forms
 
 dev_dependencies:

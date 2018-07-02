@@ -66,9 +66,9 @@ Update package dependencies by adding the Dart [http][] and
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
 @@ -9,6 +9,8 @@
-   angular: ^5.0.0-alpha+15
-   angular_forms: ^2.0.0-alpha
-   angular_router: ^2.0.0-alpha
+   angular: ^5.0.0-beta
+   angular_forms: ^2.0.0-beta
+   angular_router: ^2.0.0-alpha+15
 +  http: ^0.11.0
 +  stream_transform: ^0.0.6
 ```

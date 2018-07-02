@@ -10,6 +10,7 @@
     "filiph-staging": "filiph-webdev-staging",
     "kw-staging": "kw-webdev-dartlang-1",
     "ng3": "webdev-angular3-dartlang-org",
+    "ng4": "webdev-angular4-dartlang-org",
     "kw-staging-2": "kw-webdev-dartlang-2",
     "sz": "sz-webdev-1"
   }

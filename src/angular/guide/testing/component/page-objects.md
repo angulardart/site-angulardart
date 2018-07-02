@@ -41,11 +41,11 @@ Add the package to the pubspec dependencies:
 @@ -7,15 +7,12 @@
 
  dependencies:
-   angular: ^5.0.0-alpha+15
-+  angular_forms: ^2.0.0-alpha
+   angular: ^5.0.0-beta
++  angular_forms: ^2.0.0-beta
 
  dev_dependencies:
-   angular_test: ^2.0.0-alpha
+   angular_test: ^2.0.0-beta
    build_runner: ^0.9.0
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
