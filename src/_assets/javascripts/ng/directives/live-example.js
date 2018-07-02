@@ -7,7 +7,6 @@
 * Usage:
 *   <live-example
 *      [name="..."]
-*      [plnkr='...']
 *      [noSource]
 *      [embedded]
 *      [embedded-style | flat-style]

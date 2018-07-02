@@ -4,7 +4,7 @@
     "vers": "4.0.0+2",
     "prev-vers": "3.1.0",
     "prev-name": "angular2",
-    "next-vers": "5.0.0-alpha"
+    "next-vers": "5.0.0-beta"
   },
   "angular_components": {
     "doc-path": "components",

@@ -75,7 +75,7 @@ branches:
 
 deploy:
   - provider: script
-    script: ./scripts/deploy/firebase.sh --robots-ok
+    script: ./scripts/deploy/firebase.sh
     skip_cleanup: true
     on:
       repo: dart-lang/site-webdev

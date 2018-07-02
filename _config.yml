@@ -1,8 +1,8 @@
 # Site settings
 title: webdev.dartlang.org
 description: "Documentation to help you build high-quality web apps, using Dart tools and libraries. Includes AngularDart docs."
-url: https://webdev.dartlang.org
-dev-url: https://webdev-dartlang-org-dev.firebaseapp.com
+url: https://webdev-angular4-dartlang-org.firebaseapp.com
+dev-url: https://webdev.dartlang.org
 prev-url: https://webdev-angular3-dartlang-org.firebaseapp.com
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
