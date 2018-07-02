@@ -35,7 +35,7 @@ packages:
       name: angular_components
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.0-alpha+15"
+    version: "0.9.0-beta"
   angular_forms:
     dependency: "direct main"
     description:
@@ -161,7 +161,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.5.2"
+    version: "5.5.3"
   charcode:
     dependency: transitive
     description:
@@ -371,7 +371,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.2"
+    version: "1.4.3"
   observable:
     dependency: transitive
     description:
@@ -462,14 +462,14 @@ packages:
       name: sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.3"
+    version: "1.8.0"
   sass_builder:
     dependency: transitive
     description:
       name: sass_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.1.0"
   scratch_space:
     dependency: transitive
     description:

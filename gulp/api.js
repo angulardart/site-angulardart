@@ -36,16 +36,20 @@ module.exports = function (gulp, plugins, config) {
     }
     plugins.gutil.log(` Copying ${baseDir} to ${dest}`);
     const indexHtml = filter(`${baseDir}/index.html`, { restore: true });
-    // const ngContentAstIndex = filter(`${baseDir}/angular.compiler/NgContentAst/index.html`, { restore: true });
+    // Classes with a field named `index`, gets it page generated as `index.html`, which of course
+    // is the default index file for the directory. So we need to adjust its <base href>. E.g., see
+    // - https://github.com/dart-lang/site-webdev/issues/271
+    // - https://github.com/dart-lang/angular_components/issues/283
+    const apiWithGetterNamedIndex = filter(`${baseDir}/angular_components/StepDirective/index.html`, { restore: true });
     return gulp.src([`${baseDir}/**`], { base: baseDir })
       .pipe(indexHtml)
       .pipe(plugins.replace(/<\/title>/, `$&\n  <base href="/api/${pkgName}/">`, { skipBinary: true }))
       .pipe(indexHtml.restore)
 
-      // .pipe(ngContentAstIndex)
-      // // Patch file; see https://github.com/dart-lang/site-webdev/issues/271
-      // .pipe(plugins.replace(/(<base href="..)\/..(">)/, '$1$2'))
-      // .pipe(ngContentAstIndex.restore)
+      .pipe(apiWithGetterNamedIndex)
+      // Patch file; see https://github.com/dart-lang/site-webdev/issues/271
+      .pipe(plugins.replace(/(<base href="..)\/..(">)/, '$1$2'))
+      .pipe(apiWithGetterNamedIndex.restore)
 
       .pipe(plugins.replace(/<header id="title">/, `$&\n  ${linkToApiHome}`, { skipBinary: true }))
 

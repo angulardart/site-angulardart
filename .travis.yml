@@ -57,11 +57,9 @@ env:
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
     # FIXME: Skip lifecycle-hooks; https://github.com/dart-lang/site-webdev/issues/1647
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=life"
-    # FIXME: Skip structural-directives, template-syntax until ACX -beta is available
-    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=structural|template|toh"
+    - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
-    # FIXME: Skip tests using ACX until ACX beta is released
-    - TEST_OPT="--skip=lottery"
+    - TEST_OPT=""
     - TZ=US/Pacific # normalize build timestamp
 
 matrix:
