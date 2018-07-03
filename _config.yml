@@ -7,7 +7,7 @@ prev-url: https://webdev-angular4-dartlang-org.firebaseapp.com
 url: *url
 permalink: /:categories/:title
 repo: https://github.com/dart-lang/site-webdev
-branch: master
+branch: master # This should be 5-dev, but the most recent 5.x code is under master, so use that branch.
 site-status-issue-url: https://github.com/dart-lang/site-webdev/issues/1369
 
 # Global variables
