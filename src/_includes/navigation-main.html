@@ -11,7 +11,7 @@
         {% if site.branch == '4.x' -%}
           <li><a href="/angular" class="active">{{site.data.pkg-vers.angular.vers}}&nbsp;&nbsp;(archive)</a></li>
           {% if site.dev-url and site.data.pkg-vers.angular.next-vers -%}
-            <li><a href="{{site.dev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.next-vers}}&nbsp;&nbsp;(preview)</a></li>
+            <li><a href="{{site.dev-url}}{{page.url}}" class="no-automatic-external">{{site.data.pkg-vers.angular.next-vers}}&nbsp;&nbsp;(current)</a></li>
           {%- endif -%}
         {% else -%}
           {% if site.url and site.data.pkg-vers.angular.prev-vers -%}
