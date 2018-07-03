@@ -131,7 +131,7 @@ jobs:
             branch: master
             condition: $CI_TASK == build*
         - provider: script
-          script: ./scripts/deploy/firebase.sh --robots-ok dev
+          script: ./scripts/deploy/firebase.sh dev
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev
