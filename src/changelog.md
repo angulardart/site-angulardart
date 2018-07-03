@@ -10,7 +10,7 @@ Others are the result of new recommendations or documentation.
 
 Also see:
 
-{% if site.branch == 'master' and site.dev-url -%}
+{% if site.branch == 'master' and site.data.pkg-vers.angular.next-vers and site.dev-url -%}
 * [Changelog for the {{site.data.pkg-vers.angular.next-vers}} (dev) version of this site]({{site.dev-url}}/changelog)
 {%- endif %}
 * [History of commits to AngularDart documentation](https://github.com/dart-lang/site-webdev/commits/master/src/angular)
@@ -20,7 +20,7 @@ Also see:
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
   * [`angular2` changelog][]
 
-## AngularDart 5.0 alpha / Dart 2.0 beta (June 2018)
+## AngularDart 5.0 beta / Dart 2.0 beta (July 2018)
 
 - Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
   - Updated `environment.sdk`:

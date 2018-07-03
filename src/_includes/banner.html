@@ -11,7 +11,8 @@ To revert to the default banner styling, change the div class to "banner".
 {%- endif -%}
 
 <div class="alert alert-info">
-  {%- if site.data.pkg-vers.angular.vers contains "alpha" or site.data.pkg-vers.angular.vers contains "beta" -%}
+  {%- if site.data.pkg-vers.angular.vers contains "alpha" -%}
+  {% comment %}or site.data.pkg-vers.angular.vers contains "beta"{% endcomment %}
   <p class="banner__text">
     This site is a <b>preview</b> of changes to
     <a href="{{site.webdev}}" class="no-automatic-external" target="_blank" rel="noopener">
@@ -27,16 +28,13 @@ To revert to the default banner styling, change the div class to "banner".
     </a>
     {%- endif -%}
   </p>
+  {%- else -%}
+    <p class="banner__text">
+      <i class="material-icons"> new_releases </i>
+      This site covers <b>web development</b> with <b>Dart 2</b>.
+      <a href="/version">Version information</a>.
+    </p>
   {% endif -%}
-
-  <p class="banner__text">
-    <b>Important:</b>
-    The AngularDart analyzer still requires <code>new</code> and
-    <code>const</code>, even though those keywords are optional in Dart 2. Until
-    <a href="https://github.com/dart-lang/angular/issues/1313">issue #1313</a>
-    is closed, continue to
-    <b>use <code>new</code> and <code>const</code>.</b>
-  </p>
 </div>
 {% endif -%}
 

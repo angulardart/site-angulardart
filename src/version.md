@@ -62,7 +62,7 @@ in response to each release, read the [changelog](/changelog).
 </aside>
 
 
-## Angular alpha releases are production quality
+## Angular alpha and beta releases are production quality
 
 Google thoroughly tests each version of AngularDart—even alpha releases—to
 ensure that our mission-critical apps that depend on Angular continue to work well.

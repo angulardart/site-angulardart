@@ -124,7 +124,7 @@ jobs:
         # - ./scripts/deploy/pr.sh || travis_terminate 1
       deploy:
         - provider: script
-          script: ./scripts/deploy/firebase.sh --robots-ok dev
+          script: ./scripts/deploy/firebase.sh --robots-ok
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev
