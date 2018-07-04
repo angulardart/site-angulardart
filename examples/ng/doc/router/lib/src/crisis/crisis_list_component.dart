@@ -51,7 +51,8 @@ class CrisisListComponent extends Object
 
   @override
   Future<void> onActivate(_, RouterState current) async {
-    log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}; selected.id = ${selected?.id}');
+    log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}; '
+        'selected.id = ${selected?.id}');
     await _getCrises();
     selected = _selectHero(current);
     log('onActivate: set selected.id = ${selected?.id}');
@@ -77,7 +78,8 @@ class CrisisListComponent extends Object
     if (result == NavigationResult.SUCCESS) {
       selected = crisis;
     }
-    log('onSelect _gotoDetail navigation $result; selected.id = ${selected?.id}');
+    log('onSelect _gotoDetail navigation $result; '
+        'selected.id = ${selected?.id}');
   }
   // #enddocregion onSelect
 

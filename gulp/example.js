@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const _exec = plugins.execSyncAndLog;
-  const filter = plugins.filter;
+  const fs = plugins.fs;
   const gutil = plugins.gutil;
   const path = plugins.path;
 
@@ -36,8 +36,9 @@ module.exports = function (gulp, plugins, config) {
 
   function examplesExec(cmd, optional_options) {
     if (!cmd) throw `Invalid command: ${cmd}`;
+    let cmdGenerator = typeof cmd === 'string' || cmd instanceof String ? p => cmd : cmd;
     const opt = optional_options || {};
-    examplesFullPath.forEach(p => _exec(cmd, Object.assign(opt, { cwd: p })));
+    examplesFullPath.forEach(p => _exec(cmdGenerator(p), Object.assign(opt, { cwd: p })));
   }
 
   gulp.task('analyze', () => {
@@ -47,7 +48,12 @@ module.exports = function (gulp, plugins, config) {
     });
     examplesExec('dartanalyzer --no-hints --fatal-warnings .');
   });
-  gulp.task('dartfmt', () => examplesExec('dartfmt -w --set-exit-if-changed lib web test'));
+
+  gulp.task('dartfmt', () => examplesExec(p => {
+    let dirs = ['lib', 'web', 'test'].filter(dir => fs.existsSync(path.join(p, dir)));
+    let cmd = ['dartfmt -w --set-exit-if-changed'].concat(dirs);
+    return cmd.join(' ');
+  }));
 
   // ==========================================================================
   // Boilerplate management
@@ -80,7 +86,18 @@ module.exports = function (gulp, plugins, config) {
       .pipe(plugins.chmod(readOnlyPerms));
 
     examplePaths.forEach(exPath => {
-      stream = stream.pipe(gulp.dest(exPath));
+      stream = stream.pipe(gulp.dest(exPath).on('error', e => {
+        if (e.code === 'EACCES' && e.path && fs.existsSync(e.path)) {
+          // I (chalin) haven't found a way to chmod a file destination.
+          // As a work around we catch the error and reset permissions
+          // so that a second invocation of the command be able re replace
+          // dest files.
+          //
+          // gutil.log(`>> ${e.errno}, ${e.code}, ${e.syscall}, ${e.path}`);
+          gutil.log(`Resetting file permissions for ${e.path}. Rerun gulp task to have this file updated.`)
+          _exec(`chmod a+w ${e.path}`)
+        }
+      }));
     });
     return stream;
   }

@@ -16,8 +16,9 @@ class IsNavParams extends Matcher {
           .equals(_expected.queryParameters, item.queryParameters) &&
       _expected.updateUrl == item.updateUrl;
 
-  Description describe(Description description) => description.add(
-      'NavigationParams(${_expected.queryParameters}, ${_expected.fragment}, ${_expected.updateUrl})');
+  Description describe(Description description) =>
+      description.add('NavigationParams(${_expected.queryParameters}, '
+          '${_expected.fragment}, ${_expected.updateUrl})');
 }
 
 IsRouterState isRouterState(dynamic expected) => IsRouterState(expected);
@@ -34,6 +35,8 @@ class IsRouterState extends Matcher {
           .equals(_expected.queryParameters, item.queryParameters) &&
       _expected.fragment == item.fragment;
 
-  Description describe(Description description) => description.add(
-      'RouterState(${_expected.path}, ..., queryParameters: ${_expected.queryParameters}, fragment: ${_expected.fragment})');
+  Description describe(Description description) =>
+      description.add('RouterState(${_expected.path}, ..., '
+          'queryParameters: ${_expected.queryParameters}, '
+          'fragment: ${_expected.fragment})');
 }

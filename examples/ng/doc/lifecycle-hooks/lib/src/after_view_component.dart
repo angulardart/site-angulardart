@@ -78,7 +78,7 @@ class AfterViewComponent implements AfterViewChecked, AfterViewInit {
 
   void _logIt(String method) {
     var child = viewChild;
-    var message = "${method}: ${child != null ? child.hero:'no'} child view";
+    var message = "${method}: ${child != null ? child.hero : 'no'} child view";
     _logger.log(message);
   }
   // #docregion hooks
