@@ -2,7 +2,6 @@
 title: "Overview: Web Articles"
 short-title: Web Articles
 description: Articles relating to programming Dart for the web.
-permalink: /articles
 toc: false
 ---
 
@@ -12,7 +11,7 @@ Also see: [Articles about the Dart language and libraries]({{site.dartlang}}/art
 
 <div class="break-80">
   <h2>Performance</h2>
-  {% assign articles = site.articles | filter: 'performance' | order: 'date' | reverse %}
+  {% assign articles = site.articles | where: 'categories', 'performance' | sort: 'date' | reverse %}
   <ul class="nav-list">
     {% for article in articles %}
       <li>{% include article_summary.html %}</li>
@@ -22,7 +21,7 @@ Also see: [Articles about the Dart language and libraries]({{site.dartlang}}/art
 
 <div class="break-80">
   <h2>Low-Level HTML</h2>
-  {% assign articles = site.articles | filter: 'low-level-html' | order: 'date' | reverse %}
+  {% assign articles = site.articles | where: 'categories', 'low-level-html' | sort: 'date' | reverse %}
   <ul class="nav-list">
     {% for article in articles %}
       <li>{% include article_summary.html %}</li>

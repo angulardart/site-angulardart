@@ -1,8 +1,8 @@
 ---
-title: "Embedding Dart in HTML"
-description: "Find out how you can embed Dart into HTML pages."
-written: 2011-10-01
-updated: 2014-12-01
+title: Embedding Dart in HTML
+description: Find out how you can embed Dart into HTML pages.
+original-date: 2011-10-01
+date: 2014-12-01
 category: low-level-html
 obsolete: true
 ---
