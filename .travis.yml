@@ -59,13 +59,15 @@ env:
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=life"
     - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
     - E2E_OPT3="--fast --filter=examples/ng/doc/toh"
-    - TEST_OPT=""
+    - TEST_OPT1="--skip=ng/doc/[t-z]"
+    - TEST_OPT2="--filter=ng/doc/[t-z]"
     - TZ=US/Pacific # normalize build timestamp
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: CI_TASK="test $TEST_OPT"
+    - env: CI_TASK="test $TEST_OPT1"
+    - env: CI_TASK="test $TEST_OPT2"
     - env: CI_TASK="e2e $E2E_OPT1"
     - env: CI_TASK="e2e $E2E_OPT2"
     - env: CI_TASK="e2e $E2E_OPT3"
@@ -137,7 +139,9 @@ jobs:
             repo: dart-lang/site-webdev
             branch: 5-dev
             condition: $CI_TASK == build*
-    - env: CI_TASK="test $TEST_OPT"
+    - env: CI_TASK="test $TEST_OPT1"
+      script: gulp $CI_TASK
+    - env: CI_TASK="test $TEST_OPT2"
       script: gulp $CI_TASK
     - env: CI_TASK="e2e $E2E_OPT1"
       script: gulp $CI_TASK
