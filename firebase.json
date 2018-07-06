@@ -14,8 +14,8 @@
       { "source": "/articles/get-data/**", "destination": "https://www.dartlang.org/guides/json", "type": 301 },
       { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming", "type": 301 },
 
-      { "source": "/assets/angulardart-*.png", "destination": "/assets/angulardart.png?4", "type": 301 },
-      { "source": "/assets/dart-webdev-logo-*.png", "destination": "/assets/dart-webdev-logo.png?4", "type": 301 },
+      { "source": "/assets/angulardart*.png", "destination": "/assets/shared/dart-logo-for-shares.png?4", "type": 301 },
+      { "source": "/assets/dart-webdev-logo*.png", "destination": "/assets/shared/dart-logo-for-shares.png?4", "type": 301 },
 
       { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
       { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
