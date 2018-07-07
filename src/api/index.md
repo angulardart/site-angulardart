@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: API Reference
 toc: false
 ---
