@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Template Syntax
 description: Learn how to write templates that display data and consume user events with the help of data binding.
 sideNavGroup: basic
@@ -9,13 +8,11 @@ prevpage:
 nextpage:
   title: Attribute Directives
   url: /angular/guide/attribute-directives
-toc: false
 ---
-<!-- FilePath: src/angular/guide/template-syntax.md -->
 <?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 <style>td, th {vertical-align: top}</style>
 
-_{{page.description}}_
+This page covers the basic elements of the Angular template syntax for constructing views.
 
 The Angular app manages what the user sees and can do, achieving this through the interaction of a
 component class instance (the *component*) and its user-facing template.
@@ -23,38 +20,8 @@ component class instance (the *component*) and its user-facing template.
 You might be familiar with the combination of component and template from experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
 In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
 
-### Contents
-
-This page covers the basic elements of the Angular template syntax for constructing views:
-
-* [HTML in templates](#html)
-* [Interpolation ( <span class="syntax">{&#xfeff;{...}}</span> )](#interpolation)
-* [Template expressions](#template-expressions)
-* [Template statements](#template-statements)
-* [Binding syntax](#binding-syntax)
-* [Property binding ( <span class="syntax">[property]</span> )](#property-binding)
-* [Attribute, class, and style bindings](#other-bindings)
-* [Event binding ( <span class="syntax">(event)</span> )](#event-binding)
-* [Two-way data binding ( <span class="syntax">[(...)]</span> )](#two-way)
-* [Built-in directives](#directives)
-* [Built-in attribute directives](#attribute-directives)
-  * [NgClass](#ngClass)
-  * [NgStyle](#ngStyle)
-  * [NgModel (<span class="syntax">[(ngModel)]</span>) ](#ngModel)
-* [Built-in structural directives](#structural-directives)
-  * [NgIf](#ngIf)
-  * [NgFor](#ngFor)
-    * [Template input variables](#template-input-variables)
-    * [Microsyntax](#microsyntax)
-  * [The NgSwitch directives](#ngSwitch)
-* [Template reference variables ( <span class="syntax">#var</span> )](#ref-vars)
-* [Input and output properties ( <span class="syntax">@Input</span> and <span class="syntax">@Output</span> )](#inputs-outputs)
-* [Template expression operators](#expression-operators)
-  * [pipe ( <span class="syntax">|</span> )](#pipe)
-  * [safe navigation operator ( <span class="syntax">?.</span> )](#safe-navigation-operator)
-
 The <live-example></live-example>
-demonstrates all of the syntax and code snippets described in this guide.
+demonstrates all of the syntax and code snippets described in this page.
 
 <div class="l-hr"></div>
 ## HTML in templates  {#html}
@@ -75,7 +42,7 @@ In the following sections, you'll learn how to get and set DOM (Document Object 
 
 Begin with the first form of data binding&mdash;interpolation&mdash;to see how much richer template HTML can be.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="interpolation"></div>
@@ -132,7 +99,7 @@ syntax that Angular converts into a
 
 But first, let's take a closer look at template expressions and statements.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Template expressions
@@ -164,7 +131,7 @@ Other notable differences from Dart syntax include the following:
 * No support for the bitwise operators `|` and `&`
 * New [template expression operators](#expression-operators), such as `|`
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 
 ### Expression context
 
@@ -199,13 +166,33 @@ property and the `*ngFor` defines a `hero` template variable.
 The `hero` in `{% raw %}{{hero.name}}{% endraw %}`
 refers to the template input variable, not the component's property.
 
-Template expressions can't refer to static
-properties, nor to top-level variables or functions, such as `window` or
-`document` from `dart:html`. They can’t directly call `print` or functions
-imported from `dart:math`. They are restricted to referencing members of
-the expression context.
+Template expressions can refer to top-level and static-member constants and
+functions that are listed in a component's `exports` argument.
 
-<a href="#contents">back to top</a>
+<?code-excerpt "lib/app_component.dart (exports)" replace="/exports:.*/[!$&!]/g"?>
+```
+  import 'dart:math' as math;
+  // ···
+  enum Color { red, green, blue }
+  // ···
+  @Component(
+    // ···
+    [!exports: [Color, math.min],!]
+    // ···
+  )
+  class AppComponent implements OnInit {
+    // ···
+  }
+```
+
+Access members of exported enums using the usual syntax:
+
+<?code-excerpt "lib/app_component.html (enums)" retain="Color."?>
+```
+  The name of the Color.red enum is {!{Color.red}!}.<br>
+```
+
+<a href="#page-content">back to top</a>
 
 <div id="no-side-effects"></div>
 ### Expression guidelines
@@ -261,7 +248,7 @@ If an idempotent expression returns a string or a number, it returns the same st
 when called twice in a row. If the expression returns an object (including a `List`),
 it returns the same object *reference* when called twice in a row.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Template statements
@@ -326,10 +313,10 @@ Template context names take precedence over component context names.
 In `deleteHero(hero)` above, the `hero` is the template input variable,
 not the component's `hero` property.
 
-Template statements cannot refer to static properties on the class, nor to
-top-level variables or functions, such as `window` or `document` from
-`dart:html`. They can’t directly call `print` or functions imported from
-`dart:math`.
+Template statements can refer to top-level and static-member constants and
+functions that are listed in a component's `exports` argument.
+For details, see the discussion of `exports` in the section on
+[Expression context](#expression-context).
 
 ### Statement guidelines
 
@@ -339,7 +326,7 @@ Method calls or simple property assignments are best.
 Now that you have a feel for template expressions and statements,
 you're ready to learn about the varieties of data binding syntax beyond interpolation.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Binding syntax: An overview  {#binding-syntax}
@@ -567,7 +554,7 @@ The following table summarizes the scenarios:
 
 You're now ready to look at binding types in detail.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Property binding ( <span class="syntax">[property]</span> ) {#property-binding}
@@ -807,7 +794,7 @@ content harmlessly.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/evil-title.png' %}" alt="evil title made safe" width='500px'>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Attribute, class, and style bindings  {#other-bindings}
@@ -892,7 +879,7 @@ is to set ARIA attributes, as in this example:
   <button [attr.aria-label]="actionName">{!{actionName}!} with Aria</button>
 ```
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ### Class binding
@@ -941,7 +928,7 @@ It removes the class when the expression is false.
   the [NgClass directive](#ngClass) is usually preferred when managing multiple class names at the same time.
 </div>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ### Style binding
@@ -989,7 +976,7 @@ The following example conditionally sets the font size in  “em” and “%” 
   [CssSD]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/CssStyleDeclaration-class.html
 </div>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Event binding  ( <span class="syntax">(event)</span> )  {#event-binding}
@@ -1192,7 +1179,7 @@ and the outer `<div>`, causing a double save.
 ```
 {%endcomment%}
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Two-way binding ( <span class="syntax">[(...)]</span> )  {#two-way}
@@ -1294,7 +1281,7 @@ However, no native HTML element follows the `x` value and `xChange` event patter
 
 Fortunately, the Angular [_NgModel_](#ngModel) directive is a bridge that enables two-way binding to form elements.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Built-in directives  {#directives}
@@ -1319,7 +1306,7 @@ You'll write your own directives, just not as many.
 This segment reviews some of the most frequently used built-in directives,
 classified as either [_attribute_ directives](#attribute-directives) or [_structural_ directives](#structural-directives).
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Built-in _attribute_ directives  {#attribute-directives}
@@ -1387,7 +1374,7 @@ Adding an `ngClass` property binding to `currentClasses` sets the element's clas
   It's up to you to call `setCurrentClasses()`, both initially and when the dependent properties change.
 </div>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="ngStyle"></div>
@@ -1438,7 +1425,7 @@ Adding an `ngStyle` property binding to `currentStyles` sets the element's style
   It's up to you to call `setCurrentStyles()`, both initially and when the dependent properties change.
 </div>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="ngModel"></div>
@@ -1529,7 +1516,7 @@ Here are all variations in action, including the uppercase version:
 
 <img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/ng-model-anim.gif' %}" alt="NgModel variations">
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="structural-directives"></div>
@@ -1660,7 +1647,7 @@ The `nullHero` is never displayed.
   described below.
 </div>
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="ngFor"></div>
@@ -1788,7 +1775,7 @@ Here is an illustration of the _trackBy_ effect.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/template-syntax/ng-for-track-by-anim.gif' %}" alt="trackBy">
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="ngSwitch"></div>
@@ -1846,14 +1833,13 @@ For example, you can replace the `<confused-hero>` switch case with the followin
   <div *ngSwitchCase="'confused'">Are you as confused as {!{currentHero.name}!}?</div>
 ```
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
-<div id="ref-var"></div><div id="ref-vars"></div>
-## Template reference variables ( <span class="syntax">#var</span> )  {#template-reference-variable}
+## Template reference variables ( <span class="syntax">#var</span> )  {#ref-vars}
 
 A **template reference variable** is often a reference to a DOM element within a template.
-It can also be a reference to an Angular component or directive or a
+It can also refer to an Angular component or directive or a
 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank" rel="noopener" title="MDN: Web Components">web component</a>.
 
 Use the hash symbol (#) to declare a reference variable.
@@ -1928,7 +1914,7 @@ The scope of a reference variable is the _entire template_.
 Do not define the same variable name more than once in the same template.
 The runtime value will be unpredictable.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Input and output properties ( <span class="syntax">@Input</span> and <span class="syntax">@Output</span> )  {#inputs-outputs}
@@ -2050,7 +2036,7 @@ To specify the alias for the property name, pass the alias into the input/output
   Stream<String> get clicks => _onClick.stream;
 ```
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="expression-operators"></div>
@@ -2112,7 +2098,7 @@ The generated output looks something like this:
     "rate": 325 }
 ```
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 <div id="safe-navigation-operator"></div>
@@ -2191,7 +2177,7 @@ The display is blank, but the app keeps rolling without errors.
 
 It works perfectly with long property paths such as `a?.b?.c?.d`.
 
-<a href="#contents">back to top</a>
+<a href="#page-content">back to top</a>
 <div class="l-hr"></div>
 
 ## Summary

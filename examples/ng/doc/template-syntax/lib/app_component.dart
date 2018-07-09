@@ -1,4 +1,7 @@
 import 'dart:html';
+// #docregion exports
+import 'dart:math' as math;
+// #enddocregion exports
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -11,10 +14,14 @@ import 'src/hero_switch_components.dart';
 import 'src/click_directive.dart';
 import 'src/sizer_component.dart';
 
+// #docregion exports
 enum Color { red, green, blue }
+// #enddocregion exports
 
 /// Giant grab bag of stuff to drive the chapter
+// #docregion exports
 @Component(
+  // #enddocregion exports
   selector: 'my-app',
   templateUrl: 'app_component.html',
   styleUrls: ['app_component.css'],
@@ -30,11 +37,15 @@ enum Color { red, green, blue }
     SizerComponent,
     materialDirectives
   ],
-  exports: [Color],
+  // #docregion exports
+  exports: [Color, math.min],
+  // #enddocregion exports
   providers: [materialProviders],
   pipes: [commonPipes],
+  // #docregion exports
 )
 class AppComponent implements OnInit {
+  // #enddocregion exports
   ChangeDetectorRef cd;
 
   AppComponent(this.cd);
@@ -197,4 +208,5 @@ class AppComponent implements OnInit {
   // #docregion trackByHeroId
   Object trackByHeroId(_, dynamic o) => o is Hero ? o.id : o;
   // #enddocregion trackByHeroId
+  // #docregion exports
 }

@@ -141,6 +141,11 @@ Dart 2 specific changes:
   - Dropped unnecessary `const` keywords
   - Replaced `Future<Null>` with `Future<void>`
 
+Angular doc changes:
+
+- Added a description of `@Component` `export` parameters to the
+  [Template Syntax](/angular/guide/template-syntax) page.
+
 More information:
 
 * [`angular` changelog][]
