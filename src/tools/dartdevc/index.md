@@ -31,7 +31,7 @@ refresh times with dartdevc are much faster than with dart2js.
 ## More information
 
 * [dartdevc: FAQ](/tools/dartdevc/faq)
-* [webdev][], which uses dartdevc by default when building, serving, and testing web apps
+* [webdev][], which uses dartdevc by default when serving and testing web apps
 
 [serve]: /tools/webdev#serve
 [webdev]: /tools/webdev

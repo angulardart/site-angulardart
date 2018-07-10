@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "A Tour of the dart:html Library"
 description: Learn about the dart:html library and APIs.
 permalink: /guides/html-library-tour

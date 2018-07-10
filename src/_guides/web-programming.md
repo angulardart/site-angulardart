@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Overview: Web Libraries"
 short-title: "Web Libraries"
 description: "What libraries are available for writing web apps in Dart?"
