@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: ebbf5d99776a037b849803fb86b90e27483f7dee
+      resolved-ref: ce5a978ffd35f19d9a82bdfedc801420e06da83d
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -100,7 +100,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.3+16"
+    version: "0.11.3+17"
   http_multi_server:
     dependency: transitive
     description:
@@ -233,7 +233,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.3+1"
+    version: "0.7.3+2"
   shelf_packages_handler:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: "2.0.0-dev.67.0"
+  dart: "2.0.0-dev.68.0"
