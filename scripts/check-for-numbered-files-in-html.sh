@@ -6,7 +6,10 @@
 
 LOGFILE=$TMP/file-vers-check.txt
 
+# Note: we ignore the component-loading Note since it contains foo_1 file names in its examples.
+
 find publish -type f -name "*.html" -exec grep -E '_\d(\.template)?.(css|dart|html)' {} + \
+  | grep -Ev 'angular/note/faq/component-loading.html:' \
   | grep -Ev 'code-(excerpt|pane)' > $LOGFILE
 
 if [[ -s $LOGFILE ]]; then

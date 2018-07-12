@@ -77,7 +77,7 @@ packages:
       name: charcode
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   cli_util:
     dependency: transitive
     description:
@@ -207,7 +207,7 @@ packages:
       name: io
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.2+1"
+    version: "0.3.3"
   json_annotation:
     dependency: transitive
     description:

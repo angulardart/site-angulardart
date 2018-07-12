@@ -96,8 +96,8 @@ jobs:
       - gulp ng-pkg-pub-get # --skip=package_name|...
       - gulp _build-prep --clean
 
-    - env: CI_TASK="dartfmt"
-      script: gulp $CI_TASK
+    - env: CI_TASK="check-misc-and-dartfmt"
+      script: ./scripts/$CI_TASK.sh
 
     - env: CI_TASK="analyze"
       # Skip apps that have component tests
@@ -122,7 +122,7 @@ jobs:
         - ls -l publish/examples
         - ls -l publish/assets/bootstrap/*
       after_script:
-        - ./scripts/check-all.sh || travis_terminate 1
+        - ./scripts/check-after-site-build.sh || travis_terminate 1
         # - ./scripts/deploy/pr.sh || travis_terminate 1
       deploy:
         - provider: script

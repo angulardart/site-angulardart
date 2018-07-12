@@ -38,6 +38,6 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   ./scripts/get-ng-repo.sh
 fi
 
-travis_fold start before_install.pub_upgrade
+travis_fold start before_install.pub
 pub upgrade
-travis_fold end before_install.pub_upgrade
+travis_fold end before_install.pub

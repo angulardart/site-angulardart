@@ -185,7 +185,7 @@ function genDartdocForProjs() {
 
 const extraTasks = `
   api api-list dartdoc e2e example example-add-apps example-frag example-template
-  get-stagehand-proj ngio-get ngio-put pkg-vers test update-ng-vers`;
+  get-stagehand-proj notes ngio-get ngio-put pkg-vers test update-ng-vers`;
 extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
 
 //-----------------------------------------------------------------------------
@@ -262,8 +262,12 @@ gulp.task('help', taskListing.withFilters((taskName) => {
   return shouldRemove;
 }));
 
-gulp.task('git-check-diff', () => {
-  execSyncAndLog('git status --short') && process.exit(1);
+gulp.task('git-status-exit-on-change', () => {
+  let output = execSyncAndLog('git status --short');
+  if (argv.filter) {
+    output = output.split('\n').filter(s => s.match(argv.filter)).join('\n');
+  }
+  if (output) process.exit(1);
 });
 
 gulp.task('__test', () => {

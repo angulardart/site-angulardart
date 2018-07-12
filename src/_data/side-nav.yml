@@ -74,6 +74,9 @@
     - title: Testing
       permalink: /angular/guide/testing
 
+  - title: Engineering Notes
+    permalink: /angular/note
+
 - title: Angular&nbsp;Dart Components
   permalink: /components
   urlExactMatch: true
