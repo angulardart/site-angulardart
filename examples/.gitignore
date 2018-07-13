@@ -8,7 +8,7 @@ build
 
 .gitignore
 LICENSE
-**/web/styles.css
+ng/**/web/styles.css
 **/web/favicon.png
 
 !/.gitignore
