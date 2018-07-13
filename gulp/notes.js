@@ -8,7 +8,7 @@ module.exports = function (gulp, plugins, config) {
   const replace = plugins.replace;
 
   const reEscapeRe = /[|\\{}()[\]^$+*?.]/g;
-  const ngDocPath = 'angular/doc';
+  const ngDocPath = 'site-angular/doc';
   const frontMatter = `---
 title: "$2"
 excerpt_separator: ""
