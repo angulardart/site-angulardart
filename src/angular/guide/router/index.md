@@ -159,13 +159,11 @@ Define [route definitions]({{pageUrl}}/1#route-definitions):
 
 <?code-excerpt "lib/src/routes.dart (a first route)" plaster="none" title?>
 ```
-  import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
 
   import 'route_paths.dart' as paths;
   import 'hero_list_component.template.dart' as hlct;
 
-  @Injectable()
   class Routes {
     RoutePath get heroes => paths.heroes;
 

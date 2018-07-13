@@ -157,13 +157,11 @@ implementations.
   import 'dart:convert';
   import 'dart:math';
 
-  import 'package:angular/angular.dart';
   import 'package:http/http.dart';
   import 'package:http/testing.dart';
 
   import 'src/hero.dart';
 
-  @Injectable()
   class InMemoryDataService extends MockClient {
     static final _initialHeroes = [
       {'id': 11, 'name': 'Mr. Nice'},
@@ -303,7 +301,6 @@ Update the import statements as follows:
   import 'dart:async';
   import 'dart:convert';
 
-  import 'package:angular/angular.dart';
   import 'package:http/http.dart';
 
   import 'hero.dart';
@@ -610,12 +607,10 @@ Start by creating `HeroSearchService` that sends search queries to the server's 
   import 'dart:async';
   import 'dart:convert';
 
-  import 'package:angular/angular.dart';
   import 'package:http/http.dart';
 
   import 'hero.dart';
 
-  @Injectable()
   class HeroSearchService {
     final Client _http;
 

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:jsonpadding/jsonpadding.dart';
 
-@Injectable()
 class WikipediaService {
   Future<List> search(String term) async {
     // #docregion call-jsonp

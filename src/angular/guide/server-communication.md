@@ -169,12 +169,9 @@ returning mock heroes in a service:
 ```
   import 'dart:async';
 
-  import 'package:angular/angular.dart';
-
   import 'hero.dart';
   import 'mock_heroes.dart';
 
-  @Injectable()
   class HeroService {
     Future<List<Hero>> getAll() async => mockHeroes;
   }
@@ -193,7 +190,6 @@ the heroes from the server:
 
   import 'hero.dart';
 
-  @Injectable()
   class HeroService {
     static final _headers = {'Content-Type': 'application/json'};
     static const _heroesUrl = 'api/heroes'; // URL to web API

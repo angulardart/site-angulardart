@@ -2,13 +2,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:angular/angular.dart';
 import 'package:http/http.dart';
 
 import 'hero.dart';
 // #enddocregion imports
 
-@Injectable()
 class HeroService {
   // #docregion update
   static final _headers = {'Content-Type': 'application/json'};

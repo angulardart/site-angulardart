@@ -5,7 +5,6 @@ import 'package:angular/angular.dart';
 import 'hero.dart';
 import 'heroes_service.dart';
 
-@Injectable()
 class HeroTaxReturnService {
   final HeroesService _heroService;
   HeroTaxReturn _currentTR, _originalTR;

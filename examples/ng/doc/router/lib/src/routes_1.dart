@@ -5,7 +5,6 @@ import 'route_paths_1.dart' as paths;
 import 'crisis_list_component_1.template.dart' as clct;
 import 'hero_list_component_1.template.dart' as hlct;
 
-@Injectable()
 class Routes {
   RoutePath get crises => paths.crises;
   RoutePath get heroes => paths.heroes;

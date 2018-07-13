@@ -8,7 +8,6 @@ class Villain {
   Villain(this.id, this.name);
 }
 
-@Injectable()
 class VillainsService {
   static final List<Villain> _mockVillains = [
     Villain(1, 'Dr. Evil'),

@@ -23,7 +23,6 @@ class Tires {
 }
 
 //// Engine services ///
-@Injectable()
 class EngineService {
   String id;
   EngineService() : id = 'E1';
@@ -31,7 +30,6 @@ class EngineService {
   Engine getEngine() => Engine();
 }
 
-@Injectable()
 class EngineService2 extends EngineService {
   EngineService2() {
     id = 'E2';
@@ -42,14 +40,12 @@ class EngineService2 extends EngineService {
 }
 
 //// Tire services ///
-@Injectable()
 class TiresService {
   final id = 'T1';
   Tires getTires() => Tires();
 }
 
 /// Car Services ///
-@Injectable()
 class CarService {
   EngineService engineService;
   TiresService tiresService;
@@ -62,7 +58,6 @@ class CarService {
   String get name => '$id-${engineService.id}-${tiresService.id}';
 }
 
-@Injectable()
 class CarService2 extends CarService {
   CarService2(EngineService engineService, TiresService tiresService)
       : super(engineService, tiresService) {
@@ -73,7 +68,6 @@ class CarService2 extends CarService {
   Car getCar() => super.getCar()..name = 'BamBam Motors, BroVan 2000';
 }
 
-@Injectable()
 class CarService3 extends CarService2 {
   CarService3(EngineService engineService, TiresService tiresService)
       : super(engineService, tiresService) {

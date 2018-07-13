@@ -5,7 +5,6 @@ import 'package:angular/angular.dart';
 import 'crisis.dart';
 import 'mock_crises.dart';
 
-@Injectable()
 class CrisisService {
   Future<List<Crisis>> getAll() async => mockCrises;
 

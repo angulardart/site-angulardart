@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 
-@Injectable()
 class LoggerService {
   List<String> logs = [];
   String _prevMsg = '';

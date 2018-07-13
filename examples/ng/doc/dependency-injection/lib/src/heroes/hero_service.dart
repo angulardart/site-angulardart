@@ -4,7 +4,6 @@ import '../logger_service.dart';
 import 'hero.dart';
 import 'mock_heroes.dart';
 
-@Injectable()
 class HeroService {
   // #docregion internals
   final Logger _logger;

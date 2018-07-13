@@ -150,9 +150,9 @@ dependency_overrides:
     return gulp.src([
       `${baseDir}/**/*.dart`,
       `${baseDir}/**/*.html`,
-      `${baseDir}/**/*.css`,
+      // `${baseDir}/**/*.css`,
       `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
-      `!${baseDir}/**/ng/doc/*/web/styles.css`,
+      // `!${baseDir}/**/ng/doc/*/web/styles.css`,
     ]) // , { base: baseDir }
       .pipe(replace(/angular2\/(angular2|common|platform\/browser|platform\/common).dart/g, 'angular/angular.dart'))
       .pipe(replace(/angular2\/router.dart/g, 'angular_router/angular_router.dart'))
@@ -166,6 +166,9 @@ dependency_overrides:
       // Router 2.0.0
       .pipe(replace(/ROUTER_DIRECTIVES/g, 'routerDirectives'))
       .pipe(replace(/ROUTER_PROVIDERS/g, 'routerProviders'))
+
+      // Angular 5
+      .pipe(replace(/^@Injectable\(\)\n/gm, ''))
 
       .pipe(gulp.dest(baseDir));
   });

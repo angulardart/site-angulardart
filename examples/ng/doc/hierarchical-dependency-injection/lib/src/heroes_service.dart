@@ -3,7 +3,6 @@ import 'package:angular/angular.dart';
 
 import 'hero.dart';
 
-@Injectable()
 class HeroesService {
   static final List<Hero> _mockHeroes = <Hero>[
     Hero(16, 'RubberMan', '082-27-5678'),

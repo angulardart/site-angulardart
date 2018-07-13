@@ -26,7 +26,6 @@ class ClassProviderComponent extends _Base {
   ClassProviderComponent(Logger logger) : super(logger);
 }
 
-@Injectable()
 class BetterLogger extends Logger {
   String get id => 'BetterLogger';
 }
@@ -45,7 +44,6 @@ class ClassProviderUseClassComponent extends _Base {
 }
 
 // #docregion EvenBetterLogger
-@Injectable()
 class EvenBetterLogger extends Logger {
   final UserService _userService;
 
@@ -70,7 +68,6 @@ class ServiceWithDepsComponent extends _Base {
   ServiceWithDepsComponent(Logger logger) : super(logger);
 }
 
-@Injectable()
 class NewLogger extends Logger implements OldLogger {
   String get id => 'NewLogger';
 }

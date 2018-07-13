@@ -262,8 +262,7 @@ blocks you specify for the component.
 The template, metadata, and component together describe a view.
 
 Apply other metadata annotations in a similar fashion to guide Angular behavior.
-`@Injectable`, `@Input`, and `@Output` are a few of the more popular
-annotations.
+`@Input` and `@Output` are two of the more popular annotations.
 <br class="l-clear-both">
 
 The architectural takeaway is that you must add metadata to your code

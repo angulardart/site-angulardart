@@ -33,11 +33,9 @@ class InjectorProbe {
 //-----------------------------------------------------------------------------
 
 // #docregion MockRouter
-@Injectable()
 class MockRouter extends Mock implements Router {}
 // #enddocregion MockRouter
 
-@Injectable()
 class MockPlatformLocation extends Mock implements PlatformLocation {
   String _url;
 

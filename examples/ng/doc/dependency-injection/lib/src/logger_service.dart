@@ -1,7 +1,6 @@
 import 'package:angular/angular.dart';
 
 /// Logger that keeps only the last log entry.
-@Injectable()
 class Logger {
   String _log = '';
   String get id => 'Logger';

@@ -267,13 +267,11 @@ defined in its own file.
   import 'hero.dart';
   import 'mock_heroes.dart';
 
-  [!@Injectable()!]
   class HeroService {
     List<Hero> getAll() => mockHeroes;
   }
 ```
 
-Assume for now that the [`@Injectable()` annotation](#injectable) is an essential ingredient in every Angular service definition.
 The service class exposes a `getHeroes()` method
 that returns the same mock data as before.
 
@@ -513,7 +511,6 @@ The sample app's `Logger` service is quite simple:
   import 'package:angular/angular.dart';
 
   /// Logger that keeps only the last log entry.
-  @Injectable()
   class Logger {
     String _log = '';
     String get id => 'Logger';
@@ -547,38 +544,6 @@ it's registered in `AppComponent`:
     ClassProvider(Logger),
   ],
 ```
-
-### _@Injectable()_
-
-The [@Injectable()][] annotation identifies a service class or
-top-level function as available to an
-injector for instantiation. Generally speaking, an injector will report an
-error when trying to instantiate a class that is not marked as
-`@Injectable()`.
-
-Injectors are also responsible for instantiating components
-like `HeroesComponent`. Why isn't `HeroesComponent` marked as `@Injectable()`?
-
-You *can* add it if you really want to. It isn't necessary because the
-`HeroesComponent` is already marked with `@Component`, and this
-annotation class (like `@Directive` and `@Pipe`, which you'll learn about later)
-is a subtype of [Injectable][@Injectable()].  It is in
-fact `Injectable` annotations that
-identify a class as a target for instantiation by an injector.
-
-<div class="alert alert-warning" markdown="1">
-  <h4>Always include the parentheses</h4>
-
-  Always write `@Injectable()`, not just `@Injectable`.
-  A metadata annotation must be either a reference to a
-  compile-time constant variable or a call to a constant
-  constructor such as `Injectable()`.
-
-  If you forget the parentheses, the analyzer will complain:
-  "Annotation creation must have arguments". If you try to run the
-  app anyway, it won't work, and the console will say
-  "expression must be a compile-time constant".
-</div>
 
 ## Providers
 
@@ -629,7 +594,6 @@ Maybe an `EvenBetterLogger` could display the user name in the log message.
 
 <?code-excerpt "lib/src/providers_component.dart (EvenBetterLogger)" replace="/UserService.*|this._userService/[!$&!]/g"?>
 ```
-  @Injectable()
   class EvenBetterLogger extends Logger {
     final [!UserService _userService;!]
 
@@ -1011,7 +975,6 @@ is not found. Angular can't find the service if it's not registered with this or
 [ClassProvider]: /api/angular/angular/ClassProvider-class.html
 [cascade]: {{site.dartlang}}/guides/language/language-tour#cascade
 [ExistingProvider]: /api/angular/angular/ExistingProvider-class.html
-[@Injectable()]: /api/angular/angular/Injectable-class.html
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
 [OpaqueToken]: /api/angular/angular/OpaqueToken-class.html
 [@Optional()]: /api/angular/angular/Optional-class.html

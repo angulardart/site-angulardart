@@ -4,7 +4,6 @@ import 'package:angular/angular.dart';
 
 import 'hero.dart';
 
-@Injectable()
 class BackendService {
   static final _mockHeroes = [
     Hero('Windstorm', 'Weather mastery'),

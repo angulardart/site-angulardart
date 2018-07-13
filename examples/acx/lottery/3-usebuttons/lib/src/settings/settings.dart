@@ -9,7 +9,6 @@ final DateTime _now = DateTime.now();
 
 typedef bool Inhibitor(int bettedToday, int wonToday, int dailyDisposable);
 
-@Injectable()
 class Settings {
   int initialCash = 10;
 

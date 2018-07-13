@@ -1,6 +1,5 @@
 import 'package:angular/angular.dart';
 
-@Injectable()
 class Engine {
   final int cylinders;
 
@@ -8,13 +7,11 @@ class Engine {
   Engine.withCylinders(this.cylinders);
 }
 
-@Injectable()
 class Tires {
   String make = 'Flintstone';
   String model = 'Square';
 }
 
-@Injectable()
 class Car {
   //#docregion car-ctor
   final Engine engine;

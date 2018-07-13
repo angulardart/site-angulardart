@@ -104,7 +104,6 @@ appropriate API:
 
 <?code-excerpt "toh-5/test/utils.dart (MockRouter)" title?>
 ```
-  @Injectable()
   class MockRouter extends Mock implements Router {}
 ```
 

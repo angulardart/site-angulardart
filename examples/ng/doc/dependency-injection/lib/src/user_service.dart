@@ -11,7 +11,6 @@ class User {
 final User _alice = User('Alice', true);
 final User _bob = User('Bob', false);
 
-@Injectable()
 class UserService {
   User user;
 

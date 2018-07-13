@@ -10,7 +10,6 @@ import 'hero/hero_component.template.dart' as hct;
 import 'not_found_component.template.dart' as nfct;
 
 // #docregion hero
-@Injectable()
 class Routes {
   // #enddocregion hero
   RoutePath get crises => paths.crises;

@@ -37,14 +37,4 @@
   </td>
 </tr>
 
-<tr>
-  <td class="nowrap"><code class="prettyprint lang-dart">
-    <b>@Injectable()</b><br>
-    class MyService() {}
-  </code></td>
-  <td markdown="1">
-  Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.
-  </td>
-</tr>
-
 </table>

@@ -2,7 +2,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-@Injectable()
 // #docregion class
 class Logger {
   void log(Object msg) => window.console.log(msg);

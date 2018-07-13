@@ -9,7 +9,6 @@ import 'package:http/testing.dart';
 
 import 'src/toh/hero.dart';
 
-@Injectable()
 class InMemoryDataService extends MockClient {
   static final _initialHeroes = [
     {'id': 11, 'name': 'Mr. Nice'},

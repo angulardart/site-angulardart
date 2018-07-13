@@ -76,16 +76,9 @@ Name the class `HeroService`.
 
 <?code-excerpt "lib/src/hero_service_1.dart (empty class)" plaster="none" title?>
 ```
-  import 'package:angular/angular.dart';
-
-  @Injectable()
   class HeroService {
   }
 ```
-
-Notice that you used an [@Injectable()][Injectable] annotation.
-This informs the Angular compiler that `HeroService` will be a candidate for injection
-(more about this soon).
 
 ### Getting hero data
 
@@ -95,12 +88,9 @@ For now, import `Hero` and `mockHeroes`, and return the mock heroes from a `getA
 
 <?code-excerpt "lib/src/hero_service_1.dart" title?>
 ```
-  import 'package:angular/angular.dart';
-
   import 'hero.dart';
   import 'mock_heroes.dart';
 
-  @Injectable()
   class HeroService {
     List<Hero> getAll() => mockHeroes;
   }
@@ -414,5 +404,4 @@ and see how the app behaves.
 
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
-[Injectable]: /api/angular/angular/Injectable-class
 [OnInit]: /api/angular/angular/OnInit-class

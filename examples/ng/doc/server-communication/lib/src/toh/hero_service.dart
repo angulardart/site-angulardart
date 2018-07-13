@@ -7,7 +7,6 @@ import 'package:http/http.dart';
 
 import 'hero.dart';
 
-@Injectable()
 class HeroService {
   static final _headers = {'Content-Type': 'application/json'};
   // #docregion endpoint, http-get
