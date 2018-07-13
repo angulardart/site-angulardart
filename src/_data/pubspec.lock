@@ -91,7 +91,7 @@ packages:
       name: boolean_selector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   build:
     dependency: transitive
     description:
@@ -168,7 +168,7 @@ packages:
       name: charcode
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   cli_repl:
     dependency: transitive
     description:
@@ -301,7 +301,7 @@ packages:
       name: io
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.2+1"
+    version: "0.3.3"
   js:
     dependency: transitive
     description:
@@ -462,7 +462,7 @@ packages:
       name: sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.0"
+    version: "1.9.2"
   sass_builder:
     dependency: transitive
     description:
@@ -497,7 +497,7 @@ packages:
       name: shelf_static
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.7+1"
+    version: "0.2.8"
   shelf_web_socket:
     dependency: transitive
     description:
@@ -602,7 +602,7 @@ packages:
       name: vm_service_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.4+3"
+    version: "0.2.5"
   watcher:
     dependency: transitive
     description:
