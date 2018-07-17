@@ -210,6 +210,13 @@ Let's customize the app you just created.
     After you feed the cats, your todo list should look something like this:<br>
     ![Running the To-do app]({% asset_path my-first-angular-app-at-work.png %}){:width="500"}
 
+## 7. Use DevTools to inspect the app
+
+Use Chrome DevTools to set breakpoints, view values and types,
+and step through your app's Dart code.
+For setup details and a walkthrough, see
+[Debugging Dart Web Apps](/guides/debugging).
+
 <aside class="alert alert-info" markdown="1">
   **Feeling lost? Don't worry!**
   This was a whirlwind introduction to Dart and Angular

@@ -11,11 +11,12 @@ TODO: Consider fleshing out this page or automating it.
 
 Guides on this site:
 
+* [Angular](/angular/guide)
+* [Debugging](/guides/debugging)
+* [Get Data](/guides/get-data)
 * [Get Started](/guides/get-started)
 * [Overview: Web Libraries](/guides/web-programming)
-* [Angular](/angular/guide)
 * [Polymer](/guides/polymer) _(unsupported)_
-* [Get Data](/guides/get-data)
 
 Also see:
 
