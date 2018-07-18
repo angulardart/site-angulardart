@@ -46,7 +46,6 @@ module.exports = function (gulp, plugins, config) {
     if (!argv.fast) {
       // Do full setup
       await pexec('npm install', { cwd: EXAMPLES_PATH });
-      buildStyles(copyExampleBoilerplate, _.noop);
       gutil.log('runE2e: update webdriver');
       await pexec('npm run webdriver:update', { cwd: EXAMPLES_PATH });
     };

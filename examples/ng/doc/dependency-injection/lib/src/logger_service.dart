@@ -1,5 +1,3 @@
-import 'package:angular/angular.dart';
-
 /// Logger that keeps only the last log entry.
 class Logger {
   String _log = '';

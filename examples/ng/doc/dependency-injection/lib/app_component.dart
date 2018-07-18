@@ -6,7 +6,6 @@ import 'src/heroes/heroes_component.dart';
 import 'src/logger_service.dart';
 import 'src/user_service.dart';
 import 'src/injector_component.dart';
-import 'src/test_component.dart';
 import 'src/providers_component.dart';
 
 @Component(
@@ -15,7 +14,6 @@ import 'src/providers_component.dart';
     <h1>{{title}}</h1>
     <my-car></my-car>
     <my-injectors></my-injectors>
-    <my-tests></my-tests>
     <h2>User</h2>
     <p id="user">
       {{userInfo}}
@@ -30,7 +28,6 @@ import 'src/providers_component.dart';
     CarComponent,
     HeroesComponent,
     InjectorComponent,
-    TestComponent,
     ProvidersComponent,
   ],
   // #docregion providers

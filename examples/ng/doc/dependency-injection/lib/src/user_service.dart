@@ -1,5 +1,3 @@
-import 'package:angular/angular.dart';
-
 class User {
   final String name;
   final bool isAuthorized;

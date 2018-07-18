@@ -1,5 +1,3 @@
-import 'package:angular/angular.dart';
-
 class Engine {
   final int cylinders;
 

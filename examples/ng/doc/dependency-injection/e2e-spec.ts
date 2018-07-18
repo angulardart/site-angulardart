@@ -61,15 +61,6 @@ describe('Dependency Injection Tests', function () {
     });
   });
 
-  describe('Tests:', function() {
-
-    it('Tests display as expected', function () {
-      expectedMsgRx = /Tests passed/;
-      expect(element(by.css('#tests')).getText()).toMatch(expectedMsgRx);
-    });
-
-  });
-
   describe('Provider variations:', function() {
 
     it('ClassProvider(Logger)', function () {

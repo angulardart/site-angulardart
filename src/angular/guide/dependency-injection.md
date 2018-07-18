@@ -56,7 +56,7 @@ the very specific classes `Engine` and `Tires`.
 
 What if the `Engine` class evolves and its constructor requires a parameter?
 That would break the `Car` class and it would stay broken until you rewrote it along the lines of
-`engine = new Engine(theNewParameter)`.
+`engine = Engine(theNewParameter)`.
 The `Engine` constructor parameters weren't even a consideration when you first wrote `Car`.
 You may not anticipate them even now.
 But you'll *have* to start caring because
@@ -168,7 +168,7 @@ during each test:
 
 **You just learned what dependency injection is**.
 
-It's a coding pattern in which a class receives its dependencies from external
+It's a pattern in which a class receives its dependencies from external
 sources rather than creating them itself.
 
 Cool! But what about that poor consumer?
@@ -262,8 +262,6 @@ defined in its own file.
 
 <?code-excerpt "lib/src/heroes/hero_service_1.dart" title replace="/@Inj.*/[!$&!]/g"?>
 ```
-  import 'package:angular/angular.dart';
-
   import 'hero.dart';
   import 'mock_heroes.dart';
 
@@ -290,9 +288,9 @@ an Angular dependency injector.
 
 An Angular injector is responsible for creating service instances and injecting them into classes like the `HeroListComponent`.
 
-Angular creates most injectors for you as it executes the app,
-starting from the (optional) _root injector_ that you supply
-as an argument to the [runApp()][] function.
+Angular creates most injectors for you as it executes the app, including the
+app's _root injector_. When your app needs a custom root injector, supply it as
+an [argument to the `runApp()` function](#root-injector-providers).
 
 You must register _providers_ with an injector
 before the injector can create that service.
@@ -347,36 +345,13 @@ and is never destroyed so the `HeroService` created for the `HeroComponent` also
 <a id="bootstrap"></a>
 ### Root injector providers
 
-You can also register providers in the app's root injector,
-which you pass as an argument to the [runApp()][] function:
+You can also register providers in the app's **root injector**, which you pass
+as an argument to the [runApp()][] function. For example, the app from the
+[tutorial (part 5)](../tutorial/toh-pt5) injects providers from the
+[routerProvidersHash][] list:
 
-<?code-excerpt "web/main_1.dart (discouraged)" replace="/ClassProvider.*|rootInjector(?!\$)/[!$&!]/g"?>
-```
-  @GenerateInjector([
-    // For illustration purposes only (don't register app-local services here).
-    [!ClassProvider(HeroService),!]
-  ])
-  final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
-
-  void main() {
-    runApp(ng.AppComponentNgFactory, createInjector: [!rootInjector!]);
-  }
-```
-
-An instance of the `HeroService` will now be available for injection across the entire app.
-
-Use root injector provisioning for app-wide services
-declared _external_ to the app package.
-This is why registering app specific services is discouraged.
-
-The preferred approach is to register app services in app components.
-Because the `HeroService` is used within the *Heroes* feature set, and nowhere else,
-the ideal place to register it is in `HeroesComponent`.
-
-Here's a more realistic example of a root injector, taken from the
-[tutorial, part 5](../tutorial/toh-pt5):
-
-<?code-excerpt "../toh-5/web/main.dart" title replace="/injector(?!\$)/[!$&!]/g"?>
+<?code-excerpt path-base="examples/ng/doc"?>
+<?code-excerpt "toh-5/web/main.dart" title replace="/injector(?!\$)/[!$&!]/g; /\binjector\b/rootInjector/g"?>
 ```
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
@@ -387,22 +362,44 @@ Here's a more realistic example of a root injector, taken from the
   @GenerateInjector(
     routerProvidersHash, // You can use routerProviders in production
   )
-  final InjectorFactory [!injector!] = self.injector$Injector;
+  final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
 
   void main() {
-    runApp(ng.AppComponentNgFactory, createInjector: [!injector!]);
+    runApp(ng.AppComponentNgFactory, createInjector: [!rootInjector!]);
+  }
+```
+<?code-excerpt path-base="examples/ng/doc/dependency-injection"?>
+
+Use root injector provisioning for _app-wide services_ declared _external_ to
+the app package. Registering app specific services like `HeroService` is
+_discouraged_:
+
+<?code-excerpt "web/main_1.dart (discouraged)" replace="/ClassProvider.*|\/\/.*/[!$&!]/g; /_1//g"?>
+```
+  @GenerateInjector([
+    [!// DON'T register app-local services here; this is for illustration purposes only!]
+    [!ClassProvider(HeroService),!]
+  ])
+  final InjectorFactory rootInjector = self.rootInjector$Injector;
+
+  void main() {
+    runApp(ng.AppComponentNgFactory, createInjector: rootInjector);
   }
 ```
 
+The preferred approach is to register app services in app components.
+Because the `HeroService` is used within the *Heroes* feature set, and nowhere else,
+the ideal place to register it is in `HeroesComponent`.
+
 ## Inject a service
 
-The `HeroListComponent` should get heroes from the `HeroService`.
+The `HeroListComponent` should get heroes from the `HeroService`, and it should
+ask for the `HeroService` to be injected.
 
-The component shouldn't create the `HeroService` with `new`.
-It should ask for the `HeroService` to be injected.
-
-You can tell Angular to inject a dependency in the component's constructor by specifying a **constructor parameter with the dependency type**.
-Here's the `HeroListComponent` constructor, asking for the `HeroService` to be injected.
+You can tell Angular to inject a dependency in the component's constructor by
+specifying a **constructor parameter annotated with the dependency's type**.
+Here's the `HeroListComponent` constructor, asking for the `HeroService` to be
+injected.
 
 <?code-excerpt "lib/src/heroes/hero_list_component.dart (ctor-signature)"?>
 ```
@@ -419,7 +416,7 @@ Here's the revised component, making use of the injected service, side-by-side w
 
 Notice that the `HeroListComponent` doesn't know where the `HeroService` comes from.
 _You_ know that it comes from the parent `HeroesComponent`.
-The _only thing that matters_ is that the `HeroService` is provided in some parent injector.
+The only thing that matters is that the `HeroService` is provided in some parent injector.
 
 ### Singleton services
 
@@ -439,13 +436,13 @@ Angular creates nested injectors all the time.
 
 ### Component child injectors
 
-For example, when Angular creates a new instance of a component that has `@Component.providers`,
+For example, when Angular creates an instance of a component that has `@Component.providers`,
 it also creates a new _child injector_ for that instance.
 
 Component injectors are independent of each other and
-each of them creates its own instances of the component-provided services.
+each of them holds its own instances of the component-provided services.
 
-When Angular destroys one of these component instances, it also destroys the
+When Angular disposes of a component instance, it also discards the
 component's injector and that injector's service instances.
 
 Thanks to [injector inheritance](hierarchical-dependency-injection),
@@ -461,29 +458,41 @@ with both the `HeroService` provided in `HeroComponent`
 and the `UserService` provided in `AppModule`.
 {% endcomment %}
 
-## Testing the component
+## Testing a component
 
 Earlier you saw that designing a class for dependency injection makes the class easier to test.
 Listing dependencies as constructor parameters may be all you need to test app parts effectively.
 
-For example, you can create a new `HeroListComponent` with a mock service that you can manipulate
-under test:
+For example, the [tutorial (part 5)](../tutorial/toh-pt5) has a
+`HeroListComponent` test that uses a mock router provisioned through the root
+injector:
 
-<?code-excerpt "lib/src/test_component.dart (spec)"?>
+<?code-excerpt path-base="examples/ng/doc"?>
+<?code-excerpt "toh-5/test/heroes.dart (rootInjector)" title remove="Probe" replace="/injector.factory/rootInjector/g; /rootInjector(?!\$)|MockRouter/[!$&!]/g"?>
 ```
-  var expectedHeroes = [Hero(0, 'A'), Hero(1, 'B')];
-  var mockService = MockHeroService(expectedHeroes);
-  it('should have heroes when HeroListComponent created', () {
-    var hlc = HeroListComponent(mockService);
-    expect(hlc.heroes.length).toEqual(expectedHeroes.length);
-  });
+  import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
+      as ng;
+  // ···
+  import 'heroes.template.dart' as self;
+  // ···
+  @GenerateInjector([
+    ClassProvider(HeroService),
+    ClassProvider(Router, useClass: [!MockRouter!]),
+  ])
+  final InjectorFactory [!rootInjector!] = self.rootInjector$Injector;
+
+  void main() {
+    final testBed = NgTestBed.forComponent<HeroListComponent>(
+        ng.HeroListComponentNgFactory,
+        [!rootInjector!]: [!rootInjector!]);
+    // ···
+  }
 ```
+<?code-excerpt path-base="examples/ng/doc/dependency-injection"?>
 
-<div class="l-sub-section" markdown="1">
-  Learn more in [Testing](testing).
-</div>
+Learn more in [Component Testing: Services](testing/component/services).
 
-## When the service needs a service
+## When a service needs a service
 
 The `HeroService` is very simple. It doesn't have any dependencies of its own.
 
@@ -491,7 +500,7 @@ What if it had a dependency? What if it reported its activities through a loggin
 You'd apply the same *constructor injection* pattern,
 adding a constructor that takes a `Logger` parameter.
 
-Here is the revised `HeroService` that injects the `Logger`, side-by-side with the previous service for comparison.
+Here is the revised `HeroService` that injects a `Logger`, side-by-side with the previous service for comparison.
 
 <code-tabs>
   <?code-pane "lib/src/heroes/hero_service_2.dart (v2)" region="" linenums?>
@@ -501,15 +510,12 @@ Here is the revised `HeroService` that injects the `Logger`, side-by-side with t
 The constructor asks for an injected instance of a `Logger` and stores it in the private `_logger` field.
 The `getHeroes()` method logs a message when asked to fetch heroes.
 
-<a id="logger-service"></a>
-### The dependent _Logger_ service
+### _Logger_ service
 
 The sample app's `Logger` service is quite simple:
 
 <?code-excerpt "lib/src/logger_service.dart" title?>
 ```
-  import 'package:angular/angular.dart';
-
   /// Logger that keeps only the last log entry.
   class Logger {
     String _log = '';
@@ -527,9 +533,8 @@ The sample app's `Logger` service is quite simple:
   [logging package](https://pub.dartlang.org/packages/logging).
 </div>
 
-If the app didn't provide this `Logger`,
-Angular would throw an exception when it looked for a `Logger` to inject
-into the `HeroService`.
+If the app doesn't provide `Logger`, Angular will throw an exception when it
+looks for a `Logger` to inject into the `HeroService`.
 
 ```nocode
   EXCEPTION: No provider for Logger! (HeroListComponent -> HeroService -> Logger)
@@ -538,21 +543,19 @@ into the `HeroService`.
 Because a singleton logger service is useful everywhere in the app,
 it's registered in `AppComponent`:
 
-<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" title="lib/app_component.dart (excerpt)"?>
+<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" title="lib/app_component.dart (excerpt)" replace="/\[\n/[/g; /,\n//g; /\[\s*/[/g"?>
 ```
-  providers: [
-    ClassProvider(Logger),
-  ],
+  providers: [ClassProvider(Logger)],
 ```
 
 ## Providers
 
-A service provider *provides* the concrete,
+A service provider *provides* a concrete,
 runtime instance associated with a dependency token.
 The injector relies on **providers** to create instances of the services
 that the injector injects into components, directives, pipes, and other services.
 
-You must register a service *provider* with an injector, or it won't know how to create the service.
+You must register a service *provider* with an injector, or the injector won't know how to create the service.
 
 The next few sections explain the many ways you can register a provider.
 
@@ -561,18 +564,15 @@ The next few sections explain the many ways you can register a provider.
 There are many ways to provide something that implements `Logger`.
 The most common way is to use [ClassProvider][]:
 
-<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" replace="/Class.*/[!$&!]/g"?>
+<?code-excerpt "lib/src/providers_component.dart (ClassProvider)" replace="/\[\n/[/g; /,\n//g; /\[\s*/[/g; /Class[^\]]*/[!$&!]/g"?>
 ```
-  providers: [
-    [!ClassProvider(Logger),!]
-  ],
+  providers: [[!ClassProvider(Logger)!]],
 ```
 
 But it's not the only way.
-
 You can configure the injector with alternative providers that can deliver a `Logger`.
-You could provide a substitute class.
-You could give it a provider that calls a logger factory function.
+You can provide a substitute class.
+You can give it a provider that calls a logger factory function.
 Any of these approaches might be a good choice under the right circumstances.
 
 What matters is that the injector has a provider to go to when it needs a `Logger`.
@@ -590,7 +590,7 @@ to return a `BetterLogger` when something asks for the `Logger`.
 
 ### Provider for a class with dependencies
 
-Maybe an `EvenBetterLogger` could display the user name in the log message.
+Maybe an `EvenBetterLogger` could display the user name in log messages.
 
 <?code-excerpt "lib/src/providers_component.dart (EvenBetterLogger)" replace="/UserService.*|this._userService/[!$&!]/g"?>
 ```
@@ -678,7 +678,6 @@ based on information you won't have until the last possible moment.
 Maybe the information changes during the course of the browser session.
 
 Suppose also that the injectable service has no independent access to the source of this information.
-
 This situation calls for a **factory provider**.
 
 To illustrate the point, add a new business requirement:
@@ -726,9 +725,9 @@ Although the `HeroService` has no access to the `UserService`, the factory funct
 You inject both the `Logger` and the `UserService` into the factory provider
 and let the injector pass them along to the factory function:
 
-<?code-excerpt "lib/src/heroes/hero_service_provider.dart (provider)" title?>
+<?code-excerpt "lib/src/heroes/hero_service_provider.dart (provider)" replace="/FactoryProvider/[!$&!]/g" title?>
 ```
-  const heroServiceProvider = FactoryProvider(HeroService, heroServiceFactory);
+  const heroServiceProvider = [!FactoryProvider!](HeroService, heroServiceFactory);
 ```
 
 Notice that you captured the factory provider in a constant, `heroServiceProvider`.
@@ -756,17 +755,17 @@ In all previous examples, the token has been a class type and the provided value
 an instance of that type. For example, you get a `HeroService` directly from the
 injector by supplying the `HeroService` type as the token:
 
-<?code-excerpt "lib/src/injector_component.dart (get-hero-service)"?>
+<?code-excerpt "lib/src/injector_component.dart (get-hero-service)" replace="/HeroService/[!$&!]/g"?>
 ```
-  heroService = _injector.get(HeroService);
+  heroService = _injector.get([!HeroService!]);
 ```
 
 Similarly, when you define a constructor parameter of type `HeroService`,
 Angular knows to inject a `HeroService` instance:
 
-<?code-excerpt "lib/src/heroes/hero_list_component.dart (ctor-signature)"?>
+<?code-excerpt "lib/src/heroes/hero_list_component.dart (ctor-signature)" replace="/HeroService/[!$&!]/g"?>
 ```
-  HeroListComponent(HeroService heroService)
+  HeroListComponent([!HeroService!] heroService)
 ```
 
 ### OpaqueToken
@@ -798,9 +797,9 @@ which is always `String`). The `OpaqueToken` argument token description is a dev
 
 Register the dependency provider using the `OpaqueToken` object:
 
-<?code-excerpt "lib/src/providers_component.dart (ValueProvider-forToken)"?>
+<?code-excerpt "lib/src/providers_component.dart (ValueProvider-forToken)" replace="/\.forToken/[!$&!]/g"?>
 ```
-  ValueProvider.forToken(appTitleToken, appTitle)
+  ValueProvider[!.forToken!](appTitleToken, appTitle)
 ```
 
 Now you can inject the title into any constructor that needs it, with
@@ -850,7 +849,7 @@ consider defining a custom app configuration class:
 ```
 
 Defining a configuration class has a few benefits. One key benefit
-is strong static checking: you'll be warned early if you misspell a property
+is static checking: you'll be warned by the analyzer if you misspell a property
 name or assign to it a value of the wrong type.
 The Dart [cascade notation (`..`)][cascade] provides a convenient means of initializing
 a configuration object.
@@ -980,5 +979,6 @@ is not found. Angular can't find the service if it's not registered with this or
 [@Optional()]: /api/angular/angular/Optional-class.html
 [provide()]: /api/angular/angular/provide
 [Provider]: /api/angular/angular/Provider-class.html
+[routerProvidersHash]: /api/angular_router/angular_router/routerProvidersHash-constant
 [runApp()]: /api/angular/angular/runApp.html
 [ValueProvider]: /api/angular/angular/ValueProvider-class.html
