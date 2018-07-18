@@ -1,5 +1,3 @@
-import 'package:angular/angular.dart';
-
 /// Model
 class Car {
   String name = 'Avocado Motors';

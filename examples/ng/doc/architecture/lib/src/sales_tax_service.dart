@@ -1,5 +1,3 @@
-import 'package:angular/angular.dart';
-
 import 'tax_rate_service.dart';
 
 class SalesTaxService {

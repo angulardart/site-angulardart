@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:angular/angular.dart';
 
 class Villain {
   final int id;

@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:angular/angular.dart';
-
 import 'crisis.dart';
 import 'mock_crises.dart';
 

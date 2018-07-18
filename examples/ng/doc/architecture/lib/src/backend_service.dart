@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:angular/angular.dart';
-
 import 'hero.dart';
 
 class BackendService {

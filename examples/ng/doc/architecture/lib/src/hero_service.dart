@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:angular/angular.dart';
-
 import 'backend_service.dart';
 import 'hero.dart';
 import 'logger_service.dart';

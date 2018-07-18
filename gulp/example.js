@@ -42,11 +42,13 @@ module.exports = function (gulp, plugins, config) {
   }
 
   gulp.task('analyze', () => {
-    examplesExec('pub get', {
-      env:
-        Object.assign(process.env, { PUB_ALLOW_PRERELEASE_SDK: 'quiet' }),
-    });
-    examplesExec('dartanalyzer --no-hints --fatal-warnings .');
+    if (!argv.fast) {
+      examplesExec('pub get', {
+        env:
+          Object.assign(process.env, { PUB_ALLOW_PRERELEASE_SDK: 'quiet' }),
+      });
+    }
+    examplesExec('dartanalyzer --fatal-warnings .');
   });
 
   gulp.task('dartfmt', () => examplesExec(p => {

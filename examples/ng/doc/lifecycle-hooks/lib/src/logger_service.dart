@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:angular/angular.dart';
-
 class LoggerService {
   List<String> logs = [];
   String _prevMsg = '';

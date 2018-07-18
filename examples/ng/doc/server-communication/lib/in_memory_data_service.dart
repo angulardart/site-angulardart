@@ -3,7 +3,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:angular/angular.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 

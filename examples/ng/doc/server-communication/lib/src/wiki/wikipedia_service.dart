@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:angular/angular.dart';
 import 'package:jsonpadding/jsonpadding.dart';
 
 class WikipediaService {

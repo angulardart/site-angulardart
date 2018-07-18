@@ -28,20 +28,20 @@ you learned how to configure a dependency injector and how to retrieve dependenc
 In fact, there is no such thing as ***the*** injector.
 An app may have multiple injectors.
 An Angular app is a tree of components. Each component instance has its own injector.
-The tree of components parallels the tree of injectors.
+The tree of injectors parallels the tree of components.
 
 <div class="l-sub-section" markdown="1">
-  The component's injector may be a _proxy_ for an ancestor injector higher in the component tree.
+  A component's injector may be a _proxy_ for an ancestor injector higher in the component tree.
   That's an implementation detail that improves efficiency.
   You won't notice the difference and
   your mental model should be that every component has its own injector.
 </div>
 
 Consider this guide's variation on the Tour of Heroes app.
-At the top is the `AppComponent` which has some sub-components.
+At the top is the `AppComponent` which has some subcomponents.
 One of them is the `HeroesListComponent`.
 The `HeroesListComponent` holds and manages multiple instances of the `HeroTaxReturnComponent`.
-The following diagram represents the state of the this guide's three-level component tree when there are three instances of `HeroTaxReturnComponent`
+The following diagram illustrates a three-level component tree when there are three instances of `HeroTaxReturnComponent`
 open simultaneously.
 
 <img class="image-display" src="{% asset_path 'ng/devguide/dependency-injection/component-hierarchy.png' %}" alt="injector tree">
@@ -51,8 +51,8 @@ open simultaneously.
 When a component requests a dependency, Angular tries to satisfy that dependency with a provider registered in that component's own injector.
 If the component's injector lacks the provider, it passes the request up to its parent component's injector.
 If that injector can't satisfy the request, it passes it along to *its* parent injector.
-The requests keep bubbling up until Angular finds an injector that can handle the request or runs out of ancestor injectors.
-If it runs out of ancestors, Angular throws an error.
+The requests keep bubbling up until Angular finds an injector that can handle the request or runs out of injectors.
+If it runs out of injectors, Angular throws an error.
 
 <div class="l-sub-section" markdown="1">
   You can cap the bubbling. An intermediate component can declare that it is the "host" component.
@@ -62,10 +62,10 @@ If it runs out of ancestors, Angular throws an error.
 
 ### Re-providing a service at different levels
 
-You can re-register a provider for a particular dependency token at multiple levels of the injector tree.
+You can re-register a provider for a particular dependency token at multiple levels of the injector tree,
 but you shouldn't do so unless you have a good reason.
 
-As the resolution logic works upwards, the first provider encountered wins.
+Since the lookup logic works upwards, the first provider encountered wins.
 Thus, a provider in an intermediate injector intercepts a request for a service from something lower in the tree.
 It effectively shadows a provider at a higher level in the tree.
 
@@ -80,7 +80,7 @@ The ability to configure one or more providers at different levels opens up inte
 
 Architectural reasons may lead you to restrict access to a service to the app domain where it belongs.
 
-The guide sample includes a `VillainsListComponent` that displays a list of villains.
+The sample app includes a `VillainsListComponent` that displays a list of villains.
 It gets those villains from a `VillainsService`.
 
 While you _could_ provide `VillainsService` in the root `AppComponent` (that's where you'll find the `HeroesService`),
@@ -110,7 +110,7 @@ Instead, provide the `VillainsService` in the `providers` metadata of the `Villa
 ```
 
 By providing `VillainsService` in the `VillainsListComponent` metadata and nowhere else,
-the service becomes available only in the `VillainsListComponent` and its sub-component tree.
+the service becomes available only in the `VillainsListComponent` and its subcomponent tree.
 It's still a singleton, but it's a singleton that exist solely in the _villain_ domain.
 
 Now you know that a hero component can't access it. You've reduced your exposure to error.
@@ -121,8 +121,8 @@ Many apps allow users to work on several open tasks at the same time.
 For example, in a tax preparation app, the preparer could be working on several tax returns,
 switching from one to the other throughout the day.
 
-This guide demonstrates that scenario with an example in the Tour of Heroes theme.
-Imagine an outer `HeroListComponent` that displays a list of super heroes.
+The sample app demonstrates that scenario with an example in the Tour of Heroes theme.
+Imagine an outer `HeroListComponent` that displays a list of heroes.
 
 To open a hero's tax return, the preparer clicks on a hero name, which opens a component for editing that return.
 Each selected hero tax return opens in its own component and multiple returns can be open at the same time.
@@ -147,8 +147,6 @@ It also delegates to the app-wide singleton `HeroService`, which it gets by inje
 <?code-excerpt "lib/src/hero_tax_return_service.dart" title linenums?>
 ```
   import 'dart:async';
-
-  import 'package:angular/angular.dart';
 
   import 'hero.dart';
   import 'heroes_service.dart';
@@ -286,7 +284,7 @@ No tax return overwriting. No mess.
 Another reason to re-provide a service is to substitute a _more specialized_ implementation of that service,
 deeper in the component tree.
 
-Consider again the Car example from the [Dependency Injection](dependency-injection) guide.
+Consider again the Car example from the [Dependency Injection](dependency-injection) page.
 Suppose you configured the root injector (marked as A) with _generic_ providers for
 `CarService`, `EngineService` and `TiresService`.
 
