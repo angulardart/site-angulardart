@@ -49,7 +49,7 @@ Add the package to the pubspec dependencies:
    build_runner: ^0.9.0
    build_test: ^0.10.2
    build_web_compilers: ^0.4.0
-+  pageloader: ^3.0.0-alpha
++  pageloader: ^3.0.0-beta
    test: ^1.0.0
 ```
 

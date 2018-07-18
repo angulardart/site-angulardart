@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "0041a98dc86f90324eb5c0bc363c1af43d7f6b34"
+      resolved-ref: "02837a945c5a629864d7758fadd81ccfc9946c0b"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -268,7 +268,7 @@ packages:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.6"
+    version: "0.10.7"
   source_span:
     dependency: transitive
     description:
@@ -303,7 +303,7 @@ packages:
       name: term_glyph
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   test:
     dependency: "direct dev"
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.14"
 sdks:
-  dart: "2.0.0-dev.68.0"
+  dart: "2.0.0-dev.69.0"
