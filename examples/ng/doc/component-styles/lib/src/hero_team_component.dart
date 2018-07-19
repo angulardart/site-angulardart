@@ -5,13 +5,13 @@ import 'hero.dart';
 @Component(
   selector: 'hero-team',
   template: '''
-      <link rel="stylesheet" href="hero_team_component.css">
       <h3>Team</h3>
       <ul>
         <li *ngFor="let member of hero.team">
           {{member}}
         </li>
       </ul>''',
+  styleUrls: ['hero_team_component.css'],
   directives: [coreDirectives],
 )
 class HeroTeamComponent {

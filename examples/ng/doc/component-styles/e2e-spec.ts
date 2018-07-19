@@ -53,19 +53,4 @@ describe('Component Style Tests', () => {
     expect(host.getCssValue('padding')).toEqual('10px');
   });
 
-  it('processes template inline styles', function() {
-    let button = element(by.css('hero-controls button'));
-    let externalButton = element(by.css('body > button'));
-    expect(button.getCssValue('backgroundColor')).toEqual('rgba(255, 255, 255, 1)'); // #ffffff
-    expect(externalButton.getCssValue('backgroundColor')).not.toEqual('rgba(255, 255, 255, 1)');
-  });
-
-  it('processes template <link>s', function() {
-    let li = element(by.css('hero-team li:first-child'));
-    let externalLi = element(by.css('body > ul li'));
-
-    expect(li.getCssValue('listStyleType')).toEqual('square');
-    expect(externalLi.getCssValue('listStyleType')).not.toEqual('square');
-  });
-
 });

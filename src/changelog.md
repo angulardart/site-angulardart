@@ -145,6 +145,8 @@ Angular doc changes:
 
 - Added a description of `@Component` `export` parameters to the
   [Template Syntax](/angular/guide/template-syntax) page.
+- [Component Styles](/angular/guide/component-styles): dropped "Template inline styles" and
+  "Template link tags" section since both forms of template styling are now ignored.
 
 More information:
 

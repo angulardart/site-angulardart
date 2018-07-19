@@ -197,67 +197,6 @@ into a component's `@Component` annotation:
 
 Note that the URLs in `styleUrls` are relative to the component.
 
-{%comment%}
-TODO: determine if an equivalent of the TS "module bundlers" material is relevant for Dart.
-{%endcomment%}
-
-### Template inline styles
-
-You can embed styles directly into the HTML template by putting them
-inside `<style>` tags.
-
-<?code-excerpt "lib/src/hero_controls_component.dart (inline styles)" title?>
-```
-  @Component(
-    selector: 'hero-controls',
-    template: '''
-      <style>
-        button {
-          background-color: white;
-          border: 1px solid #777;
-        }
-      </style>
-      <h3>Controls</h3>
-      <button (click)="activate()">Activate</button>
-    ''',
-  )
-  class HeroControlsComponent {
-    @Input()
-    Hero hero;
-
-    void activate() {
-      hero.active = true;
-    }
-  }
-```
-
-### Template link tags
-
-You can also embed `<link>` tags into the component's HTML template.
-
-The link tag's `href` URL is relative to the
-app root, not the component file.
-
-<?code-excerpt "lib/src/hero_team_component.dart (stylesheet link)" title?>
-```
-  @Component(
-    selector: 'hero-team',
-    template: '''
-        <link rel="stylesheet" href="hero_team_component.css">
-        <h3>Team</h3>
-        <ul>
-          <li *ngFor="let member of hero.team">
-            {!{member}!}
-          </li>
-        </ul>''',
-    directives: [coreDirectives],
-  )
-  class HeroTeamComponent {
-    @Input()
-    Hero hero;
-  }
-```
-
 ### CSS @imports
 
 You can also import CSS files into the CSS files using the standard CSS `@import` rule.

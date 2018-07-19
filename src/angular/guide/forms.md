@@ -861,5 +861,5 @@ Here’s the code for the final version of the app:
 [NgControl]: /api/angular_forms/angular_forms/NgControl-class
 [NgControlStatus]: /api/angular_forms/angular_forms/NgControlStatus-class
 [NgForm]: /api/angular_forms/angular_forms/NgForm-class
-[NgForm.form]: /api/angular_forms/angular_forms/NgForm/form
+[NgForm.form]: /api/angular_forms/angular_forms/AbstractNgForm/form
 [NgModel]: /api/angular_forms/angular_forms/NgModel-class
