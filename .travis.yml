@@ -98,7 +98,7 @@ jobs:
       - gulp ng-pkg-pub-get # --skip=package_name|...
       - gulp _build-prep --clean
 
-    - env: CI_TASK="check-misc-and-dartfmt"
+    - env: CI_TASK="check-code-and-notes"
       script: ./scripts/$CI_TASK.sh
 
     - env: CI_TASK="analyze"
