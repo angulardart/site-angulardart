@@ -20,6 +20,10 @@ if [[ -e code-excerpt-log.txt ]]; then
 fi
 travis_fold end check_for_bad_filenames
 
+travis_fold start check_for_code_excerpt_misformatting_in_html
+(set -x; ./scripts/check-for-code-excerpt-misformatting.sh)
+travis_fold end check_for_code_excerpt_misformatting_in_html
+
 travis_fold start check_for_numbered_files_in_html
 (set -x; ./scripts/check-for-numbered-files-in-html.sh)
 travis_fold end check_for_numbered_files_in_html
