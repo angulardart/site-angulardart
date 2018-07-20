@@ -13,33 +13,40 @@ provide a productive and stable set of widgets.
 Supported browsers include the last two versions of
 Chrome, Edge, Firefox, and Safari.
 
-<aside class="alert-info alert">
-Internet Explorer is not currently supported.
-</aside>
+To find components, go to the
+[AngularDart Gallery](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
+(shown below).
+The gallery is an app that shows all the supported components,
+along with source code links and API descriptions.
 
-<div class="row">
-<div class="col-md-6" markdown="1">
-Resources for using AngularDart Components:
+<a href="https://dart-lang.github.io/angular_components_example/"
+    class="no-automatic-external">
+  <img src="{% asset_path 'angular_components_example-screenshot-1.png' %}"
+      alt="Screenshot #1 of the AngularDart Gallery" width="600">
+</a>
+<a href="https://dart-lang.github.io/angular_components_example/"
+    class="no-automatic-external">
+  <img src="{% asset_path 'angular_components_example-screenshot-2.png' %}"
+      alt="Screenshot #2 of the AngularDart Gallery" width="600">
+</a>
 
+Additional resources for AngularDart Components:
+
+{% comment %}
 * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/){: .no-automatic-external}
-* [Dart Summit 2016 codelab](/codelabs/angular_components)
-* [AngularDart Components example](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
-* [API reference](/api?package=angular_components)
-</div>
-<div class="col-md-6" markdown="1">
-Other resources:
+{% endcomment %}
+* [Codelab](/codelabs/angular_components) (Lottery Simulator)
+* [Full API reference](/api?package=angular_components)
+* [GitHub repo for angular_components](https://github.com/dart-lang/angular_components){: .no-automatic-external}
+* [Pub page for angular_components]({{site.pub-pkg}}/angular_components){: .no-automatic-external}
+
+Related resources:
 
 * [AngularDart documentation](/angular)
 * [Material Design site](https://www.material.io){: .no-automatic-external}
-* [GitHub repo for angular_components](https://github.com/dart-lang/angular_components){: .no-automatic-external}
-* [Pub page for angular_components](https://pub.dartlang.org/packages/angular_components){: .no-automatic-external}
-</div>
-</div>
 
-<div>
 <a href="/codelabs/angular_components">
 <img src="/codelabs/angular_components/images/app-final.png"
   class="centered"
-  alt="Screenshot of example from the AngularDart Components codelab">
+  alt="Screenshot of the Lottery Simulator example from the AngularDart Components codelab">
 </a>
-</div>

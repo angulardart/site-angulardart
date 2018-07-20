@@ -81,7 +81,7 @@
   permalink: /components
   urlExactMatch: true
   children:
-  - title: Example
+  - title: Gallery
     permalink: https://dart-lang.github.io/angular_components_example/
 
 - title: Reference
