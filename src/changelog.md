@@ -18,7 +18,6 @@ Also see:
 * Package changelogs:
   * [`angular` changelog][]
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
-  * [`angular2` changelog][]
 
 ## AngularDart 5.0 beta / Dart 2.0 beta (July 2018)
 
@@ -74,42 +73,25 @@ Also see:
     | `Provider(C, useFactory: f, deps: d)` | `FactoryProvider(C, f)`<br>_(Compile-time DI makes explicitly declaring `deps` unnecessary)_
     | `Provider(C, useExisting: D)` | `ExistingProvider(C, D)`
 
-    For examples, see the file changes in the [dependency-injection diff][].
+    For examples, see **Files changed** in the [dependency-injection diff][].
 
-  - In `web/main.dart` files that formerly bootstrapped providers
-    (such as
-    [this one][4.x toh-5/web/main.dart]):
-    - Added import: `import 'main.template.dart' as self;`
-    - Added variable with metadata necessary to statically initialize the app's root injector:
-      <?code-excerpt "examples/ng/doc/toh-5/web/main.dart (injector)" indent-by="0"?>
-      {% prettify %}
-      @GenerateInjector(
-        routerProvidersHash, // You can use routerProviders in production
-      )
-      final InjectorFactory injector = self.injector$Injector;
-      {% endprettify %}
-    - Used the app's root injector factory as an argument to `runApp()`:
-      <?code-excerpt "examples/ng/doc/toh-5/web/main.dart" retain="runApp" indent-by="0"?>
-      {% prettify %}
-      runApp(ng.AppComponentNgFactory, createInjector: injector);
-      {% endprettify %}
-
-    For example, see the `web/main.dart` file changes in the [toh-5 diff][].
+  - Switched to static configuration of root injectors in `web/main.dart` files
+    that formerly bootstrapped providers. For example, see `web/main.dart` under
+    the **Files changed** tab of the [toh-5 diff][].
 
 - Updated all `test/*_test.dart` files and their **Angular entry points**:
   - Dropped <del>`@Tags(const ['aot'])`</del>
-  - Dropped <del>`import 'package:angular/angular.dart'`<del>
-  - Added `import 'foo_test.template.dart' as ng;` in `foo_test.dart`
+  - Added `import 'foo_test.template.dart' as ng;` in the test file for `foo` components
   - For every function `bar()` annotated with `@AngularEntrypoint()`:
     - Dropped <del>`@AngularEntrypoint()`</del>
     - Replaced `new NgTestBed<AppComponent>().addProviders(providers)` with<br>
       `NgTestBed.forComponent<AppComponent>(ng.FooComponentNgFactory, rootInjector: injector);`
       where `injector` is an injector factory created by
       a newly added `@GenerateInjector`-annotated `injector` field
-      (as describe above).
+      (as described above).
   - Examples:
-    - `test/app_test.dart` in the [quickstart diff][]
-    - `test/app.dart` (compare to `test/app_test.dart` to in the [toh-5 diff][])
+    - See `test/app_test.dart` under the **Files changed** tab of the [quickstart diff][]
+    - See `test/dashboard.dart` under the **Files changed** tab of the [toh-5 diff][])
 
 - Adjusted to new **template syntax**:
   - _Binding syntax_:
