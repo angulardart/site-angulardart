@@ -4,8 +4,18 @@ set -e -o pipefail
 
 cd `dirname $0`/..
 
-if [[ "$1" == "--dev" && -e _config_dev.yml ]]; then
-  CONFIG="--config _config.yml,_config_dev.yml"
+if [[ "$1" == "--dev" ]]; then
+  shift;
+  CONFIG=",_config_dev.yml$CONFIG"
+fi
+
+if [[ "$1" == "--pin-now" ]]; then
+  shift;
+  CONFIG=",_config_now.yml$CONFIG"
+fi
+
+if [[ -n $CONFIG ]]; then
+  CONFIG="--config _config.yml$CONFIG"
 fi
 
 bundle exec jekyll build $CONFIG --incremental --watch &

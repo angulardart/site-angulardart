@@ -14,7 +14,7 @@ sitemap: false
     {%- if page.sitemap.lastmod -%}
       {{ page.sitemap.lastmod | date: "%Y-%m-%d" }}
     {%- else -%}
-      {{ page.date | default: site.time | date_to_xmlschema }}
+      {{ site.now | default: page.date | default: site.time | date_to_xmlschema }}
     {%- endif -%}
   </lastmod>
   <changefreq>{{ page.sitemap.changefreq | default: 'monthly' }}</changefreq>
@@ -34,7 +34,7 @@ sitemap: false
 {%- for page in pkgLib[1] %}
 <url>
   <loc>{{ site.url | append: '/api/' | append: page.libName | append: '/' | append: page.path | regex_replace: '(\.html|/)$' }}</loc>
-  <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  <lastmod>{{ site.now | default: site.time | date_to_xmlschema }}</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 {%- endfor -%}
