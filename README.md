@@ -81,7 +81,7 @@ To view the generated site open [localhost:4001](http://localhost:4001/) in a br
 
 You can build, serve, and have a watcher for changes by running the following command:
 
-- `./scripts/serve_local.sh`
+- `./scripts/serve.sh`
 
 > NOTE: Getting `jekyll | Error:  Too many open files` under MacOS or Linux?
 >   One way to resolve this is to add the following to your `.bashrc`:
@@ -115,7 +115,7 @@ doing all of the following steps (in order):
 source ./scripts/env-set.sh  # reset environment vars and (re-)install Node & Ruby
 gulp clean                   # clean out all temporary site folders
 gulp build --dartdoc         # full site regeneration
-./scripts/serve_local.sh
+./scripts/serve.sh
 ```
 
 If you are still having build problems, you might need to once again step
