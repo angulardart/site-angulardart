@@ -69,7 +69,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "2f143a990ad6230f26e012439b7fe6d9d414daab"
+      resolved-ref: "86470e4f26618c02af8728a777dcc504a9413d88"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -135,7 +135,7 @@ packages:
       name: json_rpc_2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.9"
   kernel:
     dependency: transitive
     description:
@@ -184,7 +184,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.3"
+    version: "1.4.4"
   package_config:
     dependency: transitive
     description:
@@ -219,7 +219,7 @@ packages:
       name: pool
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.5"
+    version: "1.3.6"
   pub_semver:
     dependency: transitive
     description:
@@ -331,7 +331,7 @@ packages:
       name: vm_service_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5+1"
+    version: "0.2.6"
   watcher:
     dependency: transitive
     description:
@@ -354,4 +354,4 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: "2.0.0-dev.69.0"
+  dart: ">=2.0.0-dev.69.2 <3.0.0"
