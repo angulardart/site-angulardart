@@ -149,7 +149,7 @@ update-for-dart-2
 [Dart]: https://www.dartlang.org/install
 [Dart install]: https://www.dartlang.org/install
 [Firebase]: https://firebase.google.com/
-[first-timers-only SVG]: http://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
+[first-timers-only SVG]: https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
 [first-timers-only]: http://www.firsttimersonly.com/
 [Jekyll]: https://jekyllrb.com/
 [nvm]: https://github.com/creationix/nvm#installation
