@@ -108,11 +108,11 @@ Import the `HeroService` so that you can reference it in the code.
   import 'src/hero_service.dart';
 ```
 
-### Don't use *new* with the *HeroService*
+### Don't instantiate services
 
-How should the `AppComponent` acquire an instance of `HeroService`?
+How should the `AppComponent` get an instance of `HeroService`?
 
-You could create a new instance of the `HeroService` with `new` like this:
+You could create a new instance of the `HeroService` like this:
 
 <?code-excerpt "lib/app_component_1.dart (excerpt)" region="new-service" title?>
 ```
@@ -125,7 +125,7 @@ However, this option isn't ideal for the following reasons:
   If you change the `HeroService` constructor,
   you must find and update every place you created the service.
   Patching code in multiple places is error prone and adds to the test burden.
-* You create a service each time you use `new`.
+* You create a service each time you invoke the constructor.
   What if the service caches heroes and shares that cache with others?
   You couldn't do that.
 * With the `AppComponent` locked into a specific implementation of the `HeroService`,
