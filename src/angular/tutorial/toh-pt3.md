@@ -40,6 +40,7 @@ If not, go back to the previous pages.
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 
@@ -296,6 +297,7 @@ Verify that you have the following structure:
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 

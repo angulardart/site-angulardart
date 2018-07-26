@@ -30,6 +30,7 @@ on the previous page.
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 

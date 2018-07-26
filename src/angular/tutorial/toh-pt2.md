@@ -33,6 +33,7 @@ If your structure doesn't match, go back to that page to figure out what you mis
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 
@@ -441,6 +442,7 @@ Your project should have the following files:
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 

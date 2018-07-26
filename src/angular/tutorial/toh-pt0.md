@@ -101,6 +101,7 @@ These files are organized as follows:
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 
@@ -131,8 +132,12 @@ Each file has a distinct purpose and evolves independently as the app grows.
   <td markdown="1">A set of styles used throughout the app.
   </td>
 </tr><tr>
+  <td><code>analysis_options.yaml</code></td>
+  <td markdown="1">The analysis options file. For details, see [Customize Static Analysis.][]
+  </td>
+</tr><tr>
   <td><code>pubspec.yaml</code></td>
-  <td markdown="1">The file that describes this Dart package (the app) and its dependencies. For details, see [Pubspec Format.][Pubspec Format]
+  <td markdown="1">The file that describes this Dart package (the app) and its dependencies. For details, see [Pubspec Format.][]
   </td>
 </tr>
 </table>
@@ -143,4 +148,5 @@ In the [next tutorial page](toh-pt1),
 you'll modify the starter app to display more interesting data,
 and to allow the user to edit that data.
 
-[Pubspec Format]: {{site.dartlang}}/tools/pub/pubspec
+[Customize Static Analysis.]: {{site.www}}/guides/language/analysis-options
+[Pubspec Format.]: {{site.dartlang}}/tools/pub/pubspec

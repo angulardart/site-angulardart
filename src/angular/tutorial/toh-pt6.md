@@ -44,6 +44,7 @@ Before continuing with the Tour of Heroes, verify that you have the following st
     - index.html
     - main.dart
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 
@@ -863,6 +864,7 @@ Verify that you have the following structure:
     - main.dart
     - index.html
     - styles.css
+  - analysis_options.yaml
   - pubspec.yaml
 </div>
 
