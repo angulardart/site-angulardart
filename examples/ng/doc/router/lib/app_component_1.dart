@@ -15,9 +15,9 @@ import 'src/routes_1.dart';
     <h1>Angular Router</h1>
     <nav>
       <a [routerLink]="routes.crises.toUrl()"
-         routerLinkActive="active-route">Crisis Center</a>
+         [routerLinkActive]="'active-route'">Crisis Center</a>
       <a [routerLink]="routes.heroes.toUrl()"
-         routerLinkActive="active-route">Heroes</a>
+         [routerLinkActive]="'active-route'">Heroes</a>
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>
   ''',

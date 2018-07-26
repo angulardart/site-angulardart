@@ -30,7 +30,7 @@ You can bind the `RouterLink` directive to such an list like this:
 <?code-excerpt "lib/app_component_1.dart (template)" retain="/heroes|Heroes/"?>
 ```
   <a [routerLink]="routes.heroes.toUrl()"
-     routerLinkActive="active-route">Heroes</a>
+     [routerLinkActive]="'active-route'">Heroes</a>
 ```
 
 You've written a two element list when specifying a route parameter to the `navigate` method:
@@ -64,7 +64,7 @@ Recall that you specified a default child route for crisis center so this simple
 
 <?code-excerpt "lib/app_component_1.dart (template)" retain="/crisis|Crisis/"?>
 ```
-  routerLinkActive="active-route">Crisis Center</a>
+  [routerLinkActive]="'active-route'">Crisis Center</a>
 ```
 
 {% comment %}TODO: rework{% endcomment %}
@@ -84,7 +84,7 @@ navigates from the root of the app down to the *Dragon Crisis*:
 ```
   // FIXME:
   <a [routerLink]="routes.crises.path"
-     routerLinkActive="active-route">Crisis Center</a>
+     [routerLinkActive]="'active-route'">Crisis Center</a>
   <a [routerLink]="['CrisisCenter', 'Crisis Center', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
 ```
 

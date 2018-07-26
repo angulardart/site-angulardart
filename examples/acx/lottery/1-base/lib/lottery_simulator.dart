@@ -114,9 +114,7 @@ class AppComponent implements OnInit {
   }
 
   @override
-  ngOnInit() {
-    reset();
-  }
+  void ngOnInit() => reset();
 
   void pause() {
     _pulse?.cancel();

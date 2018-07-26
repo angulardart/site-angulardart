@@ -55,7 +55,7 @@ class PeekABooComponent extends PeekABoo
   }
 
   // Only called if there is an @input variable set by parent.
-  ngOnChanges(Map<String, SimpleChange> changes) {
+  void ngOnChanges(Map<String, SimpleChange> changes) {
     List<String> messages = [];
     changes.forEach((String propName, SimpleChange change) {
       if (propName == 'name') {
@@ -71,23 +71,23 @@ class PeekABooComponent extends PeekABoo
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngDoCheck() => _logIt('DoCheck');
+  void ngDoCheck() => _logIt('DoCheck');
 
-  ngAfterContentInit() => _logIt('AfterContentInit');
+  void ngAfterContentInit() => _logIt('AfterContentInit');
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterContentChecked() {
+  void ngAfterContentChecked() {
     _logIt('AfterContentChecked (${_afterContentCheckedCounter++})');
   }
 
-  ngAfterViewInit() => _logIt('AfterViewInit');
+  void ngAfterViewInit() => _logIt('AfterViewInit');
 
   // Beware! Called frequently!
   // Called in every change detection cycle anywhere on the page
-  ngAfterViewChecked() {
+  void ngAfterViewChecked() {
     _logIt('AfterViewChecked (${_afterViewCheckedCounter++})');
   }
 
-  ngOnDestroy() => _logIt('OnDestroy');
+  void ngOnDestroy() => _logIt('OnDestroy');
 }

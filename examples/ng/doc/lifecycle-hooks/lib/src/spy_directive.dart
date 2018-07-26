@@ -13,9 +13,11 @@ class SpyDirective implements OnInit, OnDestroy {
 
   SpyDirective(this._logger);
 
-  ngOnInit() => _logIt('onInit');
+  @override
+  void ngOnInit() => _logIt('onInit');
 
-  ngOnDestroy() => _logIt('onDestroy');
+  @override
+  void ngOnDestroy() => _logIt('onDestroy');
 
   _logIt(String msg) => _logger.log('Spy #${_nextId++} $msg');
 }

@@ -29,7 +29,7 @@ class HeroListComponent implements OnActivate {
 
   // #docregion onActivate
   @override
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     await _getHeroes();
     selected = _select(current);
   }

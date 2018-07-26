@@ -55,7 +55,7 @@ class SettingsComponent implements OnInit {
   Strategy strategy;
 
   @override
-  ngOnInit() {
+  void ngOnInit() {
     resetWallet();
     resetBetting();
     resetOther();

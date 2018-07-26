@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
@@ -28,7 +26,8 @@ class DashboardComponent implements OnInit {
   String heroUrl(int id) =>
       paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
 
-  Future<void> ngOnInit() async {
+  @override
+  void ngOnInit() async {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 }

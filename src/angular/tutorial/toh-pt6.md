@@ -724,7 +724,7 @@ Create the `HeroSearchComponent` class and metadata.
 
     void search(String term) => _searchTerms.add(term);
 
-    Future<void> ngOnInit() async {
+    void ngOnInit() async {
       heroes = _searchTerms.stream
           .transform(debounce(Duration(milliseconds: 300)))
           .distinct()
@@ -770,7 +770,7 @@ You can turn the stream of search terms into a stream of `Hero` lists and assign
 ```
   Stream<List<Hero>> heroes;
   // ···
-  Future<void> ngOnInit() async {
+  void ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(Duration(milliseconds: 300)))
         .distinct()

@@ -1,10 +1,10 @@
 // #docregion v1
 import 'package:angular_router/angular_router.dart';
 
-import 'crisis_component.template.dart' as cct;
+import 'crisis_component.template.dart' as crisis_template;
 // #enddocregion v1
 // #docregion home
-import 'crisis_list_home_component.template.dart' as clhct;
+import 'crisis_list_home_component.template.dart' as crisis_list_home_template;
 // #docregion v1
 import 'route_paths.dart' as paths;
 
@@ -20,13 +20,13 @@ class Routes {
     // #enddocregion home
     RouteDefinition(
       routePath: paths.crisis,
-      component: cct.CrisisComponentNgFactory,
+      component: crisis_template.CrisisComponentNgFactory,
     ),
     // #enddocregion v1
     // #docregion home
     RouteDefinition(
       routePath: paths.home,
-      component: clhct.CrisisListHomeComponentNgFactory,
+      component: crisis_list_home_template.CrisisListHomeComponentNgFactory,
       useAsDefault: true,
     ),
     // #docregion v1

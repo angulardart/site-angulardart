@@ -25,7 +25,7 @@ class HeroComponent implements OnActivate {
 
   // #docregion OnActivate
   @override
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     final id = paths.getId(current.parameters);
     if (id != null) hero = await (_heroService.get(id));
   }

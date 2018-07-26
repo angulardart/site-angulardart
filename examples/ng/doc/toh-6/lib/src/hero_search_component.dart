@@ -34,7 +34,7 @@ class HeroSearchComponent implements OnInit {
   // #enddocregion searchTerms
 
   // #docregion search
-  Future<void> ngOnInit() async {
+  void ngOnInit() async {
     heroes = _searchTerms.stream
         .transform(debounce(Duration(milliseconds: 300)))
         .distinct()

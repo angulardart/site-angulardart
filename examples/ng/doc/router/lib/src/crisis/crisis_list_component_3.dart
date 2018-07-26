@@ -27,7 +27,7 @@ class CrisisListComponent implements OnActivate {
   }
 
   @override
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     await _getCrises();
     selected = _select(current);
   }

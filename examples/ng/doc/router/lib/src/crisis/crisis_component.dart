@@ -36,7 +36,7 @@ class CrisisComponent extends Object
 
   @override
   // #docregion onActivate, OnActivate-and-OnDeactivate
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     // #enddocregion onActivate
     log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}');
     // #enddocregion OnActivate-and-OnDeactivate

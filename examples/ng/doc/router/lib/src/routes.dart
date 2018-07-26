@@ -1,10 +1,10 @@
 import 'package:angular_router/angular_router.dart';
 
 import 'route_paths.dart' as paths;
-import 'crisis/crisis_list_component.template.dart' as clct;
-import 'hero/hero_list_component.template.dart' as hlct;
-import 'hero/hero_component.template.dart' as hct;
-import 'not_found_component.template.dart' as nfct;
+import 'crisis/crisis_list_component.template.dart' as crisis_list_template;
+import 'hero/hero_list_component.template.dart' as hero_list_template;
+import 'hero/hero_component.template.dart' as hero_template;
+import 'not_found_component.template.dart' as not_found_template;
 
 class Routes {
   RoutePath get crises => paths.crises;
@@ -13,15 +13,15 @@ class Routes {
   final List<RouteDefinition> all = [
     RouteDefinition(
       routePath: paths.crises,
-      component: clct.CrisisListComponentNgFactory,
+      component: crisis_list_template.CrisisListComponentNgFactory,
     ),
     RouteDefinition(
       routePath: paths.heroes,
-      component: hlct.HeroListComponentNgFactory,
+      component: hero_list_template.HeroListComponentNgFactory,
     ),
     RouteDefinition(
       routePath: paths.hero,
-      component: hct.HeroComponentNgFactory,
+      component: hero_template.HeroComponentNgFactory,
     ),
     RouteDefinition.redirect(
       path: '',
@@ -29,7 +29,7 @@ class Routes {
     ),
     RouteDefinition(
       path: '.*',
-      component: nfct.NotFoundComponentNgFactory,
+      component: not_found_template.NotFoundComponentNgFactory,
     ),
   ];
 }

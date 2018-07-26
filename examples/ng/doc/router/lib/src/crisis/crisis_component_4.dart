@@ -24,7 +24,7 @@ class CrisisComponent implements OnActivate {
   CrisisComponent(this._crisisService, this._router);
 
   @override
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     final id = paths.getId(current.parameters);
     if (id != null) crisis = await (_crisisService.get(id));
   }

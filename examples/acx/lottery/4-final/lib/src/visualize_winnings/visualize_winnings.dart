@@ -52,7 +52,7 @@ class VisualizeWinningsComponent implements OnInit {
   }
 
   @override
-  ngOnInit() {
+  void ngOnInit() {
     _ctx = canvas.context2D;
     _width = canvas.width;
     _height = canvas.height;

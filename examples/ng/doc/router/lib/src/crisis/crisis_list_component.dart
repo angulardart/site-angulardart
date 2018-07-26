@@ -50,7 +50,7 @@ class CrisisListComponent extends Object
   }
 
   @override
-  Future<void> onActivate(_, RouterState current) async {
+  void onActivate(_, RouterState current) async {
     log('onActivate: ${_?.toUrl()} -> ${current?.toUrl()}; '
         'selected.id = ${selected?.id}');
     await _getCrises();
@@ -58,6 +58,7 @@ class CrisisListComponent extends Object
     log('onActivate: set selected.id = ${selected?.id}');
   }
 
+  @override
   void onDeactivate(RouterState current, RouterState next) {
     log('onDeactivate: ${current?.toUrl()} -> ${next?.toUrl()}');
   }
