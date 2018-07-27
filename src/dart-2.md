@@ -10,17 +10,16 @@ del { color: rgba(255,0,0,.35); }
 del code { color: darkred; }
 </style>
 
-<aside class="alert-warning alert" markdown="1">
-  **This page is still under construction.**
-</aside>
-
-This page will guide you through migrating your Dart 1.x web app to Dart 2.
+This page has information on migrating your Dart 1.x web app to Dart 2.
 These changes are necessary because of the following:
 
 - [Tooling changes](#tools):
   - **Chrome** replaces Dartium and content-shell.
   - A **new build system** replaces `pub build`, `pub serve`, pub transformers.
 - Dart 2 [language and library changes.][dart-2]
+
+See also: [Angular Migration Guide v4 to v5](/angular/note/migrating-to-v5)
+
 
 ## Tools
 
