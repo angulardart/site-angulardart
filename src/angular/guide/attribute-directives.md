@@ -14,7 +14,7 @@ nextpage:
 
 An **attribute** directive changes the appearance or behavior of a DOM element.
 
-Try the <live-example></live-example>.
+Try the {% example_ref %}{% endexample_ref %}.
 
 ## Directives overview
 
@@ -541,7 +541,7 @@ The final source code follows:
   <?code-pane "web/index.html" linenums?>
 </code-tabs>
 
-You can also experience and download the <live-example title="Attribute Directive example"></live-example>.
+You can also experience and download the {% example_ref %}{% endexample_ref %}.
 
 <a id="why-input"></a>
 ### Appendix: Why add _@Input_?

@@ -17,7 +17,7 @@ In this page, you'll make the following improvements.
 
 You'll teach the app to make corresponding HTTP calls to a remote server's web API.
 
-When you're done with this page, the app should look like this <live-example></live-example>.
+When you're done with this page, the app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## Where you left off
 
@@ -840,7 +840,7 @@ If you enter characters that match any existing hero names, you'll see something
 
 ## App structure and code
 
-Review the sample source code in the <live-example></live-example> for this page.
+Review the sample source code in the {% example_ref %}{% endexample_ref %} for this page.
 Verify that you have the following structure:
 
 <div class="ul-filetree" markdown="1">

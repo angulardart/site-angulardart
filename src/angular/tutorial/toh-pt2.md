@@ -14,7 +14,7 @@ nextpage:
 In this page, you'll expand the Tour of Heroes app to display a list of heroes, and
 allow users to select a hero and display the hero's details.
 
-When you're done with this page, the app should look like this <live-example></live-example>.
+When you're done with this page, the app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## Where you left off
 
@@ -475,7 +475,7 @@ Here's what you achieved in this page:
 * You learned how to use the core directives `ngIf` and `ngFor` in a component's template.
 * You defined styles in a CSS file and made used them to style the app.
 
-Your app should look like this <live-example></live-example>.
+Your app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## The road ahead
 

@@ -25,7 +25,7 @@ that provide visibility into these key life moments and the ability to act when 
 
 A directive has the same set of lifecycle hooks, minus the hooks that are specific to component content and views.
 
-Try the <live-example></live-example>.
+Try the {% example_ref %}{% endexample_ref %}.
 
 <div id="hooks-overview"></div>
 ## Component lifecycle hooks
@@ -171,7 +171,7 @@ control over how these libraries are used.
 <div id="the-sample"></div>
 ## Lifecycle exercises
 
-The <live-example></live-example>
+The {% example_ref %}{% endexample_ref %}
 demonstrates the lifecycle hooks in action through a series of exercises
 presented as components under the control of the root `AppComponent`.
 

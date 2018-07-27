@@ -30,7 +30,7 @@ To satisfy these requirements, you'll add Angular’s router to the app.
   For more information about the router, read the [Routing and Navigation](/angular/guide/router) page.
 </div>
 
-When you're done with this page, the app should look like this <live-example></live-example>.
+When you're done with this page, the app should look like this {% example_ref %}{% endexample_ref %}.
 
 {%comment%}include ../../../_includes/_see-addr-bar{%endcomment%}
 
@@ -1207,7 +1207,7 @@ Look at the app now. The dashboard, heroes, and navigation links are styled.
 
 ## App structure and code
 
-Review the sample source code in the <live-example></live-example> for this page.
+Review the sample source code in the {% example_ref %}{% endexample_ref %} for this page.
 Verify that you have the following structure:
 
 <div class="ul-filetree" markdown="1">
@@ -1242,7 +1242,7 @@ Here's what you achieved in this page:
 - You shared the `HeroService` among multiple components.
 - You added the `uppercase` pipe to format data.
 
-Your app should look like this <live-example></live-example>.
+Your app should look like this {% example_ref %}{% endexample_ref %}.
 
 ### The road ahead
 

@@ -20,7 +20,7 @@ component class instance (the *component*) and its user-facing template.
 You might be familiar with the combination of component and template from experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
 In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
 
-The <live-example></live-example>
+The {% example_ref %}{% endexample_ref %}
 demonstrates all of the syntax and code snippets described in this page.
 
 <div class="l-hr"></div>

@@ -20,7 +20,7 @@ You'll need to break it up into sub-components, each focused on a specific task 
 Eventually, the `AppComponent` could become a simple shell that hosts those sub-components.
 
 In this page, you'll take the first step in that direction by carving out the hero details into a separate, reusable component.
-When you're done, the app should look like this <live-example></live-example>.
+When you're done, the app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## Where you left off
 
@@ -318,7 +318,7 @@ Here's what you achieved in this page:
 * You learned to declare the app directives in a `directives` list.
 * You learned to bind a parent component to a child component.
 
-Your app should look like this <live-example></live-example>.
+Your app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## The road ahead
 

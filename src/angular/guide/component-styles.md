@@ -21,7 +21,7 @@ with components, enabling a more modular design than regular stylesheets.
 
 This page describes how to load and apply these component styles.
 
-Run the <live-example></live-example> of the code shown in this page.
+Run the {% example_ref %}{% endexample_ref %} of the code shown in this page.
 
 ## Using component styles
 

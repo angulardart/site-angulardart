@@ -12,7 +12,7 @@ nextpage:
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>
 In this part of the tutorial, you'll modify the starter app to display
 information about a hero. Then you'll add the ability to edit the hero's data.
-When you're done, the app should look like this <live-example></live-example>.
+When you're done, the app should look like this {% example_ref %}{% endexample_ref %}.
 
 ## Where you left off
 
@@ -249,7 +249,7 @@ Take stock of what you've built.
 * You added [formDirectives][] to the `directives` argument of the app's
   `@Component` annotation so that Angular knows where `ngModel` is defined.
 
-Your app should look like this <live-example></live-example>.
+Your app should look like this {% example_ref %}{% endexample_ref %}.
 
 Here are the files that you created or modified:
 

@@ -19,7 +19,7 @@ this user?_) and authorization (_What can this user do?_).
 
 For more information about the attacks and mitigations described below, see [OWASP Guide Project](https://www.owasp.org/index.php/Category:OWASP_Guide_Project).
 
-Try the <live-example></live-example> of the code shown in this page.
+Try the {% example_ref %}{% endexample_ref %} of the code shown in this page.
 
 ## Reporting vulnerabilities  {#report-issues}
 

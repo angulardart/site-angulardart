@@ -31,7 +31,7 @@ Angular can do whatever you need it to do.
 You'll cover a lot of ground at an introductory level, and you'll find many links
 to pages with greater depth.
 
-When you're done with this tutorial, the app will look like this <live-example name="toh-6"></live-example>.
+When you're done with this tutorial, the app will look like this {% example_ref toh-6 %}{% endexample_ref %}.
 
 ## The end game
 
