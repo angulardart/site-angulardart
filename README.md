@@ -77,6 +77,11 @@ The generated site is placed in the `publish` folder. To serve this folder use:
 
 - `superstatic --port 4001`
 
+Or, if you aren't testing redirects, use this command (which has the bonus of
+autorefreshing your browser after edits):
+
+- `jekyll serve --livereload`
+
 To view the generated site open [localhost:4001](http://localhost:4001/) in a browser.
 
 You can build, serve, and have a watcher for changes by running the following command:
