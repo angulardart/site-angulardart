@@ -9,6 +9,7 @@ import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
     as ng;
 // #enddocregion rootInjector
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
+import 'package:angular_tour_of_heroes/src/route_paths.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
@@ -68,7 +69,7 @@ void basicTests() {
 
 // #docregion go-to-detail
 void selectedHeroTests(InjectorProbe injector) {
-  const targetHero = <String, dynamic>{'id': 15, 'name': 'Magneta'};
+  const targetHero = {'id': 15, 'name': 'Magneta'};
 
   setUp(() async {
     await po.selectHero(4);
@@ -88,13 +89,16 @@ void selectedHeroTests(InjectorProbe injector) {
     await po.gotoDetail();
     final mockRouter = injector.get<MockRouter>(Router);
     final c = verify(mockRouter.navigate(captureAny));
-    expect(c.captured.single, '/heroes/${targetHero['id']}');
+    expect(
+        c.captured.single,
+        RoutePaths.hero
+            .toUrl(parameters: {RoutePaths.idParam: '${targetHero['id']}'}));
   });
   // #enddocregion go-to-detail
 
   test('select another hero', () async {
     await po.selectHero(0);
-    final heroData = <String, dynamic>{'id': 11, 'name': 'Mr. Nice'};
+    final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selected, heroData);
   });
   // #docregion go-to-detail

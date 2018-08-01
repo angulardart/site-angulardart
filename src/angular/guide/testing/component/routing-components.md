@@ -43,6 +43,7 @@ list of the generated root injector, as described in the section on
   import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
       as ng;
   import 'package:angular_tour_of_heroes/src/hero_service.dart';
+  import 'package:angular_tour_of_heroes/src/route_paths.dart';
   import 'package:mockito/mockito.dart';
   import 'package:pageloader/html.dart';
   import 'package:test/test.dart';

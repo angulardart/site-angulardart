@@ -43,7 +43,7 @@ class HeroListComponent implements OnInit {
   void onSelect(Hero hero) => selected = hero;
 
   String _heroUrl(int id) =>
-      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
 
   // #docregion gotoDetail, gotoDetail-stub
   Future<NavigationResult> gotoDetail() =>

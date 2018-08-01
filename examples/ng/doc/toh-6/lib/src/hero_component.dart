@@ -7,7 +7,7 @@ import 'package:angular_router/angular_router.dart';
 
 import 'hero.dart';
 import 'hero_service.dart';
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 
 @Component(
   selector: 'my-hero',
@@ -24,7 +24,7 @@ class HeroComponent implements OnActivate {
 
   @override
   void onActivate(_, RouterState current) async {
-    final id = paths.getId(current.parameters);
+    final id = RoutePaths.getId(current.parameters);
     if (id != null) hero = await (_heroService.get(id));
   }
 

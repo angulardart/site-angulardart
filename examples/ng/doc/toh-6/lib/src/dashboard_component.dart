@@ -6,7 +6,7 @@ import 'hero_service.dart';
 // #docregion search
 import 'hero_search_component.dart';
 // #enddocregion search
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 // #docregion search
 
 @Component(
@@ -24,7 +24,7 @@ class DashboardComponent implements OnInit {
   DashboardComponent(this._heroService);
 
   String heroUrl(int id) =>
-      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
 
   @override
   void ngOnInit() async {

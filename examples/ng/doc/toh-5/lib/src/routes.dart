@@ -30,6 +30,7 @@ class Routes {
     component: hero_template.HeroComponentNgFactory,
   );
   // #enddocregion hero
+
   // #docregion a-first-route
   static final heroes = RouteDefinition(
     routePath: RoutePaths.heroes,

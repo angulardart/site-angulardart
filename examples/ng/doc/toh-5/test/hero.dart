@@ -42,7 +42,7 @@ void main() {
     expect(fixture.rootElement.text.trim(), '');
   });
 
-  const targetHero = <String, dynamic>{'id': 15, 'name': 'Magneta'};
+  const targetHero = {'id': 15, 'name': 'Magneta'};
 
   group('${targetHero['name']} initial hero:', () {
     final Map updatedHero = <String, dynamic>{'id': targetHero['id']};

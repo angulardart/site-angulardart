@@ -272,7 +272,7 @@ function expectHeading(hLevel: number, expectedText: string): void {
 };
 
 function getHeroLiEltById(id: number): ElementFinder {
-  let spanForId = element(by.cssContainingText('li span.badge', id.toString()));
+  let spanForId = element(by.cssContainingText('li span.badge', `${id}`));
   return spanForId.element(by.xpath('..'));
 }
 

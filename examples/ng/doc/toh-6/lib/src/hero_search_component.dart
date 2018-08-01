@@ -4,7 +4,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:stream_transform/stream_transform.dart';
 
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 import 'hero_search_service.dart';
 import 'hero.dart';
 
@@ -48,7 +48,7 @@ class HeroSearchComponent implements OnInit {
   // #enddocregion search
 
   String _heroUrl(int id) =>
-      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
 
   Future<NavigationResult> gotoDetail(Hero hero) =>
       _router.navigate(_heroUrl(hero.id));
