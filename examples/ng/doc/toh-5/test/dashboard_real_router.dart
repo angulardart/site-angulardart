@@ -85,16 +85,13 @@ void main() {
   selector: 'test',
   template: '''
     <my-dashboard></my-dashboard>
-    <router-outlet [routes]="[heroRoute]"></router-outlet>
+    <router-outlet [routes]="[Routes.hero]"></router-outlet>
   ''',
   directives: [RouterOutlet, DashboardComponent],
-  providers: [ClassProvider(Routes)],
+  exports: [Routes],
 )
 class TestComponent {
-  final RouteDefinition heroRoute;
   final Router router;
 
-  TestComponent(Routes routes, this.router)
-      : heroRoute =
-            routes.all.firstWhere((def) => def.path == routes.hero.path);
+  TestComponent(this.router);
 }

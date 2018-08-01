@@ -1,8 +1,4 @@
 // #docregion v2
-// #docregion added-imports
-import 'dart:async';
-// #enddocregion added-imports
-
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 // #docregion added-imports
@@ -12,7 +8,7 @@ import 'package:angular_router/angular_router.dart';
 import 'hero.dart';
 // #docregion added-imports
 import 'hero_service.dart';
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 // #enddocregion added-imports
 
 // #docregion metadata, metadata-wo-style
@@ -41,8 +37,8 @@ class HeroComponent implements OnActivate {
 
   // #docregion OnActivate
   @override
-  Future<void> onActivate(_, RouterState current) async {
-    final id = paths.getId(current.parameters);
+  void onActivate(_, RouterState current) async {
+    final id = RoutePaths.getId(current.parameters);
     if (id != null) hero = await (_heroService.get(id));
   }
   // #enddocregion OnActivate

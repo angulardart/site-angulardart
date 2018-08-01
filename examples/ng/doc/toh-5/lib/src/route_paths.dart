@@ -1,20 +1,25 @@
 // #docregion v1
 import 'package:angular_router/angular_router.dart';
-// #enddocregion v1
 
-// #docregion dashboard
-final dashboard = RoutePath(path: 'dashboard');
-// #enddocregion dashboard
-// #docregion v1
-final heroes = RoutePath(path: 'heroes');
-// #docregion hero
-// #enddocregion v1
-const idParam = 'id';
-final hero = RoutePath(path: '${heroes.path}/:$idParam');
-// #enddocregion hero
+class RoutePaths {
+  // #enddocregion v1
+  // #docregion dashboard
+  static final dashboard = RoutePath(path: 'dashboard');
+  // #enddocregion dashboard
+  // #docregion v1
+  static final heroes = RoutePath(path: 'heroes');
+  // #enddocregion v1
 
-// #docregion getId
-int getId(Map<String, String> parameters) {
-  final id = parameters[idParam];
-  return id == null ? null : int.tryParse(id);
+  // #docregion hero
+  static const idParam = 'id';
+  static final hero = RoutePath(path: '${heroes.path}/:$idParam');
+  // #enddocregion hero
+
+  // #docregion getId
+  static int getId(Map<String, String> parameters) {
+    final id = parameters[idParam];
+    return id == null ? null : int.tryParse(id);
+  }
+  // #enddocregion getId
+  // #docregion v1
 }

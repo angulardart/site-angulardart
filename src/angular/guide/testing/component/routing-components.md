@@ -253,12 +253,12 @@ initialized with the full set of app routes:
   template: '''
     <h1>{!{title}!}</h1>
     <nav>
-      <a [routerLink]="routes.dashboard.toUrl()"
-         routerLinkActive="active">Dashboard</a>
-      <a [routerLink]="routes.heroes.toUrl()"
-         routerLinkActive="active">Heroes</a>
+      <a [routerLink]="RoutePaths.dashboard.toUrl()"
+         [routerLinkActive]="'active'">Dashboard</a>
+      <a [routerLink]="RoutePaths.heroes.toUrl()"
+         [routerLinkActive]="'active'">Heroes</a>
     </nav>
-    <router-outlet [routes]="routes.all"></router-outlet>
+    <router-outlet [routes]="Routes.all"></router-outlet>
   ''',
 ```
 
@@ -272,18 +272,15 @@ like this:
     selector: 'test',
     template: '''
       <my-dashboard></my-dashboard>
-      <router-outlet [routes]="[heroRoute]"></router-outlet>
+      <router-outlet [routes]="[Routes.hero]"></router-outlet>
     ''',
     directives: [RouterOutlet, DashboardComponent],
-    providers: [ClassProvider(Routes)],
+    exports: [Routes],
   )
   class TestComponent {
-    final RouteDefinition heroRoute;
     final Router router;
 
-    TestComponent(Routes routes, this.router)
-        : heroRoute =
-              routes.all.firstWhere((def) => def.path == routes.hero.path);
+    TestComponent(this.router);
   }
 ```
 

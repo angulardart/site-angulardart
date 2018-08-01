@@ -1,6 +1,4 @@
 // #docregion imports
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 
 import 'hero.dart';
@@ -27,7 +25,8 @@ class DashboardComponent implements OnInit {
   DashboardComponent(this._heroService);
   // #enddocregion ctor
 
-  Future<void> ngOnInit() async {
+  @override
+  void ngOnInit() async {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 // #docregion import-router
 import 'package:angular_router/angular_router.dart';
@@ -7,7 +5,7 @@ import 'package:angular_router/angular_router.dart';
 
 import 'hero.dart';
 import 'hero_service.dart';
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 
 // #docregion metadata, metadata-wo-styles
 @Component(
@@ -31,10 +29,11 @@ class DashboardComponent implements OnInit {
 
   // #docregion heroUrl
   String heroUrl(int id) =>
-      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: id.toString()});
   // #enddocregion heroUrl
 
-  Future<void> ngOnInit() async {
+  @override
+  void ngOnInit() async {
     heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 }

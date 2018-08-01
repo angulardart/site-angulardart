@@ -148,11 +148,13 @@ you'll need to do the following:
 <ul><li markdown="1">
 Define [route paths]({{pageUrl}}/1#route-paths):
 
-<?code-excerpt "lib/src/route_paths.dart" region="v1" title?>
+<?code-excerpt "lib/src/route_paths.dart" region="v1" plaster="none" title?>
 ```
   import 'package:angular_router/angular_router.dart';
-  // ···
-  final heroes = RoutePath(path: 'heroes');
+
+  class RoutePaths {
+    static final heroes = RoutePath(path: 'heroes');
+  }
 ```
 </li><li markdown="1">
 Define [route definitions]({{pageUrl}}/1#route-definitions):
@@ -161,17 +163,19 @@ Define [route definitions]({{pageUrl}}/1#route-definitions):
 ```
   import 'package:angular_router/angular_router.dart';
 
-  import 'route_paths.dart' as paths;
-  import 'hero_list_component.template.dart' as hlct;
+  import 'route_paths.dart';
+  import 'hero_list_component.template.dart' as hero_list_template;
+
+  export 'route_paths.dart';
 
   class Routes {
-    RoutePath get heroes => paths.heroes;
+    static final heroes = RouteDefinition(
+      routePath: RoutePaths.heroes,
+      component: hero_list_template.HeroListComponentNgFactory,
+    );
 
-    final List<RouteDefinition> all = [
-      RouteDefinition(
-        path: paths.heroes.path,
-        component: hlct.HeroListComponentNgFactory,
-      ),
+    static final all = <RouteDefinition>[
+      heroes,
     ];
   }
 ```
@@ -190,20 +194,15 @@ component template:
 <?code-excerpt "lib/app_component.dart (routes and template)" plaster="none" remove="/Hero|nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
 ```
   import 'src/routes.dart';
-
   @Component(
     template: '''
       ...
-      [!<router-outlet [routes]="routes.all"></router-outlet>!]
+      [!<router-outlet [routes]="Routes.all"></router-outlet>!]
     ''',
-    providers: [
-      ClassProvider(Routes),
-    ],
+    directives: [routerDirectives],
+    exports: [RoutePaths, Routes],
   )
   class AppComponent {
-    final Routes routes;
-
-    AppComponent(this.routes);
   }
 ```
 

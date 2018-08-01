@@ -3,7 +3,6 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/src/routes.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.template.dart'
     as ng;
@@ -23,7 +22,6 @@ DashboardPO po;
 
 @GenerateInjector([
   ValueProvider.forToken(appBaseHref, '/'),
-  ClassProvider(Routes),
   ClassProvider(HeroService),
   routerProviders,
   ClassProvider(Router, useClass: MockRouter),

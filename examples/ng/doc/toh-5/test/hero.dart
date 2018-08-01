@@ -3,7 +3,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/src/route_paths.dart' show idParam;
+import 'package:angular_tour_of_heroes/src/route_paths.dart';
 import 'package:angular_tour_of_heroes/src/hero_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_component.template.dart' as ng;
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
@@ -42,14 +42,14 @@ void main() {
     expect(fixture.rootElement.text.trim(), '');
   });
 
-  const targetHero = {'id': 15, 'name': 'Magneta'};
+  const targetHero = <String, dynamic>{'id': 15, 'name': 'Magneta'};
 
   group('${targetHero['name']} initial hero:', () {
-    final Map updatedHero = {'id': targetHero[idParam]};
+    final Map updatedHero = <String, dynamic>{'id': targetHero['id']};
 
     final mockRouterState = MockRouterState();
     when(mockRouterState.parameters)
-        .thenReturn({idParam: '${targetHero[idParam]}'});
+        .thenReturn({RoutePaths.idParam: '${targetHero['id']}'});
 
     setUp(() async {
       await fixture.update((c) => c.onActivate(null, mockRouterState));
