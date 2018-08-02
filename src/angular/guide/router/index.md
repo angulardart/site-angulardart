@@ -194,6 +194,7 @@ component template:
 <?code-excerpt "lib/app_component.dart (routes and template)" plaster="none" remove="/Hero|nav|routerLink|title/" replace="/(\s+)(.router-outlet.*)/$1...$1[!$2!]/g" title?>
 ```
   import 'src/routes.dart';
+
   @Component(
     template: '''
       ...
@@ -215,17 +216,17 @@ For details, see [RouterOutlet]({{pageUrl}}/1#routeroutlet).
 A [RouterLink][] directive on an anchor tag gives the router control over the anchor.
 Bind each `RouterLink` directive to a template expression that evaluates to a URL.
 
-<?code-excerpt "lib/app_component_1.dart (template and styles)" region="template" replace="/\[routerLink\]|routerLinkActive/[!$&!]/g" title?>
+<?code-excerpt "lib/app_component_1.dart (template and styles)" region="template" replace="/\[routerLink(Active)?\]/[!$&!]/g" title?>
 ```
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [![routerLink]!]="routes.crises.toUrl()"
-         [[!routerLinkActive!]]="'active-route'">Crisis Center</a>
-      <a [![routerLink]!]="routes.heroes.toUrl()"
-         [[!routerLinkActive!]]="'active-route'">Heroes</a>
+      <a [![routerLink]!]="RoutePaths.crises.toUrl()"
+         [![routerLinkActive]!]="'active-route'">Crisis Center</a>
+      <a [![routerLink]!]="RoutePaths.heroes.toUrl()"
+         [![routerLinkActive]!]="'active-route'">Heroes</a>
     </nav>
-    <router-outlet [routes]="routes.all"></router-outlet>
+    <router-outlet [routes]="Routes.all"></router-outlet>
   ''',
   styles: ['.active-route {color: #039be5}'],
 ```

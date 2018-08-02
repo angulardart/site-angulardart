@@ -23,8 +23,7 @@ class DashboardComponent implements OnInit {
 
   DashboardComponent(this._heroService);
 
-  String heroUrl(int id) =>
-      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
+  String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
   @override
   void ngOnInit() async {

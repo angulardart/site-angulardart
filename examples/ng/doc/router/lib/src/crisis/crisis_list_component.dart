@@ -8,7 +8,6 @@ import 'crisis.dart';
 import 'crisis_service.dart';
 import 'dialog_service.dart';
 // #docregion routes
-import 'route_paths.dart' as paths;
 import 'routes.dart';
 
 @Component(
@@ -23,10 +22,10 @@ import 'routes.dart';
   providers: [
     ClassProvider(CrisisService),
     ClassProvider(DialogService),
-    ClassProvider(Routes),
   ],
   // #enddocregion providers
   // #docregion routes
+  exports: [RoutePaths, Routes],
 )
 // #docregion CanReuse
 class CrisisListComponent extends Object
@@ -34,13 +33,12 @@ class CrisisListComponent extends Object
     implements OnActivate, OnDeactivate {
   // #enddocregion CanReuse
   final CrisisService _crisisService;
-  final Routes routes;
   final Router _router;
   List<Crisis> crises;
   Crisis selected;
   String get loggerPrefix => null; // 'CrisisListComponent';
 
-  CrisisListComponent(this._crisisService, this._router, this.routes) {
+  CrisisListComponent(this._crisisService, this._router) {
     log('created');
   }
   // #enddocregion routes
@@ -65,7 +63,7 @@ class CrisisListComponent extends Object
 
   // #docregion _select
   Crisis _selectHero(RouterState routerState) {
-    final id = paths.getId(routerState.parameters);
+    final id = getId(routerState.parameters);
     return id == null
         ? null
         : crises.firstWhere((e) => e.id == id, orElse: () => null);
@@ -85,7 +83,7 @@ class CrisisListComponent extends Object
   // #enddocregion onSelect
 
   String _crisisUrl(int id) =>
-      paths.crisis.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.crisis.toUrl(parameters: {idParam: '$id'});
 
   // #docregion gotoDetail
   Future<NavigationResult> _gotoDetail(int id) =>

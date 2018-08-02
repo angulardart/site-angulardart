@@ -1,14 +1,12 @@
 import 'package:angular/angular.dart';
-// #docregion router-import
+// #docregion angular_router
 import 'package:angular_router/angular_router.dart';
-// #enddocregion router-import
+// #enddocregion angular_router
 
+import 'src/hero_service.dart';
 // #docregion routes-and-template
 import 'src/routes.dart';
-// #enddocregion routes-and-template
-import 'src/hero_service.dart';
 
-// #docregion routes-and-template
 @Component(
   // #enddocregion routes-and-template
   selector: 'my-app',
@@ -22,7 +20,7 @@ import 'src/hero_service.dart';
       <a [routerLink]="RoutePaths.heroes.toUrl()"
          [routerLinkActive]="'active'">Heroes</a>
     </nav>
-    <!-- #docregion routes-and-template --> 
+    <!-- #docregion routes-and-template -->
     <router-outlet [routes]="Routes.all"></router-outlet>
   ''',
   // #enddocregion template, routes-and-template

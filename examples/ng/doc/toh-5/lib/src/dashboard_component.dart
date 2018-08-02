@@ -28,8 +28,7 @@ class DashboardComponent implements OnInit {
   // #enddocregion ctor
 
   // #docregion heroUrl
-  String heroUrl(int id) =>
-      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
+  String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
   // #enddocregion heroUrl
 
   @override

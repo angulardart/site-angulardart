@@ -8,7 +8,6 @@ nextpage:
   title: Security
   url: /angular/guide/security
 ---
-<!-- FilePath: src/angular/guide/router/appendices.md -->
 <?code-excerpt path-base="examples/ng/doc/router"?>
 {% include_relative _milestone-nav.md selectedOption="appendices" %}
 
@@ -29,7 +28,7 @@ You can bind the `RouterLink` directive to such an list like this:
 
 <?code-excerpt "lib/app_component_1.dart (template)" retain="/heroes|Heroes/"?>
 ```
-  <a [routerLink]="routes.heroes.toUrl()"
+  <a [routerLink]="RoutePaths.heroes.toUrl()"
      [routerLinkActive]="'active-route'">Heroes</a>
 ```
 
@@ -82,8 +81,8 @@ navigates from the root of the app down to the *Dragon Crisis*:
 
 <?fixme-code-excerpt "lib/app_component_4.dart (dragon-crisis)"?>
 ```
-  // FIXME:
-  <a [routerLink]="routes.crises.path"
+  // FIXME: This is out-of-date
+  <a [routerLink]="Routes.crises.toUrl()"
      [routerLinkActive]="'active-route'">Crisis Center</a>
   <a [routerLink]="['CrisisCenter', 'Crisis Center', 'CrisisDetail', {'id': '1'}]">Dragon Crisis</a>
 ```

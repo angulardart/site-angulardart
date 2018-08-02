@@ -8,19 +8,15 @@ import 'src/routes_2.dart';
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="routes.crises.toUrl()"
+      <a [routerLink]="RoutePaths.crises.toUrl()"
          [routerLinkActive]="'active-route'">Crisis Center</a>
-      <a [routerLink]="routes.heroes.toUrl()"
+      <a [routerLink]="RoutePaths.heroes.toUrl()"
          [routerLinkActive]="'active-route'">Heroes</a>
     </nav>
-    <router-outlet [routes]="routes.all"></router-outlet>
+    <router-outlet [routes]="Routes.all"></router-outlet>
   ''',
   styles: ['.active-route {color: #039be5}'],
   directives: [routerDirectives],
-  providers: [ClassProvider(Routes)],
+  exports: [RoutePaths, Routes],
 )
-class AppComponent {
-  final Routes routes;
-
-  AppComponent(this.routes);
-}
+class AppComponent {}

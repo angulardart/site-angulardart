@@ -6,29 +6,31 @@ import 'crisis_component.template.dart' as crisis_template;
 // #docregion home
 import 'crisis_list_home_component.template.dart' as crisis_list_home_template;
 // #docregion v1
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
+
+export 'route_paths.dart';
 
 class Routes {
   // #enddocregion home
-  RoutePath get crisis => paths.crisis;
+  static final crisis = RouteDefinition(
+    routePath: RoutePaths.crisis,
+    component: crisis_template.CrisisComponentNgFactory,
+  );
   // #enddocregion v1
   // #docregion home
-  RoutePath get home => paths.home;
+  static final home = RouteDefinition(
+    routePath: RoutePaths.home,
+    component: crisis_list_home_template.CrisisListHomeComponentNgFactory,
+    useAsDefault: true,
+  );
   // #docregion v1
 
-  final List<RouteDefinition> all = [
+  static final all = <RouteDefinition>[
     // #enddocregion home
-    RouteDefinition(
-      routePath: paths.crisis,
-      component: crisis_template.CrisisComponentNgFactory,
-    ),
+    crisis,
     // #enddocregion v1
     // #docregion home
-    RouteDefinition(
-      routePath: paths.home,
-      component: crisis_list_home_template.CrisisListHomeComponentNgFactory,
-      useAsDefault: true,
-    ),
+    home,
     // #docregion v1
   ];
 }

@@ -1,31 +1,36 @@
 import 'package:angular_router/angular_router.dart';
 
-import 'route_paths.dart' as paths;
 import 'crisis/crisis_list_component.template.dart' as crisis_list_template;
 import 'hero/hero_list_component.template.dart' as hero_list_template;
 import 'hero/hero_component.template.dart' as hero_template;
 import 'not_found_component.template.dart' as not_found_template;
+import 'route_paths.dart';
+
+export 'route_paths.dart';
 
 class Routes {
-  RoutePath get crises => paths.crises;
-  RoutePath get heroes => paths.heroes;
+  static final crises = RouteDefinition(
+    routePath: RoutePaths.crises,
+    component: crisis_list_template.CrisisListComponentNgFactory,
+  );
 
-  final List<RouteDefinition> all = [
-    RouteDefinition(
-      routePath: paths.crises,
-      component: crisis_list_template.CrisisListComponentNgFactory,
-    ),
-    RouteDefinition(
-      routePath: paths.heroes,
-      component: hero_list_template.HeroListComponentNgFactory,
-    ),
-    RouteDefinition(
-      routePath: paths.hero,
-      component: hero_template.HeroComponentNgFactory,
-    ),
+  static final heroes = RouteDefinition(
+    routePath: RoutePaths.heroes,
+    component: hero_list_template.HeroListComponentNgFactory,
+  );
+
+  static final hero = RouteDefinition(
+    routePath: RoutePaths.hero,
+    component: hero_template.HeroComponentNgFactory,
+  );
+
+  static final all = <RouteDefinition>[
+    crises,
+    heroes,
+    hero,
     RouteDefinition.redirect(
       path: '',
-      redirectTo: paths.heroes.toUrl(),
+      redirectTo: RoutePaths.heroes.toUrl(),
     ),
     RouteDefinition(
       path: '.*',

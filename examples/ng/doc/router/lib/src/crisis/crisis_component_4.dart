@@ -5,7 +5,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
 
 // #docregion import
-import 'route_paths.dart' as paths;
+import 'route_paths.dart';
 // #enddocregion import
 import 'crisis.dart';
 import 'crisis_service.dart';
@@ -25,11 +25,12 @@ class CrisisComponent implements OnActivate {
 
   @override
   void onActivate(_, RouterState current) async {
-    final id = paths.getId(current.parameters);
+    final id = getId(current.parameters);
     if (id != null) crisis = await (_crisisService.get(id));
   }
 
   // #docregion goBack
-  Future<NavigationResult> goBack() => _router.navigate(paths.home.toUrl());
+  Future<NavigationResult> goBack() =>
+      _router.navigate(RoutePaths.home.toUrl());
   // #enddocregion goBack
 }

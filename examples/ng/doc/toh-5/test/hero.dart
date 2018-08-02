@@ -49,7 +49,7 @@ void main() {
 
     final mockRouterState = MockRouterState();
     when(mockRouterState.parameters)
-        .thenReturn({RoutePaths.idParam: '${targetHero['id']}'});
+        .thenReturn({idParam: '${targetHero['id']}'});
 
     setUp(() async {
       await fixture.update((c) => c.onActivate(null, mockRouterState));

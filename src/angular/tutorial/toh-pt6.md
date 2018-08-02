@@ -738,7 +738,7 @@ Create the `HeroSearchComponent` class and metadata.
     }
 
     String _heroUrl(int id) =>
-        RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
+        RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
     Future<NavigationResult> gotoDetail(Hero hero) =>
         _router.navigate(_heroUrl(hero.id));

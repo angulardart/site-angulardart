@@ -86,10 +86,8 @@ void selectedHeroTests(InjectorProbe injector) {
     await po.gotoDetail();
     final mockRouter = injector.get<MockRouter>(Router);
     final c = verify(mockRouter.navigate(captureAny));
-    expect(
-        c.captured.single,
-        RoutePaths.hero
-            .toUrl(parameters: {RoutePaths.idParam: '${targetHero['id']}'}));
+    expect(c.captured.single,
+        RoutePaths.hero.toUrl(parameters: {idParam: '${targetHero['id']}'}));
   });
 
   test('select another hero', () async {

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import '../route_paths.dart' as paths;
+import '../route_paths.dart';
 import 'hero.dart';
 import 'hero_service.dart';
 
@@ -33,7 +33,7 @@ class HeroListComponent implements OnInit {
   // #enddocregion onSelect
 
   String _heroUrl(int id) =>
-      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
   Future<NavigationResult> gotoDetail() =>
       _router.navigate(_heroUrl(selected.id));

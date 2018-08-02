@@ -7,7 +7,6 @@ import 'crisis.dart';
 import 'crisis_service.dart';
 import 'dialog_service.dart';
 // #docregion routes
-import 'route_paths.dart' as paths;
 import 'routes.dart';
 
 @Component(
@@ -22,19 +21,18 @@ import 'routes.dart';
   providers: [
     ClassProvider(CrisisService),
     ClassProvider(DialogService),
-    ClassProvider(Routes),
   ],
   // #enddocregion providers
   // #docregion routes
+  exports: [RoutePaths, Routes],
 )
 class CrisisListComponent implements OnActivate {
   final CrisisService _crisisService;
-  final Routes routes;
   final Router _router;
   List<Crisis> crises;
   Crisis selected;
 
-  CrisisListComponent(this._crisisService, this._router, this.routes);
+  CrisisListComponent(this._crisisService, this._router);
   // #enddocregion routes
 
   Future<void> _getCrises() async {
@@ -48,7 +46,7 @@ class CrisisListComponent implements OnActivate {
   }
 
   Crisis _select(RouterState routerState) {
-    final id = paths.getId(routerState.parameters);
+    final id = getId(routerState.parameters);
     return id == null
         ? null
         : crises.firstWhere((e) => e.id == id, orElse: () => null);
@@ -59,7 +57,7 @@ class CrisisListComponent implements OnActivate {
   // #enddocregion onSelect, onSelect-_gotoDetail
 
   String _crisisUrl(int id) =>
-      paths.crisis.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.crisis.toUrl(parameters: {idParam: '$id'});
 
   // #docregion _gotoDetail, onSelect-_gotoDetail
   Future<NavigationResult> _gotoDetail(int id) =>

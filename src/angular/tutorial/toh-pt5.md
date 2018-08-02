@@ -192,7 +192,7 @@ directives ([routerDirectives][]), and
 configuration classes. You get them all by importing
 the router library:
 
-<?code-excerpt "lib/app_component.dart (router import)" title?>
+<?code-excerpt "lib/app_component.dart (angular_router)" title?>
 ```
   import 'package:angular_router/angular_router.dart';
 ```
@@ -351,7 +351,7 @@ The app component code should look like this:
 <?code-excerpt "lib/app_component.dart (routes and template)" replace="/(template: ''')\n/$1/g; /'''\s*\/\//'''/g; /(.router-outlet|directives|exports).*/[!$&!]/g" title?>
 ```
   import 'src/routes.dart';
-  // ···
+
   @Component(
     // ···
     template: ''' ···
@@ -421,8 +421,8 @@ and the list of heroes displays.
   import 'package:angular/angular.dart';
   import 'package:angular_router/angular_router.dart';
 
-  import 'src/routes.dart';
   import 'src/hero_service.dart';
+  import 'src/routes.dart';
 
   @Component(
     selector: 'my-app',
@@ -686,8 +686,12 @@ First, define the route path:
 
 <?code-excerpt "lib/src/route_paths.dart (hero)" title?>
 ```
-  static const idParam = 'id';
-  static final hero = RoutePath(path: '${heroes.path}/:$idParam');
+  const idParam = 'id';
+
+  class RoutePaths {
+    // ···
+    static final hero = RoutePath(path: '${heroes.path}/:$idParam');
+  }
 ```
 
 The colon (:) in the path indicates that `:$idParam` (`:id`) is a placeholder
@@ -804,7 +808,7 @@ the [onActivate()][] [router lifecycle hook][]:
     // ···
     @override
     void onActivate(_, RouterState current) async {
-      final id = RoutePaths.getId(current.parameters);
+      final id = getId(current.parameters);
       if (id != null) hero = await (_heroService.get(id));
     }
     // ···
@@ -816,7 +820,7 @@ extracts the `id` from the [RouterState.parameters][] map.
 
 <?code-excerpt "lib/src/route_paths.dart (getId)" title?>
 ```
-  static int getId(Map<String, String> parameters) {
+  int getId(Map<String, String> parameters) {
     final id = parameters[idParam];
     return id == null ? null : int.tryParse(id);
   }
@@ -918,8 +922,7 @@ Update the dashboard component:
 
 <?code-excerpt "lib/src/dashboard_component.dart (heroUrl)" title?>
 ```
-  String heroUrl(int id) =>
-      RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
+  String heroUrl(int id) => RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 ```
 
 Edit the dashboard template:
@@ -938,15 +941,19 @@ Edit the dashboard template:
   </[!a!]>
 ```
 
-As described in the
-[Router links](#router-links) section of this page, top-level navigation in
-the `AppComponent` template has router links set to paths like, `/dashboard` and `/heroes`.
-This time, you're binding to the parameterized `hero` path you defined earlier:
+As described in the [Router links](#router-links) section of this page,
+top-level navigation in the `AppComponent` template has router links set to
+paths like, `/dashboard` and `/heroes`. This time, you're binding to the
+parameterized `hero` path you defined earlier:
 
 <?code-excerpt "lib/src/route_paths.dart (hero)"?>
 ```
-  static const idParam = 'id';
-  static final hero = RoutePath(path: '${heroes.path}/:$idParam');
+  const idParam = 'id';
+
+  class RoutePaths {
+    // ···
+    static final hero = RoutePath(path: '${heroes.path}/:$idParam');
+  }
 ```
 
 The `heroUrl()` method generates the string representation of the path using the
@@ -1082,7 +1089,7 @@ Here's the revised `HeroListComponent` class:
     void onSelect(Hero hero) => selected = hero;
 
     String _heroUrl(int id) =>
-        RoutePaths.hero.toUrl(parameters: {RoutePaths.idParam: '$id'});
+        RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
     Future<NavigationResult> gotoDetail() =>
         _router.navigate(_heroUrl(selected.id));

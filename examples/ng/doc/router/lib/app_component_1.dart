@@ -14,12 +14,12 @@ import 'src/routes_1.dart';
   template: '''
     <h1>Angular Router</h1>
     <nav>
-      <a [routerLink]="routes.crises.toUrl()"
+      <a [routerLink]="RoutePaths.crises.toUrl()"
          [routerLinkActive]="'active-route'">Crisis Center</a>
-      <a [routerLink]="routes.heroes.toUrl()"
+      <a [routerLink]="RoutePaths.heroes.toUrl()"
          [routerLinkActive]="'active-route'">Heroes</a>
     </nav>
-    <router-outlet [routes]="routes.all"></router-outlet>
+    <router-outlet [routes]="Routes.all"></router-outlet>
   ''',
   // #enddocregion template-and-directives
   styles: ['.active-route {color: #039be5}'],
@@ -27,11 +27,7 @@ import 'src/routes_1.dart';
   // #docregion template-and-directives
   directives: [routerDirectives],
   // #enddocregion template-and-directives
-  providers: [ClassProvider(Routes)],
   // #docregion routes
+  exports: [RoutePaths, Routes],
 )
-class AppComponent {
-  final Routes routes;
-
-  AppComponent(this.routes);
-}
+class AppComponent {}

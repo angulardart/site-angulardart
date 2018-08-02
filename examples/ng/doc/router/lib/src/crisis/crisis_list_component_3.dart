@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import '../route_paths.dart' as paths;
+import '../route_paths.dart';
 import 'crisis.dart';
 import 'crisis_service.dart';
 
@@ -34,7 +34,7 @@ class CrisisListComponent implements OnActivate {
 
   // #docregion _select
   Crisis _select(RouterState routerState) {
-    final id = paths.getId(routerState.queryParameters);
+    final id = getId(routerState.queryParameters);
     return id == null
         ? null
         : crises.firstWhere((e) => e.id == id, orElse: () => null);
@@ -46,7 +46,7 @@ class CrisisListComponent implements OnActivate {
   // #enddocregion onSelect, onSelect-_gotoDetail
 
   String _crisisUrl(int id) =>
-      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+      RoutePaths.hero.toUrl(parameters: {idParam: '$id'});
 
   // #docregion _gotoDetail, onSelect-_gotoDetail
   Future<NavigationResult> _gotoDetail(int id) =>

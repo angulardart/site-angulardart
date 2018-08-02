@@ -55,7 +55,7 @@ void main() {
 
     final mockRouterState = MockRouterState();
     when(mockRouterState.parameters)
-        .thenReturn({RoutePaths.idParam: '${targetHero['id']}'});
+        .thenReturn({idParam: '${targetHero['id']}'});
     MockLocation mockLocation;
 
     setUp(() async {

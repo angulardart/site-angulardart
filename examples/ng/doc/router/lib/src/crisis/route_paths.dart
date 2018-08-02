@@ -1,19 +1,23 @@
 // #docregion v1
 import 'package:angular_router/angular_router.dart';
 
-import '../route_paths.dart';
+import '../route_paths.dart' as _parent;
 
 export '../route_paths.dart' show idParam, getId;
 
-final crisis = RoutePath(
-  path: ':$idParam',
-  parent: crises,
-);
-// #enddocregion v1
+class RoutePaths {
+  static final crisis = RoutePath(
+    path: ':${_parent.idParam}',
+    parent: _parent.RoutePaths.crises,
+  );
+  // #enddocregion v1
 
-// #docregion home
-final home = RoutePath(
-  path: '',
-  parent: crises,
-  useAsDefault: true,
-);
+  // #docregion home
+  static final home = RoutePath(
+    path: '',
+    parent: _parent.RoutePaths.crises,
+    useAsDefault: true,
+  );
+  // #enddocregion home
+  // #docregion v1
+}
