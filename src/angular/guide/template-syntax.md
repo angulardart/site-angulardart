@@ -664,11 +664,7 @@ In general, stick to data properties and to methods that return values and do no
 
 ### Return the proper type
 
-The template expression should evaluate to the type of value expected by the target property:
-* Return a string if the target property expects a string.
-* Return a number if the target property expects a number.
-* Return an object if the target property expects an object.
-
+The template expression should evaluate to the type of value expected by the target property.
 The `hero` property of the `HeroDetail` component expects a `Hero` object, which is exactly what you're sending in the property binding:
 
 <?code-excerpt "lib/app_component.html (property-binding-4)"?>
