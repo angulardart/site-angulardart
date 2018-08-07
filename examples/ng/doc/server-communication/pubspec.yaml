@@ -3,12 +3,12 @@ description: Server Communication
 version: 0.0.1
 
 environment:
-  sdk: '>=2.0.0-dev.68.0 <3.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  angular: ^5.0.0-beta
+  angular: ^5.0.0
   http: ^0.11.0
-  jsonpadding: ^1.0.1
+  jsonpadding: ^1.0.2
   stream_transform: ^0.0.5
 
 dev_dependencies:

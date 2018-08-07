@@ -73,7 +73,7 @@ const config = {
   _dgeniLogLevel: _logLevel,
   _logLevel: _logLevel,
   angulario: angulario,
-  dartdoc: 'pub global run dartdoc',
+  dartdoc: 'dartdoc', // FIXME(https://github.com/dart-lang/dartdoc/issues/1733), was: 'pub global run dartdoc',
   _dartdocProj: ['acx', 'forms', 'ng', 'router', 'test'],
   dartdocProj: "initialized below",
   exAppPubGetOrUpgradeCmd: 'get', // or 'upgrade', see https://github.com/dart-lang/site-webdev/issues/1195

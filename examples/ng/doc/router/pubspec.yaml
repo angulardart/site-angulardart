@@ -3,15 +3,15 @@ description: Router Example
 version: 0.0.1
 
 environment:
-  sdk: '>=2.0.0-dev.68.0 <3.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 # #docregion dependencies, dependencies-wo-forms
 dependencies:
-  angular: ^5.0.0-beta
+  angular: ^5.0.0
   # #enddocregion dependencies-wo-forms
-  angular_forms: ^2.0.0-beta
+  angular_forms: ^2.0.0
   # #docregion dependencies-wo-forms
-  angular_router: ^2.0.0-alpha+15
+  angular_router: ^2.0.0-alpha+19
 # #enddocregion dependencies, dependencies-wo-forms
 
 dev_dependencies:

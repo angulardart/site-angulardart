@@ -174,9 +174,9 @@ router is in its own package, first add the package to the app's pubspec:
 +++ toh-5/pubspec.yaml
 @@ -8,11 +8,13 @@
  dependencies:
-   angular: ^5.0.0-beta
-   angular_forms: ^2.0.0-beta
-+  angular_router: ^2.0.0-alpha+15
+   angular: ^5.0.0
+   angular_forms: ^2.0.0
++  angular_router: ^2.0.0-alpha+19
 ```
 
 Not all apps need routing, which is why the Angular router is

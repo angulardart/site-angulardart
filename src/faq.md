@@ -1,8 +1,6 @@
 ---
-layout: default
-permalink: /faq
-title: "FAQ"
-description: "FAQ and other tips for using Dart for web development."
+title: FAQ
+description: FAQ and other tips for using Dart for web development.
 ---
 
 This FAQ applies to web programming. For more general Dart questions,
@@ -30,12 +28,10 @@ We support the latest version of the following browsers:
 Although no production browsers can execute Dart code directly,
 all modern browsers can execute Dart code that's been compiled to JavaScript.
 
-#### Q. How do I debug an app once it has been compiled to JavaScript?
+#### Q. How do I debug an app?
 
-Dart web apps are easiest to debug with an IDE, like WebStorm.
-{% comment %}
-update-for-dart-2
-{% endcomment %}
+For setup details and a walkthrough, see [Debugging Dart Web Apps](/guides/debugging).
+
 The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
 
@@ -86,7 +82,7 @@ few features of JavaScript, such as prototypes and the global
 makes it easier to do code completion and refactoring. And Dart adds
 some goodies. To name a few:
 {% comment %}
-update-for-dart-2.0
+update-for-dart-2
 {% endcomment %}
 
 * User-defined operator methods.  We like the lightweight, readable code
@@ -98,7 +94,10 @@ update-for-dart-2.0
   binding of <code>this</code> and full block-level lexical scoping,
   no gotchas.
 
-{% include optional-types-2.0.html %}
+<aside class="alert alert-info" markdown="1">
+  **Dart 2 note:** Types aren't optional in Dart 2. For more information, see
+  [Dart 2.]({{site.dartlang}}/dart-2)
+</aside>
 
 Dart is a full language with its own semantics.
 Dart differs from JavaScript in many ways, including:

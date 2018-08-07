@@ -672,22 +672,6 @@ The `hero` property of the `HeroDetail` component expects a `Hero` object, which
   <my-hero [hero]="currentHero"></my-hero>
 ```
 
-<div class="alert alert-info" markdown="1">
-  <h4>Checked mode type exceptions</h4>
-
-  In checked mode, if the template expression result type and the target
-  property type are not assignment compatible, then a type exception will
-  be thrown. For information on checked mode, see [Important
-  concepts]({{site.dartlang}}/guides/language/language-tour#important-concepts)
-  in the Dart language tour.
-</div>
-
-{% include checked-mode-2.0.html %}
-
-{% comment %}
-update-for-dart-2
-{% endcomment %}
-
 ### Remember the brackets
 
 The brackets tell Angular to evaluate the template expression.
@@ -695,28 +679,19 @@ If you omit the brackets, Angular treats the string as a constant
 and *initializes the target property* with that string.
 It does *not* evaluate the string!
 
-Don't make the following mistake:
+If you forget the brackets around the `hero` property like this:
 
-<?code-excerpt "lib/app_component.html (property-binding-6)"?>
+<?code-excerpt "lib/app_component.html (property-binding-6)" remove="--" replace="/DON'T.*/[!\x3C-- $& --\x3E!]/g"?>
 ```
-  <!-- ERROR: A value of type 'String' can't be assigned to a variable of type 'Hero'.
+  [!<-- DON'T do this: -->!]
   <my-hero hero="currentHero"></my-hero>
-  -->
 ```
 
-<div class="alert alert-info" markdown="1">
-  <h4>Checked mode type exception example</h4>
+You'll get the following build error:
 
-  In checked mode, the code above will result in a type exception:
-  `String` isn't a subtype of `Hero`.
-</div>
-
-{% include checked-mode-2.0.html %}
-
-{% comment %}
-update-for-dart-2
-{% endcomment %}
-
+```console
+[error] A value of type 'String' can't be assigned to a variable of type 'Hero'.
+```
 
 ### One-time string initialization {#one-time-initialization}
 
@@ -1559,34 +1534,6 @@ Bind the directive to a condition expression like `isActive` in this example.
 When the `isActive` expression returns a true value, `NgIf` adds the `HeroDetailComponent` to the DOM.
 When the expression is false, `NgIf` removes the `HeroDetailComponent`
 from the DOM, destroying that component and all of its sub-components.
-
-<div class="alert alert-info" markdown="1">
-  <h4>No truthy/falsy values</h4>
-
-  In checked mode, Dart expects Boolean values
-  (those with type `bool`) to be either `true` or `false`.
-  Even in production mode, the only value Dart treats as `true` is
-  the value `true`; all other values are `false`.
-  TypeScript and JavaScript, on the other hand, treat
-  many values (including non-null objects) as true.
-  A TypeScript Angular program, for example, often has code like
-  `*ngIf="currentHero"` where a Dart program has code like
-  `*ngIf="currentHero != null"`.
-
-  When converting TypeScript code to Dart code, watch out for
-  true/false problems. For example, forgetting the `!= null`
-  can lead to exceptions in checked mode, such as
-  "EXCEPTION: type 'Hero' is not a subtype of type 'bool' of 'boolean expression'".
-  For more information, see
-  [Booleans]({{site.dartlang}}/guides/language/language-tour#booleans)
-  in the [Dart language tour.]({{site.dartlang}}/guides/language/language-tour)
-</div>
-
-{% include checked-mode-2.0.html %}
-
-{% comment %}
-update-for-dart-2
-{% endcomment %}
 
 #### Show/hide is not the same thing
 

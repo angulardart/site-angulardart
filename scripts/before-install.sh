@@ -32,7 +32,9 @@ if [[ -z "$CI_TASK" || "$CI_TASK" == build* ]]; then
   travis_fold end before_install.npm_install_shared
 
   travis_fold start before_install.dartdoc
-    (set -x; pub global activate dartdoc)
+    # FIXME(https://github.com/dart-lang/dartdoc/issues/1733)
+    # (set -x; pub global activate dartdoc)
+    echo "Skipping: 'pub global activate dartdoc' because of https://github.com/dart-lang/dartdoc/issues/1733"
   travis_fold end before_install.dartdoc
 
   ./scripts/get-ng-repo.sh

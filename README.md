@@ -135,19 +135,6 @@ gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
                     # so you'll lose uncommitted work under `src`!
 ```
 
-## Prepping for Dart 2.0
-
-Please add the following comment to docs that will need
-updating for Dart 2.0. We're doing what we can now, but some things
-are not yet ready.
-
-<pre>
-{% comment %}
-update-for-dart-2
-{% endcomment %}
-</pre>
-
-
 [Build Status SVG]: https://travis-ci.org/dart-lang/site-webdev.svg?branch=master
 [Chrome]: https://www.google.ca/chrome
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
