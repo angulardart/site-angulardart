@@ -55,7 +55,7 @@ app:
 * [Dependency injection](#dependency-injection)
 
 <div class="l-sub-section" markdown="1">
-  The code referenced on this page is available as a {% example_ref %}{% endexample_ref %}.
+  The code referenced on this page is available as a {% example_ref %}.
 </div>
 
 ## Modules

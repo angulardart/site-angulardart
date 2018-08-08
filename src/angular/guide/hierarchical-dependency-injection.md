@@ -18,7 +18,7 @@ there is actually a tree of injectors that parallel an app's component tree.
 You can reconfigure the injectors at any level of that component tree.
 
 In this page you'll explore this system and learn how to use it to your advantage.
-Try the {% example_ref %}{% endexample_ref %}.
+Try the {% example_ref %}.
 
 ## The injector tree
 
@@ -276,7 +276,7 @@ No tax return overwriting. No mess.
 
 <div class="l-sub-section" markdown="1">
   The rest of the scenario code relies on other Angular features and techniques that you can learn about elsewhere in the documentation.
-  You can review it and download it from the {% example_ref %}{% endexample_ref %}.
+  You can review it and download it from the {% example_ref %}.
 </div>
 
 ### Scenario: specialized providers

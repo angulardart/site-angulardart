@@ -17,7 +17,7 @@ User actions such as clicking a link, pushing a button, and entering text raise
 DOM events. This page explains how to bind those events to component event
 handlers using the Angular event binding syntax.
 
-Run the {% example_ref %}{% endexample_ref %}.
+Run the {% example_ref %}.
 
 ## Binding to user input events
 

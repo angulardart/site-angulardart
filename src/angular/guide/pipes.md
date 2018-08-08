@@ -26,7 +26,7 @@ You can almost think of them as styles.
 In fact, you might like to apply them in your HTML templates as you do styles.
 
 Introducing Angular pipes, a way to write display-value transformations that you can declare in your HTML.
-Try the {% example_ref %}{% endexample_ref %}.
+Try the {% example_ref %}.
 
 ## Using pipes
 
@@ -246,7 +246,7 @@ Note the following:
   Angular built-in pipes are pre-registered.
 </div>
 
-To probe the behavior in the {% example_ref %}{% endexample_ref %},
+To probe the behavior in the {% example_ref %},
 change the value and optional exponent in the template.
 
 ## Power Boost Calculator
@@ -363,7 +363,7 @@ Here's the `FlyingHeroesPipe` implementation, which follows the pattern for cust
   }
 ```
 
-Notice the odd behavior in the {% example_ref %}{% endexample_ref %}:
+Notice the odd behavior in the {% example_ref %}:
 when you add flying heroes, none of them are displayed under "Heroes who fly."
 
 Although you're not getting the behavior you want, Angular isn't broken.
@@ -490,7 +490,7 @@ You can derive a `FlyingHeroesImpureComponent` from `FlyingHeroesComponent`.
 ```
 
 The only substantive change is the pipe in the template.
-You can confirm in the {% example_ref %}{% endexample_ref %} that the _flying heroes_
+You can confirm in the {% example_ref %} that the _flying heroes_
 display updates as you add heroes, even when you mutate the `heroes` list.
 
 ### The impure _AsyncPipe_ {#async-pipe}

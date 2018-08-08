@@ -21,7 +21,7 @@ Btw, <template> is soon to be renamed <ng-template> in ngTS.
 This guide looks at how Angular manipulates the DOM with **structural directives** and
 how you can write your own structural directives to do the same thing.
 
-Try the {% example_ref %}{% endexample_ref %}.
+Try the {% example_ref %}.
 
 <div id="definition"></div>
 ## What are structural directives?
@@ -691,7 +691,7 @@ When the `condition` is true, the top (A) paragraph is removed and the bottom (B
 
 ## Summary
 
-You can both try and download the source code for this guide in the {% example_ref %}{% endexample_ref %}.
+You can both try and download the source code for this guide in the {% example_ref %}.
 
 Here is the source under the `lib` folder.
 

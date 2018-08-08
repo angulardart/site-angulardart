@@ -23,7 +23,7 @@ illustrate server communication:
 - [HTTP client demo: Tour of Heroes](#http-client).
 - [Cross-origin requests: Wikipedia example](#cors).
 
-Try the {% example_ref %}{% endexample_ref %}, which hosts both demos.
+Try the {% example_ref %}, which hosts both demos.
 
 ## Providing HTTP services  {#http-providers}
 
@@ -251,7 +251,7 @@ avoid network reliability issues during testing,
 don't use a `BrowserClient` as the `Client` object.
 Instead, you can mock the server by using the
 [in-memory web API](/angular/tutorial/toh-pt6#simulate-the-web-api),
-which is what the {% example_ref %}{% endexample_ref %} does.
+which is what the {% example_ref %} does.
 
 Alternatively, use a JSON file:
 
@@ -649,7 +649,7 @@ and delivers to subscribers only the most recent search results.
 ==============================================================================
 ==============================================================================
 
-See the full source code in the {% example_ref %}{% endexample_ref %}.
+See the full source code in the {% example_ref %}.
 
 {%endcomment%}
 

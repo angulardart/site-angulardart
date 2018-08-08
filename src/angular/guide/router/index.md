@@ -26,7 +26,7 @@ The Angular **router** enables navigation from one [view](/angular/glossary#view
 as users perform app tasks.
 
 This guide covers the router's primary features, illustrating them through the evolution
-of a small app that you can {% example_ref %}run live{% endexample_ref %}.
+of a small app that you can {% example_ref text="run live" %}.
 
 ## Overview
 
@@ -251,8 +251,8 @@ Here are the key router terms and their meanings.
 
 ## What next?
 
-The rest of this guide describes the development of a {% example_ref %}multi-page
-routed app{% endexample_ref %} through a sequence of milestones. Each milestone
+The rest of this guide describes the development of a {% example_ref
+text="multi-page routed app" %} through a sequence of milestones. Each milestone
 highlights specific design decisions and introduces new key features of the
 router.
 

@@ -24,7 +24,7 @@ The final UI looks like this:
 <img class="image-display" src="{% asset_path 'ng/devguide/displaying-data/final.png' %}" alt="Final UI">
 
 <div class="l-sub-section" markdown="1">
-  The {% example_ref %}{% endexample_ref %} demonstrates all of the syntax and code
+  The {% example_ref %} demonstrates all of the syntax and code
   snippets described in this page.
 </div>
 

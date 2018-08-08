@@ -2,20 +2,25 @@
 # for details. All rights reserved. Use of this source code is governed by a
 # BSD-style license that can be found in the LICENSE file.
 
-module ExampleRefTag
+require 'liquid/tag/parser' # https://github.com/envygeeks/liquid-tag-parser
 
+module Jekyll
   # Renders a link to the named hosted example app. When the optional name
   # isn't provided, it is determined from the page URL.
   #
   # Usage:
-  #   {% example_ref [example-name] %}optional link text{% endexample_ref %}
+  #   {% example_ref [example-name]
+  #                  [text='live example']
+  #                  [src-text='view source'] %}
   #
-  class Tag < Liquid::Block
-
-    def initialize(tag_name, name, tokens)
+  class ExampleRefTag < Liquid::Tag
+    def initialize(tag_name, args, tokens)
       super
       @@config = Jekyll.configuration({}) unless defined? @@config
-      @name = name.strip
+      @args = Liquid::Tag::Parser.new(args).args
+      @name = @args[:argv1] || ''
+      @live_example_link_text = @args[:text] || 'live example'
+      @view_source_link_text = @args[:'src-text'] || 'view source'
     end
 
     def render(context)
@@ -25,17 +30,14 @@ module ExampleRefTag
       page_url = context.environments.first['page']['url']
       name = @name.empty? ? get_example_name(page_url) : @name
 
-      link_text = super.strip
-      text = link_text.empty? ? 'live example' : link_text
+      example_link = a(href: "/examples/#{name}",
+                       attr: no_external_attr,
+                       text: @live_example_link_text)
 
-      href = "/examples/#{name}/"
-      result = a(href, no_external_attr, text)
-
-      src_text = 'view source'
       src_href = "#{@@config['ghNgEx']}/#{name}/tree/#{@@config['branch']}"
-      result = span([],
-                    "#{result} " + span(['class="text-nowrap"'],
-                                        "(#{a(src_href, target_blank_attr, src_text)})"))
+      src_anchor = a(href: src_href, attr: target_blank_attr, text: @view_source_link_text)
+      src_elt = span(src_anchor, attr: 'class="text-nowrap"')
+      span("#{example_link} (#{src_elt})")
     end
 
     # Render even if the element is empty
@@ -55,23 +57,21 @@ module ExampleRefTag
       name
     end
 
-    # HTML element
-    def html(tag, attr, text)
-      tag_and_attr = [tag]
-      tag_and_attr.concat(attr)
-      "<#{tag_and_attr.join(' ')}>#{text}</#{tag}>"
+    def a(href: nil, attr: [], text: '')
+      attr.unshift("href=\"#{href}\"") if href
+      html('a', attr, text)
     end
 
-    def a(href, attr, text)
-      href = href.nil? ? [] : ["href=\"#{href}\""]
-      html('a', href + attr, text)
-    end
-
-    def span(attr, text)
+    def span(text, attr: [])
       html('span', attr, text)
     end
 
+    def html(tag, attr_or_array, text)
+      tag_and_attr = [tag, attr_or_array]
+                     .flatten.reject { |s| s.nil? || s.empty? }
+      "<#{tag_and_attr.join(' ')}>#{text}</#{tag}>"
+    end
   end
 end
 
-Liquid::Template.register_tag('example_ref', ExampleRefTag::Tag)
+Liquid::Template.register_tag('example_ref', Jekyll::ExampleRefTag)

@@ -23,7 +23,7 @@ and makes it easy to unit test components with a mock service.
 Because data services are invariably asynchronous,
 you'll finish the page with a *Future*-based version of the data service.
 
-When you're done with this page, the app should look like this {% example_ref %}{% endexample_ref %}.
+When you're done with this page, the app should look like this {% example_ref %}.
 
 ## Where you left off
 
@@ -376,7 +376,7 @@ Here's what you achieved in this page:
 * You defined the `HeroService` as a provider for the `AppComponent`.
 * You designed the service to return a `Future` and the component to get the data from the `Future`.
 
-Your app should look like this {% example_ref %}{% endexample_ref %}.
+Your app should look like this {% example_ref %}.
 
 ## The road ahead
 

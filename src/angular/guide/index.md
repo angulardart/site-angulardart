@@ -69,7 +69,7 @@ Each page includes code snippets from a sample app that accompanies the page.
 You can reuse these snippets in your apps.
 
 Look for a link to a running version of that sample, often near the top of the page,
-such as this {% example_ref architecture %}{% endexample_ref %} from the [Architecture](guide/architecture) page.
+such as this {% example_ref architecture %} from the [Architecture](guide/architecture) page.
 
 ## Reference pages
 

@@ -11,7 +11,7 @@ nextpage:
 ---
 <?code-excerpt path-base="examples/ng/doc/toh-0"?>
 This tutorial starts with a bare-bones Angular app.
-Run the {% example_ref %}{% endexample_ref %} to see the app.
+Run the {% example_ref %} to see the app.
 
 ## Create the app
 

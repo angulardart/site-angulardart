@@ -19,7 +19,7 @@ you really can't build an Angular app without it.
 
 This page covers what DI is, why it's useful, and how to use Angular DI.
 
-Run the {% example_ref %}{% endexample_ref %}.
+Run the {% example_ref %}.
 
 <a id="why-di"></a>
 ## Why dependency injection?
@@ -224,7 +224,7 @@ This is what a **dependency injection framework** is all about.
 
 Angular ships with its own dependency injection framework.
 You'll learn Angular dependency injection through a discussion of the sample app that accompanies this page.
-Run the {% example_ref %}{% endexample_ref %} anytime.
+Run the {% example_ref %} anytime.
 
 Start by reviewing this simplified version of the _heroes_ feature
 from the [The Tour of Heroes](../tutorial/).
