@@ -7,15 +7,16 @@ nextpage:
 prevpage:
   url: /codelabs/angular_components/1-base
   title: "Step 1: Get to Know the Software"
-css: [ styles.css ]
+css: [styles.css]
 ---
+
 <?code-excerpt path-base="examples/acx/lottery"?>
 
 In this step, you’ll change the app to use a few of the AngularDart Components:
 
-*   \<material-icon>
-*   \<material-progress>
-*   \<acx-scorecard>
+- `<material-icon>`
+- `<material-progress>`
+- `<acx-scorecard>`
 
 {% include_relative _run_example.md %}
 
@@ -23,11 +24,11 @@ In this step, you’ll change the app to use a few of the AngularDart Components
 
 Make a copy of the base app's source code:
 
-{% prettify none %}
-cp -r 1-base myapp
-cd myapp
-pub get
-{% endprettify %}
+```terminal
+> cp -r 1-base myapp
+> cd myapp
+> pub get
+```
 
 From now on, you'll work in this copy of the source code,
 using whatever [Dart web development tools](/tools) you prefer.
@@ -37,13 +38,13 @@ using whatever [Dart web development tools](/tools) you prefer.
 
 <ol markdown="1">
 
-<li markdown="1"> Edit **pubspec.yaml** to add a dependency to **angular_components**:
+<li markdown="1"> Edit `pubspec.yaml` to add a dependency to `angular_components`:
 
 <?code-excerpt "1-base/pubspec.yaml" diff-with="2-starteasy/pubspec.yaml" to="dev_dependencies"?>
 ```diff
 --- 1-base/pubspec.yaml
 +++ 2-starteasy/pubspec.yaml
-@@ -7,9 +7,11 @@
+@@ -7,6 +7,7 @@
 
  dependencies:
    angular: ^5.0.0
@@ -56,17 +57,18 @@ using whatever [Dart web development tools](/tools) you prefer.
 
 <li markdown="1"> Get the new package:
 
-{% prettify html %}
-pub get
-{% endprettify %}
+```terminal
+> pub get
+```
 </li>
 </ol>
 
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Set up the root component’s Dart file
 
-Edit **lib/lottery_simulator.dart**,
+Edit `lib/lottery_simulator.dart`,
 importing the Angular components and informing Angular about
-[`materialDirectives`]({{site.acx_api}}/angular_components/materialDirectives-constant.html) and [`materialProviders`]({{site.acx_api}}/angular_components/materialProviders-constant.html):
+[`materialProviders`]({{site.acx_api}}/angular_components/materialProviders-constant.html)
+and the material directives used in the template:
 
 <?code-excerpt "1-base/lib/lottery_simulator.dart" diff-with="2-starteasy/lib/lottery_simulator.dart"?>
 ```diff
@@ -77,36 +79,33 @@ importing the Angular components and informing Angular about
 
  import 'package:angular/angular.dart';
 +import 'package:angular_components/angular_components.dart';
+ import 'package:intl/intl.dart';
+
  import 'src/help/help.dart';
- import 'src/scores/scores.dart';
- import 'src/settings/settings.dart';
-@@ -22,13 +23,17 @@
-   styleUrls: ['lottery_simulator.css'],
+@@ -24,12 +25,15 @@
    templateUrl: 'lottery_simulator.html',
    directives: [
-+    materialDirectives,
      HelpComponent,
++    MaterialIconComponent,
++    MaterialProgressComponent,
      ScoresComponent,
+     SettingsComponent,
      StatsComponent,
      VisualizeWinningsComponent,
-     SettingsComponent,
    ],
--  providers: [ClassProvider(Settings)],
-+  providers: [
+   providers: [
 +    materialProviders,
-+    ClassProvider(Settings),
-+  ],
+     ClassProvider(Settings),
+   ],
  )
- class AppComponent implements OnInit {
-   final Settings _settings;
 ```
 
 Now you’re ready to use the components.
 
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-progress
 
-Edit the template file **lib/lottery_simulator.html** to use the
-**\<material-progress>** tag
+Edit the template file `lib/lottery_simulator.html` to use the
+`<material-progress>` tag
 ([MaterialProgressComponent]({{site.acx_api}}/angular_components/MaterialProgressComponent-class.html)).
 The diffs should look similar to this:
 
@@ -132,18 +131,19 @@ As a reminder, here’s what the progress section looked like before:
 
 <img style="border:1px solid black" src="images/material-progress-before.png" alt="screenshot showing the HTML progress bar">
 
-That change is barely noticeable. Let’s make a bigger difference by adding images to the buttons, using the \<material-icon> component.
+That change is barely noticeable. You can make a bigger difference by adding
+images to the buttons, using the `<material-icon>` component.
 
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use material-icon in buttons
 
-Using \<material-icon>
+Using `<material-icon>`
 ([MaterialIconComponent]({{site.acx_api}}/angular_components/MaterialIconComponent-class.html))
-is similar to using \<material-progress>,
+is similar to using `<material-progress>`,
 except that you also need
 [material icon fonts](http://google.github.io/material-design-icons/).
 You can find icons and instructions for including them at
 [design.google.com/icons](https://design.google.com/icons).
-Let’s use the following icons in the main simulator UI:
+Use the following icons in the main simulator UI:
 
 
 |---------------------+-----------------------------+-----------------|
@@ -161,12 +161,12 @@ Let’s use the following icons in the main simulator UI:
 Find the icon font value for **play arrow**:
 
 {: type="a"}
-1. Go to [design.google.com/icons](https://design.google.com/icons)</a>.
-2. Enter **play** or **play arrow** in the site search box.
-3. In the results, click the **play arrow** icon
-   ![|>](images/ic_play_arrow_black_24px.svg)
-   to get more information.
-4. Click **ICON FONT** to get the icon code to use: **play_arrow**.
+ 1. Go to [design.google.com/icons.](https://design.google.com/icons)
+ 2. Enter **play** or **play arrow** in the site search box.
+ 3. In the results, click the **play arrow** icon
+    ![|>](images/ic_play_arrow_black_24px.svg)
+    to get more information.
+ 4. Click **ICON FONT** to get the icon code to use: **play_arrow**.
 </li>
 
 <li markdown="1">
@@ -174,35 +174,33 @@ Find the icon font values for **skip next**, **pause**, and **replay**.
 </li>
 
 <li markdown="1">
-Edit the main HTML file (**web/index.html**) to add the following code to the &lt;head> section:
+Edit the main HTML file (`web/index.html`) to add the following code to the `<head>` section:
 
 <?code-excerpt "1-base/web/index.html" diff-with="2-starteasy/web/index.html"?>
 ```diff
 --- 1-base/web/index.html
 +++ 2-starteasy/web/index.html
-@@ -2,6 +2,10 @@
- <html>
-   <head>
-     <title>AngularDart Components Code Lab</title>
-+
+@@ -13,6 +13,8 @@
+       }());
+     </script>
+     <script defer src="main.dart.js"></script>
 +    <link rel="stylesheet" type="text/css"
-+        href="https://fonts.googleapis.com/icon?family=Material+Icons">
-+
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
++          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <style>
+       #wrapper {
+         max-width: 600px;
 ```
 </li>
 
 <li markdown="1">
-Edit **lib/lottery_simulator.html** to change the first button to use
-a \<material-icon> instead of text:
+Edit `lib/lottery_simulator.html` to change the first button to use
+a `<material-icon>` instead of text:
 
 {: type="a"}
-1. Add an **aria-label** attribute to the button, giving it the value of the
+1. Add an `aria-label` attribute to the button, giving it the value of the
   button's text (**Play**).
-2. Replace the button's text (**Play**) with a **\<material-icon>** element.
-3. Set the **icon** attribute to the icon code (**play_arrow**).
+2. Replace the button's text (**Play**) with a `<material-icon>` element.
+3. Set the `icon` attribute to the icon code (`play_arrow`).
 
 Here are the diffs:
 
@@ -223,9 +221,8 @@ Here are the diffs:
      <div class="controls__fabs">
        <button (click)="play()"
            [disabled]="endOfDays || inProgress"
--          id="play-button">
--        Play
-+          id="play-button"
+           id="play-button"
+-      >Play
 +          aria-label="Play">
 +        <material-icon icon="play_arrow"></material-icon>
        </button>
@@ -243,12 +240,12 @@ These small changes make a big difference in the UI:
 <img style="border:1px solid black" src="images/material-icon-buttons-after.png" alt='buttons have images now, instead of text'>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to import material icon fonts**
+  <i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to import material icon fonts**
 
-If you see words instead of icons, your app needs to import material icon fonts.
+  If you see words instead of icons, your app needs to import material icon fonts.
 
-**The solution:** In the app entry point (for example, `web/index.html`),
-**import the Material+Icons font family.**
+  **The solution:** In the app entry point (for example, `web/index.html`),
+  **import the Material+Icons font family.**
 </aside>
 
 
@@ -258,22 +255,22 @@ If you scroll down to the Tips section of the page, you’ll see blank spaces wh
 
 <img style="border:1px solid black" src="images/material-icon-help-before.png" alt='help text has no images'>
 
-The HTML template (lib/src/help/help.html) uses \<material-icon> already, so why isn’t it working?
+The HTML template (`lib/src/help/help.html`) uses `<material-icon>` already, so why isn’t it working?
 
 <aside class="alert alert-success" markdown="1">
-<i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to register a component**
+  <i class="fas fa-exclamation-circle"> </i> **Common problem: Forgetting to register a component**
 
-If an Angular component’s template uses a second Angular component
-without declaring it, that **second component doesn’t appear in the
-first component’s UI**.
+  If an Angular component’s template uses a second Angular component
+  without declaring it, that **second component doesn’t appear in the
+  first component’s UI**.
 
-**The solution:** In the first component’s Dart file,
-**import** the second component and **register** the second component’s
-class as a directive.
+  **The solution:** In the first component’s Dart file,
+  **import** the second component and **register** the second component’s
+  class as a directive.
 </aside>
 
-Edit **lib/src/help/help.dart** to import the AngularDart Components and
-register `materialDirectives`.
+Edit `lib/src/help/help.dart` to import the AngularDart Components and
+register `MaterialIconComponent`.
 
 <?code-excerpt "1-base/lib/src/help/help.dart" diff-with="2-starteasy/lib/src/help/help.dart"?>
 ```diff
@@ -290,43 +287,41 @@ register `materialDirectives`.
    templateUrl: 'help.html',
    styleUrls: ['help.css'],
    directives: [
-+    materialDirectives,
++    MaterialIconComponent,
      NgSwitch,
      NgSwitchWhen,
      NgSwitchDefault,
 ```
 
 <aside class="alert alert-info" markdown="1">
-**Note:**
-Unlike when you edited lib/lottery_simulator.dart,
-you don't need to add `materialProviders` to this file.
-The reason: the \<help-component> UI has no buttons or anything else that
-requires the ripple animations defined in `materialProviders`.
+  **Note:**
+  Unlike when you edited `lib/lottery_simulator.dart`,
+  you don't need to add `materialProviders` to this file.
+  The reason: the `<help-component>` UI has no buttons or anything else that
+  requires the ripple animations defined in `materialProviders`.
 
-You also don’t need to do anything to get the material icon fonts,
-since the app’s entry point (web/index.html) already imports the font file.
+  You also don’t need to do anything to get the material icon fonts,
+  since the app’s entry point (`web/index.html`) already imports the font file.
 </aside>
 
-Adding those two lines to lib/src/help/help.dart makes the material icons display:
+Adding those two lines to `lib/src/help/help.dart` makes the material icons display:
 
 <img style="border:1px solid black" src="images/material-icon-help-after.png" alt='help text now has images'>
 
 
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use acx-scorecard
 
-Let’s make one more change: using scorecards (\<acx-scorecard>)
-to display the betting and investing results.
-Because \<acx-scorecard> isn’t included in `materialDirectives`,
-you need to explicitly register its Dart class,
-[ScorecardComponent]({{site.acx_api}}/angular_components/ScorecardComponent-class.html).
-We’ll use the scorecards in the app’s custom ScoresComponent
-(\<scores-component>), which is implemented in `lib/src/scores/scores.*`.
+Make one more change: use
+[ScorecardComponent]({{site.acx_api}}/angular_components/ScorecardComponent-class.html)
+(`<acx-scorecard>`) to display the betting and investing results. You’ll use the
+scorecards in the app’s custom `ScoresComponent` (`<scores-component>`), which is
+implemented in `lib/src/scores/scores.*`.
 
 <ol markdown="1">
 
-<li markdown="1"> Edit **lib/src/scores/scores.dart** (the Dart file
-    for ScoresComponent) to register ScorecardComponent and the
-    `materialProviders` provider:
+<li markdown="1">
+  Edit `lib/src/scores/scores.dart` to register `ScorecardComponent` and the
+  `materialProviders` provider:
 
 <?code-excerpt "1-base/lib/src/scores/scores.dart" diff-with="2-starteasy/lib/src/scores/scores.dart"?>
 ```diff
@@ -350,32 +345,34 @@ We’ll use the scorecards in the app’s custom ScoresComponent
 ```
 </li>
 
-<li markdown="1"> Edit **lib/src/scores/scores.html**
-    (the template file for ScoresComponent)
-    to change the **Betting** section from a \<div> to an \<acx-scorecard>.
-    Specify the following attributes (documented in the
-    ScorecardComponent API reference) for each \<acx-scoreboard>:
+<li markdown="1">
+  Edit `lib/src/scores/scores.html`
+  (the template file for `ScoresComponent`)
+  to change the **Betting** section from a `<div>` to an `<acx-scorecard>`.
+  Specify the following attributes (documented in the
+  `ScorecardComponent` API reference) for each `<acx-scoreboard>`:
 
-* **label:** Set this to the string in the div’s \<h4> heading: "Betting".
-* **class:** Set this to "betting",
-  so that you can use it to specify custom styles.
-* **value:** Set this to the value of the `cash` property of ScoresComponent.
-* **description:** Set this to the second line of content in the div’s
-  \<p> section.
-* **changeType:** Set this to the value that [class] is set
-  to, surrounded by `{% raw %}{{ }}{% endraw %}`.
+  * `label:` Set this to the string in the div’s `<h4>` heading: "Betting".
+  * `class:` Set this to "betting",
+    so that you can use it to specify custom styles.
+  * `value:` Set this to the value of the `cash` property of `ScoresComponent`.
+  * `description:` Set this to the second line of content in the div’s
+    `<p>` section.
+  * `changeType:` Set this to the value that `[class]` is set
+    to, surrounded by `{% raw %}{{ }}{% endraw %}`.
 </li>
 
 <li markdown="1">
 
-Similarly, change the **Investing** section from a \<div>
-to an \<acx-scorecard>. A few notes:
-* **label:** Set this to "Investing".
-* **class:** Set this to "investing".
-* **value:** Set this to the value of the `altCash` property of ScoresComponent.
-* **description:** As before, set this to the second line of content in the div’s
-  \<p> section.
-* **Don't** specify a `changeType` attribute.
+Similarly, change the **Investing** section from a `<div>`
+to an `<acx-scorecard>`. A few notes:
+
+- `label:` Set this to "Investing".
+- `class:` Set this to "investing".
+- `value:` Set this to the value of the `altCash` property of `ScoresComponent`.
+- `description:` As before, set this to the second line of content in the div’s
+  `<p>` section.
+- **Don't** specify a `changeType` attribute.
 
 Here are the code diffs for the last two steps:
 
@@ -401,9 +398,10 @@ Here are the code diffs for the last two steps:
 ```
 </li>
 
-<li markdown="1"> Edit **lib/src/scores/scores.css** (styles for ScoresComponent)
-    to specify that `.investing` floats to the right.
-    You can also remove the unneeded `.positive` and `.negative` styles.
+<li markdown="1">
+Edit `lib/src/scores/scores.css` (styles for `ScoresComponent`)
+to specify that `.investing` floats to the right.
+You can also remove the unneeded `.positive` and `.negative` styles.
 
 <?code-excerpt "1-base/lib/src/scores/scores.css" diff-with="2-starteasy/lib/src/scores/scores.css"?>
 ```diff
@@ -423,28 +421,30 @@ Here are the code diffs for the last two steps:
 ```
 </li>
 
-<li markdown="1"> Refresh the app, and look at the nice new UI:
+<li markdown="1">
+  Refresh the app, and look at the nice new UI:
 
-<img style="border:1px solid black" src="images/acx-scorecard-after.png" alt='new UI of the lottery simulation, with "Betting" and "Investing" scorecards'>
+  <img style="border:1px solid black" src="images/acx-scorecard-after.png" alt='new UI of the lottery simulation, with "Betting" and "Investing" scorecards'>
 
-Remember, it used to look like this:
+  Remember, it used to look like this:
 
-<img style="border:1px solid black" src="images/acx-scorecard-before.png" alt='old UI of the lottery simulation'>
+  <img style="border:1px solid black" src="images/acx-scorecard-before.png" alt='old UI of the lottery simulation'>
 </li>
 </ol>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fas fa-exclamation-circle"> </i> **Common problem: Registering the wrong component**<br>
+  <i class="fas fa-exclamation-circle"> </i> **Common problem: Registering the wrong component**<br>
 
-It’s easy to accidentally register the wrong component.
-For example, you might register ScoresComponent instead of
-ScorecardComponent.
+  It’s easy to accidentally register the wrong component.
+  For example, you might register ScoresComponent instead of
+  `ScorecardComponent`.
 
-**The solution:** If the component doesn’t show up, make sure the **containing
-component’s Dart file includes the right component.**
+  **The solution:** If the component doesn’t show up, make sure the **containing
+  component’s Dart file includes the right component.**
 </aside>
 
 ### Problems?
 
-Check your code against the solution
-in the `2-starteasy` directory.
+Check your code against the solution in the
+[2-starteasy]({{site.ghNgEx}}/lottery/tree/{{site.branch}}/2-starteasy)
+directory.

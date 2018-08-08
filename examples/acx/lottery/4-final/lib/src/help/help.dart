@@ -10,7 +10,7 @@ import 'package:angular_components/angular_components.dart';
   templateUrl: 'help.html',
   styleUrls: ['help.css'],
   directives: [
-    materialDirectives,
+    MaterialIconComponent,
     NgSwitch,
     NgSwitchWhen,
     NgSwitchDefault,

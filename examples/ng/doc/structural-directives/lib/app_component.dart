@@ -14,7 +14,8 @@ import 'src/hero_switch_components.dart';
     coreDirectives,
     formDirectives,
     heroSwitchComponents,
-    materialDirectives,
+    MaterialRadioComponent,
+    MaterialRadioGroupComponent,
     UnlessDirective
   ],
   providers: [materialProviders],

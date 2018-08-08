@@ -35,7 +35,8 @@ enum Color { red, green, blue }
     ClickDirective,
     ClickDirective2,
     SizerComponent,
-    materialDirectives
+    MaterialRadioComponent,
+    MaterialRadioGroupComponent,
   ],
   // #docregion exports
   exports: [Color, math.min],

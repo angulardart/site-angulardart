@@ -62,8 +62,7 @@ module.exports = function (gulp, plugins, config) {
   });
 
   function onlyBuild(path) {
-    return path.startsWith('examples/acx') || path.startsWith('examples/ng/api')
-      || path.startsWith('examples/fetch_data');
+    return path.startsWith('examples/ng/api') || path.startsWith('examples/fetch_data');
   }
 
   async function pubGetAndRunTest(exPath) {

@@ -5,13 +5,14 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
+
 import 'src/help/help.dart';
 import 'src/scores/scores.dart';
 import 'src/settings/settings.dart';
 import 'src/settings/settings_component.dart';
 import 'src/stats/stats.dart';
 import 'src/visualize_winnings/visualize_winnings.dart';
-import 'package:intl/intl.dart';
 
 const _fastPulse = Duration(milliseconds: 5);
 
@@ -24,11 +25,13 @@ const _normalPulse = Duration(milliseconds: 200);
   directives: [
     HelpComponent,
     ScoresComponent,
+    SettingsComponent,
     StatsComponent,
     VisualizeWinningsComponent,
-    SettingsComponent,
   ],
-  providers: [ClassProvider(Settings)],
+  providers: [
+    ClassProvider(Settings),
+  ],
 )
 class AppComponent implements OnInit {
   final Settings _settings;

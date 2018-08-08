@@ -57,22 +57,22 @@ use AngularDart Components.
   * Get familiar with AngularDart Components
 * [Step 2: Start Using AngularDart Components](/codelabs/angular_components/2-starteasy)
   * Copy the source code
-  * Depend on angular_components
+  * Depend on `angular_components`
   * Set up the root component’s Dart file
-  * Use \<material-progress>
-  * Use \<material-icon> in buttons
-    * <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to import material icon fonts
-  * Use \<material-icon> in other components
-    * <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to register a component
-  * Use \<acx-scorecard>
-    * <i class="fas fa-exclamation-circle"> </i> Common problem: Registering the wrong component
+  * Use `<material-progress>`
+  * Use `<material-icon>` in buttons<br>
+    <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to import material icon fonts
+  * Use `<material-icon>` in other components<br>
+    <i class="fas fa-exclamation-circle"> </i> Common problem: Forgetting to register a component
+  * Use `<acx-scorecard>`<br>
+    <i class="fas fa-exclamation-circle"> </i> Common problem: Registering the wrong component
 * [Step 3: Upgrade Buttons and Inputs](/codelabs/angular_components/3-usebuttons)
-  * Use \<material-toggle>
-  * Use \<material-fab>
-    * <i class="fas fa-exclamation-circle"> </i> Common pattern: (trigger)
-  * Use \<material-checkbox>
-  * Use \<material-radio> and \<material-radio-group>
+  * Use `<material-toggle>`
+  * Use `<material-fab>`<br>
+    <i class="fas fa-exclamation-circle"> </i> Common pattern: (trigger)
+  * Use `<material-checkbox>`
+  * Use `<material-radio>` and `<material-radio-group>`
 * [Step 4: Add Expansion Panels and Tabs](/codelabs/angular_components/4-final)
-  * Use \<material-expansionpanel> and \<material-expansionpanel-set>
-  * Use \<material-tab> and \<material-tab-panel>
+  * Use `<material-expansionpanel>` and `<material-expansionpanel-set>`
+  * Use `<material-tab>` and `<material-tab-panel>`
 * [What Next?](/codelabs/angular_components/what-next)
