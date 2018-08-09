@@ -42,7 +42,7 @@ packages:
       name: build_resolvers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.1+1"
+    version: "0.2.2"
   build_runner:
     dependency: "direct dev"
     description:
