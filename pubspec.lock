@@ -49,14 +49,14 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.0"
+    version: "0.10.1"
   build_runner_core:
     dependency: transitive
     description:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   built_collection:
     dependency: transitive
     description:
@@ -313,6 +313,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.3+3"
+  shelf_web_socket:
+    dependency: transitive
+    description:
+      name: shelf_web_socket
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.2+4"
   source_span:
     dependency: transitive
     description:
@@ -376,6 +383,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7+10"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.9"
   yaml:
     dependency: transitive
     description:
