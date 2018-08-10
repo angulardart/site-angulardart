@@ -13,6 +13,10 @@ provide a productive and stable set of widgets.
 Supported browsers include the last two versions of
 Chrome, Edge, Firefox, and Safari.
 
+<aside class="alert-info alert" markdown="1">
+**Note:** The `angular_components` package does not support Internet Explorer.
+</aside>
+
 To find components, go to the
 [AngularDart Gallery](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
 (shown below).
