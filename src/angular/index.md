@@ -30,10 +30,10 @@ mission-critical apps that bring in much of Google’s revenue.
 </h2>
 
 Angular news from
-[news.dartlang.org](http://news.dartlang.org/){: .no-automatic-external}:
+[news.dartlang.org](https://news.dartlang.org/){: .no-automatic-external}
+and [medium.com/dartlang](https://medium.com/dartlang){: .no-automatic-external}:
 
-* [AngularDart 4: Drop the "2" (and more)](https://news.dartlang.org/2017/09/angulardart-4.html){: .no-automatic-external}
-* [AngularDart 3.0: Easy upgrade, better performance](http://news.dartlang.org/2017/05/angulardart-3.0-easy-upgrade-better-performance.html){: .no-automatic-external}
+* [Announcing Dart 2 Stable and the Dart Web Platform](https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7){: .no-automatic-external}
 * [Making a Dart web app offline-capable: 3 lines of code](http://news.dartlang.org/2017/03/making-dart-web-app-offline-capable-3.html){: .no-automatic-external}
 * [From GWT to AngularDart: a case study](http://news.dartlang.org/2017/03/from-gwt-to-angulardart-case-study-with.html){: .no-automatic-external}
 * [The new Google AdSense user interface: built with AngularDart
