@@ -9,17 +9,15 @@ require 'cgi'
 require_relative 'code_excerpt_processor'
 
 module Jekyll
-
   class NgMarkdown < Converter
-
     priority :high
 
     def matches(ext)
       ext =~ /^\.md$/i
     end
 
-    def output_ext(ext)
-      ".html"
+    def output_ext(_ext)
+      '.html'
     end
 
     def convert(content)
@@ -27,15 +25,14 @@ module Jekyll
       content.gsub!(/{!{/, '{{') # &#123;&#123;
       content.gsub!(/}!}/, '}}') # &#125;&#125;
 
-      @cep = NgCodeExcerpt::MarkdownProcessor.new() unless @cep
-      @cep.codeExcerptProcessingInit()
-      content.gsub!(@cep.codeExcerptRE) {
-        @cep.processCodeExcerpt(Regexp.last_match, 'markdown')
+      @cep ||= NgCodeExcerpt::MarkdownProcessor.new()
+      @cep.code_excerpt_processing_init()
+      content.gsub!(@cep.code_excerpt_regex) {
+        @cep.process_code_excerpt(Regexp.last_match)
       }
 
-      @baseConv = Converters::Markdown::KramdownParser.new(@config) unless @baseConv
-      return @baseConv.convert(content)
+      @base_conv ||= Converters::Markdown::KramdownParser.new(@config)
+      @base_conv.convert(content)
     end
-
   end
 end

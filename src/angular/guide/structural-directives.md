@@ -537,11 +537,13 @@ The `<{{page.ng_container}}>` is a syntax element recognized by the Angular pars
 It's not a directive, component, class, or interface.
 It's more like the curly braces in a Dart `if`-block:
 
-<code-example lang="dart">if (someCondition) {
+```dart
+if (someCondition) {
   statement1;
   statement2;
   statement3;
-}</code-example>
+}
+```
 
 Without those braces, Dart would only execute the first statement
 when you intend to conditionally execute all of them as a single block.

@@ -11,38 +11,41 @@ module NgCodeExcerpt
 
   class MarkdownProcessor
 
-    @@logFileName = 'code-excerpt-log.txt'
-    @@logDiffs = false
-    @@logEntryCount = 0
+    @@log_file_name = 'code-excerpt-log.txt'
+    @@log_entry_count = 0
+    @log_diffs = false
 
-    File.delete(@@logFileName) if File.exists?(@@logFileName)
+    File.delete(@@log_file_name) if File.exist?(@@log_file_name)
 
-    def codeExcerptRE
+    def initialize
+    end
+
+    def code_excerpt_regex
       /^(\s*(<\?(code-\w+)[^>]*>)\n)((\s*)```(\w*)\n(.*?)\n(\s*)```\n?)?/m;
     end
 
-    def codeExcerptProcessingInit()
-      @pathBase = ''
+    def code_excerpt_processing_init
+      @path_base = ''
     end
 
-    def processCodeExcerpt(match, templateLang)
-      # piLineWithWhitespace = match[1]
+    def process_code_excerpt(match)
+      # pi_line_with_whitespace = match[1]
       pi = match[2] # full processing instruction <?code-excerpt...?>
-      piName = match[3]
-      args = processPiArgs(pi)
-      optionalCodeBlock = match[4]
+      pi_name = match[3]
+      args = process_pi_args(pi)
+      optional_code_block = match[4]
       indent = match[5]
       lang = !match[6] || match[6].empty? ? (args['ext'] || 'nocode') : match[6]
-      attrs = mkCodeExampleDirectiveAttributes(lang, args['linenums'])
+      attrs = mk_code_example_directive_attr(lang, args['linenums'])
 
-      if piName == 'code-pane'
-        return processCodePane(pi, attrs, args)
-      elsif piName != 'code-excerpt'
-        logPuts "Warning: unrecognized instruction: #{pi}"
+      return process_code_pane(pi, attrs, args) if pi_name == 'code-pane'
+
+      if pi_name != 'code-excerpt'
+        log_puts "Warning: unrecognized instruction: #{pi}"
         return match[0]
-      elsif !optionalCodeBlock
+      elsif !optional_code_block
         # w/o a code block assume it is a set cmd
-        processSetCommand(pi, args)
+        process_set_command(pi, args)
         return ''
       elsif lang == 'diff'
         return _diff(match[7], args)
@@ -52,114 +55,115 @@ module NgCodeExcerpt
       classes = args['class']
       code = match[7]
 
-      code = trimMinLeadingSpace(code)
+      code = trim_min_leading_space(code)
 
       # We escape all code fragments (not just HTML fragments),
       # because we're rendering the code block as HTML.
-      escapedCode = CGI::escapeHTML(code)
+      escaped_code = CGI.escapeHTML(code)
 
-      return codeExcerpt(title, classes, attrs, _processHighlightMarkers(escapedCode), indent)
+      code_excerpt(title, classes, attrs, _process_highlight_markers(escaped_code), indent)
     end
 
-    def codeExcerpt(title, classes, attrs, escapedCode, indent)
-      result = _unindentedTemplate(title, classes, attrs, escapedCode)
+    def code_excerpt(title, classes, attrs, escaped_code, indent)
+      result = _unindented_template(title, classes, attrs, escaped_code)
       # For markdown, indent at most the first line (in particular, we don't want to indent the code)
       result.sub!(/^/, indent) if indent
-      return result
+      result
     end
 
-    def _diff(unifiedDiffText, args)
-      logPuts "Diff input:\n#{unifiedDiffText}" if @@logDiffs
+    def _diff(unified_diff_text, args)
+      log_puts "Diff input:\n#{unified_diff_text}" if @log_diffs
       begin
-        o, e, s = Open3.capture3("diff2html --su hidden -i stdin -o stdout", :stdin_data => unifiedDiffText)
-        logPuts e if e.length > 0
-      rescue Errno::ENOENT => e
-        raise "** ERROR: diff2html isn't installed or could not be found. " +
-              "To install with NPM run: npm install -g diff2html-cli"
+        o, e, _s = Open3.capture3('diff2html --su hidden -i stdin -o stdout', :stdin_data => unified_diff_text)
+        log_puts e if e.length > 0
+      rescue Errno::ENOENT => _e
+        raise "** ERROR: diff2html isn't installed or could not be found. " \
+              'To install with NPM run: npm install -g diff2html-cli'
       end
       doc = Nokogiri::HTML(o)
       doc.css('div.d2h-file-header span.d2h-tag').remove
-      diffHtml = doc.search('.d2h-wrapper')
-      _trimDiff(diffHtml, args) if args['from'] || args['to']
-      logPuts "Diff output:\n#{diffHtml.to_s[0, [diffHtml.to_s.length, 100].min]}...\n" if @@logDiffs
-      return diffHtml.to_s
+      diff_html = doc.search('.d2h-wrapper')
+      _trim_diff(diff_html, args) if args['from'] || args['to']
+      log_puts "Diff output:\n#{diff_html.to_s[0, [diff_html.to_s.length, 100].min]}...\n" if @log_diffs
+      diff_html.to_s
     end
 
-    def _processHighlightMarkers(s)
+    def _process_highlight_markers(s)
       s.gsub(/\[!/, '<span class="highlight">')
        .gsub(/!\]/, '</span>')
     end
 
-    def _trimDiff(diffHtml, args)
+    def _trim_diff(diff_html, args)
       # The code updater truncates the diff after `to`. Only trim before `from` here.
       # (We don't trim after `to` here because of an unwanted optimizing behavior of diff2html.)
-      logPuts ">>> from='#{args['from']}' to='#{args['to']}'" if @@logDiffs
-      insideMatchingLines = done = false;
-      diffHtml.css('tbody.d2h-diff-tbody tr').each do |tr|
+      log_puts ">>> from='#{args['from']}' to='#{args['to']}'" if @log_diffs
+      inside_matching_lines = done = false
+      diff_html.css('tbody.d2h-diff-tbody tr').each do |tr|
         if tr.text.strip.start_with?('@')
           tr.remove
           next
         end
-        codeLine = tr.xpath('td[2]//span').text
-        insideMatchingLines = true if !done && !insideMatchingLines && codeLine.match(args['from'] || '.')
-        savedInsideMatchingLines = insideMatchingLines
-        # if insideMatchingLines && args['to'] && codeLine.match(args['to'])
-        #   insideMatchingLines = false
+        code_line = tr.xpath('td[2]//span').text
+        inside_matching_lines = true if !done && !inside_matching_lines && code_line.match(args['from'] || '.')
+        saved_inside_matching_lines = inside_matching_lines
+        # if inside_matching_lines && args['to'] && code_line.match(args['to'])
+        #   inside_matching_lines = false
         #   done = true;
         # end
-        logPuts ">>> tr (#{savedInsideMatchingLines}) #{codeLine} -> #{tr.text.gsub(/\s+/, ' ')}" if @@logDiffs
-        tr.remove unless savedInsideMatchingLines;
+        log_puts ">>> tr (#{saved_inside_matching_lines}) #{code_line} -> #{tr.text.gsub(/\s+/, ' ')}" if @log_diffs
+        tr.remove unless saved_inside_matching_lines
       end
     end
 
-    def _unindentedTemplate(title, classes, attrs, escapedCode)
-      "<div class=\"code-example #{classes || ''}\">\n" +
-        (title ? "<header><h4>#{title}</h4></header>\n" : '') +
-        "<code-example data-webdev-raw #{attrs}>" +
-          escapedCode +
-        "</code-example>\n" +
-      "</div>\n"
+    def _unindented_template(title, classes, attrs, escaped_code)
+      <<~TEMPLATE
+        <div class="code-example #{classes || ''}">
+        #{title ? "<header><h4>#{title}</h4></header>\n" : ''
+        }<code-example data-webdev-raw #{attrs * ' '}>#{
+          escaped_code
+        }</code-example>
+        </div>
+      TEMPLATE
     end
 
-    def trimMinLeadingSpace(code)
+    def trim_min_leading_space(code)
       lines = code.split(/\n/);
-      nonblanklines = lines.reject { |s| s.match(/^\s*$/) }
+      non_blank_lines = lines.reject { |s| s.match(/^\s*$/) }
 
       # Length of leading spaces to be trimmed
-      len = nonblanklines.map{ |s|
+      len = non_blank_lines.map{ |s|
           matches = s.match(/^[ \t]*/)
           matches ? matches[0].length : 0 }.min
 
-      return len == 0 ? code :
-        lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n")
+      len == 0 ? code : lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n")
     end
 
 
-    def mkCodeExampleDirectiveAttributes(lang, linenums)
+    def mk_code_example_directive_attr(lang, linenums)
       formats = linenums ? ['linenums'] : [];
       formats.push('nocode') if lang == 'nocode'
       attrs = []
       attrs.push("language=\"#{lang}\"") unless lang == 'nocode'
-      attrs.push("format=\"#{formats * ' '}\"") if !formats.empty?
-      return attrs * ' '
+      attrs.push("format=\"#{formats * ' '}\"") unless formats.empty?
+      attrs
     end
 
-    def processPiArgs(pi)
+    def process_pi_args(pi)
       # match = /<\?code-\w+\s*(("([^"]*)")?((\s+[-\w]+="[^"]*"\s*)*))\?>/.match(pi)
       match = /<\?code-\w+\s*(.*?)\s*\?>/.match(pi)
-      if !match
-          logPuts "ERROR: improperly formatted instruction: #{pi}"
-          return nil
+      unless match
+        log_puts "ERROR: improperly formatted instruction: #{pi}"
+        return nil
       end
 
-      argString = match[1]
+      arg_string = match[1]
       args = { }
 
       # First argument can be unnamed. When present, it is saved as
       # args['']. It is used to define a path and an optional region.
-      match = /^"(([^\("]*)(\s+\(([^"]+)\))?)"/.match(argString)
+      match = /^"(([^("]*)(\s+\(([^"]+)\))?)"/.match(arg_string)
       if match
-        argString = $' # reset to remaining args
+        arg_string = $' # reset to remaining args
         args[''] = match[1]
         path = args['path'] = match[2]
         args['ext'] = File.extname(path)&.sub(/^\./,'')
@@ -167,33 +171,33 @@ module NgCodeExcerpt
       end
 
       # Process remaining args
-      argString.scan(/\b(\w[-\w]*)(="([^"]*)")?/) { |id,arg,val|
-        if id == 'title' && !arg then val = trimFileVers(args['']) end
+      arg_string.scan(/\b(\w[-\w]*)(="([^"]*)")?/) { |id,arg,val|
+        if id == 'title' && !arg then val = trim_file_vers(args['']) end
         args[id] = val || ''
       }
       # puts "  >> args: #{args}"
-      return args
+      args
     end
 
-    def processCodePane(pi, attrs, args)
+    def process_code_pane(pi, attrs, args)
       # TODO: support use of globally set replace args.
-      title = args['title'] || trimFileVers(args[''])
-      escapedCode = getCodeFrag(args['path'],
-        fullFragPath(args['path'], args['region']),
-        srcPath(args['path'], args['region']),
-        args['region'])
+      title = args['title'] || trim_file_vers(args[''])
+      escaped_code = get_code_frag(args['path'],
+                                   full_frag_path(args['path'], args['region']),
+                                   src_path(args['path'], args['region']),
+                                   args['region'])
       # args['replace'] syntax: /regex/replacement/g
-      # Replacement and 'g' are currently mandatory (but not checked)
+      # Replacement and '_g' are currently mandatory (but not checked)
       if args['replace']
-        _, re, replacement, g = args['replace'].split '/'
-        escapedCode.gsub!(Regexp.new(re)) {
+        _, re, replacement, _g = args['replace'].split '/'
+        escaped_code.gsub!(Regexp.new(re)) {
           match = Regexp.last_match
           # TODO: doesn't yet recognize escaped '$' ('\$')
-          while (argMatch = /(?<=\$)(\d)(?!\d)/.match(replacement)) do
-            next unless argMatch;
-            replacement.gsub!("$#{argMatch[0]}", match[argMatch[0].to_i])
+          while (arg_match = /(?<=\$)(\d)(?!\d)/.match(replacement)) do
+            next unless arg_match
+            replacement.gsub!("$#{arg_match[0]}", match[arg_match[0].to_i])
           end
-          if /\$\d+|\\\$/ =~ replacement
+          if /\$\d+|\\\$/.match?(replacement)
             raise "Plugin doesn't support \\$, or more than 9 match groups $1, ..., $9: #{replacement}.\nAborting."
           end
           if replacement.include? '$&'
@@ -203,105 +207,82 @@ module NgCodeExcerpt
           end
         }
       end
-      result =
-      "#{pi}\n" +
-      "<code-pane name=\"#{title}\" #{attrs}>" +
-        _processHighlightMarkers(escapedCode) +
-      "</code-pane>\n"
-      # logPuts ">> code-pane:\n#{result}\n"
-      return result
+      escaped_code = _process_highlight_markers(escaped_code)
+      <<~TEMPLATE
+        #{pi}
+        <code-pane name="#{title}" #{attrs * ' '}>#{escaped_code}</code-pane>
+      TEMPLATE
     end
 
-    def processSetCommand(pi, args)
+    def process_set_command(_pi, args)
       # Ignore all commands other than path-base.
-      pathBase = args['path-base'];
-      return unless pathBase;
-      @pathBase = pathBase.sub(/\/$/, '');
-      # puts ">> path base set to #{@pathBase}"
+      path_base = args['path-base']
+      return unless path_base
+      @path_base = path_base.sub(/\/$/, '')
+      # puts ">> path base set to #{@@path_base}"
     end
 
-    def getCodeFrag(projRelPath, fragPath, srcPath, region)
-      excerpt_yaml_path = File.join(Dir.pwd, 'tmp', '_fragments', @pathBase, projRelPath + '.excerpt.yaml');
-      if File.exists? excerpt_yaml_path
+    def get_code_frag(proj_rel_path, _frag_path, src_path, region)
+      excerpt_yaml_path = File.join(Dir.pwd, 'tmp', '_fragments', @path_base, proj_rel_path + '.excerpt.yaml');
+      if File.exist? excerpt_yaml_path
         yaml = YAML.load_file(excerpt_yaml_path)
         result = yaml[region]
-        if (result.nil?)
+        if result.nil?
           result = "CODE EXCERPT not found: region '#{region}' not found in #{excerpt_yaml_path}"
-          logPuts result
+          log_puts result
         else
           lines = result.split(/(?<=\n)/) # split and keep separator
-          result = escapeAndTrimCode(lines)
+          result = escape_and_trim_code(lines)
         end
-      # We don't generate fragPath fragments anymore:
-      # elsif File.exists? fragPath
-      #   lines = File.readlines fragPath
+      # We don't generate frag_path fragments anymore:
+      # elsif File.exists? frag_path
+      #   lines = File.readlines frag_path
       #   result = escapeAndTrimCode(lines)
-      elsif region.empty? && srcPath && (File.exists? srcPath)
-        lines = File.readlines srcPath
-        result = escapeAndTrimCode(lines)
-        raise "CODE EXCERPT not found: no .excerpt.yaml file " +
-         "and source contains docregions: #{srcPath}" if result.include? '#docregion'
+      elsif region.empty? && src_path && (File.exist? src_path)
+        lines = File.readlines src_path
+        result = escape_and_trim_code(lines)
+        raise 'CODE EXCERPT not found: no .excerpt.yaml file ' \
+         "and source contains docregions: #{src_path}" if result.include? '#docregion'
       else
         result = "CODE EXCERPT not found: #{excerpt_yaml_path}, region='#{region}'"
-        logPuts result
+        log_puts result
       end
       result
     end
 
-    def fullFragPath(projRelPath, region)
-      fragRelPath = File.join(@pathBase, projRelPath)
+    def full_frag_path(proj_rel_path, region)
+      frag_rel_path = File.join(@path_base, proj_rel_path)
       if region && !region.empty?
-        dir = File.dirname(fragRelPath)
-        basename = File.basename(fragRelPath, '.*')
-        ext = File.extname(fragRelPath)
-        fragRelPath = File.join(dir, "#{basename}-#{region}#{ext}")
+        dir = File.dirname(frag_rel_path)
+        basename = File.basename(frag_rel_path, '.*')
+        ext = File.extname(frag_rel_path)
+        frag_rel_path = File.join(dir, "#{basename}-#{region}#{ext}")
       end
-      fragExtension = '.txt'
-      fullPath = File.join(Dir.pwd, 'tmp', '_fragments', fragRelPath + fragExtension)
+      frag_extension = '.txt'
+      File.join(Dir.pwd, 'tmp', '_fragments', frag_rel_path + frag_extension)
     end
 
-    def srcPath(projRelPath, region)
-      region == '' ? File.join(@pathBase, projRelPath) : nil
+    def src_path(proj_rel_path, region)
+      region == '' ? File.join(@path_base, proj_rel_path) : nil
     end
 
-    def escapeAndTrimCode(lines)
+    def escape_and_trim_code(lines)
       # Skip blank lines at the end too
       while !lines.empty? && lines.last.strip == '' do lines.pop end
-      return CGI::escapeHTML(lines.join)
+      CGI.escapeHTML(lines.join)
     end
 
-    def logPuts(s)
+    def log_puts(s)
       puts(s)
-      fileMode = (@@logEntryCount += 1) <= 1 ? 'w' : 'a'
-      File.open(@@logFileName, fileMode) do |logFile| logFile.puts(s) end
+      file_mode = (@@log_entry_count += 1) <= 1 ? 'w' : 'a'
+      File.open(@@log_file_name, file_mode) do |logFile| logFile.puts(s) end
     end
 
-    def trimFileVers(s)
+    def trim_file_vers(s)
       # Path/title like styles.1.css or foo_1.dart? Then drop the '.1' or '_1' qualifier:
-      match = /^(.*)[\._]\d(\.\w+)(\s+.+)?$/.match(s)
+      match = /^(.*)[._]\d(\.\w+)(\s+.+)?$/.match(s)
       s = "#{match[1]}#{match[2]}#{match[3]}" if match
       s
-    end
-
-  end
-
-  class JadeMarkdownProcessor < MarkdownProcessor
-
-    def codeExcerpt(title, classes, attrs, escapedCode, indent)
-      # Unindent by 2 spaces so as to get out of current
-      # `:marked` region, since the code-excerpt will be a
-      # separate (non-markdown) Jade region.
-      indent.sub!(/^  /,'') if indent;
-      return super(title, classes, attrs, escapedCode, indent)
-    end
-
-    def _unindentedTemplate(title, classes, attrs, escapedCode)
-      classes = '.' + classes.sub(/\s+/, '.') if classes
-      ".code-example#{classes}\n" +
-      (title ? "  header: h4 #{title}\n" : '') +
-      "  code-example(#{attrs}).\n" +
-      "#{escapedCode.gsub(/^/, '    ')}\n" +
-      ":marked"
     end
 
   end

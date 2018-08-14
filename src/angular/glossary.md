@@ -258,7 +258,9 @@ renders as text.  That text may be concatenated with neighboring text
 before it is assigned to an element property
 or displayed between element tags, as in this example.
 
-<code-example language="html">&lt;label>My current hero is {!{hero.name}}&lt;/label></code-example>
+```html
+<label>My current hero is {!{hero.name}}</label>
+```
 
 Read more about [interpolation](/angular/guide/template-syntax#interpolation) in the
 [Template Syntax](/angular/guide/template-syntax) page.
@@ -344,10 +346,12 @@ display in a [view](#view).
 Here's an example that uses the built-in `currency` pipe to display
 a numeric value in the local currency.
 
-<code-example language="html">&lt;label>Price: &lt;/label>{!{product.price | currency}}</code-example>
+```html
+<label>Price:</label>{!{product.price | currency}}
+```
 
-You can also write your own custom pipes.
-Read more in the page on [pipes](/angular/guide/pipes).
+You can also write your own custom pipes. Read more in the page on
+[pipes](/angular/guide/pipes).
 
 ## Provider
 

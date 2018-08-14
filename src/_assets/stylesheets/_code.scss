@@ -105,4 +105,5 @@ li.L9 { background-color: #fefefe; }
   .l { @extend .lit; } /* Literal */
   .o { @extend .opn; } /* Operator */
   .n { @extend .typ; } /* Name */
+  .nt { @extend .tag; }
 }

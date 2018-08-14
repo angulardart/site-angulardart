@@ -344,23 +344,42 @@ Binding types can be grouped into three categories based on the direction of
 data flow: _source-to-view_, _view-to-source_, and two-way sequence
 _view-to-source-to-view_.
 
+{% comment %}Dart gives the best code styling results for the fenced code in the table.{% endcomment %}
 <table width="100%">
   <col width="30%"> <col width="50%"> <col width="20%">
   <tr> <th>Data direction</th> <th>Syntax</th> <th>Type</th> </tr>
+
   <tr>
-    <td>One-way<br>from data source<br>to view target</td>
-    <td><code-example>{!{expression}!}<br>[target]="expression"<br>bind-target="expression"</code-example></td>
-    <td>Interpolation<br> Property<br> Attribute<br> Class<br> Style </td>
+  <td>One-way<br>from data source<br>to view target</td>
+  <td markdown="1">
+  ```dart
+  {!{expression}!}
+  [target]="expression"
+  bind-target="expression"
+  ```
+  </td>
+  <td>Interpolation<br>Property<br>Attribute<br>Class<br>Style</td>
   </tr>
+
   <tr>
-    <td>One-way<br>from view target<br>to data source</td>
-    <td><code-example>(target)="statement"<br>on-target="statement"</code-example></td>
-    <td>Event</td>
+  <td>One-way<br>from view target<br>to data source</td>
+  <td markdown="1">
+  ```dart
+  (target)="statement"
+  on-target="statement"
+  ```
+  </td>
+  <td>Event</td>
   </tr>
+
   <tr>
-    <td>Two-way</td>
-    <td><code-example>[(target)]="expression"</code-example></td>
-    <td>Two-way</td>
+  <td>Two-way</td>
+  <td markdown="1">
+  ```dart
+  [(target)]="expression"
+  ```
+  </td>
+  <td>Two-way</td>
   </tr>
 </table>
 

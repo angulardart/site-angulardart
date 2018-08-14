@@ -19,7 +19,7 @@ module Jekyll
   # multiple examples (like the ACX lottery).
   #
   class ExampleRefTag < Liquid::Tag
-    def initialize(tag_name, args, tokens)
+    def initialize(tag_name, args, _)
       super
       @@config = Jekyll.configuration({}) unless defined? @@config
       @args = Liquid::Tag::Parser.new(args).args
