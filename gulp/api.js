@@ -3,6 +3,7 @@
 
 module.exports = function (gulp, plugins, config) {
 
+  const gulp_task = plugins.gulp_task;
   const path = plugins.path;
   const filter = plugins.filter;
   const rename = plugins.rename;
@@ -12,21 +13,22 @@ module.exports = function (gulp, plugins, config) {
     </a>
   `;
 
+  function finalizeApiDocs(done) {
+    config._dartdocProj.forEach(p => _copyToUnifiedApi(p));
+    done();
+  }
+
   // Copy (and patch) API docs for each project p specified via --dartdoc
-  gulp.task('finalize-api-docs', config._dartdocProj.map(p => `finalize-api-docs-${p}`));
+  gulp.task('finalize-api-docs', finalizeApiDocs);
 
-  config._dartdocProj.forEach(p => {
-    gulp.task(`finalize-api-docs-${p}`, [`dartdoc-${p}`], () => copyToUnifiedApi(p));
-  });
-
-  function copyToUnifiedApi(p) {
+  function _copyToUnifiedApi(p) {
     const pkgsWithApiDocs = plugins.fs.readdirSync(config.tmpPubPkgsPath);
     const pkgName = plugins.pkgAliasToPkgName(p);
     const baseDir = plugins.getPathToApiDir(pkgName);
     if (!plugins.fs.existsSync(baseDir)) {
       const msg = `could not find API doc directory for ${p} under ${baseDir}`;
       if (config.dartdocProj.includes(p)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
-      plugins.gutil.log(`WARNING: ${msg}`);
+      plugins.myLog(`WARNING: ${msg}`);
       return;
     }
     const dest = path.join(config.unifiedApiPath, pkgName);
@@ -34,7 +36,7 @@ module.exports = function (gulp, plugins, config) {
     if (plugins.fs.existsSync(dest)) {
       plugins.execSyncAndLog(`rm -Rf ${dest}`);
     }
-    plugins.gutil.log(` Copying ${baseDir} to ${dest}`);
+    plugins.myLog(` Copying ${baseDir} to ${dest}`);
     const indexHtml = filter(`${baseDir}/index.html`, { restore: true });
     // Classes with a field named `index`, gets it page generated as `index.html`, which of course
     // is the default index file for the directory. So we need to adjust its <base href>. E.g., see

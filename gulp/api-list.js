@@ -6,6 +6,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const fs = plugins.fs;
+  const gulp_task = plugins.gulp_task;
   const path = plugins.path;
   const log = require('./_log-factory')();
   log.level = 'info'; // config._logLevel;
@@ -15,27 +16,24 @@ module.exports = function (gulp, plugins, config) {
 
   const TOOLS_PATH = config.TOOLS_PATH;
 
-  gulp.task('build-api-list-json', ['dartdoc', '_get-sdk-doc-index-json'], () => buildApiListJson());
-
   const localDartApiIndexJson = path.resolve(config.LOCAL_TMP, 'index.json');
   const sdk = config.ngPkgVers.SDK;
   const url = `https://api.dartlang.org/${sdk.channel}/${sdk.vers}/index.json`;
   const curlCmd = `curl ${url} -o ${localDartApiIndexJson}`;
 
-  gulp.task('_get-sdk-doc-index-json', ['_clean'], () => {
+  function _getSdkDocIndexJson(done) {
     if (!fs.existsSync(localDartApiIndexJson)) plugins.execSyncAndLog(curlCmd);
-    if (fs.existsSync(localDartApiIndexJson) && fs.statSync(localDartApiIndexJson).size > 0) return;
+    if (fs.existsSync(localDartApiIndexJson) && fs.statSync(localDartApiIndexJson).size > 0) return done();
     const msg = `ERROR: unexpected empty file: ${localDartApiIndexJson}
        because the fetched ${url} is empty.
        If this isn't a server error, then there is probably no SDK for the given channel and version.`;
     plugins.logAndExit1(msg);
-  });
-
-  function buildApiListJson() {
-    _buildApiListJson();
+    done();
   }
 
-  function _buildApiListJson() {
+  // gulp.task('_get-sdk-doc-index-json', gulp.series('_clean-only-once', getSdkDocIndexJson));
+
+  function _buildApiListJson(done) {
     const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'api');
 
     log.info(`Creating combined api-list.json:`);
@@ -50,11 +48,15 @@ module.exports = function (gulp, plugins, config) {
         const dartDocData = require(srcData);
         _addToApiListMap(dartDocData, apiListMap, pkgName, pkgNameAlias);
       } else if (config.dartdocProj.indexOf(pkgNameAlias) > -1) {
-        throw `ERROR: can't build API index for ${pkgNameAlias}. File not found: ${srcData}`;
+        const msg = `ERROR: can't build API index for ${pkgNameAlias}. File not found: ${srcData}`;
+        plugins.myLog(msg);
+        plugins.myLog(`${config.tmpPubPkgsPath}: ${pkgsWithApiDocs}`);
+        throw msg;
       } else {
         // Only warn if this isn't a pkg that the user asked dartdocs for.
-        plugins.gutil.log(`Warning: file not found: ${srcData}`);
+        plugins.myLog(`Warning: file not found: ${srcData}`);
       }
+      done();
     });
 
     // Add selected SDK libraries
@@ -63,7 +65,7 @@ module.exports = function (gulp, plugins, config) {
     _addToApiListMap(dartDocData, apiListMap);
 
     log.info('Total number of libraries across packages:', apiListMap.size);
-    writeApiList(apiListMap, destFolder);
+    _writeApiList(apiListMap, destFolder);
   }
 
   function _addToApiListMap(dartDocData, apiListMap, _pkgName, optAlias) {
@@ -79,9 +81,11 @@ module.exports = function (gulp, plugins, config) {
     }
   }
 
-  function writeApiList(apiListMap, destFolder) {
+  function _writeApiList(apiListMap, destFolder) {
     const apiListFilePath = path.join(destFolder, 'api-list.json');
     fs.writeFileSync(apiListFilePath, plugins.stringify(apiListMap));
     log.info('Wrote', Object.keys(apiListMap).length, 'library entries to', apiListFilePath);
   }
+
+  gulp.task('build-api-list-json', gulp.series(_getSdkDocIndexJson, _buildApiListJson));
 };

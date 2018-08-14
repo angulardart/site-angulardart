@@ -221,29 +221,31 @@ module NgCodeExcerpt
     end
 
     def getCodeFrag(projRelPath, fragPath, srcPath, region)
-      excerptYamlPath = File.join(Dir.pwd, 'tmp', '_fragments', @pathBase, projRelPath + '.excerpt.yaml');
-      if File.exists? excerptYamlPath
-        yaml = YAML.load_file(excerptYamlPath)
+      excerpt_yaml_path = File.join(Dir.pwd, 'tmp', '_fragments', @pathBase, projRelPath + '.excerpt.yaml');
+      if File.exists? excerpt_yaml_path
+        yaml = YAML.load_file(excerpt_yaml_path)
         result = yaml[region]
         if (result.nil?)
-          result = "BAD FILENAME: region '#{region}' not found in #{excerptYamlPath}"
+          result = "CODE EXCERPT not found: region '#{region}' not found in #{excerpt_yaml_path}"
           logPuts result
         else
           lines = result.split(/(?<=\n)/) # split and keep separator
           result = escapeAndTrimCode(lines)
         end
-      elsif File.exists? fragPath
-        lines = File.readlines fragPath
-        result = escapeAndTrimCode(lines)
-      elsif srcPath && (File.exists? srcPath)
+      # We don't generate fragPath fragments anymore:
+      # elsif File.exists? fragPath
+      #   lines = File.readlines fragPath
+      #   result = escapeAndTrimCode(lines)
+      elsif region.empty? && srcPath && (File.exists? srcPath)
         lines = File.readlines srcPath
         result = escapeAndTrimCode(lines)
+        raise "CODE EXCERPT not found: no .excerpt.yaml file " +
+         "and source contains docregions: #{srcPath}" if result.include? '#docregion'
       else
-        result = "BAD FILENAME: #{fragPath}"
-        result += " (#{srcPath})" if region == ''
+        result = "CODE EXCERPT not found: #{excerpt_yaml_path}, region='#{region}'"
         logPuts result
       end
-      return result
+      result
     end
 
     def fullFragPath(projRelPath, region)
@@ -278,7 +280,7 @@ module NgCodeExcerpt
       # Path/title like styles.1.css or foo_1.dart? Then drop the '.1' or '_1' qualifier:
       match = /^(.*)[\._]\d(\.\w+)(\s+.+)?$/.match(s)
       s = "#{match[1]}#{match[2]}#{match[3]}" if match
-      return s
+      s
     end
 
   end

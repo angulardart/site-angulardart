@@ -4,7 +4,7 @@ language: dart
 dart: stable
 
 cache:
-  timeout: 300
+  timeout: 1000
   bundler: true
   directories:
   - $HOME/.pub-cache
@@ -110,7 +110,7 @@ jobs:
       script:
         - pub get
         - ./scripts/write-ci-info.sh -v
-        - gulp _api-doc-prep --use-cached-api-doc --dartdoc=all
+        - gulp _build-api-docs --use-cached-api-doc --dartdoc=all
         - gulp _jekyll-build _examples-cp-to-site-folder
         - ls -l publish/examples
         - ls -l publish/assets/bootstrap/*

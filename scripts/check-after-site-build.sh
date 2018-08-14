@@ -18,7 +18,7 @@ travis_fold end check_links
 # Check output from Jekyll plugin
 travis_fold start check_for_bad_filenames
 if [[ -e code-excerpt-log.txt ]]; then
-  (set -x; grep 'BAD FILENAME' code-excerpt-log.txt && exit 1)
+  (set -x; grep -i 'CODE EXCERPT not found' code-excerpt-log.txt && exit 1)
 fi
 travis_fold end check_for_bad_filenames
 

@@ -46,7 +46,7 @@ module Jekyll
         lines = File.readlines path2frag
         result = stripMdCodeMarkers(lines)
       else
-        result = "BAD FILENAME: #{path2frag}"
+        result = "CODE EXCERPT not found: #{path2frag}"
         logPuts result
       end
       return result

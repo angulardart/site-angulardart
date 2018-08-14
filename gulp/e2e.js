@@ -3,13 +3,11 @@
 
 module.exports = function (gulp, plugins, config) {
 
-  const _ = require('lodash');
-
   const argv = plugins.argv;
   const copyFiles = plugins.copyFiles;
   const fs = plugins.fs;
   const fsExtra = fs;
-  const gutil = plugins.gutil;
+  const myLog = plugins.myLog;
   const path = plugins.path;
   const pexec = plugins.pexec;
   const Q = plugins.q;
@@ -46,7 +44,7 @@ module.exports = function (gulp, plugins, config) {
     if (!argv.fast) {
       // Do full setup
       await pexec('npm install', { cwd: EXAMPLES_PATH });
-      gutil.log('runE2e: update webdriver');
+      myLog('runE2e: update webdriver');
       await pexec('npm run webdriver:update', { cwd: EXAMPLES_PATH });
     };
     const outputFile = path.join(process.cwd(), 'protractor-results.txt');
@@ -86,8 +84,8 @@ module.exports = function (gulp, plugins, config) {
     // and there is at most one spec file (which means there are no duplicates):
     var examplePaths = e2eSpecPaths.map(p => path.dirname(p));
 
-    gutil.log(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
-    gutil.log(`\nE2E skipping:\n  ${skippedExPaths.join('\n  ')}`);
+    myLog(`\nE2E scheduled to run:\n  ${examplePaths.join('\n  ')}`);
+    myLog(`\nE2E skipping:\n  ${skippedExPaths.join('\n  ')}`);
 
     var status = { passed: [], failed: [] };
     for (var examplePath of examplePaths) {
@@ -104,20 +102,20 @@ module.exports = function (gulp, plugins, config) {
   // fileName; then shut down the example.  All protractor output is appended
   // to the outputFile.
   async function runExampleE2E(appDir, outputFile) {
-    gutil.log(`E2E for ${appDir}`);
+    myLog(`E2E for ${appDir}`);
 
     const deployDir = path.resolve(appDir, 'build/web');
     const appRunSpawnInfo = spawnExt('npm', ['run', 'http-server', '--', deployDir, '-s'], { cwd: appDir });
     if (!appRunSpawnInfo.proc.pid) {
       const msg = `http-server failed to launch over ${deployDir}`;
-      gutil.log(msg);
+      myLog(msg);
       throw new Error(msg);
     }
 
     try {
       // Build app
       if (argv.pub === false) {
-        gutil.log(`Skipping pub ${config.exAppPubGetOrUpgradeCmd} and pub build (--no-pub flag present)`);
+        myLog(`Skipping pub ${config.exAppPubGetOrUpgradeCmd} and pub build (--no-pub flag present)`);
       } else {
         await pexec(`pub ${config.exAppPubGetOrUpgradeCmd}`, { cwd: appDir });
         // plugins.generateBuildYaml(appDir);
@@ -127,7 +125,7 @@ module.exports = function (gulp, plugins, config) {
         if (fs.existsSync(path.join(appDir, 'build.no_test.yaml'))) buildOpts += ' --config=no_test';
         await pexec(`pub global run webdev build ${buildOpts}`, {
           cwd: appDir,
-          log: gutil.log,
+          log: myLog,
           okOnExitRE: /\[INFO\]( Build:)? Succeeded/,
           errorOnExitRE: /\[SEVERE\]|\[WARNING\](?! (\w+: )?(Invalidating asset graph|Throwing away cached asset graph|No actions completed for ))/,
         });
@@ -136,11 +134,11 @@ module.exports = function (gulp, plugins, config) {
         `npm run protractor -- protractor.config.js` +
         ` --specs=${path.resolve(appDir, 'e2e-spec.ts')} --params.appDir=${appDir}` +
         ` --params.outputFile=${outputFile}`,
-        { cwd: EXAMPLES_PATH, log: gutil.log, },
+        { cwd: EXAMPLES_PATH, log: myLog, },
       );
       return true;
     } catch (e) {
-      gutil.log(`runExampleE2E over ${appDir} failed.`);
+      myLog(`runExampleE2E over ${appDir} failed.`);
       throw e;
     } finally {
       // appRun.proc.kill(); // does not work properly on windows with child processes.
@@ -167,7 +165,7 @@ module.exports = function (gulp, plugins, config) {
     log.push('\nElapsed time: ' +  status.elapsedTime + ' seconds');
     var log = log.join('\n');
     log += `\nE2E skipped:\n  ${skippedExPaths.join('\n  ')}`;
-    gutil.log(log);
+    myLog(log);
     fs.appendFileSync(outputFile, log);
   }
 

@@ -4,6 +4,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
+  const gulp_task = plugins.gulp_task;
   const ngPkgVers = config.ngPkgVers;
   const path = plugins.path;
   const srcData = config.srcData;
@@ -12,16 +13,16 @@ module.exports = function (gulp, plugins, config) {
   const skipRegEx = argv.skip || null;
 
   ['get', 'upgrade'].forEach(cmd => {
-    gulp.task(`pub-${cmd}-and-check`, [`pub-${cmd}`], () => plugins.gitCheckDiff());
-    gulp.task(`pub-${cmd}`, [`root-pub-${cmd}`, `examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
+    gulp_task(`root-pub-${cmd}`, () => plugins.execSyncAndLog(`pub ${cmd}`));
 
-    gulp.task(`root-pub-${cmd}`, () => plugins.execSyncAndLog(`pub ${cmd}`));
-
-    gulp.task(`ng-pkg-pub-${cmd}`, () => {
+    gulp_task(`ng-pkg-pub-${cmd}`, () => {
       if (srcData.match(skipRegEx) || !srcData.match(chooseRegEx)) return;
       _pub(cmd);
       updateNgPkgVers();
     });
+
+    gulp_task(`pub-${cmd}`, [`root-pub-${cmd}`, `examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
+    gulp_task(`pub-${cmd}-and-check`, [`pub-${cmd}`, () => plugins.gitCheckDiff()]);
   });
 
   gulp.task('_ng-pkg-vers-update', updateNgPkgVers);
@@ -41,7 +42,7 @@ module.exports = function (gulp, plugins, config) {
     if (cmd !== 'upgrade') return;
     const updatesAvailable = output.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
     if (!updatesAvailable) {
-      plugins.gutil.log(`All Angular packages are up-to-date. `);
+      plugins.myLog(`All Angular packages are up-to-date. `);
       return;
     }
     // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
@@ -50,7 +51,7 @@ module.exports = function (gulp, plugins, config) {
       if (u.match(skipRegEx)) return true;
       const m = u.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/);
       const pkg = m[1], vers = m[2], was = m[3], wasVers = m[4], avail = m[5], availVers = m[6];
-      // plugins.gutil.log(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
+      // plugins.myLog(`>> pkg:${pkg}, vers:${vers}, wasVers:${wasVers || ''}, availVers:${availVers}`);
       if (wasVers || availVers && (vers.match(/alpha|beta/) || !availVers.match(/alpha|beta/))) {
         updatesAvailableToReport.push(u);
       }

@@ -40,26 +40,30 @@ module.exports = function (gulp, plugins, config) {
     .filter(p => !p.match(skipRegEx))
     .filter(p => p.match(chooseRegEx));
 
-  gulp.task('test', ['_test'], () => {
-    plugins.gutil.log(`Passed:\n  ${testStatus.passed.join('\n  ')}\n`);
-    plugins.gutil.log(`Skipped:\n  ${testStatus.skipped.join('\n  ')}\n`);
-    plugins.gutil.log(`Failed:\n  ${testStatus.failed.join('\n  ')}\n`);
+  function _list_tests() { plugins.myLog(`tests:\n  ${examplesToTest.join('\n  ')}`); }
+
+  async function _test() {
+      _list_tests();
+      for (var ex of examplesToTest) {
+        plugins.myLog(`START COMPONENT TESTING for ${ex}`);
+        await pubGetAndRunTest(path.join(EXAMPLES_PATH, ex));
+      }
+  }
+
+  async function test() {
+    await _test();
+    plugins.myLog(`Passed:\n  ${testStatus.passed.join('\n  ')}\n`);
+    plugins.myLog(`Skipped:\n  ${testStatus.skipped.join('\n  ')}\n`);
+    plugins.myLog(`Failed:\n  ${testStatus.failed.join('\n  ')}\n`);
     const status = testStatus.failed.length;
     process.exitCode = status;
     // Sometimes the process doesn't exit, or not quickly enough, so throw.
     if (status) throw status;
-  });
+  }
 
-  gulp.task('_test', ['_list-tests'], async () => {
-    for (var ex of examplesToTest) {
-      plugins.gutil.log(`START COMPONENT TESTING for ${ex}`);
-      await pubGetAndRunTest(path.join(EXAMPLES_PATH, ex));
-    }
-  });
-
-  gulp.task('_list-tests', () => {
-    plugins.gutil.log(`tests:\n  ${examplesToTest.join('\n  ')}`)
-  });
+  gulp.task('_list-tests', _list_tests);
+  gulp.task('_test', _test);
+  gulp.task('test', test);
 
   function onlyBuild(path) {
     return path.startsWith('examples/ng/api') || path.startsWith('examples/fetch_data');
@@ -84,7 +88,7 @@ module.exports = function (gulp, plugins, config) {
 
       testStatus.passed.push(exPath);
     } catch (e) {
-      plugins.gutil.log(`Error preparing for or running tests: ${e}\n`);
+      plugins.myLog(`Error preparing for or running tests: ${e}\n`);
       testStatus.failed.push(exPath);
     }
   }

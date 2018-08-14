@@ -14,7 +14,7 @@ module.exports = function (gulp, plugins, config) {
 
   gulp.task('get-stagehand-proj', () => true);
 
-  gulp.task('_disabled-for-now-get-stagehand-proj', cb => {
+  gulp.task('_disabled-for-now-get-stagehand-proj', () => {
     const baseDir = webSimpleProjPath;
     if (plugins.argv.clean) cp.execSync(`rm -Rf ${baseDir}`);
     if (!fs.existsSync(baseDir)) cp.execSync(`./scripts/get-ng-web-angular.sh`);

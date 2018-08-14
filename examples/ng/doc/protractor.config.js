@@ -12,7 +12,6 @@
 
 var fs = require('fs');
 var path = require('canonical-path');
-var _ = require('lodash');
 
 // See https://github.com/angular/protractor/blob/master/docs/browser-setup.md
 exports.config = {
@@ -99,7 +98,7 @@ function Reporter(options) {
     var statuses = _currentSuite.specs.map(function(spec) {
       return spec.status;
     });
-    statuses = _.uniq(statuses);
+    statuses = [...new Set(statuses)]; // unique statuses
     var status = statuses.indexOf('failed') >= 0 ? 'failed' : statuses.join(', ');
     _currentSuite.status = status;
     log('Suite ' + _currentSuite.status + ': ' + suite.description, -1);

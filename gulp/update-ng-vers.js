@@ -4,6 +4,7 @@
 module.exports = function (gulp, plugins, config) {
 
   const argv = plugins.argv;
+  const gulp_task = plugins.gulp_task;
   const ngPkgVers = config.ngPkgVers;
   const path = plugins.path;
   const replace = plugins.replace;
@@ -14,15 +15,12 @@ module.exports = function (gulp, plugins, config) {
     return p;
   }
 
-  // To update NG 3 code to NG 4 code use --ng-vers=4
-  gulp.task('update-pubspec-etc', ['update-sdk-vers', 'update-pkg-vers']);
-
   //---------------------------------------------------------------------------
   // Updating SDK version
 
   const SDK_VERS = plugins.yamljs.load(path.join(config.srcData, 'pubspec.yaml')).environment.sdk;
 
-  gulp.task('update-sdk-vers', cb => {
+  gulp.task('update-sdk-vers', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -37,17 +35,6 @@ module.exports = function (gulp, plugins, config) {
 
   console.log('Using package versions:');
   for (var pkg in ngPkgVers) { console.log(`  ${pkg}: ${ngPkgVers[pkg].vers}`); }
-
-  gulp.task('update-pkg-vers', ['update-sdk-vers', '_remove_platform_entries_etc', '_update-dart'], cb => {
-    const baseDir = getBaseDir();
-    return gulp.src([
-      `${baseDir}/**/pubspec.yaml`,
-      `!${baseDir}/**/.pub/**`,
-    ]) // , { base: baseDir }
-      .pipe(replace(/(^\s*- angular)2:$/gm, '$1:'))
-      .pipe(replace(/(^\s+)(angular\w*):\s+(\S+)$/gm, pkgEntry))
-      .pipe(gulp.dest(baseDir));
-  });
 
   function pkgEntry(match, indent, pkg, currentVers) {
     if (argv.ngVers >= '4' || ngPkgVers['angular'].vers[0] >= '4') {
@@ -105,7 +92,7 @@ dependency_overrides:
 dependency_overrides:
   analyzer: ^0.31.0-alpha.1\n`;
 
-  gulp.task('_dep_overrides', cb => {
+  gulp.task('_dep_overrides', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -115,7 +102,7 @@ dependency_overrides:
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('_remove_overrides', cb => {
+  gulp.task('_remove_overrides', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -132,7 +119,7 @@ dependency_overrides:
     - 'package:angular2?/common.dart#COMMON_PIPES'
 `;
 
-  gulp.task('_remove_platform_entries_etc', ['update-sdk-vers'], cb => {
+  gulp.task('_remove_platform_entries_etc', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -145,7 +132,7 @@ dependency_overrides:
 
   const formsImport = "import 'package:angular_forms/angular_forms.dart';"
 
-  gulp.task('_update-dart', ['update-sdk-vers'], cb => {
+  gulp.task('_update-dart', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/*.dart`,
@@ -173,7 +160,18 @@ dependency_overrides:
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-pubspec-lock', cb => {
+  gulp_task('update-pkg-vers', ['update-sdk-vers', '_remove_platform_entries_etc', '_update-dart', () => {
+    const baseDir = getBaseDir();
+    return gulp.src([
+      `${baseDir}/**/pubspec.yaml`,
+      `!${baseDir}/**/.pub/**`,
+    ]) // , { base: baseDir }
+      .pipe(replace(/(^\s*- angular)2:$/gm, '$1:'))
+      .pipe(replace(/(^\s+)(angular\w*):\s+(\S+)$/gm, pkgEntry))
+      .pipe(gulp.dest(baseDir));
+  }]);
+
+  gulp.task('update-pubspec-lock', () => {
     if (!argv.package) plugins.logAndExit1(`Missing --package='pkg version' option`);
     const parts = argv.package.split(' ');
     if (parts.length !== 2) plugins.logAndExit1(`Invalid --package='pkg version' option: ${argv.package}`);
@@ -181,7 +179,7 @@ dependency_overrides:
 
     const re = new RegExp(`(^  ${pkg}:[\\s\\S]+?version): \\S+$`, 'm');
     const baseDir = argv.path ? getBaseDir() : './{examples,src/_data}';
-    // plugins.gutil.log('Will up')
+    // plugins.myLog('Will up')
     return gulp.src([
       `${baseDir}/**/pubspec.lock`,
       `!${baseDir}/**/{.dart_tool,.pub,build,node_modules}/**`,
@@ -194,7 +192,7 @@ dependency_overrides:
     return scriptBaseHref.map(s => indent + s).join('\n');
   }
 
-  gulp.task('_update-base-href', cb => {
+  gulp.task('_update-base-href', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/index.html`,
@@ -204,7 +202,7 @@ dependency_overrides:
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-analysis-options', cb => {
+  gulp.task('update-analysis-options', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/analysis_options.yaml`,
@@ -214,7 +212,7 @@ dependency_overrides:
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-main', cb => {
+  gulp.task('update-main', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/web/main.dart`,
@@ -225,7 +223,7 @@ dependency_overrides:
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-tests', cb => {
+  gulp.task('update-tests', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/test/*_po.dart`,
@@ -250,7 +248,7 @@ abstract class $1 {
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-pubspec', cb => {
+  gulp.task('update-pubspec', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/pubspec.yaml`,
@@ -260,7 +258,7 @@ abstract class $1 {
       .pipe(gulp.dest(baseDir));
   });
 
-  gulp.task('update-web-index', cb => {
+  gulp.task('update-web-index', () => {
     const baseDir = getBaseDir();
     return gulp.src([
       `${baseDir}/**/web/index.html`,
@@ -270,6 +268,10 @@ abstract class $1 {
       .pipe(replace(/\s+<script defer src="packages\/browser\/dart.js"><\/script>/, ''))
       .pipe(gulp.dest(baseDir));
   });
+
+  //---------------------------------------------------------------------------
+  // To update NG 3 code to NG 4 code use --ng-vers=4
+  gulp_task('update-pubspec-etc', ['update-sdk-vers', 'update-pkg-vers']);
 };
 
 const _ignore_uri_has_not_been_generated =

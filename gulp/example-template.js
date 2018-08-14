@@ -6,6 +6,7 @@ module.exports = function (gulp, plugins, config) {
 
   const cp = plugins.child_process;
   const EXAMPLES_PATH = config.EXAMPLES_NG_DOC_PATH;
+  const gulp_task = plugins.gulp_task;
   const LOCAL_TMP = config.LOCAL_TMP;
   const fs = require("fs");
   const path = plugins.path;
@@ -22,12 +23,10 @@ module.exports = function (gulp, plugins, config) {
   let exDirs = (cp.execSync(findCmd) + '').split(/\s+/);
   exDirs = exDirs.map(p => p.replace('/pubspec.yaml', ''));
 
-  gulp.task('update-example-template-files', ['update-web-simple', '_update-ex-analysis-optn']);
-
-  gulp.task('_update-ex-analysis-optn', //['update-web-simple'],
-    (cb) => {
+  gulp.task('_update-ex-analysis-optn', //['get-stagehand-proj'],
+    () => {
       const baseDir = webSimpleProjPath;
-      // plugins.gutil.log(`exDirs: ${exDirs}`);
+      // plugins.myLog(`exDirs: ${exDirs}`);
       let stream = gulp.src(`${baseDir}/analysis_options.yaml`, { base: baseDir });
       exDirs.forEach(d => {
         stream = stream.pipe(gulp.dest(d));
@@ -35,9 +34,11 @@ module.exports = function (gulp, plugins, config) {
       return stream;
     });
 
+  gulp_task('update-example-template-files', ['get-stagehand-proj', '_update-ex-analysis-optn']);
+
   // toh-0
 
-  gulp.task('update-toh-0', cb => {
+  gulp.task('update-toh-0', () => {
     const baseDir = qsPath;
     return gulp.src([
       `${baseDir}/**`,

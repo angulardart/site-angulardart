@@ -8,7 +8,8 @@ module.exports = function (gulp, plugins, config) {
   const cp = plugins.child_process;
   const _exec = plugins.execSyncAndLog;
   const fs = plugins.fs;
-  const gutil = plugins.gutil;
+  const gulp_task = plugins.gulp_task;
+  const myLog = plugins.myLog;
   const path = plugins.path;
 
   const chooseRegEx = argv.filter || '.';
@@ -22,17 +23,17 @@ module.exports = function (gulp, plugins, config) {
     .sort();
   // const examples = examplesFullPath.map(p => path.basename(p));
 
-  gulp.task('__list-example-paths', () => {
-    gutil.log(`example paths:\n  ${examplesFullPath.join('\n  ')}`);
-    gutil.log(`find output:\n[${findOutput}]`);
+  gulp_task('__list-example-paths', () => {
+    myLog(`example paths:\n  ${examplesFullPath.join('\n  ')}`);
+    myLog(`find output:\n[${findOutput}]`);
   });
 
   ['get', 'upgrade'].forEach(cmd => {
-    gulp.task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd}`));
+    gulp_task(`examples-pub-${cmd}`, () => examplesExec(`pub ${cmd}`));
   });
 
   // General exec task. Args: --cmd='some-cmd with args'
-  gulp.task('examples-exec', () => examplesExec(argv.cmd));
+  gulp_task('examples-exec', () => examplesExec(argv.cmd));
 
   function examplesExec(cmd, optional_options) {
     if (!cmd) throw `Invalid command: ${cmd}`;
@@ -41,7 +42,7 @@ module.exports = function (gulp, plugins, config) {
     examplesFullPath.forEach(p => _exec(cmdGenerator(p), Object.assign(opt, { cwd: p })));
   }
 
-  gulp.task('analyze', () => {
+  gulp_task('analyze', () => {
     if (!argv.fast) {
       examplesExec('pub get', {
         env:
@@ -51,11 +52,11 @@ module.exports = function (gulp, plugins, config) {
     examplesExec('dartanalyzer --fatal-warnings .');
   });
 
-  gulp.task('dartfmt', () => examplesExec(p => {
-    let dirs = ['lib', 'web', 'test'].filter(dir => fs.existsSync(path.join(p, dir)));
-    let cmd = ['dartfmt -w --set-exit-if-changed'].concat(dirs);
-    return cmd.join(' ');
-  }));
+  gulp_task('dartfmt', () => examplesExec(p => {
+      let dirs = ['lib', 'web', 'test'].filter(dir => fs.existsSync(path.join(p, dir)));
+      let cmd = ['dartfmt -w --set-exit-if-changed'].concat(dirs);
+      return cmd.join(' ');
+    }));
 
   // ==========================================================================
   // Boilerplate management
@@ -66,11 +67,11 @@ module.exports = function (gulp, plugins, config) {
     const target = `_add-example-boilerplate-${i}`;
     bpDeps.push(target);
     const examplePaths = examplesFullPath.filter(p => p.startsWith(bpParentDir));
-    gulp.task(target, () => _addExampleBoilerplate(boilerplateSrcDirs[i], examplePaths));
+    gulp_task(target, () => _addExampleBoilerplate(boilerplateSrcDirs[i], examplePaths));
   });
 
   // gulp add-example-boilerplate [--filter=pattern] [--skip=pattern]
-  gulp.task('add-example-boilerplate', bpDeps);
+  gulp.task('add-example-boilerplate', gulp.series(bpDeps));
 
   function _addExampleBoilerplate(bpParentDir, examplePaths) {
     if (examplePaths.length === 0) return;
@@ -84,7 +85,7 @@ module.exports = function (gulp, plugins, config) {
     let stream = gulp.src([
       `${baseDir}/.gitignore`,
       `${baseDir}/**`,
-    ], { base: baseDir })
+    ], { allowEmpty: true , base: baseDir })
       .pipe(plugins.chmod(readOnlyPerms));
 
     examplePaths.forEach(exPath => {
@@ -95,8 +96,8 @@ module.exports = function (gulp, plugins, config) {
           // so that a second invocation of the command be able re replace
           // dest files.
           //
-          // gutil.log(`>> ${e.errno}, ${e.code}, ${e.syscall}, ${e.path}`);
-          gutil.log(`Resetting file permissions for ${e.path}. Rerun gulp task to have this file updated.`)
+          // myLog(`>> ${e.errno}, ${e.code}, ${e.syscall}, ${e.path}`);
+          myLog(`Resetting file permissions for ${e.path}. Rerun gulp task to have this file updated.`)
           _exec(`chmod a+w ${e.path}`)
         }
       }));
@@ -105,7 +106,7 @@ module.exports = function (gulp, plugins, config) {
   }
 
   // gulp clean-examples [--force] [--clean] [-e foo -e bar ...] [--filter=pattern] [--skip=pattern]
-  gulp.task('clean-examples', () => {
+  gulp_task('clean-examples', () => {
     const cmd = ['git clean -xd'];
     cmd.push(argv.force ? '-f' : '-n');
 

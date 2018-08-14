@@ -22,20 +22,22 @@ excerpt_separator: ""
     others: { write: false }
   };
 
-  gulp.task('note-refresh', () => plugins.runSequence('_pre-notes', '_note-refresh', '_post-notes'));
+  gulp.task('note-refresh', gulp.series(_pre_notess, _note_refresh, _post_notes));
 
-  gulp.task('_pre-notes', () => {
+  function _pre_notess(done) {
     const baseDir = path.join(config.source, 'angular', 'note');
-    plugins.execSyncAndLog(`chmod -R ug+w ./*`, { cwd: baseDir })
-  });
+    plugins.execSyncAndLog(`chmod -R ug+w ./*`, { cwd: baseDir });
+    done();
+  }
 
-  gulp.task('_post-notes', () => {
+  function _post_notes(done) {
     const baseDir = path.join(config.source, 'angular', 'note');
-    plugins.execSyncAndLog(`chmod -R a-w ./*`, { cwd: baseDir })
-    plugins.execSyncAndLog(`chmod ug+w index.md`, { cwd: baseDir })
-  });
+    plugins.execSyncAndLog(`chmod -R a-w ./*`, { cwd: baseDir });
+    plugins.execSyncAndLog(`chmod ug+w index.md`, { cwd: baseDir });
+    done();
+  }
 
-  gulp.task('_note-refresh', () => {
+  function _note_refresh() {
     const baseDir = ngDocPath;
     const dest = path.join(config.source, 'angular', 'note');
     // const markdown = filter(`${baseDir}/**/*.md`, { restore: true }); // unnecessary atm
@@ -68,7 +70,7 @@ excerpt_separator: ""
       .pipe(plugins.chmod(readOnlyPerms))
 
       .pipe(gulp.dest(dest)); // Doesn't seem to work: { dirMode: 0o555 }
-  });
+  }
 
   const escapedOrigDocUrl = 'https://github.com/dart-lang/angular/blob/master/doc/'.replace(reEscapeRe, '\\$&');
 

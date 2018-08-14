@@ -11,10 +11,10 @@ module.exports = function (gulp, plugins, config) {
   const argv = plugins.argv;
   const cp = plugins.child_process;
   const _exec = plugins.execSyncAndLog;
-  const execp = plugins.execp;
   const filter = plugins.filter;
   const fs = plugins.fs;
-  const gutil = plugins.gutil;
+  const gulp_task = plugins.gulp_task;
+  const myLog = plugins.myLog;
   const path = plugins.path;
   const rename = plugins.rename;
   const replace = plugins.replace;
@@ -32,15 +32,12 @@ module.exports = function (gulp, plugins, config) {
     .filter(p => p.match(chooseRegEx))
     .sort();
 
-  gulp.task('__list-examples', () => {
-    gutil.log(`Angular major version: ${ngMajorVers}`);
-    gutil.log(`examples:\n  ${examples.join('\n  ')}`);
+  gulp_task('__list-examples', () => {
+    myLog(`Angular major version: ${ngMajorVers}`);
+    myLog(`examples:\n  ${examples.join('\n  ')}`);
   });
 
-  gulp.task('add-example-apps-to-site', ['_clean'], done =>
-    plugins.runSequence('_examples-get-repos', '_examples-cp-to-site-folder', done));
-
-  gulp.task('_examples-get-repos', () => {
+  gulp_task('_examples-get-repos', () => {
     // const promises = [];
     examples.forEach(name => {
       const exPath = path.join(tmpReposPath, EXAMPLES_ROOT, name)
@@ -62,12 +59,12 @@ module.exports = function (gulp, plugins, config) {
   let c = 0;
   gulp.task('_examples-cp-to-site-folder', done => {
     if (fs.existsSync(siteExPath)) {
-      gutil.log(`  No examples to copy since folder exists: '${siteExPath}'.`);
-      gutil.log(`  Use '--clean' to have '${siteExPath}' refreshed.`);
+      myLog(`  No examples to copy since folder exists: '${siteExPath}'.`);
+      myLog(`  Use '--clean' to have '${siteExPath}' refreshed.`);
       done();
       return;
     }
-    gutil.log(`  Copying version ${ngMajorVers} of examples to ${siteExPath}`);
+    myLog(`  Copying version ${ngMajorVers} of examples to ${siteExPath}`);
     const baseDir = tmpReposPath;
     const indexHtml = filter(`${baseDir}/**/index.html`, { restore: true });
     const re = new RegExp(`/${ngMajorVers}(/|$)`);
@@ -88,7 +85,7 @@ module.exports = function (gulp, plugins, config) {
 
   // General exec task. Args: --cmd='some-cmd with args'
   // This task is useful to, e.g., create repo dev branches.
-  gulp.task('examples-repo-exec', () => examplesRepoExec(argv.cmd));
+  gulp_task('examples-repo-exec', () => examplesRepoExec(argv.cmd));
 
   function examplesRepoExec(cmd) {
     if (!cmd) throw `Invalid command: ${cmd}`;
@@ -97,5 +94,7 @@ module.exports = function (gulp, plugins, config) {
       _exec(cmd, { cwd: exPath });
     });
   }
+
+  gulp_task('add-example-apps-to-site', gulp.series('_clean-only-once', '_examples-get-repos', '_examples-cp-to-site-folder'));
 
 };

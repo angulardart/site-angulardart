@@ -8,7 +8,6 @@ if (!process.env.DART_SITE_ENV_DEFS) {
 }
 
 const gulp = require('gulp');
-const gutil = require('gulp-util');
 
 const argv = require('yargs').argv;
 const assert = require('assert-plus');
@@ -36,6 +35,7 @@ function xExec(cmd_and_args, options) {
   return pp;
 }
 
+const myLog = console.log
 const exec = xExec; // cpExec;
 const npmbin = path.resolve('node_modules/.bin');
 const npmbinMax = `node --max-old-space-size=4096 ${npmbin}`;
@@ -57,7 +57,8 @@ const angularRepoRoot = process.env.NG_REPO;
 const angulario = path.resolve('../angular.io');
 
 const isSilent = !!argv.silent;
-if (isSilent) gutil.log = gutil.noop;
+function noop() { }
+if (isSilent) myLog = noop;
 // Use --log-at=LEVEL to avoid conflict with the gulp --log-level flag.
 const _logLevel = argv.logAt || (isSilent ? 'error' : 'warn');
 
@@ -113,10 +114,10 @@ const plugins = {
   buildWebCompilerOptions: buildWebCompilerOptions,
   child_process: child_process,
   chmod: chmod,
-  codeExcerpter: require('code-excerpter'),
   copyFiles: copyFiles,
   del: del,
   delFv: delFv,
+  gulp_task: gulp_task,
   execSyncAndLog: execSyncAndLog,
   execp: execp,
   filter: require('gulp-filter'),
@@ -126,19 +127,42 @@ const plugins = {
   generateBuildYaml: generateBuildYaml,
   gitCheckDiff: gitCheckDiff,
   globby: globby,
-  gutil: gutil,
   logAndExit1: logAndExit1,
+  myLog: myLog,
   path: path,
   pexec: pexec,
   pkgAliasToPkgName: pkgAliasToPkgName,
   q: Q,
   rename: require('gulp-rename'),
   replace: require('gulp-replace'),
-  runSequence: require('run-sequence'),
   spawnExt: spawnExt,
   stringify: stringify,
+  _task: _task,
   yamljs: yamljs,
 };
+
+function _isPromise(o) { return Promise.resolve(o) === o; }
+function _task(task) { return (done) => {
+    const result = task();
+    if(_isPromise(result)) {
+      throw 'Error: `_task()` applied to a function returning a Promise, '
+      + 'possibly through `gulp_task()`.\n'
+      + 'If so, use `gulp.task()` directly instead.';
+    }
+    done();
+    return result;
+  };
+}
+function _gulp_tasks(name, _tasks) {
+  const tasks = _tasks.map(t => typeof t === 'function' ? _task(t) : t);
+  return gulp.task(name, gulp.series.apply(null, tasks));
+}
+function gulp_task(name, taskOrTasks) {
+  // myLog(`>> Defining task ${name}`)
+  return typeof taskOrTasks === 'function'
+    ? gulp.task(name, _task(taskOrTasks))
+    : _gulp_tasks(name, taskOrTasks);
+}
 
 config.dartdocProj = genDartdocForProjs();
 assert.deepEqual(config._dartdocProj, Object.keys(config.repoPath));
@@ -183,78 +207,88 @@ function genDartdocForProjs() {
   return result;
 }
 
-const extraTasks = `
-  api api-list dartdoc e2e example example-add-apps example-frag example-template
-  get-stagehand-proj notes ngio-get ngio-put pkg-vers test update-ng-vers`;
-extraTasks.split(/\s+/).forEach(task => task && require(`./gulp/${task}`)(gulp, plugins, config))
+// Require a gulp task submodule
+function _require(m) { require(`./gulp/${m}`)(gulp, plugins, config); }
 
 //-----------------------------------------------------------------------------
 // Tasks
 //
 
-// Task: build
-// Options:
-//   --fast  skips generation of dartdocs if they already exist
+const siteFolderContent = path.join(siteFolder, '*');
+const _quickCleanTargets = [siteFolderContent, path.join(fragsPath, '**')];
+const _cleanTargets = [
+  siteFolderContent,
+  LOCAL_TMP,
+  path.join(source, _configYml.assets.cache || _throw()),
+];
 
-gulp.task('build', done => plugins.runSequence(
-  '_build-prep',
-  '_api-doc-prep',
-  '_examples-cp-to-site-folder',
-  '_jekyll-build',
-  done));
+function delFv(delTargets) { // verbose, forced delete
+  myLog(`  Deleting: ${delTargets}.`);
+  return del(delTargets, { force: true });
+}
 
-gulp.task('_build-prep', done => plugins.runSequence(
+function clean() { return delFv(_cleanTargets); }
+function _clean(done) {
+  return !argv.clean ? done() :
+    delFv(_quickCleanTargets.filter(p => argv.clean === true || p.includes(argv.clean)));
+}
+
+gulp.task('clean', clean);
+gulp.task('_clean', _clean);
+gulp.task('git-clean-src', () => execp(`git clean -xdf src`));
+
+gulp.task('_clean-only-once', (done) =>
+  _clean(() => {
+    argv.clean = false; // Avoid a subcommand cleaning things out again
+    done();
+  }));
+
+_require('example')
+_require('pkg-vers')
+_require('dartdoc')
+_require('example-frag')
+_require('example-add-apps')
+_require('api-list')
+_require('api')
+
+gulp.task('_build-prep', gulp.series(
   '_clean-only-once',
-  // TODO: is stagehand proj still used?
-  ['get-stagehand-proj', '_examples-get-repos'],
+  // 'get-stagehand-proj', // TODO: is stagehand proj still used?
+  '_examples-get-repos',
   'create-example-fragments',
-  done)
-);
+));
 
-gulp.task('_clean-only-once', ['_clean'], () => {
-  argv.clean = false; // Avoid a subcommand cleaning things out again
-});
-
-gulp.task('_api-doc-prep', done => plugins.runSequence(
+gulp.task('_build-api-docs', gulp.series(
   'dartdoc',
   'build-api-list-json',
   'finalize-api-docs',
   // Make API lists available for the sitemap generation:
-  () => {
-    execSyncAndLog('cp src/api/api-list.json src/_data/api-list.json');
-    done();
-  }));
+  _copyApiList,
+));
 
 gulp.task('_jekyll-build', () => execp(`jekyll build`));
 
-gulp.task('build-deploy', done => plugins.runSequence(
-  'build',
-  '_firebase-deploy',
-  done)
-);
+// Task: build
+// Options:
+//   --fast  skips generation of dartdocs if they already exist
+
+gulp.task('build', gulp.series(
+  '_build-prep',
+  '_build-api-docs',
+  '_examples-cp-to-site-folder',
+  '_jekyll-build',
+));
+
+function _copyApiList(done) {
+  execSyncAndLog('cp src/api/api-list.json src/_data/api-list.json');
+  done();
+}
 
 gulp.task('_firebase-deploy', () => execp(`firebase deploy`));
 
-gulp.task('site-refresh', ['_clean', 'get-ngio-files']);
+gulp.task('build-deploy', gulp.series('build', '_firebase-deploy'));
 
-const _quickCleanTargets = [siteFolder, path.join(fragsPath, '**')];
-const _cleanTargets = [
-  siteFolder,
-  LOCAL_TMP,
-  path.join(source, _configYml.assets.cache || _throw()),
-];
-function delFv(delTargets) { // verbose, forced delete
-  gutil.log(`  Deleting: ${delTargets}.`);
-  return del(delTargets, { force: true });
-}
-gulp.task('clean', () => delFv(_cleanTargets));
-gulp.task('_clean', done => !argv.clean ? done() :
-  delFv(_quickCleanTargets.filter(p => argv.clean === true || p.includes(argv.clean))));
-gulp.task('git-clean-src', () => execp(`git clean -xdf src`));
-
-gulp.task('default', ['help']);
-
-gulp.task('help', taskListing.withFilters((taskName) => {
+gulp.task('default', taskListing.withFilters((taskName) => {
   var isSubTask = taskName.substr(0, 1) == "_";
   return isSubTask;
 }, function (taskName) {
@@ -262,11 +296,12 @@ gulp.task('help', taskListing.withFilters((taskName) => {
   return shouldRemove;
 }));
 
-gulp.task('git-status-exit-on-change', () => {
+gulp.task('git-status-exit-on-change', (done) => {
   let output = execSyncAndLog('git status --short');
   if (argv.filter) {
     output = output.split('\n').filter(s => s.match(argv.filter)).join('\n');
   }
+  done();
   if (output) process.exit(1);
 });
 
@@ -279,7 +314,7 @@ gulp.task('compress-images', () => {
     ? path.resolve(argv.path)
     : path.resolve('.'); // project root
   if (!fs.existsSync(baseDir)) throw `ERROR: compress-images: path DNE "${baseDir}".`;
-  gutil.log(`Compressing image files under: ${baseDir}`);
+  myLog(`Compressing image files under: ${baseDir}`);
   return gulp.src([
     `${baseDir}/**/*.gif`,
     `${baseDir}/**/*.jpg`,
@@ -295,6 +330,15 @@ gulp.task('compress-images', () => {
       imagemin.optipng({ optimizationLevel: 4 })]))
     .pipe(gulp.dest(baseDir))
 });
+
+_require('e2e')
+_require('notes')
+_require('test')
+_require('update-ng-vers')
+
+// Not currently used:
+_require('get-stagehand-proj')
+_require('example-template')
 
 //=============================================================================
 // Helper functions
@@ -318,7 +362,7 @@ function generateBuildYaml(projectPath) {
   const buildYamlPath = path.join(projectPath, 'build.yaml');
   const pubspec = plugins.yamljs.load(path.join(projectPath, 'pubspec.yaml'));
   const buildYaml = _buildYaml(pubspec.name);
-  plugins.gutil.log(`Generating ${buildYamlPath}:\n${buildYaml}`);
+  plugins.myLog(`Generating ${buildYamlPath}:\n${buildYaml}`);
   plugins.fs.writeFileSync(buildYamlPath, buildYaml);
 }
 
@@ -348,7 +392,7 @@ function getPathToApiDir(pkgName) {
   if (!plugins.fs.existsSync(pubspecLockPath)) {
     const msg = `File not found: ${pubspecLockPath}. Run 'pub get' or 'pub upgrade' under ${config.srcData}`;
     if (config.dartdocProj.includes(p)) plugins.logAndExit1(`ERROR: ${msg}. Aborting.`);
-    plugins.gutil.log(`WARNING: ${msg}`);
+    plugins.myLog(`WARNING: ${msg}`);
     return;
   }
 
@@ -375,7 +419,7 @@ function getPathToApiDir(pkgName) {
 //   the promise is rejected if a match was found.
 function pexec(cmd, options) {
   // Inspired in part by https://stackoverflow.com/a/30883005/3046255
-  gutil.log(`EXEC start: ${cmd} ${options ? JSON.stringify(options) : ''}`);
+  myLog(`EXEC start: ${cmd} ${options ? JSON.stringify(options) : ''}`);
 
   let errorOnExit = false, okOnExit = !options || !options.okOnExitRE;
 
@@ -409,7 +453,7 @@ function pexec(cmd, options) {
             : 'successfully exited from';
       msg += ` ${cmd}`;
       if (options && options.cwd) msg += ` # ${options.cwd}`;
-      gutil.log(`EXEC DONE: ${msg}`);
+      myLog(`EXEC DONE: ${msg}`);
       msg.startsWith('success') ? resolve(0) : reject(msg);
     }
     proc.addListener('error', reject);
@@ -422,15 +466,15 @@ function pexec(cmd, options) {
 // After printing stdout and stderr, this throws if there is an execution error.
 function execSyncAndLog(cmd, optional_options) {
   const cwd = optional_options && optional_options.cwd ? ` # cwd: ${optional_options.cwd}` : '';
-  gutil.log(`> ${cmd}${cwd}`);
+  myLog(`> ${cmd}${cwd}`);
   let output;
   try {
     const output = child_process.execSync(cmd, optional_options) + '';
-    gutil.log(output);
+    myLog(output);
     return output;
   } catch (e) {
     output = `ExecSync error in ${cmd}\n${e.stdout}\n${e.stderr}\n`;
-    gutil.log(output);
+    myLog(output);
     throw e;
   }
 }
@@ -449,11 +493,11 @@ function spawnExt(command, _args, options) {
   let descr = command + " " + args.join(' ');
   if (options) descr += ' ' + JSON.stringify(options);
   let proc, okOnExit = !options || !options.okOnExitRE;
-  gutil.log('EXEC start: ' + descr);
+  myLog('EXEC start: ' + descr);
   try {
     proc = xSpawn.spawn(command, args, options);
   } catch (e) {
-    gutil.log(e);
+    myLog(e);
     deferred.reject(e);
     return { proc: null, promise: deferred.promise };
   }
@@ -462,22 +506,22 @@ function spawnExt(command, _args, options) {
     if (options && options.okOnExitRE && !okOnExit) {
       okOnExit = out.match(options.okOnExitRE);
     }
-    gutil.log(out);
+    myLog(out);
   });
-  proc.stderr.on('data', data => gutil.log(data.toString()));
+  proc.stderr.on('data', data => myLog(data.toString()));
   proc.on('close', function (returnCode) {
     const exitOk = returnCode === 0 && okOnExit;
     const msg = exitOk ? 'successfully'
       : okOnExit ? `command return code is nonzero value ${returnCode}`
         : `okOnExit regex test ${options.okOnExitRE} failed over command output`;
-    gutil.log(`EXEC DONE: ${msg} - ${descr}`);
+    myLog(`EXEC DONE: ${msg} - ${descr}`);
     // Many tasks (e.g., tsc) complete but are actually errors;
     // Confirm return code is zero.
     exitOk ? deferred.resolve(0) : deferred.reject(returnCode);
   });
   proc.on('error', function (data) {
-    gutil.log('EXEC DONE: ERROR: ' + descr);
-    gutil.log(data.toString());
+    myLog('EXEC DONE: ERROR: ' + descr);
+    myLog(data.toString());
     deferred.reject(data);
   });
   return { proc: proc, promise: deferred.promise };

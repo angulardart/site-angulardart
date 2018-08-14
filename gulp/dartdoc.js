@@ -3,11 +3,14 @@
 module.exports = function (gulp, plugins, config) {
 
   const fs = plugins.fs;
+  const gulp_task = plugins.gulp_task;
   const _projs = config.dartdocProj;
   const path = plugins.path;
 
   const tmpPubPkgsPath = config.tmpPubPkgsPath;
-  if (!fs.existsSync(tmpPubPkgsPath)) plugins.execSyncAndLog(`mkdir -p ${tmpPubPkgsPath}`);
+  function mkPubPkgs() {
+    if (!fs.existsSync(tmpPubPkgsPath)) plugins.execSyncAndLog(`mkdir -p ${tmpPubPkgsPath}`);
+  }
 
   const libsToDoc = {
     acx: 'angular_components',
@@ -18,31 +21,35 @@ module.exports = function (gulp, plugins, config) {
   };
   const pkgsFilePath = path.join(config.srcData, '.packages');
 
-  gulp.task('dartdoc-info', () => {
+  gulp_task('dartdoc-info', () => {
     const msg = 'Dartdoc for packages:';
     if (_projs.length) {
-      plugins.gutil.log(`${msg} ${_projs}.`);
+      plugins.myLog(`${msg} ${_projs}.`);
       if (_projs.length) plugins.execSyncAndLog(`${config.dartdoc} --version`);
     } else {
-      plugins.gutil.log(`${msg} no projects (all exist or are being skipped).`);
+      plugins.myLog(`${msg} no projects (all exist or are being skipped).`);
     }
-  });
-
-  // Task: dartdoc
-  // --[no-]dartdoc='all|none|acx|ng|...', default is 'all'.
-  gulp.task('dartdoc', done => {
-    const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
-    if (dartdocTargets.length) dartdocTargets.unshift('ng-pkg-pub-get');
-    plugins.runSequence('dartdoc-info', ...dartdocTargets, done)
   });
 
   config._dartdocProj.forEach(p => {
     if (_projs.includes(p)) {
       gulp.task(`dartdoc-${p}`, () => _dartdoc(p));
     } else {
-      gulp.task(`dartdoc-${p}`, () => true);
+      gulp_task(`dartdoc-${p}`, (done) => done());
     }
   });
+
+  // Task: dartdoc
+  // --[no-]dartdoc='all|none|acx|ng|...', default is 'all'.
+
+  const dartdocTargets = _projs.map(p => `dartdoc-${p}`);
+  if (dartdocTargets.length === 0) {
+    gulp.task('dartdoc', (done) => done());
+  } else {
+    gulp.task('dartdoc',
+      gulp.series('dartdoc-info', 'ng-pkg-pub-get',
+        gulp.parallel(...dartdocTargets)));
+  }
 
   function _dartdoc(proj) {
     if (!proj) throw `_dartdoc(): no project specified`;
@@ -66,23 +73,27 @@ module.exports = function (gulp, plugins, config) {
       .replace(/\/lib\/$/, ''); // Drop trailing '/lib'
     if (!fs.existsSync(pathToPkgSrcPath))
       _throw(proj, `package source directory not found: ${pathToPkgSrcPath} (${path.resolve(pathToPkgSrcPath)})`);
-    plugins.gutil.log(`${pubPkgName} found at ${path.resolve(pathToPkgSrcPath)}.`);
+    plugins.myLog(`${pubPkgName} found at ${path.resolve(pathToPkgSrcPath)}.`);
     const pubPkgAndVersName = path.basename(pathToPkgSrcPath);
     if (!pubPkgAndVersName.match(new RegExp(`${pubPkgName}(\\b|-)`)))
       _throw(proj, `package source directory name should match /${pubPkgName}(\b|-*)/, but is ${pubPkgAndVersName}`);
 
+    mkPubPkgs();
     const tmpPubPkgPath = path.join(tmpPubPkgsPath, pubPkgAndVersName);
     const apiDir = path.resolve(tmpPubPkgPath, config.relDartDocApiDir);
+    const index_json = path.resolve(apiDir, 'index.json');
+
     if (!fs.existsSync(tmpPubPkgPath)) {
       plugins.execSyncAndLog(`cp -R ${pathToPkgSrcPath} ${tmpPubPkgPath}`);
       // const pubspecFile = `${tmpPubPkgPath}/pubspec.yaml`;
       // plugins.execSyncAndLog(`perl -i -pe "s/angular_test: ^2.0.0-alpha+8/angular_test: ^2.0.0-alpha+6/gm" ${pubspecFile}`);
       // const dep_ovr = '\ndependency_overrides:\n  angular_test: ^2.0.0-alpha+6\n';
-      // plugins.gutil.log(`\nWARNING: appending to ${pubspecFile}: ${dep_ovr}\n`);
+      // plugins.myLog(`\nWARNING: appending to ${pubspecFile}: ${dep_ovr}\n`);
       // fs.appendFileSync(pubspecFile, dep_ovr);
-    } else if (fs.existsSync(apiDir)) {
+    } else if (fs.existsSync(index_json)) {
       if (plugins.argv.useCachedApiDoc) {
-        plugins.gutil.log(`Keeping previously generated API docs for ${pubPkgName} found at ${apiDir}.`);
+        plugins.myLog(`Keeping previously generated API docs for ${pubPkgName} found at ${apiDir}:`);
+        plugins.execSyncAndLog(`ls -l ${apiDir}`);
       } else {
         plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
       }
@@ -101,8 +112,9 @@ module.exports = function (gulp, plugins, config) {
     if (config.relDartDocApiDir !== 'doc/api') args.push(`--output ${config.relDartDocApiDir}`);
 
     const apiDir = path.resolve(projPath, config.relDartDocApiDir);
-    if (plugins.argv.useCachedApiDoc && fs.existsSync(apiDir)) {
-      plugins.gutil.log(`Using previously generated API docs for ${proj} found at ${apiDir}.`);
+    const index_json = path.resolve(apiDir, 'index.json');
+    if (plugins.argv.useCachedApiDoc && fs.existsSync(index_json)) {
+      plugins.myLog(`Using previously generated API docs for ${proj} found at ${apiDir}.`);
       return;
     }
 
@@ -110,7 +122,7 @@ module.exports = function (gulp, plugins, config) {
       await plugins.execp(`${config.dartdoc} ${args.join(' ')}`, { cwd: projPath });
     } catch (e) {
       if (plugins.argv.useCachedApiDoc && fs.existsSync(apiDir)) {
-        plugins.gutil.log(`Dartdoc failed for ${proj}; deleting ${apiDir}.\nCaught error: ${e}`);
+        plugins.myLog(`Dartdoc failed for ${proj}; deleting ${apiDir}.\nCaught error: ${e}`);
         plugins.execSyncAndLog(`rm -Rf ${apiDir}`);
       }
       throw e;
