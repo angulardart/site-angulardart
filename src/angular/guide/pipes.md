@@ -63,9 +63,8 @@ function on the right. All pipes work this way.
   The `Date` and `Currency` pipes need the *ECMAScript Internationalization API*.
   Safari and other older browsers don't support it. You can add support with a polyfill.
 
-  <?code-excerpt?>
   ```html
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
   ```
 </div>
 
@@ -678,10 +677,9 @@ by offering `filter` and `orderBy` in the first place.
 The minification hazard is also compelling, if less obvious. Imagine a sorting pipe applied to a list of heroes.
 The list might be sorted by hero `name` and `planet` of origin properties in the following way:
 
-<?code-excerpt?>
 ```html
-  <!-- NOT REAL CODE! -->
-  <div *ngFor="let hero of heroes | orderBy:'name,planet'"></div>
+<!-- NOT REAL CODE! -->
+<div *ngFor="let hero of heroes | orderBy:'name,planet'"></div>
 ```
 
 You identify the sort fields by text strings, expecting the pipe to reference a property value by indexing

@@ -98,12 +98,14 @@ li.L9 { background-color: #fefefe; }
 // Match prettifier classes defined above.
 // TODO: complete this to get proper highlighting for Dart under Rouge.
 .highlight {
-  .s, .s1, .s2 { @extend .str; } /* Literal.String.* */
-  .k, .kc, .kd, .kn, .kp, .kr, .kt { @extend .kwd; } /* Keyword.* */
-  .p { @extend .pun; } /* Punctuation */
   .c, .c1, .cm { @extend .com; } /* Comment */
+  .err { @extend .pln; }
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { @extend .kwd; } /* Keyword.* */
   .l { @extend .lit; } /* Literal */
-  .o { @extend .opn; } /* Operator */
   .n { @extend .typ; } /* Name */
+  .na { @extend .atn; }
   .nt { @extend .tag; }
+  .o { @extend .opn; } /* Operator */
+  .p { @extend .pun; } /* Punctuation */
+  .s, .s1, .s2 { @extend .str; } /* Literal.String.* */
 }

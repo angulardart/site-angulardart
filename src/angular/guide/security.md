@@ -278,16 +278,14 @@ h3#xsrf Cross-site request forgery
   Your server may use a different cookie or header name for this purpose.
   An Angular app can customize cookie and header names by providing its own `CookieXSRFStrategy` values.
 
-<?code-excerpt?>
 ```typescript
-  { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('myCookieName', 'My-Header-Name') }
+{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('myCookieName', 'My-Header-Name') }
 ```
 
   Or you can implement and provide an entirely custom `XSRFStrategy`:
 
-<?code-excerpt?>
 ```typescript
-  { provide: XSRFStrategy, useClass: MyXSRFStrategy }
+{ provide: XSRFStrategy, useClass: MyXSRFStrategy }
 ```
 
   For information about CSRF at the Open Web Application Security Project (OWASP), see

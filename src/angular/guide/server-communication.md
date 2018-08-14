@@ -393,9 +393,8 @@ The new hero data must be in the body of the request,
 structured like a `Hero` entity but without the `id` property.
 Here's an example of the body of the request:
 
-<?code-excerpt?>
-```javascript
-  { "name": "Windstorm" }
+```json
+{"name": "Windstorm"}
 ```
 
 The server generates the `id` and returns the JSON representation of the

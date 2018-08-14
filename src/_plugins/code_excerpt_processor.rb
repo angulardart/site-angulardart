@@ -119,7 +119,7 @@ module NgCodeExcerpt
       <<~TEMPLATE
         <div class="code-example #{classes || ''}">
         #{title ? "<header><h4>#{title}</h4></header>\n" : ''
-        }<code-example data-webdev-raw #{attrs * ' '}>#{
+        }<code-example data-webdev-raw #{attr_str attrs}>#{
           escaped_code
         }</code-example>
         </div>
@@ -138,14 +138,25 @@ module NgCodeExcerpt
       len == 0 ? code : lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n")
     end
 
-
+    # @return [Hash] Attributes as a hash of key/value pairs. `:classes` is a list
     def mk_code_example_directive_attr(lang, linenums)
-      formats = linenums ? ['linenums'] : [];
-      formats.push('nocode') if lang == 'nocode'
-      attrs = []
-      attrs.push("language=\"#{lang}\"") unless lang == 'nocode'
-      attrs.push("format=\"#{formats * ' '}\"") unless formats.empty?
+      classes = []
+      classes << 'linenums' if linenums
+      classes << 'nocode' if lang == 'nocode'
+      attrs = {}
+      attrs[:classes] = classes unless classes.empty?
+      attrs[:lang] = lang unless lang == 'nocode'
       attrs
+    end
+
+    # @param [Hash] attr
+    # @return [String] Attributes as a single string: 'foo="bar" baz="..."'
+    def attr_str(attr)
+      attributes = []
+      attributes << "language=\"#{attr[:lang]}\"" unless attr[:lang].nil?
+      # TODO: should be the `class` attribute:
+      attributes << "format=\"#{attr[:classes] * ' '}\"" unless attr[:classes].nil?
+      attributes * ' '
     end
 
     def process_pi_args(pi)
@@ -210,7 +221,7 @@ module NgCodeExcerpt
       escaped_code = _process_highlight_markers(escaped_code)
       <<~TEMPLATE
         #{pi}
-        <code-pane name="#{title}" #{attrs * ' '}>#{escaped_code}</code-pane>
+        <code-pane name="#{title}" #{attr_str attrs}>#{escaped_code}</code-pane>
       TEMPLATE
     end
 

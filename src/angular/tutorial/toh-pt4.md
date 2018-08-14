@@ -162,9 +162,8 @@ Now Angular knows to supply a `HeroService` instance when it creates a new `AppC
 The *injector* doesn't know yet how to create a `HeroService`.
 If you ran the code now, Angular would fail with this error:
 
-<?code-excerpt?>
 ```
-  EXCEPTION: No provider for HeroService! (AppComponent -> HeroService)
+EXCEPTION: No provider for HeroService! (AppComponent -> HeroService)
 ```
 
 To teach the injector how to make a `HeroService`,

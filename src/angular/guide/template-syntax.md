@@ -813,17 +813,15 @@ There are no property targets to bind to.
 
 This fact becomes painfully obvious when writing something like this:
 
-<?code-excerpt?>
 ```html
-  <tr><td colspan="{!{1 + 1}!}">Three-Four</td></tr>
+<tr><td colspan="{!{1 + 1}!}">Three-Four</td></tr>
 ```
 
 The result is this error:
 
-<?code-excerpt?>
 ```
-  Template parse errors:
-  Can't bind to 'colspan' since it isn't a known native property
+Template parse errors:
+Can't bind to 'colspan' since it isn't a known native property
 ```
 
 As the message says, the `<td>` element does not have a `colspan` property.
@@ -2052,12 +2050,11 @@ The `json` pipe can be helpful for debugging bindings:
 
 The generated output looks something like this:
 
-<?code-excerpt?>
 ```json
-  { "id": 0, "name": "Hercules", "emotion": "happy",
-    "birthdate": "1970-02-25T08:00:00.000Z",
-    "url": "http://www.imdb.com/title/tt0065832/",
-    "rate": 325 }
+{ "id": 0, "name": "Hercules", "emotion": "happy",
+  "birthdate": "1970-02-25T08:00:00.000Z",
+  "url": "http://www.imdb.com/title/tt0065832/",
+  "rate": 325 }
 ```
 
 <a href="#page-content">back to top</a>
@@ -2090,9 +2087,8 @@ That is reasonable behavior. At least the app doesn't crash.
 Suppose the template expression involves a property path, as in this next example
 that displays the `name` of a null hero.
 
-<?code-excerpt?>
 ```html
-  The null hero's name is {!{nullHero.name}!}
+The null hero's name is {!{nullHero.name}}
 ```
 
 Dart throws an exception, and so does Angular:

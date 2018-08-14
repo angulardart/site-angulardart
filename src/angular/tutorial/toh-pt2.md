@@ -224,16 +224,15 @@ Users should get a visual cue of which hero they are hovering over and which her
 
 To add styles to your component, you _could_ set the `styles` argument of the `@Component` annotation:
 
-<?code-excerpt?>
 ```dart
-  // Not recommended when adding many CSS classes:
-  styles: [
-    '''
-      .selected { ... }
-      .heroes { ... }
-      ...
-    '''
-  ],
+// NOT recommended when adding many CSS classes:
+styles: [
+  '''
+    .selected { ... }
+    .heroes { ... }
+    ...
+  '''
+],
 ```
 
 But this makes the Dart file longer and less readable when adding many styles.
