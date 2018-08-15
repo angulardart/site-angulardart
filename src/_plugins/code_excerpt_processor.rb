@@ -115,13 +115,28 @@ module NgCodeExcerpt
       end
     end
 
-    def _unindented_template(title, classes, attrs, escaped_code)
-      <<~TEMPLATE
-        <div class="code-example #{classes || ''}">
-        #{title ? "<header><h4>#{title}</h4></header>\n" : ''
-        }<code-example data-webdev-raw #{attr_str attrs}>#{
-          escaped_code
-        }</code-example>
+    # @param [String] _div_classes, in the form "foo bar"
+    # @param [Hash] attrs: attributes as attribute-name/value pairs.
+    def _unindented_template(title, _div_classes, attrs, escaped_code)
+      div_classes = ['code-example']
+      div_classes << _div_classes if _div_classes
+
+      pre_classes = attrs[:class] || []
+      pre_classes.unshift("lang-#{attrs[:lang]}") if attrs[:lang]
+      pre_classes.unshift('prettyprint')
+
+      # <code-example data-webdev-raw #{attr_str attrs}>#{
+      # escaped_code
+      # }</code-example>
+
+      <<~TEMPLATE.gsub(/!n\s*/,'').sub(/\bescaped_code\b/,escaped_code)
+        <div class="#{div_classes * ' '}">
+        #{title ? "<header><h4>#{title}</h4></header>" : '!n'}
+        <copy-container>!n
+          <pre class="#{pre_classes * ' '}">!n
+            <code ng-non-bindable>escaped_code</code>!n
+          </pre>!n
+        </copy-container>
         </div>
       TEMPLATE
     end
@@ -138,24 +153,30 @@ module NgCodeExcerpt
       len == 0 ? code : lines.map{|s| s.length < len ? s : s[len..-1]}.join("\n")
     end
 
-    # @return [Hash] Attributes as a hash of key/value pairs. `:classes` is a list
+    # @return [Hash] of attributes as attribute-name/value pairs.
+    #   Supported attribute names (all optional):
+    #   - [Array] `:class`
+    #   - [String] `:lang`
     def mk_code_example_directive_attr(lang, linenums)
       classes = []
       classes << 'linenums' if linenums
       classes << 'nocode' if lang == 'nocode'
       attrs = {}
-      attrs[:classes] = classes unless classes.empty?
+      attrs[:class] = classes unless classes.empty?
       attrs[:lang] = lang unless lang == 'nocode'
       attrs
     end
 
-    # @param [Hash] attr
+    # @param [Hash] attrs: attributes as attribute-name/value pairs.
     # @return [String] Attributes as a single string: 'foo="bar" baz="..."'
-    def attr_str(attr)
+    def attr_str(attrs)
       attributes = []
-      attributes << "language=\"#{attr[:lang]}\"" unless attr[:lang].nil?
-      # TODO: should be the `class` attribute:
-      attributes << "format=\"#{attr[:classes] * ' '}\"" unless attr[:classes].nil?
+      attrs.each do |name, value|
+        attr_as_s = name.to_s
+        value *= ' ' if value.kind_of?(Array)
+        attr_as_s += %Q(="#{value}") if value
+        attributes << attr_as_s
+      end
       attributes * ' '
     end
 
@@ -190,7 +211,8 @@ module NgCodeExcerpt
       args
     end
 
-    def process_code_pane(pi, attrs, args)
+    # @param [Hash] attrs: attributes as attribute-name/value pairs.
+    def process_code_pane(pi, _attrs, args)
       # TODO: support use of globally set replace args.
       title = args['title'] || trim_file_vers(args[''])
       escaped_code = get_code_frag(args['path'],
@@ -219,6 +241,9 @@ module NgCodeExcerpt
         }
       end
       escaped_code = _process_highlight_markers(escaped_code)
+      attrs = {}
+      attrs[:language] = _attrs[:lang] if _attrs[:lang]
+      attrs[:format] = _attrs[:class] if _attrs[:class]
       <<~TEMPLATE
         #{pi}
         <code-pane name="#{title}" #{attr_str attrs}>#{escaped_code}</code-pane>
