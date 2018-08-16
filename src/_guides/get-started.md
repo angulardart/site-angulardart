@@ -189,7 +189,7 @@ After that, assets are cached on disk and incremental builds are much faster.
 Let's customize the app you just created.
 
  1. Copy the `thingsTodo()` function from the DartPad above
-    to the bottom of the `lib/todo_list/todo_list_service.dart` file.
+    to the bottom of the `lib/src/todo_list/todo_list_service.dart` file.
 
  2. Still in `todo_list_service.dart`, initialize the `mockTodoList` field using
     `thingsTodo()`:
