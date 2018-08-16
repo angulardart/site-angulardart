@@ -36,6 +36,9 @@ directory on port `8080`:
 $ webdev serve
 ```
 
+The first dartdevc build is the slowest. After that, assets are cached on disk,
+and incremental builds are much faster.
+
 To build using [dart2js][], add the `--release` flag.
 
 You can specify different directory-port configurations. For example, the
@@ -55,9 +58,6 @@ Use the following command to build your app:
 ```
 webdev build [--no-release] --output [<dirname>:]<dirname>
 ```
-
-The first build is the slowest. After that, assets are cached on disk and
-incremental builds are much faster.
 
 By default, the `build` command uses the [dart2js][] web compiler to create a
 production version of your app. Add `--no-release` to compile with [dartdevc][].

@@ -1,57 +1,49 @@
 ---
-title: FAQ
+title: Dart Web Development FAQ
+short-title: FAQ
 description: FAQ and other tips for using Dart for web development.
 ---
 
+_Updated August 2018_
+
 This FAQ applies to web programming. For more general Dart questions,
-see the [FAQ]({{site.dartlang}}/faq)
-or the [Tools FAQ]({{site.dartlang}}/tools/faq), both on www.dartlang.org.
+see the [Dart FAQ.]({{site.dartlang}}/faq)
 
 ## General
 
-#### Q. What browsers do you support as JavaScript compilation targets?
+### Q. What browsers do you support as JavaScript compilation targets?
 
-We support the latest version of the following browsers:
+We support Internet Explorer 11 and the last two versions of
+the following browsers:
 
   * Chrome
+  * Edge
   * Firefox
-  * Microsoft Edge
-  * Internet Explorer
   * Safari
 
-{% comment %}
-[TODO: check browsers every time we update this file]
-{% endcomment %}
-
-#### Q. Is Dart supported by my browser?
+### Q. Is Dart supported by my browser?
 
 Although no production browsers can execute Dart code directly,
 all modern browsers can execute Dart code that's been compiled to JavaScript.
 
-#### Q. How do I debug an app?
+### Q. How do I debug an app?
 
 For setup details and a walkthrough, see [Debugging Dart Web Apps](/guides/debugging).
 
 The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
 
-#### Q. Can I use Angular with Dart?
+### Q. Can I use Angular with Dart?
 
 Yes! [AngularDart][] is a port of Angular to Dart.
 
-{% comment %}
-#### Q. Can I use web components with Dart?
-
-**[PENDING: UPDATE]**
-{% endcomment %}
-
-#### Q. Should I use Angular or Polymer?
+### Q. Should I use Angular or Polymer?
 
 Use [AngularDart][].
 [Polymer Dart][Polymer Dart] is no longer supported and is likely to break in
 [Dart 2.]({{site.dartlang}}/dart-2)
 
-#### Q. Can I build a Chrome App with Dart?
+### Q. Can I build a Chrome App with Dart?
 
 You can use the [chrome.dart] libraries,
 but you still need to compile to JavaScript.
@@ -61,68 +53,25 @@ But otherwise, yes, you can build a Chrome App with Dart.
 
 ## JavaScript and other web technologies
 
-#### Does Google want to replace JavaScript with Dart?
+### Q. Does Google want to replace JavaScript with Dart?
 
-We believe developers should have a choice when they build for the web.
-Adding a new option, such as Dart, does not imply replacing an existing
-option.
+No. We believe that developers should have a choice when they build for the web.
+Adding a new option, such as Dart, does not imply replacing an existing option.
 
-#### Q. Isn't Dart a lot like JavaScript?
-
-Yes and no. The Dart project thinks that JavaScript can use some changes for
-more productive software engineering, smarter editors and development
-environments, and web apps that are as beautiful and pleasing as the best
-client apps can be. On the other hand, we don't think everything needs
-to change, and why change what isn't broken?
-
-Dart 1.x, like JavaScript, is a dynamically typed language. It adds optional
-type annotations to help you catch errors earlier. It takes out a
-few features of JavaScript, such as prototypes and the global
-`object:`. This streamlines the VM, enables faster execution, and
-makes it easier to do code completion and refactoring. And Dart adds
-some goodies. To name a few:
-{% comment %}
-update-for-dart-2
-{% endcomment %}
-
-* User-defined operator methods.  We like the lightweight, readable code
-  these give for our DOM interface. For more information, see the
-  [dart:html]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html) library.
-
-* Lightweight syntax for anonymous functions.  You use them a lot in
-  web programming; now they look great.  And they come with correct
-  binding of <code>this</code> and full block-level lexical scoping,
-  no gotchas.
-
-<aside class="alert alert-info" markdown="1">
-  **Dart 2 note:** Types aren't optional in Dart 2. For more information, see
-  [Dart 2.]({{site.dartlang}}/dart-2)
-</aside>
-
-Dart is a full language with its own semantics.
-Dart differs from JavaScript in many ways, including:
-
-* Only `true` is true.
-* No `undefined`, only `null`.
-* No automatic type coercion with `==`, `+`, and other operators.
-
-When compared to JavaScript, Dart aims to be faster, more regular, and more
-scalable to large programs.
-
-#### Q. How does Dart code interoperate with JavaScript libraries?
+### Q. How does Dart code interoperate with JavaScript libraries?
 
 Although Dart and JavaScript are completely separate languages with
 separate VMs, they can interoperate. For more information, see
 [package:js](https://pub.dartlang.org/packages/js) and
 the [chartjs](https://github.com/google/chartjs.dart/) example.
 
-#### Q. I have a large JavaScript codebase. How can I migrate it to Dart?
+### Q. I have a large JavaScript codebase. How can I migrate it to Dart?
 
 Try migrating one major feature at a time, and use the
 [JavaScript interoperability library][jsinterop]
 only when necessary.
 
-#### Q. How does Dart compare with using the Closure compiler on JavaScript?
+### Q. How does Dart compare with using the Closure compiler on JavaScript?
 
 The idea of optional type annotations is similar.
 Dart's are nicer syntactically.
@@ -154,7 +103,7 @@ String makeGreeting(String name) {
 }
 {% endprettify %}
 
-#### Q. How does Dart compare with CoffeeScript?
+### Q. How does Dart compare with CoffeeScript?
 
 Both Dart and CoffeeScript are inspired by JavaScript, and both can be
 translated back to it.  They make different choices, particularly in the flavor
@@ -169,7 +118,7 @@ of JavaScript.
 If you like CoffeeScript for its more structured feel than raw JavaScript, you
 may like Dart's static type annotations.
 
-#### Q. What does Google think of TypeScript?
+### Q. What does Google think of TypeScript?
 
 TypeScript and Dart have similar goals; they make building large-scale web
 apps easier. However, their approaches are fairly different. TypeScript
@@ -180,7 +129,7 @@ from too little choice for too long, and we think that both Dart and TypeScript
 are pointing to a brighter future for web developers. You can read a
 [more complete response][typescript] on our blog.
 
-#### Q. I have a large app written in GWT. How do I port it to Dart?
+### Q. I have a large app written in GWT. How do I port it to Dart?
 
 Java and Dart are syntactically similar,
 so this might be easier than you think.
@@ -196,7 +145,7 @@ a talk from Dart Developer Summit 2016.
 
 ## JavaScript compilation
 
-#### Q. Will any valid Dart code compile to JavaScript, or are there limitations?
+### Q. Will any valid Dart code compile to JavaScript, or are there limitations?
 
 We intend for any valid Dart code to compile to JavaScript.  Of course,
 there are some libraries that will only run on the server because they
@@ -204,7 +153,17 @@ don't make sense in a browser context. For example, the `dart:io` library
 provides access to operating system files and directories with APIs not
 available to the browser.
 
-#### Q. How can dart2js produce JavaScript that runs faster than handwritten JavaScript?
+### Q. Why does Dart have two compilers, dartdevc and dart2js?
+
+The two compilers have different use cases. You don't usually have to worry
+about which compiler you're using, because the [webdev][] tool
+chooses the right compiler for your use case. When you're developing your app,
+webdev chooses [dartdevc][], which supports incremental compilation so
+you can quickly see the results of your edits.
+When you're building your app for deployment, webdev chooses [dart2js][],
+which uses techniques such as tree shaking to produce optimized code.
+
+### Q. How can dart2js produce JavaScript that runs faster than handwritten JavaScript?
 
 Think of dart2js as a real compiler,
 which can analyze your entire program and make optimizations
@@ -216,14 +175,14 @@ We don't claim that all Dart code will run faster
 than handwritten JavaScript, when compiled to JavaScript,
 but we're working to make the common cases fast.
 
-#### Q. How can I write Dart code that compiles to performant JavaScript?
+### Q. How can I write Dart code that compiles to performant JavaScript?
 
 See [Helping dart2js generate better
 code](/tools/dart2js#helping-dart2js-generate-efficient-code).
 Just be aware that this information might change as the implementation of
 dart2js changes.
 
-#### Q. Why is the code for "Hello, World" so big, compared to the original Dart code after compilation to JavaScript?
+### Q. Why is the code for "Hello, World" so big, compared to the original Dart code after compilation to JavaScript?
 
 We believe that it's important to create small and efficient JavaScript
 from Dart, but most developers don't write "Hello, World" apps. It's all
@@ -236,14 +195,14 @@ JavaScript from his real-world HTML5 game.
 The dart2js team strives to generate smaller output, but is more focused on
 real-world apps instead of trivial examples.
 
-#### Q. How are floating point numbers handled when compiled to JavaScript?
+### Q. How are floating point numbers handled when compiled to JavaScript?
 
 JavaScript has only one number representation: an IEEE-754 double-precision
 floating-point number. This means that any number&mdash;integer or floating
 point&mdash;is represented as a double. JavaScript has typed data arrays,
 and the mapping from native Dart typed lists to JavaScript typed arrays is trivial.
 
-#### Q. How are integers handled when compiled to JavaScript?
+### Q. How are integers handled when compiled to JavaScript?
 
 Because all numbers are stored as doubles,
 integers are restricted to a 53-bit precision.
@@ -254,7 +213,7 @@ with the internal representation of numbers
 (similar to those described above),
 staying within smi range is still good practice.
 
-#### Q. How are typed lists handled when compiled to JavaScript?
+### Q. How are typed lists handled when compiled to JavaScript?
 
 JavaScript offers typed arrays
 that are compatible with Dart’s typed lists.
@@ -269,7 +228,7 @@ if either of those lists is used.
 
 ## Historical
 
-#### Q. Why Dart?
+### Q. Why Dart?
 
 At Google we've written our share of web apps, and we've tried in many ways to
 make improvements to that development process, short of introducing a new
@@ -277,7 +236,7 @@ language.  Now we think it's time to take that leap.  We designed Dart to be
 easy to write development tools for, well-suited to modern app development, and
 capable of high-performance implementations.
 
-#### Q. Is the language what really needs to be fixed in web development?
+### Q. Is the language what really needs to be fixed in web development?
 
 We want to [fix ALL the things][fixallthethings].  There's "Dart" the language,
 and then there's "Dart" the overall project.  The Dart _project_ is
@@ -288,7 +247,7 @@ At the same time, Google is also placing bets that JavaScript _can_ be
 evolved as needed, and contributing to that work.  Google wants web development
 to be great, and if that happens with JavaScript, we're happy.
 
-#### Q. Is Dart going to divert community effort from JavaScript-based web development?
+### Q. Is Dart going to divert community effort from JavaScript-based web development?
 
 If people like Dart and use it, then to a certain extent, yes, but isn't this
 true of any improvement to existing web development?  Nothing is zero-effort to
@@ -308,69 +267,37 @@ directly with C++?  People face different engineering tradeoffs and choose
 different languages to meet them.  Ultimately, we think client-side developers
 should have this kind of flexibility.
 
-#### Q. Will the Dart VM get into Chrome?
+### Q. Will the Dart VM get into Chrome?
 
 [No.](http://news.dartlang.org/2015/03/dart-for-entire-web.html)
 Dart is designed to compile to JavaScript to run across the modern web.
 
-#### Q. Why not compile Dart to asm.js instead of building a specialized VM?
-
-Dart could have used asm.js in two ways; compiling Dart apps to asm.js,
-or compile the Dart VM to asm.js.
-
-However, after careful consideration it becomes clear that both ways incur non-
-acceptable overhead which nullifies some of Dart’s value proposition: its fast
-start-up and better performance.
-
-**Compilation of a Dart app to asm.js**
+### Q. Why not compile Dart to asm.js instead of JavaScript?
 
 Asm.js is a very restricted subset of JavaScript best suited as a compilation
-target for C compilers. It does not include JavaScript objects, or direct
-access to the DOM. Essentially, it only allows arithmetic operations and
+target for C compilers. It does not include JavaScript objects or direct
+access to the DOM. Essentially, it allows only arithmetic operations and
 manipulations on typed arrays.
 
-While it is possible to implement the dynamic features that are required by
-Dart, they would incur a large overhead in both speed and size, compared to
-relying on the already existing features provided by the underlying JS engine.
-For example, any JS machine comes with a garbage collector (henceforth GC), and
+While it is possible to implement the features that Dart requires,
+they would incur a large overhead in both speed and size, compared to
+relying on the already existing features provided by the underlying
+JavaScript engine.
+For example, any JavaScript machine comes with a garbage collector;
 implementing another one in asm.js would increase the output size, and be
-noticeably slower than the well-tuned GCs of modern JS VMs.
+noticeably slower than the well-tuned garbage collectors of
+modern JavaScript VMs.
 
-Similarly, JS VMs have spent significant effort in making dynamic dispatch
-efficient, using a combination of dynamic code generation and self-modifying
-code.
-
-**Compilation of the Dart VM to asm.js (for example via emscripten)**
-
-Arguments in the preceding section also apply here. A Dart VM in asm.js would
-need to reimplement, on top of asm.js, many facilities that are already provided
-by the JS VMs. Furthermore, asm.js doesn’t allow direct access to all machine
-capabilities, like threading and specialized instruction sets.
-
-Shipping the Dart VM (compiled to asm.js) with every program would also add
-significant download size to every Dart program. Even cached, it would still
-take a long time to compile the Dart VM (as asm.js) program on the client,
-yielding significant start-up times.
-
-Furthermore you would have to rewrite the Dart VM backend to generate asm.js
-code, as the Dart VM relies on dynamic code generation to achieve peak
-performance. (In an additional step, the JS VM would then need to compile that
-code into assembly, adding to the latency.)
-
-The generated code would be restricted to the instruction set that is provided
-by asm.js, whereas a native VM can emit specialized instructions for the
-platform.
-
-That said, it would be amazing to see the Dart VM compiled to asm.js. This
-experiment would have little practical value, but it would be a nice
-achievement.
 
 [ppwsize]: http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [jsinterop]: https://pub.dartlang.org/packages/js
 [AngularDart]: /angular
 [Polymer Dart]: https://github.com/dart-archive/polymer-dart/wiki
+[dart2js]: /tools/dart2js
 [dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
+[dartdevc]: /tools/dartdevc
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
+[webdev]: /tools/webdev
