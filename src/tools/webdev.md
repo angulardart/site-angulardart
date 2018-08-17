@@ -10,13 +10,17 @@ The `webdev` tool is built on [build_runner][] and replaces `pub build` and `pub
 serve`. If you've previously used `build_runner`, you should no longer need to
 use it directly, except to run tests from the command line.
 
-## Installation
+## Installing and updating webdev
 
 [Globally install][] webdev using pub:
 
 ```terminal
 $ pub global activate webdev
 ```
+
+Use the same command to update webdev.
+We recommend updating webdev whenever you update your Dart SDK
+or when `webdev` commands unexpectedly fail.
 
 [Globally install]: {{site.dartlang}}/tools/pub/cmd/pub-global
 
