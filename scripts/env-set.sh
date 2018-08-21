@@ -2,6 +2,5 @@
 
 source scripts/shared/env-set.sh
 
-# site-webdev specific settings
+# site-webdev specific settings:
 export NG_REPO=../angular
-export SITE_LOCALHOST_PORT=4001
