@@ -10,9 +10,7 @@ if [[ -n $TRAVIS && $CI_TASK != build* ]]; then
 fi
 
 travis_fold start check_links
-# (set -x; ./scripts/shared/check-links.sh)
-# FIXME(https://github.com/dart-lang/site-www/issues/1051): reinstate linkchecking
-echo "WARNING: skipping linkcheck due to https://github.com/dart-lang/site-www/issues/1051"
+(set -x; ./scripts/shared/check-links.sh)
 travis_fold end check_links
 
 # Check output from Jekyll plugin
