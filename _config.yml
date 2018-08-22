@@ -113,7 +113,7 @@ symlinked-sources: [site-shared/src]
 destination: publish
 bundler_args: --without production
 
-exclude: # '.asset-cache'
+exclude:
   - _data/.pub
   - _data/.packages
   - _data/pubspec.lock
@@ -129,9 +129,3 @@ plugins: [jekyll-toc]
 # Increment this global og:image URL version number query parameter when you update any og:image file.
 # (Also increment the corresponding number in the `firebase.json` redirect rule.)
 og_image_vers: '?4'
-
-assets:
-  sources:
-    - _assets/icons
-    - _assets/javascripts
-    - _assets/stylesheets
