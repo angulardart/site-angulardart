@@ -5,6 +5,19 @@ permalink: /codelabs
 toc: false
 ---
 
+<div class="item-with-pic">
+<img src="/codelabs/images/angular-components.png"
+     width="150px"
+     alt="Before and after shots of a lottery simulator app">
+<div class="details" markdown="1">
+#### [AngularDart Components](/codelabs/angular_components)
+{: .title}
+
+Beautify a web app by converting its vanilla HTML elements
+to Material Design components that are widely used in Google's Dart apps.
+</div>
+</div>
+
 <div class="item-with-pic" markdown="1">
 <img src="/codelabs/images/startup-namer.png"
      width="150px"
@@ -26,19 +39,6 @@ Create a web app that uses AngularDart and material design components.
 {: .title}
 
 Use AngularDart and Firebase to create a web app with a realtime shared counter.
-</div>
-</div>
-
-<div class="item-with-pic">
-<img src="/codelabs/images/angular-components.png"
-     width="150px"
-     alt="Before and after shots of a lottery simulator app">
-<div class="details" markdown="1">
-#### [AngularDart Components](/codelabs/angular_components)
-{: .title}
-
-Beautify a web app by converting its vanilla HTML elements
-to Material Design components that are widely used in Google's Dart apps.
 </div>
 </div>
 
