@@ -33,7 +33,7 @@ see the JavaScript debugging
   [devtools-frontend README.][devtools-frontend README]
 </aside>
 
-{% img 'chrome-devtools-screenshot.png' %}
+{% asset chrome-devtools-screenshot.png %}
 
 {% comment %}
 NOTE TO EDITORS:
@@ -149,7 +149,7 @@ but you'll need to adjust the instructions to match your app.
    <br>
    For example, type something into a text field and press <kbd>Enter</kbd>.
 
-1. In the **Code Editor** pane, mouse over the properties. 
+1. In the **Code Editor** pane, mouse over the properties.
    You can see their Dart runtime types and values.
    <br>
    For example, in the `add()` method,
@@ -173,7 +173,7 @@ but you'll need to adjust the instructions to match your app.
 
 1. In the console, try viewing a property of the component.
    <br>
-   
+
    For example, try to view the `items` object:
 
    * Enter `items`.
@@ -192,7 +192,7 @@ but you'll need to adjust the instructions to match your app.
      JavaScript arrays don't have a `first` property.
 
 {% comment %}
-Dart DevTools: 
+Dart DevTools:
 items.first
 items.isEmpty
 items.length

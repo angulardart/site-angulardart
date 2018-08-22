@@ -40,7 +40,7 @@ responding to user interactions according to the instructions you've provided.
 Of course, there is more to it than this.
 You'll learn the details in the pages that follow. For now, focus on the big picture.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/architecture/overview2.png' %}" alt="overview" width="700">
+<img class="image-display" src="{% asset ng/devguide/architecture/overview2.png @path %}" alt="overview" width="700">
 
 The architecture diagram identifies the eight main building blocks of an Angular
 app:
@@ -60,7 +60,7 @@ app:
 
 ## Modules
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/module.png' %}" alt="Modules" width="150px">
+<img class="image-left" src="{% asset ng/devguide/architecture/module.png @path %}" alt="Modules" width="150px">
 
 Angular apps are modular; that is, apps are assembled from many
 **modules**.
@@ -91,7 +91,7 @@ By convention, the name of the root component is `AppComponent`.
 
 ### Angular libraries
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/library-module.png' %}" alt="Libraries" width="200px">
+<img class="image-left" src="{% asset ng/devguide/architecture/library-module.png @path %}" alt="Libraries" width="200px">
 
 Angular ships as a collection of libraries within the
 [**angular**](https://pub.dartlang.org/packages/angular) package.
@@ -110,7 +110,7 @@ The angular package includes other important libraries, such as
 
 ## Components
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/hero-component.png' %}" alt="Component" width="200px">
+<img class="image-left" src="{% asset ng/devguide/architecture/hero-component.png @path %}" alt="Component" width="200px">
 
 <div class="guide-architecture-fix-overflow" markdown="1">
   A _component_ controls a patch of screen called a *view*.
@@ -159,7 +159,7 @@ app. Your app can take action at each moment in this lifecycle through optional
 
 ## Templates
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/template.png' %}" alt="Template" width="200px">
+<img class="image-left" src="{% asset ng/devguide/architecture/template.png @path %}" alt="Template" width="200px">
 
 You define a component's view with its companion **template**. A template is a
 form of HTML that tells Angular how to render the component.
@@ -191,7 +191,7 @@ not shown) presents facts about the hero that the user selects from the list
 presented by the `HeroListComponent`. The `HeroDetailComponent` is a **child**
 of the `HeroListComponent`.
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/component-tree.png' %}" alt="Metadata"  width="300px">
+<img class="image-left" src="{% asset ng/devguide/architecture/component-tree.png @path %}" alt="Metadata"  width="300px">
 
 Notice how `<hero-detail>` rests comfortably among native HTML elements. You can
 mix custom components with native HTML in the same layouts.
@@ -201,7 +201,7 @@ mix custom components with native HTML in the same layouts.
 
 ## Metadata
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/metadata.png' %}" alt="Metadata" width="150px">
+<img class="image-left" src="{% asset ng/devguide/architecture/metadata.png @path %}" alt="Metadata" width="150px">
 
 Metadata tells Angular how to process a class.<br class="l-clear-both">
 
@@ -254,7 +254,7 @@ The example `HeroListComponent` uses the following `@Component` parameters:
   constructor requires a `HeroService` so it can get the list of heroes to
   display.
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/template-metadata-component.png' %}" alt="Metadata" width="115px">
+<img class="image-left" src="{% asset ng/devguide/architecture/template-metadata-component.png @path %}" alt="Metadata" width="115px">
 
 The metadata in the `@Component` tells Angular where to get the major building
 blocks you specify for the component.
@@ -277,7 +277,7 @@ controls and turning user responses into actions and value updates. Writing such
 push/pull logic by hand is tedious and error prone, and the result is often
 difficult to read.
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/databinding.png' %}" alt="Data Binding" width="220px">
+<img class="image-left" src="{% asset ng/devguide/architecture/databinding.png @path %}" alt="Data Binding" width="220px">
 
 Angular supports **data binding**, a mechanism for coordinating parts of a
 template with parts of a component. Add binding markup to the template HTML to
@@ -328,13 +328,13 @@ Here's an example of two-way binding from the `HeroDetailComponent` template:
 Angular processes all data bindings once per JavaScript event cycle,
 from the root of the app component tree through all child components.
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/component-databinding.png' %}" alt="Data Binding" width="300px">
+<img class="image-left" src="{% asset ng/devguide/architecture/component-databinding.png @path %}" alt="Data Binding" width="300px">
 
 Data binding plays an important role in communication between a template and its
 component.
 <br class="l-clear-both">
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/parent-child-binding.png' %}" alt="Parent/Child binding" width="300px">
+<img class="image-left" src="{% asset ng/devguide/architecture/parent-child-binding.png @path %}" alt="Parent/Child binding" width="300px">
 
 Data binding is also important for communication between parent and child
 components.
@@ -344,7 +344,7 @@ components.
 
 ## Directives
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/directive.png' %}" alt="Parent child" width="150px">
+<img class="image-left" src="{% asset ng/devguide/architecture/directive.png @path %}" alt="Parent child" width="150px">
 
 Angular templates are *dynamic*. When Angular renders them, it transforms the
 DOM according to the instructions given by **directives**.
@@ -420,7 +420,7 @@ are another.
 
 ## Services
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/service.png' %}" alt="Service" width="150px">
+<img class="image-left" src="{% asset ng/devguide/architecture/service.png @path %}" alt="Service" width="150px">
 
 _Service_ is a broad category encompassing any value, function, or feature that your app needs.
 
@@ -494,7 +494,7 @@ through *dependency injection*.
 
 ## Dependency injection
 
-<img class="image-left" src="{% asset_path 'ng/devguide/architecture/dependency-injection.png' %}" alt="Dependency injection" width="200px">
+<img class="image-left" src="{% asset ng/devguide/architecture/dependency-injection.png @path %}" alt="Dependency injection" width="200px">
 
 _Dependency injection_ is a way to supply a new instance of a class
 with the fully-formed dependencies it requires. Most dependencies are services.
@@ -524,7 +524,7 @@ This is *dependency injection*.
 
 The process of `HeroService` injection looks a bit like this:
 
-<img src="{% asset_path 'ng/devguide/architecture/injector-injects.png' %}" alt="Service">
+<img src="{% asset ng/devguide/architecture/injector-injects.png @path %}" alt="Service">
 
 If the injector doesn't have a `HeroService`, how does it know how to make one?
 

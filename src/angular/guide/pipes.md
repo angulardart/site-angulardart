@@ -135,7 +135,7 @@ As you click the button, the displayed date alternates between
 "**<samp>04/15/1988</samp>**" and
 "**<samp>Friday, April 15, 1988</samp>**".
 
-<img class="image-display" src="{% asset_path 'ng/devguide/pipes/date-format-toggle-anim.gif' %}" alt="Date Format Toggle">
+<img class="image-display" src="{% asset ng/devguide/pipes/date-format-toggle-anim.gif @path %}" alt="Date Format Toggle">
 
 
 <div class="l-sub-section" markdown="1">
@@ -229,7 +229,7 @@ Now you need a component to demonstrate the pipe.
   class PowerBoosterComponent {}
 ```
 
-<img class="image-display" src="{% asset_path 'ng/devguide/pipes/power-booster.png' %}" alt="Power Booster">
+<img class="image-display" src="{% asset ng/devguide/pipes/power-booster.png @path %}" alt="Power Booster">
 
 Note the following:
 
@@ -279,7 +279,7 @@ your pipe and two-way data binding with `ngModel`.
   }
 ```
 
-<img class="image-display" src="{% asset_path 'ng/devguide/pipes/power-boost-calculator-anim.gif' %}" alt="Power Boost Calculator">
+<img class="image-display" src="{% asset ng/devguide/pipes/power-boost-calculator-anim.gif @path %}" alt="Power Boost Calculator">
 
 <div id="change-detection"></div>
 ## Pipes and change detection
@@ -387,7 +387,7 @@ if you *replace* the list, the pipe executes and the display is updated.
 The Flying Heroes app extends the
 code with checkbox switches and additional displays to help you experience these effects.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/pipes/flying-heroes-anim.gif' %}" alt="Flying Heroes">
+<img class="image-display" src="{% asset ng/devguide/pipes/flying-heroes-anim.gif @path %}" alt="Flying Heroes">
 
 Replacing the list is an efficient way to signal Angular to update the display.
 When do you replace the list? When the data change.
@@ -610,7 +610,7 @@ both requesting the heroes from the `heroes.json` file.
 
 The component renders as the following:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/pipes/hero-list.png' %}" alt="Hero List">
+<img class="image-display" src="{% asset ng/devguide/pipes/hero-list.png @path %}" alt="Hero List">
 
 A breakpoint on the pipe's request for data shows the following:
 * Each binding gets its own pipe instance.

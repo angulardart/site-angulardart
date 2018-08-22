@@ -15,7 +15,7 @@ If you don't already have a favorite IDE,
 we recommend WebStorm, which comes with Dart support.
 
 <a href="/tools/webstorm">
-<img src="{% asset_path 'webstorm.svg' %}" alt="WebStorm icon" width="48"><br>
+<img src="{% asset webstorm.svg @path %}" alt="WebStorm icon" width="48"><br>
 <b>WebStorm</b>
 </a>
 

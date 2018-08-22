@@ -16,10 +16,9 @@ angularIO.directive('apiList', function () {
   var TYPE_KEY = 'type';
   var STATUS_KEY = 'status';
   // Liquid interpolation expressions:
-  var DART_API = '{{site.dart_api}}';
-  var DART_CHANNEL = '{{site.data.pkg-vers.SDK.channel}}';
+  var DART_API = 'https://api.dartlang.org';
+  var DART_CHANNEL = 'stable';
   var DART_CHANNEL_API = DART_API + '/' + DART_CHANNEL;
-  // {% raw %} // Don't do Liquid interpolation beyond this point.
 
   return {
     restrict: 'E',
@@ -295,4 +294,3 @@ angularIO.directive('apiList', function () {
     }]
   };
 });
-// {% endraw %}

@@ -21,7 +21,7 @@ conditionally show a message below the list.
 
 The final UI looks like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/displaying-data/final.png' %}" alt="Final UI">
+<img class="image-display" src="{% asset ng/devguide/displaying-data/final.png @path %}" alt="Final UI">
 
 <div class="l-sub-section" markdown="1">
   The {% example_ref %} demonstrates all of the syntax and code
@@ -101,7 +101,7 @@ inside the `<my-app>` tag.
 
 Now run the app. It should display the title and hero name:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/displaying-data/title-and-hero.png' %}" alt="Title and Hero">
+<img class="image-display" src="{% asset ng/devguide/displaying-data/title-and-hero.png @path %}" alt="Title and Hero">
 
 ## Template inline or template file?
 
@@ -208,7 +208,7 @@ convenience you can use groups like [CORE_DIRECTIVES][]
 
 Refresh the browser. Now the heroes appear in an unordered list.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/displaying-data/hero-names-list.png' %}" alt="After ngfor">
+<img class="image-display" src="{% asset ng/devguide/displaying-data/hero-names-list.png @path %}" alt="After ngfor">
 
 ## Creating a class for the data
 

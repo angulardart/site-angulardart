@@ -15,7 +15,7 @@ og_image: /assets/angulardart.png
           {% include navigation-sub.html %}
           {% include breadcrumbs.html %}
           <div class="ng-page-title">
-              <a href="/angular"><img src="{% asset_path shared/angular/icon/default.svg %}" width="40px"></a>
+              <a href="/angular"><img src="{% asset shared/angular/icon/default.svg @path %}" width="40px"></a>
               {% include page-github-links.html %}
               <h1>
                   {% assign title = page.long-title | default: page.title |

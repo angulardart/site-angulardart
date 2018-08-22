@@ -22,7 +22,7 @@ There are new requirements for the Tour of Heroes app:
 
 When you’re done, users will be able to navigate the app like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/toh/nav-diagram.png' %}" alt="View navigations">
+<img class="image-display" src="{% asset ng/devguide/toh/nav-diagram.png @path %}" alt="View navigations">
 
 To satisfy these requirements, you'll add Angular’s router to the app.
 
@@ -1021,7 +1021,7 @@ Add the following import and method stub to `HeroListComponent`:
 
 After clicking a hero (but don't try now since it won't work yet), users should see something like this below the hero list:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/toh/mini-hero-detail.png' %}" alt="Mini Hero Detail" width="250">
+<img class="image-display" src="{% asset ng/devguide/toh/mini-hero-detail.png @path %}" alt="Mini Hero Detail" width="250">
 
 The hero's name is displayed in capital letters because of the `uppercase` pipe
 that's included in the interpolation binding, right after the pipe operator ( | ).
@@ -1222,7 +1222,7 @@ Also edit `web/index.html` to refer to this stylesheet.
 
 Look at the app now. The dashboard, heroes, and navigation links are styled.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/toh/dashboard-top-heroes.png' %}" alt="View navigations">
+<img class="image-display" src="{% asset ng/devguide/toh/dashboard-top-heroes.png @path %}" alt="View navigations">
 
 ## App structure and code
 

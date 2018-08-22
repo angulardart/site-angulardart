@@ -124,7 +124,7 @@ one by one. Here's what the UI displays:
   a | ab | abc | ab | a | |
 ```
 
-<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup1-anim.gif' %}" alt="key up 1">
+<img class="image-display" src="{% asset ng/devguide/user-input/keyup1-anim.gif @path %}" alt="key up 1">
 
 <div class="l-sub-section" markdown="1">
   Alternatively, you can accumulate the individual keys themselves by
@@ -206,7 +206,7 @@ and the component does nothing.
 Type something in the input box, and watch the display update with each
 keystroke.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup-loop-back-anim.gif' %}" alt="loop back">
+<img class="image-display" src="{% asset ng/devguide/user-input/keyup-loop-back-anim.gif @path %}" alt="loop back">
 
 <div class="alert alert-warning" markdown="1">
   **This won't work at all unless you bind to an event**.
@@ -268,7 +268,7 @@ Angular calls the event handler only when the user presses _Enter_.
 
 Here's how it works.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/user-input/keyup3-anim.gif' %}" alt="key up 3">
+<img class="image-display" src="{% asset ng/devguide/user-input/keyup3-anim.gif @path %}" alt="key up 3">
 
 ## On blur
 
@@ -303,7 +303,7 @@ Now, put it all together in a micro-app that can display a list of heroes and
 add new heroes to the list. The user can add a hero by typing the hero's name
 in the input box and clicking **Add**.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/user-input/little-tour-anim.gif' %}" alt="Little Tour of Heroes">
+<img class="image-display" src="{% asset ng/devguide/user-input/little-tour-anim.gif @path %}" alt="Little Tour of Heroes">
 
 Below is the "Little Tour of Heroes"  component.
 

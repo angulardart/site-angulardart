@@ -117,7 +117,7 @@ vulnerability. For example, code contained in a `<script>` tag is executed:
 Angular recognizes the value as unsafe and automatically sanitizes it, which removes the `<script>`
 element but keeps safe content such as text and the `<b>` element.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/security/binding-inner-html.png' %}" alt="Interpolated and bound HTML values">
+<img class="image-display" src="{% asset ng/devguide/security/binding-inner-html.png @path %}" alt="Interpolated and bound HTML values">
 
 ### Avoid direct use of the DOM APIs
 
@@ -196,7 +196,7 @@ this, mark the URL value as a trusted URL using the `bypassSecurityTrustUrl` cal
         sanitizer.bypassSecurityTrustUrl('javascript:alert("Hi there")');
 ```
 
-<img class="image-display" src="{% asset_path 'ng/devguide/security/bypass-security-component.png' %}"
+<img class="image-display" src="{% asset ng/devguide/security/bypass-security-component.png @path %}"
       alt='A screenshot showing an alert box created from a trusted URL'>
 
 If you need to convert user input into a trusted value, use a

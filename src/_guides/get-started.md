@@ -22,7 +22,7 @@ no download necessary.
 
 For example, here's an embedded DartPad that lets you play with
 the code for a todo-list generator.
-Click run ( {% img 'red-run.png' %} ) to run the app.
+Click run ( {% asset red-run.png %} ) to run the app.
 You can also edit the source code—perhaps you'd like to add "horse"
 to the list of pets. To get the full DartPad experience,
 <a href="https://dartpad.dartlang.org/9ab0406003c8ba8c727861c9468ba158"
@@ -165,13 +165,13 @@ To run the app from WebStorm, do the following:
 1. Right-click the app's `web/index.html` file in the project view.
 2. Choose **Run 'index.html'** in the pop up menu.
 
-![Running the app from WebStorm]({% asset_path webstorm-run-index-html.png %})
+![Running the app from WebStorm]({% asset webstorm-run-index-html.png @path %})
 
 {% include pub-get-workaround.html %}
 
 You should see a simple todo list manager. Try it out!
 
-![Launched To-do app]({% asset_path my-first-angular-app.png %}){:width="500"}
+![Launched To-do app]({% asset my-first-angular-app.png @path %}){:width="500"}
 
 <i class="fas fa-terminal dark"></i>
 To run the app from the command line, use [webdev][] to build and serve the app:
@@ -208,7 +208,7 @@ Let's customize the app you just created.
     Refresh the app's browser window.
     Now the initial todo list has things to do!
     After you feed the cats, your todo list should look something like this:<br>
-    ![Running the To-do app]({% asset_path my-first-angular-app-at-work.png %}){:width="500"}
+    ![Running the To-do app]({% asset my-first-angular-app-at-work.png @path %}){:width="500"}
 
 ## 7. Use DevTools to inspect the app
 
@@ -253,4 +253,4 @@ If you get stuck, find help at [Community and Support.](/community)
 [AngularDart Components]: /components
 [stagehand]: {{site.pub-pkg}}/stagehand
 [webdev]: /tools/webdev
-[WebStorm new project dialog]: {% asset_path webstorm-new-project.png %}
+[WebStorm new project dialog]: {% asset webstorm-new-project.png @path %}

@@ -13,7 +13,7 @@ nextpage:
 <!-- FilePath: src/angular/guide/lifecycle-hooks.md -->
 <?code-excerpt path-base="examples/ng/doc/lifecycle-hooks"?>
 
-<img src="{% asset_path 'ng/devguide/lifecycle-hooks/hooks-in-sequence.png' %}" alt="Us" align="right" style="width:200px; margin-right:30px">
+<img src="{% asset ng/devguide/lifecycle-hooks/hooks-in-sequence.png @path %}" alt="Us" align="right" style="width:200px; margin-right:30px">
 
 A component has a lifecycle managed by Angular itself.
 
@@ -261,7 +261,7 @@ The peek-a-boo exists to show how Angular calls the hooks in the expected order.
 
 This snapshot reflects the state of the log after the user clicked the *Create...* button and then the *Destroy...* button.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/peek-a-boo.png' %}" alt="Peek-a-boo">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/peek-a-boo.png @path %}" alt="Peek-a-boo">
 
 The sequence of log messages follows the prescribed hook calling order:
 `OnChanges`, `OnInit`, `DoCheck`&nbsp;(3x), `AfterContentInit`, `AfterContentChecked`&nbsp;(3x),
@@ -334,7 +334,7 @@ Here it is attached to the repeated hero `<div>`
 Each spy's birth and death marks the birth and death of the attached hero `<div>`
 with an entry in the *Hook Log* as seen here:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/spy-directive.gif' %}" alt="Spy Directive">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/spy-directive.gif @path %}" alt="Spy Directive">
 
 Adding a hero results in a new hero `<div>`. The spy's `ngOnInit` logs that event.
 
@@ -433,7 +433,7 @@ The host `OnChangesParentComponent` binds to them like this:
 
 Here's the sample in action as the user makes changes.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/on-changes-anim.gif' %}" alt="OnChanges">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/on-changes-anim.gif @path %}" alt="OnChanges">
 
 The log entries appear as the string value of the *power* property changes.
 But the `ngOnChanges` does not catch changes to `hero.name`
@@ -494,7 +494,7 @@ This code inspects certain _values-of-interest_, capturing and comparing their c
 It writes a special message to the log when there are no substantive changes to the `hero` or the `power`
 so you can see how often `DoCheck` is called. The results are illuminating:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/do-check-anim.gif' %}" alt="DoCheck">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/do-check-anim.gif @path %}" alt="DoCheck">
 
 While the `ngDoCheck` hook can detect when the hero's `name` has changed, it has a frightful cost.
 This hook is called with enormous frequency &mdash;
@@ -599,7 +599,7 @@ for one turn of the browser's update cycle ... and that's just long enough.
 
 Here's *AfterView* in action
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/after-view-anim.gif' %}" alt="AfterView">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/after-view-anim.gif @path %}" alt="AfterView">
 
 Notice that Angular frequently calls `AfterViewChecked`, often when there are no changes of interest.
 Write lean hook methods to avoid performance problems.
@@ -661,7 +661,7 @@ The `<ng-content>` tag is a *placeholder* for the external content.
 It tells Angular where to insert that content.
 In this case, the projected content is the `<my-child>` from the parent.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/lifecycle-hooks/projected-child-view.png' %}" width="262" alt="Projected Content">
+<img class="image-display" src="{% asset ng/devguide/lifecycle-hooks/projected-child-view.png @path %}" width="262" alt="Projected Content">
 
 <div class="l-sub-section" markdown="1">
   The tell-tale signs of *content projection* are (a) HTML between component element tags

@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="{% asset_path 'touch-icon-iphone.png' %}" rel="apple-touch-icon">
-  <link href="{% asset_path 'touch-icon-ipad.png' %}" rel="apple-touch-icon" sizes="76x76">
-  <link href="{% asset_path 'touch-icon-iphone-retina.png' %}" rel="apple-touch-icon" sizes="120x120">
-  <link href="{% asset_path 'touch-icon-ipad-retina.png' %}" rel="apple-touch-icon" sizes="152x152">
+  <link href="{% asset touch-icon-iphone.png @path %}" rel="apple-touch-icon">
+  <link href="{% asset touch-icon-ipad.png @path %}" rel="apple-touch-icon" sizes="76x76">
+  <link href="{% asset touch-icon-iphone-retina.png @path %}" rel="apple-touch-icon" sizes="120x120">
+  <link href="{% asset touch-icon-ipad-retina.png @path %}" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -39,41 +39,41 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  {% stylesheet main %}
-  {% if page.layout == "angular" %}{% stylesheet angular %}{% endif %}
-  {% if page.layout == "components" %}{% stylesheet acx %}{% endif %}
+  {% asset main.css %}
+  {% if page.layout == "angular" %}{% asset angular.css %}{% endif %}
+  {% if page.layout == "components" %}{% asset acx.css %}{% endif %}
   {% for css in page.css %}
   <link href="{{css}}" rel="stylesheet" type="text/css">
   {% endfor %}
 
-  {% javascript main %}
+  {% asset main.js %}
 
   {% for js in page.js %}
-  <script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>
+  <script {% if js.defer %}defer{% endif %} src="{{js.url | default: js}}"></script>
   {% endfor %}
   {% include analytics.html %}
 
   {% if page.layout == "angular" %}
   <!-- VENDORS -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css"/>
-  {% javascript ng/vendor/lodash.js %}
-  {% javascript ng/vendor/clipboard.min.js %}
+  {% asset ng/vendor/lodash.js %}
+  {% asset ng/vendor/clipboard.min.js %}
   <!-- Angular Material Dependencies -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
   <!-- Angular.io Site JS -->
-  {% javascript ng/site.js %}
-  {% javascript ng/controllers/app-controller.js %}
-  {% javascript ng/directives/api-list.js %}
-  {% javascript ng/directives/bold.js %}
-  {% javascript ng/directives/code.js %}
-  {% javascript ng/directives/copy.js %}
-  {% javascript ng/directives/code-tabs.js %}
-  {% javascript ng/directives/code-pane.js %}
-  {% javascript ng/directives/code-example.js %}
-  {% javascript ng/directives/scroll-y-offset-element.js %}
+  {% asset ng/site.js %}
+  {% asset ng/controllers/app-controller.js %}
+  {% asset ng/directives/api-list.js %}
+  {% asset ng/directives/bold.js %}
+  {% asset ng/directives/code.js %}
+  {% asset ng/directives/copy.js %}
+  {% asset ng/directives/code-tabs.js %}
+  {% asset ng/directives/code-pane.js %}
+  {% asset ng/directives/code-example.js %}
+  {% asset ng/directives/scroll-y-offset-element.js %}
   {% endif %}
   {% if page.diff2html %}
   {%- comment %}Get from CDN for now{% endcomment -%}

@@ -219,7 +219,7 @@ const _quickCleanTargets = [siteFolderContent, path.join(fragsPath, '**')];
 const _cleanTargets = [
   siteFolderContent,
   LOCAL_TMP,
-  path.join(source, _configYml.assets.cache || _throw()),
+  path.join(source, _configYml.assets.cache || '.asset-cache'),
 ];
 
 function delFv(delTargets) { // verbose, forced delete

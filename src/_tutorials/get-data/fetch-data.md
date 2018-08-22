@@ -43,7 +43,7 @@ can be serialized and represented by strings.
 **Try it!**
 The following app, `its_all_about_you`,
 displays the JSON string for data of various types.
-Click run ( {% img 'red-run.png' %} ) to start the app.
+Click run ( {% asset red-run.png %} ) to start the app.
 Then change the values of the input elements,
 and check out the JSON format for each data type.
 You might prefer to
@@ -408,7 +408,7 @@ and loads the file.
   from everywhere.
 </aside>
 
-**Try it!** Click run ( {% img 'red-run.png' %} )
+**Try it!** Click run ( {% asset red-run.png %} )
 and then click the **Get portmanteaux** button.
 
 {% comment %} https://gist.github.com/chalin/6b76bce8d46986e624f4e82925c48287 {% endcomment %}

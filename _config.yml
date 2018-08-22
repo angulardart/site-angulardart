@@ -124,38 +124,14 @@ keep_files:
   - angular/api
   - components/api
 
-plugins:
-- jekyll-assets
-- jekyll-toc
+plugins: [jekyll-toc]
 
 # Increment this global og:image URL version number query parameter when you update any og:image file.
 # (Also increment the corresponding number in the `firebase.json` redirect rule.)
 og_image_vers: '?4'
 
 assets:
-  # compress:
-  #   css: true # default - development: false, production: true
-  #   js: true # default - development: false, production: true
-  cache: .asset-cache # cache: false # default: .asset-cache
-  # cdn: https://cdn.example.com
-  # skip_baseurl_with_cdn: false
-  # skip_prefix_with_cdn: false
-  prefix: /assets
-  assets:
-    - "*.png"
-    - "*.jpg"
-    - "*.eot"
-    - "*.ttf"
-    - "*.woff"
-    - "*.svg"
-  #   - bundle.css
-  # digest: true
   sources:
     - _assets/icons
-    - _assets/images
     - _assets/javascripts
     - _assets/stylesheets
-  features:
-    liquid: true # default: false
-    automatic_img_size: true # default: true
-    automatic_img_alt : true # default: true

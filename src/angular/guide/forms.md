@@ -52,7 +52,7 @@ otherwise wrestle with yourself.
 
 You'll learn to build a template-driven form that looks like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form.png' %}" width="360" alt="Clean Form">
+<img class="image-display" src="{% asset ng/devguide/forms/hero-form.png @path %}" width="360" alt="Clean Form">
 
 The *Hero Employment Agency* uses this form to maintain personal information about heroes.
 Every hero needs a job. It's the company mission to match the right hero with the right crisis.
@@ -63,7 +63,7 @@ required fields have an asterisk (*).
 
 If you delete the hero name, the form displays a validation error in an attention-grabbing style:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form-name-required.png' %}" width="360" alt="Invalid, Name Required">
+<img class="image-display" src="{% asset ng/devguide/forms/hero-form-name-required.png @path %}" width="360" alt="Invalid, Name Required">
 
 Note that the *Submit* button is disabled, and the input control changes from green to red.
 
@@ -330,7 +330,7 @@ you display its name using the interpolation syntax.
 <i class="material-icons">open_in_browser</i>
 **Running the app** now is a bit disappointing.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/hero-form-wo-bindings.png' %}" width="360" alt="Early form with no binding">
+<img class="image-display" src="{% asset ng/devguide/forms/hero-form-wo-bindings.png @path %}" width="360" alt="Early form with no binding">
 
 You don't see hero data because you're not binding to the `Hero` yet.
 You know how to do that from earlier pages.
@@ -371,7 +371,7 @@ Focus on the binding syntax: `[(ngModel)]="..."`.
 adding and deleting characters. You'll see the characters appear and disappear
 from the diagnostic text. At some point it might look like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/name-ngmodel.png' %}" width="300" alt="Name ngModel">
+<img class="image-display" src="{% asset ng/devguide/forms/name-ngmodel.png @path %}" width="300" alt="Name ngModel">
 
 The diagnostic is evidence that values really are flowing from the input to the model and
 back again.
@@ -435,7 +435,7 @@ After revision, the core of the form should look like this:
 
 If you run the app now and change every hero model property, the form might display like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/ngmodel.png' %}" width="460" alt="ngModel">
+<img class="image-display" src="{% asset ng/devguide/forms/ngmodel.png @path %}" width="460" alt="ngModel">
 
 The diagnostic near the top of the form
 confirms that all of your changes are reflected in the model.
@@ -550,7 +550,7 @@ Leverage the control's state to reveal a helpful message.
 
 When the user deletes the name, the form should look like this:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/name-required-error.png' %}" width="300" alt="Name required">
+<img class="image-display" src="{% asset ng/devguide/forms/name-required-error.png @path %}" width="300" alt="Name required">
 
 To achieve this effect, add the following `<div>` immediately after the _Name_ `<input>`:
 
@@ -802,7 +802,7 @@ Now add the following HTML below the `<div>` wrapper you just wrote:
 The `submitted` flag becomes true and the form disappears.
 You'll see the hero model values (read-only) displayed in a table.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/forms/submitted-hero-data.png' %}" width="360" alt="Clean Form">
+<img class="image-display" src="{% asset ng/devguide/forms/submitted-hero-data.png @path %}" width="360" alt="Clean Form">
 
 The view includes an *Edit* button whose click event binding clears the `submitted` flag.
 When you click the *Edit* button, the table disappears and the editable form reappears.

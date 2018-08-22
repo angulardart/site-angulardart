@@ -59,7 +59,7 @@ The user can add new heroes and save them to the server.
 
 Here's what the app's UI looks like:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/http-toh.gif' %}" alt="ToH mini app" width="282">
+<img class="image-display" src="{% asset ng/devguide/server-communication/http-toh.gif @path %}" alt="ToH mini app" width="282">
 
 This demo has a single component, the `HeroListComponent`. Here is its template:
 
@@ -474,7 +474,7 @@ For more information about JSONP, see
 The following simple search shows suggestions from Wikipedia as the user
 types in a text box:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/wiki-1.gif' %}" alt="Wikipedia search app (v.1)" width="282">
+<img class="image-display" src="{% asset ng/devguide/server-communication/wiki-1.gif @path %}" alt="Wikipedia search app (v.1)" width="282">
 
 Wikipedia offers a modern **CORS** API and a legacy **JSONP** search API.
 
@@ -564,7 +564,7 @@ Presently, the code calls the server after every keystroke.
 It should only make requests when the user *stops typing*.
 Here's how it will work after refactoring:
 
-<img class="image-display" src="{% asset_path 'ng/devguide/server-communication/wiki-2.gif' %}" alt="Wikipedia search app (v.2)" width="250">
+<img class="image-display" src="{% asset ng/devguide/server-communication/wiki-2.gif @path %}" alt="Wikipedia search app (v.2)" width="250">
 
 #### 2. Search when the search term changes
 

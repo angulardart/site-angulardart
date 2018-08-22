@@ -149,7 +149,7 @@ recognizes the directive when it encounters `myHighlight` in the template.
 **Refresh the browser.**
 The app runs, and the `myHighlight` directive highlights the paragraph text.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/first-highlight.png' %}" alt="First Highlight">
+<img class="image-display" src="{% asset ng/devguide/attribute-directives/first-highlight.png @path %}" alt="First Highlight">
 
 <div class="l-sub-section" markdown="1">
 ### Your directive isn't working?
@@ -255,7 +255,7 @@ Here's the updated directive in full:
 **Refresh the browser.** Confirm that the background color appears when
 the mouse hovers over the `p` and disappears as it moves out.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-anim.gif' %}" alt="Second Highlight">
+<img class="image-display" src="{% asset ng/devguide/attribute-directives/highlight-directive-anim.gif @path %}" alt="Second Highlight">
 
 <a id="bindings"></a>
 ## Pass values into the directive with an _@Input_ data binding
@@ -420,7 +420,7 @@ Revise the `AppComponent.color` so that it has no initial value.
 **Refresh the browser.**
 Here are the harness and directive in action.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-v2-anim.gif' %}" alt="Highlight v.2">
+<img class="image-display" src="{% asset ng/devguide/attribute-directives/highlight-directive-v2-anim.gif @path %}" alt="Highlight v.2">
 
 <a id="second-property"></a>
 ## Bind to a second property
@@ -468,7 +468,7 @@ because you made it _public_ with the `@Input` annotation.
 **Refresh the browser.**
 Here's how the harness should work when you're done coding.
 
-<img class="image-display" src="{% asset_path 'ng/devguide/attribute-directives/highlight-directive-final-anim.gif' %}" alt="Final Highlight">
+<img class="image-display" src="{% asset ng/devguide/attribute-directives/highlight-directive-final-anim.gif @path %}" alt="Final Highlight">
 
 <a id="functional"></a>
 ## Write a functional directive

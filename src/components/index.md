@@ -25,12 +25,12 @@ along with source code links and API descriptions.
 
 <a href="https://dart-lang.github.io/angular_components_example/"
     class="no-automatic-external">
-  <img src="{% asset_path 'angular_components_example-screenshot-1.png' %}"
+  <img src="{% asset angular_components_example-screenshot-1.png @path %}"
       alt="Screenshot #1 of the AngularDart Gallery" width="600">
 </a>
 <a href="https://dart-lang.github.io/angular_components_example/"
     class="no-automatic-external">
-  <img src="{% asset_path 'angular_components_example-screenshot-2.png' %}"
+  <img src="{% asset angular_components_example-screenshot-2.png @path %}"
       alt="Screenshot #2 of the AngularDart Gallery" width="600">
 </a>
 
