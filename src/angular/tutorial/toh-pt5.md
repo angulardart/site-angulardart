@@ -916,7 +916,7 @@ template.
 
 Update the dashboard component:
 
-- Import `route_paths.dart` as `paths`
+- Import `route_paths.dart`
 - Add `routerDirectives` to the `directives` list
 - Add the following method:
 
