@@ -4,8 +4,7 @@
 # pubspec.lock
 
 # Cache files
-.sass-cache
-.asset-cache
+.*-cache
 .jekyll-metadata
 
 # Deployment Files

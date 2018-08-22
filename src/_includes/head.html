@@ -39,21 +39,13 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  {% stylesheet style %}
+  {% stylesheet main %}
   {% if page.layout == "angular" %}{% stylesheet angular %}{% endif %}
   {% if page.layout == "components" %}{% stylesheet acx %}{% endif %}
   {% for css in page.css %}
   <link href="{{css}}" rel="stylesheet" type="text/css">
   {% endfor %}
 
-  <!--
-      Why don't we use Dart here?
-
-      The only scripting we use here is stuff like resizing of the left nav and
-      adding the little icon to outgoing links. These happen to be use cases
-      where JavaScript and jQuery are doing just fine. Dart is here for
-      application programming, not page scripting.
-   -->
   {% javascript main %}
 
   {% for js in page.js %}
@@ -64,8 +56,6 @@
   {% if page.layout == "angular" %}
   <!-- VENDORS -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css"/>
-  <!--
-  -->
   {% javascript ng/vendor/lodash.js %}
   {% javascript ng/vendor/clipboard.min.js %}
   <!-- Angular Material Dependencies -->
