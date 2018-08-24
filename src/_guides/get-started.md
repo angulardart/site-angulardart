@@ -182,6 +182,8 @@ To run the app from the command line, use [webdev][] to build and serve the app:
 
 Then, to view your app, use the Chrome browser to visit
 [localhost:8080](localhost:8080).
+(Details about Dart's browser support are
+[in the FAQ](/faq#q-what-browsers-do-you-support-as-javascript-compilation-targets).)
 Webdev is slowest when it builds and serves your app for the first time.
 After that, assets are cached on disk and incremental builds are much faster.
 
