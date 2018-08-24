@@ -93,6 +93,7 @@ li.L9 { background-color: #fefefe; }
   .gp { color: $grey-500; } /* Generic.Prompt */
   .nb { color: $light-green-600; } /* Name.Builtin */
   .go { color: white; } /* Generic.Output */
+  .nt { color: $light-green-600; } /* flags */
 }
 
 // Match prettifier classes defined above.

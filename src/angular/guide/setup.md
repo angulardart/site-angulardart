@@ -117,7 +117,8 @@ To run the app from the command line, use [webdev][] to build and serve the app:
 $ webdev serve
 ```
 
-Then, to view your app, visit [localhost:8080](localhost:8080).
+Then, to view your app, use the Chrome browser to visit
+[localhost:8080](localhost:8080).
 
 ## Reload the app  {#reload}
 

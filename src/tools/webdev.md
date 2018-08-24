@@ -33,27 +33,38 @@ code changes, use the following command:
 webdev serve [--release] [ [<directory>[:<port>]] ... ]
 ```
 
-By default your app is compiled using [dartdevc][] and served from the `web`
-directory on port `8080`:
+By default, `webdev serve` compiles your app using [dartdevc][] and 
+serves the app at [localhost:8080](localhost:8080):
 
 ```terminal
-$ webdev serve
+$ webdev serve  # uses dartdevc
 ```
 
 The first dartdevc build is the slowest. After that, assets are cached on disk,
 and incremental builds are much faster.
 
-To build using [dart2js][], add the `--release` flag.
+<aside class="alert alert-info" markdown="1">
+  **Note:** The development compiler (dartdevc) supports **only Chrome.**
+  To view your app in another browser,
+  use the production compiler (dart2js).
+  For a list of supported browsers, [see the FAQ][supported browsers].
+</aside>
 
-You can specify different directory-port configurations. For example, the
-following command sets up an additional port to run component tests in the
-browser at [localhost:8081](http://localhost:8081):
+To use [dart2js][] instead of dartdevc, add the `--release` flag:
 
 ```terminal
-$ webdev serve web test:8081
+$ webdev serve --release  # uses dart2js
 ```
 
-To run tests directly from the command line use [build_runner test][].
+You can specify different directory-port configurations. For example, the
+following command changes the test port from the default (8081) to 8083:
+
+```terminal
+$ webdev serve web test:8083 # App: 8080; tests: 8083
+```
+
+To run tests directly from the command line,
+instead of `webdev` use [build_runner test][].
 
 ## Command: build {#build}
 
@@ -87,4 +98,5 @@ For a complete list of `webdev` options, run `webdev --help` or see the
 [build_runner test]: /tools/build_runner#test
 [dart2js]: /tools/dart2js
 [dartdevc]: /tools/dartdevc
+[supported browsers]: /faq#q-what-browsers-do-you-support-as-javascript-compilation-targets
 [webdev]: https://pub.dartlang.org/packages/webdev

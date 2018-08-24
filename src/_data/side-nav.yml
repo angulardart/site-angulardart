@@ -92,6 +92,8 @@
     permalink: /changelog
   - title: Cheat Sheet
     permalink: /angular/cheatsheet
+  - title: FAQ
+    permalink: /faq
   - title: Glossary
     permalink: /angular/glossary
   - title: Migration Guide

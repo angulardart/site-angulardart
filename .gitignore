@@ -39,3 +39,4 @@ npm-debug*.log*
 
 /*-log.txt
 protractor-results.txt
+*.cache
