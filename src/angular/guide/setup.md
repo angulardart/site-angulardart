@@ -119,6 +119,8 @@ $ webdev serve
 
 Then, to view your app, use the Chrome browser to visit
 [localhost:8080](localhost:8080).
+(Details about Dart's browser support are
+[in the FAQ](/faq#q-what-browsers-do-you-support-as-javascript-compilation-targets).)
 
 ## Reload the app  {#reload}
 
