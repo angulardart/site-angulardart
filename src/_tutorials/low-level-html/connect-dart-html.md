@@ -24,6 +24,16 @@ Don't have the source code?
 
 ### Write a mini Dart app.
 
+<aside class="alert alert-info" markdown="1">
+  **Note:** 
+  This page introduces basic, low-level web programming
+  with the dart:html library;
+  [AngularDart](/angular) handles many of these low-level details for you.
+  If you want to quickly get started with AngularDart,
+  you can skip this tutorial and go to the
+  [AngularDart tutorial](/angular/tutorial).
+</aside>
+
 <div class="panel" markdown="1">
 
 #### <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?
@@ -39,7 +49,7 @@ Don't have the source code?
 
 </div>
 
-To write a Dart web app,
+To write a low-level web app with Dart,
 you need to understand
 several topics&mdash;the DOM tree, nodes, elements,
 HTML, and the Dart language and libraries.
@@ -64,7 +74,7 @@ for more interesting and useful web apps.
 ## About the Dart, HTML, and CSS triumvirate {#source-files}
 
 If you've used
-<a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad</a>,
+<a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad,</a>
 you've already seen the DART, HTML, and CSS tabs
 that let you write the code for a web app.
 Each of these three languages
@@ -163,7 +173,7 @@ or even insert an entire subtree of nodes.
 
 ## Create a new Dart app {#create-dart-app}
 
-1. Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad</a>.
+1. Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank" rel="noopener">DartPad.</a>
 2. Click the **New Pad** button to undo any changes you might have made
    the last time you visited DartPad.
 
@@ -264,7 +274,7 @@ Key classes include:
 {: .table}
 
 The Dart core library contains another useful class:
-<a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/List-class.html" target="_blank" rel="noopener">List</a>,
+<a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/List-class.html" target="_blank" rel="noopener">List,</a>
 a parameterized class that can specify the type of its members.
 An instance of Element keeps its list of child Elements
 in a List\<Element>.

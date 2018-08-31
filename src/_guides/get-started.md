@@ -15,21 +15,23 @@ First you'll play with Dart in your browser, no download required.
 Then you'll install Dart and build a small app
 that uses the [AngularDart][] framework and [AngularDart Components][].
 
-## 1. Play with DartPad
+## 1. Play with a web app in DartPad
 
 With DartPad you can experiment with the Dart language and APIs,
 no download necessary.
 
 For example, here's an embedded DartPad that lets you play with
 the code for a todo-list generator.
-Click run ( {% asset red-run.png %} ) to run the app.
-You can also edit the source code—perhaps you'd like to add "horse"
+Click run {% asset red-run.png alt="" %} to run the app;
+the console output appears beneath the code.
+Try editing the source code—perhaps you'd like to add "horses"
 to the list of pets. To get the full DartPad experience,
-<a href="https://dartpad.dartlang.org/9ab0406003c8ba8c727861c9468ba158"
-   target="_blank">open the example at dartpad.dartlang.org</a>.
+which includes the web UI that the app produces,
+<a href="http://dartpad.dartlang.org/2a24f3f042f1c86cf91621c30adce771"
+   target="_blank">open the example at dartpad.dartlang.org.</a>
 
 <iframe
-    src="{{site.custom.dartpad.embed-inline-prefix}}?id=9ab0406003c8ba8c727861c9468ba158&verticalRatio=70"
+    src="{{site.custom.dartpad.embed-inline-prefix}}?id=2a24f3f042f1c86cf91621c30adce771&verticalRatio=70"
     width="100%"
     height="450px"
     style="border: 1px solid #ccc;">
@@ -40,6 +42,7 @@ More information:
 * [DartPad documentation]({{site.dartlang}}/tools/dartpad)
 * [Dart language tour]({{site.dartlang}}/guides/language/language-tour)
 * [Dart library tour]({{site.dartlang}}/guides/libraries/library-tour)
+* [Tutorial introduction to using Dart for basic web programming](/tutorials/low-level-html/connect-dart-html)
 
 
 ## 2. Install Dart {%-if isDev%} 2 **dev channel** release {%-endif%}
@@ -108,16 +111,10 @@ You'll need it in step 4.
 More information: [Install the SDK](/tools/sdk#install)
 
 
-## 3. Get WebStorm or CLI tools
-
-<i class="material-icons">web</i>
-Although using an IDE is optional, we highly recommend that you
-[download and install WebStorm](/tools/webstorm). WebStorm comes
-with Dart support, making it easy to write correct Dart code and to run it in a
-browser.
+## 3. Get CLI tools or WebStorm (or both)
 
 <i class="fas fa-terminal dark"></i>
-If you'd rather work from the command line, install [webdev][]
+If you like to use the command line, install [webdev][]
 and [stagehand:][stagehand]
 
 ```terminal
@@ -125,14 +122,30 @@ and [stagehand:][stagehand]
 > pub global activate stagehand
 ```
 
+<i class="material-icons">web</i>
+Although using an IDE is optional, we highly recommend that you
+[download and install WebStorm](/tools/webstorm). WebStorm comes
+with Dart support, making it easy to write correct Dart code and to run it in a
+browser.
+
+{% include webstorm-status.md %}
+
 More information: [Dart tools for the web](/tools)
 
 ## 4. Create a web app
 
+<i class="fas fa-terminal dark"></i>
+To create a web app from the command line, use these commands:
+
+```terminal
+> mkdir quickstart
+> cd quickstart
+> stagehand web-angular
+> pub get
+```
+
 <i class="material-icons">web</i>
-We recommend using Angular for your Dart web apps,
-but you have [other options](/guides/web-programming) as well.
-Here's how to use WebStorm to create a web app that uses AngularDart:
+Here's how to use WebStorm to create the same web app:
 
 1. Choose **Create New Project** from WebStorm's welcome screen,
    or **File > New > Project...** from the menu. A dialog appears.
@@ -143,21 +156,26 @@ Here's how to use WebStorm to create a web app that uses AngularDart:
 1. Choose the **AngularDart Web App** template.
 1. Click **Create**.<br>![WebStorm new project dialog][]
 
-<i class="fas fa-terminal dark"></i>
-To create the app from the command line, use these commands:
+More information:
 
-```terminal
-> mkdir quickstart
-> cd quickstart
-> stagehand web-angular
-> pub get
-```
-
-More information: [Setup for AngularDart development](/angular/guide/setup)
+* [Overview of Dart web libraries](/guides/web-programming)
+* [Setup for AngularDart development](/angular/guide/setup)
 
 ## 5. Run the app
 
-{% include webstorm-status.md %}
+<i class="fas fa-terminal dark"></i>
+To run the app from the command line, use [webdev][] to build and serve the app:
+
+```terminal
+> webdev serve
+```
+
+Then, to view your app, use the Chrome browser to visit
+[localhost:8080](localhost:8080).
+(Details about Dart's browser support are
+[in the FAQ](/faq#q-what-browsers-do-you-support-as-javascript-compilation-targets).)
+Webdev is slowest when it builds and serves your app for the first time.
+After that, assets are cached on disk and incremental builds are much faster.
 
 <i class="material-icons">web</i>
 To run the app from WebStorm, do the following:
@@ -173,19 +191,6 @@ You should see a simple todo list manager. Try it out!
 
 ![Launched To-do app]({% asset my-first-angular-app.png @path %}){:width="500"}
 
-<i class="fas fa-terminal dark"></i>
-To run the app from the command line, use [webdev][] to build and serve the app:
-
-```terminal
-> webdev serve
-```
-
-Then, to view your app, use the Chrome browser to visit
-[localhost:8080](localhost:8080).
-(Details about Dart's browser support are
-[in the FAQ](/faq#q-what-browsers-do-you-support-as-javascript-compilation-targets).)
-Webdev is slowest when it builds and serves your app for the first time.
-After that, assets are cached on disk and incremental builds are much faster.
 
 ## 6. Add custom code to the app
 
