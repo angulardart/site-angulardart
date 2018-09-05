@@ -20,7 +20,7 @@ nextpage:
   [Feedback][] is welcome.
 </div>
 
-[Feedback]: {{site.repo}}/issues/new?title='{{page.title}}' page issue&body=From URL: {{site.url}}{{page.url}}
+[Feedback]: {{site.repo.this}}/issues/new?title='{{page.title}}' page issue&body=From URL: {{site.url}}{{page.url}}
 
 The Angular **router** enables navigation from one [view](/angular/glossary#view) to the next
 as users perform app tasks.

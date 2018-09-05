@@ -84,8 +84,8 @@ the [pub version scheme]({{site.dartlang}}/tools/pub/versioning).
 
 Each example in the AngularDart documentation has a repo under the GitHub organization
 [angular-examples]({{site.ghNgEx}}).
-These example repos are generated from the [dart-lang/site-webdev]({{site.repo}}) repo,
-using files under the [examples]({{site.repo}}/tree/{{site.branch}}/examples) directory.
+These example repos are generated from the [dart-lang/site-webdev]({{site.repo.this}}) repo,
+using files under the [examples]({{site.repo.this}}/tree/{{site.branch}}/examples) directory.
 
 
 ## Other Angular implementations
