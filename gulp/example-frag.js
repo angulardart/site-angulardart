@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_clean-frag', _cleanFrag);
 
   function _createFrag(done) {
-    plugins.execSyncAndLog(`./scripts/refresh-code-excerpts.sh`);
+    plugins.execSyncAndLog(`./tool/refresh-code-excerpts.sh`);
     done();
   }
 

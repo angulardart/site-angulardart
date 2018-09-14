@@ -66,93 +66,93 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: CI_TASK="test $TEST_OPT1"
-    - env: CI_TASK="test $TEST_OPT2"
-    - env: CI_TASK="e2e $E2E_OPT1"
-    - env: CI_TASK="e2e $E2E_OPT2"
-    - env: CI_TASK="e2e $E2E_OPT3"
-    - env: CI_TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
-    - env: CI_TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
-    - env: CI_TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
+    - env: TASK="test $TEST_OPT1"
+    - env: TASK="test $TEST_OPT2"
+    - env: TASK="e2e $E2E_OPT1"
+    - env: TASK="e2e $E2E_OPT2"
+    - env: TASK="e2e $E2E_OPT3"
+    - env: TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
+    - env: TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
+    - env: TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
 
 before_install:
-  - source ./scripts/env-set.sh
-  - ./scripts/before-install.sh
+  - source ./tool/env-set.sh
+  - ./tool/before-install.sh
 
 install:
-  - ./scripts/install.sh
+  - ./tool/install.sh
 
 before_script:
-  - ./scripts/browser.sh
+  - ./tool/browser.sh
 
 jobs:
   include:
     ## STAGE ----------------------------------------------
     - stage: cache warmup and basic checks
-      env: CI_TASK="build"
+      env: TASK="build"
       script:
       - pub get
       - bundle install
-      - gulp ng-pkg-pub-get # --skip=package_name|...
-      - gulp _build-prep --clean
+      - npx gulp ng-pkg-pub-get # --skip=package_name|...
+      - npx gulp _build-prep --clean
 
-    - env: CI_TASK="check-code-and-notes"
+    - env: TASK="check-code-and-notes"
       # FIXME: allow example app min SDK (2.0.0) to differ from angular's
-      script: ./scripts/$CI_TASK.sh code note fmt
+      script: ./tool/$TASK.sh code note fmt
 
-    - env: CI_TASK="analyze"
+    - env: TASK="analyze"
       # FIXME: skip analysis of apps with component tests until we can first build them
-      script: gulp $CI_TASK --skip=doc/t
+      script: npx gulp $TASK --skip=doc/t
 
     ## STAGE ----------------------------------------------
     - stage: build site and test examples
-      env: CI_TASK="build"
+      env: TASK="build"
       script:
         - pub get
-        - ./scripts/write-ci-info.sh -v
-        - gulp _build-api-docs --use-cached-api-doc --dartdoc=all
-        - gulp _jekyll-build _examples-cp-to-site-folder
+        - ./tool/shared/write-ci-info.sh -v
+        - npx gulp _build-api-docs --use-cached-api-doc --dartdoc=all
+        - npx gulp _jekyll-build _examples-cp-to-site-folder
         - ls -l publish/examples
         - ls -l publish/assets/bootstrap/*
       after_script:
-        - ./scripts/check-after-site-build.sh || travis_terminate 1
-        # - ./scripts/deploy/pr.sh || travis_terminate 1
+        - ./tool/check-after-site-build.sh || travis_terminate 1
+        # - ./tool/deploy/pr.sh || travis_terminate 1
       deploy:
         - provider: script
-          script: ./scripts/deploy/firebase.sh --robots-ok
+          script: ./tool/deploy/firebase.sh --robots-ok
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev
             branch: master
-            condition: $CI_TASK == build*
+            condition: $TASK == build*
         - provider: script
-          script: ./scripts/deploy/firebase.sh dev
+          script: ./tool/deploy/firebase.sh dev
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev
             branch: 5-dev
-            condition: $CI_TASK == build*
-    - env: CI_TASK="test $TEST_OPT1"
-      script: gulp $CI_TASK
-    - env: CI_TASK="test $TEST_OPT2"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT1"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT2"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT3"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
-      script: gulp $CI_TASK
-    - env: CI_TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
-      script: gulp $CI_TASK
+            condition: $TASK == build*
+    - env: TASK="test $TEST_OPT1"
+      script: npx gulp $TASK
+    - env: TASK="test $TEST_OPT2"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT1"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT2"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT3"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
+      script: npx gulp $TASK
+    - env: TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
+      script: npx gulp $TASK
 
     # It takes too long to cache built site.
     # ## STAGE ----------------------------------------------
     # - stage: deploy
-    #   env: CI_TASK="build"
+    #   env: TASK="build"
     #   deploy: ...
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)

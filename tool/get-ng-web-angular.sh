@@ -4,7 +4,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh
 
 TMP_QS="$TMP/angular_app"
 

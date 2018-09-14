@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh > /dev/null
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh > /dev/null
 
 cd `dirname $0`/..
 

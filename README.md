@@ -55,11 +55,11 @@ if you already have the required packages installed.
 
 1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
    **root of this repo**, e.g.: `~/git/site-webdev`
-1. `source ./scripts/env-set.sh` &nbsp;&nbsp;#
+1. `source ./tool/env-set.sh` &nbsp;&nbsp;#
    initialize environment variables; install/use required Node & Ruby version
-1. `./scripts/before-install.sh` &nbsp;&nbsp;#
+1. `./tool/before-install.sh` &nbsp;&nbsp;#
    install core set of required tools
-1. `./scripts/install.sh` &nbsp;&nbsp;#
+1. `./tool/install.sh` &nbsp;&nbsp;#
    install everything else needed to build this site
 
 > IMPORTANT:
@@ -71,11 +71,11 @@ if you already have the required packages installed.
 
 Once everything is installed, you need to do a full site build at least once:
 
-- `gulp build --dartdoc` &nbsp;&nbsp;# full site build including API docs
+- `npx gulp build --dartdoc` &nbsp;&nbsp;# full site build including API docs
 
 The generated site is placed in the `publish` folder. To serve this folder use:
 
-- `superstatic --port 4001`
+- `npx superstatic --port 4001`
 
 Or, if you aren't testing redirects, use this command (which has the bonus of
 autorefreshing your browser after edits):
@@ -86,7 +86,7 @@ To view the generated site open [localhost:4001](http://localhost:4001/) in a br
 
 You can build, serve, and have a watcher for changes by running the following command:
 
-- `./scripts/serve.sh`
+- `./tool/serve.sh`
 
 > NOTE: Getting `jekyll | Error:  Too many open files` under MacOS or Linux?
 >   One way to resolve this is to add the following to your `.bashrc`:
@@ -97,10 +97,10 @@ You can build, serve, and have a watcher for changes by running the following co
 
 If you'd like to separately build and then serve, the commands are:
 
-- `gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating API docs
-- `superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
+- `npx gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating API docs
+- `npx superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
 
-Some `gulp build` options include:
+Some `npx gulp build` options include:
 
 - `--clean` &nbsp;&nbsp;# deletes `publish` and file fragments (nothing else)
 - `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;#
@@ -117,10 +117,10 @@ you might want to rebuild it from scratch,
 doing all of the following steps (in order):
 
 ```
-source ./scripts/env-set.sh  # reset environment vars and (re-)install Node & Ruby
-gulp clean                   # clean out all temporary site folders
-gulp build --dartdoc         # full site regeneration
-./scripts/serve.sh
+source ./tool/env-set.sh  # reset environment vars and (re-)install Node & Ruby
+npx gulp clean            # clean out all temporary site folders
+npx gulp build --dartdoc  # full site regeneration
+./tool/serve.sh
 ```
 
 If you are still having build problems, you might need to once again step
@@ -129,10 +129,10 @@ through the installation instructions.
 ## Other useful Gulp tasks
 
 ```
-gulp clean && gulp build --dartdoc  # do a full build from a clean slate
-gulp build-deploy                   # build & deploy to active firebase project
-gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
-                    # so you'll lose uncommitted work under `src`!
+npx gulp clean && npx gulp build --dartdoc  # do a full build from a clean slate
+npx gulp build-deploy                       # build & deploy to active firebase project
+npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
+                        # so you'll lose uncommitted work under `src`!
 ```
 
 [Build Status SVG]: https://travis-ci.org/dart-lang/site-webdev.svg?branch=master

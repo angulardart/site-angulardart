@@ -3,28 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "description": "Dart webdev",
-  "scripts": {
-    "test": "echo \"Error: no test specified (top level package.json)\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dart-lang/site-webdev.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
-    }
-  ],
   "devDependencies": {
     "assert-plus": "^1.0.0",
     "canonical-path": "0.0.2",
     "cross-spawn": "^5.1.0",
     "del": "^2.2.0",
+    "diff2html-cli": "^2.6.0",
+    "firebase-tools": "4.0.3",
     "fs-extra": "^0.30.0",
     "globby": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-chmod": "^2.0.0",
+    "gulp-cli": "^2.0.1",
     "gulp-filter": "^5.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-rename": "^1.2.2",
@@ -32,6 +26,7 @@
     "gulp-task-listing": "^1.0.0",
     "gulp-watch": "^5.0.0",
     "q": "^1.4.1",
+    "superstatic": "^5.0.2",
     "tree-kill": "^1.0.0",
     "typescript": "^2.8.3",
     "yamljs": "^0.3.0",

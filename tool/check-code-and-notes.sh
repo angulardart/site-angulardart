@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh
 
 keys="code note fmt sdk"
 if [[ $1 == -h ]]; then
@@ -15,14 +15,14 @@ ARGS=$(tr [:upper:] [:lower:] <<< "$*")
 
 errorMessage="
 Error: some code excerpts need to be refreshed.
-Rerun './scripts/refresh-code-excerpts.sh' locally.
+Rerun './tool/refresh-code-excerpts.sh' locally.
 "
 
 if [[ $ARGS == *code* ]]; then
   travis_fold start refresh_code_excerpts
   echo "Doc code excerpts: checking freshness"
   echo
-  (set -x; ./scripts/refresh-code-excerpts.sh) || (printf "$errorMessage" && exit 1)
+  (set -x; ./tool/refresh-code-excerpts.sh) || (printf "$errorMessage" && exit 1)
   travis_fold end refresh_code_excerpts
 fi
 
@@ -30,13 +30,17 @@ if [[ $ARGS == *note* ]]; then
   travis_fold start note_refresh
   echo "Angular/note pages: checking freshness"
   echo
-  (set -x; gulp note-refresh; gulp git-status-exit-on-change --filter=/angular/note/)
+  (
+    set -x;
+    npx gulp note-refresh;
+    npx gulp git-status-exit-on-change --filter=/angular/note/
+  )
   travis_fold end note_refresh
 fi
 
 if [[ $ARGS == *fmt* ]]; then
   travis_fold start dartfmt
-  (set -x; gulp dartfmt)
+  (set -x; npx gulp dartfmt)
   travis_fold end dartfmt
 fi
 

@@ -17,7 +17,7 @@ module.exports = function (gulp, plugins, config) {
   gulp.task('_disabled-for-now-get-stagehand-proj', () => {
     const baseDir = webSimpleProjPath;
     if (plugins.argv.clean) cp.execSync(`rm -Rf ${baseDir}`);
-    if (!fs.existsSync(baseDir)) cp.execSync(`./scripts/get-ng-web-angular.sh`);
+    if (!fs.existsSync(baseDir)) cp.execSync(`./tool/get-ng-web-angular.sh`);
     return gulp.src([
       `${baseDir}/analysis_options.yaml`,
       `${baseDir}/pubspec.yaml`,

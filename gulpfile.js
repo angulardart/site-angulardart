@@ -2,7 +2,7 @@
 
 if (!process.env.DART_SITE_ENV_DEFS) {
   const msg = 'Some mandatory environment variables are undefined.\n' +
-    'Did you forget to: source ./scripts/env-set.sh?';
+    'Did you forget to: source ./tool/env-set.sh?';
   console.log(msg);
   throw msg;
 }

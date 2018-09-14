@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh
 
 PORT=4001
 export CHECK_EXIT_CODE=0
@@ -27,7 +27,7 @@ FBS_PID=$!
 
 sleep 4
 
-pub run linkcheck :$PORT --skip-file ./scripts/config/linkcheck-skip-list.txt \
+pub run linkcheck :$PORT --skip-file ./tool/config/linkcheck-skip-list.txt \
   | tee $TMP/linkcheck-log.txt
 
 set +x

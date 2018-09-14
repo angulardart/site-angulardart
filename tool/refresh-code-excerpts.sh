@@ -13,7 +13,7 @@ function usage() {
 
 if [[ $1 == '-h' || $1 == '--help' ]]; then usage; fi
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . $rootDir/scripts/env-set.sh
+[[ -z "$DART_SITE_ENV_DEFS" ]] && . $rootDir/tool/env-set.sh
 [[ -z "$DART_SITE_ENV_DEFS" ]] && exit 1; # env-set failed, abort.
 
 if [[ $1 == --log-at* ]]; then LOG_AT="$1"; shift; fi
@@ -33,7 +33,7 @@ fi
 
 if [[ $1 == '--legacy' ]]; then
   shift
-  gulp create-example-fragments $LOG_AT
+  npx gulp create-example-fragments $LOG_AT
 else
   ARGS+='--yaml '
   [[ -z $API ]] || usage "ERROR: the legacy --api flag can only be used with --legacy"
