@@ -15,7 +15,7 @@ nextpage:
 {% include_relative _page-top-toc.md %}
 
 Components make use of services to accomplish tasks such as accessing and
-persisting data. You're main choice, when testing a component that uses
+persisting data. Your main choice, when testing a component that uses
 services, will be to decide whether or not to mock the service. This page
 illustrates how to do both.
 
