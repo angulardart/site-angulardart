@@ -126,11 +126,19 @@ npx gulp build --dartdoc  # full site regeneration
 If you are still having build problems, you might need to once again step
 through the installation instructions.
 
+## Deploying
+
+Deploy to the `default` firebase project (hosting the official site) using this
+command:
+
+```
+./tool/shared/deploy.sh --robots ok default
+```
+
 ## Other useful Gulp tasks
 
 ```
 npx gulp clean && npx gulp build --dartdoc  # do a full build from a clean slate
-npx gulp build-deploy                       # build & deploy to active firebase project
 npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
                         # so you'll lose uncommitted work under `src`!
 ```

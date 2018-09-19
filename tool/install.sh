@@ -2,7 +2,7 @@
 
 source ./tool/shared/install.sh
 
-# site-webdev specific setup:
+# Site specific setup:
 
 if [[ "$TASK" == e2e* ]]; then
   ./tool/examples-install.sh

@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh
+source ./tool/shared/env-set-check.sh
 
 # NG_RELEASE=$(node -p 'require("./src/_data/pkg-vers.json").angular.vers')
 

@@ -94,7 +94,7 @@ jobs:
       - pub get
       - bundle install
       - npx gulp ng-pkg-pub-get # --skip=package_name|...
-      - npx gulp _build-prep --clean
+      - npx gulp _build-prep --clean --shallow-clone-example-apps
 
     - env: TASK="check-code-and-notes"
       # FIXME: allow example app min SDK (2.0.0) to differ from angular's
@@ -119,14 +119,14 @@ jobs:
         # - ./tool/deploy/pr.sh || travis_terminate 1
       deploy:
         - provider: script
-          script: ./tool/deploy/firebase.sh --robots-ok
+          script: ./tool/shared/deploy.sh --robots ok default
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev
             branch: master
             condition: $TASK == build*
         - provider: script
-          script: ./tool/deploy/firebase.sh dev
+          script: ./tool/shared/deploy.sh --robots no dev
           skip_cleanup: true
           on:
             repo: dart-lang/site-webdev

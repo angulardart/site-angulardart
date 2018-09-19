@@ -26,14 +26,13 @@ excerpt_separator: ""
 
   function _pre_notess(done) {
     const baseDir = path.join(config.source, 'angular', 'note');
-    plugins.execSyncAndLog(`chmod -R ug+w ./*`, { cwd: baseDir });
+    plugins.execSyncAndLog(`find . -name "*.md" ! -path "./index.md" -exec chmod a+w {} +`, { cwd: baseDir });
     done();
   }
 
   function _post_notes(done) {
     const baseDir = path.join(config.source, 'angular', 'note');
-    plugins.execSyncAndLog(`chmod -R a-w ./*`, { cwd: baseDir });
-    plugins.execSyncAndLog(`chmod ug+w index.md`, { cwd: baseDir });
+    plugins.execSyncAndLog(`find . -name "*.md" ! -path "./index.md" -exec chmod a-w {} +`, { cwd: baseDir });
     done();
   }
 

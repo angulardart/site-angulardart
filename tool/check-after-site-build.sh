@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-[[ -z "$DART_SITE_ENV_DEFS" ]] && . ./tool/env-set.sh
+source ./tool/shared/env-set-check.sh
 
 if [[ -n $TRAVIS && $TASK != build* ]]; then
   echo "check-all: nothing to check since this isn't a build task."

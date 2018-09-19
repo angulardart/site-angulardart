@@ -284,10 +284,6 @@ function _copyApiList(done) {
   done();
 }
 
-gulp.task('_firebase-deploy', () => execp(`firebase deploy`));
-
-gulp.task('build-deploy', gulp.series('build', '_firebase-deploy'));
-
 gulp.task('default', taskListing.withFilters((taskName) => {
   var isSubTask = taskName.substr(0, 1) == "_";
   return isSubTask;

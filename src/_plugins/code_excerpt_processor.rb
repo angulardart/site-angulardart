@@ -74,7 +74,7 @@ module NgCodeExcerpt
     def _diff(unified_diff_text, args)
       log_puts "Diff input:\n#{unified_diff_text}" if @log_diffs
       begin
-        o, e, _s = Open3.capture3('diff2html --su hidden -i stdin -o stdout', :stdin_data => unified_diff_text)
+        o, e, _s = Open3.capture3('npx diff2html --su hidden -i stdin -o stdout', :stdin_data => unified_diff_text)
         log_puts e if e.length > 0
       rescue Errno::ENOENT => _e
         raise "** ERROR: diff2html isn't installed or could not be found. " \

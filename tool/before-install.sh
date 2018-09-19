@@ -2,7 +2,7 @@
 
 source ./tool/shared/before-install.sh
 
-# site-webdev specific setup:
+# Site specific setup:
 
 function pub_global_activate() {
   PKG="$1"
