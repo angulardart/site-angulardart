@@ -121,9 +121,9 @@ Perform these steps:
 * Create the file `lib/app_component.dart`.
 * Define an `AppComponent` class.
 * Add an `@Component` annotation above the class with a `my-app` selector.
-* Move the following from the heroes component to `AppComponent`:
-  * `title` class property.
-  * `@Component` template `<h1>` element, which contains a binding to  `title`.
+* Move the following from the hero list component to the app component:
+  * The `title` class property.
+  * The template `<h1>` element, which contains a binding to  `title`.
 * Add a `<my-heroes>` element to the app template just below the heading so you still see the heroes.
 * Add `HeroListComponent` to the `directives` list of `AppComponent` so Angular recognizes the `<my-heroes>` tags.
 * Add `HeroService` to the  `providers` list of `AppComponent` because you'll need it in every other view.

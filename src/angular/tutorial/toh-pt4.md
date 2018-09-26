@@ -9,7 +9,7 @@ nextpage:
   title: Routing
   url: /angular/tutorial/toh-pt5
 ---
-<!-- FilePath: src/angular/tutorial/toh-pt4.md -->
+
 <?code-excerpt path-base="examples/ng/doc/toh-4"?>
 
 As the Tour of Heroes app evolves, you'll add more components that need access to hero data.
