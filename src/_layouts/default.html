@@ -10,7 +10,7 @@
         <div class="content">
           {% include banner.html %}
           {% include navigation-sub.html %}
-          {% include breadcrumbs.html %}
+          {% if page.show_breadcrumbs -%} {% include shared/breadcrumbs.html %} {% endif -%}
           <div>
             {% include page-github-links.html %}
             <h1>{{ page.title }}</h1>

@@ -10,7 +10,7 @@
         <div class="content">
           {% include banner.html %}
           {% include navigation-sub.html %}
-          {% include breadcrumbs.html %}
+          {% if page.show_breadcrumbs -%} {% include shared/breadcrumbs.html %} {% endif -%}
           <div class="ng-page-title">
             {% include page-github-links.html %}
             <h1>

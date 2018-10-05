@@ -13,7 +13,7 @@ og_image: /assets/angulardart.png
         <div class="content">
           {% include banner.html %}
           {% include navigation-sub.html %}
-          {% include breadcrumbs.html %}
+          {% if page.show_breadcrumbs -%} {% include shared/breadcrumbs.html %} {% endif -%}
           <div class="ng-page-title">
               <a href="/angular"><img src="{% asset shared/angular/icon/default.svg @path %}" width="40px"></a>
               {% include page-github-links.html %}
