@@ -1,5 +1,5 @@
 ---
-title: "Effective AngularDart: Styling"
+title: "CSS Styling"
 excerpt_separator: ""
 ---
 {% raw %}

@@ -171,7 +171,7 @@ global_options:
 
 For further information about best practices for the dependency injector see
 [Effective AngularDart: Dependency
-Injection](/angular/note/effective/di#injectors).
+Injection](/angular/note/effective/dependency-injection#injectors).
 
 ### Refactor providers to use typed variant
 
@@ -220,7 +220,7 @@ equivalents to `provide` and `const Provider`.
 
 This of course also applies to the setup of an `Injector` within `main.dart`.
 For further information about providers see [Effective AngularDart: Dependency
-Injection](/angular/note/effective/di#providers).
+Injection](/angular/note/effective/dependency-injection#providers).
 
 ### Adjust deferred loaded components
 

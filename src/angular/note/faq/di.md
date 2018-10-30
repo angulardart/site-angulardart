@@ -224,7 +224,7 @@ This problem is hit most commonly when [dependency injection is overused][1],
 which is currently an _anti-pattern_ according to the dependency injection
 style guide.
 
-[1]: /angular/note/effective/di#components
+[1]: /angular/note/effective/dependency-injection#components
 
 It's certainly _possible_ to think of various different runtime mechanisms to
 prevent overriding a provider, but like the above questions they will all likely

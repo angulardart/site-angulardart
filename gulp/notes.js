@@ -43,6 +43,8 @@ excerpt_separator: ""
 
     return gulp.src([
       `${baseDir}/**/*.md`,
+      `!${baseDir}/**/index.md`,
+      `!${baseDir}/changelogs.md`,
       `!${baseDir}/developing`,
       `!${baseDir}/developing/**`,
       `!${baseDir}/angulardart-logo.png`,
@@ -62,6 +64,9 @@ excerpt_separator: ""
 
       // Links to notes that we host on webdev should refer to webdev pages:
       .pipe(replace(re('effective/di.md'), '/angular/note/effective/di'))
+
+      // Until https://github.com/dart-lang/angular/pull/1650 is merged, fix links to renamed notes file:
+      .pipe(replace(/(effective)\/di/g, '$1/dependency-injection'))
 
       // Add endraw tag at end of page
       .pipe(replace(/$/, '\n{% endraw %}'))

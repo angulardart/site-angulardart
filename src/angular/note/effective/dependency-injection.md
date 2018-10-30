@@ -3,40 +3,10 @@ title: "Effective AngularDart: Dependency Injection"
 excerpt_separator: ""
 ---
 {% raw %}
-> **NOTE**: This is a work-in-progress, and not yet final. Some of the links may
-> be substituted with `(...)`, and some TODOs or missing parts may be in the
-> documentation.
-
 There are many different ways to use AngularDart to provide and utilize
 dependency injection throughout your application, components, and services. This
 guide is meant to serve as a **development tool** and to help push **best
 practices** from the developers of the AngularDart framework.
-
-*   [Providers](#providers)
-    *   [DO use the "named" providers](#do-use-named-providers)
-    *   [DO use factories for
-        configuration](#do-use-factories-for-configuration)
-    *   [AVOID `ValueProvider` for complex
-        types](#avoid-valueprovider-for-complex-types)
-    *   [DO use `const` providers](#do-use-const-providers)
-    *   [DO use the `.forToken` constructor for
-        tokens](#do-use-the-fortoken-constructor-for-tokens)
-    *   [PREFER `ClassProvider` to a `Type`](#prefer-classprovider-to-a-type)
-*   [Tokens](#tokens)
-    *   [DO use typed `OpaqueToken<T>`](#do-use-typed-opaquetokent)
-    *   [AVOID using arbitrary tokens](#avoid-using-arbitrary-tokens)
-    *   [PREFER `MultiToken<T>` to `multi:
-        true`](#prefer-multitokent-to-multi-true)
-*   [Injectors](#injectors)
-    *   [AVOID using `ReflectiveInjector`](#avoid-using-reflectiveinjector)
-*   [Components](#components)
-    *   [CONSIDER avoiding using injection to configure individual
-        components](#consider-avoiding-using-injection-to-configure-individual-components)
-    *   [AVOID specifying providers to give every component a new
-        instance](#avoid-specifying-providers-to-give-every-component-a-new-instance)
-*   [Annotations](#annotations)
-    *   [PREFER omitting `@Injectable()` where
-        possible](#prefer-omitting-injectable-where-possible)
 
 ## Providers
 
@@ -442,6 +412,16 @@ import 'file.template.dart' as ng;
 ])
 final InjectorFactory heroInjector = ng.heroInjector$Injector;
 ```
+
+**GOOD**: For migration purpoess, you could use
+[`ReflectiveInjector.resolveStaticAndCreate`][ri-static] instead of
+`resolveAndCreate`. This is meant to be a _transitional_ API before you switch
+to another injector. With `resolveStaticAndCreate`, any `ClassProvider` or a
+`FactoryProvider` without `deps: [ ... ]` will be rejected at runtime. This
+allows you to start using `runApp` (and remove `initReflector()`) without
+removing _every_ instance of `ReflectiveInjector` use.
+
+[ri-static]: https://cs.corp.google.com/piper///depot/google3/third_party/dart_src/angular/angular/lib/src/di/injector/runtime.dart?sq=package:piper+file://depot/google3+-file:google3/experimental&rcl=218100503&g=0&l=45-82
 
 ## Components
 
