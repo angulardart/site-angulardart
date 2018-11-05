@@ -39,7 +39,8 @@
 
       { "source": "/tools/dartium", "destination": "/dart-2#tools", "type": 301 },
       { "source": "/tools/pub", "destination": "/dart-2#tools", "type": 301 },
-      { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 }
+      { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 },
+      { "source": "/tools/build_runner", "destination": "/tools/webdev", "type": 301 }
     ],
     "rewrites": [
       { "source": "/examples/router/**", "destination": "/examples/router/index.html" },

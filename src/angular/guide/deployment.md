@@ -69,7 +69,7 @@ For more information, see the dart2js
 </aside>
 
 You can specify dart2js options in a build config file,
-as described in the [Build config file][config] section of the [build_runner][] page.
+as described in the [build_web_compilers README.][build_web_compilers]
 
 ### Make your app smaller, faster, and more reliable
 
@@ -179,8 +179,9 @@ Other resources:
 
 [build]: /tools/webdev#build
 [build_runner]: /tools/build_runner
+[build_web_compilers]: {{site.pub-pkg}}/build_web_compilers
 [config]: /tools/build_runner#config
 [dart2js]: /tools/dart2js
 [dartdevc]: /tools/dartdevc
-[peanut]: https://pub.dartlang.org/packages/peanut
+[peanut]: {{site.pub-pkg}}/peanut
 [webdev]: /tools/webdev

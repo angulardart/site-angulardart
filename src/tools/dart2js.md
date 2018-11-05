@@ -34,8 +34,7 @@ JavaScript version of the app more easily.
 ## Build config usage
 
 You can also configure dart2js options in a build config file.
-For more information, see the [build_runner][] section on
-[config files](/tools/build_runner#config).
+For more information, see the [build_web_compilers README.][build_web_compilers]
 
 ## Options
 
@@ -298,6 +297,7 @@ To debug in Safari:
 3. Reload your app.
 
 [build_runner]: /tools/build_runner
+[build_web_compilers]: {{site.pub-pkg}}/build_web_compilers
 [config]: /tools/build_runner#config
 [dartdevc]: /tools/dartdevc
 [webdev]: /tools/webdev
