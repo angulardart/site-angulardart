@@ -11,6 +11,7 @@
 angularIO.filter('trustAsHtml', ['$sce', function($sce) { return $sce.trustAsHtml; }]);
 
 angularIO.directive('apiList', function () {
+  var DEFAULT_PKG = 'Dart SDK';
   var PKG_KEY = 'package';
   var QUERY_KEY = 'query';
   var TYPE_KEY = 'type';
@@ -24,9 +25,11 @@ angularIO.directive('apiList', function () {
     restrict: 'E',
     template:
       '<p>' +
-      '  This page lists API from libraries in the <span ng-bind-html="$ctrl.pkgList | trustAsHtml"></span> packages, ' +
-      '  as well as from the frequently used <a href="' + DART_API + '"><b>Dart SDK libraries</b></a> ' +
+      '  This page lists API from ' +
+      '  <a href="' + DART_API + '"><b>Dart SDK libraries</b></a> ' +
+      '  that Dart web apps frequently use: ' +
       '  <span ng-bind-html="$ctrl.sdkLibList | trustAsHtml"></span>.' +
+      '  Use the <b>PACKAGES</b> dropdown to view API from Angular libraries.' +
       '</p>' +
       '<div ng-cloak="ng-cloak" class="l-flex-wrap banner is-plain api-filter">' +
       '  <div class="form-select-menu" ng-if="!$ctrl.isForDart">' +
@@ -88,7 +91,7 @@ angularIO.directive('apiList', function () {
       var $ctrl = this;
       $ctrl.showMenu = { /* menuName -> bool */ };
       $ctrl.status = null;
-      $ctrl.pkg = null;
+      $ctrl.pkg = DEFAULT_PKG;
       $ctrl.query = null;
       $ctrl.type = null;
       $ctrl.groupedSections = [];
@@ -153,16 +156,16 @@ angularIO.directive('apiList', function () {
         $ctrl.packages = pkgs; // list of packages + Dart SDK
         // Don't include the Dart SDK in the `pkgList` since it isn't a package.
         $ctrl.pkgList = list2text(pkgs.filter(function(p) { return p !== 'Dart SDK'; }));
-        if ($ctrl.packages && $ctrl.packages.indexOf($ctrl.pkg) < 0) $ctrl.pkg = null;
+        if ($ctrl.packages && $ctrl.packages.indexOf($ctrl.pkg) < 0) $ctrl.pkg = DEFAULT_PKG;
 
         var sdkLibs = Object.keys($ctrl.sections).filter(function(lib) { return lib.startsWith('dart'); });
         $ctrl.sdkLibList = list2text(sdkLibs.map(function(lib) { return lib.replace('dart:', ''); }));
       });
 
       function list2text(list) {
-        var boldList = list.map(function(e) { return '<b>' + e + '</b>'; });
+        var codeFontList = list.map(function(e) { return '<code>' + e + '</code>'; });
         var and = list.length > 2 ? ', and ' : ' and ';
-        return boldList.slice(0, list.length - 1).join(', ') + and + boldList[list.length - 1];
+        return codeFontList.slice(0, list.length - 1).join(', ') + and + codeFontList[list.length - 1];
       }
 
       // SET SELECTED VALUE FROM MENUS/FORM
@@ -220,7 +223,7 @@ angularIO.directive('apiList', function () {
       // GET VALUES FROM URL
       function getFilterValues() {
         var urlParams =  $location.search();
-        var pkg = urlParams[PKG_KEY] || null;
+        var pkg = urlParams[PKG_KEY] || DEFAULT_PKG;
         if ($ctrl.packages && $ctrl.packages.indexOf(pkg) < 0) pkg = null
 
         $ctrl.pkg = pkg;

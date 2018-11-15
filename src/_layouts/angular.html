@@ -14,15 +14,19 @@ og_image: /assets/angulardart.png
           {% include banner.html %}
           {% include navigation-sub.html %}
           {% if page.show_breadcrumbs -%} {% include shared/breadcrumbs.html %} {% endif -%}
-          <div class="ng-page-title">
-              <a href="/angular"><img src="{% asset shared/angular/icon/default.svg @path %}" width="40px"></a>
+          <div {%- unless page.hide-angular-styling %} class="ng-page-title" {%- endunless %}>
+              {% unless page.hide-angular-styling -%}
+                <a href="/angular"><img src="{% asset shared/angular/icon/default.svg @path %}" width="40px"></a>
+              {% endunless -%}
               {% include page-github-links.html %}
               <h1>
                   {% assign title = page.long-title | default: page.title |
                                     append: ' ' | append: page.status %}
                   {{ title }}
-                  <a href="/version">{{site.data.pkg-vers.angular.vers |
-                  regex_replace: '\.[^\.]+$'}}</a>
+                  {% unless page.hide-angular-styling -%}
+                    <a href="/version">{{site.data.pkg-vers.angular.vers |
+                    regex_replace: '\.[^\.]+$'}}</a>
+                  {% endunless -%}
               </h1>
           </div>
           <hr>
