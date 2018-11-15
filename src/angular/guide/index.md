@@ -51,7 +51,8 @@ a collection of pages devoted to that theme.
 <tr>
   <td><b><a href="/api">API Reference</a></b></td>
   <td markdown="1">
-  Authoritative details about each of the Angular libraries.
+  Choose **All** from the **PACKAGES** dropdown to see APIs defined by the
+  Angular libraries and commonly used dart:* libraries.
   </td>
 </tr>
 </table>
