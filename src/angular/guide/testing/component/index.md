@@ -30,7 +30,7 @@ This part of the [Testing](/angular/guide/testing) how-to guide covers
   [documentation][package:test].
 
 [package:angular_test][]
-: A complementary package that provides a means of interactiing with Angular components created as test fixtures.
+: A complementary package that provides a means of interacting with Angular components created as test fixtures.
 
 [package:mockito][]
 : A library for creating
