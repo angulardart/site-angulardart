@@ -21,7 +21,7 @@ A shorter codelab for AngularDart Components debuted at Google I/O 2017:
 
 To complete this codelab, you need the following:
 
-* A Windows, Mac, or Linux computer with Dart SDK 1.24 (or a higher version)
+* A Windows, Mac, or Linux computer with Dart SDK 2.0.0 (or a higher version)
 * A web connection and modern browser
 
 This codelab assumes that you are familiar with Dart web app development.
