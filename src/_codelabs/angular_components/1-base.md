@@ -68,16 +68,14 @@ some of their vanilla HTML elements.
 
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Get familiar with AngularDart Components
 
-Run the [AngularDart Components demo.](/examples/lottery/4-final/)
-Optionally, look at its [source code](https://github.com/dart-lang/angular_components_example).
+Play with the [AngularDart Gallery,]({{site.acx_gallery}})
+which lists the AngularDart Components and has interactive examples
+of using them.
+Optionally, look at the gallery's
+[source code.](https://github.com/dart-lang/angular_components_example)
 
-<aside class="alert alert-info" markdown="1">
-  **Note:** The AngularDart Components package is just a preview of some of the
-  components that are in everyday use in Google apps. We plan to release many
-  more components over time.
-</aside>
-
-Think about how AngularDart Components might improve the app. The rest of this codelab leads you through making the following changes:
+Think about how AngularDart Components might improve the app.
+The rest of this codelab leads you through making the following changes:
 
 - Improving the progress bar by changing `<progress>` to `<material-progress>`.
 - Adding small, pre-packaged images by changing text to `<material-icon>` components.

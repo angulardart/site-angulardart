@@ -18,18 +18,16 @@ Chrome, Edge, Firefox, and Safari.
 </aside>
 
 To find components, go to the
-[AngularDart Gallery](https://dart-lang.github.io/angular_components_example/){: .no-automatic-external}
+[AngularDart Gallery]({{site.acx_gallery}}){: .no-automatic-external}
 (shown below).
 The gallery is an app that shows all the supported components,
 along with source code links and API descriptions.
 
-<a href="https://dart-lang.github.io/angular_components_example/"
-    class="no-automatic-external">
+<a href="{{site.acx_gallery}}" class="no-automatic-external">
   <img src="{% asset angular_components_example-screenshot-1.png @path %}"
       alt="Screenshot #1 of the AngularDart Gallery" width="600">
 </a>
-<a href="https://dart-lang.github.io/angular_components_example/"
-    class="no-automatic-external">
+<a href="{{site.acx_gallery}}" class="no-automatic-external">
   <img src="{% asset angular_components_example-screenshot-2.png @path %}"
       alt="Screenshot #2 of the AngularDart Gallery" width="600">
 </a>

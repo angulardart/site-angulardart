@@ -82,7 +82,7 @@
   urlExactMatch: true
   children:
   - title: Gallery
-    permalink: https://dart-lang.github.io/angular_components_example/
+    permalink: https://dart-lang.github.io/angular_components
 
 - title: Reference
   children:
