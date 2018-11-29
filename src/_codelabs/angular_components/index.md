@@ -9,7 +9,7 @@ nextpage:
 ---
 
 This codelab introduces you to a preview release of
-[AngularDart Components](/components),
+[AngularDart Components](/angular/components),
 part of a large group of well-tested components that are widely used in
 Google’s Dart apps.
 

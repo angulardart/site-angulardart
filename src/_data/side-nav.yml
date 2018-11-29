@@ -78,7 +78,7 @@
     permalink: /angular/note
 
 - title: Angular&nbsp;Dart Components
-  permalink: /components
+  permalink: /angular/components
   urlExactMatch: true
   children:
   - title: Gallery

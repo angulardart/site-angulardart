@@ -258,7 +258,7 @@ Or check out these resources:
 If you get stuck, find help at [Community and Support.](/community)
 
 [AngularDart]: /angular
-[AngularDart Components]: /components
+[AngularDart Components]: /angular/components
 [stagehand]: {{site.pub-pkg}}/stagehand
 [webdev]: /tools/webdev
 [WebStorm new project dialog]: {% asset webstorm-new-project.png @path %}

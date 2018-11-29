@@ -31,7 +31,7 @@ description: Example apps showcasing AngularDart and AngularDart Components.
   - [Template Syntax](/examples/template-syntax)
   - [User Input](/examples/user-input)
 
-## [AngularDart Components](/components)
+## [AngularDart Components](/angular/components)
 
 - [Lottery simulator codelab](/codelabs/angular_components):
   - [1-base](/examples/lottery/1-base)

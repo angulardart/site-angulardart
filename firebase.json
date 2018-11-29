@@ -28,6 +28,7 @@
       { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
       { "source": "/components/api", "destination": "/api?package=angular_components", "type": 301 },
       { "source": "/components/api/**", "destination": "/api?package=angular_components", "type": 301 },
+      { "source": "/components", "destination": "/angular/components", "type": 301 },
 
       { "source": "/codelabs/darrrt", "destination": "/codelabs", "type": 301 },
       { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
