@@ -684,7 +684,7 @@ In general, stick to data properties and to methods that return values and do no
 ### Return the proper type
 
 The template expression should evaluate to the type of value expected by the target property.
-The `hero` property of the `HeroDetail` component expects a `Hero` object, which is exactly what you're sending in the property binding:
+The `hero` property of `HeroComponent` expects a `Hero` object, which is exactly what you're sending in the property binding:
 
 <?code-excerpt "lib/app_component.html (property-binding-4)"?>
 ```
@@ -721,7 +721,7 @@ Omit the brackets when all of the following are true:
 
 One-time string initialization is routine in standard HTML, and
 it works just as well for directive and component properties.
-The following example initializes the `prefix` property of the `HeroDetailComponent` to a fixed string,
+The following example initializes the `prefix` property of the `HeroComponent` to a fixed string,
 not a template expression. Angular sets it and forgets about it.
 
 <?code-excerpt "lib/app_component.html (property-binding-7)"?>
@@ -1067,11 +1067,11 @@ The directive creates a `StreamController` and exposes its underlying `stream` a
 The directive calls `StreamController.add(payload)` to fire an event, passing in a message payload, which can be anything.
 Parent directives listen for the event by binding to this property and accessing the payload through the `$event` object.
 
-Consider a `HeroDetailComponent` that presents hero information and responds to user actions.
-Although the `HeroDetailComponent` has a delete button it doesn't know how to delete the hero itself.
+Consider a `HeroComponent` that presents hero information and responds to user actions.
+Although the `HeroComponent` has a delete button it doesn't know how to delete the hero itself.
 The best it can do is raise an event reporting the user's delete request.
 
-Here are the pertinent excerpts from that `HeroDetailComponent`:
+Here are the pertinent excerpts from that `HeroComponent`:
 
 <?code-excerpt "lib/src/hero_component.dart (template)" region="template-1" title?>
 ```
@@ -1101,7 +1101,7 @@ exposes the controller's stream through the `deleteRequest` getter.
 When a user clicks *Delete*, the component's `delete()` method is called,
 directing the `StreamController` to add a `Hero` to the stream.
 
-Now imagine a hosting parent component that binds to the `HeroDetailComponent`'s `deleteRequest` event.
+Now imagine a hosting parent component that binds to the `HeroComponent`'s `deleteRequest` event.
 
 <?code-excerpt "lib/app_component.html (event-binding-to-component)"?>
 ```
@@ -1548,8 +1548,8 @@ Bind the directive to a condition expression like `isActive` in this example.
   Don't forget the asterisk (`*`) in front of `ngIf`.
 </div>
 
-When the `isActive` expression returns a true value, `NgIf` adds the `HeroDetailComponent` to the DOM.
-When the expression is false, `NgIf` removes the `HeroDetailComponent`
+When the `isActive` expression returns a true value, `NgIf` adds the `HeroComponent` to the DOM.
+When the expression is false, `NgIf` removes the `HeroComponent`
 from the DOM, destroying that component and all of its sub-components.
 
 #### Show/hide is not the same thing
@@ -1919,7 +1919,7 @@ and are referenced within quoted syntax to the _right_ of the equals&nbsp;(`=`).
 They are *neither inputs nor outputs* of the component. They are **sources** for their bindings.
 The targets are the native `<img>` and `<button>` elements.
 
-Now look at a another snippet in which the `HeroDetailComponent`
+Now look at a another snippet in which the `HeroComponent`
 is the **target** of a binding on the _left_ of the equals&nbsp;(`=`).
 
 <?code-excerpt "lib/app_component.html (io-2)"?>
@@ -1928,15 +1928,15 @@ is the **target** of a binding on the _left_ of the equals&nbsp;(`=`).
   </my-hero>
 ```
 
-Both `HeroDetailComponent.hero` and `HeroDetailComponent.deleteRequest` are on the **left side** of binding declarations.
-`HeroDetailComponent.hero` is inside brackets; it is the target of a property binding.
-`HeroDetailComponent.deleteRequest` is inside parentheses; it is the target of an event binding.
+Both `HeroComponent.hero` and `HeroComponent.deleteRequest` are on the **left side** of binding declarations.
+`HeroComponent.hero` is inside brackets; it is the target of a property binding.
+`HeroComponent.deleteRequest` is inside parentheses; it is the target of an event binding.
 
 ### Declaring input and output properties
 
 Target properties must be explicitly marked as inputs or outputs.
 
-In the `HeroDetailComponent`, such properties are marked as input or output properties using annotations.
+In the `HeroComponent`, such properties are marked as input or output properties using annotations.
 
 <?code-excerpt "lib/src/hero_component.dart (input-output-1)"?>
 ```
@@ -1957,10 +1957,10 @@ The terms _input_ and _output_ reflect the perspective of the target directive.
 
 <img class="image-display" src="{% asset ng/devguide/template-syntax/input-output.png @path %}" alt="Inputs and outputs">
 
-`HeroDetailComponent.hero` is an **input** property from the perspective of `HeroDetailComponent`
+`HeroComponent.hero` is an **input** property from the perspective of `HeroComponent`
 because data flows *into* that property from a template binding expression.
 
-`HeroDetailComponent.deleteRequest` is an **output** property from the perspective of `HeroDetailComponent`
+`HeroComponent.deleteRequest` is an **output** property from the perspective of `HeroComponent`
 because events stream *out* of that property and toward the handler in a template binding statement.
 
 ### Aliasing input/output properties  {#aliasing-io}
