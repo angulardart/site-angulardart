@@ -24,12 +24,23 @@ on debugging the JavaScript that dart2js generates.
 Here’s an example of compiling a Dart file to JavaScript:
 
 ```terminal
-$ dart2js --out=test.js test.dart
+$ dart2js -O2 -o test.js test.dart
 ```
 
 This command produces a file that contains the JavaScript equivalent of your
 Dart code. It also produces a source map, which can help you debug the
 JavaScript version of the app more easily.
+
+<aside class="alert alert-info" markdown="1">
+  **Note:**
+  The <code>-O<em>n</em></code> argument specifies the optimization level.
+  We recommend starting at `-O1` (the default) and then increasing to `-O2` or
+  higher when you're ready to deploy.
+  The `-O3` and `-O4` optimization levels are suitable only for
+  **well tested code** ([see the <code>-O<em>n</em></code> descriptions,
+  below](#basic-options)).
+</aside>
+
 
 ## Build config usage
 
@@ -42,31 +53,50 @@ For more information, see the [build_web_compilers README.][build_web_compilers]
 * [Path and environment options](#path-and-environment-options)
 * [Display options](#display-options)
 * [Analysis options](#analysis-options)
-* [Size and speed options](#size-and-speed-options)
 
 #### Basic options
 
 Common command-line options for dart2js include:
 
 `-o <file>` or `--out=<file>`
-: Generate the output into `<file>`. If not specified,
+: Generates the output into `<file>`. If not specified,
   the output goes in a file named `out.js`.
 
-{% comment %}
-  See https://github.com/dart-lang/sdk/issues/32442
-
-  `-c` or `--checked`
-  : Insert runtime type checks, and enable assertions (checked mode).
-{% endcomment %}
-
 `--enable-asserts`
-: Enable assertion checking.
+: Enables assertion checking.
 
-`-m` or `--minify`
-: Generate minified output.
+`-O{0|1|2|3|4}`
+: Controls optimizations that can help reduce code size and
+  improve performance of the generated code.
+  For more details on these optimizations, run `dart2js -hv`.
+
+  * `-O0`: Disables many optimizations.
+  * `-O1`: Enables default optimizations.
+  * `-O2`: Enables `-O1` optimizations, plus additional ones
+    (such as minification) that respect the language semantics and
+    are safe for all programs.
+    <aside class="alert alert-info" markdown="1">
+      **Note:**
+      With `-O2`, string representations of types are no longer the same as
+      those in the Dart VM and [dartdevc][].
+    </aside>
+  * `-O3`: Enables `-O2` optimizations, plus omits implicit type checks.
+    <aside class="alert alert-warning" markdown="1">
+      **Warning:**
+      Omitting type checks can cause your app to crash due to type errors.
+      Before using `-O3`, **test using `-O2`** to ensure that your app
+      **never** throws a subtype of `Error` (such as `TypeError`).
+    </aside>
+  * `-O4`: Enables more aggressive optimizations than `-O3`,
+    but with the same assumptions.
+    <aside class="alert alert-warning" markdown="1">
+      **Warning:**
+      The `-O4` optimizations are susceptible to variations in input data.
+      Before relying on `-O4`, **test for edge cases in user input**.
+    </aside>
 
 `-h` or `--help`
-: Display help. (Use `-vh` for information about all options.)
+: Displays help. To get information about all options, use `-hv`.
 
 
 #### Path and environment options
@@ -74,21 +104,15 @@ Common command-line options for dart2js include:
 Some other handy options include:
 
 `--packages=<path>`
-: Specify the path to the package resolution configuration file.
+: Specifies the path to the package resolution configuration file.
   For more information, see
-  [Package Resolution Configuration File](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md).
-  _This option cannot be used with `--package-root`._
-
-`-p <path>` or `--package-root=<path>`
-: Specify where to find "package:" imports.
-  _This option cannot be used with `--packages`._
-
+  [Package Resolution Configuration File.](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md)
 
 `-D<flag>=<value>`
-: Define an environment variable.
+: Defines an environment variable.
 
 `--version`
-: Display version information for dart2js.
+: Displays version information for dart2js.
 
 
 #### Display options
@@ -96,128 +120,49 @@ Some other handy options include:
 The following options help you control the output of dart2js:
 
 `--suppress-warnings`
-: Don't display warnings.
+: Doesn't display warnings.
 
 `--suppress-hints`
-: Don't display hints.
+: Doesn't display hints.
 
 `--terse`
-: Emit diagnostics, but don't suggest how to get rid of the diagnosed problems.
+: Emits diagnostics, without suggesting how to get rid of the diagnosed problems.
 
 `-v` or `--verbose`
-: Display lots of information.
+: Displays lots of information.
 
 
 #### Analysis options
 
 The following options control the analysis that dart2js performs on Dart code:
 
-`--analyze-all`
-: Analyze even the code that isn't reachable from `main()`. This option
-  is useful for finding errors in libraries, but using it can result in
-  bigger and slower output.
-
-`--analyze-only`
-: Analyze the code, but don't generate code.
-
-`--analyze-signatures-only`
-: Like `--analyze-only`, but skip analysis of method bodies and field
-  initializers.
-
 `--enable-diagnostic-colors`
-: Add colors to diagnostic messages.
+: Adds colors to diagnostic messages.
 
 `--show-package-warnings`
-: Show warnings and hints generated from packages.
+: Shows warnings and hints generated from packages.
 
 `--csp`
-: If true, disable dynamic generation of code in the generated output.
+: Disables dynamic generation of code in the generated output.
   This is necessary to satisfy CSP restrictions
-  (see [W3C Content Security Policy](http://www.w3.org/TR/CSP/)).
-  The default is false.
+  (see [W3C Content Security Policy.](http://www.w3.org/TR/CSP/))
 
 `--dump-info`
-: Generate a file (with the suffix `.info.json`)
+: Generates a file (with the suffix `.info.json`)
   that contains information about the generated code.
   You can inspect the generated file with the
-  [Dump Info Visualizer](https://github.com/dart-lang/dump-info-visualizer).
-
-
-#### Size and speed options
-
-When you're ready to deploy,
-consider using the following options,
-in addition to minifying your app's JavaScript.
-These options can improve the JavaScript that dart2js provides,
-but they have possible downsides.
-
-For more information, see the `--minify` option
-(one of the dart2js [basic options](#basic-options)) and the
-[Angular deployment guide](/angular/guide/deployment).
-
-`--fast-startup`
-: Produce JavaScript that can be parsed more quickly by VMs.
-  This option usually results in **larger** JavaScript files
-  with **faster** startup.
-
-  <aside class="alert alert-info" markdown="1">
-  **Note:** The `--fast-startup` option doesn't support the
-  [dart:mirrors library.]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-mirrors)
-  </aside>
-
-`--trust-primitives`
-: Assume that operations on numbers, strings, and lists have valid inputs.
-  This option allows the compiler to drop runtime checks for those operations.
-  A well-typed program is not guaranteed to have valid inputs,
-  because (for example) any `int` can be `null`.
-  This option often improves both size and speed.<br><br>
-
-  Use this option only if you have enough testing to ensure that
-  those checks are not needed;
-  otherwise the program will behave unexpectedly.
-
-  For example, with `--trust-primitives` and the code
-  `m1(num x, dynamic y) => x + y;`,
-  the compiler assumes that `x` is non-null and `y` is a number.
-  If those aren't true, then `m1` might return NaN or `'$x$y'`,
-  instead of throwing an error.
-
-  As another example, with `--trust-primitives` and the code
-  `m2(int x, list y) => y[x];`,
-  the compiler assumes that `x` is within range.
-  If `x` is negative or too large, `m2` might return null
-  instead of throwing an error.
-
-  <aside class="alert alert-warning" markdown="1">
-  **Warning:** The `--trust-primitives` option can cause incorrect behavior if
-  your code doesn't guarantee valid inputs to primitive operations.
-  </aside>
-
-`--trust-type-annotations`
-: Assume that all types are correct.
-  {%- comment %}
-    See https://github.com/dart-lang/sdk/issues/32442
-    Does this still make sense in Dart 2?
-  {% endcomment %}
-  If the analyzer reports no issues in your code,
-  we recommend using this option when deploying your app.
-  This option can significantly improve both size and speed.
-
-  <aside class="alert alert-warning" markdown="1">
-    **Warning:** The `--trust-type-annotations` option can
-    result in confusing error messages,
-    especially in minified code.
-  </aside>
+  [Dump Info Visualizer.](https://github.com/dart-lang/dump-info-visualizer)
 
 
 ## Helping dart2js generate better code {#helping-dart2js-generate-efficient-code}
 
-You can do a couple of things to improve the code that dart2js generates:
+Follow these practices to help dart2js do better type inference, so it can generate smaller and faster JavaScript code:
 
-* Write your code in a way that makes type inference easier.
-* Once you’re ready to deploy your app, minify it and consider using
-  the dart2js [size and speed options](#size-and-speed-options)
-  to reduce code size or startup time.
+* Don't use `Function.apply()`.
+* Don't override `noSuchMethod()`.
+* Avoid setting variables to null.
+* Be consistent with the types of arguments you pass into each function or
+  method.
 
 <aside class="alert alert-info" markdown="1">
   **Note:**
@@ -227,13 +172,6 @@ You can do a couple of things to improve the code that dart2js generates:
   need.
 </aside>
 
-Follow these practices to help dart2js do better type inference, so it can generate smaller and faster JavaScript code:
-
-* Don't use `Function.apply()`.
-* Don't override `noSuchMethod()`.
-* Avoid setting variables to null.
-* Be consistent with the types of arguments you pass into each function or
-  method.
 
 ## Debugging {#debugging}
 
@@ -251,12 +189,12 @@ recommend pausing on all exceptions.
 To debug in Chrome:
 
 1. Open the Developer Tools window, as described in the
-   [Chrome DevTools documentation](https://developer.chrome.com/devtools/index).
+   [Chrome DevTools documentation.](https://developer.chrome.com/devtools/index)
 2. Turn on source maps, as described in the video
-   [SourceMaps in Chrome](http://bit.ly/YugIUY).
+   [SourceMaps in Chrome.](http://bit.ly/YugIUY)
 3. Enable debugging, either on all exceptions or only on uncaught exceptions,
    as described in
-   [How to set breakpoints](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints).
+   [How to set breakpoints.](https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints)
 4. Reload your app.
 
 ### Internet Explorer {#dart2js-debugging-ie}
@@ -266,14 +204,14 @@ To debug in Internet Explorer:
 1. Update to the latest version of Internet Explorer. (Source-map support
    was added to IE in April 2014).
 2. Load **Developer Tools** (**F12**). For more information, see
-   [Using the F12 developer tools](http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
+   [Using the F12 developer tools.](http://msdn.microsoft.com/library/ie/bg182326(v=vs.85))
 3. Reload the app. The **debugger** tab shows source-mapped files.
 4. Exception behavior can be controlled through **Ctrl+Shift+E**;
    the default is **Break on unhandled exceptions**.
 
 ### Firefox {#dart2js-debugging-firefox}
 
-Firefox doesn’t yet support source maps (see [bug #771597](https://bugzilla.mozilla.org/show_bug.cgi?id=771597)).
+Firefox doesn’t yet support source maps (see [bug #771597.](https://bugzilla.mozilla.org/show_bug.cgi?id=771597))
 
 To debug in Firefox:
 
