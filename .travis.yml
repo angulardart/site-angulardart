@@ -1,7 +1,7 @@
 dist: trusty
 sudo: required
 language: dart
-dart: dev # TODO: reinstate building under stable
+dart: stable
 
 cache:
   timeout: 1000
