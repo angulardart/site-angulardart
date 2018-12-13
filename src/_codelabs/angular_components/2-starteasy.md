@@ -312,8 +312,8 @@ Adding those two lines to `lib/src/help/help.dart` makes the material icons disp
 ## <i class="far fa-money-bill-alt fa-sm"> </i> Use acx-scorecard
 
 Make one more change: use
-[ScorecardComponent]({{site.acx_gallery}}/#/scorecard)
-(`<acx-scorecard>`) to display the betting and investing results. You’ll use the
+`<acx-scorecard>` ([ScorecardComponent]({{site.acx_gallery}}/#/scorecard))
+to display the betting and investing results. You’ll use the
 scorecards in the app’s custom `ScoresComponent` (`<scores-component>`), which is
 implemented in `lib/src/scores/scores.*`.
 
