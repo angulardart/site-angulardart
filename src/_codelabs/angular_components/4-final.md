@@ -62,7 +62,7 @@ lib/src/settings/settings_component.* files.
 <li markdown="1">
   Convert the Wallet div into a
   `<material-expansionpanel>`
-  ([MaterialExpansionPanel]({{site.acx_api}}/angular_components/MaterialExpansionPanel-class.html)):
+  ([MaterialExpansionPanel]({{site.acx_gallery}}/#/material_expansion_panel)):
 
 {: type="a" }
 1. Change the `<div>` element to `<material-expansionpanel>`.

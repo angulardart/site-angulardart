@@ -51,7 +51,7 @@ Make the following changes to `lib/lottery_simulator.dart`:
 </li>
 <li markdown="1">
 Edit `lib/lottery_simulator.html` to convert the “Go faster” `<div>`
-(and its children) into a `<material-toggle>`, as the following diff shows:
+(and its children) into a `<material-toggle>` ([MaterialToggleComponent]({{site.acx_gallery}}/#/material_toggle)), as the following diff shows:
 
 <?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="controls__faster-button" to="\/material-toggle"?>
 ```diff
@@ -131,7 +131,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
 
 <li markdown="1"> Convert the Play button from a `<button>` to a
     `<material-fab>`
-   ([MaterialFabComponent]({{site.acx_api}}/angular_components/MaterialFabComponent-class.html)),
+   ([MaterialFabComponent]({{site.acx_gallery}}/#/material_button)),
     adding the `raised` attribute and
     changing `(click)` to `(trigger)`:
 
@@ -205,7 +205,7 @@ They look good, and they have a nice ripple animation when you click them.
 The primary UI is looking good!
 Now start improving the settings section of the UI,
 which is implemented in `lib/src/settings/settings_component.*` files.
-First, change the checkbox to use `<material-checkbox>`.
+First, change the checkbox to use `<material-checkbox>` ([MaterialCheckboxComponent]({{site.acx_gallery}}/#/material_checkbox)).
 
 <ol markdown="1">
 
@@ -365,7 +365,7 @@ two-way binding to `checked`, enabling much cleaner HTML.
 
 Still working on the settings, convert radio buttons
 into `<material-radio>` components. Each group of radio buttons
-is contained by a `<material-radio-group>`.
+is contained by a `<material-radio-group>` ([MaterialRadioComponent]({{site.acx_gallery}}/#/material_radio)).
 
 <ol markdown="1">
 
