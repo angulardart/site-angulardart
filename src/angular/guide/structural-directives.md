@@ -6,6 +6,9 @@ sideNavGroup: advanced
 prevpage:
   title: Security
   url: /angular/guide/security
+nextpage:
+  title: Testing
+  url: /angular/guide/testing
 ng_container: template
 ---
 <!-- FilePath: src/angular/guide/structural-directives.md -->
