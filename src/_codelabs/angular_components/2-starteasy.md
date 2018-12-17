@@ -44,11 +44,11 @@ using whatever [Dart web development tools](/tools) you prefer.
 ```diff
 --- 1-base/pubspec.yaml
 +++ 2-starteasy/pubspec.yaml
-@@ -7,11 +7,12 @@
+@@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^5.0.0
-+  angular_components: ^0.10.0
+   angular: ^5.2.0
++  angular_components: ^0.11.0
    intl: ^0.15.0
 
  dev_dependencies:

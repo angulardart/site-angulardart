@@ -43,7 +43,8 @@
       { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 },
       { "source": "/tools/build_runner", "destination": "/tools/webdev", "type": 301 },
       { "source": "/angular/note/effective/styling", "destination": "/angular/note/effective/css-styling", "type": 301 },
-      { "source": "/angular/note/effective/di", "destination": "/angular/note/effective/dependency-injection", "type": 301 }
+      { "source": "/angular/note/effective/di", "destination": "/angular/note/effective/dependency-injection", "type": 301 },
+      { "source": "/angular/note/faq/di", "destination": "/angular/note/faq/dependency-injection", "type": 301 }
     ],
     "rewrites": [
       { "source": "/examples/router/**", "destination": "/examples/router/index.html" },

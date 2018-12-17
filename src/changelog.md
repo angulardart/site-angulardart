@@ -19,25 +19,34 @@ Also see:
   * [`angular` changelog][]
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
 
+## AngularDart 5.2 / Dart 2.1 (December 2018)
+
+- Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`
+  (except for the template-syntax sample, [issue #1834][]):
+  - `sdk: '>=2.1.0 <3.0.0'`
+  - `angular: ^5.2.0`
+  - `angular_components: ^0.11.0`
+  - `angular_forms: ^2.1.1`
+  - `angular_router: ^2.0.0-alpha+21`
+  - `angular_test: ^2.2.0`
+- Ran [dartfix,][dartfix] which changed one `class` to a `mixin`.
+
+
 ## AngularDart 5.0 beta / Dart 2.0 beta (July 2018)
 
 - Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
-  - Updated `environment.sdk`:
-    <?code-excerpt "examples/ng/doc/quickstart/pubspec.yaml" retain="sdk:" indent-by="0"?>
-    {% prettify %}
-    sdk: '>=2.0.0 <3.0.0'
-    {% endprettify %}
-  - `angular: {{site.data.pubspec.dependencies.angular}}`
-  - `angular_components: {{site.data.pubspec.dependencies.angular_components}}`
-  - `angular_forms: {{site.data.pubspec.dependencies.angular_forms}}`
-  - `angular_router: {{site.data.pubspec.dependencies.angular_router}}`
-  - `angular_test: {{site.data.pubspec.dependencies.angular_test}}`
+  - `sdk: '>=2.0.0-dev.64.2 <3.0.0'`
+  - `angular: ^5.0.0-beta+2`
+  - `angular_components: ^0.9.0-beta`
+  - `angular_forms: ^2.0.0-beta+2`
+  - `angular_router: ^2.0.0-alpha+17`
+  - `angular_test: ^2.0.0-beta+2`
 
 - Switched to **new [build system][webdev]**:
   - Added new `dev_dependencies`:
-    - `build_runner: {{site.data.pubspec.dev_dependencies.build_runner}}`
-    - `build_test: {{site.data.pubspec.dev_dependencies.build_test}}`
-    - `build_web_compilers: {{site.data.pubspec.dev_dependencies.build_web_compilers}}`
+    - `build_runner: ^0.9.0`
+    - `build_test: ^0.10.2`
+    - `build_web_compilers: ^0.4.0`
   - Dropped `dev_dependencies`:
     - <del>`browser`</del>
     - <del>`dart_to_js_script_rewriter`</del>
@@ -348,8 +357,10 @@ More information:
 [4.x toh-5/web/main.dart]: https://github.com/dart-lang/site-webdev/blob/4.x/examples/ng/doc/toh-5/web/main.dart
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
+[dartfix]: {{site.pub-pkg}}/dartfix
 [dependency-injection diff]: {{site.ghNgEx}}/dependency-injection/compare/4.x...master
 [forms]: /angular/guide/forms
+[issue #1834]: https://github.com/dart-lang/site-webdev/issues/1834
 [ngFor]: /angular/guide/template-syntax#ngFor
 [quickstart diff]: {{site.ghNgEx}}/quickstart/compare/4.x...master
 [runApp()]: /api/angular/angular/runApp.html

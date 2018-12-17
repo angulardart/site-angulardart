@@ -157,7 +157,7 @@ void main() {
 }
 ```
 
-When using `runApp` it's possible to enable `angular_compiler` settings, which
+When using `runApp()` it's possible to enable `angular_compiler` settings, which
 will reduce the DDC load times during development, by adding the following lines
 to the `build.yaml`:
 

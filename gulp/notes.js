@@ -63,10 +63,7 @@ excerpt_separator: ""
       .pipe(replace(/\\\s*\n/g, '\n'))
 
       // Links to notes that we host on webdev should refer to webdev pages:
-      .pipe(replace(re('effective/di.md'), '/angular/note/effective/di'))
-
-      // Until https://github.com/dart-lang/angular/pull/1650 is merged, fix links to renamed notes file:
-      .pipe(replace(/(effective)\/di/g, '$1/dependency-injection'))
+      .pipe(replace(re('effective/dependency-injection.md'), '/angular/note/effective/dependency-injection'))
 
       // Add endraw tag at end of page
       .pipe(replace(/$/, '\n{% endraw %}'))
