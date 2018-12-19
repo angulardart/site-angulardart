@@ -104,7 +104,7 @@ dependencies:
  version: 0.0.1
 
  environment:
-@@ -7,15 +7,9 @@
+@@ -7,10 +7,9 @@
 
  dependencies:
    angular: ^5.0.0

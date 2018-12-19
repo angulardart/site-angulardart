@@ -3,18 +3,18 @@ description: Router Example
 version: 0.0.1
 
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+  sdk: '>=2.1.0 <3.0.0'
 
 # #docregion dependencies, dependencies-wo-forms
 dependencies:
-  angular: ^5.0.0
+  angular: ^5.2.0
   # #enddocregion dependencies-wo-forms
-  angular_forms: ^2.0.0
+  angular_forms: ^2.1.1
   # #docregion dependencies-wo-forms
-  angular_router: ^2.0.0-alpha+19
+  angular_router: ^2.0.0-alpha+21
 # #enddocregion dependencies, dependencies-wo-forms
 
 dev_dependencies:
-  build_runner: ^1.0.0
-  build_test: ^0.10.2
-  build_web_compilers: ^0.4.0
+  build_runner: ^1.1.2
+  build_test: ^0.10.3
+  build_web_compilers: ^1.0.0

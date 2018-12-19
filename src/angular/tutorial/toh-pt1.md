@@ -196,7 +196,7 @@ The `angular_forms` library comes in its own package. Add the package to the pub
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -7,15 +7,12 @@
+@@ -7,10 +7,12 @@
 
  dependencies:
    angular: ^5.0.0
