@@ -138,6 +138,8 @@ command:
 ## Other useful Gulp tasks
 
 ```
+npx gulp test --filter=template  # unit test only the template-syntax example
+npx gulp e2e --filter=template   # end-to-end test only the template-syntax example
 npx gulp clean && npx gulp build --dartdoc  # do a full build from a clean slate
 npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
                         # so you'll lose uncommitted work under `src`!
