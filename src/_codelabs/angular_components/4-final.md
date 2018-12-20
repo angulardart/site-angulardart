@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "Step 4: Add Expansion Panels and Tabs"
 description: "Add material panels and tabs to your app."
 nextpage:

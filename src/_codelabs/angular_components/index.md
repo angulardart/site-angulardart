@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "Codelab: AngularDart Components"
 description: "Learn how to use AngularDart Components—a preview of Material Design components that are widely used in Google's Dart apps."
 toc: false

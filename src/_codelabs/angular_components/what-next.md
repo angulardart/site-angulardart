@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "What Next?"
 description: "You've finished the AngularDart Components codelab! What next?"
 prevpage:

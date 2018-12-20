@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "Step 2: Start Using AngularDart Components"
 description: "Add material components to your app."
 nextpage:

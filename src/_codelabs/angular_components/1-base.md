@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "Step 1: Get to Know the Software"
 description: "Get the base app for the codelab, and play with the AngularDart Component demo."
 nextpage:

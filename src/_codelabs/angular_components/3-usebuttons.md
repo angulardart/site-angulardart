@@ -1,4 +1,5 @@
 ---
+layout: components
 title: "Step 3: Upgrade Buttons and Inputs"
 description: "Add material buttons and inputs to your app."
 nextpage:
