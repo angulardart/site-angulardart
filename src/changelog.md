@@ -19,10 +19,15 @@ Also see:
   * [`angular` changelog][]
   * [`angular_components` changelog](https://pub.dartlang.org/packages/angular_components#-changelog-tab-)
 
+## Introduction and navigation changes (December 2018)
+
+We've changed the introductory text and site navigation
+to more clearly differentiate between the core Dart web platform and
+frameworks like [AngularDart][] and [Hummingbird][] that build on it.
+
 ## AngularDart 5.2 / Dart 2.1 (December 2018)
 
-- Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`
-  (except for the template-syntax sample, [issue #1834][]):
+- Updated **Dart SDK and Angular package [versions](/version)** in `pubspec.yaml`:
   - `sdk: '>=2.1.0 <3.0.0'`
   - `angular: ^5.2.0`
   - `angular_components: ^0.11.0`
@@ -355,11 +360,13 @@ More information:
 * [PR #567](https://github.com/dart-lang/site-webdev/pull/567/files?w=1) (toh-6 tests)
 
 [4.x toh-5/web/main.dart]: https://github.com/dart-lang/site-webdev/blob/4.x/examples/ng/doc/toh-5/web/main.dart
+[AngularDart]: /angular
 [`angular` changelog]: https://pub.dartlang.org/packages/angular/versions/{{site.data.pkg-vers.angular.vers | url_escapse}}#-changelog-tab-
 [`angular2` changelog]: https://pub.dartlang.org/packages/angular2#-changelog-tab-
 [dartfix]: {{site.pub-pkg}}/dartfix
 [dependency-injection diff]: {{site.ghNgEx}}/dependency-injection/compare/4.x...master
 [forms]: /angular/guide/forms
+[Hummingbird]: https://medium.com/flutter-io/hummingbird-building-flutter-for-the-web-e687c2a023a8
 [issue #1834]: https://github.com/dart-lang/site-webdev/issues/1834
 [ngFor]: /angular/guide/template-syntax#ngFor
 [quickstart diff]: {{site.ghNgEx}}/quickstart/compare/4.x...master

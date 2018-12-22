@@ -46,14 +46,12 @@ http://news.dartlang.org/search/label/angular or http://news.dartlang.org/search
 <div class="col-md-6" markdown="1">
 ## Videos
 
-Angular videos from
-[Dart Development Summit 2016](https://events.dartlang.org/2016/summit/){: .no-automatic-external}:
+Angular videos:
 
-* [Web development using AngularDart 2.0](https://www.youtube.com/watch?v=8ixOkJOXdMo&index=2&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
-* [Angular components](https://www.youtube.com/watch?v=vAUUOwBJetg&index=6&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
-* [AdSense Material Design](https://www.youtube.com/watch?v=BlAS1mlYRlA&index=7&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
-* [Overflow: a large scale JS to AngularDart rewrite](https://www.youtube.com/watch?v=b0b5FtnB3vE&index=9&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
-* [Learnings from building a CRM app at Google](https://www.youtube.com/watch?v=IMNUiC2O9M8&index=14&list=PLOU2XLYxmsILKY-A1kq4eHMcku3GMAyp2){: .no-automatic-external}
+* [What's new with AngularDart](https://www.youtube.com/watch?v=-HUHRRYQl5k){: .no-automatic-external}
+* [Flutter & AngularDart Code Sharing; Part II - Electric Boogaloo](https://www.youtube.com/watch?v=PLHln7wHgPE){: .no-automatic-external}
+* [Angular 6 && AngularDart](https://www.youtube.com/watch?v=txEqvqKzISY){: .no-automatic-external}
+* [Create First Pokemon AngularDart App \| Data Binding \| Ep1](https://www.youtube.com/watch?v=yWIFBsTT2Ag){: .no-automatic-external}
 </div>
 </div>
 

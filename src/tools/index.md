@@ -19,7 +19,8 @@ we recommend WebStorm, which comes with Dart support.
 <b>WebStorm</b>
 </a>
 
-See [Dart Tools]({{site.dartlang}}/tools#ides) for a list of other IDEs.
+See [Dart Tools]({{site.dartlang}}/tools#ides-and-editors)
+for a list of other IDEs.
 
 ## SDK
 

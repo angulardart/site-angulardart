@@ -4,53 +4,24 @@ short-title: "Web Libraries"
 description: "What libraries are available for writing web apps in Dart?"
 ---
 
-Many Dart libraries have support for web app development.
-We recommend using the AngularDart framework,
-but you also have lower level options.
+The [Dart SDK][] contains [dart:html][] and other libraries
+that provide low-level web APIs.
+You can supplement or replace these APIs using
+[web packages,][web packages]
+such as those in the [AngularDart][] framework.
 
-## AngularDart
-
-Learn from the [Angular documentation][AngularDart].
-You can also follow the
-[AngularDart codelab.](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/)
-
-<img src="/angular/images/Google-AdWords-Next-Interface-800x342.png"
-  alt="Screenshot of AdWords Next"
-  title="The UI of AdWords Next">
+[Dart SDK]: /tools/sdk
+[dart:html]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html
+[web packages]: https://pub.dartlang.org/web
+[AngularDart]: /angular
 
 
-## JS interop
+## SDK libraries
 
-To leverage one of the many existing libraries written in JavaScript,
-use [package:js.](https://pub.dartlang.org/packages/js)
-If a [TypeScript type definition](http://definitelytyped.org/)
-exists for a JavaScript library, you can use the
-[js_facade_gen](https://github.com/dart-lang/js_facade_gen)
-tool to generate Dart code for that library.
+The Dart SDK contains dart:html and other libraries
+that provide low-level web APIs.
 
-Here are some projects on GitHub that use package:js:
-
-[dart_js_interop](https://github.com/matanlurey/dart_js_interop)
-: Examples of using package:js,
-  with comparisons to old code that uses the dart:js library.
-
-[firebase](https://github.com/firebase/firebase-dart)
-: Dart wrapper library for Firebase.
-
-{% comment %}
-Check out these pages:
-
-https://github.com/TheBosZ/dartins
-https://medium.com/@thebosz/creating-a-dart-to-javascript-interop-library-c97da204c34a#.up26ibqyb
-{% endcomment %}
-
-## Low-level HTML
-
-If you can't or don't want to use a framework,
-you can use Dart's low-level HTML APIs.
-Here's some documentation to help you get started:
-
-[Low-level HTML tutorials](/tutorials/low-level-html)
+[Low-level web tutorials](/tutorials/low-level-html)
 : An overview of DOM, CSS, and HTML concepts, with information on
   how to include a Dart script in an HTML page and
   how to add and remove elements from a web page.
@@ -62,18 +33,56 @@ Here's some documentation to help you get started:
   Topics include manipulating the DOM programmatically,
   making HTTP requests, and using WebSockets.
 
-[dart:html API reference]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html/dart-html-library.html)
+[dart:html API reference][dart:html]
 : Complete reference documentation for the dart:html library.
 
-Once you're ready to develop complex apps that support
-features such as event handling and dependency injection,
-we recommend using [AngularDart.][AngularDart]
+
+## Web packages
+
+Many packages support web development with Dart. Here are a few:
+
+|-----------------+---------------------------------+--------------------------|
+| Library         | Packages                        | Notes                    |
+|-----------------|---------------------------------|--------------------------|
+| AngularDart     | angular*                        | Useful for complex apps that support features such as event handling and dependency injection. More info: [AngularDart documentation](/angular), [AngularDart Components](/angular/components) | 
+| Material Design | [md_core,][] [m4d_components][] | Basic Material Design components. |
+| React           | [react][]                       | Bindings for the ReactJS library. |
+| Vue             | [vue][]                         | Bindings for the Vue.js library. |
+{:.table .table-striped}
+
+[md_core,]: {{site.pub-pkg}}/m4d_core
+[m4d_components]: {{site.pub-pkg}}/m4d_components
+[vue]: {{site.pub-pkg}}/vue
+[react]: {{site.pub-pkg}}/react
+
+To find more libraries that support writing web apps, search for
+[web packages.][web packages]
 
 
-## Other libraries
+## JS interop
 
-To find more libraries that support writing web apps, look at
-[web packages on pub.dartlang.org.](https://pub.dartlang.org/web)
+With the [`js` package,]({{site.pub-pkg}}/js), also known as _package:js,_
+you can use one of the many existing libraries written in JavaScript.
+For help using the `js` package, see the following:
+
+[js_facade_gen](https://github.com/dart-lang/js_facade_gen)
+: A tool that generates Dart code from JavaScript libraries that have
+  [TypeScript type definitions.](http://definitelytyped.org/)
+
+[dart_js_interop](https://github.com/matanlurey/dart_js_interop)
+: Examples of using the `js` package,
+  with comparisons to old code that uses the dart:js library.
+
+[Packages that depend on `js`]({{pub-pkg}}?q=dependency%3Ajs)
+: Published packages that have `js` in their pubspec.
+
+{% comment %}
+Check out these pages:
+
+https://github.com/TheBosZ/dartins
+https://medium.com/@thebosz/creating-a-dart-to-javascript-interop-library-c97da204c34a#.up26ibqyb
+{% endcomment %}
+
 
 ---
 

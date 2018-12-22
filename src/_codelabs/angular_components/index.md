@@ -14,15 +14,9 @@ This codelab introduces you to a preview release of
 part of a large group of well-tested components that are widely used in
 Google’s Dart apps.
 
-<aside class="alert alert-info" markdown="1">
-This codelab was first presented at Dart Summit 2016.
-A shorter codelab for AngularDart Components debuted at Google I/O 2017:
-[Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/).
-</aside>
-
 To complete this codelab, you need the following:
 
-* A Windows, Mac, or Linux computer with Dart SDK 2.0.0 (or a higher version)
+* A Windows, Mac, or Linux computer with Dart SDK 2.1.0 (or a higher version)
 * A web connection and modern browser
 
 This codelab assumes that you are familiar with Dart web app development.

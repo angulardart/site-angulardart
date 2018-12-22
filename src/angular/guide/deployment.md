@@ -38,7 +38,7 @@ and the `--output build` option:
 * dart2js compiles your app to JavaScript, saving the result
   in the file `build/web/main.dart.js`.
 
-For more information, see the documentation for [webdev][].
+For more information, see the [documentation for webdev][webdev].
 
 ### Use dart2js flags to produce better JavaScript
 
@@ -56,8 +56,7 @@ Google's apps often use the following [dart2js options](/tools/dart2js#options):
 - The `--trust-primitives` option can have unexpected results
   (even in well-typed code) if your data isn't always valid.
 
-For more information, see the dart2js
-[size and speed options](/tools/dart2js#size-and-speed-options).
+For more information, see the [documentation for dart2js][dart2js].
 
 <aside class="alert alert-warning" markdown="1">
   **Important:**

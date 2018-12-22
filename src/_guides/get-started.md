@@ -12,8 +12,8 @@ description: A guide to get you quickly writing web apps in Dart.
 
 Follow these steps to start using Dart to develop web apps.
 First you'll play with Dart in your browser, no download required.
-Then you'll install Dart and build a small app
-that uses the [AngularDart][] framework and [AngularDart Components][].
+Then you'll install Dart and build a small web app.
+
 
 ## 1. Play with a web app in DartPad
 
@@ -140,7 +140,7 @@ To create a web app from the command line, use these commands:
 ```terminal
 > mkdir quickstart
 > cd quickstart
-> stagehand web-angular
+> stagehand web-simple
 > pub get
 ```
 
@@ -153,13 +153,11 @@ Here's how to use WebStorm to create the same web app:
 1. If the **Dart SDK path** field doesn't have a value, enter it.
 1. Edit the **Location** field to set the app location and name.
 1. Select **Generate sample content** to show the list of templates.
-1. Choose the **AngularDart Web App** template.
+1. Choose the **Bare-bones Web App** template.
 1. Click **Create**.<br>![WebStorm new project dialog][]
 
 More information:
-
-* [Overview of Dart web libraries](/guides/web-programming)
-* [Setup for AngularDart development](/angular/guide/setup)
+[Overview of Dart web libraries](/guides/web-programming)
 
 ## 5. Run the app
 
@@ -187,9 +185,10 @@ To run the app from WebStorm, do the following:
 
 {% include pub-get-workaround.html %}
 
-You should see a simple todo list manager. Try it out!
+Once your app has compiled, the browser should display
+"Your Dart app is running."
 
-![Launched To-do app]({% asset my-first-angular-app.png @path %}){:width="500"}
+![Launched bare-bones app]({% asset bare-bones-dart-app.png @path %}){:width="500"}
 
 
 ## 6. Add custom code to the app
@@ -197,16 +196,19 @@ You should see a simple todo list manager. Try it out!
 Let's customize the app you just created.
 
  1. Copy the `thingsTodo()` function from the DartPad above
-    to the bottom of the `lib/src/todo_list/todo_list_service.dart` file.
+    to the `web/main.dart` file.
 
- 2. Still in `todo_list_service.dart`, initialize the `mockTodoList` field using
+ 2. In the `main()` method, initialize the `output` element using
     `thingsTodo()`:
 
     {% prettify dart %}
-    class TodoListService {
-      [!List<String> mockTodoList = thingsTodo().toList();!]
-      ...
+    void main() {
+      Element output = querySelector('#output');
+      [!output.children.addAll(thingsTodo().map(newLI));!]
     }
+
+    [!LIElement newLI(String itemText) => LIElement()..text = itemText;!]
+    
     [!Iterable<String> thingsTodo() sync* { ... }!]
     {% endprettify %}
 
@@ -214,9 +216,23 @@ Let's customize the app you just created.
 
  4. WebStorm and webdev automatically rebuild your app.
     Refresh the app's browser window.
-    Now the initial todo list has things to do!
-    After you feed the cats, your todo list should look something like this:<br>
-    ![Running the To-do app]({% asset my-first-angular-app-at-work.png @path %}){:width="500"}
+    Now your simple Dart app has a todo list!
+    It should look something like this:<br>
+    ![Running the revised app]({% asset bare-bones-todo.png @path %}){:width="500"}
+{% comment %}
+TODO: remove my-first-angular-app-at-work.png
+{% endcomment %}
+
+ 5. Optionally, improve the formatting by editing `web/styles.css`,
+    then reload the app to check your changes.
+
+    {% prettify dart %}
+    #output {
+      padding: 20px;
+      [!text-align: left;!]
+    }
+    {% endprettify %}
+
 
 ## 7. Use DevTools to inspect the app
 
@@ -227,33 +243,32 @@ For setup details and a walkthrough, see
 
 <aside class="alert alert-info" markdown="1">
   **Feeling lost? Don't worry!**
-  This was a whirlwind introduction to Dart and Angular
+  This was a whirlwind introduction to Dart and web programming
   that left out many details.
-  For a gentler approach, try the
-  [AngularDart tutorial](/angular/tutorial) or
-  one of the [codelabs](/codelabs).
+  For a gentler approach, try a
+  [low-level HTML tutorial for Dart](/tutorials/low-level-html) or the
+  [AngularDart tutorial](/angular/tutorial).
 </aside>
 
 
 ## What next?
 
-[Learn more about AngularDart.](/angular)
-
-Or check out these resources:
+Check out these resources:
 
 * Web-related tutorials and codelabs for Dart
   * [Tutorials](/tutorials)
   * [Codelabs](/codelabs)
 * Dart language, libraries, and conventions
-  * [Sample Code]({{site.dartlang}}/samples)
-  * [Language Tour]({{site.dartlang}}/guides/language/language-tour)
-  * [Library Tour]({{site.dartlang}}/guides/libraries/library-tour)
+  * [Sample code]({{site.dartlang}}/samples)
+  * [Language tour]({{site.dartlang}}/guides/language/language-tour)
+  * [Library tour]({{site.dartlang}}/guides/libraries/library-tour)
   * [Effective Dart]({{site.dartlang}}/guides/language/effective-dart)
 * Tools & libraries
   * [Dart SDK]({{site.dartlang}}/tools/sdk)
-  * [Dart Tools for the Web](/tools)
-  * [IDEs]({{site.dartlang}}/tools#ides)
-  * [Web Libraries](/guides/web-programming)
+  * [Dart tools for the web](/tools)
+  * [IDEs]({{site.dartlang}}/tools#ides-and-editors)
+  * [Web libraries](/guides/web-programming)
+  * [AngularDart](/angular)
 
 If you get stuck, find help at [Community and Support.](/community)
 

@@ -4,7 +4,7 @@ short-title: FAQ
 description: FAQ and other tips for using Dart for web development.
 ---
 
-_Updated August 2018_
+_Updated December 2018_
 
 This FAQ applies to web programming. For more general Dart questions,
 see the [Dart FAQ.]({{site.dartlang}}/faq)
@@ -44,6 +44,9 @@ Yes! [AngularDart][] is a port of Angular to Dart.
 Use [AngularDart][].
 [Polymer Dart][Polymer Dart] is no longer supported and is likely to break in
 [Dart 2.]({{site.dartlang}}/dart-2)
+At [Flutter Live][] we announced [Hummingbird][] as
+an experimental way to write web applications.
+We'll let you know when Hummingbird is ready to use.
 
 ### Q. Can I build a Chrome App with Dart?
 
@@ -301,5 +304,7 @@ modern JavaScript VMs.
 [dartdevc]: /tools/dartdevc
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
+[Flutter Live]: https://developers.google.com/events/flutter-live/
+[Hummingbird]: https://medium.com/flutter-io/hummingbird-building-flutter-for-the-web-e687c2a023a8
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
 [webdev]: /tools/webdev

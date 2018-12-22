@@ -1,3 +1,25 @@
+- title: Resources
+  children:
+  - title: Library Overview
+    permalink: /guides/web-programming
+  - title: Tutorials
+    permalink: /tutorials
+  - title: Tools
+    permalink: /tools
+  - title: Dart 2 Migration Guide
+    permalink: /dart-2
+  - title: Community and Support
+    permalink: /community
+
+- title: Reference
+  children:
+  - title: API Documentation
+    permalink: /api
+  - title: FAQ
+    permalink: /faq
+  - title: Site Changelog
+    permalink: /changelog
+
 - title: Angular&nbsp;Dart
   permalink: /angular
   urlExactMatch: true
@@ -74,6 +96,12 @@
     - title: Testing
       permalink: /angular/guide/testing
 
+  - title: Cheat Sheet
+    permalink: /angular/cheatsheet
+
+  - title: Glossary
+    permalink: /angular/glossary
+
   - title: Engineering Notes
     permalink: /angular/note
 
@@ -83,31 +111,7 @@
   children:
   - title: Gallery
     permalink: https://dart-lang.github.io/angular_components
+  - title: Codelab
+    permalink: /codelabs/angular_components
 
-- title: Reference
-  children:
-  - title: API
-    permalink: /api
-  - title: Changelog
-    permalink: /changelog
-  - title: Cheat Sheet
-    permalink: /angular/cheatsheet
-  - title: FAQ
-    permalink: /faq
-  - title: Glossary
-    permalink: /angular/glossary
-  - title: Migration Guide
-    permalink: /dart-2
 
-- title: Resources
-  children:
-  - title: Codelabs
-    permalink: /codelabs
-  - title: Community and Support
-    permalink: /community
-  - title: Libraries
-    permalink: /guides/web-programming
-  - title: Tools
-    permalink: /tools
-  - title: Tutorials
-    permalink: /tutorials
