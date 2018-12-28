@@ -561,8 +561,8 @@ tree.
 ### Registering providers with the root injector
 
 Registering providers with the root injector is much less common.
-For details, see the [Dependency Injection][] section on
-[registering a service provider][].
+For details, see the [registering a service provider][] section of
+[Dependency Injection][].
 
 [Dependency Injection]: dependency-injection
 [registering a service provider]: dependency-injection#injector-config
