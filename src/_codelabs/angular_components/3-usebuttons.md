@@ -54,44 +54,11 @@ Make the following changes to `lib/lottery_simulator.dart`:
 Edit `lib/lottery_simulator.html` to convert the “Go faster” `<div>`
 (and its children) into a `<material-toggle>` ([MaterialToggleComponent]({{site.acx_gallery}}/#/material_toggle)), as the following diff shows:
 
-<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="controls__faster-button" to="\/material-toggle"?>
+<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="^-\s*\x3C/div\x3E" to="\/material-toggle"?>
 ```diff
 --- 2-starteasy/lib/lottery_simulator.html
 +++ 3-usebuttons/lib/lottery_simulator.html
-@@ -28,37 +28,34 @@
-
-   <div class="controls">
-     <div class="controls__fabs">
--      <button (click)="play()"
-+      <material-fab raised (trigger)="play()"
-           [disabled]="endOfDays || inProgress"
-           id="play-button"
-           aria-label="Play">
-         <material-icon icon="play_arrow"></material-icon>
--      </button>
-+      </material-fab>
-
--      <button (click)="step()"
-+      <material-fab mini raised (trigger)="step()"
-           [disabled]="endOfDays || inProgress"
-           aria-label="Step">
-         <material-icon icon="skip_next"></material-icon>
--      </button>
-+      </material-fab>
-
--      <button (click)="pause()"
-+      <material-fab mini raised (trigger)="pause()"
-           [disabled]="!inProgress"
-           aria-label="Pause">
-         <material-icon icon="pause"></material-icon>
--      </button>
-+      </material-fab>
-
--      <button (click)="reset()"
-+      <material-fab mini raised (trigger)="reset()"
-           aria-label="Reset">
-         <material-icon icon="replay"></material-icon>
--      </button>
+@@ -54,9 +53,7 @@
 -    </div>
 -    <div class="controls__faster-button">
 -      <label>
@@ -140,10 +107,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
 ```diff
 --- 2-starteasy/lib/lottery_simulator.html
 +++ 3-usebuttons/lib/lottery_simulator.html
-@@ -28,37 +28,34 @@
-
-   <div class="controls">
-     <div class="controls__fabs">
+@@ -31,7 +31,7 @@
 -      <button (click)="play()"
 +      <material-fab raised (trigger)="play()"
            [disabled]="endOfDays || inProgress"
@@ -162,19 +126,7 @@ Now convert the buttons that have icons into floating action buttons (FABs).
 ```diff
 --- 2-starteasy/lib/lottery_simulator.html
 +++ 3-usebuttons/lib/lottery_simulator.html
-@@ -28,37 +28,34 @@
-
-   <div class="controls">
-     <div class="controls__fabs">
--      <button (click)="play()"
-+      <material-fab raised (trigger)="play()"
-           [disabled]="endOfDays || inProgress"
-           id="play-button"
-           aria-label="Play">
-         <material-icon icon="play_arrow"></material-icon>
--      </button>
-+      </material-fab>
-
+@@ -38,6 +38,6 @@
 -      <button (click)="step()"
 +      <material-fab mini raised (trigger)="step()"
            [disabled]="endOfDays || inProgress"
@@ -251,92 +203,7 @@ First, change the checkbox to use `<material-checkbox>` ([MaterialCheckboxCompon
 ```diff
 --- 2-starteasy/lib/src/settings/settings_component.html
 +++ 3-usebuttons/lib/src/settings/settings_component.html
-@@ -4,28 +4,22 @@
-     <p>Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}.</p>
-     <div>
-       <h3>Initial cash</h3>
--      <div>
--        <label *ngFor="let item of initialCashOptions">
--          <input
--                 type="radio"
--                 #current
--                 [checked]="item == initialCash"
--                 (click)="initialCash = current.checked ? item : initialCash">
-+      <material-radio-group>
-+        <material-radio *ngFor="let item of initialCashOptions"
-+            [checked]="item == initialCash"
-+            (checkedChange)="initialCash = $event ? item : initialCash">
-           ${!{ item }!}
--        </label>
--      </div>
-+        </material-radio>
-+      </material-radio-group>
-
-       <h3>Daily disposable income</h3>
--      <div>
--        <label *ngFor="let item of dailyDisposableOptions">
--          <input
--              type="radio"
--              #current
--              [checked]="item == dailyDisposable"
--              (click)="dailyDisposable = current.checked ? item : dailyDisposable">
-+      <material-radio-group>
-+        <material-radio *ngFor="let item of dailyDisposableOptions"
-+            [checked]="item == dailyDisposable"
-+            (checkedChange)="dailyDisposable = $event ? item : dailyDisposable">
-           ${!{ item }!}
--        </label>
--      </div>
-+        </material-radio>
-+      </material-radio-group>
-     </div>
-     <button (click)="settingsUpdated()">Save</button>
-     <button (click)="resetWallet()">Cancel</button>
-@@ -35,29 +29,23 @@
-     <p>Lottery: {!{ settings.lottery.shortName }!}. Strategy: {!{ settings.strategy.shortName }!}.</p>
-     <div>
-       <h3>Lottery</h3>
--      <div>
--        <label *ngFor="let item of settings.lotteries">
--          <input
--              type="radio"
--              #current
--              [checked]="item == lottery"
--              (click)="lottery = current.checked ? item : lottery">
-+      <material-radio-group>
-+        <material-radio *ngFor="let item of settings.lotteries"
-+            [checked]="item == lottery"
-+            (checkedChange)="lottery = $event ? item : lottery">
-           {!{ item.name }!}
--        </label>
--      </div>
-+        </material-radio>
-+      </material-radio-group>
-       <p><strong>Description:</strong> {!{ lottery.description }!}</p>
-
-       <h3>Strategy</h3>
--      <div>
--        <label *ngFor="let item of settings.strategies">
--          <input
--              type="radio"
--              #current
--              [checked]="item == strategy"
--              (click)="strategy = current.checked ? item : strategy">
-+      <material-radio-group>
-+        <material-radio *ngFor="let item of settings.strategies"
-+            [checked]="item == strategy"
-+            (checkedChange)="strategy = $event ? item : strategy">
-           {!{ item.shortName }!} ({!{ item.name }!})
--        </label>
--      </div>
-+        </material-radio>
-+      </material-radio-group>
-       <p><strong>Description:</strong> {!{ strategy.description }!}</p>
-     </div>
-     <button (click)="settingsUpdated()">Save</button>
-@@ -68,35 +56,25 @@
-     <p>Interest rate: {!{ settings.interestRate }!}%. Years: {!{ settings.years }!}.</p>
-     <div>
+@@ -70,15 +58,3 @@
        <h3>Annual interest rate</h3>
 -      <label>
 -        <input #investingCheckbox type="checkbox"
@@ -379,18 +246,7 @@ is contained by a `<material-radio-group>` ([MaterialRadioComponent]({{site.acx_
 ```diff
 --- 2-starteasy/lib/src/settings/settings_component.dart
 +++ 3-usebuttons/lib/src/settings/settings_component.dart
-@@ -5,6 +5,7 @@
- import 'dart:async';
-
- import 'package:angular/angular.dart';
-+import 'package:angular_components/angular_components.dart';
- import 'package:components_codelab/src/lottery/lottery.dart';
- import 'package:components_codelab/src/settings/settings.dart';
-
-@@ -12,7 +13,13 @@
-   selector: 'settings-component',
-   styleUrls: ['settings_component.css'],
-   templateUrl: 'settings_component.html',
+@@ -15 +16,7 @@
 -  directives: [NgFor],
 +  directives: [
 +    MaterialCheckboxComponent,
@@ -433,9 +289,7 @@ is contained by a `<material-radio-group>` ([MaterialRadioComponent]({{site.acx_
 ```diff
 --- 2-starteasy/lib/src/settings/settings_component.html
 +++ 3-usebuttons/lib/src/settings/settings_component.html
-@@ -4,28 +4,22 @@
-     <p>Initial: ${!{ settings.initialCash }!}. Daily disposable income: ${!{ settings.dailyDisposable }!}.</p>
-     <div>
+@@ -6,11 +6,8 @@
        <h3>Initial cash</h3>
 -      <div>
 -        <label *ngFor="let item of initialCashOptions">

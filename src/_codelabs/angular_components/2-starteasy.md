@@ -114,10 +114,7 @@ The diffs should look similar to this:
 ```diff
 --- 1-base/lib/lottery_simulator.html
 +++ 2-starteasy/lib/lottery_simulator.html
-@@ -23,35 +23,39 @@
-     <div class="clear-floats"></div>
-   </div>
-
+@@ -26,2 +26,2 @@
 -  Progress: <strong>{!{progress}!}%</strong> <br>
 -  <progress max="100" [value]="progress"></progress>
 +  <material-progress  [activeProgress]="progress" class="life-progress">
@@ -209,17 +206,7 @@ Here are the diffs:
 ```diff
 --- 1-base/lib/lottery_simulator.html
 +++ 2-starteasy/lib/lottery_simulator.html
-@@ -23,35 +23,39 @@
-     <div class="clear-floats"></div>
-   </div>
-
--  Progress: <strong>{!{progress}!}%</strong> <br>
--  <progress max="100" [value]="progress"></progress>
-+  <material-progress  [activeProgress]="progress" class="life-progress">
-+  </material-progress>
-
-   <div class="controls">
-     <div class="controls__fabs">
+@@ -31,5 +31,6 @@
        <button (click)="play()"
            [disabled]="endOfDays || inProgress"
            id="play-button"
@@ -377,7 +364,7 @@ to an `<acx-scorecard>`. A few notes:
 
 Here are the code diffs for the last two steps:
 
-<?code-excerpt "1-base/lib/src/scores/scores.html" diff-with="2-starteasy/lib/src/scores/scores.html" from="." to="<\/acx-scorecard"?>
+<?code-excerpt "1-base/lib/src/scores/scores.html" diff-with="2-starteasy/lib/src/scores/scores.html"?>
 ```diff
 --- 1-base/lib/src/scores/scores.html
 +++ 2-starteasy/lib/src/scores/scores.html
@@ -395,6 +382,20 @@ Here are the code diffs for the last two steps:
 +    value="${!{ cash }!}"
 +    description="{!{ outcomeDescription }!}"
 +    changeType="{!{ cash > altCash ? 'positive' : cash < altCash ? 'negative' : 'neutral' }!}">
++</acx-scorecard>
+
+-<div>
+-  <h4>Investing</h4>
+-  <p>
+-    <strong>${!{ altCash }!}</strong>
+-    ...
+-  </p>
+-</div>
++<acx-scorecard
++    label="Investing"
++    class="investing"
++    value="${!{ altCash }!}"
++    description="...">
 +</acx-scorecard>
 ```
 </li>
@@ -418,7 +419,6 @@ You can also remove the unneeded `.positive` and `.negative` styles.
 +.investing {
 +  float: right;
  }
-\ No newline at end of file
 ```
 </li>
 

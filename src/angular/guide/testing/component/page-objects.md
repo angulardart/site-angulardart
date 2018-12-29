@@ -38,12 +38,7 @@ Add the package to the pubspec dependencies:
 ```diff
 --- toh-0/pubspec.yaml
 +++ toh-1/pubspec.yaml
-@@ -7,10 +7,12 @@
-
- dependencies:
-   angular: ^5.0.0
-+  angular_forms: ^2.0.0
-
+@@ -11,6 +12,7 @@
  dev_dependencies:
    angular_test: ^2.0.0
    build_runner: ^1.0.0
@@ -70,7 +65,7 @@ Update the imports at the top of your test file:
 ```diff
 --- toh-0/test/app_test.dart
 +++ toh-1/test/app_test.dart
-@@ -3,30 +3,42 @@
+@@ -3,6 +3,9 @@
  import 'package:angular_test/angular_test.dart';
  import 'package:angular_tour_of_heroes/app_component.dart';
  import 'package:angular_tour_of_heroes/app_component.template.dart' as ng;

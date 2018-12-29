@@ -96,16 +96,7 @@ dependencies:
 ```diff
 --- quickstart/pubspec.yaml
 +++ forms/pubspec.yaml
-@@ -1,5 +1,5 @@
--name: angular_app
--description: A web app that uses AngularDart
-+name: forms
-+description: Form example
- version: 0.0.1
-
- environment:
-@@ -7,10 +7,9 @@
-
+@@ -8,2 +8,3 @@
  dependencies:
    angular: ^5.0.0
 +  angular_forms: ^2.0.0

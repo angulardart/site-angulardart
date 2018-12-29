@@ -66,7 +66,7 @@ Update package dependencies by adding the Dart [http][] and
 ```diff
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
-@@ -9,6 +9,8 @@
+@@ -9,3 +9,5 @@
    angular: ^5.0.0
    angular_forms: ^2.0.0
    angular_router: ^2.0.0-alpha+19
