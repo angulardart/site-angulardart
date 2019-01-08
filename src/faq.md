@@ -14,7 +14,7 @@ see the [Dart FAQ.]({{site.dartlang}}/faq)
 ### Q. What browsers do you support as JavaScript compilation targets?
 
 The _production_ compiler ([dart2js][]) supports Internet Explorer 11
-and the last two versions of the following browsers:
+and the last two major releases of the following browsers:
 
   * Chrome
   * Edge
