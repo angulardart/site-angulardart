@@ -8,6 +8,7 @@ prevpage:
 nextpage:
   title: Attribute Directives
   url: /angular/guide/attribute-directives
+date: 2019-01-08
 ---
 <?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 <style>td, th {vertical-align: top}</style>
@@ -2142,6 +2143,9 @@ It works perfectly with long property paths such as `a?.b?.c?.d`.
 
 You've completed this survey of template syntax.
 Now it's time to put that knowledge to work on your own components and directives.
+
+_Last updated: {{page.date}}_
+
 
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
 [TrackByFn]: /api/angular/angular/TrackByFn.html
