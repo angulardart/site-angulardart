@@ -13,6 +13,8 @@ date: 2019-01-08
 <?code-excerpt path-base="examples/ng/doc/template-syntax"?>
 <style>td, th {vertical-align: top}</style>
 
+<small>_Last updated: {{page.date}}_</small>
+
 This page covers the basic elements of the Angular template syntax for constructing views.
 
 The Angular app manages what the user sees and can do, achieving this through the interaction of a
@@ -2143,8 +2145,6 @@ It works perfectly with long property paths such as `a?.b?.c?.d`.
 
 You've completed this survey of template syntax.
 Now it's time to put that knowledge to work on your own components and directives.
-
-_Last updated: {{page.date}}_
 
 
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
