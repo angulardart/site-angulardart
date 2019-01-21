@@ -4,10 +4,7 @@ module DartSite
   # some framing HTML: e.g., a div with possible excerpt title in a header.
   class NgCodeExcerptFramer
     def frame_code(title, classes, attrs, escaped_code, indent)
-      result = _unindented_template(title, classes, attrs, escaped_code)
-      # For markdown, indent at most the first line (in particular, we don't want to indent the code)
-      result.sub!(/^/, indent) if indent
-      result
+      _unindented_template(title, classes, attrs, escaped_code)
     end
 
     private

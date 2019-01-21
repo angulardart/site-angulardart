@@ -138,9 +138,8 @@ If someone extends the `Engine` class, that is not `Car`'s problem.
           ..description = 'Super';
   ```
 
-The critical point is this: the `Car` class did not have to change.
-You'll take care of the consumer's problem shortly.
-
+  The critical point is this: the `Car` class did not have to change.
+  You'll take care of the consumer's problem shortly.
 </div>
 
 The `Car` class is much easier to test now because you are in complete control
