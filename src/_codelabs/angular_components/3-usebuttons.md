@@ -54,7 +54,7 @@ Make the following changes to `lib/lottery_simulator.dart`:
 Edit `lib/lottery_simulator.html` to convert the “Go faster” `<div>`
 (and its children) into a `<material-toggle>` ([MaterialToggleComponent]({{site.acx_gallery}}/#/material_toggle)), as the following diff shows:
 
-<?code-excerpt "2-starteasy/lib/lottery_simulator.html" diff-with="3-usebuttons/lib/lottery_simulator.html" from="^-\s*\x3C/div\x3E" to="\/material-toggle"?>
+<?code-excerpt "{2-starteasy,3-usebuttons}/lib/lottery_simulator.html" from="/^-\s*\x3C/div\x3E/" to="/material-toggle"?>
 ```diff
 --- 2-starteasy/lib/lottery_simulator.html
 +++ 3-usebuttons/lib/lottery_simulator.html

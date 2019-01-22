@@ -110,7 +110,7 @@ Edit the template file `lib/lottery_simulator.html` to use the
 ([MaterialProgressComponent]({{site.acx_gallery}}/#/material_progress)).
 The diffs should look similar to this:
 
-<?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="Progress" to="<\/material"?>
+<?code-excerpt "{1-base,2-starteasy}/lib/lottery_simulator.html" from="Progress" to="/material"?>
 ```diff
 --- 1-base/lib/lottery_simulator.html
 +++ 2-starteasy/lib/lottery_simulator.html
@@ -202,7 +202,7 @@ a `<material-icon>` instead of text:
 
 Here are the diffs:
 
-<?code-excerpt "1-base/lib/lottery_simulator.html" diff-with="2-starteasy/lib/lottery_simulator.html" from="play" to="<\/button"?>
+<?code-excerpt "{1-base,2-starteasy}/lib/lottery_simulator.html" from="play" to="/button"?>
 ```diff
 --- 1-base/lib/lottery_simulator.html
 +++ 2-starteasy/lib/lottery_simulator.html
