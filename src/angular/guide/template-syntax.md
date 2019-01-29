@@ -1813,9 +1813,10 @@ The `#phone` declares a `phone` variable on an `<input>` element.
   <input #phone placeholder="phone number">
 ```
 
-You can refer to a template reference variable _anywhere_ in the template.
-The `phone` variable declared on this `<input>` is
-consumed in a `<button>` on the other side of the template
+You can refer to a template reference variable almost anywhere in the template
+(see [notes below](#template-reference-notes) for exceptions).
+The `phone` variable declared on this `<input>` is consumed in a `<button>` on
+the other side of the template
 
 <?code-excerpt "lib/app_component.html (ref-phone)"?>
 ```
@@ -1867,15 +1868,21 @@ But the `NgForm` directive does, which explains how you can disable the submit b
 if the `heroForm.form.valid` is invalid and pass the entire form control tree
 to the parent component's `onSubmit` method.
 
-### Template reference variable warning notes
+### Template reference variable warning notes {#template-reference-notes}
 
 A template _reference_ variable (`#phone`) is _not_ the same as a template _input_ variable (`let phone`)
 such as you might see in an [`*ngFor`](#template-input-variable).
 Learn the difference in the [_Structural Directives_](structural-directives#template-input-variable) guide.
 
-The scope of a reference variable is the _entire template_.
-Do not define the same variable name more than once in the same template.
-The runtime value will be unpredictable.
+The scope of a reference variable is the _entire template_, unless it's declared
+within an embedded view controlled by a [structural
+directive](#built-in-structural-directives). Reference variables declared within
+an embedded view are only visible to the portion of the template embedded by the
+structural directive. Note that a reference variable declared outside an
+embedded view can be referenced from within it, but not the other way around.
+
+Do not define the same variable name more than once in the same template. The
+runtime value will be unpredictable.
 
 <a href="#page-content">back to top</a>
 <div class="l-hr"></div>
