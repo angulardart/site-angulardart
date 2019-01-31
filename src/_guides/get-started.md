@@ -208,7 +208,7 @@ Let's customize the app you just created.
     }
 
     [!LIElement newLI(String itemText) => LIElement()..text = itemText;!]
-    
+
     [!Iterable<String> thingsTodo() sync* { ... }!]
     {% endprettify %}
 
@@ -226,7 +226,7 @@ TODO: remove my-first-angular-app-at-work.png
  5. Optionally, improve the formatting by editing `web/styles.css`,
     then reload the app to check your changes.
 
-    {% prettify dart %}
+    {% prettify css %}
     #output {
       padding: 20px;
       [!text-align: left;!]
