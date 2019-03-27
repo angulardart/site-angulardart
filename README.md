@@ -1,9 +1,9 @@
-# Site for _Dart for the web_ ([webdev.dartlang.org][])
+# Site for _AngularDart_ ([angulardart.dev][])
 
 [![Build Status SVG][]][@travis]
 [![first-timers-only SVG][]][first-timers-only]
 
-The [webdev.dartlang.org][] site, built with [Jekyll][] and hosted on [Firebase][].
+The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase][].
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
@@ -31,13 +31,13 @@ that the tools are available in every terminal/command window you create.
 
 > NOTE: This repo has a git _submodule_, which affects how you clone it.
 
-To **clone this repo** ([site-webdev][]), follow the instructions given in the
+To **clone this repo** ([site-angulardartdev][]), follow the instructions given in the
 GitHub help on [Cloning a repository][], and _choose one_ of the following
 submodule-cloning techniques:
 
 - Clone this repo and its submodule _at the same_, use the
   `--recurse-submodules` option:<br>
-  `git clone --recurse-submodules https://github.com/dart-lang/site-webdev.git`
+  `git clone --recurse-submodules https://github.com/dart-lang/site-angulardartdev.git`
 - If you've already cloned this repo without its submodule, then run
   this command from the repo root:<br>
   `git submodule update --init --remote`
@@ -54,7 +54,7 @@ if you already have the required packages installed.
 **Open a terminal/command window** and execute the following commands:
 
 1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
-   **root of this repo**, e.g.: `~/git/site-webdev`
+   **root of this repo**, e.g.: `~/git/site-angulardartdev`
 1. `source ./tool/env-set.sh` &nbsp;&nbsp;#
    initialize environment variables; install/use required Node & Ruby version
 1. `./tool/before-install.sh` &nbsp;&nbsp;#
@@ -88,7 +88,7 @@ You can build, serve, and have a watcher for changes by running the following co
 
 - `./tool/serve.sh`
 
-> NOTE: Getting `jekyll | Error:  Too many open files` under MacOS or Linux?
+> NOTE: Getting `jekyll | Error:  Too many open files` under MacOS or Linux?
 >   One way to resolve this is to add the following to your `.bashrc`:
 >
 >      ulimit -n 8192
@@ -145,7 +145,7 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
                         # so you'll lose uncommitted work under `src`!
 ```
 
-[Build Status SVG]: https://travis-ci.org/dart-lang/site-webdev.svg?branch=master
+[Build Status SVG]: https://travis-ci.org/dart-lang/site-angulardartdev.svg?branch=master
 [Chrome]: https://www.google.ca/chrome
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install
@@ -156,7 +156,7 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
 [Jekyll]: https://jekyllrb.com/
 [nvm]: https://github.com/creationix/nvm#installation
 [rvm]: https://rvm.io/rvm/install#installation
-[@travis]: https://travis-ci.org/dart-lang/site-webdev
-[site-webdev]: https://github.com/dart-lang/site-webdev
+[@travis]: https://travis-ci.org/dart-lang/site-angulardartdev
+[site-angulardartdev]: https://github.com/dart-lang/site-angulardartdev
 [site-www]: https://github.com/dart-lang/site-www
-[webdev.dartlang.org]: https://webdev.dartlang.org
+[angulardart.dev]: https://angulardart.dev
