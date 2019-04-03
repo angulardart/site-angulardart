@@ -1,13 +1,15 @@
 ---
-title: Dart Web Development FAQ
+title: AngularDart Development FAQ
 short-title: FAQ
-description: FAQ and other tips for using Dart for web development.
+description: FAQ and other tips for using AngularDart.
 ---
 
 _Updated December 2018_
 
-This FAQ applies to web programming. For more general Dart questions,
+This FAQ applies to AngularDart. For more general Dart questions,
 see the [Dart FAQ.]({{site.dartlang}}/faq)
+
+TODO: Rather than just move this to dart.dev, we should keep the AD Q&As here.
 
 ## General
 
@@ -30,7 +32,8 @@ all modern browsers can execute Dart code that's been compiled to JavaScript.
 
 ### Q. How do I debug an app?
 
-For setup details and a walkthrough, see [Debugging Dart Web Apps](/guides/debugging).
+For setup details and a walkthrough, see
+[Debugging Dart Web Apps](/guides/debugging).
 
 The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
@@ -39,6 +42,7 @@ has some tips for specific browsers.
 
 Yes! [AngularDart][] is a port of Angular to Dart.
 
+TODO: Should we delete this Angular or Polymer question?
 ### Q. Should I use Angular or Polymer?
 
 Use [AngularDart][].
@@ -297,14 +301,14 @@ modern JavaScript VMs.
 [ppwsize]: http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [jsinterop]: https://pub.dartlang.org/packages/js
-[AngularDart]: /angular
+[AngularDart]: /
 [Polymer Dart]: https://github.com/dart-archive/polymer-dart/wiki
-[dart2js]: /tools/dart2js
+[dart2js]: {{site.dartlang}}/tools/dart2js
 [dartanalyzer]: https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer
-[dartdevc]: /tools/dartdevc
+[dartdevc]: {{site.dartlang}}/tools/dartdevc
 [chrome.dart]: https://github.com/dart-gde/chrome.dart
 [fixallthethings]: http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html
 [Flutter Live]: https://developers.google.com/events/flutter-live/
 [Hummingbird]: https://medium.com/flutter-io/hummingbird-building-flutter-for-the-web-e687c2a023a8
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
-[webdev]: /tools/webdev
+[webdev]: {{site.dartlang}}/tools/webdev

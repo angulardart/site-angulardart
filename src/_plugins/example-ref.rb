@@ -50,7 +50,7 @@ module Jekyll
     end
 
     def get_example_name(context)
-      # page_url is, e.g., /angular/guide/architecture
+      # page_url is, e.g., /guide/architecture
       page_url = context.environments.first['page']['url']
       name = page_url.split('/').last
       if matches = name.match(/^(toh-)pt(\d+)/)

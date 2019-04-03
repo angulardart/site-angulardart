@@ -2,7 +2,7 @@
 layout: default
 permalink: /community
 title: "Community and Support"
-description: "Communities for Dart webdev."
+description: "Communities for AngularDart."
 ---
 
 You can find many general Dart resources at

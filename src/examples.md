@@ -3,10 +3,10 @@ title: Examples
 description: Example apps showcasing AngularDart and AngularDart Components.
 ---
 
-## [AngularDart](/angular)
+## [AngularDart](/)
 
 - [QuickStart](/examples/quickstart)
-- [Tutorial](/angular/tutorial):
+- [Tutorial](/tutorial):
   0. [The Starter App](/examples/toh-0)
   1. [The Hero Editor](/examples/toh-1)
   2. [Master/Detail](/examples/toh-2)
@@ -15,7 +15,7 @@ description: Example apps showcasing AngularDart and AngularDart Components.
   5. [Routing](/examples/toh-5)
   6. [HTTP](/examples/toh-6)
   {: start="0"}
-- [Guide](/angular/guide) and [Advanced][] example apps (alphabetical order):
+- [Guide](/guide) and [Advanced][] example apps (alphabetical order):
   - [Architecture](/examples/architecture)
   - [Attribute Directives](/examples/attribute-directives)
   - [Component Styles](/examples/component-styles)
@@ -31,7 +31,7 @@ description: Example apps showcasing AngularDart and AngularDart Components.
   - [Template Syntax](/examples/template-syntax)
   - [User Input](/examples/user-input)
 
-## [AngularDart Components](/angular/components)
+## [AngularDart Components](/components)
 
 - [Lottery simulator codelab](/codelabs/angular_components):
   - [1-base](/examples/lottery/1-base)
@@ -39,4 +39,4 @@ description: Example apps showcasing AngularDart and AngularDart Components.
   - [3-usebuttons](/examples/lottery/3-usebuttons)
   - [4-final](/examples/lottery/4-final)
 
-[Advanced]: /angular/guide/attribute-directives
+[Advanced]: /guide/attribute-directives
