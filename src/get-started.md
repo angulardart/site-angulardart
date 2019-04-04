@@ -132,7 +132,7 @@ browser.
 
 {% include webstorm-status.md %}
 
-More information: [Dart tools for the web](/tools)
+More information: [AngularDart](/tools)
 
 ## 4. Create a web app
 
@@ -267,7 +267,7 @@ Check out these resources:
   * [Effective Dart]({{site.dartlang}}/guides/language/effective-dart)
 * Tools & libraries
   * [Dart SDK]({{site.dartlang}}/tools/sdk)
-  * [Dart tools for the web](/tools)
+  * [AngularDart tools](/tools)
   * [IDEs]({{site.dartlang}}/tools#ides-and-editors)
   * [Web libraries](/guides/web-programming)
   * [AngularDart](/)

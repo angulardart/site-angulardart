@@ -4,7 +4,7 @@
   <th>Forms</th>
   <th markdown="1">
   `import 'package:angular_forms/angular_forms.dart';`<br>
-  Available from [formDirectives](/reference/api/angular_forms/angular_forms/formDirectives-constant)
+  Available from [formDirectives]({{site.api}}/angular_forms/angular_forms/formDirectives-constant)
   </th>
 </tr>
 
@@ -16,7 +16,7 @@
   Provides two-way data-binding, parsing, and validation for form controls.
 
   See: [Forms](/angular/guide/forms),
-  [NgModel class](/reference/api/angular_forms/angular_forms/NgModel-class)
+  [NgModel class]({{site.api}}/angular_forms/angular_forms/NgModel-class)
   </td>
 </tr>
 

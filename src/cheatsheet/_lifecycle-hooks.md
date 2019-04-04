@@ -27,7 +27,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks)
 Called after every change to input properties and before processing content or child views.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[OnChanges class](/reference/api/angular/angular/OnChanges-class)
+[OnChanges class]({{site.api}}/angular/angular/OnChanges-class)
 
   </td>
 </tr>
@@ -40,7 +40,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called after the constructor, initializing input properties, and the first call to `ngOnChanges`.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[OnInit class](/reference/api/angular/angular/OnInit-class)
+[OnInit class]({{site.api}}/angular/angular/OnInit-class)
 
   </td>
 </tr>
@@ -53,7 +53,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[DoCheck class](/reference/api/angular/angular/DoCheck-class)
+[DoCheck class]({{site.api}}/angular/angular/DoCheck-class)
 
   </td>
 </tr>
@@ -66,7 +66,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called after ngOnInit when the component's or directive's content has been initialized.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[AfterContentInit class](/reference/api/angular/angular/AfterContentInit-class)
+[AfterContentInit class]({{site.api}}/angular/angular/AfterContentInit-class)
 
   </td>
 </tr>
@@ -79,7 +79,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called after every check of the component's or directive's content.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[AfterContentChecked class](/reference/api/angular/angular/AfterContentChecked-class)
+[AfterContentChecked class]({{site.api}}/angular/angular/AfterContentChecked-class)
 
   </td>
 </tr>
@@ -92,7 +92,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called after `ngAfterContentInit` when the component's view has been initialized. Applies to components only.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[AfterViewInit class](/reference/api/angular/angular/AfterViewInit-class)
+[AfterViewInit class]({{site.api}}/angular/angular/AfterViewInit-class)
 
   </td>
 </tr>
@@ -105,7 +105,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called after every check of the component's view. Applies to components only.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[AfterViewChecked class](/reference/api/angular/angular/AfterViewChecked-class)
+[AfterViewChecked class]({{site.api}}/angular/angular/AfterViewChecked-class)
 
   </td>
 </tr>
@@ -118,7 +118,7 @@ See: [Lifecycle Hooks](/guide/lifecycle-hooks),
 Called once, before the instance is destroyed.
 
 See: [Lifecycle Hooks](/guide/lifecycle-hooks),
-[OnDestroy class](/reference/api/angular/angular/OnDestroy-class)
+[OnDestroy class]({{site.api}}/angular/angular/OnDestroy-class)
   </td>
 </tr>
 

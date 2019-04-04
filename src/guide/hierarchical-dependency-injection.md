@@ -322,4 +322,4 @@ Restrict Dependency Lookups
 [TODO] (providers vs viewProviders) This has been postponed for now until come up with a decent use case
 {% endcomment %}
 
-[runApp()]: /reference/api/angular/angular/runApp
+[runApp()]: {site.api}}/angular/angular/runApp

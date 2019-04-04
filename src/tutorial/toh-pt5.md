@@ -237,7 +237,7 @@ the example apps use the following script:
   <head>
     <script>
       // WARNING: DO NOT set the <base href> like this in production!
-      // Details: https://angulardart.dev/guide/router
+      // Details: https://webdev.dartlang.org/angular/guide/router
       (function () {
         var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
         document.write('<base href="' + (m ? m[0] : '/') + '" />');
@@ -857,7 +857,7 @@ using the `Location` service you injected previously.
 <div class="l-sub-section" markdown="1">
   Going back too far could take users out of the app.
   In a real app, you can prevent this issue with the _canDeactivate()_ hook.
-  Read more on the [CanDeactivate](/reference/api/angular_router/angular_router/CanDeactivate-class) page.
+  Read more on the [CanDeactivate]({{site.api}}/angular_router/angular_router/CanDeactivate-class) page.
 </div>
 
 You'll wire this method with an event binding to a *Back* button that you'll add to the component template.
@@ -1274,23 +1274,23 @@ you’ll replace the mock data with data retrieved from a server using http.
 
 {%comment%}TODO: Add Recap and What's next sections{%endcomment%}
 
-[angular_router]: /reference/api/angular_router
-[commonPipes]: /reference/api/angular/angular/commonPipes-constant
+[angular_router]: {{site.api}}/angular_router
+[commonPipes]: {{site.api}}/angular/angular/commonPipes-constant
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [master styles]: https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css
-[HashLocationStrategy]: /reference/api/angular_router/angular_router/HashLocationStrategy-class
-[Location]: /reference/api/angular_router/angular_router/Location-class
-[OnActivate]: /reference/api/angular_router/angular_router/OnActivate-class
+[HashLocationStrategy]: {{site.api}}/angular_router/angular_router/HashLocationStrategy-class
+[Location]: {{site.api}}/angular_router/angular_router/Location-class
+[OnActivate]: {{site.api}}/angular_router/angular_router/OnActivate-class
 [onActivate()]: /guide/router/5#on-activate
 [property binding]: /guide/template-syntax#property-binding
-[PathLocationStrategy]: /reference/api/angular_router/angular_router/PathLocationStrategy-class
+[PathLocationStrategy]: {{site.api}}/angular_router/angular_router/PathLocationStrategy-class
 [router lifecycle hook]: /guide/router/5
-[RouteDefinition]: /reference/api/angular_router/angular_router/RouteDefinition-class
-[routerDirectives]: /reference/api/angular_router/angular_router/routerDirectives-constant
-[RouterLink]: /reference/api/angular_router/angular_router/RouterLink-class
-[RouterLinkActive]: /reference/api/angular_router/angular_router/RouterLinkActive-class
-[RouterOutlet]: /reference/api/angular_router/angular_router/RouterOutlet-class
-[routerProviders]: /reference/api/angular_router/angular_router/routerProviders-constant
-[routerProvidersHash]: /reference/api/angular_router/angular_router/routerProvidersHash-constant
-[RouterState]: /reference/api/angular_router/angular_router/RouterState-class
-[RouterState.parameters]: /reference/api/angular_router/angular_router/RouterState/parameters
+[RouteDefinition]: {{site.api}}/angular_router/angular_router/RouteDefinition-class
+[routerDirectives]: {{site.api}}/angular_router/angular_router/routerDirectives-constant
+[RouterLink]: {{site.api}}/angular_router/angular_router/RouterLink-class
+[RouterLinkActive]: {{site.api}}/angular_router/angular_router/RouterLinkActive-class
+[RouterOutlet]: {{site.api}}/angular_router/angular_router/RouterOutlet-class
+[routerProviders]: {{site.api}}/angular_router/angular_router/routerProviders-constant
+[routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
+[RouterState]: {{site.api}}/angular_router/angular_router/RouterState-class
+[RouterState.parameters]: {{site.api}}/angular_router/angular_router/RouterState/parameters

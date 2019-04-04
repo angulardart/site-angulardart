@@ -86,6 +86,8 @@
 
 - title: Resources
   children:
+  - title: FAQ
+    permalink: /faq
   - title: Tools
     permalink: /tools
   - title: Community and Support
@@ -96,8 +98,6 @@
   children:
   - title: API Documentation
     permalink: /reference/api
-  - title: FAQ
-    permalink: /reference/faq
   - title: Site Changelog
     permalink: /reference/changelog
   - title: Videos

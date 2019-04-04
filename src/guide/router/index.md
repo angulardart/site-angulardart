@@ -257,11 +257,11 @@ highlights specific design decisions and introduces new key features of the
 router.
 
 [angular_forms]: https://pub.dartlang.org/packages/angular_forms
-[angular_router]: /reference/api/angular_router/angular_router/angular_router-library
+[angular_router]: {{site.api}}/angular_router/angular_router/angular_router-library
 [angular_router@pub]: https://pub.dartlang.org/packages/angular_router
-[RouteDefinition]: /reference/api/angular_router/angular_router/RouteDefinition-class
-[Router]: /reference/api/angular_router/angular_router/Router-class
-[RouterLink]: /reference/api/angular_router/angular_router/RouterLink-class
-[RouterLinkActive]: /reference/api/angular_router/angular_router/RouterLinkActive-class
-[RouterOutlet]: /reference/api/angular_router/angular_router/RouterOutlet-class
-[RoutePath]: /reference/api/angular_router/angular_router/RoutePath-class
+[RouteDefinition]: {{site.api}}/angular_router/angular_router/RouteDefinition-class
+[Router]: {{site.api}}/angular_router/angular_router/Router-class
+[RouterLink]: {{site.api}}/angular_router/angular_router/RouterLink-class
+[RouterLinkActive]: {{site.api}}/angular_router/angular_router/RouterLinkActive-class
+[RouterOutlet]: {{site.api}}/angular_router/angular_router/RouterOutlet-class
+[RoutePath]: {{site.api}}/angular_router/angular_router/RoutePath-class

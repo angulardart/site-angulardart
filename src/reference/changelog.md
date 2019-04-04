@@ -182,7 +182,7 @@ when no server-side support is available (such as with [GitHub Pages][] and with
 
 [Which location strategy to use]: /guide/router/1#which-location-strategy-to-use
 [GitHub Pages]: https://pages.github.com/
-[HashLocationStrategy]: /reference/api/angular_router/angular_router/HashLocationStrategy-class
+[HashLocationStrategy]: {{site.api}}/angular_router/angular_router/HashLocationStrategy-class
 [Router]: /guide/router
 [Tutorial]: /tutorial
 
@@ -222,13 +222,13 @@ due to the `angular2` package changing its name to `angular`.
   * Switched from the use of `@Component` `inputs` and `outputs` parameters to appropriate
     `@Input()` and `@Output()` annotations.
   * Switched from the use of `<glyph>` (GlyphComponent) to `<material-icon>`
-  ([MaterialIconComponent](/reference/api/angular_components/angular_components/MaterialIconComponent-class))
+  ([MaterialIconComponent]({{site.api}}/angular_components/angular_components/MaterialIconComponent-class))
 * Changed API doc URLs
   * The `angular2` &rarr; `angular` change affected API doc URLs. <br>
     Example:
     .../angular2/NgFor-class
     &rarr;
-    [.../angular/NgFor-class](/reference/api/angular/angular/NgFor-class)
+    [.../angular/NgFor-class]({{site.api}}/angular/angular/NgFor-class)
   * `angular2` &rarr; `angular_forms` for forms API elements, such as `formDirectives`
   * `angular2` &rarr; `angular_router` for router API elements, such as `Route`
 * Removed documentation for native view encapsulation since it is no longer supported.
@@ -246,7 +246,7 @@ More information:
 ## API reference (August 2017)
 
 The API entries from both the `angular` and `angular_components` packages
-have been combined into a single unified [API reference](/reference/api).
+have been combined into a single unified [API reference]({{site.api}}).
 
 ## Testing docs, part 2 (August 2017)
 
@@ -305,7 +305,7 @@ The examples changed to update the release and reflect new recommendations.
 * Replaced `core.dart` imports:
   `angular2/core.dart` &rarr; `angular2/angular2.dart`
 * Updated `angular2.core` API doc references. Example: .../angular2.core/OnInit-class
-  &rarr; [.../angular2/OnInit-class](/reference/api/angular/angular/OnInit-class)
+  &rarr; [.../angular2/OnInit-class]({{site.api}}/angular/angular/OnInit-class)
 * To prepare for 3.1's experimental compiler, in each example:
   * Removed `platform_directives` from `pubspec.yaml`,
     moving the directives it listed
@@ -372,7 +372,7 @@ More information:
 [issue #1834]: https://github.com/dart-lang/site-webdev/issues/1834
 [ngFor]: /guide/template-syntax#ngFor
 [quickstart diff]: {{site.ghNgEx}}/quickstart/compare/4.x...master
-[runApp()]: /reference/api/angular/angular/runApp.html
+[runApp()]: {{site.api}}/angular/angular/runApp.html
 [template reference variables]: /guide/template-syntax#ref-vars
 [toh-5 diff]: {{site.ghNgEx}}/toh-5/compare/4.x...master
 [two-way bindings]: /guide/template-syntax#two-way

@@ -16,7 +16,7 @@
   `<my-cmp [myProperty]="someExpression">`).
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [Input class](/reference/api/angular/angular/Input-class)
+  [Input class]({{site.api}}/angular/angular/Input-class)
   </td>
 </tr>
 
@@ -29,7 +29,7 @@
   Declares an output property that fires events that you can subscribe to with an event binding (example: `<my-cmp (myEvent)="doSomething()">`).
 
   See: [Template Syntax](/angular/guide/template-syntax),
-  [Output class](/reference/api/angular/angular/Output-class)
+  [Output class]({{site.api}}/angular/angular/Output-class)
   </td>
 </tr>
 
@@ -40,7 +40,7 @@
   <td markdown="1">
   Binds a host element property (here, the CSS class `valid`) to a directive/component property (`isValid`).
 
-  See: [HostBinding class](/reference/api/angular/angular/HostBinding-class)
+  See: [HostBinding class]({{site.api}}/angular/angular/HostBinding-class)
   </td>
 </tr>
 
@@ -53,7 +53,7 @@
   Subscribes to a host element event (`click`) with a directive/component method (`onClick`), optionally passing an argument (`$event`).
 
   See: [Attribute Directives](/angular/guide/attribute-directives),
-  [HostListener class](/reference/api/angular/angular/HostListener-class)
+  [HostListener class]({{site.api}}/angular/angular/HostListener-class)
   </td>
 </tr>
 
@@ -64,7 +64,7 @@
   <td markdown="1">
   Binds the first result of the component content query (`myPredicate`) to a property (`myChildComponent`) of the class.
 
-  See: [ContentChild class](/reference/api/angular/angular/ContentChild-class)
+  See: [ContentChild class]({{site.api}}/angular/angular/ContentChild-class)
   </td>
 </tr>
 
@@ -75,7 +75,7 @@
   <td markdown="1">
   Binds the results of the component content query (`myPredicate`) to a property (`myChildComponents`) of the class.
 
-  See: [ContentChildren class](/reference/api/angular/angular/ContentChildren-class)
+  See: [ContentChildren class]({{site.api}}/angular/angular/ContentChildren-class)
   </td>
 </tr>
 
@@ -86,7 +86,7 @@
   <td markdown="1">
   Binds the first result of the component view query (`myPredicate`) to a property (`myChildComponent`) of the class. Not available for directives.
 
-  See: [ViewChild class](/reference/api/angular/angular/ViewChild-class)
+  See: [ViewChild class]({{site.api}}/angular/angular/ViewChild-class)
   </td>
 </tr>
 
@@ -97,7 +97,7 @@
   <td markdown="1">
   Binds the results of the component view query (`myPredicate`) to a property (`myChildComponents`) of the class. Not available for directives.
 
-  See: [ViewChildren class](/reference/api/angular/angular/ViewChildren-class)
+  See: [ViewChildren class]({{site.api}}/angular/angular/ViewChildren-class)
   </td>
 </tr>
 

@@ -25,9 +25,10 @@ flutter:  https://flutter.io
 dart_api: https://api.dartlang.org
 acx_api: /api/angular_components
 flutter_api: https://docs.flutter.io
-api: https://pub.dartlang.org/documentation
+pub-api: https://pub.dartlang.org/documentation
 pub-pkg: https://pub.dartlang.org/packages
 acx_gallery: https://dart-lang.github.io/angular_components
+api:  /reference/api
 
 ghNgEx: https://github.com/angular-examples
 # ghNgExBranch: --> use site.branch since branches should match across repos.
@@ -60,7 +61,7 @@ defaults:
   values:
     og_type: article
 - scope:
-    path: _codelabs/angular_components
+    path: /codelabs/angular_components
     type: codelabs
   values:
     og_image: /codelabs/angular_components/images/cartoon.jpeg
@@ -71,11 +72,11 @@ defaults:
     diff2html: true
     layout: angular
 - scope:
-    path: angular/guide/router
+    path: /guide/router
   values:
     status: '(DRAFT)'
 - scope:
-    path: angular/guide/testing
+    path: /guide/testing
   values:
     status: '(DRAFT)'
 - scope:

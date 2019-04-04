@@ -15,7 +15,7 @@
   <td markdown="1">
   List of dependency injection providers scoped to this component's view.
 
-  See: [viewProviders property](/reference/api/angular/angular/Component/viewProviders)
+  See: [viewProviders property]({{site.api}}/angular/angular/Component/viewProviders)
   </td>
 </tr>
 
@@ -51,7 +51,7 @@
   List of directives used in the component's template.
 
   See: [Architecture Overview](/angular/guide/architecture),
-  [CORE_DIRECTIVES](/reference/api/angular/angular/CORE_DIRECTIVES-constant)
+  [CORE_DIRECTIVES]({{site.api}}/angular/angular/CORE_DIRECTIVES-constant)
   </td>
 </tr>
 
@@ -62,7 +62,7 @@
   <td markdown="1">
   List of pipes used in the component's template.
 
-  See: [Pipes](/angular/guide/pipes), [commonPipes](/reference/api/angular/angular/commonPipes-constant)
+  See: [Pipes](/angular/guide/pipes), [commonPipes]({{site.api}}/angular/angular/commonPipes-constant)
   </td>
 </tr>
 

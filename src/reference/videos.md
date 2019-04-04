@@ -11,8 +11,6 @@ Learn more about AngularDart with the following videos.
 * [Flutter & AngularDart Code Sharing; Part II - Electric Boogaloo](https://www.youtube.com/watch?v=PLHln7wHgPE){: .no-automatic-external}
 * [Angular 6 && AngularDart](https://www.youtube.com/watch?v=txEqvqKzISY){: .no-automatic-external}
 * [Create First Pokemon AngularDart App \| Data Binding \| Ep1](https://www.youtube.com/watch?v=yWIFBsTT2Ag){: .no-automatic-external}
-</div>
-</div>
 
 <img src="images/Google-AdWords-Next-Interface-800x342.png"
   alt="Screenshot of AdWords Next"

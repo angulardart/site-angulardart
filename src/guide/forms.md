@@ -481,13 +481,13 @@ to the _Name_ `<input>` tag and use it to display the input's CSS classes.
 
   The `spy` [template reference variable](template-syntax#ref-vars) gets bound to the
   `<input>` DOM element, whereas the `name` variable (through the `#name="ngForm"` syntax)
-  gets bound to the [NgModel](/reference/api/angular_forms/angular_forms/NgModel-class.html)
+  gets bound to the [NgModel]({{site.api}}/angular_forms/angular_forms/NgModel-class.html)
   associated with the input element.
 
-  Why "ngForm"?  A [Directive](/reference/api/angular/angular/Directive-class)'s
-  [exportAs](/reference/api/angular/angular/Directive/exportAs) property tells Angular
+  Why "ngForm"?  A [Directive]({{site.api}}/angular/angular/Directive-class)'s
+  [exportAs]({{site.api}}/angular/angular/Directive/exportAs) property tells Angular
   how to link the reference variable to the directive. You set `name` to "ngForm"
-  because the [ngModel](/reference/api/angular_forms/angular_forms/NgModel-class.html)
+  because the [ngModel]({{site.api}}/angular_forms/angular_forms/NgModel-class.html)
   directive's `exportAs` property is "ngForm".
 </div>
 
@@ -841,16 +841,16 @@ Here’s the code for the final version of the app:
   <?code-pane "web/main.dart" linenums?>
 </code-tabs>
 
-[angular_forms]: /reference/api/angular_forms/angular_forms/angular_forms-library
+[angular_forms]: {{site.api}}/angular_forms/angular_forms/angular_forms-library
 [angular_forms@pub]: https://pub.dartlang.org/packages/angular_forms
 [Bootstrap]: https://getbootstrap.com
 [Bootstrap forms]: https://getbootstrap.com/docs/4.0/components/forms
 [Bootstrap custom-forms]: https://getbootstrap.com/docs/4.0/components/forms/#custom-forms
 [class binding]: template-syntax#class-binding
 [hidden]: https://developer.mozilla.org/docs/Web/HTML/Global_attributes/hidden
-[NgClass]: /reference/api/angular/angular/NgClass-class
-[NgControl]: /reference/api/angular_forms/angular_forms/NgControl-class
-[NgControlStatus]: /reference/api/angular_forms/angular_forms/NgControlStatus-class
-[NgForm]: /reference/api/angular_forms/angular_forms/NgForm-class
-[NgForm.form]: /reference/api/angular_forms/angular_forms/AbstractNgForm/form
-[NgModel]: /reference/api/angular_forms/angular_forms/NgModel-class
+[NgClass]: {{site.api}}/angular/angular/NgClass-class
+[NgControl]: {{site.api}}/angular_forms/angular_forms/NgControl-class
+[NgControlStatus]: {{site.api}}/angular_forms/angular_forms/NgControlStatus-class
+[NgForm]: {{site.api}}/angular_forms/angular_forms/NgForm-class
+[NgForm.form]: {{site.api}}/angular_forms/angular_forms/AbstractNgForm/form
+[NgModel]: {{site.api}}/angular_forms/angular_forms/NgModel-class

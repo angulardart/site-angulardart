@@ -263,7 +263,7 @@ In the [next tutorial page](toh-pt2), you'll build on the Tour of Heroes app to 
 You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
 
-[angular_forms]: /reference/api/angular_forms
+[angular_forms]: {{site.api}}/angular_forms
 [webdev serve]: {{site.dartlang}}/tools/webdev#serve
-[formDirectives]: /reference/api/angular_forms/angular_forms/formDirectives-constant
+[formDirectives]: {{site.api}}/angular_forms/angular_forms/formDirectives-constant
 [interpolation syntax]: /guide/template-syntax#interpolation

@@ -109,10 +109,10 @@ complete coverage of the package capabilities, see the
 [angular_test]: https://pub.dartlang.org/packages/angular_test
 [build_test]: https://pub.dartlang.org/packages/build_test
 [group()]: https://pub.dartlang.org/packages/test#writing-tests
-[group API]: {{site.api}}/test/latest/test/group.html
-[NgTestBed]: {{site.api}}/angular_test/latest/angular_test/NgTestBed-class.html
-[NgTestFixture]: {{site.api}}/angular_test/latest/angular_test/NgTestFixture-class.html
+[group API]: {{site.pub-api}}/test/latest/test/group.html
+[NgTestBed]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestBed-class.html
+[NgTestFixture]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestFixture-class.html
 [pubspec]: {{site.dartlang}}/tools/pub/pubspec
-[setUpAll()]: {{site.api}}/test/latest/test/setUpAll.html
-[tearDownAll()]: {{site.api}}/test/latest/test/tearDownAll.html
+[setUpAll()]: {{site.pub-api}}/test/latest/test/setUpAll.html
+[tearDownAll()]: {{site.pub-api}}/test/latest/test/tearDownAll.html
 [test]: https://pub.dartlang.org/packages/test

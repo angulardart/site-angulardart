@@ -10,7 +10,7 @@ nextpage:
   url: /guide/testing/component/simulating-user-action
 ---
 <?code-excerpt path-base="examples/ng/doc"?>
-{% capture pageloaderObjectsApi %}{{site.api}}/pageloader/latest/pageloader.objects{% endcapture %}
+{% capture pageloaderObjectsApi %}{{site.pub-api}}/pageloader/latest/pageloader.objects{% endcapture %}
 
 {% include_relative _page-top-toc.md %}
 
@@ -375,7 +375,7 @@ setup method, which selects the hero and gets a new PO.
 [issue 1351]: https://github.com/dart-lang/site-webdev/issues/1351
 [page object]: https://martinfowler.com/bliki/PageObject.html
 [pageloader]: https://pub.dartlang.org/packages/pageloader
-[rootElement]: {{site.api}}/angular_test/latest/angular_test/NgTestFixture/rootElement.html
+[rootElement]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestFixture/rootElement.html
 [separate concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [toh-pt1]: /tutorial/toh-pt1
 [toh-pt2]: /tutorial/toh-pt2

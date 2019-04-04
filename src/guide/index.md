@@ -49,7 +49,7 @@ a collection of pages devoted to that theme.
   </td>
 </tr>
 <tr>
-  <td><b><a href="/reference/api">API Reference</a></b></td>
+  <td><b><a href={{site.api}}>API Reference</a></b></td>
   <td markdown="1">
   Choose **All** from the **PACKAGES** dropdown to see APIs defined by the
   Angular libraries and commonly used dart:* libraries.
@@ -76,7 +76,8 @@ such as this {% example_ref architecture %} from the [Architecture](guide/archit
 
 * The [Glossary](/glossary) defines terms that Angular developers should know.
 * The [Cheat Sheet](/cheatsheet) lists Angular syntax for common scenarios.
-* The [API Reference](/reference/api) is the authority on every public-facing member of the Angular libraries.
+* The [API Reference]({{site.api}}) is the authority on every public-facing
+  member of the Angular libraries.
 
 ## Feedback
 

@@ -658,8 +658,8 @@ See the full source code in the {% example_ref %}.
 [factory provider]: dependency-injection#factory-providers
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
 [http]: https://pub.dartlang.org/packages/http
-[Client]: {{site.api}}/http/latest/http/Client-class.html
-[BrowserClient]: {{site.api}}/http/latest/browser_client/BrowserClient-class.html
+[Client]: {{site.pub-api}}/http/latest/http/Client-class.html
+[BrowserClient]: {{site.pub-api}}/http/latest/browser_client/BrowserClient-class.html
 [dart:convert section]: {{site.dartlang}}/guides/libraries/library-tour#dartconvert---decoding-and-encoding-json-utf-8-and-more
 [dart:convert]: {{site.dart_api}}/stable/dart-convert/dart-convert-library.html
 

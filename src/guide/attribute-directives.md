@@ -606,4 +606,4 @@ Now apply that reasoning to the following example:
   not a property of the template's component. There are trust issues.
   Therefore, the directive property must carry the `@Input` annotation.
 
-[@Directive()]: /reference/api/angular/angular/Directive-class
+[@Directive()]: {{site.api}}/angular/angular/Directive-class

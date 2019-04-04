@@ -951,8 +951,7 @@ They are retrieved by calling `injector.get()`.
 
 The `get()` method throws an error if it can't resolve the requested service.
 You can call `get()` with a second parameter, which is the value to return if the service
-is not found. Angular can't find the service if it's not registered with this or any ancestor injector.
-
+is not found. Angular can't find the service if it's not registered with this or any ancestor injector.  
 <div class="l-sub-section" markdown="1">
   This technique is an example of the
   [service locator pattern](https://en.wikipedia.org/wiki/Service_locator_pattern).
@@ -968,16 +967,16 @@ is not found. Angular can't find the service if it's not registered with this or
   must acquire services generically and dynamically.
 </div>
 
-[@Component()]: /reference/api/angular/angular/Component-class.html
-[@Inject()]: /reference/api/angular/angular/Inject-class.html
-[ClassProvider]: /reference/api/angular/angular/ClassProvider-class.html
+[@Component()]: {{site.api}}/angular/angular/Component-class.html
+[@Inject()]: {{site.api}}/angular/angular/Inject-class.html
+[ClassProvider]: {{site.api}}/angular/angular/ClassProvider-class.html
 [cascade]: {{site.dartlang}}/guides/language/language-tour#cascade
-[ExistingProvider]: /reference/api/angular/angular/ExistingProvider-class.html
+[ExistingProvider]: {{site.api}}/angular/angular/ExistingProvider-class.html
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
-[OpaqueToken]: /reference/api/angular/angular/OpaqueToken-class.html
-[@Optional()]: /reference/api/angular/angular/Optional-class.html
-[provide()]: /reference/api/angular/angular/provide
-[Provider]: /reference/api/angular/angular/Provider-class.html
-[routerProvidersHash]: /reference/api/angular_router/angular_router/routerProvidersHash-constant
-[runApp()]: /reference/api/angular/angular/runApp.html
-[ValueProvider]: /reference/api/angular/angular/ValueProvider-class.html
+[OpaqueToken]: {{site.api}}/angular/angular/OpaqueToken-class.html
+[@Optional()]: {{site.api}}/angular/angular/Optional-class.html
+[provide()]: {{site.api}}/angular/angular/provide
+[Provider]: {{site.api}}/angular/angular/Provider-class.html
+[routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
+[runApp()]: {{site.api}}/angular/angular/runApp.html
+[ValueProvider]: {{site.api}}/angular/angular/ValueProvider-class.html
