@@ -11,3 +11,4 @@ gem 'nokogiri'
 gem 'sass'
 gem 'sprockets', '~> 4.0.beta' , { require: false }
 gem 'uglifier'
+gem 'rake'
