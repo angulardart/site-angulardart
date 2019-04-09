@@ -1,6 +1,6 @@
 # Contributing :green_heart:
 
-Thanks for thinking about helping with [angulardart.dev][webdev]!
+Thanks for thinking about helping with [angulardart.dev][angulardart]!
 Here are a couple of ways that you can contribute:
 
 * [Report issues](https://github.com/dart-lang/site-webdev/issues/new).
@@ -28,4 +28,4 @@ other ways such as email and [Gitter](https://gitter.im/dart-lang/home).
 For more information on contributing to Dart, see the
 [dart-lang/sdk Contributing page](https://github.com/dart-lang/sdk/wiki/Contributing).
 
-[webdev]: https://angulardart.dev
+[angulardart]: https://angulardart.dev
