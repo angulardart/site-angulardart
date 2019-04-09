@@ -123,15 +123,8 @@ jobs:
           script: ./tool/shared/deploy.sh --robots ok default
           skip_cleanup: true
           on:
-            repo: dart-lang/site-webdev
+            repo: dart-lang/site-angulardartREMOVE-WHEN-READY
             branch: master
-            condition: $TASK == build*
-        - provider: script
-          script: ./tool/shared/deploy.sh --robots site dev
-          skip_cleanup: true
-          on:
-            repo: dart-lang/site-webdev
-            branch: 5-dev
             condition: $TASK == build*
     - env: TASK="test $TEST_OPT1"
       script: npx gulp $TASK

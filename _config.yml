@@ -20,6 +20,8 @@ port: 4001
 www: https://www.dartlang.org
 webdev: https://webdev.dartlang.org
 dartlang: https://www.dartlang.org
+angulardart: https://angulardart.dev
+angular: https://angular.io
 dart_vm:  https://www.dartlang.org/dart-vm
 flutter:  https://flutter.io
 dart_api: https://api.dartlang.org
