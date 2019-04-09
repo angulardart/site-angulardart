@@ -3,7 +3,7 @@
 [![Build Status SVG][]][@travis]
 [![first-timers-only SVG][]][first-timers-only]
 
-The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase][].
+The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Hosting][Firebase].
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
 
@@ -150,7 +150,7 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install
 [Dart install]: https://www.dartlang.org/install
-[Firebase]: https://firebase.google.com/
+[Firebase]: https://firebase.google.com/products/hosting/
 [first-timers-only SVG]: https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
 [first-timers-only]: http://www.firsttimersonly.com/
 [Jekyll]: https://jekyllrb.com/
