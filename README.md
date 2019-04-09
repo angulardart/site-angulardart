@@ -1,6 +1,6 @@
 # Site for _AngularDart_ ([angulardart.dev][])
 
-[![Build Status SVG][]][@travis]
+[![Build Status](https://travis-ci.com/dart-lang/site-angulardart.svg?token=ufcxuyv7xRMxuesyaqn3&branch=master)](https://travis-ci.com/dart-lang/site-angulardart)
 [![first-timers-only SVG][]][first-timers-only]
 
 The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Hosting][Firebase].
@@ -156,7 +156,6 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
 [Jekyll]: https://jekyllrb.com/
 [nvm]: https://github.com/creationix/nvm#installation
 [rvm]: https://rvm.io/rvm/install#installation
-[@travis]: https://travis-ci.com/dart-lang/site-angulardart
 [site-angulardart]: https://github.com/dart-lang/site-angulardart
 [site-www]: https://github.com/dart-lang/site-www
 [angulardart.dev]: https://angulardart.dev
