@@ -6,8 +6,7 @@ excerpt_separator: ""
 ## Major changes
 
 -   Build system switched from pub transformers to build_runner/webdev. [Dart 2
-    Migration Guide for Web
-    Apps](https://webdev.dartlang.org/dart-2)
+    Migration Guide for Web Apps]({{site.www}}/dart-2)
 -   Introduced Router 2.0. [Router Migration
     Guide](https://github.com/dart-lang/angular/blob/master/doc/router/migration.md)
 -   Strictly typed injector.
@@ -118,7 +117,7 @@ analyzer:
 ```
 
 For further information on how to customize the analyzer see [Customize Static
-Analysis](https://www.dartlang.org/guides/language/analysis-options).
+Analysis]({{site.www}}/guides/language/analysis-options).
 
 ### Setting up the root injector and runApp
 

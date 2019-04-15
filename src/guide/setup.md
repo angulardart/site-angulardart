@@ -18,7 +18,7 @@ that's featured in this guide and tutorial.
 ## Get prerequisites
 
 For information on how to get these prerequisite tools,
-see [Get Started](/guides/get-started):
+see [the Dart site]({{site.dartlang}}/guides/get-started):
 
 - **Dart SDK** {{site.data.pkg-vers.SDK.vers}} or a compatible version
 - Your favorite IDE, or **WebStorm** (recommended).

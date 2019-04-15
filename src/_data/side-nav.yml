@@ -1,74 +1,74 @@
-- title: Guide
-  permalink: /guide
-  sideNavGroup: basic
+- title: AngularDart Docs
   children:
-  - title: 1. Overview
+  - title: Guide
     permalink: /guide
-    urlExactMatch: true
-  - title: 2. Setup
-    permalink: /guide/setup
-  - title: 3. Learning Angular
-    permalink: /guide/learning-angular
-  - title: 4. Architecture
-    permalink: /guide/architecture
-  - title: 5. Displaying Data
-    permalink: /guide/displaying-data
-  - title: 6. User Input
-    permalink: /guide/user-input
-  - title: 7. Forms
-    permalink: /guide/forms
-  - title: 8. Dependency Injection
-    permalink: /guide/dependency-injection
-  - title: 9. Template Syntax
-    permalink: /guide/template-syntax
+    children:
+    - title: Overview
+      permalink: /guide
+    - title: Setup
+      permalink: /guide/setup
+    - title: Learning Angular
+      permalink: /guide/learning-angular
+    - title: Architecture
+      permalink: /guide/architecture
+    - title: Displaying Data
+      permalink: /guide/displaying-data
+    - title: User Input
+      permalink: /guide/user-input
+    - title: Forms
+      permalink: /guide/forms
+    - title: Dependency Injection
+      permalink: /guide/dependency-injection
+    - title: Template Syntax
+      permalink: /guide/template-syntax
 
-- title: Tutorial
-  permalink: /tutorial
-  children:
-  - title: Introduction
+  - title: Tutorial
     permalink: /tutorial
-    urlExactMatch: true
-  - title: 0. The Starter App
-    permalink: /tutorial/toh-pt0
-  - title: 1. The Hero Editor
-    permalink: /tutorial/toh-pt1
-  - title: 2. Master/Detail
-    permalink: /tutorial/toh-pt2
-  - title: 3. Multiple Components
-    permalink: /tutorial/toh-pt3
-  - title: 4. Services
-    permalink: /tutorial/toh-pt4
-  - title: 5. Routing
-    permalink: /tutorial/toh-pt5
-  - title: 6. HTTP
-    permalink: /tutorial/toh-pt6
+    children:
+    - title: Introduction
+      permalink: /tutorial
+      urlExactMatch: true
+    - title: 0. The Starter App
+      permalink: /tutorial/toh-pt0
+    - title: 1. The Hero Editor
+      permalink: /tutorial/toh-pt1
+    - title: 2. Master/Detail
+      permalink: /tutorial/toh-pt2
+    - title: 3. Multiple Components
+      permalink: /tutorial/toh-pt3
+    - title: 4. Services
+      permalink: /tutorial/toh-pt4
+    - title: 5. Routing
+      permalink: /tutorial/toh-pt5
+    - title: 6. HTTP
+      permalink: /tutorial/toh-pt6
 
-- title: Advanced
-  permalink: /guide/attribute-directives
-  sideNavGroup: advanced
-  children:
-  - title: Attribute Directives
+  - title: Advanced
     permalink: /guide/attribute-directives
-  - title: Component Styles
-    permalink: /guide/component-styles
-  - title: Deployment
-    permalink: /guide/deployment
-  - title: Hierarchical Injectors
-    permalink: /guide/hierarchical-dependency-injection
-  - title: HTTP Client
-    permalink: /guide/server-communication
-  - title: Lifecycle Hooks
-    permalink: /guide/lifecycle-hooks
-  - title: Pipes
-    permalink: /guide/pipes
-  - title: Router
-    permalink: /guide/router
-  - title: Security
-    permalink: /guide/security
-  - title: Structural Directives
-    permalink: /guide/structural-directives
-  - title: Testing
-    permalink: /guide/testing
+    sideNavGroup: advanced
+    children:
+    - title: Attribute Directives
+      permalink: /guide/attribute-directives
+    - title: Component Styles
+      permalink: /guide/component-styles
+    - title: Deployment
+      permalink: /guide/deployment
+    - title: Hierarchical Injectors
+      permalink: /guide/hierarchical-dependency-injection
+    - title: HTTP Client
+      permalink: /guide/server-communication
+    - title: Lifecycle Hooks
+      permalink: /guide/lifecycle-hooks
+    - title: Pipes
+      permalink: /guide/pipes
+    - title: Router
+      permalink: /guide/router
+    - title: Security
+      permalink: /guide/security
+    - title: Structural Directives
+      permalink: /guide/structural-directives
+    - title: Testing
+      permalink: /guide/testing
 
 - title: Cheat Sheet
   permalink: /cheatsheet
@@ -98,7 +98,5 @@
   children:
   - title: API Documentation
     permalink: /reference/api
-  - title: Site Changelog
-    permalink: /reference/changelog
   - title: Videos
     permalink: /reference/videos

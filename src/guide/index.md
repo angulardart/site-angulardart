@@ -84,6 +84,7 @@ such as this {% example_ref architecture %} from the [Architecture](guide/archit
 Please tell us about any issues you find:
 
 * For **documentation and example** issues, use the
-  [site-webdev issue tracker](https://github.com/dart-lang/site-webdev/issues).
+  [site-angulardart issue
+  tracker](https://github.com/dart-lang/site-angulardart/issues).
 * To report issues with **AngularDart** itself, use the
   [Angular issue tracker](https://github.com/dart-lang/angular/issues).
