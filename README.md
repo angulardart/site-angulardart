@@ -1,9 +1,9 @@
 # Site for _AngularDart_ ([angulardart.dev][])
 
-[![Build Status SVG][]][@travis]
+[![Build Status](https://travis-ci.com/dart-lang/site-angulardart.svg?token=ufcxuyv7xRMxuesyaqn3&branch=master)](https://travis-ci.com/dart-lang/site-angulardart)
 [![first-timers-only SVG][]][first-timers-only]
 
-The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase][].
+The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Hosting][Firebase].
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer
 friendly](http://www.firsttimersonly.com)!
@@ -32,13 +32,13 @@ that the tools are available in every terminal/command window you create.
 
 > NOTE: This repo has a git _submodule_, which affects how you clone it.
 
-To **clone this repo** ([site-angulardartdev][]), follow the instructions
-given in the GitHub help on [Cloning a repository][], and _choose one_
-of the following submodule-cloning techniques:
+To **clone this repo** ([site-angulardart][]), follow the instructions given in the
+GitHub help on [Cloning a repository][], and _choose one_ of the following
+submodule-cloning techniques:
 
 - Clone this repo and its submodule _at the same_, use the
   `--recurse-submodules` option:<br>
-  `git clone --recurse-submodules https://github.com/dart-lang/site-angulardartdev.git`
+  `git clone --recurse-submodules https://github.com/dart-lang/site-angulardart.git`
 - If you've already cloned this repo without its submodule, then run
   this command from the repo root:<br>
   `git submodule update --init --remote`
@@ -55,7 +55,7 @@ if you already have the required packages installed.
 **Open a terminal/command window** and execute the following commands:
 
 1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
-   **root of this repo**, e.g.: `~/git/site-angulardartdev`
+   **root of this repo**, e.g.: `~/git/site-angulardart`
 1. `source ./tool/env-set.sh` &nbsp;&nbsp;#
    initialize environment variables; install/use required Node & Ruby version
 1. `./tool/before-install.sh` &nbsp;&nbsp;#
@@ -152,18 +152,17 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
                         # so you'll lose uncommitted work under `src`!
 ```
 
-[Build Status SVG]: https://travis-ci.org/dart-lang/site-angulardartdev.svg?branch=master
+[Build Status SVG]: https://travis-ci.com/dart-lang/site-angulardart.svg?branch=master
 [Chrome]: https://www.google.ca/chrome
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
 [Dart]: https://www.dartlang.org/install
 [Dart install]: https://www.dartlang.org/install
-[Firebase]: https://firebase.google.com/
+[Firebase]: https://firebase.google.com/products/hosting/
 [first-timers-only SVG]: https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
 [first-timers-only]: http://www.firsttimersonly.com/
 [Jekyll]: https://jekyllrb.com/
 [nvm]: https://github.com/creationix/nvm#installation
 [rvm]: https://rvm.io/rvm/install#installation
-[@travis]: https://travis-ci.org/dart-lang/site-angulardartdev
-[site-angulardartdev]: https://github.com/dart-lang/site-angulardartdev
+[site-angulardart]: https://github.com/dart-lang/site-angulardart
 [site-www]: https://github.com/dart-lang/site-www
 [angulardart.dev]: https://angulardart.dev
