@@ -5,10 +5,11 @@
 
 The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase][].
 
-[We welcome contributions](CONTRIBUTING.md), and we're [first-timer friendly](http://www.firsttimersonly.com)!
+[We welcome contributions](CONTRIBUTING.md), and we're [first-timer
+friendly](http://www.firsttimersonly.com)!
 
-For simple changes (such as to CSS and text), you probably don't need to build this site.
-Often you can make changes using the GitHub UI.
+For simple changes (such as to CSS and text), you probably don't need to
+build this site.  Often you can make changes using the GitHub UI.
 
 If you want/need to build, read on.
 
@@ -31,9 +32,9 @@ that the tools are available in every terminal/command window you create.
 
 > NOTE: This repo has a git _submodule_, which affects how you clone it.
 
-To **clone this repo** ([site-angulardartdev][]), follow the instructions given in the
-GitHub help on [Cloning a repository][], and _choose one_ of the following
-submodule-cloning techniques:
+To **clone this repo** ([site-angulardartdev][]), follow the instructions
+given in the GitHub help on [Cloning a repository][], and _choose one_
+of the following submodule-cloning techniques:
 
 - Clone this repo and its submodule _at the same_, use the
   `--recurse-submodules` option:<br>
@@ -82,9 +83,11 @@ autorefreshing your browser after edits):
 
 - `jekyll serve --livereload`
 
-To view the generated site open [localhost:4001](http://localhost:4001/) in a browser.
+To view the generated site open [localhost:4001](http://localhost:4001/)
+in a browser.
 
-You can build, serve, and have a watcher for changes by running the following command:
+You can build, serve, and have a watcher for changes by running the
+following command:
 
 - `./tool/serve.sh`
 
@@ -97,7 +100,8 @@ You can build, serve, and have a watcher for changes by running the following co
 
 If you'd like to separately build and then serve, the commands are:
 
-- `npx gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating API docs
+- `npx gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating
+   API docs
 - `npx superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
 
 Some `npx gulp build` options include:
@@ -105,16 +109,19 @@ Some `npx gulp build` options include:
 - `--clean` &nbsp;&nbsp;# deletes `publish` and file fragments (nothing else)
 - `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;#
   generates API docs for named packages (default `all`)
-- `--use-cached-api-doc` &nbsp;&nbsp;# will use cached API docs rather than regenerate them;
-  without this option API docs are regenerated afresh each time
-- `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead up repeated builds)
-- `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default), `error`
+- `--use-cached-api-doc` &nbsp;&nbsp;# will use cached API docs rather
+   than regenerate them; without this option API docs are regenerated
+   afresh each time
+- `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead
+   up repeated builds)
+- `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default),
+   `error`
 
 ## Rebuilding this site from scratch
 
 If you encounter build problems, or if you haven't build this site in a while,
-you might want to rebuild it from scratch,
-doing all of the following steps (in order):
+you might want to rebuild it from scratch, doing all of the following steps
+(in order):
 
 ```
 source ./tool/env-set.sh  # reset environment vars and (re-)install Node & Ruby
