@@ -1,117 +1,102 @@
+- title: AngularDart Docs
+  children:
+  - title: Guide
+    permalink: /guide
+    children:
+    - title: Overview
+      permalink: /guide
+    - title: Setup
+      permalink: /guide/setup
+    - title: Learning Angular
+      permalink: /guide/learning-angular
+    - title: Architecture
+      permalink: /guide/architecture
+    - title: Displaying Data
+      permalink: /guide/displaying-data
+    - title: User Input
+      permalink: /guide/user-input
+    - title: Forms
+      permalink: /guide/forms
+    - title: Dependency Injection
+      permalink: /guide/dependency-injection
+    - title: Template Syntax
+      permalink: /guide/template-syntax
+
+  - title: Tutorial
+    permalink: /tutorial
+    children:
+    - title: Introduction
+      permalink: /tutorial
+      urlExactMatch: true
+    - title: 0. The Starter App
+      permalink: /tutorial/toh-pt0
+    - title: 1. The Hero Editor
+      permalink: /tutorial/toh-pt1
+    - title: 2. Master/Detail
+      permalink: /tutorial/toh-pt2
+    - title: 3. Multiple Components
+      permalink: /tutorial/toh-pt3
+    - title: 4. Services
+      permalink: /tutorial/toh-pt4
+    - title: 5. Routing
+      permalink: /tutorial/toh-pt5
+    - title: 6. HTTP
+      permalink: /tutorial/toh-pt6
+
+  - title: Advanced
+    permalink: /guide/attribute-directives
+    sideNavGroup: advanced
+    children:
+    - title: Attribute Directives
+      permalink: /guide/attribute-directives
+    - title: Component Styles
+      permalink: /guide/component-styles
+    - title: Deployment
+      permalink: /guide/deployment
+    - title: Hierarchical Injectors
+      permalink: /guide/hierarchical-dependency-injection
+    - title: HTTP Client
+      permalink: /guide/server-communication
+    - title: Lifecycle Hooks
+      permalink: /guide/lifecycle-hooks
+    - title: Pipes
+      permalink: /guide/pipes
+    - title: Router
+      permalink: /guide/router
+    - title: Security
+      permalink: /guide/security
+    - title: Structural Directives
+      permalink: /guide/structural-directives
+    - title: Testing
+      permalink: /guide/testing
+
+- title: Cheat Sheet
+  permalink: /cheatsheet
+
+- title: Glossary
+  permalink: /glossary
+
+- title: Engineering Notes
+  permalink: /note
+
+- title: Components gallery
+  permalink: https://dart-lang.github.io/angular_components
+- title: Components codelab
+  permalink: /codelabs/angular_components
+
 - title: Resources
   children:
-  - title: Library Overview
-    permalink: /guides/web-programming
-  - title: Tutorials
-    permalink: /tutorials
+  - title: FAQ
+    permalink: /faq
   - title: Tools
     permalink: /tools
-  - title: Dart 2 Migration Guide
-    permalink: /dart-2
   - title: Community and Support
     permalink: /community
 
 - title: Reference
+  permalink: /reference
   children:
   - title: API Documentation
-    permalink: /api
-  - title: FAQ
-    permalink: /faq
-  - title: Site Changelog
-    permalink: /changelog
-
-- title: Angular&nbsp;Dart
-  permalink: /angular
-  urlExactMatch: true
-  children:
-  - title: Guide
-    permalink: /angular/guide
-    sideNavGroup: basic
-    children:
-    - title: 1. Overview
-      permalink: /angular/guide
-      urlExactMatch: true
-    - title: 2. Setup
-      permalink: /angular/guide/setup
-    - title: 3. Learning Angular
-      permalink: /angular/guide/learning-angular
-    - title: 4. Architecture
-      permalink: /angular/guide/architecture
-    - title: 5. Displaying Data
-      permalink: /angular/guide/displaying-data
-    - title: 6. User Input
-      permalink: /angular/guide/user-input
-    - title: 7. Forms
-      permalink: /angular/guide/forms
-    - title: 8. Dependency Injection
-      permalink: /angular/guide/dependency-injection
-    - title: 9. Template Syntax
-      permalink: /angular/guide/template-syntax
-
-  - title: Tutorial
-    permalink: /angular/tutorial
-    children:
-    - title: Introduction
-      permalink: /angular/tutorial
-      urlExactMatch: true
-    - title: 0. The Starter App
-      permalink: /angular/tutorial/toh-pt0
-    - title: 1. The Hero Editor
-      permalink: /angular/tutorial/toh-pt1
-    - title: 2. Master/Detail
-      permalink: /angular/tutorial/toh-pt2
-    - title: 3. Multiple Components
-      permalink: /angular/tutorial/toh-pt3
-    - title: 4. Services
-      permalink: /angular/tutorial/toh-pt4
-    - title: 5. Routing
-      permalink: /angular/tutorial/toh-pt5
-    - title: 6. HTTP
-      permalink: /angular/tutorial/toh-pt6
-
-  - title: Advanced
-    permalink: /angular/guide/attribute-directives
-    sideNavGroup: advanced
-    children:
-    - title: Attribute Directives
-      permalink: /angular/guide/attribute-directives
-    - title: Component Styles
-      permalink: /angular/guide/component-styles
-    - title: Deployment
-      permalink: /angular/guide/deployment
-    - title: Hierarchical Injectors
-      permalink: /angular/guide/hierarchical-dependency-injection
-    - title: HTTP Client
-      permalink: /angular/guide/server-communication
-    - title: Lifecycle Hooks
-      permalink: /angular/guide/lifecycle-hooks
-    - title: Pipes
-      permalink: /angular/guide/pipes
-    - title: Router
-      permalink: /angular/guide/router
-    - title: Security
-      permalink: /angular/guide/security
-    - title: Structural Directives
-      permalink: /angular/guide/structural-directives
-    - title: Testing
-      permalink: /angular/guide/testing
-
-  - title: Cheat Sheet
-    permalink: /angular/cheatsheet
-
-  - title: Glossary
-    permalink: /angular/glossary
-
-  - title: Engineering Notes
-    permalink: /angular/note
-
-- title: Angular&nbsp;Dart Components
-  permalink: /angular/components
-  urlExactMatch: true
-  children:
-  - title: Gallery
-    permalink: https://dart-lang.github.io/angular_components
-  - title: Codelab
-    permalink: /codelabs/angular_components
-
-
+    permalink: /reference/api
+  - title: Videos
+    permalink: /reference/videos

@@ -27,7 +27,7 @@ npm-debug*.log*
 # Angular
 #
 
-/src/api/*.json
+/src/reference/api/*.json
 
 # src/_data
 

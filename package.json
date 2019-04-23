@@ -1,11 +1,11 @@
 {
-  "name": "webdev.dartlang.org",
+  "name": "angulardart.dev",
   "version": "0.0.0",
   "private": true,
-  "description": "Dart webdev",
+  "description": "AngularDart",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dart-lang/site-webdev.git"
+    "url": "https://github.com/dart-lang/site-angulardart.git"
   },
   "devDependencies": {
     "assert-plus": "^1.0.0",

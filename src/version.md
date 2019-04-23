@@ -55,24 +55,20 @@ Previous and next versions of packages are also shown when they exist.
 {%- endif -%}
 {%- endfor %}
 
-<aside class="alert alert-info" markdown="1">
-**Migration tip:**
-To see how the AngularDart documentation and examples have changed
-in response to each release, read the [changelog](/changelog).
-</aside>
-
-
 ## Angular alpha and beta releases are production quality
 
 Google thoroughly tests each version of AngularDart—even alpha releases—to
-ensure that our mission-critical apps that depend on Angular continue to work well.
+ensure that our mission-critical apps that depend on Angular continue to
+work well.
 
 The _alpha_ label indicates that the API is changing,
 and that the release (or a release after it) might break your code.
 
 <aside class="alert alert-warning" markdown="1">
-**[Let us know if you find issues.](https://github.com/dart-lang/angular/issues/new)**
-Google's [test and development environment](https://testing.googleblog.com/2014/01/the-google-test-and-development_21.html)
+**[Let us know if you find
+issues.](https://github.com/dart-lang/angular/issues/new)**
+Google's [test and development
+environment](https://testing.googleblog.com/2014/01/the-google-test-and-development_21.html)
 is different from the usual Dart environment,
 so sometimes we miss issues with configuration or testing.
 </aside>
@@ -82,18 +78,22 @@ the [pub version scheme]({{site.dartlang}}/tools/pub/versioning).
 
 ## Example code
 
-Each example in the AngularDart documentation has a repo under the GitHub organization
-[angular-examples]({{site.ghNgEx}}).
-These example repos are generated from the [dart-lang/site-webdev]({{site.repo.this}}) repo,
-using files under the [examples]({{site.repo.this}}/tree/{{site.branch}}/examples) directory.
+TODO: Fix link to site-webdev on GitHub.
 
+Each example in the AngularDart documentation has a repo under the GitHub
+organization [angular-examples]({{site.ghNgEx}}).
+These example repos are generated from the
+[dart-lang/site-webdev]({{site.repo.this}}) repo,
+using files under the
+[examples]({{site.repo.this}}/tree/{{site.branch}}/examples) directory.
 
 ## Other Angular implementations
 
-AngularDart started out with the same codebase as the TypeScript Angular framework,
-which is documented at [angular.io](https://angular.io).
+AngularDart started out with the same codebase as the TypeScript Angular
+framework, which is documented at [angular.io](https://angular.io).
 
-Although the [code is now separate](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html),
+Although the [code is now
+separate](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html),
 the two projects are as similar as possible,
 while still making the most of Dart features and libraries.
 
