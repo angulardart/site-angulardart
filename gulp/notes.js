@@ -25,20 +25,20 @@ excerpt_separator: ""
   gulp.task('note-refresh', gulp.series(_pre_notess, _note_refresh, _post_notes));
 
   function _pre_notess(done) {
-    const baseDir = path.join(config.source, 'angular', 'note');
+    const baseDir = path.join(config.source, 'note');
     plugins.execSyncAndLog(`find . -name "*.md" ! -path "./index.md" -exec chmod a+w {} +`, { cwd: baseDir });
     done();
   }
 
   function _post_notes(done) {
-    const baseDir = path.join(config.source, 'angular', 'note');
+    const baseDir = path.join(config.source, 'note');
     plugins.execSyncAndLog(`find . -name "*.md" ! -path "./index.md" -exec chmod a-w {} +`, { cwd: baseDir });
     done();
   }
 
   function _note_refresh() {
     const baseDir = ngDocPath;
-    const dest = path.join(config.source, 'angular', 'note');
+    const dest = path.join(config.source, 'note');
     // const markdown = filter(`${baseDir}/**/*.md`, { restore: true }); // unnecessary atm
 
     return gulp.src([
