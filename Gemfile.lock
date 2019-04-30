@@ -80,6 +80,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
     rack (2.0.5)
+    rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -116,9 +117,10 @@ DEPENDENCIES
   kramdown
   liquid-tag-parser
   nokogiri
+  rake
   sass
   sprockets (~> 4.0.beta)
   uglifier
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
