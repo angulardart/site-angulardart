@@ -96,7 +96,8 @@
 - title: Reference
   permalink: /reference
   children:
-  - title: API Documentation
-    permalink: /reference/api
   - title: Videos
     permalink: /reference/videos
+
+- title: API Documentation
+  permalink: /api

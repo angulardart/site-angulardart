@@ -9,7 +9,7 @@ LOGFILE=$TMP/log-for-code-excerpt-misformatting.txt
 # Don't check API pages because they contain examples with templates
 # containing </pre> closing tags.
 
-find publish -type f -name "*.html" ! -path "publish/reference/api/**" \
+find publish -type f -name "*.html" ! -path "publish/api/**" \
   -exec grep '&lt;/pre&gt;' {} + > $LOGFILE
 
 if [[ -s $LOGFILE ]]; then
