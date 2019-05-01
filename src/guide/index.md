@@ -49,7 +49,7 @@ a collection of pages devoted to that theme.
   </td>
 </tr>
 <tr>
-  <td><b><a href={{site.api}}>API Reference</a></b></td>
+  <td><b><a href="{{site.api}}">API Reference</a></b></td>
   <td markdown="1">
   Choose **All** from the **PACKAGES** dropdown to see APIs defined by the
   Angular libraries and commonly used dart:* libraries.
