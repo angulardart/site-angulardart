@@ -8,7 +8,7 @@ excerpt_separator: ""
 -   Build system switched from pub transformers to build_runner/webdev. [Dart 2
     Migration Guide for Web Apps][migration-guide-webapps]
 -   Introduced Router 2.0. [Router Migration
-    Guide](https://github.com/dart-lang/angular/blob/master/doc/router/migration.md)
+    Guide](https://github.com/dart-lang/angular/blob/master/doc/migrating-to-v5.md)
 -   Strictly typed injector.
 -   Usage of generated `.template.dart` files for `NgFactory` referencing.
 
