@@ -280,7 +280,7 @@ gulp.task('build', gulp.series(
 ));
 
 function _copyApiList(done) {
-  execSyncAndLog('cp src/reference/api/api-list.json src/_data/api-list.json');
+  execSyncAndLog('cp src/api/api-list.json src/_data/api-list.json');
   done();
 }
 

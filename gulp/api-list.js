@@ -34,7 +34,7 @@ module.exports = function (gulp, plugins, config) {
   // gulp.task('_get-sdk-doc-index-json', gulp.series('_clean-only-once', getSdkDocIndexJson));
 
   function _buildApiListJson(done) {
-    const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'reference', 'api');
+    const destFolder = path.join(config.THIS_PROJECT_PATH, 'src', 'api');
 
     log.info(`Creating combined api-list.json:`);
 
