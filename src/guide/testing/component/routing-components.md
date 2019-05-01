@@ -360,7 +360,7 @@ you can simply test the last URL cached by the mock platform location:
   });
 ```
 
-[appBaseHref]: /referece/api/angular_router/angular_router/appBaseHref-constant
+[appBaseHref]: /api/angular_router/angular_router/appBaseHref-constant
 [app shell]: /tutorial/toh-pt5#create-appcomponent
 [base href]: /guide/router/1#set-the-base-href
 [dashboard]: /tutorial/toh-pt5#add-heroes-to-the-dashboard
@@ -368,9 +368,9 @@ you can simply test the last URL cached by the mock platform location:
 [link parameter list]: /guide/router/appendices#link-parameters-list
 [package:mockito]: https://pub.dartlang.org/packages/mockito
 [part 5]: /tutorial/toh-pt5
-[PlatformLocation]: /referece/api/angular_router/angular_router/PlatformLocation-class
+[PlatformLocation]: /api/angular_router/angular_router/PlatformLocation-class
 [route configurations]: /tutorial/toh-pt5#configure-routes
-[routerProviders]: /referece/api/angular_router/angular_router/routerProviders-constant
-[RouterLink]: /referece/api/angular_router/angular_router/RouterLink-class
-[RouterOutlet]: /referece/api/angular_router/angular_router/RouterOutlet-class
+[routerProviders]: /api/angular_router/angular_router/routerProviders-constant
+[RouterLink]: /api/angular_router/angular_router/RouterLink-class
+[RouterOutlet]: /api/angular_router/angular_router/RouterOutlet-class
 [tutorial]: /tutorial

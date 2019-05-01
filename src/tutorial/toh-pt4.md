@@ -405,4 +405,4 @@ and see how the app behaves.
 
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
-[OnInit]: /references/api/angular/angular/OnInit-class
+[OnInit]: /api/angular/angular/OnInit-class

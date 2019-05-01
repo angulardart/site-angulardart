@@ -27,7 +27,7 @@
   <td markdown="1">
   Inline template or external template URL of the component's view.
 
-  See: [Architecture Overview](/angular/guide/architecture)
+  See: [Architecture Overview](/guide/architecture)
   </td>
 </tr>
 
@@ -39,7 +39,7 @@
   <td markdown="1">
   List of inline CSS styles or external stylesheet URLs for styling the component’s view.
 
-  See: [Component Styles](/angular/guide/component-styles)
+  See: [Component Styles](/guide/component-styles)
   </td>
 </tr>
 
@@ -50,7 +50,7 @@
   <td markdown="1">
   List of directives used in the component's template.
 
-  See: [Architecture Overview](/angular/guide/architecture),
+  See: [Architecture Overview](/guide/architecture),
   [CORE_DIRECTIVES]({{site.api}}/angular/angular/CORE_DIRECTIVES-constant)
   </td>
 </tr>
@@ -62,7 +62,7 @@
   <td markdown="1">
   List of pipes used in the component's template.
 
-  See: [Pipes](/angular/guide/pipes), [commonPipes]({{site.api}}/angular/angular/commonPipes-constant)
+  See: [Pipes](/guide/pipes), [commonPipes]({{site.api}}/angular/angular/commonPipes-constant)
   </td>
 </tr>
 

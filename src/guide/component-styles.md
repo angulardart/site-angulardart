@@ -4,10 +4,10 @@ description: Learn how to apply CSS styles to components.
 sideNavGroup: advanced
 prevpage:
   title: Attribute Directives
-  url: /angular/guide/attribute-directives
+  url: /guide/attribute-directives
 nextpage:
   title: Deployment
-  url: /angular/guide/deployment
+  url: /guide/deployment
 ---
 <?code-excerpt path-base="examples/ng/doc/component-styles"?>
 {%comment%}TODO: consider adding material equivalent to TS Appendices 1 & 2 if relevant.{%endcomment%}

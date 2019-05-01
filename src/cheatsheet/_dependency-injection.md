@@ -15,7 +15,7 @@
   Sets or overrides the provider for `MyService` to the `MyMockService` class.
 
   See:
-  [Dependency Injection](/angular/guide/dependency-injection),
+  [Dependency Injection](/guide/dependency-injection),
   [provide function]({{site.api}}/angular/angular/provide),
   [Provider class]({{site.api}}/angular/angular/Provider-class)
   </td>
@@ -29,7 +29,7 @@
   Sets or overrides the provider for `MyService` to the `myFactory` factory function.
 
   See:
-  [Dependency Injection](/angular/guide/dependency-injection),
+  [Dependency Injection](/guide/dependency-injection),
   [provide function]({{site.api}}/angular/angular/provide),
   [Provider class]({{site.api}}/angular/angular/Provider-class)
   </td>
@@ -43,7 +43,7 @@
   Sets or overrides the provider for `MyValue` to the value `42`.
 
   See:
-  [Dependency Injection](/angular/guide/dependency-injection),
+  [Dependency Injection](/guide/dependency-injection),
   [provide function]({{site.api}}/angular/angular/provide),
   [Provider class]({{site.api}}/angular/angular/Provider-class)
   </td>

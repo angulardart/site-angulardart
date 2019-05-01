@@ -10,11 +10,11 @@
   for details.
 </div>
 
-[appendix]: /angular/guide/router/appendices#browser-url-styles
+[appendix]: /guide/router/appendices#browser-url-styles
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [HashLocationStrategy]: /api/angular_router/angular_router/HashLocationStrategy-class
 [LocationStrategy]: /api/angular_router/angular_router/LocationStrategy-class
 [PathLocationStrategy]: /api/angular_router/angular_router/PathLocationStrategy-class
 [routerProviders]: /api/angular_router/angular_router/routerProviders-constant
 [routerProvidersHash]: /api/angular_router/angular_router/routerProvidersHash-constant
-[webdev serve]: /tools/webdev#serve
+[webdev serve]: /tools/index#webdev

@@ -28,7 +28,7 @@ retained. Future versions of AngularDart will attempt to remove this behavior,
 but that means `Type` can no longer be used to load components.
 
 What you _can_ use is what is called a
-[`ComponentFactory`]({{site.api}}/angular/angular/ComponentFactory-class),
+[`ComponentFactory`](/api/angular/angular/ComponentFactory-class),
 a generated object that represents a handle to imperatively creating the
 component `class` it was generated from. The new `ComponentLoader` API accepts
 these `ComponentFactory` instances instead of `Type`.

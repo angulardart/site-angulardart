@@ -33,7 +33,7 @@ In addition to the [other Dart tools]({{site.dartlang}}/tools)
 included in the SDK, the following tools
 offer specialized support for web programming.
 
-[webdev]({{site.dartlang}}/tools/webdev)
+[webdev](https://pub.dartlang.org/packages/webdev#usage)
 : A command line interface (CLI) for Dart web app development,
   including building and serving web apps.
 
