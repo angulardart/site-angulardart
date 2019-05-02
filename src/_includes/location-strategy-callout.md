@@ -17,4 +17,4 @@
 [PathLocationStrategy]: /api/angular_router/angular_router/PathLocationStrategy-class
 [routerProviders]: /api/angular_router/angular_router/routerProviders-constant
 [routerProvidersHash]: /api/angular_router/angular_router/routerProvidersHash-constant
-[webdev serve]: /tools/index#webdev
+[webdev serve]: {{site.pub-pkg}}/webdev#usage

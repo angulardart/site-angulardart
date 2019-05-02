@@ -264,6 +264,6 @@ You'll also allow the user to select heroes and display their details.
 You'll learn more about how to retrieve lists and bind them to the template.
 
 [angular_forms]: {{site.api}}/angular_forms
-[webdev serve]: {{site.dartlang}}/tools/webdev#serve
+[webdev serve]: {{site.pub-pkg}}/webdev#usage
 [formDirectives]: {{site.api}}/angular_forms/angular_forms/formDirectives-constant
 [interpolation syntax]: /guide/template-syntax#interpolation
