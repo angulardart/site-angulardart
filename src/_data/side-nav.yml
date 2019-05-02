@@ -1,4 +1,4 @@
-- title: AngularDart Docs
+- title: Docs
   children:
   - title: Guide
     permalink: /guide
@@ -70,22 +70,21 @@
     - title: Testing
       permalink: /guide/testing
 
-- title: Cheat Sheet
-  permalink: /cheatsheet
-
-- title: Glossary
-  permalink: /glossary
-
-- title: Engineering Notes
-  permalink: /note
-
-- title: Components gallery
-  permalink: https://dart-lang.github.io/angular_components
-- title: Components codelab
-  permalink: /codelabs/angular_components
+- title: Components
+  children:
+  - title: Components Gallery
+    permalink: https://dart-lang.github.io/angular_components
+  - title: Components codelab
+    permalink: /codelabs/angular_components
 
 - title: Resources
   children:
+  - title: Cheat Sheet
+    permalink: /cheatsheet
+  - title: Glossary
+    permalink: /glossary
+  - title: Engineering Notes
+    permalink: /note
   - title: FAQ
     permalink: /faq
   - title: Tools
@@ -94,10 +93,8 @@
     permalink: /community
 
 - title: Reference
-  permalink: /reference
   children:
   - title: Videos
     permalink: /reference/videos
-
-- title: API Documentation
-  permalink: /api
+  - title: API Documentation
+    permalink: /api
