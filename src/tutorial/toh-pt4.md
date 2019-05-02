@@ -69,7 +69,7 @@ Create the file `hero_service.dart` under `lib/src`.
 
 <div class="l-sub-section" markdown="1">
   The naming convention for service files is the service name in lowercase followed by `_service`.
-  For a multi-word service name, use lower [snake_case](../guide/glossary#snake_case).
+  For a multi-word service name, use lower [snake_case](/glossary#snake_case).
   For example, the filename for `SpecialSuperHeroService` is `special_super_hero_service.dart`.
 </div>
 

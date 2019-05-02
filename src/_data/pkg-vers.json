@@ -1,6 +1,6 @@
 {
   "angular": {
-    "doc-path": "angular/guide",
+    "doc-path": "guide",
     "prev-vers": "4.0.0+2",
     "vers": "5.2.0"
   },

@@ -40,7 +40,7 @@
   <td markdown="1">
   Binds a host element property (here, the CSS class `valid`) to a directive/component property (`isValid`).
 
-  See: [HostBinding class]({{site.api}}/angular/HostBinding-class)
+  See: [HostBinding class]({{site.api}}/angular/angular/HostBinding-class)
   </td>
 </tr>
 

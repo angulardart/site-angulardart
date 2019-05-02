@@ -46,7 +46,7 @@
 
 - Launch the app, using a compile-time generated root injector.
 
-  See: [Architecture Overview](/angular/guide/architecture),
-  [Dependency Injection](/angular/guide/dependency-injection)
+  See: [Architecture Overview](/guide/architecture),
+  [Dependency Injection](/guide/dependency-injection)
 
 </div>
