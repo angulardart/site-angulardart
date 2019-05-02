@@ -69,7 +69,7 @@ Create the file `hero_service.dart` under `lib/src`.
 
 <div class="l-sub-section" markdown="1">
   The naming convention for service files is the service name in lowercase followed by `_service`.
-  For a multi-word service name, use lower [snake_case](../guide/glossary#snake_case).
+  For a multi-word service name, use lower [snake_case](/glossary#snake_case).
   For example, the filename for `SpecialSuperHeroService` is `special_super_hero_service.dart`.
 </div>
 
@@ -405,4 +405,4 @@ and see how the app behaves.
 
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
-[OnInit]: /references/api/angular/angular/OnInit-class
+[OnInit]: /api/angular/angular/OnInit-class

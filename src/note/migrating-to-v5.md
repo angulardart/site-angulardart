@@ -6,9 +6,9 @@ excerpt_separator: ""
 ## Major changes
 
 -   Build system switched from pub transformers to build_runner/webdev. [Dart 2
-    Migration Guide for Web Apps]({{site.www}}/dart-2)
+    Migration Guide for Web Apps][migration-guide-webapps]
 -   Introduced Router 2.0. [Router Migration
-    Guide](https://github.com/dart-lang/angular/blob/master/doc/router/migration.md)
+    Guide](https://github.com/dart-lang/angular/blob/master/doc/migrating-to-v5.md)
 -   Strictly typed injector.
 -   Usage of generated `.template.dart` files for `NgFactory` referencing.
 
@@ -117,7 +117,7 @@ analyzer:
 ```
 
 For further information on how to customize the analyzer see [Customize Static
-Analysis]({{site.www}}/guides/language/analysis-options).
+Analysis][customize-static-analysis].
 
 ### Setting up the root injector and runApp
 
@@ -327,3 +327,6 @@ class MyComponent {}
 ```
 
 {% endraw %}
+
+[migration-guide-webapps]: {{site.www}}/dart-2
+[customize-static-analysis]: {{site.www}}/guides/language/analysis-options

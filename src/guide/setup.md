@@ -39,7 +39,7 @@ You can get the project's files by the following methods:
 
 1. Launch WebStorm.
 1. If you haven't already done so,
-   [configure Dart support in WebStorm](/tools/webstorm#configuring-dart-support).
+   [configure Dart support in WebStorm]({{site.webdev}}/tools/webstorm#configuring-dart-support).
 1. From the welcome screen, choose **Check out from Version Control > Git**.<br>
    Alternatively, from the menu, choose **VCS > Git > Clone...**<br>
    A **Clone Repository** dialog appears.

@@ -16,7 +16,7 @@
 
   Does not support parent-child relationship selectors.
 
-  See: [Structural Directives](/angular/guide/structural-directives),
+  See: [Structural Directives](/guide/structural-directives),
   [selector property]({{site.api}}/angular/angular/Directive/selector)
   </td>
 </tr>
@@ -29,8 +29,8 @@
   List of dependency injection providers for this directive and its children.
 
   See:
-  [Attribute Directives](/angular/guide/attribute-directives),
-  [Structural Directives](/angular/guide/structural-directives),
+  [Attribute Directives](/guide/attribute-directives),
+  [Structural Directives](/guide/structural-directives),
   [providers property]({{site.api}}/angular/angular/Directive/providers)
   </td>
 </tr>

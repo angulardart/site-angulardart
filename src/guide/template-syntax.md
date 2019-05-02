@@ -950,15 +950,15 @@ The following example conditionally sets the font size in  “em” and “%” 
   the [NgStyle directive](#ngStyle) is generally preferred when setting several inline styles at the same time.
 
   Note that a _style property_ name can be written in either
-  [dash-case](glossary#dash-case), as shown above, or
-  [camelCase](glossary#camelcase), such as `fontSize`.
+  [dash-case](/glossary#dash-case), as shown above, or
+  [camelCase](/glossary#camelcase), such as `fontSize`.
 </div>
 
 <div class="alert alert-info" markdown="1">
   <h4>Style property names</h4>
 
-  While [camelCase](glossary#camelcase) and
-  [dash-case](glossary#dash-case) style property naming schemes are
+  While [camelCase](/glossary#camelcase) and
+  [dash-case](/glossary#dash-case) style property naming schemes are
   equivalent in AngularDart, only dash-case names are recognized by the
   `dart:html` [CssStyleDeclaration][CssSD] methods `getPropertyValue()`
   and `setProperty()`.

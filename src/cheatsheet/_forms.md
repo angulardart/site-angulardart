@@ -15,7 +15,7 @@
   <td markdown="1">
   Provides two-way data-binding, parsing, and validation for form controls.
 
-  See: [Forms](/angular/guide/forms),
+  See: [Forms](/guide/forms),
   [NgModel class]({{site.api}}/angular_forms/angular_forms/NgModel-class)
   </td>
 </tr>

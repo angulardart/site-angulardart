@@ -44,7 +44,7 @@ Additional resources for AngularDart Components:
 
 Related resources:
 
-* [AngularDart documentation](/angular)
+* [AngularDart documentation](/)
 * [Material Design site](https://www.material.io){: .no-automatic-external}
 
 <a href="/codelabs/angular_components">

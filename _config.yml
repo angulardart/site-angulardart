@@ -30,7 +30,7 @@ flutter_api: https://docs.flutter.io
 pub-api: https://pub.dartlang.org/documentation
 pub-pkg: https://pub.dartlang.org/packages
 acx_gallery: https://dart-lang.github.io/angular_components
-api:  /reference/api
+api:  /api
 
 ghNgEx: https://github.com/angular-examples
 # ghNgExBranch: --> use site.branch since branches should match across repos.

@@ -15,7 +15,7 @@
   <td markdown="1">
   Removes or recreates a portion of the DOM tree based on the `showSection` expression.
 
-  See: [Template Syntax](/angular/guide/template-syntax),
+  See: [Template Syntax](/guide/template-syntax),
   [NgIf class]({{site.api}}/angular/angular/NgIf-class)
   </td>
 </tr>
@@ -27,7 +27,7 @@
   <td markdown="1">
   Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.
 
-  See: [Template Syntax](/angular/guide/template-syntax),
+  See: [Template Syntax](/guide/template-syntax),
   [NgFor class]({{site.api}}/angular/angular/NgFor-class)
   </td>
 </tr>
@@ -43,7 +43,7 @@
   <td markdown="1">
   Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of conditionExpression.
 
-  See: [Template Syntax](/angular/guide/template-syntax),
+  See: [Template Syntax](/guide/template-syntax),
   [NgSwitch class]({{site.api}}/angular/angular/NgSwitch-class),
   [NgSwitchCase class]({{site.api}}/angular/angular/NgSwitchWhen-class),
   [NgSwitchDefault class]({{site.api}}/angular/angular/NgSwitchDefault-class)
@@ -57,7 +57,7 @@
   <td markdown="1">
   Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.
 
-  See: [Template Syntax](/angular/guide/template-syntax),
+  See: [Template Syntax](/guide/template-syntax),
   [NgClass class]({{site.api}}/angular/angular/NgClass-class)
   </td>
 </tr>

@@ -33,9 +33,9 @@ all modern browsers can execute Dart code that's been compiled to JavaScript.
 ### Q. How do I debug an app?
 
 For setup details and a walkthrough, see
-[Debugging Dart Web Apps](/guides/debugging).
+[Debugging Dart Web Apps]({{site.webdev}}/guides/debugging).
 
-The [debugging](/tools/dart2js#debugging) section of the dart2js documentation
+The [debugging]({{site.webdev}}/tools/dart2js#debugging) section of the dart2js documentation
 has some tips for specific browsers.
 
 ### Q. Can I use Angular with Dart?
@@ -187,7 +187,7 @@ but we're working to make the common cases fast.
 ### Q. How can I write Dart code that compiles to performant JavaScript?
 
 See [Helping dart2js generate better
-code](/tools/dart2js#helping-dart2js-generate-efficient-code).
+code]({{site.webdev}}/tools/dart2js#helping-dart2js-generate-efficient-code).
 Just be aware that this information might change as the implementation of
 dart2js changes.
 

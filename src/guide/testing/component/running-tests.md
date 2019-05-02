@@ -15,7 +15,7 @@ toc: false
 {% include_relative _page-top-toc.md %}
 
 Whether you've just started the [tutorial](/tutorial), or
-finished the [Get Started](/guides/get-started) page,
+finished the [Get Started](/guide/setup) page,
 you are ready to run your first tests!
 If you haven't worked through these projects recently, don't worry.
 You can follow along by first setting up the

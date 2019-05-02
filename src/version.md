@@ -25,8 +25,10 @@ Previous and next versions of packages are also shown when they exist.
   - <span class="pad">{{info.prev-vers}}</span>
     (<a href="{{pubPkgUrl}}/{{info.prev-name | default: name}}/versions/{{info.prev-vers}}#-changelog-tab-"
         class="no-automatic-external">package</a>
-    {%- if info.doc-path -%}
+    {%- if info.no-angular-prefix and info.doc-path -%}
       ,&nbsp;<a href="{{site.prev-url}}/{{info.doc-path}}" class="no-automatic-external">docs</a>
+    {%- else %}
+      ,&nbsp;<a href="{{site.prev-url}}/angular/{{info.doc-path}}" class="no-automatic-external">docs</a>
     {%- endif -%}
     )
   {%- endif -%}

@@ -42,7 +42,7 @@ For more information, see the [documentation for webdev][webdev].
 
 ### Use dart2js flags to produce better JavaScript
 
-Google's apps often use the following [dart2js options](/tools/dart2js#options):
+Google's apps often use the following [dart2js options]({{site.dartlang}}/tools/dart2js#options):
 
 - `--fast-startup`
 - `--minify`
