@@ -106,13 +106,13 @@ You've just worked through the elementary features of `package:test`. For
 complete coverage of the package capabilities, see the
 [package test documentation.][test]
 
-[angular_test]: https://pub.dev/packages/angular_test
-[build_test]: https://pub.dev/packages/build_test
-[group()]: https://pub.dev/packages/test#writing-tests
+[angular_test]: https://pub.dartlang.org/packages/angular_test
+[build_test]: https://pub.dartlang.org/packages/build_test
+[group()]: https://pub.dartlang.org/packages/test#writing-tests
 [group API]: {{site.pub-api}}/test/latest/test/group.html
 [NgTestBed]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestBed-class.html
 [NgTestFixture]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestFixture-class.html
 [pubspec]: {{site.dartlang}}/tools/pub/pubspec
 [setUpAll()]: {{site.pub-api}}/test/latest/test/setUpAll.html
 [tearDownAll()]: {{site.pub-api}}/test/latest/test/tearDownAll.html
-[test]: https://pub.dev/packages/test
+[test]: https://pub.dartlang.org/packages/test

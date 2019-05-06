@@ -96,7 +96,7 @@ Incremental compilation makes subsequent test runs much quicker.
   00:01 +3: All tests passed!
 ```
 
-[build_runner]: https://pub.dev/packages/build_runner
+[build_runner]: https://pub.dartlang.org/packages/build_runner
 [serves the app]: /guide/setup#running-the-app
 [test fixture]: https://github.com/junit-team/junit4/wiki/test-fixtures
-[test package]: https://pub.dev/packages/test
+[test package]: https://pub.dartlang.org/packages/test

@@ -25,7 +25,7 @@ nextpage:
 AngularDart (which we usually call simply Angular in this documentation)
 is a framework for building client apps in HTML and Dart.
 It is published as the
-[**angular**](https://pub.dev/packages/angular) package, which
+[**angular**](https://pub.dartlang.org/packages/angular) package, which
 is available via the Pub tool.
 
 You write Angular apps by composing HTML *templates* with Angularized
@@ -94,7 +94,7 @@ By convention, the name of the root component is `AppComponent`.
 <img class="image-left" src="{% asset ng/devguide/architecture/library-module.png @path %}" alt="Libraries" width="200px">
 
 Angular ships as a collection of libraries within the
-[**angular**](https://pub.dev/packages/angular) package.
+[**angular**](https://pub.dartlang.org/packages/angular) package.
 The main Angular library is [angular]({{site.api}}?package=angular),
 which most app modules import as follows:
 

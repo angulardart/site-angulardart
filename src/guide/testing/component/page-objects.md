@@ -370,11 +370,11 @@ setup method, which selects the hero and gets a new PO.
 ```
 {% endcomment %}
 
-[angular_test]: https://pub.dev/packages/angular_test
+[angular_test]: https://pub.dartlang.org/packages/angular_test
 [@optional]: {{pageloaderObjectsApi}}/optional-constant.html
 [issue 1351]: https://github.com/dart-lang/site-webdev/issues/1351
 [page object]: https://martinfowler.com/bliki/PageObject.html
-[pageloader]: https://pub.dev/packages/pageloader
+[pageloader]: https://pub.dartlang.org/packages/pageloader
 [rootElement]: {{site.pub-api}}/angular_test/latest/angular_test/NgTestFixture/rootElement.html
 [separate concerns]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [toh-pt1]: /tutorial/toh-pt1

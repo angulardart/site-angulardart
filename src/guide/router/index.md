@@ -256,9 +256,9 @@ text="multi-page routed app" %} through a sequence of milestones. Each milestone
 highlights specific design decisions and introduces new key features of the
 router.
 
-[angular_forms]: https://pub.dev/packages/angular_forms
+[angular_forms]: https://pub.dartlang.org/packages/angular_forms
 [angular_router]: {{site.api}}/angular_router/angular_router/angular_router-library
-[angular_router@pub]: https://pub.dev/packages/angular_router
+[angular_router@pub]: https://pub.dartlang.org/packages/angular_router
 [RouteDefinition]: {{site.api}}/angular_router/angular_router/RouteDefinition-class
 [Router]: {{site.api}}/angular_router/angular_router/Router-class
 [RouterLink]: {{site.api}}/angular_router/angular_router/RouterLink-class

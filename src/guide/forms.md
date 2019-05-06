@@ -842,7 +842,7 @@ Here’s the code for the final version of the app:
 </code-tabs>
 
 [angular_forms]: {{site.api}}/angular_forms/angular_forms/angular_forms-library
-[angular_forms@pub]: https://pub.dev/packages/angular_forms
+[angular_forms@pub]: https://pub.dartlang.org/packages/angular_forms
 [Bootstrap]: https://getbootstrap.com
 [Bootstrap forms]: https://getbootstrap.com/docs/4.0/components/forms
 [Bootstrap custom-forms]: https://getbootstrap.com/docs/4.0/components/forms/#custom-forms

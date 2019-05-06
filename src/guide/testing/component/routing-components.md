@@ -366,7 +366,7 @@ you can simply test the last URL cached by the mock platform location:
 [dashboard]: /tutorial/toh-pt5#add-heroes-to-the-dashboard
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [link parameter list]: /guide/router/appendices#link-parameters-list
-[package:mockito]: https://pub.dev/packages/mockito
+[package:mockito]: https://pub.dartlang.org/packages/mockito
 [part 5]: /tutorial/toh-pt5
 [PlatformLocation]: /api/angular_router/angular_router/PlatformLocation-class
 [route configurations]: /tutorial/toh-pt5#configure-routes
