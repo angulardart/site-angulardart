@@ -54,7 +54,7 @@ if you already have the required packages installed.
 
 **Open a terminal/command window** and execute the following commands:
 
-1. <code>cd <i>\<path-to-webdev-repo></i></code> &nbsp;&nbsp;# change to
+1. <code>cd <i>\<path-to-angulardart-repo></i></code> &nbsp;&nbsp;# change to
    **root of this repo**, e.g.: `~/git/site-angulardart`
 1. `source ./tool/env-set.sh` &nbsp;&nbsp;#
    initialize environment variables; install/use required Node & Ruby version
