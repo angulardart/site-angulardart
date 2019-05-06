@@ -910,7 +910,7 @@ Here are the files you added or changed in this page.
 Return to the [learning path](/guide/learning-angular), where
 you can read more about the concepts and practices found in this tutorial.
 
-[http]: https://pub.dartlang.org/packages/http
-[stream_transform]: https://pub.dartlang.org/packages/stream_transform
+[http]: https://pub.dev/packages/http
+[stream_transform]: https://pub.dev/packages/stream_transform
 [Stream]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Stream-class.html
 [StreamController]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/StreamController-class.html

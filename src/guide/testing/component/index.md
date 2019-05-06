@@ -56,10 +56,10 @@ This guide covers the following component testing topics:
 {% endcomment %}
 
 [Jasmine]: https://jasmine.github.io
-[angular_test]: https://pub.dartlang.org/packages/angular_test
+[angular_test]: https://pub.dev/packages/angular_test
 [component testing]: https://en.wikipedia.org/wiki/Software_testing#Component_interface_testing
-[package:angular_test]: https://pub.dartlang.org/packages/angular_test
-[package:mockito]: https://pub.dartlang.org/packages/mockito
-[package:test]: https://pub.dartlang.org/packages/test
+[package:angular_test]: https://pub.dev/packages/angular_test
+[package:mockito]: https://pub.dev/packages/mockito
+[package:test]: https://pub.dev/packages/test
 [testing]: {{site.dartlang}}/guides/testing
 [unit testing]: https://en.wikipedia.org/wiki/Unit_testing
