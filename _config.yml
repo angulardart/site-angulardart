@@ -17,18 +17,18 @@ port: 4001
 # use case:
 #   {{site.dartlang}}/downloads
 #
-www: https://www.dartlang.org
+www: https://www.dart.dev
 webdev: https://webdev.dartlang.org
-dartlang: https://www.dartlang.org
+dartlang: https://www.dart.dev
 angulardart: https://angulardart.dev
 angular: https://angular.io
-dart_vm:  https://www.dartlang.org/dart-vm
-flutter:  https://flutter.io
-dart_api: https://api.dartlang.org
+dart_vm:  https://www.dart.dev/server
+flutter:  https://flutter.dev
+dart_api: https://api.dart.dev
 acx_api: /api/angular_components
 flutter_api: https://docs.flutter.io
-pub-api: https://pub.dartlang.org/documentation
-pub-pkg: https://pub.dartlang.org/packages
+pub-api: https://pub.dev/documentation
+pub-pkg: https://pub.dev/packages
 acx_gallery: https://dart-lang.github.io/angular_components
 api:  /api
 
