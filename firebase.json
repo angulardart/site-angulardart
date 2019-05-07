@@ -4,17 +4,19 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
+      { "source": "/angular", "destination": "/", "type": 301 },
       { "source": "/angular/:path*", "destination": "/:path", "type": 301 },
+      { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0", "type": 301 },
+      { "source": "/angular/api", "destination": "/api?package=angular", "type": 301 },
+      { "source": "/angular/api/**", "destination": "/api?package=angular", "type": 301 },
+      { "source": "/api/angular/angular", "destination": "/api/angular/angular/angular-library", "type": 301 },
+      { "source": "/api/angular_components/angular_components", "destination": "/api/angular_components/angular_components/angular_components-library", "type": 301 },
+      { "source": "/api/angular2", "destination": "/api?package=angular", "type": 301 },
+      { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
       { "source": "/tutorials/get-data/fetch-data", "destination": "/tutorials/web/fetch-data", "type": 301 },
       { "source": "/changelog", "destination": "/reference/changelog", "type": 301 },
       { "source": "/guides/get-started", "destination": "/get-started", "type": 301 },
       { "source": "/tutorials", "destination": "/tutorials/web", "type": 301 },
-      { "source": "/angular/changelog", "destination": "/changelog", "type": 301 },
-      { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0", "type": 301 },
-      { "source": "/angular/version", "destination": "/version", "type": 301 },
-      { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet", "type": 301 },
-      { "source": "/angular/guide/glossary", "destination": "/angular/glossary", "type": 301 },
-
       { "source": "/articles/get-data", "destination": "https://www.dartlang.org/guides/json", "type": 301 },
       { "source": "/articles/get-data/**", "destination": "https://www.dartlang.org/guides/json", "type": 301 },
       { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming", "type": 301 },
@@ -25,12 +27,6 @@
       { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
       { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
 
-      { "source": "/angular/api", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/angular/api/**", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/api/angular/angular", "destination": "/api/angular/angular/angular-library", "type": 301 },
-      { "source": "/api/angular_components/angular_components", "destination": "/api/angular_components/angular_components/angular_components-library", "type": 301 },
-      { "source": "/api/angular2", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
       { "source": "/components/api", "destination": "/api?package=angular_components", "type": 301 },
       { "source": "/components/api/**", "destination": "/api?package=angular_components", "type": 301 },
 
@@ -45,10 +41,7 @@
       { "source": "/tools/dartium", "destination": "/dart-2#tools", "type": 301 },
       { "source": "/tools/pub", "destination": "/dart-2#tools", "type": 301 },
       { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 },
-      { "source": "/tools/build_runner", "destination": "/tools/webdev", "type": 301 },
-      { "source": "/angular/note/effective/styling", "destination": "/angular/note/effective/css-styling", "type": 301 },
-      { "source": "/angular/note/effective/di", "destination": "/angular/note/effective/dependency-injection", "type": 301 },
-      { "source": "/angular/note/faq/di", "destination": "/angular/note/faq/dependency-injection", "type": 301 }
+      { "source": "/tools/build_runner", "destination": "/tools/webdev", "type": 301 }
     ],
     "rewrites": [
       { "source": "/examples/router/**", "destination": "/examples/router/index.html" },
