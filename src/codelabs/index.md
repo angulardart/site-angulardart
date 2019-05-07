@@ -5,8 +5,6 @@ permalink: /codelabs
 toc: false
 ---
 
-TODO: Update codelab list.
-
 <div class="item-with-pic">
 <img src="/codelabs/images/angular-components.png"
      width="150px"
@@ -20,6 +18,7 @@ to Material Design components that are widely used in Google's Dart apps.
 </div>
 </div>
 
+{% comment %}
 <div class="item-with-pic" markdown="1">
 <img src="/codelabs/images/startup-namer.png"
      width="150px"
@@ -43,8 +42,9 @@ Create a web app that uses AngularDart and material design components.
 Use AngularDart and Firebase to create a web app with a realtime shared counter.
 </div>
 </div>
+{% endcomment %}
 
 
 For other available labs, see the
 [codelabs]({{site.dartlang}}/codelabs) page on
-[dartlang.org.]({{site.dartlang}})
+[dart.dev.]({{site.dartlang}})
