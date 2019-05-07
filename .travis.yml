@@ -111,7 +111,7 @@ jobs:
       script:
         - pub get
         - ./tool/shared/write-ci-info.sh -v
-        - npx gulp _build-api-docs --use-cached-api-doc --dartdoc=all
+        - travis_wait 30 npx gulp _build-api-docs --use-cached-api-doc --dartdoc=all
         - npx gulp _jekyll-build _examples-cp-to-site-folder
         - ls -l publish/examples
         - ls -l publish/assets/bootstrap/*
