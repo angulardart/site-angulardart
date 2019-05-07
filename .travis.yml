@@ -123,7 +123,7 @@ jobs:
           script: ./tool/shared/deploy.sh --robots ok default
           skip_cleanup: true
           on:
-            repo: dart-lang/site-angulardartREMOVE-WHEN-READY
+            repo: dart-lang/site-angulardart
             branch: master
             condition: $TASK == build*
     - env: TASK="test $TEST_OPT1"

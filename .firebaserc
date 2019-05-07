@@ -1,17 +1,5 @@
 {
   "projects": {
-    "default": "webdev-dartlang-org",
-    "dev": "webdev-dartlang-org-dev",
-    "auto-staging-0": "webdev-dartlang-org-staging-0",
-    "auto-staging-1": "webdev-dartlang-org-staging-1",
-    "staging": "angulardart-org-dev",
-    "staging2": "angulardart-org-dev2",
-    "staging3": "angulardart-org-dev3",
-    "filiph-staging": "filiph-webdev-staging",
-    "kw-staging": "kw-webdev-dartlang-1",
-    "ng3": "webdev-angular3-dartlang-org",
-    "ng4": "webdev-angular4-dartlang-org",
-    "kw-staging-2": "kw-webdev-dartlang-2",
-    "sz": "sz-webdev-1"
+    "default": "angulardart-dev",
   }
 }
