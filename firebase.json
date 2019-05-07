@@ -4,6 +4,11 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
+      { "source": "/angular/:path*", "destination": "/:path", "type": 301 },
+      { "source": "/tutorials/get-data/fetch-data", "destination": "/tutorials/web/fetch-data", "type": 301 },
+      { "source": "/changelog", "destination": "/reference/changelog", "type": 301 },
+      { "source": "/guides/get-started", "destination": "/get-started", "type": 301 },
+      { "source": "/tutorials", "destination": "/tutorials/web", "type": 301 },
       { "source": "/angular/changelog", "destination": "/changelog", "type": 301 },
       { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0", "type": 301 },
       { "source": "/angular/version", "destination": "/version", "type": 301 },
