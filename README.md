@@ -9,7 +9,7 @@ The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Host
 friendly](http://www.firsttimersonly.com)!
 
 For simple changes (such as to CSS and text), you probably don't need to
-build this site.  Often you can make changes using the GitHub UI.
+build this site. Often you can make changes using the GitHub UI.
 
 If you want/need to build, read on.
 
