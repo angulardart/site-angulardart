@@ -2,7 +2,7 @@
 title: Versions
 description: The versions that this documentation and its examples use.
 ---
-{% assign pubPkgUrl = 'https://pub.dartlang.org/packages' -%}
+{% assign pubPkgUrl = 'https://pub.dev/packages' -%}
 This site's documentation and examples use the
 [{{site.data.pkg-vers.SDK.vers}}]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/{{site.data.pkg-vers.SDK.vers}}){:.no-automatic-external}
 release of the [Dart SDK]({{site.dartlang}}/tools/sdk){:.no-automatic-external},

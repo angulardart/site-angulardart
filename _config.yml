@@ -27,8 +27,8 @@ flutter:  https://flutter.io
 dart_api: https://api.dartlang.org
 acx_api: /api/angular_components
 flutter_api: https://docs.flutter.io
-pub-api: https://pub.dartlang.org/documentation
-pub-pkg: https://pub.dartlang.org/packages
+pub-api: https://pub.dev/documentation
+pub-pkg: https://pub.dev/packages
 acx_gallery: https://dart-lang.github.io/angular_components
 api:  /api
 

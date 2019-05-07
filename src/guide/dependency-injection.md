@@ -529,7 +529,7 @@ The sample app's `Logger` service is quite simple:
 
 <div class="l-sub-section" markdown="1">
   A real implementation would probably use the
-  [logging package](https://pub.dartlang.org/packages/logging).
+  [logging package](https://pub.dev/packages/logging).
 </div>
 
 If the app doesn't provide `Logger`, Angular will throw an exception when it
