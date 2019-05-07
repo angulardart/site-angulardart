@@ -9,8 +9,6 @@ _Updated December 2018_
 This FAQ applies to AngularDart. For more general Dart questions,
 see the [Dart FAQ.]({{site.dartlang}}/faq)
 
-TODO: Rather than just move this to dart.dev, we should keep the AD Q&As here.
-
 ## General
 
 ### Q. What browsers do you support as JavaScript compilation targets?
@@ -42,7 +40,6 @@ has some tips for specific browsers.
 
 Yes! [AngularDart][] is a port of Angular to Dart.
 
-TODO: Should we delete this Angular or Polymer question?
 ### Q. Should I use Angular or Polymer?
 
 Use [AngularDart][].
