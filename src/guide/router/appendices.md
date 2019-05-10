@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: Appendices
 sideNavGroup: advanced
 prevpage:

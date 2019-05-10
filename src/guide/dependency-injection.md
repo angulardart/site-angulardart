@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: Dependency Injection
 description: Angular's dependency injection system creates and delivers dependent services "just-in-time".
 sideNavGroup: basic

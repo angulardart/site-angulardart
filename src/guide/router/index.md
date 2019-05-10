@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: Routing Overview
 description: Overview of core router features
 sideNavGroup: advanced
