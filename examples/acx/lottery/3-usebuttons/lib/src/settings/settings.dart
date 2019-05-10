@@ -41,8 +41,8 @@ class Strategy {
       "Conservative",
       "only disposable income",
       "Buy one ticket per day. Buy more only if daily disposable income "
-      "allows (in other words, do not use winnings to buy more tickets on "
-      "the same day).",
+          "allows (in other words, do not use winnings to buy more tickets on "
+          "the same day).",
       (bettedToday, wonToday, dailyDisposable) =>
           bettedToday < dailyDisposable);
 
@@ -50,8 +50,8 @@ class Strategy {
       "Reinvest",
       "disposable income and winnings",
       "Re-invest the day's winning tickets to buy new ones (unless the "
-      "winnings are 10x more than the daily disposable income, in which case "
-      "keep the cash).",
+          "winnings are 10x more than the daily disposable income, in which case "
+          "keep the cash).",
       (bettedToday, wonToday, dailyDisposable) =>
           bettedToday < dailyDisposable + wonToday &&
           wonToday < dailyDisposable * 10);
@@ -60,7 +60,7 @@ class Strategy {
       "All in",
       "everything",
       "Use all available cash to buy tickets every day (even if we just won "
-      "the jackpot — bet it all back).",
+          "the jackpot — bet it all back).",
       (bettedToday, wonToday, dailyDisposable) => true);
 
   static final List<Strategy> _strategies = [conservative, reinvest, allIn];
