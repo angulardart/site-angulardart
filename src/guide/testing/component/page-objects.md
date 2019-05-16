@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: "Component Testing: Page Objects"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced

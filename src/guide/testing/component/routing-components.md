@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: "Component Testing: Routing Components"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced
