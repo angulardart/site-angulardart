@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: Running Component Tests
 description: Running component tests
 sideNavGroup: advanced

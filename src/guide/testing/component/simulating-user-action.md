@@ -1,4 +1,5 @@
 ---
+layout: angular
 title: "Component Testing: Simulating user action"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced
