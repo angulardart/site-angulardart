@@ -1,29 +1,29 @@
 {
   "angular": {
     "doc-path": "guide",
-    "prev-vers": "4.0.0+2",
-    "vers": "5.2.0"
+    "prev-vers": "5.3.0",
+    "vers": "6.0.0-alpha"
   },
   "angular_components": {
     "doc-path": "components",
-    "prev-vers": "0.8.0",
-    "vers": "0.11.0",
+    "prev-vers": "0.12.0",
+    "vers": "0.13.0",
     "no-angular-prefix": true
   },
   "angular_forms": {
     "doc-path": "guide/forms",
     "prev-vers": "1.0.0",
-    "vers": "2.1.1"
+    "vers": "2.1.3"
   },
   "angular_router": {
     "doc-path": "guide/router",
     "prev-vers": "1.0.2",
-    "vers": "2.0.0-alpha+21"
+    "vers": "2.0.0-alpha+23"
   },
   "angular_test": {
     "doc-path": "guide/testing/component",
     "prev-vers": "1.0.1",
-    "vers": "2.2.0"
+    "vers": "2.3.0"
   },
   "SDK": {
     "channel": "stable",
