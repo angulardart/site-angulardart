@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "angulardart-dev"
+    "default": "angulardart-dev",
+    "staging": "webdev-dartlang-org-staging-0",
+    "kw": "kw-webdev-dartlang-1",
+    "kw2": "kw-webdev-dartlang-2"
   }
 }
