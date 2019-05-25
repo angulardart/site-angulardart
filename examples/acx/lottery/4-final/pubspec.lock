@@ -35,7 +35,7 @@ packages:
       name: angular_components
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.0"
+    version: "0.12.0"
   angular_forms:
     dependency: transitive
     description:
@@ -112,7 +112,7 @@ packages:
       name: build_modules
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.10"
+    version: "2.2.0"
   build_resolvers:
     dependency: transitive
     description:
@@ -147,7 +147,7 @@ packages:
       name: build_web_compilers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "2.1.0"
   built_collection:
     dependency: transitive
     description:
@@ -618,4 +618,4 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: ">=2.2.1-dev.3.0 <2.4.0"
+  dart: ">=2.3.1 <2.4.0"
