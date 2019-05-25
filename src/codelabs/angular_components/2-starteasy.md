@@ -48,8 +48,8 @@ using whatever [Dart web development tools](/tools) you prefer.
 @@ -7,6 +7,7 @@
 
  dependencies:
-   angular: ^5.2.0
-+  angular_components: ^0.11.0
+   angular: ^5.3.0
++  angular_components: ^0.12.0
    intl: ^0.15.0
 
  dev_dependencies:
