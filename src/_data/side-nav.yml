@@ -74,8 +74,6 @@
   children:
   - title: Components Gallery
     permalink: https://dart-lang.github.io/angular_components
-  - title: Components codelab
-    permalink: /codelabs/angular_components
 
 - title: Resources
   children:
