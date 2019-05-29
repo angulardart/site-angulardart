@@ -28,11 +28,11 @@ under **`dev_dependencies`**, for example:
 <?code-excerpt "toh-0/pubspec.yaml (dev_dependencies)" title?>
 ```
   dev_dependencies:
-    angular_test: ^2.0.0
-    build_runner: ^1.0.0
-    build_test: ^0.10.2
-    build_web_compilers: ^0.4.0
-    test: ^1.0.0
+    angular_test: ^2.3.0
+    build_runner: ^1.3.3
+    build_test: ^0.10.7
+    build_web_compilers: ^2.1.0
+    test: ^1.6.3
 ```
 
 ## API basics: _test_() and _expect_()

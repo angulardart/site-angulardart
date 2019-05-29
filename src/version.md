@@ -76,24 +76,4 @@ so sometimes we miss issues with configuration or testing.
 </aside>
 
 For more information, see the documentation for
-the [pub version scheme]({{site.dartlang}}/tools/pub/versioning).
-
-## Example code
-
-Each example in the AngularDart documentation has a repo under the GitHub
-organization [angular-examples]({{site.ghNgEx}}).
-These example repos are generated from the
-[dart-lang/site-angulardart]({{site.repo.this}}) repo,
-using files under the
-[examples]({{site.repo.this}}/tree/{{site.branch}}/examples) directory.
-
-## Other Angular implementations
-
-AngularDart started out with the same codebase as the TypeScript Angular
-framework, which is documented at [angular.io](https://angular.io).
-
-Although the [code is now
-separate](http://news.dartlang.org/2016/07/angulardart-is-going-all-dart.html),
-the two projects are as similar as possible,
-while still making the most of Dart features and libraries.
-
+the [pub version scheme.]({{site.dartlang}}/tools/pub/versioning)

@@ -198,8 +198,8 @@ The `angular_forms` library comes in its own package. Add the package to the pub
 +++ toh-1/pubspec.yaml
 @@ -8,2 +8,3 @@
  dependencies:
-   angular: ^5.0.0
-+  angular_forms: ^2.0.0
+   angular: ^5.3.0
++  angular_forms: ^2.1.2
 ```
 
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>
