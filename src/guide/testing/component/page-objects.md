@@ -42,11 +42,12 @@ Add the package to the pubspec dependencies:
 @@ -11,6 +12,7 @@
  dev_dependencies:
    angular_test: ^2.3.0
-   build_runner: ^1.3.3
-   build_test: ^0.10.7
+-  build_runner: ^1.3.0
++  build_runner: ^1.3.3
+   build_test: ^0.10.0
    build_web_compilers: ^2.1.0
 +  pageloader: ^3.2.0
-   test: ^1.6.3
+   test: ^1.6.0
 ```
 
 ## Imports

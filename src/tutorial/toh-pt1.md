@@ -9,6 +9,9 @@ nextpage:
   title: Master/Detail
   url: /tutorial/toh-pt2
 ---
+
+{% include out-of-date-tutorial.html %}
+
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>
 In this part of the tutorial, you'll modify the starter app to display
 information about a hero. Then you'll add the ability to edit the hero's data.
@@ -198,8 +201,8 @@ The `angular_forms` library comes in its own package. Add the package to the pub
 +++ toh-1/pubspec.yaml
 @@ -8,2 +8,3 @@
  dependencies:
-   angular: ^5.3.0
-+  angular_forms: ^2.1.2
+   angular: ^6.0.0-alpha
++  angular_forms: ^2.1.0
 ```
 
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>

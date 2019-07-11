@@ -7,6 +7,8 @@ prevpage:
   url: /tutorial/toh-pt5
 ---
 
+{% include out-of-date-tutorial.html %}
+
 <?code-excerpt path-base="examples/ng/doc/toh-6"?>
 
 In this page, you'll make the following improvements.
@@ -67,10 +69,10 @@ Update package dependencies by adding the Dart [http][] and
 --- toh-5/pubspec.yaml
 +++ toh-6/pubspec.yaml
 @@ -9,3 +9,5 @@
-   angular: ^5.3.0
-   angular_forms: ^2.1.2
-   angular_router: ^2.0.0-alpha+22
-+  http: ^0.11.3
+   angular: ^6.0.0-alpha
+   angular_forms: ^2.1.0
+   angular_router: ^2.0.0-alpha
++  http: ^0.12.0
 +  stream_transform: ^0.0.19
 ```
 
