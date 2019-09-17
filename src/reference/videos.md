@@ -13,7 +13,7 @@ Learn more about AngularDart with the following videos.
 * [Create First Pokemon AngularDart App \| Data Binding \| Ep1](https://www.youtube.com/watch?v=yWIFBsTT2Ag){: .no-automatic-external}
 
 <img src="images/Google-AdWords-Next-Interface-800x342.png"
-  alt="Screenshot of AdWords Next"
-  title="The UI of AdWords Next">
+  alt="Screenshot of Google Ads"
+  title="The UI of Google Ads">
 
 
