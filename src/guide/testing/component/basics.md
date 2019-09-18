@@ -31,7 +31,7 @@ under **`dev_dependencies`**, for example:
     angular_test: ^2.3.0
     build_runner: ^1.3.0
     build_test: ^0.10.0
-    build_web_compilers: ^2.1.0
+    build_web_compilers: ^2.4.0
     test: ^1.6.0
 ```
 
