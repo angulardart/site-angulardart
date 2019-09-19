@@ -345,7 +345,7 @@ function buildWebCompilerOptions() {
     '--no-release',
     // '--fail-on-severe', // On Travis we don't have a way to conveniently clear severe errors from previous runs, so omit this option for now.
     // '--delete-conflicting-outputs',
-    '--output=build',
+    '--output=web:build',
   ];
   if (argv.webCompiler === 'dartdevc') options.push(`--no-release`);
   // if (argv.webCompiler === 'dart2js' || !argv.webCompiler) options.push(
