@@ -6,7 +6,7 @@
 The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Hosting][Firebase].
 
 [We welcome contributions](CONTRIBUTING.md), and we're [first-timer
-friendly](http://www.firsttimersonly.com)!
+friendly](http://www.firsttimersonly.com).
 
 For simple changes (such as to CSS and text), you probably don't need to
 build this site. Often you can make changes using the GitHub UI.
