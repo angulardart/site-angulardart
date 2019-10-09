@@ -1,6 +1,6 @@
 # Site for _AngularDart_ ([angulardart.dev][])
 
-[![Build Status](https://travis-ci.com/dart-lang/site-angulardart.svg?token=ufcxuyv7xRMxuesyaqn3&branch=master)](https://travis-ci.com/dart-lang/site-angulardart)
+[![Build Status](https://travis-ci.org/dart-lang/site-angulardart.svg?branch=master)](https://travis-ci.org/dart-lang/site-angulardart)
 [![first-timers-only SVG][]][first-timers-only]
 
 The [angulardart.dev][] site, built with [Jekyll][] and hosted on [Firebase Hosting][Firebase].
