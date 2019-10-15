@@ -53,16 +53,6 @@ defaults:
     layout: default
     toc: true
 - scope:
-    path: ''
-    type: tutorials
-  values:
-    layout: tutorial
-- scope:
-    path: ''
-    type: codelabs
-  values:
-    og_type: article
-- scope:
     path: /codelabs/angular_components
     type: codelabs
   values:
@@ -85,10 +75,6 @@ defaults:
     path: tools
   values:
     show_breadcrumbs: true
-- scope:
-    path: tools/sdk
-  values:
-    repo: *repo-shared
 
 custom:
   dartpad:
