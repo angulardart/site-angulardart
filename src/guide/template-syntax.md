@@ -1307,8 +1307,8 @@ other HTML elements, attributes, properties, and components.
 They are usually applied to elements as if they were HTML attributes, hence the name.
 
 Many details are covered in the [_Attribute Directives_](attribute-directives) guide.
-Many Angular packages such as the [`Router`](router.html "Routing and Navigation")
-and [`Forms`](forms.html "Forms") packages define their own attribute directives.
+Many Angular packages such as the [`Router`](router "Routing and Navigation")
+and [`Forms`](forms) packages define their own attribute directives.
 This section is an introduction to the most commonly used attribute directives:
 
 * [`NgClass`](#ngClass): Add and remove a set of CSS classes.
