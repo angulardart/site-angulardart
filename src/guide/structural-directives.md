@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Structural Directives
 description: Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.
 sideNavGroup: advanced

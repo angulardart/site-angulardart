@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Master/Detail
 description: Build a master/detail page with a list of heroes.
 prevpage:

@@ -53,22 +53,37 @@ defaults:
     layout: default
     toc: true
 - scope:
-    path: /codelabs/angular_components
+    path: codelabs/angular_components
     type: codelabs
   values:
     og_image: /codelabs/angular_components/images/cartoon.jpeg
     diff2html: true
 - scope:
-    path: angular
+    path: cheatsheet
   values:
     diff2html: true
     layout: angular
 - scope:
-    path: /guide/router
+    path: guide
+  values:
+    diff2html: true
+    layout: angular
+- scope:
+    path: note
+  values:
+    diff2html: true
+    layout: angular
+- scope:
+    path: tutorial
+  values:
+    diff2html: true
+    layout: angular
+- scope:
+    path: guide/router
   values:
     status: '(DRAFT)'
 - scope:
-    path: /guide/testing
+    path: guide/testing
   values:
     status: '(DRAFT)'
 - scope:

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Displaying Data
 description: Property binding helps show app data in the UI.
 sideNavGroup: basic

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: User Input
 description: User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.
 sideNavGroup: basic

@@ -15,5 +15,3 @@ Learn more about AngularDart with the following videos.
 <img src="images/Google-AdWords-Next-Interface-800x342.png"
   alt="Screenshot of Google Ads"
   title="The UI of Google Ads">
-
-

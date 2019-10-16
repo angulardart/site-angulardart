@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: "Tutorial: Tour of Heroes"
 description: The Tour of Heroes tutorial takes you through the steps of creating an Angular app in Dart.
 prevpage:

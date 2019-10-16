@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: "Component Testing: Services"
 description: Techniques and practices for component testing of AngularDart apps.
 sideNavGroup: advanced

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Lifecycle Hooks
 description: Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.
 sideNavGroup: advanced

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Multiple Components
 description: Refactor the master/detail view into separate components.
 prevpage:

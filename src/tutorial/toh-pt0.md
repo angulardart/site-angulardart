@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: The Starter App
 description: A bare-bones Angular app
 prevpage:

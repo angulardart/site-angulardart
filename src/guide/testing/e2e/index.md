@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: End-to-end Testing
 sideNavGroup: advanced
 prevpage:

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Attribute Directives
 description: Attribute directives attach behavior to elements.
 sideNavGroup: advanced
