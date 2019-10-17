@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Routing
 description: Add the Angular component router and learn to navigate among the views.
 prevpage:

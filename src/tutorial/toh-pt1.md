@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: The Hero Editor
 description: Build a simple hero editor.
 prevpage:

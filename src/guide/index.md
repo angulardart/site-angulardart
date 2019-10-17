@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Documentation Overview
 description: How to read and use this documentation
 sideNavGroup: basic

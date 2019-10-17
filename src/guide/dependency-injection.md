@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Dependency Injection
 description: Angular's dependency injection system creates and delivers dependent services "just-in-time".
 sideNavGroup: basic
@@ -952,7 +951,7 @@ They are retrieved by calling `injector.get()`.
 
 The `get()` method throws an error if it can't resolve the requested service.
 You can call `get()` with a second parameter, which is the value to return if the service
-is not found. Angular can't find the service if it's not registered with this or any ancestor injector.  
+is not found. Angular can't find the service if it's not registered with this or any ancestor injector.
 <div class="l-sub-section" markdown="1">
   This technique is an example of the
   [service locator pattern](https://en.wikipedia.org/wiki/Service_locator_pattern).

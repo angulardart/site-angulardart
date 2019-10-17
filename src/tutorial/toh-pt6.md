@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: HTTP
 description: Convert the service and components to use Angular's HTTP service.
 prevpage:

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Security
 description: Developing for content security in Angular apps
 sideNavGroup: advanced

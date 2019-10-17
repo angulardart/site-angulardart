@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Learning Angular
 description: A suggested path through the documentation for Angular newcomers
 sideNavGroup: basic

@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Services
 description: Create a reusable service to manage the hero data calls.
 prevpage:

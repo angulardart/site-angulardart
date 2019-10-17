@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Component Testing
 sideNavGroup: advanced
 prevpage:

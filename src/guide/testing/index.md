@@ -1,5 +1,4 @@
 ---
-layout: angular
 title: Testing
 description: Techniques and practices for testing AngularDart apps.
 sideNavGroup: advanced
