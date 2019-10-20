@@ -308,7 +308,7 @@ Thankfully, this is the default interpretation of relative URLs in AngularDart:
 
 [CSS Scoping Module Level 1]: https://www.w3.org/TR/css-scoping-1
 [encapsulation]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Component/encapsulation.html
-[ViewEncapsulation]: {{site.api}}/angular/angular/ViewEncapsulation-class
+[ViewEncapsulation]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewEncapsulation-class.html
 [W3C]: https://www.w3.org
 [:host]: https://developer.mozilla.org/en-US/docs/Web/CSS/:host
 [:host()]: https://developer.mozilla.org/en-US/docs/Web/CSS/:host()

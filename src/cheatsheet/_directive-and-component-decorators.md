@@ -64,7 +64,7 @@
   <td markdown="1">
   Binds the first result of the component content query (`myPredicate`) to a property (`myChildComponent`) of the class.
 
-  See: [ContentChild class]({{site.api}}/angular/angular/ContentChild-class)
+  See: [ContentChild class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ContentChild-class.html)
   </td>
 </tr>
 
@@ -75,7 +75,7 @@
   <td markdown="1">
   Binds the results of the component content query (`myPredicate`) to a property (`myChildComponents`) of the class.
 
-  See: [ContentChildren class]({{site.api}}/angular/angular/ContentChildren-class)
+  See: [ContentChildren class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ContentChildren-class.html)
   </td>
 </tr>
 
@@ -86,7 +86,7 @@
   <td markdown="1">
   Binds the first result of the component view query (`myPredicate`) to a property (`myChildComponent`) of the class. Not available for directives.
 
-  See: [ViewChild class]({{site.api}}/angular/angular/ViewChild-class)
+  See: [ViewChild class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewChild-class.html)
   </td>
 </tr>
 
@@ -97,7 +97,7 @@
   <td markdown="1">
   Binds the results of the component view query (`myPredicate`) to a property (`myChildComponents`) of the class. Not available for directives.
 
-  See: [ViewChildren class]({{site.api}}/angular/angular/ViewChildren-class)
+  See: [ViewChildren class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewChildren-class.html)
   </td>
 </tr>
 

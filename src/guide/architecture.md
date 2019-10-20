@@ -104,7 +104,7 @@ which most app modules import as follows:
 ```
 
 The angular package includes other important libraries, such as
-[angular.security]({{site.api}}/angular/angular.security/angular.security-library).
+[angular.security]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular.security/angular.security-library.html).
 
 <div class="l-hr"></div>
 

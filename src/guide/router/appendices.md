@@ -206,6 +206,6 @@ Those developers may still use HTML 5 URLs by taking two remedial steps:
 1. Provide the router with an appropriate [appBaseHref][] value.
 1. Use _root URLs_ for all web resources: css, images, scripts, and template html files.
 
-[appBaseHref]: {{site.api}}/angular_router/angular_router/appBaseHref-constant.html
-[routerProviders]: {{site.api}}/angular_router/angular_router/routerProviders-constant
-[routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
+[appBaseHref]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/appBaseHref-constant.html
+[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProviders-constant.html
+[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProvidersHash-constant.html

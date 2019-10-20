@@ -10,7 +10,7 @@ nextpage:
   url: /guide/testing/component/simulating-user-action
 ---
 <?code-excerpt path-base="examples/ng/doc"?>
-{% capture pageloaderObjectsApi %}{{site.pub-api}}/pageloader/latest/pageloader.objects{% endcapture %}
+{% capture pageloaderObjectsApi %}{{site.pub-api}}/pageloader/latest/webdriver{% endcapture %}
 
 {% include_relative _page-top-toc.md %}
 

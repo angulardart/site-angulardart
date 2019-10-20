@@ -484,7 +484,7 @@ You've expanded the Tour of Heroes app, but it's far from complete.
 An app shouldn't be one monolithic component.
 In the [next page](toh-pt3), you'll split the app into subcomponents and make them work together.
 
-[coreDirectives]: {{site.api}}/angular/angular/coreDirectives-constant
+[coreDirectives]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/coreDirectives-constant.html
 [identical]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/identical.html
 [implementation files]: {{site.dartlang}}/tools/pub/package-layout#implementation-files
 [part 1]: /tutorial/toh-pt1#component-directives

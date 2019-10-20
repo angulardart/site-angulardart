@@ -977,6 +977,6 @@ is not found. Angular can't find the service if it's not registered with this or
 [@Optional()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Optional-class.html
 [provide()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/provide.html
 [Provider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Provider-class.html
-[routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
-[runApp()]: {{site.api}}/angular/angular/runApp
+[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProvidersHash-constant.html
+[runApp()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/runApp.html
 [ValueProvider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/ValueProvider-class.html

@@ -51,7 +51,7 @@
   List of directives used in the component's template.
 
   See: [Architecture Overview](/guide/architecture),
-  [CORE_DIRECTIVES]({{site.api}}/angular/angular/CORE_DIRECTIVES-constant)
+  [CORE_DIRECTIVES]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/CORE_DIRECTIVES-constant.html)
   </td>
 </tr>
 
@@ -62,7 +62,7 @@
   <td markdown="1">
   List of pipes used in the component's template.
 
-  See: [Pipes](/guide/pipes), [commonPipes]({{site.api}}/angular/angular/commonPipes-constant)
+  See: [Pipes](/guide/pipes), [commonPipes]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/commonPipes-constant.html)
   </td>
 </tr>
 

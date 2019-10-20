@@ -360,7 +360,7 @@ you can simply test the last URL cached by the mock platform location:
   });
 ```
 
-[appBaseHref]: /api/angular_router/angular_router/appBaseHref-constant
+[appBaseHref]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/appBaseHref-constant.html
 [app shell]: /tutorial/toh-pt5#create-appcomponent
 [base href]: /guide/router/1#set-the-base-href
 [dashboard]: /tutorial/toh-pt5#add-heroes-to-the-dashboard
@@ -368,9 +368,9 @@ you can simply test the last URL cached by the mock platform location:
 [link parameter list]: /guide/router/appendices#link-parameters-list
 [package:mockito]: https://pub.dev/packages/mockito
 [part 5]: /tutorial/toh-pt5
-[PlatformLocation]: /api/angular_router/angular_router/PlatformLocation-class
+[PlatformLocation]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/PlatformLocation-class.html
 [route configurations]: /tutorial/toh-pt5#configure-routes
-[routerProviders]: /api/angular_router/angular_router/routerProviders-constant
-[RouterLink]: /api/angular_router/angular_router/RouterLink-class
-[RouterOutlet]: /api/angular_router/angular_router/RouterOutlet-class
+[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProviders-constant.html
+[RouterLink]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLink-class.html
+[RouterOutlet]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterOutlet-class.html
 [tutorial]: /tutorial

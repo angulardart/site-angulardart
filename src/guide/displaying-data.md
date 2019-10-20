@@ -191,7 +191,7 @@ you need to list them in the `directives` argument of your component's
 convenience you can use groups like [CORE_DIRECTIVES][]
 {%- comment %}(note the new import statement){% endcomment -%}:
 
-[CORE_DIRECTIVES]: {{site.api}}/angular/angular/CORE_DIRECTIVES-constant
+[CORE_DIRECTIVES]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/CORE_DIRECTIVES-constant.html
 
 <?code-excerpt "lib/app_component_2.dart (directives)" title?>
 ```

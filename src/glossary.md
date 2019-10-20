@@ -473,4 +473,4 @@ Read more about zones in [this article][zones].
 
 [zones]: {{site.dartlang}}/articles/libraries/zones
 
-[runApp()]: {{site.api}}/angular/angular/runApp.html
+[runApp()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/runApp.html

@@ -858,7 +858,7 @@ using the `Location` service you injected previously.
 <div class="l-sub-section" markdown="1">
   Going back too far could take users out of the app.
   In a real app, you can prevent this issue with the _canDeactivate()_ hook.
-  Read more on the [CanDeactivate]({{site.api}}/angular_router/angular_router/CanDeactivate-class) page.
+  Read more on the [CanDeactivate]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/CanDeactivate-class.html) page.
 </div>
 
 You'll wire this method with an event binding to a *Back* button that you'll add to the component template.
@@ -1276,22 +1276,22 @@ you’ll replace the mock data with data retrieved from a server using http.
 {%comment%}TODO: Add Recap and What's next sections{%endcomment%}
 
 [angular_router]: {{site.api}}/angular_router
-[commonPipes]: {{site.api}}/angular/angular/commonPipes-constant
+[commonPipes]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/commonPipes-constant.html
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [master styles]: https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css
-[HashLocationStrategy]: {{site.api}}/angular_router/angular_router/HashLocationStrategy-class
-[Location]: {{site.api}}/angular_router/angular_router/Location-class
-[OnActivate]: {{site.api}}/angular_router/angular_router/OnActivate-class
+[HashLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/HashLocationStrategy-class.html
+[Location]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/Location-class.html
+[OnActivate]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/OnActivate-class.html
 [onActivate()]: /guide/router/5#on-activate
 [property binding]: /guide/template-syntax#property-binding
-[PathLocationStrategy]: {{site.api}}/angular_router/angular_router/PathLocationStrategy-class
+[PathLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/PathLocationStrategy-class.html
 [router lifecycle hook]: /guide/router/5
-[RouteDefinition]: {{site.api}}/angular_router/angular_router/RouteDefinition-class
-[routerDirectives]: {{site.api}}/angular_router/angular_router/routerDirectives-constant
-[RouterLink]: {{site.api}}/angular_router/angular_router/RouterLink-class
-[RouterLinkActive]: {{site.api}}/angular_router/angular_router/RouterLinkActive-class
-[RouterOutlet]: {{site.api}}/angular_router/angular_router/RouterOutlet-class
-[routerProviders]: {{site.api}}/angular_router/angular_router/routerProviders-constant
-[routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
-[RouterState]: {{site.api}}/angular_router/angular_router/RouterState-class
-[RouterState.parameters]: {{site.api}}/angular_router/angular_router/RouterState/parameters
+[RouteDefinition]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouteDefinition-class.html
+[routerDirectives]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerDirectives-constant.html
+[RouterLink]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLink-class.html
+[RouterLinkActive]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLinkActive-class.html
+[RouterOutlet]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterOutlet-class.html
+[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProviders-constant.html
+[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProvidersHash-constant.html
+[RouterState]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterState-class.html
+[RouterState.parameters]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterState/parameters.html

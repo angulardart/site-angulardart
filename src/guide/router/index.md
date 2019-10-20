@@ -257,11 +257,11 @@ highlights specific design decisions and introduces new key features of the
 router.
 
 [angular_forms]: https://pub.dev/packages/angular_forms
-[angular_router]: {{site.api}}/angular_router/angular_router/angular_router-library
+[angular_router]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/angular_router-library.html
 [angular_router@pub]: https://pub.dev/packages/angular_router
-[RouteDefinition]: {{site.api}}/angular_router/angular_router/RouteDefinition-class
-[Router]: {{site.api}}/angular_router/angular_router/Router-class
-[RouterLink]: {{site.api}}/angular_router/angular_router/RouterLink-class
-[RouterLinkActive]: {{site.api}}/angular_router/angular_router/RouterLinkActive-class
-[RouterOutlet]: {{site.api}}/angular_router/angular_router/RouterOutlet-class
-[RoutePath]: {{site.api}}/angular_router/angular_router/RoutePath-class
+[RouteDefinition]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouteDefinition-class.html
+[Router]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/Router-class.html
+[RouterLink]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLink-class.html
+[RouterLinkActive]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLinkActive-class.html
+[RouterOutlet]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterOutlet-class.html
+[RoutePath]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RoutePath-class.html

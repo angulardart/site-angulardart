@@ -410,7 +410,7 @@ This example monitors the `OnChanges` hook.
 ```
 
 The `ngOnChanges` method takes an object that maps each changed property name to a
-[SimpleChange]({{site.api}}/angular/angular/SimpleChange-class.html) object holding the current and previous property values.
+[SimpleChange]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/SimpleChange-class.html) object holding the current and previous property values.
 This hook iterates over the changed properties and logs them.
 
 The example component, `OnChangesComponent`, has two input properties: `hero` and `power`.
@@ -537,7 +537,7 @@ The `AfterViewComponent` displays this child view *within its template*:
 
 The following hooks take action based on changing values *within the child view*
 which can only be reached by querying for the child view via the property decorated with
-[@ViewChild]({{site.api}}/angular/angular/ViewChild-class.html).
+[@ViewChild]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewChild-class.html).
 
 <?code-excerpt "lib/src/after_view_component.dart (class excerpts)" region="hooks" plaster="none" title?>
 ```
@@ -680,7 +680,7 @@ projected into the component.
 
 The following *AfterContent* hooks take action based on changing values in a  *content child*
 which can only be reached by querying for it via the property decorated with
-[@ContentChild]({{site.api}}/angular/angular/ContentChild-class.html).
+[@ContentChild]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ContentChild-class.html).
 
 <?code-excerpt "lib/src/after_content_component.dart (class excerpts)" region="hooks" plaster="none" title?>
 ```
