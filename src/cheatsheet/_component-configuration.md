@@ -15,7 +15,7 @@
   <td markdown="1">
   List of dependency injection providers scoped to this component's view.
 
-  See: [viewProviders property]({{site.api}}/angular/angular/Component/viewProviders)
+  See: [viewProviders property]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Component/viewProviders.html)
   </td>
 </tr>
 

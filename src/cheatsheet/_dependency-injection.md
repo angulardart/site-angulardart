@@ -16,8 +16,8 @@
 
   See:
   [Dependency Injection](/guide/dependency-injection),
-  [provide function]({{site.api}}/angular/angular/provide),
-  [Provider class]({{site.api}}/angular/angular/Provider-class)
+  [provide function]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/provide.html),
+  [Provider class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Provider-class.html)
   </td>
 </tr>
 
@@ -30,8 +30,8 @@
 
   See:
   [Dependency Injection](/guide/dependency-injection),
-  [provide function]({{site.api}}/angular/angular/provide),
-  [Provider class]({{site.api}}/angular/angular/Provider-class)
+  [provide function]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/provide.html),
+  [Provider class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Provider-class.html)
   </td>
 </tr>
 
@@ -44,8 +44,8 @@
 
   See:
   [Dependency Injection](/guide/dependency-injection),
-  [provide function]({{site.api}}/angular/angular/provide),
-  [Provider class]({{site.api}}/angular/angular/Provider-class)
+  [provide function]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/provide.html),
+  [Provider class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Provider-class.html)
   </td>
 </tr>
 

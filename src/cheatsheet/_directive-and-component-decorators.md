@@ -16,7 +16,7 @@
   `<my-cmp [myProperty]="someExpression">`).
 
   See: [Template Syntax](/guide/template-syntax),
-  [Input class]({{site.api}}/angular/angular/Input-class)
+  [Input class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Input-class.html)
   </td>
 </tr>
 
@@ -29,7 +29,7 @@
   Declares an output property that fires events that you can subscribe to with an event binding (example: `<my-cmp (myEvent)="doSomething()">`).
 
   See: [Template Syntax](/guide/template-syntax),
-  [Output class]({{site.api}}/angular/angular/Output-class)
+  [Output class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Output-class.html)
   </td>
 </tr>
 
@@ -40,7 +40,7 @@
   <td markdown="1">
   Binds a host element property (here, the CSS class `valid`) to a directive/component property (`isValid`).
 
-  See: [HostBinding class]({{site.api}}/angular/angular/HostBinding-class)
+  See: [HostBinding class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/HostBinding-class.html)
   </td>
 </tr>
 
@@ -53,7 +53,7 @@
   Subscribes to a host element event (`click`) with a directive/component method (`onClick`), optionally passing an argument (`$event`).
 
   See: [Attribute Directives](/guide/attribute-directives),
-  [HostListener class]({{site.api}}/angular/angular/HostListener-class)
+  [HostListener class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/HostListener-class.html)
   </td>
 </tr>
 

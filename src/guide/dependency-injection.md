@@ -967,16 +967,16 @@ is not found. Angular can't find the service if it's not registered with this or
   must acquire services generically and dynamically.
 </div>
 
-[@Component()]: {{site.api}}/angular/angular/Component-class.html
-[@Inject()]: {{site.api}}/angular/angular/Inject-class.html
-[ClassProvider]: {{site.api}}/angular/angular/ClassProvider-class.html
+[@Component()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Component-class.html
+[@Inject()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Inject-class.html
+[ClassProvider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/ClassProvider-class.html
 [cascade]: {{site.dartlang}}/guides/language/language-tour#cascade
-[ExistingProvider]: {{site.api}}/angular/angular/ExistingProvider-class.html
+[ExistingProvider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/ExistingProvider-class.html
 [Map]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Map-class.html
-[OpaqueToken]: {{site.api}}/angular/angular/OpaqueToken-class.html
-[@Optional()]: {{site.api}}/angular/angular/Optional-class.html
-[provide()]: {{site.api}}/angular/angular/provide
-[Provider]: {{site.api}}/angular/angular/Provider-class.html
+[OpaqueToken]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/OpaqueToken-class.html
+[@Optional()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Optional-class.html
+[provide()]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/provide.html
+[Provider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Provider-class.html
 [routerProvidersHash]: {{site.api}}/angular_router/angular_router/routerProvidersHash-constant
-[runApp()]: {{site.api}}/angular/angular/runApp.html
-[ValueProvider]: {{site.api}}/angular/angular/ValueProvider-class.html
+[runApp()]: {{site.api}}/angular/angular/runApp
+[ValueProvider]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/ValueProvider-class.html

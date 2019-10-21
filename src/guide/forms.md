@@ -483,8 +483,8 @@ to the _Name_ `<input>` tag and use it to display the input's CSS classes.
   gets bound to the [NgModel]({{site.api}}/angular_forms/angular_forms/NgModel-class.html)
   associated with the input element.
 
-  Why "ngForm"?  A [Directive]({{site.api}}/angular/angular/Directive-class)'s
-  [exportAs]({{site.api}}/angular/angular/Directive/exportAs) property tells Angular
+  Why "ngForm"?  A [Directive]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Directive-class)'s
+  [exportAs]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Directive/exportAs) property tells Angular
   how to link the reference variable to the directive. You set `name` to "ngForm"
   because the [ngModel]({{site.api}}/angular_forms/angular_forms/NgModel-class.html)
   directive's `exportAs` property is "ngForm".
