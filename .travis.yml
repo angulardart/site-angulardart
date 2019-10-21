@@ -97,9 +97,9 @@ jobs:
       - npx gulp ng-pkg-pub-get # --skip=package_name|...
       - npx gulp _build-prep --clean --shallow-clone-example-apps
 
-    - env: TASK="check-code-and-notes"
+    - env: TASK="check-code"
       # FIXME: allow example app min SDK (2.0.0) to differ from angular's
-      script: ./tool/$TASK.sh code note fmt
+      script: ./tool/$TASK.sh code fmt
 
     - env: TASK="analyze"
       # FIXME: skip analysis of apps with component tests until we can first build them
