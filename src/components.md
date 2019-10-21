@@ -38,7 +38,7 @@ Additional resources for AngularDart Components:
 * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/){: .no-automatic-external}
 {% endcomment %}
 * [Codelab](/codelabs/angular_components) (Lottery Simulator)
-* [Full API reference](/api?package=angular_components)
+* [Full API reference](/api/angular_components)
 * [GitHub repo for angular_components](https://github.com/dart-lang/angular_components){: .no-automatic-external}
 * [Pub page for angular_components]({{site.pub-pkg}}/angular_components){: .no-automatic-external}
 

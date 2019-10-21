@@ -164,7 +164,7 @@ function gulp_task(name, taskOrTasks) {
     : _gulp_tasks(name, taskOrTasks);
 }
 
-config.dartdocProj = genDartdocForProjs();
+config.dartdocProj = null; // genDartdocForProjs(); FIXME: remove function too
 assert.deepEqual(config._dartdocProj, Object.keys(config.repoPath));
 
 function pkgAliasToPkgName(alias) {
@@ -245,25 +245,13 @@ gulp.task('_clean-only-once', (done) =>
 
 _require('example')
 _require('pkg-vers')
-_require('dartdoc')
 _require('example-frag')
 _require('example-add-apps')
-_require('api-list')
-_require('api')
 
 gulp.task('_build-prep', gulp.series(
   '_clean-only-once',
-  // 'get-stagehand-proj', // TODO: is stagehand proj still used?
   '_examples-get-repos',
   'create-example-fragments',
-));
-
-gulp.task('_build-api-docs', gulp.series(
-  'dartdoc',
-  'build-api-list-json',
-  'finalize-api-docs',
-  // Make API lists available for the sitemap generation:
-  _copyApiList,
 ));
 
 gulp.task('_jekyll-build', () => execp(`jekyll build`));
@@ -274,7 +262,6 @@ gulp.task('_jekyll-build', () => execp(`jekyll build`));
 
 gulp.task('build', gulp.series(
   '_build-prep',
-  '_build-api-docs',
   '_examples-cp-to-site-folder',
   '_jekyll-build',
 ));
