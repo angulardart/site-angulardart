@@ -247,8 +247,6 @@ _require('example')
 _require('pkg-vers')
 _require('example-frag')
 _require('example-add-apps')
-_require('api-list')
-_require('api')
 
 gulp.task('_build-prep', gulp.series(
   '_clean-only-once',
