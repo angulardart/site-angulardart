@@ -82,7 +82,7 @@
   - title: Glossary
     permalink: /glossary
   - title: Engineering Notes
-    permalink: /note
+    permalink: https://github.com/dart-lang/angular/tree/master/doc
   - title: FAQ
     permalink: /faq
   - title: Tools
