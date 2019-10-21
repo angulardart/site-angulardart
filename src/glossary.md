@@ -403,7 +403,7 @@ The practice of writing compound words or phrases such that an
 underscore (`_`) separates one word from the next. This form is also known as *underscore case*.
 
 Dart package names and filenames are spelled in snake_case, [by
-convention.]({{site.dartlang}}/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercasewithunderscores)
+convention.]({{site.dartlang}}/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercase_with_underscores)
 For example, `angular_tour_of_heroes` and `app_component.dart`.
 
 ## Structural directive

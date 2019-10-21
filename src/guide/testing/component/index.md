@@ -56,7 +56,7 @@ This guide covers the following component testing topics:
 
 [Jasmine]: https://jasmine.github.io
 [angular_test]: https://pub.dev/packages/angular_test
-[component testing]: https://en.wikipedia.org/wiki/Software_testing#Component_interface_testing
+[component testing]: https://en.wikipedia.org/wiki/Software_testing
 [package:angular_test]: https://pub.dev/packages/angular_test
 [package:mockito]: https://pub.dev/packages/mockito
 [package:test]: https://pub.dev/packages/test

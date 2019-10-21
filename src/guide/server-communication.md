@@ -289,7 +289,7 @@ For examples of decoding and encoding JSON, see the
   The decoded JSON doesn't list the heroes.
   Instead, the server wraps JSON results in an object with a `data` property.
   This is conventional web API behavior, driven by
-  [security concerns.](https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside)
+  [security concerns.](https://cheatsheetseries.owasp.org/cheatsheets/AJAX_Security_Cheat_Sheet.html#always-return-json-with-an-object-on-the-outside)
 </div>
 
 <div class="alert alert-warning" markdown="1">

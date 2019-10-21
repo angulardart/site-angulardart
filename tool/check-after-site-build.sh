@@ -10,7 +10,7 @@ if [[ -n $TRAVIS && $TASK != build* ]]; then
 fi
 
 travis_fold start check_links
-(set -x; ./tool/shared/check-links.sh)
+  (set -x; ./tool/shared/check-links.sh --external)
 travis_fold end check_links
 
 # Check output from Jekyll plugin

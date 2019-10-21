@@ -57,7 +57,7 @@ The *Hero Employment Agency* uses this form to maintain personal information abo
 Every hero needs a job. It's the company mission to match the right hero with the right crisis.
 
 Two of the three fields on this form are _required_.
-Following [material design guidelines](https://material.io/guidelines/components/text-fields.html#text-fields-layout),
+Following [material design guidelines](https://material.io/components/text-fields),
 required fields have an asterisk (*).
 
 If you delete the hero name, the form displays a validation error in an attention-grabbing style:
