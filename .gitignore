@@ -33,7 +33,6 @@ npm-debug*.log*
 
 /src/_data/.*
 /src/_data/ci.yaml
-/src/_data/*api-list.json
 
 # Logs
 

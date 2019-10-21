@@ -23,7 +23,7 @@ module.exports = function (gulp, plugins, config) {
   let exDirs = (cp.execSync(findCmd) + '').split(/\s+/);
   exDirs = exDirs.map(p => p.replace('/pubspec.yaml', ''));
 
-  gulp.task('_update-ex-analysis-optn', //['get-stagehand-proj'],
+  gulp.task('_update-ex-analysis-optn',
     () => {
       const baseDir = webSimpleProjPath;
       // plugins.myLog(`exDirs: ${exDirs}`);
