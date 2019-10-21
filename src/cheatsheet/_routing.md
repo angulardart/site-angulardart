@@ -19,7 +19,7 @@
 
   See:
   [Tutorial: Routing](/tutorial/toh-pt5),
-  [RouteDefinition class]({{site.api}}/angular_router/angular_router/RouteDefinition-class)
+  [RouteDefinition class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouteDefinition-class.html)
   </td>
 </tr>
 
@@ -32,7 +32,7 @@
 
   See:
   [Tutorial: Routing](/tutorial/toh-pt5),
-  [RouterOutlet class]({{site.api}}/angular_router/angular_router/RouterOutlet-class)
+  [RouterOutlet class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterOutlet-class.html)
   </td>
 </tr>
 
@@ -46,7 +46,7 @@
 
   See:
   [Tutorial: Routing](/tutorial/toh-pt5),
-  [RouterLink class]({{site.api}}/angular_router/angular_router/RouterLink-class)
+  [RouterLink class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLink-class.html)
   </td>
 </tr>
 
@@ -72,7 +72,7 @@ Needs updating for angular_router 2.0.0
   <td markdown="1">
   After navigating to a component, the router calls the component's `routerOnActivate` method (if defined).
 
-  See: [OnActivate class]({{site.api}}/angular_router/angular_router/OnActivate-class)
+  See: [OnActivate class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/OnActivate-class.html)
   </td>
 </tr>
 
@@ -83,7 +83,7 @@ Needs updating for angular_router 2.0.0
   <td markdown="1">
   The router calls a component's `routerCanReuse` method (if defined) to determine whether to reuse the instance or destroy it and create a new instance. Should return a boolean or a future.
 
-  See: [CanReuse class]({{site.api}}/angular_router/angular_router/CanReuse-class)
+  See: [CanReuse class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/CanReuse-class.html)
   </td>
 </tr>
 
@@ -94,7 +94,7 @@ Needs updating for angular_router 2.0.0
   <td markdown="1">
   The router calls the component's `routerOnReuse` method (if defined) when it reuses a component instance.
 
-  See: [OnReuse class]({{site.api}}/angular_router/angular_router/OnReuse-class)
+  See: [OnReuse class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/OnReuse-class.html)
   </td>
 </tr>
 
@@ -105,7 +105,7 @@ Needs updating for angular_router 2.0.0
   <td markdown="1">
   The router calls the `canDeactivate()` methods (if defined) of every component that would be removed after a navigation. The navigation proceeds if and only if all such methods return true or a future that completes successfully.
 
-  See: [CanDeactivate class]({{site.api}}/angular_router/angular_router/CanDeactivate-class)
+  See: [CanDeactivate class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/CanDeactivate-class.html)
   </td>
 </tr>
 
@@ -116,7 +116,7 @@ Needs updating for angular_router 2.0.0
   <td markdown="1">
   Called before the directive is removed as the result of a route change. May return a future that pauses removing the directive until the future completes.
 
-  See: [OnDeactivate class]({{site.api}}/angular_router/angular_router/OnDeactivate-class)
+  See: [OnDeactivate class]({{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/OnDeactivate-class.html)
   </td>
 </tr>
 -->

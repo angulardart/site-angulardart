@@ -273,7 +273,7 @@ It's intended source is implicit.
 Angular sets `let-hero` to the value of the context's `$implicit` property
 which `NgFor` has initialized with the hero for the current iteration.
 
-* The [API guide]({{site.api}}/angular/angular/NgFor-class.html "API: NgFor")
+* The [API guide]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/NgFor-class.html "API: NgFor")
 describes additional `NgFor` directive properties and context properties.
 
 These microsyntax mechanisms are available to you when you write your own structural directives.
@@ -590,15 +590,15 @@ Angular's own directives do not.
 ### _TemplateRef_ and _ViewContainerRef_
 
 A simple structural directive like this one creates an
-[_embedded view_]({{site.api}}/angular/angular/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
+[_embedded view_]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/EmbeddedViewRef-class.html "API: EmbeddedViewRef")
 from the Angular-generated `<template>` and inserts that view in a
-[_view container_]({{site.api}}/angular/angular/ViewContainerRef-class.html "API: ViewContainerRef")
+[_view container_]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewContainerRef-class.html "API: ViewContainerRef")
 adjacent to the directive's original `<p>` host element.
 
 You'll acquire the `<template>` contents with a
-[`TemplateRef`]({{site.api}}/angular/angular/TemplateRef-class.html "API: TemplateRef")
+[`TemplateRef`]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/TemplateRef-class.html "API: TemplateRef")
 and access the _view container_ through a
-[`ViewContainerRef`]({{site.api}}/angular/angular/ViewContainerRef-class.html "API: ViewContainerRef").
+[`ViewContainerRef`]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewContainerRef-class.html "API: ViewContainerRef").
 
 You inject both in the directive constructor as private variables of the class.
 

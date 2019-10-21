@@ -16,7 +16,7 @@
   `<my-cmp [myProperty]="someExpression">`).
 
   See: [Template Syntax](/guide/template-syntax),
-  [Input class]({{site.api}}/angular/angular/Input-class)
+  [Input class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Input-class.html)
   </td>
 </tr>
 
@@ -29,7 +29,7 @@
   Declares an output property that fires events that you can subscribe to with an event binding (example: `<my-cmp (myEvent)="doSomething()">`).
 
   See: [Template Syntax](/guide/template-syntax),
-  [Output class]({{site.api}}/angular/angular/Output-class)
+  [Output class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/di/Output-class.html)
   </td>
 </tr>
 
@@ -40,7 +40,7 @@
   <td markdown="1">
   Binds a host element property (here, the CSS class `valid`) to a directive/component property (`isValid`).
 
-  See: [HostBinding class]({{site.api}}/angular/angular/HostBinding-class)
+  See: [HostBinding class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/HostBinding-class.html)
   </td>
 </tr>
 
@@ -53,7 +53,7 @@
   Subscribes to a host element event (`click`) with a directive/component method (`onClick`), optionally passing an argument (`$event`).
 
   See: [Attribute Directives](/guide/attribute-directives),
-  [HostListener class]({{site.api}}/angular/angular/HostListener-class)
+  [HostListener class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/HostListener-class.html)
   </td>
 </tr>
 
@@ -64,7 +64,7 @@
   <td markdown="1">
   Binds the first result of the component content query (`myPredicate`) to a property (`myChildComponent`) of the class.
 
-  See: [ContentChild class]({{site.api}}/angular/angular/ContentChild-class)
+  See: [ContentChild class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ContentChild-class.html)
   </td>
 </tr>
 
@@ -75,7 +75,7 @@
   <td markdown="1">
   Binds the results of the component content query (`myPredicate`) to a property (`myChildComponents`) of the class.
 
-  See: [ContentChildren class]({{site.api}}/angular/angular/ContentChildren-class)
+  See: [ContentChildren class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ContentChildren-class.html)
   </td>
 </tr>
 
@@ -86,7 +86,7 @@
   <td markdown="1">
   Binds the first result of the component view query (`myPredicate`) to a property (`myChildComponent`) of the class. Not available for directives.
 
-  See: [ViewChild class]({{site.api}}/angular/angular/ViewChild-class)
+  See: [ViewChild class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewChild-class.html)
   </td>
 </tr>
 
@@ -97,7 +97,7 @@
   <td markdown="1">
   Binds the results of the component view query (`myPredicate`) to a property (`myChildComponents`) of the class. Not available for directives.
 
-  See: [ViewChildren class]({{site.api}}/angular/angular/ViewChildren-class)
+  See: [ViewChildren class]({{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/ViewChildren-class.html)
   </td>
 </tr>
 

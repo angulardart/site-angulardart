@@ -12,9 +12,9 @@
 
 [appendix]: /guide/router/appendices#browser-url-styles
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
-[HashLocationStrategy]: /api/angular_router/angular_router/HashLocationStrategy-class
-[LocationStrategy]: /api/angular_router/angular_router/LocationStrategy-class
-[PathLocationStrategy]: /api/angular_router/angular_router/PathLocationStrategy-class
-[routerProviders]: /api/angular_router/angular_router/routerProviders-constant
-[routerProvidersHash]: /api/angular_router/angular_router/routerProvidersHash-constant
+[HashLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/HashLocationStrategy-class.html
+[LocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/LocationStrategy-class.html
+[PathLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/PathLocationStrategy-class.html
+[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProviders-constant.html
+[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProvidersHash-constant.html
 [webdev serve]: {{site.pub-pkg}}/webdev#usage
