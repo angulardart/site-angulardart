@@ -89,8 +89,8 @@ Here is an example of a PO method for adding a new hero. It makes use of both
   }
 ```
 
-[PageLoaderElement.clear()]: {{site.pub-api}}/pageloader/latest/pageloader.html/PageLoaderElement/clear.html
-[PageLoaderElement.click()]: {{site.pub-api}}/pageloader/latest/pageloader.html/PageLoaderElement/click.html
-[PageLoaderElement]: {{site.pub-api}}/pageloader/latest/pageloader.html/PageLoaderElement-class.html
-[PageLoaderElement.type()]: {{site.pub-api}}/pageloader/latest/pageloader.html/PageLoaderElement/type.html
+[PageLoaderElement.clear()]: {{site.pub-api}}/pageloader/latest/webdriver/PageLoaderElement/clear.html
+[PageLoaderElement.click()]: {{site.pub-api}}/pageloader/latest/webdriver/PageLoaderElement/click.html
+[PageLoaderElement]: {{site.pub-api}}/pageloader/latest/webdriver/PageLoaderElement-class.html
+[PageLoaderElement.type()]: {{site.pub-api}}/pageloader/latest/webdriver/PageLoaderElement/type.html
 [toh-pt1]: /tutorial/toh-pt1
