@@ -326,9 +326,8 @@ like synchronous code. Rewrite `getHeroes()`:
 
 The `Future<void>` return type is the asynchronous equivalent of `void`.
 
-Read more about asynchronous programming using `async`/`await` in the Dart
-language codelab on [Asynchronous programming: futures, async,
-await.]({{site.dartlang}}/codelabs/async-await)
+To learn more about using `async` and `await`, read the
+[asynchronous programming codelab.]({{site.dartlang}}/codelabs/async-await)
 
 <div class="l-sub-section" markdown="1">
   At the end of this page, [Appendix: Take it slow](#slow) describes what the app might be like with a poor connection.
