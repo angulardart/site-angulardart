@@ -9,8 +9,12 @@ if [[ -n $TRAVIS && $TASK != build* ]]; then
   exit 0;
 fi
 
+if [[ $TRAVIS_EVENT_TYPE == cron ]]; then
+  CHECK_LINK_ARGS=--external
+fi
+
 travis_fold start check_links
-  (set -x; ./tool/shared/check-links.sh --external)
+  (set -x; ./tool/shared/check-links.sh $CHECK_LINK_ARGS)
 travis_fold end check_links
 
 # Check output from Jekyll plugin
