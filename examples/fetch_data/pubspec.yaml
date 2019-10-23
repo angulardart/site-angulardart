@@ -9,7 +9,3 @@ dev_dependencies:
   build_runner: ^1.7.0
   build_web_compilers: ^2.4.0
   test: ^1.6.3
-#  dartlang_examples_util:
-#    git:
-#      url: https://github.com/dart-lang/site-www.git
-#      path: examples/util
