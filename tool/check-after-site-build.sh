@@ -5,7 +5,7 @@ set -e -o pipefail
 source ./tool/shared/env-set-check.sh
 
 if [[ -n $TRAVIS && $TASK != build* ]]; then
-  echo "check-all: nothing to check since this isn't a build task."
+  echo "$(basename $0): nothing to check since this isn't a build task."
   exit 0;
 fi
 
