@@ -569,11 +569,9 @@ template file, and add the directives shown below (you'll add the necessary impo
 ```
 
 <div class="l-sub-section" markdown="1">
-  The value of `templateUrl` can be an [asset][] in this package or another
+  The value of `templateUrl` can be an asset in this package or another
   package. To refer to an asset from another package, use a full package reference,
   such as `'package:some_other_package/dashboard_component.html'`.
-
-  [asset]: {{site.dartlang}}/tools/pub/glossary#asset
 </div>
 
 Create the template file with this content:

@@ -124,7 +124,7 @@ jobs:
           on:
             repo: dart-lang/site-angulardart
             branch: master
-            condition: $TASK == build*
+            condition: $TASK == build* && $TRAVIS_DART_VERSION == stable && $TRAVIS_EVENT_TYPE == push
     - env: TASK="test $TEST_OPT1"
       script: npx gulp $TASK
     - env: TASK="test $TEST_OPT2"

@@ -116,7 +116,7 @@ This is a strictly local URL. The browser shouldn't send this URL to the server
 and should not reload the page.
 
 Modern HTML 5 browsers support
-[history.pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries),
+[history.pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API),
 a technique that changes a browser's location and history without triggering a server page request.
 The router can compose a "natural" URL that is indistinguishable from
 one that would otherwise require a page load.
@@ -174,7 +174,7 @@ resort to hash routes.
 ### HTML 5 URLs and the  *&lt;base href>*
 
 While the router uses the
-[HTML 5 pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)
+[HTML 5 pushState](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 style by default, you *must* configure that strategy with a **base href**
 
 The preferred way to configure the strategy is to add a
