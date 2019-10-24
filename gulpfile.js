@@ -329,15 +329,14 @@ _require('example-template')
 
 function buildWebCompilerOptions() {
   const options = [
-    '--no-release',
-    // '--fail-on-severe', // On Travis we don't have a way to conveniently clear severe errors from previous runs, so omit this option for now.
+    // We don't have a way on Travis to conveniently clear severe errors from
+    // previous runs, so omit the following option for now:
+    // '--fail-on-severe',
     // '--delete-conflicting-outputs',
     '--output=web:build',
   ];
-  if (argv.webCompiler === 'dartdevc') options.push(`--no-release`);
-  // if (argv.webCompiler === 'dart2js' || !argv.webCompiler) options.push(
-  //   `--define='build_web_compilers|entrypoint=dart2js_args=["--checked"]'`
-  // );
+  if (argv.webCompiler === 'dartdevc' || !argv.webCompiler) options.push(`--no-release`);
+  // if (argv.webCompiler === 'dart2js') options.push(...);
   return options.join(' ');
 }
 
