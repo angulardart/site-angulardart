@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   angular: ^5.3.0
-  http: ^0.11.0
+  http: ^0.12.0
   jsonpadding: ^1.0.2
   stream_transform: ^0.0.5
 
