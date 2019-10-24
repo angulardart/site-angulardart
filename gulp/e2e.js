@@ -44,7 +44,6 @@ module.exports = function (gulp, plugins, config) {
     if (!argv.fast) {
       // Do full setup
       await pexec('npm install', { cwd: EXAMPLES_PATH });
-      myLog('runE2e: update webdriver');
       await pexec('npm run webdriver:update', { cwd: EXAMPLES_PATH });
     };
     const outputFile = path.join(process.cwd(), 'protractor-results.txt');
@@ -104,8 +103,8 @@ module.exports = function (gulp, plugins, config) {
   async function runExampleE2E(appDir, outputFile) {
     myLog(`E2E for ${appDir}`);
 
-    const deployDir = path.resolve(appDir, 'build/web');
-    const appRunSpawnInfo = spawnExt('npm', ['run', 'http-server', '--', deployDir, '-s'], { cwd: appDir });
+    const deployDir = 'build'; // path.resolve(appDir, 'build/web');
+    const appRunSpawnInfo = spawnExt('npx', ['http-server', '--', deployDir, '-s'], { cwd: appDir });
     if (!appRunSpawnInfo.proc.pid) {
       const msg = `http-server failed to launch over ${deployDir}`;
       myLog(msg);
@@ -131,7 +130,7 @@ module.exports = function (gulp, plugins, config) {
         });
       }
       await pexec(
-        `npm run protractor -- protractor.config.js` +
+        `npx protractor protractor.config.js` +
         ` --specs=${path.resolve(appDir, 'e2e-spec.ts')} --params.appDir=${appDir}` +
         ` --params.outputFile=${outputFile}`,
         { cwd: EXAMPLES_PATH, log: myLog, },
@@ -141,8 +140,9 @@ module.exports = function (gulp, plugins, config) {
       myLog(`runExampleE2E over ${appDir} failed.`);
       throw e;
     } finally {
-      // appRun.proc.kill(); // does not work properly on windows with child processes.
-      treeKill(appRunSpawnInfo.proc.pid);
+      myLog(`Terminating http-server with PID ${appRunSpawnInfo.proc.pid}`);
+      treeKill(appRunSpawnInfo.proc.pid); // Supposed to work under Windows, but doesn't under macOS
+      appRunSpawnInfo.proc.kill(); // Works under macOS
     }
     return false;
   }
