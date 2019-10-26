@@ -10,7 +10,7 @@ function _usage() {
   echo "  --check        Run all post-build checks, including link checks, but not external-on-cron."
   echo "  --check-links  Perform link checking after the build. Can be followed by check-link options."
   echo "  --check-links-external-on-cron"
-  echo "                 Perform link checking, including external links, after the build when part of a CRON build."
+  echo "                 Perform link checking after the build, including external links, when this is run as part of a CRON build."
 }
 
 while [[ "$1" == -* ]]; do
@@ -22,7 +22,7 @@ while [[ "$1" == -* ]]; do
         EXTRA_CHECK_LINK_ARGS=--external
       fi;
       CHECK_LINKS=1; shift;
-      # Use remaining arguments for call to check-links
+      # Use remaining arguments for call to check-links.sh
       break;;
     -h|--help)
       _usage;
@@ -45,7 +45,7 @@ travis_fold start build_site
   )
 travis_fold end build_site
 
-if [[ -n "$CHECKS" || -n "$CHECK_LINKS" ]]; then
+if [[ -n "$CHECKS" ]]; then
   travis_fold start build_site_checks
     (set -x; ./tool/check-after-site-build.sh)
   travis_fold end build_site_checks

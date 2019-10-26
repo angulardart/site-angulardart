@@ -56,10 +56,10 @@ env:
     - JEKYLL_ENV=production
     #
     # For E2E and TEST:
-    #   To constraint the tested examples use the following:
+    #   To constrain which examples are tested, use the following:
     #
-    #     --filter=p1|p2...|px to test only the examples from paths matching patterns pi
-    #     --skip=p1|p2|...|px to skip tests of examples from paths matching patterns pi
+    #     --filter=p1|p2...|px  Test only the examples from paths matching patterns pi
+    #     --skip=p1|p2|...|px   Skip tests of examples from paths matching patterns pi
     #
     #   Note: The arguments to --filter and --skip cannot contain spaces and
     #   cannot be wrapped in quotes.
@@ -73,10 +73,10 @@ env:
     - TZ=US/Pacific # normalize build timestamp
   matrix:
     - TASK="./tool/build.sh --check --check-links-external-on-cron --fail-on-warnings"
-    # Why the following --skip regex? Because some of the most recently
-    # available (non-alpha) versions of angular_* packages depend on angular
-    # 6-alpha. Only check stable `angular` package freshness; remove the --skip
-    # argument once angular 6 is stable.
+    # Why the following --skip regex? Because some of the most recent
+    # (non-alpha) versions of angular_* packages depend on angular 6-alpha,
+    # which we haven't updated to yet. Only check the `angular` package version
+    # freshness. Remove the --skip argument once angular 6 is stable.
     - TASK="$GULP ng-pkg-pub-upgrade --skip=angular_|build_runner.1.7.1" # --skip=package_name|...
     - TASK="./tool/check-code.sh"
     - TASK="$GULP test $TEST_OPT1"

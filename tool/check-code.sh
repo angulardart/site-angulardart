@@ -20,15 +20,18 @@ Error: some code excerpts need to be refreshed. You'll need to
 rerun '$rootDir/tool/refresh-code-excerpts.sh' locally, and re-commit.
 "
 
-# TODO: Skip analysis done here -- so as to shorten the build time -- since
-# analysis is done later when apps are built and tested.
 if [[ $ARGS == *analyze* ]]; then
+  # Run the analyzer over all examples except those that make use of the
+  # pageloader package, since those example need to be built before they are
+  # analyzed. Note that all examples are analyzed anyways, it is just convenient
+  # to do it all upfront, and it doesn't (as of now) make the build run for any
+  # longer.
+
   travis_fold start refresh_code_excerpts
     echo "Running Dart analyzer over examples"
     echo
     (set -x;
-      # We skip analysis of apps with component tests since they first need to
-      # be built, and we don't want to do that in this task.
+      # Skip analysis of examples tests using pageloader.
       npx gulp analyze --skip=doc/t
     )
   travis_fold end refresh_code_excerpts
