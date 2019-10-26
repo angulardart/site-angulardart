@@ -79,7 +79,6 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (4.0.1)
     rack (2.0.7)
-    rake (13.0.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -105,7 +104,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autoprefixer-rails
   bootstrap-sass (~> 3.4.1)
   font-awesome-sass
   jekyll
@@ -114,9 +112,8 @@ DEPENDENCIES
   kramdown
   liquid-tag-parser
   nokogiri
-  rake
-  sass
-  sprockets (~> 4.0.beta)
+  sassc
+  sprockets (= 4.0.beta8)
   uglifier
 
 BUNDLED WITH
