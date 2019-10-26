@@ -11,7 +11,7 @@ module.exports = function (gulp, plugins, config) {
   const skipRegEx = argv.skip || null;
 
   const webdevBuild = 'pub global run webdev build --no-release';
-  const runHtmlTest = 'pub run test -p travischrome --tags browser';
+  const runHtmlTest = 'pub run test -p chrome --tags browser';
   const runAngularTest = [
     'pub run build_runner test',
     '--delete-conflicting-outputs',

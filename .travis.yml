@@ -54,7 +54,16 @@ env:
   global:
     - GULP="npx gulp"
     - JEKYLL_ENV=production
-    # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
+    #
+    # For E2E and TEST:
+    #   To constraint the tested examples use the following:
+    #
+    #     --filter=p1|p2...|px to test only the examples from paths matching patterns pi
+    #     --skip=p1|p2|...|px to skip tests of examples from paths matching patterns pi
+    #
+    #   Note: The arguments to --filter and --skip cannot contain spaces and
+    #   cannot be wrapped in quotes.
+    #
     # FIXME: Skip lifecycle-hooks; https://github.com/dart-lang/site-webdev/issues/1647
     - E2E_OPT1="--fast --filter=examples/ng/doc/[a-l] --skip=life"
     - E2E_OPT2="--fast --filter=examples/ng/doc/[m-z] --skip=toh"
@@ -68,7 +77,7 @@ env:
     # available (non-alpha) versions of angular_* packages depend on angular
     # 6-alpha. Only check stable `angular` package freshness; remove the --skip
     # argument once angular 6 is stable.
-    - TASK="$GULP ng-pkg-pub-upgrade --skip='angular_|build_runner.1.7.1'" # --skip=package_name|...
+    - TASK="$GULP ng-pkg-pub-upgrade --skip=angular_|build_runner.1.7.1" # --skip=package_name|...
     - TASK="./tool/check-code.sh"
     - TASK="$GULP test $TEST_OPT1"
     - TASK="$GULP test $TEST_OPT2"
