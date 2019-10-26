@@ -106,8 +106,8 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.4.1)
   font-awesome-sass
-  jekyll
-  jekyll-assets
+  jekyll (~> 3)
+  jekyll-assets (~> 3)
   jekyll-toc
   kramdown
   liquid-tag-parser

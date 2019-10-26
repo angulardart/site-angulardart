@@ -1,8 +1,10 @@
 source "http://rubygems.org"
 gem 'bootstrap-sass', '~> 3.4.1' # Use 'bootstrap' for v4
 gem 'font-awesome-sass'
-gem 'jekyll'
-gem 'jekyll-assets', group: :jekyll_plugins
+# Jekyll-assets isn't yet compatible with Jekyll 4. Pin jekyll version.
+# https://github.com/envygeeks/jekyll-assets/issues/613
+gem 'jekyll', '~> 3'
+gem 'jekyll-assets', '~> 3', group: :jekyll_plugins
 gem 'jekyll-toc'
 gem 'kramdown'
 gem 'liquid-tag-parser'
