@@ -7,7 +7,7 @@ if [[ -z $TRAVIS_JOB_ID ]]; then
 elif [[ -z $FIREBASE_TOKEN ]]; then
   echo "No FIREBASE_TOKEN. Skipping PR auto-deploy."
 elif [[ $TRAVIS_REPO_SLUG == dart-lang* && \
-      $TASK == build* && \
+      $TASK == *build* && \
       $TRAVIS_PULL_REQUEST != false ]];
 then
   AUTO_STAGING_FB_PROJ_ID="$(($TRAVIS_JOB_ID % 2))"

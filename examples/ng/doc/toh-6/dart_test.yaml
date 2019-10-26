@@ -1,6 +1,0 @@
-# TODO(https://github.com/dart-lang/test/issues/772): Headless chrome times out
-# on travis.
-override_platforms:
-  chrome:
-    settings:
-      headless: false

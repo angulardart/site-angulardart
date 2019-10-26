@@ -122,7 +122,6 @@ custom:
 source: src
 symlinked-sources: [site-shared/src]
 destination: publish
-bundler_args: --without production
 
 exclude:
   - _data/.pub
@@ -140,3 +139,7 @@ plugins: [jekyll-toc]
 # Increment this global og:image URL version number query parameter when you update any og:image file.
 # (Also increment the corresponding number in the `firebase.json` redirect rule.)
 og_image_vers: '?4'
+
+toc:
+  min_level: 2
+  max_level: 3

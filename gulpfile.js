@@ -254,7 +254,7 @@ gulp.task('_build-prep', gulp.series(
   'create-example-fragments',
 ));
 
-gulp.task('_jekyll-build', () => execp(`jekyll build`));
+gulp.task('_jekyll-build', () => execp(`bundle exec jekyll build`));
 
 // Task: build
 // Options:

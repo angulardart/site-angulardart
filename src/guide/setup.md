@@ -25,7 +25,7 @@ see [the Dart site]({{site.dartlang}}/guides/get-started):
 
 {% include webstorm-status.md %}
 
-## Create a starter project  {#create}
+## Create a starter project
 
 The examples in this guide and tutorial are based on the
 [angular-examples/quickstart]({{site.ghNgEx}}/quickstart/tree/{{site.branch}})
@@ -122,7 +122,7 @@ Then, to view your app, use the Chrome browser to visit
 (Details about Dart's browser support are
 [in the FAQ](/faq#q-what-browsers-do-you-support-as-javascript-compilation-targets).)
 
-## Reload the app  {#reload}
+## Reload the app
 
 Whenever you change the app, reload the browser window.
 As you save updates to the code, the `pub` tool detects changes and

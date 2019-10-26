@@ -87,6 +87,7 @@ and take note of the app component template:
 
 [final code]: /tutorial/toh-pt1#the-road-youve-travelled
 
+<a id="toh-1-template"></a>
 <?code-excerpt "toh-1/lib/app_component.dart (template)" title?>
 ```
   template: '''
@@ -172,7 +173,7 @@ this:
 
 Because of its [@ByTagName()]({{pageloaderObjectsApi}}/ByTagName-class.html)
 annotation, the `_h1` field will get bound to the app component
-[template's `<h1>` element](#toh-1libapp_componentdart-template).
+[template's `<h1>` element](#toh-1-template).
 
 Other basic tags, which you'll soon see examples of, include:
 - [@ByClass()]({{pageloaderObjectsApi}}/ByClass-class.html)
@@ -221,7 +222,7 @@ for this:
   });
 ```
 
-After looking at the app component's [template](#toh-1libapp_componentdart-template),
+After looking at the app component's [template](#toh-1-template),
 you might define the PO `heroId` and `heroName` fields like this:
 
 <?code-excerpt "toh-1/test/app_po.dart (AppPO hero)" title?>
