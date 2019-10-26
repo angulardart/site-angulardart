@@ -52,7 +52,7 @@ addons:
 
 env:
   global:
-    - DISPLAY=:99.0
+    - GULP="npx gulp"
     - JEKYLL_ENV=production
     # E2E and TEST: use --skip=t1|t2|...|tx to skip tests
     # FIXME: Skip lifecycle-hooks; https://github.com/dart-lang/site-webdev/issues/1647
@@ -62,90 +62,42 @@ env:
     - TEST_OPT1="--skip=ng/doc/[t-z]"
     - TEST_OPT2="--filter=ng/doc/[t-z]"
     - TZ=US/Pacific # normalize build timestamp
+  matrix:
+    - TASK="./tool/build.sh --check --check-links-external-on-cron --fail-on-warnings"
+    # Why the following --skip regex? Because some of the most recently
+    # available (non-alpha) versions of angular_* packages depend on angular
+    # 6-alpha. Only check stable `angular` package freshness; remove the --skip
+    # argument once angular 6 is stable.
+    - TASK="$GULP ng-pkg-pub-upgrade --skip='angular_|build_runner.1.7.1'" # --skip=package_name|...
+    - TASK="./tool/check-code.sh"
+    - TASK="$GULP test $TEST_OPT1"
+    - TASK="$GULP test $TEST_OPT2"
+    - TASK="$GULP e2e $E2E_OPT1"
+    - TASK="$GULP e2e $E2E_OPT2"
+    - TASK="$GULP e2e $E2E_OPT3"
+    - TASK="$GULP e2e $E2E_OPT1 --web-compiler=dart2js"
+    - TASK="$GULP e2e $E2E_OPT2 --web-compiler=dart2js"
+    - TASK="$GULP e2e $E2E_OPT3 --web-compiler=dart2js"
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - env: TASK="test $TEST_OPT1"
-    - env: TASK="test $TEST_OPT2"
-    - env: TASK="e2e $E2E_OPT1"
-    - env: TASK="e2e $E2E_OPT2"
-    - env: TASK="e2e $E2E_OPT3"
-    - env: TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
-    - env: TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
-    - env: TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
 
 before_install:
   - source ./tool/env-set.sh
   - ./tool/before-install.sh
 
-install:
-  - ./tool/install.sh
+install: ./tool/install.sh
 
-before_script:
-  - ./tool/browser.sh
+script: $TASK
 
-jobs:
-  include:
-    ## STAGE ----------------------------------------------
-    - stage: cache warmup and basic checks
-      env: TASK="build"
-      script:
-      - pub get
-      - bundle install
-      - npx gulp ng-pkg-pub-get # --skip=package_name|...
-      - npx gulp _build-prep --clean --shallow-clone-example-apps
-
-    - env: TASK="check-code"
-      # FIXME: allow example app min SDK (2.0.0) to differ from angular's
-      script: ./tool/$TASK.sh code fmt
-
-    - env: TASK="analyze"
-      # FIXME: skip analysis of apps with component tests until we can first build them
-      script: npx gulp $TASK --skip=doc/t
-
-    ## STAGE ----------------------------------------------
-    - stage: build site and test examples
-      env: TASK="build"
-      script:
-        - pub get
-        - ./tool/shared/write-ci-info.sh -v
-        - npx gulp _jekyll-build _examples-cp-to-site-folder
-        - ls -l publish/examples
-        - ls -l publish/assets/bootstrap/*
-      after_script:
-        - ./tool/check-after-site-build.sh || travis_terminate 1
-        # - ./tool/deploy/pr.sh || travis_terminate 1
-      deploy:
-        - provider: script
-          script: ./tool/shared/deploy.sh --robots ok default
-          skip_cleanup: true
-          on:
-            repo: dart-lang/site-angulardart
-            branch: master
-            condition: $TASK == build* && $TRAVIS_DART_VERSION == stable && $TRAVIS_EVENT_TYPE == push
-    - env: TASK="test $TEST_OPT1"
-      script: npx gulp $TASK
-    - env: TASK="test $TEST_OPT2"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT1"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT2"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT3"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT1 --web-compiler=dart2js"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT2 --web-compiler=dart2js"
-      script: npx gulp $TASK
-    - env: TASK="e2e $E2E_OPT3 --web-compiler=dart2js"
-      script: npx gulp $TASK
-
-    # It takes too long to cache built site.
-    # ## STAGE ----------------------------------------------
-    # - stage: deploy
-    #   env: TASK="build"
-    #   deploy: ...
+deploy:
+  - provider: script
+    script: ./tool/shared/deploy.sh --robots ok default
+    skip_cleanup: true
+    on:
+      repo: dart-lang/site-angulardart
+      branch: master
+      condition: $TASK == ./tool/build.sh* && $TRAVIS_DART_VERSION == stable && $TRAVIS_EVENT_TYPE == push
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:

@@ -17,17 +17,18 @@ module.exports = function (gulp, plugins, config) {
 
     gulp_task(`ng-pkg-pub-${cmd}`, () => {
       if (srcData.match(skipRegEx) || !srcData.match(chooseRegEx)) return;
-      _pub(cmd);
-      updateNgPkgVers();
+      _runPubAndCheckForNewerNgPkgs(cmd);
+      _updateNgPkgVers();
     });
 
     gulp_task(`pub-${cmd}`, [`root-pub-${cmd}`, `examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
     gulp_task(`pub-${cmd}-and-check`, [`pub-${cmd}`, () => plugins.gitCheckDiff()]);
   });
 
-  gulp.task('_ng-pkg-vers-update', updateNgPkgVers);
+  gulp_task('_ng-pkg-vers-update', _updateNgPkgVers);
 
-  function updateNgPkgVers() {
+  // Update the config.ngPkgVersPath file based on the config.srcData pubspec.lock values
+  function _updateNgPkgVers() {
     const pubspecLock = plugins.yamljs.load(path.join(config.srcData, 'pubspec.lock'));
     for (var pkg in ngPkgVers) {
       if (pkg === 'SDK') continue;
@@ -37,12 +38,12 @@ module.exports = function (gulp, plugins, config) {
     plugins.fs.writeFileSync(config.ngPkgVersPath, plugins.stringify(ngPkgVers) + '\n');
   }
 
-  function _pub(cmd) {
+  function _runPubAndCheckForNewerNgPkgs(cmd) {
     const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
     if (cmd !== 'upgrade') return;
     const updatesAvailable = output.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
     if (!updatesAvailable) {
-      plugins.myLog(`All Angular packages are up-to-date. `);
+      plugins.myLog(`All Angular packages are up-to-date.`);
       return;
     }
     // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
@@ -60,6 +61,8 @@ module.exports = function (gulp, plugins, config) {
       const msg = `Angular package updates available:\n${updatesAvailableToReport.join('\n')}.\n`
         + 'Aborting. Update pubspec(s) before proceeding.\n';
       plugins.logAndExit1(msg);
+    } else {
+      plugins.myLog(`All angular and builder package verions in example pubspecs are up-to-date.`);
     }
   }
 };

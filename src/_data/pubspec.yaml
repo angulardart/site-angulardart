@@ -1,4 +1,4 @@
-name: api_docs
+name: angulardart_site
 description: >
   Pubspec used to fetch specific versions of packages for the purpose of generating API docs,
   and for checking if new versions are available (see gulp/pkg-vers.js).
