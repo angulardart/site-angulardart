@@ -1,4 +1,5 @@
 <div class="alert alert-warning" markdown="1">
+  <a id="which-location-strategy-to-use"></a>
   <h4>Which location strategy to use</h4>
 
   The default [LocationStrategy][] is [PathLocationStrategy][] so, in

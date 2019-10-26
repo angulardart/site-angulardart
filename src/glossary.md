@@ -397,7 +397,7 @@ Apps often require services such as a data service or a logging service.
 
 For more information, see the [Services](/tutorial/toh-pt4) page of the [Tour of Heroes](/tutorial) tutorial.
 
-## snake_case {#snake-case}
+## snake_case
 
 The practice of writing compound words or phrases such that an
 underscore (`_`) separates one word from the next. This form is also known as *underscore case*.
