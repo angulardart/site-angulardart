@@ -72,7 +72,7 @@ env:
     - TEST_OPT2="--filter=ng/doc/[t-z]"
     - TZ=US/Pacific # normalize build timestamp
   matrix:
-    - TASK="./tool/build.sh --check --check-links-external-on-cron --fail-on-warnings"
+    - TASK="./tool/build.sh --check --check-links-external-on-cron"
     # Why the following --skip regex? Because some of the most recent
     # (non-alpha) versions of angular_* packages depend on angular 6-alpha,
     # which we haven't updated to yet. Only check the `angular` package version
