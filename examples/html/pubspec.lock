@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.38.5"
+    version: "0.39.0"
   args:
     dependency: transitive
     description:
@@ -56,7 +56,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.3"
+    version: "0.13.3+1"
   crypto:
     dependency: transitive
     description:
@@ -76,7 +76,7 @@ packages:
     description:
       path: "examples/util"
       ref: HEAD
-      resolved-ref: "30f5b94c27bcbbe72415e6f59d222f083245c8e1"
+      resolved-ref: "55c5f69c8cc41a248580905e440842507c0124da"
       url: "https://github.com/dart-lang/site-www.git"
     source: git
     version: "0.0.2"
@@ -86,7 +86,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.27"
+    version: "0.1.28"
   glob:
     dependency: transitive
     description:
@@ -142,7 +142,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.27"
+    version: "0.3.28"
   logging:
     dependency: transitive
     description:
@@ -156,7 +156,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.5"
+    version: "0.12.6"
   meta:
     dependency: transitive
     description:
@@ -324,21 +324,21 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.2"
+    version: "1.9.3"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.9"
+    version: "0.2.10"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.13"
+    version: "0.2.14"
   typed_data:
     dependency: transitive
     description:
@@ -352,7 +352,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "2.1.1"
   watcher:
     dependency: transitive
     description:
