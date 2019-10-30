@@ -1,3 +1,5 @@
+# Updating Angular docs
+
 This page describes how to update the Angular docs ([angulardart.dev](https://angulardart.dev)).
 
 ## New release of the Dart SDK
@@ -21,7 +23,6 @@ Perform the following steps:
  3. Run `npx gulp ng-pkg-pub-upgrade`
 
     This task updates [src/_data/pkg-vers.json](https://github.com/dart-lang/site-angulardart/blob/master/src/_data/pkg-vers.json) and warns if anything changed, and/or more recent versions of packages are available (which is usually an indication that `_data/pubspec.yaml` requires further updates).
-If any files change, you see a message like `...The following tasks did not complete: ng-pkg-pub-upgrade... Did you forget to signal async completion?` You can safely ignore this message.
 
  4. Run `npx gulp pub-upgrade-and-check`.
 
@@ -29,8 +30,6 @@ If any files change, you see a message like `...The following tasks did not comp
 
     **Note:** If an example is failing to upgrade, you can skip it using `--skip=<string>`.
     For example, the following command upgrades every example except template-syntax: `npx gulp pub-upgrade-and-check --skip=template`. For an example of doing the same on Travis, see the [diff from #1835](https://github.com/dart-lang/site-webdev/pull/1835/commits/755f30f982e3679ba84ed575ace741f6b697f6a5).
-
-    Again, you might see a message about forgetting to signal async completion. Ignore it.
 
  5. (Optional) [Pull submodule upstream changes](https://github.com/dart-lang/site-angulardart/wiki/Git-submodule-notes#pull-upstream-changes) if you'd like to have the latest.
 
