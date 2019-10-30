@@ -1,12 +1,12 @@
 {
   "angular": {
     "doc-path": "guide",
-    "prev-vers": "5.2.0",
+    "prev-vers": "4.0.0+2",
     "vers": "5.3.1"
   },
   "angular_components": {
     "doc-path": "components",
-    "prev-vers": "0.12.0",
+    "prev-vers": "0.8.0",
     "vers": "0.13.0+1",
     "no-angular-prefix": true
   },
@@ -27,7 +27,7 @@
   },
   "SDK": {
     "channel": "stable",
-    "prev-vers": "2.4.1",
+    "prev-vers": "1.24.3",
     "vers": "2.5.0"
   }
 }
