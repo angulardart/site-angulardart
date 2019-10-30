@@ -33,28 +33,25 @@ Perform the following steps:
 
  5. (Optional) [Pull submodule upstream changes](https://github.com/dart-lang/site-angulardart/wiki/Git-submodule-notes#pull-upstream-changes) if you'd like to have the latest.
 
- 6. (Optional) If `site-angular` has changed, run the following command to refresh the
-    [Engineering Notes](https://angulardart.dev/angular/note): `npx gulp note-refresh`
+ 6. Edit the following files, as necessary:
+    * Files under [examples](https://github.com/dart-lang/site-angulardart/blob/master/examples):
+      * If the dev version has been updated, edit the dev branch.
+      * If the stable version requires code updates, edit the master.
+      * To refresh code excerpts in the Markdown files, run:
+      `./tool/refresh-code-excerpts.sh`
+    * Content files.
+      Note that these reflect the stable version, not the dev version.
 
-7. Edit the following files, as necessary:
-   * Files under [examples](https://github.com/dart-lang/site-angulardart/blob/master/examples):
-     * If the dev version has been updated, edit the dev branch.
-     * If the stable version requires code updates, edit the master.
-     * To refresh code excerpts in the Markdown files, run:
-     `./tool/refresh-code-excerpts.sh`
-   * Content files.
-     Note that these reflect the stable version, not the dev version.
-
-8. ASAP after the new angular.io site has been pushed, update other repos that have Angular examples:
-   * Use [dart-doc-syncer](https://github.com/dart-lang/dart-doc-syncer) to update the github.com/angular-examples repos.
-     1. Clone https://github.com/dart-lang/dart-doc-syncer.
-     1. `cd dart-doc-syncer; pub global activate --source path .`
-     1. See what the sync would do: `dart_doc_syncer -k -m . -g 5 --no-push` OR (to limit to a single repo such as [angular-examples/structural-directives](https://github.com/angular-examples/structural-directives)) `dart_doc_syncer -k -m structural-directives -g 5 --no-push` (either one takes many minutes).
-     1. Run the update by executing the same command, minus the `--no-push`.
-        * This can take a very long time, during which you should **periodically check** whether it's still working or has paused to collect username and passwords.
-        * Use `--skip template` to skip updating the template-syntax example.
-        * If an update failed, fix the cause and update that repo. E.g. `dart_doc_syncer -k -m attribute-directives -g 5`
-   * Update stagehand (see https://github.com/google/stagehand/wiki).
+ 7. ASAP after the new angular.io site has been pushed, update other repos that have Angular examples:
+    * Use [dart-doc-syncer](https://github.com/dart-lang/dart-doc-syncer) to update the github.com/angular-examples repos.
+      1. Clone https://github.com/dart-lang/dart-doc-syncer.
+      1. `cd dart-doc-syncer; pub global activate --source path .`
+      1. See what the sync would do: `dart_doc_syncer -k -m . -g 5 --no-push` OR (to limit to a single repo such as [angular-examples/structural-directives](https://github.com/angular-examples/structural-directives)) `dart_doc_syncer -k -m structural-directives -g 5 --no-push` (either one takes many minutes).
+      1. Run the update by executing the same command, minus the `--no-push`.
+         * This can take a very long time, during which you should **periodically check** whether it's still working or has paused to collect username and passwords.
+         * Use `--skip template` to skip updating the template-syntax example.
+         * If an update failed, fix the cause and update that repo. E.g. `dart_doc_syncer -k -m attribute-directives -g 5`
+    * Update stagehand (see https://github.com/google/stagehand/wiki).
 
 Tips:
 
