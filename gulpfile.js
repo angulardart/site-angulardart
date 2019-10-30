@@ -532,8 +532,11 @@ function copyFiles(fileNames, destPaths, optional_destFileMode) {
   return Q.all(copyPromises);
 }
 
-function logAndExit1() {
-  console.log.apply(null, arguments);
+function logAndExit1(msg, optional_cb) {
+  console.log(msg);
+  if (optional_cb) {
+    optional_cb(new Error(`logAndExit:\n${msg}`));
+  }
   process.exit(1);
 }
 

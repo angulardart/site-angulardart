@@ -15,10 +15,11 @@ module.exports = function (gulp, plugins, config) {
   ['get', 'upgrade'].forEach(cmd => {
     gulp_task(`root-pub-${cmd}`, () => plugins.execSyncAndLog(`pub ${cmd}`));
 
-    gulp_task(`ng-pkg-pub-${cmd}`, () => {
+    gulp.task(`ng-pkg-pub-${cmd}`, (cb) => {
       if (srcData.match(skipRegEx) || !srcData.match(chooseRegEx)) return;
-      _runPubAndCheckForNewerNgPkgs(cmd);
+      _runPubAndCheckForNewerNgPkgs(cmd, cb);
       _updateNgPkgVers();
+      cb();
     });
 
     gulp_task(`pub-${cmd}`, [`root-pub-${cmd}`, `examples-pub-${cmd}`, `ng-pkg-pub-${cmd}`]);
@@ -38,12 +39,19 @@ module.exports = function (gulp, plugins, config) {
     plugins.fs.writeFileSync(config.ngPkgVersPath, plugins.stringify(ngPkgVers) + '\n');
   }
 
-  function _runPubAndCheckForNewerNgPkgs(cmd) {
+  function _runPubAndCheckForNewerNgPkgs(cmd, cb) {
     const output = plugins.execSyncAndLog(`pub ${cmd}`, { cwd: srcData });
-    if (cmd !== 'upgrade') return;
+    if (cmd !== 'upgrade') {
+      const msg = `Note: skipping check of Angular and builder package version freshness `
+        + `since we can't check package versions when running 'pub get'. Run pub upgrade version `
+        + `of this task if you want to check version`;
+      plugins.myLog(msg);
+      return;
+    }
+    const allGood = `All angular and builder package verions in example pubspecs are up-to-date.`;
     const updatesAvailable = output.match(/^..(angular\w*|build_\w+) (\S+)( \(was (\S+)\))?( \((\S+) available\))?$/gm);
     if (!updatesAvailable) {
-      plugins.myLog(`All Angular packages are up-to-date.`);
+      plugins.myLog(allGood);
       return;
     }
     // Check for updates, but don't report when an alpha/beta version is available relative to a stable version.
@@ -58,11 +66,11 @@ module.exports = function (gulp, plugins, config) {
       }
     })
     if (updatesAvailableToReport.length) {
-      const msg = `Angular package updates available:\n${updatesAvailableToReport.join('\n')}.\n`
-        + 'Aborting. Update pubspec(s) before proceeding.\n';
-      plugins.logAndExit1(msg);
+      const msg = `Angular and/or builder package updates are available:\n${updatesAvailableToReport.join('\n')}.\n`
+        + `Aborting build task. Update ${srcData}/pubspec.yaml and example pubspecs before proceeding.\n`;
+      plugins.logAndExit1(msg, cb);
     } else {
-      plugins.myLog(`All angular and builder package verions in example pubspecs are up-to-date.`);
+      plugins.myLog(allGood);
     }
   }
 };

@@ -1,7 +1,8 @@
 name: angulardart_site
 description: >
-  Pubspec used to fetch specific versions of packages for the purpose of generating API docs,
-  and for checking if new versions are available (see gulp/pkg-vers.js).
+  Pubspec used by the ng-pkg-pub-upgrade task (see gulp/pkg-vers.js) to (1) check if
+  new versions of angular and build packages are available during CI builds; (2) refresh
+  pkg-vers.json based on the pubspec.lock file generated from this pubspec.
 version: 0.0.1
 
 environment:
