@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt2
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-1"?>
 In this part of the tutorial, you'll modify the starter app to display
 information about a hero. Then you'll add the ability to edit the hero's data.

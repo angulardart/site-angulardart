@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt6
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-5"?>
 <?code-excerpt replace="/_\d((\.template)?\.(dart|html))/$1/g"?>
 

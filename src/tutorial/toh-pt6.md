@@ -6,8 +6,6 @@ prevpage:
   url: /tutorial/toh-pt5
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-6"?>
 
 In this page, you'll make the following improvements.
