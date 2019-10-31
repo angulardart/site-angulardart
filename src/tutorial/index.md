@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt0
 ---
 
-{% include out-of-date-tutorial.html %}
-  
 The grand plan for this tutorial is to build an app that helps a staffing agency manage its stable of heroes.
 
 The Tour of Heroes app covers the core fundamentals of Angular. You'll build a basic app that

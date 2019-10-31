@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt3
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-2"?>
 
 In this page, you'll expand the Tour of Heroes app to display a list of heroes, and

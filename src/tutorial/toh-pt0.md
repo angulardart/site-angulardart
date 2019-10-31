@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt1
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-0"?>
 This tutorial starts with a bare-bones Angular app.
 Run the {% example_ref %} to see the app.

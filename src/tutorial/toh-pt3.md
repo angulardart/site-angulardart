@@ -9,8 +9,6 @@ nextpage:
   url: /tutorial/toh-pt4
 ---
 
-{% include out-of-date-tutorial.html %}
-
 <?code-excerpt path-base="examples/ng/doc/toh-3"?>
 The `AppComponent` is doing _everything_ at the moment.
 In the beginning, it showed details of a single hero.

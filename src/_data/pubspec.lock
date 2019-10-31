@@ -483,7 +483,7 @@ packages:
       name: sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.23.1"
+    version: "1.23.2"
   sass_builder:
     dependency: transitive
     description:
