@@ -17,8 +17,8 @@ copied from the [site-webdev wiki][] -- so pages probably need some updates.
 2 | 2.x | -
 3 | 3.x | https://webdev-angular3-dartlang-org.firebaseapp.com
 4 | 4.x | https://webdev-angular4-dartlang-org.firebaseapp.com
-5 | master | https://webdev.dartlang.org
-6 | 6-dev | https://webdev-dartlang-org-dev.firebaseapp.com
+5 | master | https://angulardart.dev
+6 | 6-dev | -
 
 ## Angular examples: branch version migration
 
