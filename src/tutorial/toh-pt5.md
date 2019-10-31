@@ -175,7 +175,7 @@ router is in its own package, first add the package to the app's pubspec:
 +++ toh-5/pubspec.yaml
 @@ -8,3 +8,4 @@
  dependencies:
-   angular: ^6.0.0-alpha
+   angular: ^5.3.1
    angular_forms: ^2.1.0
 +  angular_router: ^2.0.0-alpha
 ```
