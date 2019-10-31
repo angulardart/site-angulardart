@@ -14,9 +14,6 @@ copied from the [site-webdev wiki][] -- so pages probably need some updates.
 
 | AngularDart Version | Github Branch | Docs Host
 -- | -- | --
-2 | 2.x | -
-3 | 3.x | https://webdev-angular3-dartlang-org.firebaseapp.com
-4 | 4.x | https://webdev-angular4-dartlang-org.firebaseapp.com
 5 | master | https://angulardart.dev
 6 | 6-dev | -
 
