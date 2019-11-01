@@ -71,7 +71,7 @@ if you already have the required packages installed.
 
 Once everything is installed, you need to do a full site build at least once:
 
-- `npx gulp build --dartdoc` &nbsp;&nbsp;# full site build including API docs
+- `npx gulp build`
 
 The generated site is placed in the `publish` folder. To serve this folder use:
 
@@ -99,18 +99,12 @@ following command:
 
 If you'd like to separately build and then serve, the commands are:
 
-- `npx gulp build --no-dartdoc` &nbsp;&nbsp;# build site without regenerating
-   API docs
+- `npx gulp build`
 - `npx superstatic --port 4001` &nbsp;&nbsp;# serve site under `publish`
 
 Some `npx gulp build` options include:
 
 - `--clean` &nbsp;&nbsp;# deletes `publish` and file fragments (nothing else)
-- `--[no-]dartdoc[=all|acx|ng|forms|router|test]` &nbsp;&nbsp;#
-  generates API docs for named packages (default `all`)
-- `--use-cached-api-doc` &nbsp;&nbsp;# will use cached API docs rather
-   than regenerate them; without this option API docs are regenerated
-   afresh each time
 - `--fast` &nbsp;&nbsp;# skips some one-time setup tasks (can spead
    up repeated builds)
 - `--log=x` &nbsp;&nbsp;# logging level: `debug`, `info`, `warn` (default),
@@ -125,7 +119,7 @@ you might want to rebuild it from scratch, doing all of the following steps
 ```
 source ./tool/env-set.sh  # reset environment vars and (re-)install Node & Ruby
 npx gulp clean            # clean out all temporary site folders
-npx gulp build --dartdoc  # full site regeneration
+npx gulp build            # full site regeneration
 ./tool/serve.sh
 ```
 
@@ -146,7 +140,7 @@ command:
 ```
 npx gulp test --filter=template  # unit test only the template-syntax example
 npx gulp e2e --filter=template   # end-to-end test only the template-syntax example
-npx gulp clean && npx gulp build --dartdoc  # do a full build from a clean slate
+npx gulp clean && npx gulp build # do a full build from a clean slate
 npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src`,
                         # so you'll lose uncommitted work under `src`!
 ```
