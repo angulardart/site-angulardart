@@ -70,7 +70,7 @@ packages:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.1"
   built_collection:
     dependency: transitive
     description:

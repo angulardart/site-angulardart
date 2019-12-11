@@ -24,7 +24,7 @@ Perform the following steps:
 
     This task updates [src/_data/pkg-vers.json](https://github.com/dart-lang/site-angulardart/blob/master/src/_data/pkg-vers.json) and warns if anything changed, and/or more recent versions of packages are available (which is usually an indication that `_data/pubspec.yaml` requires further updates).
 
- 4. Run `npx gulp pub-upgrade-and-check`.
+ 4. Run `npx gulp pub-upgrade-and-check`
 
     This gulp task runs `pub upgrade` over all samples and (again over) `src/_data`.
 
@@ -42,7 +42,7 @@ Perform the following steps:
     * Content files.
       Note that these reflect the stable version, not the dev version.
 
- 7. ASAP after the new angular.io site has been pushed, update other repos that have Angular examples:
+ 7. ASAP after the new Angular site has been pushed, update other repos that have Angular examples:
     * Use [dart-doc-syncer](https://github.com/dart-lang/dart-doc-syncer) to update the github.com/angular-examples repos.
       1. Clone https://github.com/dart-lang/dart-doc-syncer.
       1. `cd dart-doc-syncer; pub global activate --source path .`
