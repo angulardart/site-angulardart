@@ -106,7 +106,7 @@ deploy:
     on:
       repo: dart-lang/site-angulardart
       branch: master
-      condition: $TASK == ./tool/build.sh* && $TRAVIS_DART_VERSION == stable && $TRAVIS_EVENT_TYPE == push
+      condition: $TASK == ./tool/build.sh* && $TRAVIS_DART_VERSION != *dev* && $TRAVIS_EVENT_TYPE == push
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:
