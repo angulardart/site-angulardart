@@ -24,10 +24,9 @@ class WikiSmartComponent {
 
   WikiSmartComponent(this._wikipediaService) {
     _onSearchTerm.stream
-        .transform(debounce(Duration(milliseconds: 300)))
+        .debounce(Duration(milliseconds: 300))
         .distinct()
-        .transform(
-            switchMap((term) => _wikipediaService.search(term).asStream()))
+        .switchMap((term) => _wikipediaService.search(term).asStream())
         .forEach((data) {
       items = data;
     });

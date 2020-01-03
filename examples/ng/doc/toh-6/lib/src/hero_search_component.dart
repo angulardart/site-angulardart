@@ -36,11 +36,11 @@ class HeroSearchComponent implements OnInit {
   // #docregion search
   void ngOnInit() async {
     heroes = _searchTerms.stream
-        .transform(debounce(Duration(milliseconds: 300)))
+        .debounce(Duration(milliseconds: 300))
         .distinct()
-        .transform(switchMap((term) => term.isEmpty
+        .switchMap((term) => term.isEmpty
             ? Stream<List<Hero>>.fromIterable([<Hero>[]])
-            : _heroSearchService.search(term).asStream()))
+            : _heroSearchService.search(term).asStream())
         .handleError((e) {
       print(e); // for demo purposes only
     });
