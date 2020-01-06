@@ -73,11 +73,6 @@ env:
     - TZ=US/Pacific # normalize build timestamp
   matrix:
     - TASK="./tool/build.sh --check --check-links-external-on-cron"
-    # Why the following --skip regex? Because some of the most recent
-    # (non-alpha) versions of angular_* packages depend on angular 6-alpha,
-    # which we haven't updated to yet. Only check the `angular` package version
-    # freshness. Remove the --skip argument once angular 6 is stable.
-    - TASK="$GULP ng-pkg-pub-upgrade --skip=angular_|build_daemon|build_modules|build_resolvers|build_runner_core|build_test" # --skip=package_name|...
     - TASK="./tool/check-code.sh"
     - TASK="$GULP test $TEST_OPT1"
     - TASK="$GULP test $TEST_OPT2"
