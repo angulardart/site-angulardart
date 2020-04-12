@@ -33,7 +33,7 @@ GitHub project.
 You can get the project's files by the following methods:
 * [Downloading them.]({{site.ghNgEx}}/quickstart/archive/{{site.branch}}.zip)
 * Cloning the repo.
-* Using Webstorms's Git support.
+* Using WebStorm's Git support.
 
 ### Use WebStorm's Git support ###
 
