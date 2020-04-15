@@ -154,7 +154,7 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
 [first-timers-only SVG]: https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
 [first-timers-only]: http://www.firsttimersonly.com/
 [Jekyll]: https://jekyllrb.com/
-[nvm]: https://github.com/creationix/nvm#installation
+[nvm]: https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating
 [rvm]: https://rvm.io/rvm/install#installation
 [site-angulardart]: https://github.com/dart-lang/site-angulardart
 [site-www]: https://github.com/dart-lang/site-www
