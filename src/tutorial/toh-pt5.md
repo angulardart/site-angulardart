@@ -1061,7 +1061,7 @@ by telling the router where to go.
 
 This approach requires the following changes to the component class:
 
-- Import `route_paths.dart` as `paths`.
+- Import `route_paths.dart`.
 - Inject the `Router` in the constructor, along with the `HeroService`.
 - Implement `gotoDetail()` by calling the router `navigate()` method.
 
