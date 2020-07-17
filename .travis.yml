@@ -85,6 +85,13 @@ env:
 
 matrix:
   fast_finish: true
+  allow_failures:
+    - env: TASK="$GULP e2e $E2E_OPT1"
+    - env: TASK="$GULP e2e $E2E_OPT2"
+    - env: TASK="$GULP e2e $E2E_OPT3"
+    - env: TASK="$GULP e2e $E2E_OPT1 --web-compiler=dart2js"
+    - env: TASK="$GULP e2e $E2E_OPT2 --web-compiler=dart2js"
+    - env: TASK="$GULP e2e $E2E_OPT3 --web-compiler=dart2js"
 
 before_install:
   - source ./tool/env-set.sh
