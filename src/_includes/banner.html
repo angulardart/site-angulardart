@@ -10,6 +10,13 @@ To revert to the default banner styling, change the div class to "banner".
   {{ banner | markdownify }}
 {%- endif -%}
 
+<div class="alert alert-danger">
+  <p class="banner__text">
+    <i class="material-icons"> error </i>
+    Kevin to provide a message.
+  </p>
+</div>
+
 <div class="alert alert-info">
   {%- if site.data.pkg-vers.angular.vers contains "alpha" -%}
   {% comment %}or site.data.pkg-vers.angular.vers contains "beta"{% endcomment %}
