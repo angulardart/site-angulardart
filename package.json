@@ -27,7 +27,7 @@
     "gulp-watch": "^5.0.0",
     "q": "^1.4.1",
     "superstatic": "^6.0.4",
-    "tree-kill": "^1.0.0",
+    "tree-kill": "^1.2.2",
     "typescript": "^2.8.3",
     "yamljs": "^0.3.0",
     "yargs": "^4.0.0"
