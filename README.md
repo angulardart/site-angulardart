@@ -148,8 +148,8 @@ npx gulp git-clean-src  # WARNING WARNING WARNING: this runs `git clean -xdf src
 [Build Status SVG]: https://travis-ci.com/dart-lang/site-angulardart.svg?branch=master
 [Chrome]: https://www.google.ca/chrome
 [Cloning a repository]: https://help.github.com/articles/cloning-a-repository
-[Dart]: https://www.dartlang.org/install
-[Dart install]: https://www.dartlang.org/install
+[Dart]: https://dart.dev/get-dart
+[Dart install]: https://dart.dev/get-dart
 [Firebase]: https://firebase.google.com/products/hosting/
 [first-timers-only SVG]: https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square
 [first-timers-only]: http://www.firsttimersonly.com/
