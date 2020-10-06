@@ -81,8 +81,6 @@
     permalink: /cheatsheet
   - title: Glossary
     permalink: /glossary
-  - title: Engineering Notes
-    permalink: https://github.com/dart-lang/angular/tree/master/doc
   - title: FAQ
     permalink: /faq
   - title: Tools
