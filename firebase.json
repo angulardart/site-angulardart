@@ -4,6 +4,7 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
+      { "source": "/", "destination": "https://github.com/dart-lang/angular", "type": 301 },
       { "source": "/angular/:path*", "destination": "/:path", "type": 301 },
       { "source": "/tutorials/get-data/fetch-data", "destination": "/tutorials/web/fetch-data", "type": 301 },
       { "source": "/changelog", "destination": "/reference/changelog", "type": 301 },
