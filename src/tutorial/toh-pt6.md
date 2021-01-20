@@ -772,11 +772,11 @@ You can turn the stream of search terms into a stream of `Hero` lists and assign
   // ···
   void ngOnInit() async {
     heroes = _searchTerms.stream
-        .transform(debounce(Duration(milliseconds: 300)))
+        .debounce(Duration(milliseconds: 300))
         .distinct()
-        .transform(switchMap((term) => term.isEmpty
+        .switchMap((term) => term.isEmpty
             ? Stream<List<Hero>>.fromIterable([<Hero>[]])
-            : _heroSearchService.search(term).asStream()))
+            : _heroSearchService.search(term).asStream())
         .handleError((e) {
       print(e); // for demo purposes only
     });
@@ -789,11 +789,11 @@ taxing server resources and burning through the cellular network data plan.
 Instead, you can chain `Stream` operators that reduce the request flow to the string `Stream`.
 You'll make fewer calls to the `HeroSearchService` and still get timely results. Here's how:
 
-* `transform(debounce(... 300)))` waits until the flow of search terms pauses for 300
+* `debounce(... 300))` waits until the flow of search terms pauses for 300
   milliseconds before passing along the latest string.
   You'll never make requests more frequently than 300ms.
 * `distinct()` ensures that a request is sent only if the filter text changed.
-* `transform(switchMap(...))` calls the search service for each
+* `switchMap(...)` calls the search service for each
   search term that makes it through `debounce()` and `distinct()`.
   It cancels and discards previous searches, returning only the
   latest search service stream element.
