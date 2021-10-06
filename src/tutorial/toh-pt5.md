@@ -1275,19 +1275,19 @@ you’ll replace the mock data with data retrieved from a server using http.
 [commonPipes]: {{site.pub-api}}/angular/{{site.data.pkg-vers.angular.vers}}/angular/commonPipes-constant.html
 [deep linking]: https://en.wikipedia.org/wiki/Deep_linking
 [master styles]: https://raw.githubusercontent.com/angular/angular.io/master/public/docs/_examples/_boilerplate/src/styles.css
-[HashLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/HashLocationStrategy-class.html
-[Location]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/Location-class.html
-[OnActivate]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/OnActivate-class.html
+[HashLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/HashLocationStrategy-class.html
+[Location]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/Location-class.html
+[OnActivate]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/OnActivate-class.html
 [onActivate()]: /guide/router/5#on-activate
 [property binding]: /guide/template-syntax#property-binding
-[PathLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/PathLocationStrategy-class.html
+[PathLocationStrategy]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/PathLocationStrategy-class.html
 [router lifecycle hook]: /guide/router/5
-[RouteDefinition]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouteDefinition-class.html
-[routerDirectives]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerDirectives-constant.html
-[RouterLink]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLink-class.html
-[RouterLinkActive]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterLinkActive-class.html
-[RouterOutlet]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterOutlet-class.html
-[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProviders-constant.html
-[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/routerProvidersHash-constant.html
-[RouterState]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterState-class.html
-[RouterState.parameters]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular.vers}}/angular_router/RouterState/parameters.html
+[RouteDefinition]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouteDefinition-class.html
+[routerDirectives]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/routerDirectives-constant.html
+[RouterLink]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouterLink-class.html
+[RouterLinkActive]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouterLinkActive-class.html
+[RouterOutlet]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouterOutlet-class.html
+[routerProviders]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/routerProviders-constant.html
+[routerProvidersHash]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/routerProvidersHash-constant.html
+[RouterState]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouterState-class.html
+[RouterState.parameters]: {{site.pub-api}}/angular_router/{{site.data.pkg-vers.angular_router.vers}}/angular_router/RouterState/parameters.html

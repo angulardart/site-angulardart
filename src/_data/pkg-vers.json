@@ -8,6 +8,7 @@
     "doc-path": "components",
     "prev-vers": "0.8.0",
     "vers": "0.13.0+1",
+    "doc_vers": "0.13.0",
     "no-angular-prefix": true
   },
   "angular_forms": {
@@ -18,7 +19,8 @@
   "angular_router": {
     "doc-path": "guide/router",
     "prev-vers": "1.0.2",
-    "vers": "2.0.0-alpha+22"
+    "vers": "2.0.0-alpha+22",
+    "doc_vers": "2.0.0"
   },
   "angular_test": {
     "doc-path": "guide/testing/component",
