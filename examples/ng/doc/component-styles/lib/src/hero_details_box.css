@@ -1,7 +1,0 @@
-:host {
-  padding: 10px;
-}
-
-h2::after {
-  content: " (from imported CSS)";
-}

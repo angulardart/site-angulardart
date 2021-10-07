@@ -1,9 +1,0 @@
-<h2>Crisis Center</h2>
-<ul class="items">
-  <li *ngFor="let crisis of crises"
-    [class.selected]="crisis === selected"
-    (click)="onSelect(crisis)">
-    <span class="badge">{{crisis.id}}</span> {{crisis.name}}
-  </li>
-</ul>
-<router-outlet [routes]="Routes.all"></router-outlet>
