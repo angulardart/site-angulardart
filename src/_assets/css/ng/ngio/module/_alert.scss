@@ -1,8 +1,0 @@
-.alert {
-  &:not(.banner) { border-left: 4px solid; }
-
-  &.alert-danger { border-color: $red-700; }
-  &.alert-info { border-color: $blue-600; }
-  &.alert-success { border-color: $green-600; }
-  &.alert-warning { border-color: $amber-700; }
-}

@@ -1,8 +1,0 @@
-[submodule "site-shared"]
-  path = site-shared
-  url = https://github.com/dart-lang/site-shared.git
-  branch = master
-[submodule "angular"]
-  path = site-angular
-  url = https://github.com/dart-lang/angular.git
-  branch = master

@@ -1,2 +1,0 @@
-# List of angular.io PRs that need to be merged into master before
-# doing a gulp site-refresh. List each PR number on its own line.

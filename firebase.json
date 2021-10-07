@@ -1,73 +1,14 @@
 {
   "hosting": {
-    "public": "publish",
-    "cleanUrls": true,
-    "trailingSlash": false,
     "redirects": [
-      { "source": "/", "destination": "https://github.com/dart-lang/angular", "type": 301 },
-      { "source": "/angular/:path*", "destination": "/:path", "type": 301 },
-      { "source": "/tutorials/get-data/fetch-data", "destination": "/tutorials/web/fetch-data", "type": 301 },
-      { "source": "/changelog", "destination": "/reference/changelog", "type": 301 },
-      { "source": "/guides/get-started", "destination": "/get-started", "type": 301 },
-      { "source": "/tutorials", "destination": "/tutorials/web", "type": 301 },
-      { "source": "/angular/changelog", "destination": "/changelog", "type": 301 },
-      { "source": "/angular/quickstart", "destination": "/angular/tutorial/toh-pt0", "type": 301 },
-      { "source": "/angular/version", "destination": "/version", "type": 301 },
-      { "source": "/angular/guide/cheatsheet", "destination": "/angular/cheatsheet", "type": 301 },
-      { "source": "/angular/guide/glossary", "destination": "/angular/glossary", "type": 301 },
-
-      { "source": "/articles/get-data", "destination": "https://dart.dev/guides/json", "type": 301 },
-      { "source": "/articles/get-data/**", "destination": "https://dart.dev/guides/json", "type": 301 },
-      { "source": "/articles/low-level-html/improving-the-dom", "destination": "/guides/web-programming", "type": 301 },
-
-      { "source": "/assets/angulardart*.png", "destination": "/assets/shared/dart-logo-for-shares.png?4", "type": 301 },
-      { "source": "/assets/dart-webdev-logo*.png", "destination": "/assets/shared/dart-logo-for-shares.png?4", "type": 301 },
-
-      { "source": "/codelabs/angular2_components", "destination": "/codelabs/angular_components", "type": 301 },
-      { "source": "/codelabs/angular2_components/**", "destination": "/codelabs/angular_components", "type": 301 },
-
-      { "source": "/angular/api", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/angular/api/**", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/api/angular", "destination": "https://pub.dev/documentation/angular", "type": 301 },
-      { "source": "/api/angular/angular", "destination": "https://pub.dev/documentation/angular/latest/angular/angular-library.html", "type": 301 },
-      { "source": "/api/angular/angular/:rest*", "destination": "https://pub.dev/documentation/angular/latest/angular/:rest.html", "type": 301 },
-      { "source": "/api/angular/di/:rest*", "destination": "https://pub.dev/documentation/angular/latest/di/:rest.html", "type": 301 },
-      { "source": "/api/angular_components{,/**}", "destination": "https://dart-lang.github.io/angular_components", "type": 301 },
-      { "source": "/api/angular_forms", "destination": "https://pub.dev/documentation/angular_forms", "type": 301 },
-      { "source": "/api/angular_forms/angular_forms", "destination": "https://pub.dev/documentation/angular_forms/latest/angular_forms/angular_forms-library.html", "type": 301 },
-      { "source": "/api/angular_forms/angular_forms/:rest*", "destination": "https://pub.dev/documentation/angular_forms/latest/angular_forms/:rest.html", "type": 301 },
-      { "source": "/api/angular_router", "destination": "https://pub.dev/documentation/angular_router/2.0.0-alpha+24", "type": 301 },
-      { "source": "/api/angular_router/angular_router", "destination": "https://pub.dev/documentation/angular_router/2.0.0-alpha+24/angular_router/angular_router-library.html", "type": 301 },
-      { "source": "/api/angular_router/angular_router/:rest*", "destination": "https://pub.dev/documentation/angular_router/2.0.0-alpha+24/angular_router/:rest.html", "type": 301 },
-      { "source": "/api/angular2", "destination": "/api?package=angular", "type": 301 },
-      { "source": "/api/angular2/**", "destination": "/api", "type": 301 },
-      { "source": "/components/api", "destination": "/api?package=angular_components", "type": 301 },
-      { "source": "/components/api/**", "destination": "/api?package=angular_components", "type": 301 },
-
-      { "source": "/codelabs/darrrt", "destination": "/codelabs", "type": 301 },
-      { "source": "/codelabs/darrrt/**", "destination": "/codelabs", "type": 301 },
-      { "source": "/codelabs/ng2", "destination": "/codelabs", "type": 301 },
-      { "source": "/codelabs/ng2/**", "destination": "/codelabs", "type": 301 },
-
-      { "source": "/examples/ng", "destination": "/examples", "type": 301 },
-      { "source": "/examples/ng/**", "destination": "/examples", "type": 301 },
-
-      { "source": "/tools/dartium", "destination": "/dart-2#tools", "type": 301 },
-      { "source": "/tools/pub", "destination": "/dart-2#tools", "type": 301 },
-      { "source": "/tools/pub/**", "destination": "/dart-2#tools", "type": 301 },
-      { "source": "/tools/build_runner", "destination": "/tools/webdev", "type": 301 },
-      { "source": "/angular/note{,/**}", "destination": "https://github.com/dart-lang/angular/tree/master/doc", "type": 301 },
-      { "source": "/note{,/**}", "destination": "https://github.com/dart-lang/angular/tree/master/doc", "type": 301 }
-    ],
-    "rewrites": [
-      { "source": "/examples/router/**", "destination": "/examples/router/index.html" },
-      { "source": "/examples/toh-5/**", "destination": "/examples/toh-5/index.html" },
-      { "source": "/examples/toh-6/**", "destination": "/examples/toh-6/index.html" }
+      {
+        "source": "**",
+        "destination": "https://github.com/angulardart",
+        "type": 301
+      }
     ],
     "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "firebase.json"
     ]
   }
 }
