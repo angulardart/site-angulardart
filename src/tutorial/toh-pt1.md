@@ -265,5 +265,5 @@ You'll learn more about how to retrieve lists and bind them to the template.
 
 [angular_forms]: {{site.api}}/angular_forms
 [webdev serve]: {{site.pub-pkg}}/webdev#usage
-[formDirectives]: {{site.pub-api}}/angular_forms/{{site.data.pkg-vers.angular_forms.doc_vers}}/angular_forms/formDirectives-constant.html
+[formDirectives]: {{site.pub-api}}/angular_forms/{{site.data.pkg-vers.angular_forms.vers}}/angular_forms/formDirectives-constant.html
 [interpolation syntax]: /guide/template-syntax#interpolation
